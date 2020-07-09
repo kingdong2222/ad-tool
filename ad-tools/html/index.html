@@ -16,10 +16,11 @@
     <meta property="og:image" content="">
     <link rel="icon" type="image/ico" href="images/favicon.ico">
     <link href="css/animate.min.css" rel="stylesheet" type="text/css">
-    <link href="css/layout.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
-<link rel="stylesheet" href="https://fengyuanchen.github.io/cropperjs/css/cropper.css"><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
-<script src="https://fengyuanchen.github.io/cropperjs/js/cropper.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>
+    <link href="css/layout.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fengyuanchen.github.io/cropperjs/css/cropper.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.js"></script>
     <style></style>
   </head>
   <body>
@@ -102,6 +103,9 @@
                   <input id="large-image-input" type="file" accept="image/*">
                   <p>Kéo thả ảnh vào hoặc <span>tải ảnh lên</span></p>
                 </div>
+                <div class="large-image-preview">
+                  <div class="image-preview-header"></div>
+                </div>
               </div>
               <div class="text-input-item second-item">
                 <div class="label-title">
@@ -149,6 +153,26 @@
     <div class="bl-popup">
     </div>
     <div class="bl-modal">
+      <div class="modal fade" id="modalEditImg" tabindex="-1" role="dialog" aria-labelledby="editImgModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="label-title">
+                <h3 class="title modal-title" id="editImgModalLabel">Hình ảnh quảng cáo<i class="icz icz-question"></i></h3>
+              </div>
+              <div class="close-modal button-icon-close" type="button" data-dismiss="modal" aria-label="Close"><i class="icz icz-close"></i></div>
+            </div>
+            <div class="modal-body">
+              <div class="img-container"><img></div>
+            </div>
+            <div class="modal-footer" id="actions">
+              <div class="docs-buttons">
+                <div class="button is-primary close-modal crop-done-button" id="download-avatar" data-method="getCroppedCanvas">Xong</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Include Plugin-->
     <script src="js/jquery.min.js"></script>
@@ -167,16 +191,177 @@
       	icon_toggle.classList.toggle('icz-left')
       }
       
-      document.getElementById('avatar-image-input').onchange = value =>{
-      	
-      	$( "div.avatar-image-input" ).replaceWith( "<img class='avatar-image-input' id='output' />" );
-      	var reader = new FileReader();
-      	reader.onload = function(){
-      		var output = document.getElementById('output');
-      		output.src = reader.result;
-      	};
-      	reader.readAsDataURL(value.target.files[0]);
+      $(".close-modal").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal").removeClass("show");
+      });
+      
+      
+      window.onload = () => {
+      	crop()
       }
+      var crop = function(){
+      
+      	var Cropper = window.Cropper;
+      	var URL = window.URL || window.webkitURL;
+      	var container = document.querySelector('.img-container');
+      	var image = container.getElementsByTagName('img').item(0);
+      	var download = document.getElementById('download-avatar');
+      	var actions = document.getElementById('actions');
+      	var options = {
+      		aspectRatio: 1,
+      	};
+      	var cropper = new Cropper(image, options);
+      	var originalImageURL = image.src;
+      	var uploadedImageType = 'image/*';
+      	var uploadedImageName = 'cropped.jpeg';
+      	var uploadedImageURL;
+      
+      	// Buttons
+      	if (!document.createElement('canvas').getContext) {
+      		$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+      	}
+      
+      	if (typeof document.createElement('cropper').style.transition === 'undefined') {
+      		$('button[data-method="rotate"]').prop('disabled', true);
+      		$('button[data-method="scale"]').prop('disabled', true);
+      	}
+      
+      	// Download
+      	//- if (typeof download.download === 'undefined') {
+      	//- 	download.className += ' disabled';
+      	//- 	download.title = 'Your browser does not support download';
+      	//- }
+      
+      
+      	// Methods
+      	actions.querySelector('.docs-buttons').onclick = function (event) {
+      		var e = event || window.event;
+      		var target = e.target || e.srcElement;
+      		var cropped;
+      		var result;
+      		var input;
+      		var data;
+      
+      		if (!cropper) {
+      			return;
+      		}
+      		while (target !== this) {
+      			if (target.getAttribute('data-method')) {
+      				break;
+      			}
+      
+      			target = target.parentNode;
+      		}
+      		if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+      			return;
+      		}
+      		data = {
+      			method: target.getAttribute('data-method'),
+      			target: target.getAttribute('data-target'),
+      			option: target.getAttribute('data-option') || undefined,
+      			secondOption: target.getAttribute('data-second-option') || undefined
+      		};
+      		cropped = cropper.cropped;
+      		if (data.method) {
+      			if (typeof data.target !== 'undefined') {
+      				input = document.querySelector(data.target);
+      
+      				if (!target.hasAttribute('data-option') && data.target && input) {
+      					try {
+      						data.option = JSON.parse(input.value);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      				}
+      			}
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					try {
+      						data.option = JSON.parse(data.option);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      					if (uploadedImageType === 'image/*') {
+      						if (!data.option) {
+      							data.option = {};
+      						}
+      						data.option.fillColor = '#fff';
+      					}
+      					break;
+      			}
+      			result = cropper[data.method](data.option, data.secondOption);
+      
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					if (result) {
+      						console.log(result)
+      						if (!download.disabled) {
+      							download.download = uploadedImageName;
+      							download.href = result.toDataURL(uploadedImageType);
+      
+      							$( "div.avatar-image-input" ).replaceWith( "<img class='avatar-image-input' id='output' />" );
+      							var output = document.getElementById('output');
+      							output.src = result.toDataURL(uploadedImageType)
+      							
+      							$( "span.avatar-img" ).replaceWith( "<img class='avatar-img' id='output-preview' />" );
+      							var output_preview = document.getElementById('output-preview');
+      							output_preview.src = result.toDataURL(uploadedImageType)
+      						}
+      					}
+      
+      					break;
+      			}
+      
+      			if (typeof result === 'object' && result !== cropper && input) {
+      				try {
+      					input.value = JSON.stringify(result);
+      				} catch (e) {
+      					console.log(e.message);
+      				}
+      			}
+      		}
+      	};
+      
+      
+      	// Import image
+      	var inputImage = document.getElementById('avatar-image-input');
+      
+      	if (URL) {
+      		inputImage.onchange = function () {
+      			var files = this.files;
+      			var file;
+      
+      			if (cropper && files && files.length) {
+      
+      				$("html").addClass("overlay-modal");
+      				$("#modalEditImg").addClass("show");
+      
+      				file = files[0];
+      
+      				if (/^image\/\w+/.test(file.type)) {
+      					uploadedImageType = file.type;
+      					uploadedImageName = file.name;
+      
+      					if (uploadedImageURL) {
+      						URL.revokeObjectURL(uploadedImageURL);
+      					}
+      
+      					image.src = uploadedImageURL = URL.createObjectURL(file);
+      					cropper.destroy();
+      					cropper = new Cropper(image, options);
+      					inputImage.value = null;
+      				} else {
+      					window.alert('Please choose an image file.');
+      				}
+      			}
+      		};
+      	} else {
+      		inputImage.disabled = true;
+      		inputImage.parentNode.className += ' disabled';
+      	}
+      	
+      };
     </script>
   </body>
 </html>

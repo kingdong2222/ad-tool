@@ -63,6 +63,48 @@
 			}
 		}
 	}
+	.show{display: flex !important;align-items: center;}
+	.modal-dialog{max-width: 1024px !important;
+		.modal-header{
+			align-items: center;
+		}
+		.modal-body{
+			padding: 0 !important;
+		}
+		.cropper-modal{
+			opacity: 0.8 !important;
+		}
+		.button-icon-close{
+			font-size: 1rem;
+			color: #242E42;
+		}
+		.label-title{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			h3.title{
+				font-size: 1.125rem;
+				font-weight: 600;
+				display: flex;
+				align-items: center;
+				.icz{
+					font-size: 16px;
+					padding-left: 0.5rem;
+					color: #72809D;
+				}
+			}
+		}
+		.docs-buttons{
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			.crop-done-button{
+				padding: 10px 40px;
+				border-radius: 8px;
+				font-size: 16px;
+			}
+		}
+	}
 	main{
 		display: flex !important;
 		background-color: #F0F4F8;

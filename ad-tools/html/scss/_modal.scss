@@ -3,7 +3,7 @@
 
 
 	// Modal
-	.bl-modal{display:block;z-index:-1;opacity:0;visibility:hidden;@include position(fixed, 0);@extend %tr-all;background-color:rgba(#35425B, 0.85);overflow:hidden;
+	.bl-modal{display:block;z-index:-1;opacity:0;visibility:hidden;@include position(fixed, 0);@extend %tr-all;background-color:rgba(#242E42, 0.85);overflow:hidden;
 		&.is-hidden{z-index:-1!important;opacity:0!important;visibility:hidden!important;}
 	}
 
