@@ -64,7 +64,7 @@
 		}
 	}
 	.show{display: flex !important;align-items: center;}
-	.modal-dialog{max-width: 1024px !important;
+	.modal-dialog{max-width: 1024px !important;  min-width: 500px;
 		.modal-header{
 			align-items: center;
 		}
@@ -324,6 +324,7 @@
 				.img-desc{
 					font-size: 14px;
 					color: #A3A8AF;
+					span{color: #131820;}
 				}
 			}
 			.large-image-input{
