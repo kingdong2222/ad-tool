@@ -1,0 +1,56 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var loading = false
+	- var header = true
+	//- - var navbar = true
+	- var modal = true
+	- var popperjs = true
+	- var tippyjs = true
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("")
+	- layoutClasses.push("ad-desktop")
+	- headerClasses.push("header")
+	- bodyClasses.push("page-content")
+	
+//- Add Header
+block header
+	include page/header.pug
+
+//- Add Body
+block body
+	include page/_index.pug
+
+//- Add Modal
+block modal
+
+block javaScripts extend
+	script.
+		const button_toogle_slide = document.getElementById('button-toggle-slide-bar')
+		const main_body = document.getElementsByClassName('main-body')[0]
+		const slide_body = document.getElementsByClassName('slide-body')[0]
+		button_toogle_slide.onclick = () => {
+			main_body.classList.toggle("expanded");
+			slide_body.classList.toggle("narrowed")
+			const icon_toggle = button_toogle_slide.getElementsByClassName('icz')[0]
+			icon_toggle.classList.toggle('icz-right')
+			icon_toggle.classList.toggle('icz-left')
+		}
+
+		document.getElementById('avatar-image-input').onchange = value =>{
+			
+			$( "div.avatar-image-input" ).replaceWith( "<img class='avatar-image-input' id='output' />" );
+			var reader = new FileReader();
+			reader.onload = function(){
+				var output = document.getElementById('output');
+				output.src = reader.result;
+			};
+			reader.readAsDataURL(value.target.files[0]);
+		}
+		

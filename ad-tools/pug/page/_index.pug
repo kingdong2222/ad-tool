@@ -1,0 +1,100 @@
+main
+    .main-body
+        #button-toggle-slide-bar
+            i.icz.icz-right
+        .container_cols
+            .container_col.content
+                h2.title Nội dung
+                .text-input-item
+                    .label-title
+                        h3.title Tiêu đề quảng cáo
+                            i.icz.icz-question
+                        p.max-letter 30
+                    input(type='text' placeholder='Nhập tiêu đề' maxlength=30)
+                .text-input-item
+                    .label-title
+                        h3.title Nội dung quảng cáo
+                            i.icz.icz-question
+                        p.max-letter 90
+                    textarea( placeholder='Nhập nội dung' maxlength=90)
+                .text-input-item
+                    .label-title
+                        h3.title Tiêu đề quảng cáo
+                            i.icz.icz-question
+                    .image-input
+                        .avatar-image-input
+                            input#avatar-image-input(type='file' accept="image/*")
+                        p.img-desc Kích thước 150 x 150 pixel <br> Tối đa 2Mb
+                .text-input-item
+                    .label-title
+                        h3.title Mô tả thêm
+                            i.icz.icz-question
+                        p.max-letter 48
+                    input(type='text' placeholder='Mô tả ngắn gọn' maxlength=48)
+                .text-input-item
+                    .label-title
+                        h3.title Thông tin thêm
+                            i.icz.icz-question
+                        p.max-letter 48
+                    input(type='text' placeholder='Nhập thông tin thêm' maxlength=48)
+                .text-input-item
+                    .label-title
+                        h3.title Nút kêu gọi
+                            i.icz.icz-question
+                    .dropdown.dropdown-call
+                        a.button.dropdown-toggle(role="button" id="dropdown-call" data-toggle="dropdown" aria-expanded="false")
+                            span.name-item Mua ngay
+                            i.icz.icz-down
+                        .dropdown-menu(aria-labelledby="dropdown-call")
+                            ul
+                                li 
+                                    a(href='')
+                                        span.name-item Mua ngay
+                                li
+                                    a(href='')
+                                        span.name-item Mua ngay
+                .button.is-primary.is-large Kiểm tra
+
+            .container_col.checking
+                .text-input-item.first-item
+                    h2.title Kiểm tra
+                    .label-title
+                        h3.title Hình ảnh quảng cáo
+                            i.icz.icz-question
+                    .large-image-input
+                        input#large-image-input(type='file' accept="image/*")
+                        p Kéo thả ảnh vào hoặc 
+                            span tải ảnh lên
+                .text-input-item.second-item
+                    .label-title
+                        h3.title Nội dung
+                            i.icz.icz-question
+                    .content-card
+                        .card-desc
+                            i.icz.icz-fill-info
+                            p Quảng cáo của bạn chưa có nội dung.<br>
+                                a Nhập nội dung 
+                                |để tiến hành kiểm tra.
+                        .card-error-list
+                            p.error-item Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây
+
+        .policy-bottom-desc
+            p Đây là công cụ giúp bạn tối ưu hóa cài đặt quảng cáo. Việc xét duyệt quảng cáo không thuộc quản lý của công cụ này. <br>Xem thêm các 
+                a quy định quảng cáo 
+                |để tìm hiểu thêm về lĩnh vực kinh doanh của bạn,
+    .slide-body
+        .slide-body-container
+            h2.title Xem trước hiển thị
+            .card-preview
+                .square-ads
+                    .label-title
+                        .avatar.avatar--m
+                            span.avatar-img(style="background-image:url(../../html/images/avatar.png)")
+                        h3.title Tiêu đề quảng cáo
+                    h3.title Nội dung quảng cáo
+                    .preview-sample
+                    .ad-desc
+                        .optional
+                            p.optional-desc Mô tả thêm
+                            p.optional-info Thông tin thêm
+                        .button-buy-now Mua ngay

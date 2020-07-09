@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://fengyuanchen.github.io/cropperjs/css/cropper.css"><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+<script src="https://fengyuanchen.github.io/cropperjs/js/cropper.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>
+    <style></style>
+  </head>
+  <body>
+    <div class="header"><a class="logo" href="#!"><i class="ico-logo"></i></a>
+      <div class="navbar-main">
+        <ul>
+          <li><a class="navbar-item" href="">Công cụ kiểm tra quảng cáo</a></li>
+          <li><a class="navbar-item" href="">Vị trí hiển thị quảng cáo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-content">
+      <main>
+        <div class="main-body">
+          <div id="button-toggle-slide-bar"><i class="icz icz-right"></i></div>
+          <div class="container_cols">
+            <div class="container_col content">
+              <h2 class="title">Nội dung</h2>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question"></i></h3>
+                  <p class="max-letter">30</p>
+                </div>
+                <input type="text" placeholder="Nhập tiêu đề" maxlength="30">
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Nội dung quảng cáo<i class="icz icz-question"></i></h3>
+                  <p class="max-letter">90</p>
+                </div>
+                <textarea placeholder="Nhập nội dung" maxlength="90"></textarea>
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question"></i></h3>
+                </div>
+                <div class="image-input">
+                  <div class="avatar-image-input">
+                    <input id="avatar-image-input" type="file" accept="image/*">
+                  </div>
+                  <p class="img-desc">Kích thước 150 x 150 pixel <br> Tối đa 2Mb</p>
+                </div>
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Mô tả thêm<i class="icz icz-question"></i></h3>
+                  <p class="max-letter">48</p>
+                </div>
+                <input type="text" placeholder="Mô tả ngắn gọn" maxlength="48">
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Thông tin thêm<i class="icz icz-question"></i></h3>
+                  <p class="max-letter">48</p>
+                </div>
+                <input type="text" placeholder="Nhập thông tin thêm" maxlength="48">
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Nút kêu gọi<i class="icz icz-question"></i></h3>
+                </div>
+                <div class="dropdown dropdown-call"><a class="button dropdown-toggle" role="button" id="dropdown-call" data-toggle="dropdown" aria-expanded="false"><span class="name-item">Mua ngay</span><i class="icz icz-down"></i></a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-call">
+                    <ul>
+                      <li> <a href=""><span class="name-item">Mua ngay</span></a></li>
+                      <li><a href=""><span class="name-item">Mua ngay</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="button is-primary is-large">Kiểm tra</div>
+            </div>
+            <div class="container_col checking">
+              <div class="text-input-item first-item">
+                <h2 class="title">Kiểm tra</h2>
+                <div class="label-title">
+                  <h3 class="title">Hình ảnh quảng cáo<i class="icz icz-question"></i></h3>
+                </div>
+                <div class="large-image-input">
+                  <input id="large-image-input" type="file" accept="image/*">
+                  <p>Kéo thả ảnh vào hoặc <span>tải ảnh lên</span></p>
+                </div>
+              </div>
+              <div class="text-input-item second-item">
+                <div class="label-title">
+                  <h3 class="title">Nội dung<i class="icz icz-question"></i></h3>
+                </div>
+                <div class="content-card">
+                  <div class="card-desc"><i class="icz icz-fill-info"></i>
+                    <p>Quảng cáo của bạn chưa có nội dung.<br><a>Nhập nội dung </a>để tiến hành kiểm tra.</p>
+                  </div>
+                  <div class="card-error-list">
+                    <p class="error-item">Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="policy-bottom-desc">
+            <p>Đây là công cụ giúp bạn tối ưu hóa cài đặt quảng cáo. Việc xét duyệt quảng cáo không thuộc quản lý của công cụ này. <br>Xem thêm các <a>quy định quảng cáo </a>để tìm hiểu thêm về lĩnh vực kinh doanh của bạn,</p>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-body-container">
+            <h2 class="title">Xem trước hiển thị</h2>
+            <div class="card-preview">
+              <div class="square-ads">
+                <div class="label-title">
+                  <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(../../html/images/avatar.png)"></span></div>
+                  <h3 class="title">Tiêu đề quảng cáo</h3>
+                </div>
+                <h3 class="title">Nội dung quảng cáo</h3>
+                <div class="preview-sample"></div>
+                <div class="ad-desc">
+                  <div class="optional">
+                    <p class="optional-desc">Mô tả thêm</p>
+                    <p class="optional-info">Thông tin thêm</p>
+                  </div>
+                  <div class="button-buy-now">Mua ngay</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="bl-popup">
+    </div>
+    <div class="bl-modal">
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      const button_toogle_slide = document.getElementById('button-toggle-slide-bar')
+      const main_body = document.getElementsByClassName('main-body')[0]
+      const slide_body = document.getElementsByClassName('slide-body')[0]
+      button_toogle_slide.onclick = () => {
+      	main_body.classList.toggle("expanded");
+      	slide_body.classList.toggle("narrowed")
+      	const icon_toggle = button_toogle_slide.getElementsByClassName('icz')[0]
+      	icon_toggle.classList.toggle('icz-right')
+      	icon_toggle.classList.toggle('icz-left')
+      }
+      
+      document.getElementById('avatar-image-input').onchange = value =>{
+      	
+      	$( "div.avatar-image-input" ).replaceWith( "<img class='avatar-image-input' id='output' />" );
+      	var reader = new FileReader();
+      	reader.onload = function(){
+      		var output = document.getElementById('output');
+      		output.src = reader.result;
+      	};
+      	reader.readAsDataURL(value.target.files[0]);
+      }
+    </script>
+  </body>
+</html>
