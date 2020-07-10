@@ -313,8 +313,15 @@ block javaScripts extend
 								if (!download.disabled) {
 									download.download = uploadedImageName;
 									download.href = result.toDataURL(uploadedImageType);
+									$(".large-image-preview").addClass('is-show')
+									$(".large-image-input").addClass('is-hidden')
 
-									
+									$(".large-img-name").html(uploadedImageName+"<br><span>1024 x 533</span>")
+
+									document.getElementById('output-large-preview').style.backgroundImage = "none"
+									document.getElementById('imageSrc-preview').style.display = 'block'
+									document.getElementById('imageSrc-preview').src = result.toDataURL(uploadedImageType)
+
 									$( ".preview-sample" ).replaceWith( "<img class='preview-sample' id='output-preview-large' style='background:none;'/>" );
 									var output_preview_large = document.getElementById('output-preview-large');
 									output_preview_large.src = result.toDataURL(uploadedImageType)

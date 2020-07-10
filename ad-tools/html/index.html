@@ -94,8 +94,8 @@
               <div class="button is-primary is-large">Kiểm tra</div>
             </div>
             <div class="container_col checking">
+              <h2 class="checking-title title">Kiểm tra</h2>
               <div class="text-input-item first-item">
-                <h2 class="title">Kiểm tra</h2>
                 <div class="label-title">
                   <h3 class="title">Hình ảnh quảng cáo<i class="icz icz-question"></i></h3>
                 </div>
@@ -117,7 +117,7 @@
                   </div>
                   <div class="image-preview-body">
                     <div class="ads-img">
-                      <div class="img-container" id="output" style="background-image:url(https://via.placeholder.com/600x400)"><img id="imageSrc" src="" alt="" style="display:none"></div>
+                      <div class="img-container-preview" id="output-large-preview" style="background-image:url(https://via.placeholder.com/600x400)"><img id="imageSrc-preview" src="" alt="" style="display:none"></div>
                       <div class="squares">
                         <div class="row"></div>
                         <div class="square"></div>
@@ -526,8 +526,15 @@
       						if (!download.disabled) {
       							download.download = uploadedImageName;
       							download.href = result.toDataURL(uploadedImageType);
+      							$(".large-image-preview").addClass('is-show')
+      							$(".large-image-input").addClass('is-hidden')
       
-      							
+      							$(".large-img-name").html(uploadedImageName+"<br><span>1024 x 533</span>")
+      
+      							document.getElementById('output-large-preview').style.backgroundImage = "none"
+      							document.getElementById('imageSrc-preview').style.display = 'block'
+      							document.getElementById('imageSrc-preview').src = result.toDataURL(uploadedImageType)
+      
       							$( ".preview-sample" ).replaceWith( "<img class='preview-sample' id='output-preview-large' style='background:none;'/>" );
       							var output_preview_large = document.getElementById('output-preview-large');
       							output_preview_large.src = result.toDataURL(uploadedImageType)
