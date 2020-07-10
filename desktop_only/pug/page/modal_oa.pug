@@ -1,0 +1,41 @@
+block Modal
+
+.modal-container#modal-oa-select
+	.bl-modal-heading
+		span Chọn OA
+		a.func-close-modal(href="javascript:void(0)")
+			i.icz.icz-close
+	.bl-modal-context
+		p Mỗi form sẽ liên kết với một Zalo Official Account, vui lòng chọn OA mà bạn muốn tạo Form
+		.checkbox-list
+			.item-checkbox
+				.input-group
+					input(id="op1" name="option" type="radio" checked)
+					label.label-custom.is-oa(for="op1")
+						span.avatar.avatar--m
+							span.avatar-img(style="background-image:url(https://via.placeholder.com/72)")
+						span Oa name 1
+			.item-checkbox
+				.input-group
+					input(id="op2" name="option" type="radio")
+					label.label-custom.is-oa(for="op2")
+						span.avatar.avatar--m
+							span.avatar-img(style="background-image:url(https://via.placeholder.com/72)")
+						span Oa name 2
+		a.button.is-white.has-text-link.px-0(href="javascript:void(0);") Tạo OA mới
+	.bl-modal-footer
+		.buttons.is-left
+			button.button.is-primary.is-large.button-create-adForm(href="javascript:void(0)") Tiếp tục
+			button.button.is-outlined.is-large(href="javascript:void(0)") Hủy thao tác
+
+.modal-container#modal-oa-select-empty
+	.bl-modal-heading
+		span Chọn OA
+		a.func-close-modal(href="javascript:void(0)")
+			i.icz.icz-close
+	.bl-modal-context
+		p Mỗi form sẽ liên kết với một Zalo Official Account, vui lòng tạo Official Account trước khi tạo Form
+	.bl-modal-footer
+		.buttons.is-left
+			button.button.is-primary.is-large(href="javascript:void(0)") Tạo OA mới
+			button.button.is-outlined.is-large(href="javascript:void(0)") Hủy thao tác

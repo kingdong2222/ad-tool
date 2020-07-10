@@ -1,0 +1,209 @@
+block Popup
+
+- var qa = []
+- qa.push({"class":"", "icclass":"icz-account", "text":"Họ và tên"})
+- qa.push({"class":"", "icclass":"icz-mail", "text":"Địa chỉ email"})
+- qa.push({"class":"", "icclass":"icz-fill-calendar", "text":"Ngày sinh"})
+- qa.push({"class":"", "icclass":"icz-phone", "text":"Số điện thoại"})
+- qa.push({"class":"", "icclass":"icz-address", "text":"Địa chỉ"})
+- qa.push({"class":"", "icclass":"icz-woman-man", "text":"Giới tính"})
+
+.popup-container#popup-setup-form
+	.bl-popup-heading
+		span Tạo form
+		a.func-close-popup(href="javascript:void(0)")
+			i.icz.icz-close
+	.bl-popup-context
+		.section-setup-form
+			.bl-setup
+				.heading-setup
+					.name
+						span QC Website - 21/12/2019 15:09
+						a.func-edit(href="javascript:void(0)")
+							i.icz.icz-fill-edit
+					input.is-hidden(type="text" placeholder="" value="QC Website - 21/12/2019 15:09")
+				.group-form.is-expanded
+					// Case active thêm class is-active
+					//.heading-gf.is-active
+						span Thông tin form
+						i.icz.icz-fill-check.is-check
+						i.icz.icz-down.is-arr
+					.heading-gf.is-danger
+						span Thông tin form
+						i.icz.icz-fill-check.is-check
+						i.icz.icz-down.is-arr
+					.body-gf
+						.field.is-horizontal
+							.field-label.is-small
+								label.label Tiêu đề
+							.field-body
+								.field
+									.control.has-icons-right.is-danger
+										input.input(type="input" placeholder="Nhập tiêu đề" value="Đăng ký thông tin để nhận báo giá sản phẩm từ Brand")
+										span.icon.is-right
+											small.is-char 255
+									p.help.has-text-danger error message
+						.field.is-horizontal
+							.field-label.is-small
+								label.label Nội dung
+							.field-body
+								.field
+									.control.has-icons-right
+										input.input(type="input" placeholder="Nhập nội dung" value="Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương")
+										span.icon.is-right
+											small.is-char 255
+						.field.is-horizontal
+							.field-label.is-small
+								label.label.is-block Ảnh bìa
+								small Kích thước đề nghị 1024x533<br />Dung lượng không quá 2MB
+							.field-body
+								.field
+									.control
+										.cover-ad-form.is-upload
+											.inputfile-container
+												input.inputfile(type="file" id="file1")
+												label(for="file1")
+											span.text-form Đăng ảnh bìa
+									p.help.has-text-danger error message
+						.field.is-horizontal
+							.field-label.is-small
+								label.label.is-block Ảnh bìa (đã up ảnh)
+								small Kích thước đề nghị 1024x533<br />Dung lượng không quá 2MB
+							.field-body
+								.field
+									.control
+										.cover-ad-form
+											.inputfile-container
+												input.inputfile(type="file" id="file2")
+												label(for="file2")
+											.src(style="background-image:url(https://via.placeholder.com/1024x533)")
+											.ico-edit
+												i.icz.icz-fill-edit
+				.group-form.is-expanded
+					.heading-gf
+						span Câu hỏi
+						i.icz.icz-fill-check.is-check
+						i.icz.icz-down.is-arr
+					.body-gf
+						p.is-size-7.has-text-weight-semibold.mb-4 Bạn muốn Form thu thập các thông tin nào?
+						ul.qa-list
+							each qaItem in qa
+								li
+									.item-qa(class=`${qaItem.class}`)
+										.func-drag
+										.inner
+											i.icz(class=`${qaItem.icclass}`)
+											span.title-qa #{qaItem.text}
+										.func-wrap
+											a.func-qa(href="javascript:void(0);" data-tippy-content="Di chuyển lên")
+												i.icz.icz-fill-arrow-up
+											a.func-qa(href="javascript:void(0);" data-tippy-content="Di chuyển xuống")
+												i.icz.icz-fill-arrow-down
+											a.func-qa(href="javascript:void(0);" data-tippy-content="Xóa câu hỏi")
+												i.icz.icz-fill-remove
+							li
+								.notification.is-warning
+									i.icz.icz-fill-warning
+									button.delete
+									h4 Bạn đang có quá nhiều câu hỏi
+									p Có quá nhiều câu hỏi sẽ ảnh hưởng đến tỷ lệ hoàn thành Form
+							li
+								.item-qa
+									.func-drag
+									.inner.mb-2
+										i.icz.icz-text
+										span.title-qa Câu trả lời ngắn
+									.func-wrap
+										a.func-qa(href="javascript:void(0);" data-tippy-content="Di chuyển lên")
+											i.icz.icz-fill-arrow-up
+										a.func-qa(href="javascript:void(0);" data-tippy-content="Di chuyển xuống")
+											i.icz.icz-fill-arrow-down
+										a.func-qa(href="javascript:void(0);" data-tippy-content="Xóa câu hỏi")
+											i.icz.icz-fill-remove
+									.control.has-icons-right
+										input.input(type="input" placeholder="Nội dung câu hỏi" value="")
+										span.icon.is-right
+											small.is-char 255
+							li
+								.item-qa
+									.func-drag
+									.inner.mb-2
+										i.icz.icz-multi-check
+										span.title-qa Trắc nghiệm
+									.func-wrap
+										a.func-qa(href="javascript:void(0);" data-tippy-content="Di chuyển lên")
+											i.icz.icz-fill-arrow-up
+										a.func-qa(href="javascript:void(0);" data-tippy-content="Di chuyển xuống")
+											i.icz.icz-fill-arrow-down
+										a.func-qa(href="javascript:void(0);" data-tippy-content="Xóa câu hỏi")
+											i.icz.icz-fill-remove
+									.control.has-icons-right.mb-3
+										input.input(type="input" placeholder="Nội dung câu hỏi" value="")
+										span.icon.is-right
+											small.is-char 255
+									p.is-size-7.has-text-weight-semibold.mb-2 Nhập lựa chọn cho câu hỏi, sau đó bấm Enter để thêm vào danh sách<br />Bạn cần có ít nhất 2 lựa chọn cho câu hỏi
+									.control.has-icons-right.mb-3
+										input.input(type="input" placeholder="Nhập lựa chọn" value="")
+										span.icon.is-right
+											small.is-char 128
+									.tags
+										span.tag.is-rounded
+											| Option 1
+											button.delete.is-small
+										span.tag.is-rounded
+											| Option 2
+											button.delete.is-small
+										span.tag.is-rounded
+											| Option 1
+											button.delete.is-small
+										span.tag.is-rounded
+											| Option 2
+											button.delete.is-small
+										span.tag.is-rounded
+											| Option 1
+											button.delete.is-small
+										span.tag.is-rounded
+											| Option 2
+											button.delete.is-small
+										span.tag.is-rounded
+											| Option 1
+											button.delete.is-small
+										span.tag.is-rounded
+											| Option 2
+											button.delete.is-small
+
+						.add-gf-wrap.dropdown
+							a.button.is-add.dropdown-toggle(role="button" id="dropdown-add-gf" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Thêm một câu hỏi mới
+							.dropdown-menu(aria-labelledby="dropdown-add-gf")
+								ul.add-gf-list
+									li
+										a.item-add-gf(href="javascript:void(0)")
+											i.icz.icz-fill-calendar
+											span Ngày sinh
+									li
+										a.item-add-gf(href="javascript:void(0)")
+											i.icz.icz-mail
+											span Địa chỉ email
+									li
+										a.item-add-gf(href="javascript:void(0)")
+											i.icz.icz-address
+											span Địa chỉ
+									li
+										a.item-add-gf(href="javascript:void(0)")
+											i.icz.icz-woman-man
+											span Giới tính
+									li
+										a.item-add-gf(href="javascript:void(0)")
+											i.icz.icz-text
+											span Câu trả lời ngắn
+									li
+										a.item-add-gf(href="javascript:void(0)")
+											i.icz.icz-multi-check
+											span Trắc nghiệm
+
+				.button-wrap
+					a.button.is-primary.is-large(href="javascript:void(0);") Lưu form
+
+			.bl-preview-form
+				include sidebar_form.pug
+

@@ -105,14 +105,70 @@
                 </div>
                 <div class="large-image-preview">
                   <div class="image-preview-header">
-                    <p class="large-img-name">Banner final<span>1024 x 533</span></p>
+                    <p class="large-img-name">Banner final <br><span>1024 x 533</span></p>
+                    <div class="dropdown dropdown-call"><a class="button dropdown-toggle" role="button" id="dropdown-call" data-toggle="dropdown" aria-expanded="false"><span class="name-item">Tùy chọn</span><i class="icz icz-down"></i></a>
+                      <div class="dropdown-menu" aria-labelledby="dropdown-call">
+                        <ul>
+                          <li> <a href=""><span class="name-item">Thay đổi ảnh</span></a></li>
+                          <li><a href=""><span class="name-item">Tải ảnh xuống</span></a></li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  <div class="dropdown dropdown-call"><a class="button dropdown-toggle" role="button" id="dropdown-call" data-toggle="dropdown" aria-expanded="false"><span class="name-item">Tùy chọn</span><i class="icz icz-down"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown-call">
-                      <ul>
-                        <li> <a href=""><span class="name-item">Thay đổi ảnh</span></a></li>
-                        <li><a href=""><span class="name-item">Tải ảnh xuống</span></a></li>
-                      </ul>
+                  <div class="image-preview-body">
+                    <div class="ads-img">
+                      <div class="img-container" id="output" style="background-image:url(https://via.placeholder.com/600x400)"><img id="imageSrc" src="" alt="" style="display:none"></div>
+                      <div class="squares">
+                        <div class="row"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div style="clear:both;"></div>
+                        <div class="row"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div style="clear:both;"></div>
+                        <div class="row"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div style="clear:both;"></div>
+                        <div class="row"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div style="clear:both;"></div>
+                        <div class="row"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div style="clear:both;"></div>
+                      </div>
+                    </div>
+                    <div class="ads-grid-switch">
+                      <p>Lưới kiểm tra chữ</p>
+                      <label class="switch">
+                        <input type="checkbox" checked><span class="slider round"></span>
+                      </label>
+                    </div>
+                    <div class="ads-text-ratio">
+                      <p>Tỉ lệ văn bản:</p>
+                      <p class="text-ratio">Hãy chọn các ô có xuất hiện chữ</p>
+                    </div>
+                    <div class="ads-img-quality">
+                      <p>Chất lượng ảnh:</p>
+                      <p class="img-quality">Mờ</p>
                     </div>
                   </div>
                 </div>
@@ -313,8 +369,8 @@
       							download.download = uploadedImageName;
       							download.href = result.toDataURL(uploadedImageType);
       
-      							$("p.img-desc").html("<span>"+uploadedImageName+"</span>"+"<br>150x150");
-      
+      							$("p.img-desc").html(uploadedImageName+"<span><br>150x150</span>");
+      							$("p.img-desc").addClass('avatar-name')
       							$( "div.avatar-image-input" ).replaceWith( "<img class='avatar-image-input' id='output' />" );
       							var output = document.getElementById('output');
       							output.src = result.toDataURL(uploadedImageType)
@@ -530,6 +586,13 @@
       	}
       	
       };
+      $("#check-grid").change(function(event){
+      	if (this.checked){
+      		$(".ads-img .squares").addClass("is-show");
+      	} else {
+      		$(".ads-img .squares").removeClass("is-show");
+      	}
+      });
     </script>
   </body>
 </html>

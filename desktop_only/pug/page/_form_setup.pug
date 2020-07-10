@@ -1,0 +1,316 @@
+block Body
+
+.body
+	.heading
+		span.title Table name
+		.actions
+			a.button.is-large.mr-3() Download
+			a.button.is-large.has-icon.mr-3() <i class="icz icz-data-download mr-2"></i>Download
+			.dropdown.dropdown-oa.mr-3
+				a.button.is-large.dropdown-toggle(role="button" id="dropdown-oa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+					span.avatar.avatar--s
+						span.avatar-img(style="background-image:url(https://via.placeholder.com/72)")
+					span.name-oa.truncate Bán hàng đa quốc gia khắp Châu Á
+				.dropdown-menu(aria-labelledby="dropdown-oa")
+					ul
+						li
+							a.is-oa(href="javascript:void(0)")
+								span.avatar.avatar--s
+									span.avatar-img(style="background-image:url(https://via.placeholder.com/72)")
+								span.name-oa.truncate Bán hàng đa quốc gia khắp Châu Á
+						li
+							a.is-oa(href="javascript:void(0)")
+								span.avatar.avatar--s
+									span.avatar-img(style="background-image:url(https://via.placeholder.com/72)")
+								span.name-oa.truncate Bán hàng đa quốc gia khắp Châu Á
+			a.button.is-primary.is-large.button-selectOa(href="javascript:void(0);") Tạo form
+	.box
+		.heading-box
+			.pos-wrap
+				.pos-left
+					.dropdown.mr-2
+						a.button.dropdown-toggle(role="button" id="dropdown-m1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") <i class="icz icz-search mr-2"></i>Tìm kiếm
+						.dropdown-menu(aria-labelledby="dropdown-m1")
+							ul
+								li
+									a.truncate.demo-func-name(href="javascript:void(0)") Tên form/ad/campaign
+								li
+									a.truncate(href="javascript:void(0)") Tên người tạo
+					.control.mr-2
+						span.select.dropdown
+							.dropdown-toggle(role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+							select
+								option(disabled selected) Quick filter 1
+							.dropdown-menu(aria-labelledby="dropdown-m2")
+								ul
+									li
+										a(href="javascript:void(0)") Lorem Ipsum is 
+									li
+										a(href="javascript:void(0)") Lorem Ipsum is 
+					.control.mr-2
+						span.select.dropdown
+							.dropdown-toggle(role="button" id="dropdown-m3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+							select
+								option(disabled selected) Quick filter 2
+							.dropdown-menu(aria-labelledby="dropdown-m3")
+								ul
+									li
+										a(href="javascript:void(0)") Lorem Ipsum is simply dummy text
+									li
+										a(href="javascript:void(0)") Lorem Ipsum is simply dummy text
+					.dropdown.mr-2
+						a.button.dropdown-toggle(role="button" id="dropdown-m4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") <i class="icz icz-fill-filter mr-2"></i>Thêm bộ lọc
+						.dropdown-menu(aria-labelledby="dropdown-m4")
+							span.subtitle-dropdown Chỉ số
+							ul
+								li
+									a.truncate.demo-func-ctr(href="javascript:void(0)") CTR
+								li
+									a.truncate(href="javascript:void(0)") Impression
+								li
+									a.truncate(href="javascript:void(0)") Lượt nhấn
+							span.subtitle-dropdown Category 1
+							ul
+								li
+									a.truncate(href="javascript:void(0)") Option 1
+								li
+									a.truncate(href="javascript:void(0)") Option 2
+								li
+									a.truncate(href="javascript:void(0)") Option 3
+				.pos-right
+					.control.has-icons-left.is-daterange
+						input.input(type='text' name="daterange" value="01/01/2020 - 30/01/2020" autocomplete="off")
+						span.icon.is-left
+							i.icz.icz-fill-calendar
+			.filter-wrap
+				a.button.is-small.is-white.has-text-link.func-clear-filter(href="javascript:void(0);") Hủy bộ lọc
+				.filter-box.is-large#demo-name.is-hidden
+					h2 Tìm kiếm tên Form/Chiến dịch/Quảng cáo
+					.filter-box-context
+						.field
+							.control.has-icons-right
+								input.input(type="input" placeholder="Nhập nội dung tìm kiếm" value="")
+								span.icon.is-right
+									small.is-char 255
+						.actions
+							a.button.is-primary(href="#!") Áp dụng
+							a.button.func-close(href="#!") Hủy thao tác
+				.filter-box#demo-ctr.is-hidden
+					h2 Chỉ số CTR
+					.filter-box-context
+						.field
+							.control.is-sr
+								input(id="a1" type="radio" name="ctr" checked)
+								label(for="a1") Lớn hơn hoặc bằng
+								input.input(type="input" placeholder="" value="0")
+						.field
+							.control.is-sr
+								input(id="a2" type="radio" name="ctr" checked)
+								label(for="a2") Nhỏ hơn hoặc bằng
+								input.input(type="input" placeholder="" value="0")
+						.field
+							.control.is-sr
+								input(id="a3" type="radio" name="ctr" checked)
+								label(for="a3") Trong khoảng
+								input.input(type="input" placeholder="" value="0")
+						.field
+							.control.is-sr
+								input(id="a4" type="radio" name="ctr" checked)
+								label(for="a4") Ngoài khoảng
+								input.input(type="input" placeholder="" value="0")
+						.actions
+							a.button.is-primary(href="#!") Áp dụng
+							a.button.func-close(href="#!") Hủy thao tác
+				.tags
+					span.tag.is-rounded
+						a.tag-link.demo-func-name(href="javascript:void(0);") Tên form<strong class="is-value">Coke</strong>
+						button.delete.is-small
+					span.tag.is-rounded
+						a.tag-link(href="javascript:void(0);") Condition<strong class="is-value">value</strong>
+						button.delete.is-small
+
+	ngx-datatable.ngx-datatable.za-table.virtualized.scroll-horz.selectable.checkbox-selection
+		.visible
+			datatable-header.datatable-header
+				.datatable-header-inner
+					.datatable-row-left
+					.datatable-row-center
+						datatable-header-cell.datatable-header-cell.sortable.resizeable
+							.datatable-header-cell-template-wrap
+								span.datatable-header-cell-wrapper
+									span.datatable-header-cell-label
+										span.control
+											input(id="check-all" type="checkbox" name="")
+											label(for="check-all") &nbsp;
+						datatable-header-cell.datatable-header-cell.sortable.resizeable
+							.datatable-header-cell-template-wrap
+								span.datatable-header-cell-wrapper
+									span.datatable-header-cell-label.draggable Tên form
+								span.sort-btn.sort-asc.datatable-icon-up
+							span.resize-handle
+						datatable-header-cell.datatable-header-cell.sortable.resizeable
+							.datatable-header-cell-template-wrap
+								span.datatable-header-cell-wrapper
+									span.datatable-header-cell-label.draggable Trạng thái
+								span.sort-btn.sort-desc.datatable-icon-up
+							span.resize-handle
+						datatable-header-cell.datatable-header-cell.sortable.resizeable
+							.datatable-header-cell-template-wrap
+								span.datatable-header-cell-wrapper
+									span.datatable-header-cell-label.draggable Ngày tạo
+								span.sort-btn
+							span.resize-handle
+						datatable-header-cell.datatable-header-cell.sortable.resizeable
+							.datatable-header-cell-template-wrap
+								span.datatable-header-cell-wrapper
+									span.datatable-header-cell-label.draggable Số leads
+								span.sort-btn
+							span.resize-handle
+						datatable-header-cell.datatable-header-cell.align-right
+							.datatable-header-cell-template-wrap
+								span.datatable-header-cell-wrapper
+									span.datatable-header-cell-label.draggable
+					.datatable-row-right
+			datatable-body.datatable-body
+				datatable-selection
+					datatable-scroller.datatable-scroll
+						datatable-row-wrapper.datatable-row-wrapper
+							datatable-body-row.datatable-body-row.datatable-row-even
+								.datatable-row-left.datatable-row-group
+								.datatable-row-center.datatable-row-group
+									datatable-body-cell.datatable-body-cell.sort-active
+										.datatable-body-cell-label
+											.control
+												input(id="check-a1" type="checkbox" name="")
+												label(for="check-a1") &nbsp;
+									datatable-body-cell.datatable-body-cell.sort-active
+										.datatable-body-cell-label
+											.td-has-switch
+												a.link(href='#!link') Form cho Pepsi
+												.switch.is-small
+													input(id="qc1" type="checkbox" checked)
+													label.slider.round(for="qc1")
+									datatable-body-cell.datatable-body-cell.sort-active
+										.datatable-body-cell-label
+											span.status.is-success Quảng cáo
+									datatable-body-cell.datatable-body-cell.sort-active
+										.datatable-body-cell-label
+											span 07-09-2020
+									datatable-body-cell.datatable-body-cell.align-right.sort-active
+										.datatable-body-cell-label
+											span 123
+									datatable-body-cell.datatable-body-cell.align-right.sort-active
+										.datatable-body-cell-label
+											.td-actions
+												a.button.is-primary.ml-2(href="javascript:void(0);") Tạo quảng cáo
+												a.button.button-tippy.ml-2
+													i.icz.icz-fill-more
+								.datatable-row-right.datatable-row-group
+						datatable-row-wrapper.datatable-row-wrapper
+							datatable-body-row.datatable-body-row.datatable-row-odd(style="width: 1800px;")
+								.datatable-row-left.datatable-row-group
+								.datatable-row-center.datatable-row-group
+									datatable-body-cell.datatable-body-cell.sort-active
+										.datatable-body-cell-label
+											.control
+												input(id="check-a2" type="checkbox" name="")
+												label(for="check-a2") &nbsp;
+									datatable-body-cell.datatable-body-cell.sort-active
+										.datatable-body-cell-label
+											.td-has-switch
+												a.link(href='#!link') Form cho Pepsi demo
+												.switch.is-small
+													input(id="qc2" type="checkbox")
+													label.slider.round(for="qc2")
+									datatable-body-cell.datatable-body-cell.sort-active
+										.datatable-body-cell-label
+											span.status Bản nháp
+									datatable-body-cell.datatable-body-cell.sort-active
+										.datatable-body-cell-label
+											span 07-09-2020
+									datatable-body-cell.datatable-body-cell.align-right.sort-active
+										.datatable-body-cell-label
+											span 123
+									datatable-body-cell.datatable-body-cell.align-right.sort-active
+										.datatable-body-cell-label
+											.td-actions
+												a.button.is-primary.ml-2(href="javascript:void(0);") Tạo quảng cáo
+												a.button.button-tippy.ml-2
+													i.icz.icz-fill-more
+								.datatable-row-right.datatable-row-group
+						datatable-row-wrapper.datatable-row-wrapper
+							datatable-body-row.datatable-body-row.datatable-row-even.is-empty
+								.datatable-row-left.datatable-row-group
+								.datatable-row-center.datatable-row-group(style="width:100%")
+									datatable-body-cell.datatable-body-cell.sort-active(style="width:100%")
+										.datatable-body-cell-label
+											p.is-size-6.has-text-centered Không có dữ liệu. <a class="button-selectOa-empty" href="javascript:void(0);">Tạo form mới</a>
+								.datatable-row-right.datatable-row-group
+									
+			datatable-footer.datatable-footer
+				.datatable-footer-inner
+					.page-count 
+						.dropdown
+							a.button.dropdown-toggle(role="button" id="dropdown-pc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 1-10 / 81
+							.dropdown-menu(aria-labelledby="dropdown-pc")
+								ul
+									li
+										a.truncate(href="javascript:void(0)") 10 dòng một trang
+									li
+										a.truncate(href="javascript:void(0)") 20 dòng một trang
+									li
+										a.truncate(href="javascript:void(0)") 50 dòng một trang
+									li
+										a.truncate(href="javascript:void(0)") 100 dòng một trang
+					datatable-pager.datatable-pager
+						ul.pager
+							li.disabled
+								a(aria-label='go to first page', href='javascript:void(0)', role='button')
+									i.icz.icz-fill-layer-left
+							li.disabled
+								a(aria-label='go to previous page', href='javascript:void(0)', role='button')
+									i.icz.icz-left
+							li.pages.active(role='button', aria-label='page 1')
+								a(href='javascript:void(0)')  1 
+							li.pages(role='button', aria-label='page 2')
+								a(href='javascript:void(0)')  2 
+							li.pages(role='button', aria-label='page 3')
+								a(href='javascript:void(0)')  3 
+							li.pages(role='button', aria-label='page 4')
+								a(href='javascript:void(0)')  4 
+							li.pages(role='button', aria-label='page 5')
+								a(href='javascript:void(0)')  5 
+							li
+								a(aria-label='go to next page', href='javascript:void(0)', role='button')
+									i.icz.icz-right
+							li
+								a(aria-label='go to last page', href='javascript:void(0)', role='button')
+									i.icz.icz-fill-layer-right
+
+.bl-preview-form.is-sidebar
+	span.title Form cho pepsi
+	.actions
+		a.func-close.func-close-sidebar(href="javascript:void(0)")
+			i.icz.icz-close
+		a.func-create(href="javascript:void(0)")
+			i.icz.icz-add
+			span Tạo quảng cáo
+		a.func-edit(href="javascript:void(0)")
+			i.icz.icz-fill-edit
+			span Chỉnh sửa
+		a.func-preview(href="javascript:void(0)")
+			i.icz.icz-mobile
+			span Xem trước
+		a.func-delete.func-delete-form(href="javascript:void(0)")
+			i.icz.icz-trash
+			span Xóa form
+	include sidebar_form.pug
+.layer-sidebar
+
+#template(style="display:none;")
+	.dropdown-menu.dropdown-tippy
+		ul
+			li
+				a(href="javascript:void(0)") <i class="icz icz-fill-edit mr-2"></i>Chỉnh sửa
+			li
+				a.func-delete-form(href="javascript:void(0)") <i class="icz icz-trash mr-2 has-text-danger"></i>Xóa

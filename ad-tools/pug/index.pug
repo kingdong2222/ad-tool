@@ -156,8 +156,8 @@ block javaScripts extend
 									download.download = uploadedImageName;
 									download.href = result.toDataURL(uploadedImageType);
 
-									$("p.img-desc").html("<span>"+uploadedImageName+"</span>"+"<br>150x150");
-
+									$("p.img-desc").html(uploadedImageName+"<span><br>150x150</span>");
+									$("p.img-desc").addClass('avatar-name')
 									$( "div.avatar-image-input" ).replaceWith( "<img class='avatar-image-input' id='output' />" );
 									var output = document.getElementById('output');
 									output.src = result.toDataURL(uploadedImageType)
@@ -373,4 +373,11 @@ block javaScripts extend
 			}
 			
 		};
+		$("#check-grid").change(function(event){
+			if (this.checked){
+				$(".ads-img .squares").addClass("is-show");
+			} else {
+				$(".ads-img .squares").removeClass("is-show");
+			}
+		});
 		

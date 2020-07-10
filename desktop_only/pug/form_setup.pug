@@ -1,0 +1,147 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var header = true
+	- var loading = false
+	- var popperjs = true
+	- var tippyjs = true
+	- var moment = true
+	- var daterangepicker = true
+	- var popup = true
+	- var modal = true
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("zad-v2")
+	- layoutClasses.push("ad-desktop")
+	- headerClasses.push("header")
+	- bodyClasses.push("page-content")
+
+//- Add Header
+block header
+	include page/header.pug
+
+//- Add Body
+block body
+	include page/_form_setup.pug
+
+//- Add Popup
+block popup
+	include page/popup_setup_form.pug
+
+//- Add Modal
+block modal
+	include page/modal_oa.pug
+	include page/modal_alert.pug
+
+block javaScripts extend
+	script.
+		tippy('[data-tippy-content]',{});
+		const template = document.getElementById('template');
+			tippy('.button-tippy', {
+			content: template.innerHTML,
+			allowHTML: true,
+			trigger: 'click',
+			arrow: false,
+			hideOnClick: true,
+			theme: 'tomato',
+			placement: 'bottom',
+			onShown() {
+				$(".func-delete-form").click(function(){
+					$("html").addClass("overlay-modal");
+					$("#modal-delete-form").addClass("is-show");
+				});
+			}
+		});
+
+		$(function() {
+			$('input[name="daterange"]').daterangepicker({
+				opens: 'left',
+				showDropdowns: true,
+				minYear: 2019,
+				"alwaysShowCalendars": true,
+				locale: {
+					format: 'DD/MM/YYYY'
+				},
+				ranges: {
+					'Hôm nay': [moment(), moment()],
+					'Hôm qua': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+					'7 ngày trước': [moment().subtract(6, 'days'), moment()],
+					'30 ngày trước': [moment().subtract(29, 'days'), moment()],
+					'Tháng này': [moment().startOf('month'), moment().endOf('month')],
+					'Tháng trước': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+				},
+				maxYear: parseInt(moment().format('YYYY'),10)
+			});
+		});
+
+		$(".heading-setup .func-edit").click(function(){
+			$(".heading-setup .name").addClass("is-hidden");
+			$(".heading-setup input").removeClass("is-hidden");
+			$(".heading-setup input").focus();
+		});
+		$(".button.button-tippy").click(function(){
+			$(this).parents(".datatable-body-row").addClass("is-hover");
+		});
+		window.addEventListener('mouseup',function(event){
+			var pol = document.getElementsByClassName('.dropdown-tippy');
+			if(event.target != pol && event.target.parentNode != pol){
+				$(".datatable-body-row").removeClass("is-hover");
+			}
+		});
+		$(".button-create-adForm").click(function(){
+			$("html").removeClass("overlay-modal");
+			$(".modal-container").removeClass("is-show");
+			$("html").addClass("overlay-popup");
+			$("#popup-setup-form").addClass("is-show");
+		});
+		$(".func-close-popup").click(function(){
+			$("html").removeClass("overlay-popup");
+			$(".popup-container").removeClass("is-show");
+		});
+		
+		$(".button-selectOa").click(function(){
+			$("html").addClass("overlay-modal");
+			$("#modal-oa-select").addClass("is-show");
+		});
+		$(".button-selectOa-empty").click(function(){
+			$("html").addClass("overlay-modal");
+			$("#modal-oa-select-empty").addClass("is-show");
+		});
+		$(".func-delete-form").click(function(){
+			$("html").addClass("overlay-modal");
+			$("#modal-delete-form").addClass("is-show");
+		});
+		$(".func-close-modal").click(function(){
+			$("html").removeClass("overlay-modal");
+			$(".modal-container").removeClass("is-show");
+		});
+
+		$(".td-has-switch a.link").click(function(){
+			$("html").addClass("overlay-sidebar");
+			$(".is-sidebar").addClass("is-show");
+		});
+		$(".func-close-sidebar").click(function(){
+			$("html").removeClass("overlay-sidebar");
+			$(".is-sidebar").removeClass("is-show");
+		});
+		
+
+		// Demo
+		$(".tag-link.demo-func-name").click(function(){
+			$("#demo-name").removeClass("is-hidden");
+			$(this).parents(".tag").addClass("is-hidden");
+		});
+		$(".demo-func-name").click(function(){
+			$("#demo-name").removeClass("is-hidden");
+		});
+		$(".demo-func-ctr").click(function(){
+			$("#demo-ctr").removeClass("is-hidden");
+		});
+		$(".button.func-close").click(function(){
+			$(this).parents(".filter-box").addClass("is-hidden");
+		});

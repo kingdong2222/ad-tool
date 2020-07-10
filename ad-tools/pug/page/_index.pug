@@ -67,21 +67,71 @@ main
                             span tải ảnh lên
                     .large-image-preview
                         .image-preview-header
-                            p.large-img-name Banner final
+                            p.large-img-name Banner final <br>
                                 span 1024 x 533
-                        .dropdown.dropdown-call
-                            a.button.dropdown-toggle(role="button" id="dropdown-call" data-toggle="dropdown" aria-expanded="false")
-                                span.name-item Tùy chọn
-                                i.icz.icz-down
-                            .dropdown-menu(aria-labelledby="dropdown-call")
-                                ul
-                                    li 
-                                        a(href='')
-                                            span.name-item Thay đổi ảnh
-                                    li
-                                        a(href='')
-                                            span.name-item Tải ảnh xuống
-                            
+                            .dropdown.dropdown-call
+                                a.button.dropdown-toggle(role="button" id="dropdown-call" data-toggle="dropdown" aria-expanded="false")
+                                    span.name-item Tùy chọn
+                                    i.icz.icz-down
+                                .dropdown-menu(aria-labelledby="dropdown-call")
+                                    ul
+                                        li 
+                                            a(href='')
+                                                span.name-item Thay đổi ảnh
+                                        li
+                                            a(href='')
+                                                span.name-item Tải ảnh xuống
+                        .image-preview-body
+                            .ads-img
+                                #output.img-container(style='background-image:url(https://via.placeholder.com/600x400)')
+                                    img#imageSrc(src='', alt='', style='display:none')
+                                .squares
+                                    .row
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    div(style='clear:both;')
+                                    .row
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    div(style='clear:both;')
+                                    .row
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    div(style='clear:both;')
+                                    .row
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    div(style='clear:both;')
+                                    .row
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    .square
+                                    div(style='clear:both;')
+                            .ads-grid-switch
+                                p Lưới kiểm tra chữ
+                                label.switch
+                                    input(type="checkbox" checked)
+                                    span.slider.round
+                            .ads-text-ratio
+                                p Tỉ lệ văn bản:
+                                p.text-ratio Hãy chọn các ô có xuất hiện chữ
+                            .ads-img-quality
+                                p Chất lượng ảnh:
+                                p.img-quality Mờ
                 .text-input-item.second-item
                     .label-title
                         h3.title Nội dung
