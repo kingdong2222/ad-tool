@@ -10,7 +10,7 @@ main
                         h3.title Tiêu đề quảng cáo
                             i.icz.icz-question
                         p.max-letter 30
-                    input(type='text' placeholder='Nhập tiêu đề' maxlength=30)
+                    input#first-input(type='text' placeholder='Nhập tiêu đề' maxlength=30)
                 .text-input-item
                     .label-title
                         h3.title Nội dung quảng cáo
@@ -83,7 +83,7 @@ main
                                                 span.name-item Tải ảnh xuống
                         .image-preview-body
                             .ads-img
-                                #output-large-preview.img-container-preview(style='background-image:url(https://via.placeholder.com/600x400)')
+                                #output-large-preview.img-container-preview(style='background-image:url(https://via.placeholder.com/1024x533)')
                                     img#imageSrc-preview(src='', alt='', style='display:none')
                                 .squares
                                     .row
@@ -124,7 +124,7 @@ main
                             .ads-grid-switch
                                 p Lưới kiểm tra chữ
                                 label.switch
-                                    input(type="checkbox" checked)
+                                    input#check-grid(type="checkbox")
                                     span.slider.round
                             .ads-text-ratio
                                 p Tỉ lệ văn bản:
@@ -136,12 +136,18 @@ main
                     .label-title
                         h3.title Nội dung
                             i.icz.icz-question
-                    .content-card
+                    .content-card#content-card-first
                         .card-desc
                             i.icz.icz-fill-info
                             p Quảng cáo của bạn chưa có nội dung.<br>
-                                a Nhập nội dung 
+                                a(href="#first-input") Nhập nội dung 
                                 |để tiến hành kiểm tra.
+                        .card-error-list
+                            p.error-item Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây
+                    .content-card#content-card-second.is-hidden
+                        .card-desc
+                            i.icz.icz-fill-info
+                            p Nội dung của bạn chưa được kiểm tra, nhấn kiểm tra để xem kết quả
                         .card-error-list
                             p.error-item Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây
 

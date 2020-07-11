@@ -18,6 +18,7 @@
 		&.is-popup{background-color:rgba(36,46,66,1);@include padding($gap)}
 		.body{@include padding($gutter); }
 	}
+	input:focus{border: 1px solid red}
 	.header{display:flex;align-items:center;background-color:#050F2E;min-width:1024px;height: 60px;position: relative;z-index: 100;width: 100%;
 		a.logo{display:block;
 			i.ico-logo{display:block;background:url(../images/v2/logo_v2.png) 0 0 no-repeat;background-size:cover;@include size(105px, 20px);margin-left: 4rem;margin-right: 7rem;
@@ -125,6 +126,7 @@
 			font-weight: 600;
 			display: flex;
 			align-items: center;
+			margin-bottom: unset;
 			.icz{
 				font-size: 12px;
 				padding-left: 0.5rem;
@@ -415,8 +417,12 @@
 					p{
 						font-size: 14px;
 						color: #020554;
+						margin-bottom: unset;
 						a{
 							color: #248CFF;
+							&:hover{
+								text-decoration: none;
+							}
 						}
 					}
 				}

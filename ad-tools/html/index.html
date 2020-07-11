@@ -44,7 +44,7 @@
                   <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question"></i></h3>
                   <p class="max-letter">30</p>
                 </div>
-                <input type="text" placeholder="Nhập tiêu đề" maxlength="30">
+                <input id="first-input" type="text" placeholder="Nhập tiêu đề" maxlength="30">
               </div>
               <div class="text-input-item">
                 <div class="label-title">
@@ -117,7 +117,7 @@
                   </div>
                   <div class="image-preview-body">
                     <div class="ads-img">
-                      <div class="img-container-preview" id="output-large-preview" style="background-image:url(https://via.placeholder.com/600x400)"><img id="imageSrc-preview" src="" alt="" style="display:none"></div>
+                      <div class="img-container-preview" id="output-large-preview" style="background-image:url(https://via.placeholder.com/1024x533)"><img id="imageSrc-preview" src="" alt="" style="display:none"></div>
                       <div class="squares">
                         <div class="row"></div>
                         <div class="square"></div>
@@ -159,7 +159,7 @@
                     <div class="ads-grid-switch">
                       <p>Lưới kiểm tra chữ</p>
                       <label class="switch">
-                        <input type="checkbox" checked><span class="slider round"></span>
+                        <input id="check-grid" type="checkbox"><span class="slider round"></span>
                       </label>
                     </div>
                     <div class="ads-text-ratio">
@@ -177,9 +177,17 @@
                 <div class="label-title">
                   <h3 class="title">Nội dung<i class="icz icz-question"></i></h3>
                 </div>
-                <div class="content-card">
+                <div class="content-card" id="content-card-first">
                   <div class="card-desc"><i class="icz icz-fill-info"></i>
-                    <p>Quảng cáo của bạn chưa có nội dung.<br><a>Nhập nội dung </a>để tiến hành kiểm tra.</p>
+                    <p>Quảng cáo của bạn chưa có nội dung.<br><a href="#first-input">Nhập nội dung </a>để tiến hành kiểm tra.</p>
+                  </div>
+                  <div class="card-error-list">
+                    <p class="error-item">Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây</p>
+                  </div>
+                </div>
+                <div class="content-card is-hidden" id="content-card-second">
+                  <div class="card-desc"><i class="icz icz-fill-info"></i>
+                    <p>Nội dung của bạn chưa được kiểm tra, nhấn kiểm tra để xem kết quả</p>
                   </div>
                   <div class="card-error-list">
                     <p class="error-item">Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây</p>
@@ -270,12 +278,6 @@
       $("#large-image-input").click(()=>{
       	cropLargeImg()
       })
-      
-      
-      //- window.onload = () => {
-      //- 	crop()
-      //- 	cropLargeImg()
-      //- }
       var crop = function(){
       
       	var Cropper = window.Cropper;
@@ -430,10 +432,8 @@
       	} else {
       		inputImage.disabled = true;
       		inputImage.parentNode.className += ' disabled';
-      	}
-      	
+      	}	
       };
-      
       var cropLargeImg = function(){
       
       	var Cropper = window.Cropper;
@@ -590,16 +590,44 @@
       	} else {
       		inputImage.disabled = true;
       		inputImage.parentNode.className += ' disabled';
-      	}
-      	
+      	}	
       };
       $("#check-grid").change(function(event){
+      	console.log(event)
       	if (this.checked){
       		$(".ads-img .squares").addClass("is-show");
       	} else {
       		$(".ads-img .squares").removeClass("is-show");
       	}
       });
+      
+      const text_input_items = document.getElementsByClassName('text-input-item')
+      const content_card_0 = document.getElementById('content-card-first')
+      const content_card_1 = document.getElementById('content-card-second')
+      for( item of text_input_items ){
+      	if(item.getElementsByTagName('INPUT')[0]){
+      		item.getElementsByTagName('INPUT')[0].oninput = value => {
+      			if(value.target.value){
+      				content_card_0.classList.add('is-hidden')
+      				content_card_1.classList.remove('is-hidden')
+      			} else {
+      				content_card_0.classList.remove('is-hidden')
+      				content_card_1.classList.add('is-hidden')
+      			}
+      			
+      		}
+      	} else if(item.getElementsByTagName('TEXTAREA')[0]){
+      		item.getElementsByTagName('TEXTAREA')[0].oninput = value => {
+      			if(value.target.value){
+      				content_card_0.classList.add('is-hidden')
+      				content_card_1.classList.remove('is-hidden')
+      			} else {
+      				content_card_0.classList.remove('is-hidden')
+      				content_card_1.classList.add('is-hidden')
+      			}
+      		}
+      	}
+      }
     </script>
   </body>
 </html>
