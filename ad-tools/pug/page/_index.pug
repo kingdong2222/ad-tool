@@ -9,13 +9,13 @@ main
                     .label-title
                         h3.title Tiêu đề quảng cáo
                             i.icz.icz-question
-                        p.max-letter 30
+                        p.max-letter#max-letter-first 30
                     input#first-input(type='text' placeholder='Nhập tiêu đề' maxlength=30)
                 .text-input-item
                     .label-title
                         h3.title Nội dung quảng cáo
                             i.icz.icz-question
-                        p.max-letter 90
+                        p.max-letter#max-letter-second 90
                     textarea#second-input( placeholder='Nhập nội dung' maxlength=90)
                 .text-input-item
                     .label-title
@@ -24,6 +24,7 @@ main
                     .image-input
                         .avatar-image-input
                             input#avatar-image-input(type='file' accept="image/*")
+                            .focus-avatar-input
                         i.icz.icz-image-add-2
                             input#avatar-image-input-0(type='file' accept="image/*")
                         p.img-desc Kích thước 150 x 150 pixel <br> Tối đa 2Mb
@@ -32,13 +33,13 @@ main
                     .label-title
                         h3.title Mô tả thêm
                             i.icz.icz-question
-                        p.max-letter 48
+                        p.max-letter#max-letter-third 48
                     input#third-input(type='text' placeholder='Mô tả ngắn gọn' maxlength=48)
                 .text-input-item
                     .label-title
                         h3.title Thông tin thêm
                             i.icz.icz-question
-                        p.max-letter 48
+                        p.max-letter#max-letter-fourth 48
                     input#fourth-input(type='text' placeholder='Nhập thông tin thêm' maxlength=48)
                 .text-input-item
                     .label-title
@@ -136,7 +137,7 @@ main
                         .card-desc
                             i.icz.icz-fill-info
                             p Quảng cáo của bạn chưa có nội dung.<br>
-                                a(href="#first-input") Nhập nội dung 
+                                a(onclick="focusFirstInput()") Nhập nội dung 
                                 |để tiến hành kiểm tra.
                         .card-error-list
                             p Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây
@@ -151,7 +152,7 @@ main
                             i.icz.icz-fill-warning
                             p Sử dụng từ ngữ bị hạn chế
                         .card-error-list
-                            p.error-item nhất
+                            //- p.error-item nhất
                     .content-card#alert-card-second.is-hidden
                         .card-desc
                             i.icz.icz-fill-warning
@@ -163,7 +164,7 @@ main
                             i.icz.icz-fill-error
                             p Cảnh báo! Nội dung của bạn có sử dụng từ ngữ vi phạm qui định quảng cáo.
                         .card-error-list
-                            p.error-item Ngoại tình
+                            //- p.error-item Ngoại tình
         .policy-bottom-desc
             p Đây là công cụ giúp bạn tối ưu hóa cài đặt quảng cáo. Việc xét duyệt quảng cáo không thuộc quản lý của công cụ này. <br>Xem thêm các 
                 a quy định quảng cáo 

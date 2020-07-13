@@ -258,8 +258,11 @@
 				border-radius: 4px;
 				font-size: 14px;
 				padding: 12px;
+				outline:none;
 				&:focus{
 					border-color: #1744CF;
+					outline:none;
+					box-shadow: 0 0 0 0.125em rgba(23,69,207,0.15);
 				}
 			}
 			textarea{
@@ -329,7 +332,20 @@
 					border-radius: 99px;
 					cursor: pointer;
 					margin-right: 20px;
+					.focus-avatar-input{
+						position: absolute;
+						height: 100%;
+						width: 100%;
+						top: 0;
+						left: 0;
+						border: 2.5px solid #1744CF;
+						box-shadow: 0 0 0 0.125em rgba(23,69,207,0.15);
+						border-radius: 99px;
+						display: none;
+						// border-style: dashed;
+					}
 					input{
+						
 						cursor: pointer;
 						position: absolute;
 						opacity: 0;
@@ -342,6 +358,9 @@
 						z-index: 99;
 						font-size: 0;
 						padding: 0;
+						&:focus + .focus-avatar-input, &:focus-within + .focus-avatar-input{
+							display: unset;
+						}
 					}
 					&:before{
 						content: "\ea7b";
@@ -556,6 +575,13 @@
 						border-radius: 14px;
 						padding: 4px 12px;
 					}
+				}
+				.preview-focus{
+					border: 1px solid rgba(#1744CF,0.8);
+					box-shadow: 0 61px 84px 0 rgba(67,86,100,0.14);
+					border-radius: 8px;
+					padding: 5px;
+					width: fit-content;
 				}
 			}
 		}

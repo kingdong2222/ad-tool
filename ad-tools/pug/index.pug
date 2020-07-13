@@ -769,64 +769,121 @@ block javaScripts extend
 			});
 		});
 
-
-		const text_input_items = document.getElementsByClassName('text-input-item')
 		const content_card_0 = document.getElementById('content-card-first')
 		const content_card_1 = document.getElementById('content-card-second')
-		for( item of text_input_items ){
-			if(item.getElementsByTagName('INPUT')[0]){
-				item.getElementsByTagName('INPUT')[0].oninput = value => {
-					if(value.target.value){
-						content_card_0.classList.add('is-hidden')
-						content_card_1.classList.remove('is-hidden')
-					} else {
-						content_card_0.classList.remove('is-hidden')
-						content_card_1.classList.add('is-hidden')
-					}
-					
+
+		const warning_word_card = document.getElementById('alert-card-first')
+		const warning_uppercase_card = document.getElementById('alert-card-second')
+		const banned_word_card = document.getElementById('alert-card-third')
+
+		let first_input = document.getElementById('first-input')
+		let second_input = document.getElementById('second-input')
+		let third_input = document.getElementById('third-input')
+		let fourth_input = document.getElementById('fourth-input')
+
+		let first_max_letter = document.getElementById('max-letter-first')
+		let second_max_letter = document.getElementById('max-letter-second')
+		let third_max_letter = document.getElementById('max-letter-third')
+		let fourth_max_letter = document.getElementById('max-letter-fourth')
+
+		let first_content_preview = document.getElementById('first-preview')
+		let second_content_preview = document.getElementById('second-preview')
+		let third_content_preview = document.getElementById('third-preview')
+		let fourth_content_preview = document.getElementById('fourth-preview')
+
+		first_input.oninput = value =>{
+			if(value.target.value){
+				first_content_preview.innerHTML = value.target.value
+				first_max_letter.innerHTML = first_input.maxLength - first_input.value.length
+				if(second_input.value || third_input.value || fourth_input.value){
+					//do nothing cause it's done already
 				}
-			} else if(item.getElementsByTagName('TEXTAREA')[0]){
-				item.getElementsByTagName('TEXTAREA')[0].oninput = value => {
-					if(value.target.value){
-						content_card_0.classList.add('is-hidden')
-						content_card_1.classList.remove('is-hidden')
-					} else {
-						content_card_0.classList.remove('is-hidden')
-						content_card_1.classList.add('is-hidden')
-					}
+				else{
+					content_card_0.classList.add('is-hidden')
+					content_card_1.classList.remove('is-hidden')
+				}
+			} else {
+				first_content_preview.innerHTML = 'Tiêu đề quảng cáo'
+				first_max_letter.innerHTML = first_input.maxLength
+				if(second_input.value || third_input.value || fourth_input.value){
+					//do nothing cause it's done already
+				}
+				else{
+					content_card_0.classList.remove('is-hidden')
+					content_card_1.classList.add('is-hidden')
 				}
 			}
 		}
 
-		document.getElementById('first-input').oninput = value =>{
+		second_input.oninput = value =>{
 			if(value.target.value){
-				document.getElementById('first-preview').innerHTML = value.target.value
+				second_content_preview.innerHTML = value.target.value
+				second_max_letter.innerHTML = second_input.maxLength - second_input.value.length
+				if(first_input.value || third_input.value || fourth_input.value){
+					//do nothing cause it's done already
+				}
+				else{
+					content_card_0.classList.add('is-hidden')
+					content_card_1.classList.remove('is-hidden')
+				}
 			} else {
-				document.getElementById('first-preview').innerHTML = 'Tiêu đề quảng cáo'
+				second_content_preview.innerHTML = 'Nội dung quảng cáo'
+				second_max_letter.innerHTML = second_input.maxLength
+				if(first_input.value || third_input.value || fourth_input.value){
+					//do nothing cause it's done already
+				}
+				else{
+					content_card_0.classList.remove('is-hidden')
+					content_card_1.classList.add('is-hidden')
+				}
 			}
 		}
 
-		document.getElementById('second-input').oninput = value =>{
+		third_input.oninput = value =>{
 			if(value.target.value){
-				document.getElementById('second-preview').innerHTML = value.target.value
+				third_content_preview.innerHTML = value.target.value
+				third_max_letter.innerHTML = third_input.maxLength - third_input.value.length
+				if(second_input.value || first_input.value || fourth_input.value){
+					//do nothing cause it's done already
+				}
+				else{
+					content_card_0.classList.add('is-hidden')
+					content_card_1.classList.remove('is-hidden')
+				}
 			} else {
-				document.getElementById('second-preview').innerHTML = 'Nội dung quảng cáo'
+				third_content_preview.innerHTML = 'Mô tả thêm'
+				third_max_letter.innerHTML = third_input.maxLength
+				if(second_input.value || first_input.value || fourth_input.value){
+					//do nothing cause it's done already
+				}
+				else{
+					content_card_0.classList.remove('is-hidden')
+					content_card_1.classList.add('is-hidden')
+				}
 			}
 		}
 
-		document.getElementById('third-input').oninput = value =>{
+		fourth_input.oninput = value =>{
 			if(value.target.value){
-				document.getElementById('third-preview').innerHTML = value.target.value
+				fourth_content_preview.innerHTML = value.target.value
+				fourth_max_letter.innerHTML = fourth_input.maxLength - fourth_input.value.length
+				if(second_input.value || first_input.value || third_input.value){
+					//do nothing cause it's done already
+				}
+				else{
+					content_card_0.classList.add('is-hidden')
+					content_card_1.classList.remove('is-hidden')
+				}
 			} else {
-				document.getElementById('third-preview').innerHTML = 'Mô tả thêm'
-			}
-		}
-
-		document.getElementById('fourth-input').oninput = value =>{
-			if(value.target.value){
-				document.getElementById('fourth-preview').innerHTML = value.target.value
-			} else {
-				document.getElementById('fourth-preview').innerHTML = 'Thông tin thêm'
+				fourth_content_preview.innerHTML = 'Thông tin thêm'
+				fourth_max_letter.innerHTML = fourth_input.maxLength
+				if(second_input.value || first_input.value || third_input.value){
+					//do nothing cause it's done already
+				}
+				else{
+					content_card_0.classList.remove('is-hidden')
+					content_card_1.classList.add('is-hidden')
+				}
 			}
 		}
 		
@@ -838,45 +895,211 @@ block javaScripts extend
 			}
 		}
 
-		// check error
+		function focusFirstInput(){
+			first_input.focus()
+		}
+
+		let banned_words = [
+			'duy nhất', 'tốt nhất', 'nhất','cam kết'
+		]
+		// check banned words
 		function checkPolicy(val) {
-			for (let i = 0; i < data.length; i++) {
-				const element = data[i];
-				if(val.includes(element.policy)) {
-					console.log('nguy hiem');
-					console.log(data[i].policy)
-					break;
+			let valueLower = val.toLowerCase()
+			let getBanWordsList = []
+			for (let i = 0; i < banned_words.length; i++) {
+				if(valueLower.includes(banned_words[i])) {
+					getBanWordsList.push(banned_words[i])
 				}	
 			}
+			return getBanWordsList
 		}
+
+		let warning_words = [
+			'tin nóng', 'tin giật gân', 'tin 24h'
+		]
 		// check warning
 		function checkWarning(val) {
-			for (let i = 0; i < data2.length; i++) {
-				const element = data2[i];
-				if(val.includes(element.policy)) {
-					console.log('');
-					console.log(data2[i].policy)
-					break;
-				}
-				
+			let valueLower = val.toLowerCase()
+			let getBanWordsList = []
+			for (let i = 0; i < warning_words.length; i++) {
+				if(valueLower.includes(banned_words[i])) {
+					getBanWordsList.push(banned_words[i])
+				}	
 			}
+			return getBanWordsList
 		}
 		function checkFormat(val) {
-			if(val.charAt(0) != val.charAt(0).toUpperCase() || val.charAt(0) == ' '){
-				document.getElementById('hihi3').innerHTML = 'Chữ đầu tiên chưa viết hoa'
-			}
-			else{
-				document.getElementById('hihi3').innerHTML = 'Chữ đầu tiên đã viết hoa'
-
-			}
+			if(val.charAt(0) != val.charAt(0).toUpperCase() || val.charAt(0) == ' ')
+				return 1;
+					return 0;
 		}
 		function checkFormat2(val) {
 			for(let i = 1; i<val.length; i++){
 				if(val[i] != val[i].toLowerCase()){
-					document.getElementById('hihi2').innerHTML = 'k duoc viet hoa cac từ đằng sau'
+					return 1;
 					break;
 				}
 			}
 		}
+		//click button Test
+		const InputFormat = /^[a-z0-9A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$/g
+		document.getElementById('check-form-ad').onclick = value =>{
+			
+			let value_1 = first_input.value
+			let value_2 = second_input.value
+			let value_3 = third_input.value
+			let value_4 = fourth_input.value
+			if(!first_input.value){
+				first_input.focus()
+			} else {
+				if(value_1.indexOf("  ") > -1 
+					|| value_1.indexOf("...") > -1
+					|| value_1.match(InputFormat) == null
+					|| checkFormat(value_1) == 1
+					|| checkFormat2(value_1) == 1){
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+				} else{
+					$("#content-card-second .card-desc p").html('Nội dung đã được kiểm tra. Phần xem trước nằm bên phải màn hình.')
+				}	
+				if(checkPolicy(value_1).length > 0){
+					content_card_1.classList.add('is-hidden')
+					banned_word_card.classList.remove('is-hidden')
+					let list = checkPolicy(value_1)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-third .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+					}
+				}
+				if(checkWarning(value_1).length > 0){
+					content_card_1.classList.add('is-hidden')
+					warning_word_card.classList.remove('is-hidden')
+					let list = checkWarning(value_1)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-first .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+					}
+				}
+			}
+			if(!second_input.value){
+				second_input.focus()
+			} else {
+				if(value_2.indexOf("  ") > -1 
+					|| value_2.indexOf("...") > -1
+					|| value_2.match(InputFormat) == null
+					|| checkFormat(value_2) == 1
+					|| checkFormat2(value_2) == 1){
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+				} else{
+					$("#content-card-second .card-desc p").html('Nội dung đã được kiểm tra. Phần xem trước nằm bên phải màn hình.')
+				}	
+				if(checkPolicy(value_2).length > 0){
+					content_card_1.classList.add('is-hidden')
+					banned_word_card.classList.remove('is-hidden')
+					let list = checkPolicy(value_2)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-third .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+					}
+				}
+				if(checkWarning(value_2).length > 0){
+					content_card_1.classList.add('is-hidden')
+					warning_word_card.classList.remove('is-hidden')
+					let list = checkWarning(value_2)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-first .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+					}
+				}
+			}
+			if(value_3){
+				if(value_3.indexOf("  ") > -1 
+					|| value_3.indexOf("...") > -1
+					|| value_3.match(InputFormat) == null
+					|| checkFormat(value_3) == 1
+					|| checkFormat2(value_3) == 1){
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+				} else{
+					$("#content-card-second .card-desc p").html('Nội dung đã được kiểm tra. Phần xem trước nằm bên phải màn hình.')
+				}
+				if(checkPolicy(value_3).length > 0){
+					content_card_1.classList.add('is-hidden')
+					banned_word_card.classList.remove('is-hidden')
+					let list = checkPolicy(value_3)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-third .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+					}
+				}
+				if(checkWarning(value_3).length > 0){
+					content_card_1.classList.add('is-hidden')
+					warning_word_card.classList.remove('is-hidden')
+					let list = checkWarning(value_3)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-first .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+					}
+				}
+			}
+			if(value_4){
+				if(value_4.indexOf("  ") > -1 
+					|| value_4.indexOf("...") > -1
+					|| value_4.match(InputFormat) == null
+					|| checkFormat(value_4) == 1
+					|| checkFormat2(value_4) == 1){
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+				} else{
+					$("#content-card-second .card-desc p").html('Nội dung đã được kiểm tra. Phần xem trước nằm bên phải màn hình.')
+				}
+				if(checkPolicy(value_4).length > 0){
+					content_card_1.classList.add('is-hidden')
+					banned_word_card.classList.remove('is-hidden')
+					let list = checkPolicy(value_4)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-third .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+					}
+				}
+				if(checkWarning(value_4).length > 0){
+					content_card_1.classList.add('is-hidden')
+					warning_word_card.classList.remove('is-hidden')
+					let list = checkWarning(value_4)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-first .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+					}
+				}
+			}
+		}
 
-		const InputFormat = /^[0-9a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$/
+		first_input.onfocus = value => {
+			first_content_preview.classList.add('preview-focus')
+			second_content_preview.classList.remove('preview-focus')
+			third_content_preview.classList.remove('preview-focus')
+			fourth_content_preview.classList.remove('preview-focus')
+		}
+		first_input.onblur = value =>{
+			first_content_preview.classList.toggle('preview-focus')
+		}
+		second_input.onfocus = value => {
+			second_content_preview.classList.add('preview-focus')
+			first_content_preview.classList.remove('preview-focus')
+			third_content_preview.classList.remove('preview-focus')
+			fourth_content_preview.classList.remove('preview-focus')
+		}
+		second_input.onblur = value =>{
+			second_content_preview.classList.toggle('preview-focus')
+		}
+		third_input.onfocus = value => {
+			third_content_preview.classList.add('preview-focus')
+			second_content_preview.classList.remove('preview-focus')
+			first_content_preview.classList.remove('preview-focus')
+			fourth_content_preview.classList.remove('preview-focus')
+		}
+		third_input.onblur = value =>{
+			third_content_preview.classList.toggle('preview-focus')
+		}
+		fourth_input.onfocus = value => {
+			fourth_content_preview.classList.add('preview-focus')
+			second_content_preview.classList.remove('preview-focus')
+			third_content_preview.classList.remove('preview-focus')
+			first_content_preview.classList.remove('preview-focus')
+		}
+		fourth_input.onblur = value =>{
+			fourth_content_preview.classList.toggle('preview-focus')
+		}
