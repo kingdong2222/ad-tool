@@ -16,7 +16,7 @@ main
                         h3.title Nội dung quảng cáo
                             i.icz.icz-question
                         p.max-letter 90
-                    textarea( placeholder='Nhập nội dung' maxlength=90)
+                    textarea#second-input( placeholder='Nhập nội dung' maxlength=90)
                 .text-input-item
                     .label-title
                         h3.title Tiêu đề quảng cáo
@@ -24,36 +24,31 @@ main
                     .image-input
                         .avatar-image-input
                             input#avatar-image-input(type='file' accept="image/*")
+                        i.icz.icz-image-add-2
+                            input#avatar-image-input-0(type='file' accept="image/*")
                         p.img-desc Kích thước 150 x 150 pixel <br> Tối đa 2Mb
+                        
                 .text-input-item
                     .label-title
                         h3.title Mô tả thêm
                             i.icz.icz-question
                         p.max-letter 48
-                    input(type='text' placeholder='Mô tả ngắn gọn' maxlength=48)
+                    input#third-input(type='text' placeholder='Mô tả ngắn gọn' maxlength=48)
                 .text-input-item
                     .label-title
                         h3.title Thông tin thêm
                             i.icz.icz-question
                         p.max-letter 48
-                    input(type='text' placeholder='Nhập thông tin thêm' maxlength=48)
+                    input#fourth-input(type='text' placeholder='Nhập thông tin thêm' maxlength=48)
                 .text-input-item
                     .label-title
                         h3.title Nút kêu gọi
                             i.icz.icz-question
-                    .dropdown.dropdown-call
-                        a.button.dropdown-toggle(role="button" id="dropdown-call" data-toggle="dropdown" aria-expanded="false")
-                            span.name-item Mua ngay
-                            i.icz.icz-down
-                        .dropdown-menu(aria-labelledby="dropdown-call")
-                            ul
-                                li 
-                                    a(href='')
-                                        span.name-item Mua ngay
-                                li
-                                    a(href='')
-                                        span.name-item Mua ngay
-                .button.is-primary.is-large Kiểm tra
+                    .select
+                        select#fifth-input
+                            option Mua ngay
+                            option Bán ngay
+                .button.is-primary.is-large#check-form-ad Kiểm tra
 
             .container_col.checking
                 h2.checking-title.title Kiểm tra
@@ -76,10 +71,11 @@ main
                                 .dropdown-menu(aria-labelledby="dropdown-call")
                                     ul
                                         li 
-                                            a(href='')
+                                            a#change-large-img
                                                 span.name-item Thay đổi ảnh
+                                                input#change-large-img-input(type='file' accept="image/*")
                                         li
-                                            a(href='')
+                                            a#download-large-image
                                                 span.name-item Tải ảnh xuống
                         .image-preview-body
                             .ads-img
@@ -87,51 +83,51 @@ main
                                     img#imageSrc-preview(src='', alt='', style='display:none')
                                 .squares
                                     .row
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    div(style='clear:both;')
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        div(style='clear:both;')
                                     .row
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    div(style='clear:both;')
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        div(style='clear:both;')
                                     .row
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    div(style='clear:both;')
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        div(style='clear:both;')
                                     .row
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    div(style='clear:both;')
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        div(style='clear:both;')
                                     .row
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    .square
-                                    div(style='clear:both;')
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        .square
+                                        div(style='clear:both;')
                             .ads-grid-switch
                                 p Lưới kiểm tra chữ
                                 label.switch
-                                    input#check-grid(type="checkbox")
+                                    input#check-grid(type="checkbox" checked)
                                     span.slider.round
                             .ads-text-ratio
                                 p Tỉ lệ văn bản:
-                                p.text-ratio Hãy chọn các ô có xuất hiện chữ
+                                p.check-msg Hãy chọn các ô có xuất hiện chữ
                             .ads-img-quality
                                 p Chất lượng ảnh:
-                                p.img-quality Mờ
+                                p#img-quality Mờ
                 .text-input-item.second-item
                     .label-title
                         h3.title Nội dung
@@ -150,19 +146,19 @@ main
                             p Nội dung của bạn chưa được kiểm tra, nhấn kiểm tra để xem kết quả
                         .card-error-list
                             p Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây
-                    .content-card#alert-card-first
+                    .content-card#alert-card-first.is-hidden
                         .card-desc
                             i.icz.icz-fill-warning
                             p Sử dụng từ ngữ bị hạn chế
                         .card-error-list
                             p.error-item nhất
-                    .content-card#alert-card-second
+                    .content-card#alert-card-second.is-hidden
                         .card-desc
                             i.icz.icz-fill-warning
                             p Sử dụng định dạng vi phạm qui định quảng cáo
                         .card-error-list
                             p Nội dung không được in hoa toàn bộ, in hoa tất cả chữ cái đầu tiên, sử dụng dấu ba chấm
-                    .content-card#alert-card-third
+                    .content-card#alert-card-third.is-hidden
                         .card-desc
                             i.icz.icz-fill-error
                             p Cảnh báo! Nội dung của bạn có sử dụng từ ngữ vi phạm qui định quảng cáo.
@@ -180,12 +176,12 @@ main
                     .label-title
                         .avatar.avatar--m
                             span.avatar-img(style="background-image:url(../../html/images/avatar.png)")
-                        h3.title Tiêu đề quảng cáo
-                    h3.title Nội dung quảng cáo
+                        h3.title#first-preview Tiêu đề quảng cáo
+                    h3.title#second-preview Nội dung quảng cáo
                     .preview-sample
                     .ad-desc
                         .optional
-                            p.optional-desc Mô tả thêm
-                            p.optional-info Thông tin thêm
-                        .button-buy-now Mua ngay
+                            p.optional-desc#third-preview Mô tả thêm
+                            p.optional-info#fourth-preview Thông tin thêm
+                        .button-buy-now#fifth-preview Mua ngay
 

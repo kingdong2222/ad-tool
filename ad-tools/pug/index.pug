@@ -53,10 +53,21 @@ block javaScripts extend
 		$("#avatar-image-input").click(()=>{
 			crop()
 		})
+		$("#avatar-image-input-0").click(()=>{
+			cropAvatarAgain()
+		})
+		
 
 		$("#large-image-input").click(()=>{
 			cropLargeImg()
 		})
+		$("#change-large-img").click(()=>{
+			document.getElementById("change-large-img-input").click()
+		})
+		$('#change-large-img-input').click(()=>{
+			cropLargeImgAgain()
+		})
+
 		var crop = function(){
 
 			var Cropper = window.Cropper;
@@ -213,13 +224,165 @@ block javaScripts extend
 				inputImage.parentNode.className += ' disabled';
 			}	
 		};
-		var cropLargeImg = function(){
+		var cropAvatarAgain = function(){
 
 			var Cropper = window.Cropper;
 			var URL = window.URL || window.webkitURL;
 			var container = document.querySelector('.img-container');
 			var image = container.getElementsByTagName('img').item(0);
 			var download = document.getElementById('download-avatar');
+			var actions = document.getElementById('actions');
+			var options = {
+				aspectRatio: 1,
+			};
+			var cropper = new Cropper(image, options);
+			var originalImageURL = image.src;
+			var uploadedImageType = 'image/*';
+			var uploadedImageName = 'cropped.jpeg';
+			var uploadedImageURL;
+
+			// Buttons
+			if (!document.createElement('canvas').getContext) {
+				$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+			}
+
+			if (typeof document.createElement('cropper').style.transition === 'undefined') {
+				$('button[data-method="rotate"]').prop('disabled', true);
+				$('button[data-method="scale"]').prop('disabled', true);
+			}
+
+			// Methods
+			actions.querySelector('.docs-buttons').onclick = function (event) {
+				var e = event || window.event;
+				var target = e.target || e.srcElement;
+				var cropped;
+				var result;
+				var input;
+				var data;
+
+				if (!cropper) {
+					return;
+				}
+				while (target !== this) {
+					if (target.getAttribute('data-method')) {
+						break;
+					}
+
+					target = target.parentNode;
+				}
+				if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+					return;
+				}
+				data = {
+					method: target.getAttribute('data-method'),
+					target: target.getAttribute('data-target'),
+					option: target.getAttribute('data-option') || undefined,
+					secondOption: target.getAttribute('data-second-option') || undefined
+				};
+				cropped = cropper.cropped;
+				if (data.method) {
+					if (typeof data.target !== 'undefined') {
+						input = document.querySelector(data.target);
+
+						if (!target.hasAttribute('data-option') && data.target && input) {
+							try {
+								data.option = JSON.parse(input.value);
+							} catch (e) {
+								console.log(e.message);
+							}
+						}
+					}
+					switch (data.method) {
+						case 'getCroppedCanvas':
+							try {
+								data.option = JSON.parse(data.option);
+							} catch (e) {
+								console.log(e.message);
+							}
+							if (uploadedImageType === 'image/*') {
+								if (!data.option) {
+									data.option = {};
+								}
+								data.option.fillColor = '#fff';
+							}
+							break;
+					}
+					result = cropper[data.method](data.option, data.secondOption);
+
+					switch (data.method) {
+						case 'getCroppedCanvas':
+							if (result) {
+								console.log(result)
+								if (!download.disabled) {
+									download.download = uploadedImageName;
+									download.href = result.toDataURL(uploadedImageType);
+
+									$("p.img-desc").html(uploadedImageName+"<span><br>150x150</span>");
+									$("p.img-desc").addClass('avatar-name')
+
+									document.getElementById('output').src = result.toDataURL(uploadedImageType)
+									document.getElementById('output-preview').src = result.toDataURL(uploadedImageType)
+								}
+							}
+
+							break;
+					}
+
+					if (typeof result === 'object' && result !== cropper && input) {
+						try {
+							input.value = JSON.stringify(result);
+						} catch (e) {
+							console.log(e.message);
+						}
+					}
+				}
+			};
+
+
+			// Import image
+			var inputImage = document.getElementById('avatar-image-input-0');
+
+			if (URL) {
+				inputImage.onchange = function () {
+					var files = this.files;
+					var file;
+
+					if (cropper && files && files.length) {
+
+						$("html").addClass("overlay-modal");
+						$("#modalEditImg").addClass("show");
+
+						file = files[0];
+
+						if (/^image\/\w+/.test(file.type)) {
+							uploadedImageType = file.type;
+							uploadedImageName = file.name;
+
+							if (uploadedImageURL) {
+								URL.revokeObjectURL(uploadedImageURL);
+							}
+
+							image.src = uploadedImageURL = URL.createObjectURL(file);
+							cropper.destroy();
+							cropper = new Cropper(image, options);
+							inputImage.value = null;
+						} else {
+							window.alert('Please choose an image file.');
+						}
+					}
+				};
+			} else {
+				inputImage.disabled = true;
+				inputImage.parentNode.className += ' disabled';
+			}	
+		};
+		var cropLargeImg = function(){
+
+			var Cropper = window.Cropper;
+			var URL = window.URL || window.webkitURL;
+			var container = document.querySelector('.img-container');
+			var image = container.getElementsByTagName('img').item(0);
+			var download = document.getElementById('download-large-image');
 			var actions = document.getElementById('actions');
 			var options = {
 				aspectRatio: 1024/533,
@@ -310,13 +473,34 @@ block javaScripts extend
 
 									$(".large-img-name").html(uploadedImageName+"<br><span>1024 x 533</span>")
 
-									document.getElementById('output-large-preview').style.backgroundImage = "none"
-									document.getElementById('imageSrc-preview').style.display = 'block'
-									document.getElementById('imageSrc-preview').src = result.toDataURL(uploadedImageType)
+									document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
 
 									$( ".preview-sample" ).replaceWith( "<img class='preview-sample' id='output-preview-large' style='background:none;'/>" );
 									var output_preview_large = document.getElementById('output-preview-large');
 									output_preview_large.src = result.toDataURL(uploadedImageType)
+								
+									//check blur
+									let imgElement = document.getElementById('output-preview-large');
+									imgElement.onload = function () {
+										let src = cv.imread(imgElement);
+										let dst = new cv.Mat();
+										let men = new cv.Mat();
+										let menO = new cv.Mat();
+										cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+										// You can try more different parameters
+										var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+										console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+										if (men.data64F[0] > 10) {
+											document.getElementById('img-quality').innerHTML = 'Đạt'
+										} else {
+											document.getElementById('img-quality').innerHTML = 'Mờ'
+										}
+										// cv.imshow('canvasOutput', dst);
+										src.delete(); dst.delete();
+									};
+								
+									$(".ads-img .squares").addClass("is-show");
+
 								}
 							}
 
@@ -371,14 +555,220 @@ block javaScripts extend
 				inputImage.parentNode.className += ' disabled';
 			}	
 		};
+		var cropLargeImgAgain = function(){
+
+			var Cropper = window.Cropper;
+			var URL = window.URL || window.webkitURL;
+			var container = document.querySelector('.img-container');
+			var image = container.getElementsByTagName('img').item(0);
+			var download = document.getElementById('download-large-image');
+			var actions = document.getElementById('actions');
+			var options = {
+				aspectRatio: 1024/533,
+			};
+			var cropper = new Cropper(image, options);
+			var originalImageURL = image.src;
+			var uploadedImageType = 'image/*';
+			var uploadedImageName = 'cropped.jpeg';
+			var uploadedImageURL;
+
+			// Buttons
+			if (!document.createElement('canvas').getContext) {
+				$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+			}
+
+			if (typeof document.createElement('cropper').style.transition === 'undefined') {
+				$('button[data-method="rotate"]').prop('disabled', true);
+				$('button[data-method="scale"]').prop('disabled', true);
+			}
+
+			// Methods
+			actions.querySelector('.docs-buttons').onclick = function (event) {
+				var e = event || window.event;
+				var target = e.target || e.srcElement;
+				var cropped;
+				var result;
+				var input;
+				var data;
+
+				if (!cropper) {
+					return;
+				}
+				while (target !== this) {
+					if (target.getAttribute('data-method')) {
+						break;
+					}
+
+					target = target.parentNode;
+				}
+				if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+					return;
+				}
+				data = {
+					method: target.getAttribute('data-method'),
+					target: target.getAttribute('data-target'),
+					option: target.getAttribute('data-option') || undefined,
+					secondOption: target.getAttribute('data-second-option') || undefined
+				};
+				cropped = cropper.cropped;
+				if (data.method) {
+					if (typeof data.target !== 'undefined') {
+						input = document.querySelector(data.target);
+
+						if (!target.hasAttribute('data-option') && data.target && input) {
+							try {
+								data.option = JSON.parse(input.value);
+							} catch (e) {
+								console.log(e.message);
+							}
+						}
+					}
+					switch (data.method) {
+						case 'getCroppedCanvas':
+							try {
+								data.option = JSON.parse(data.option);
+							} catch (e) {
+								console.log(e.message);
+							}
+							if (uploadedImageType === 'image/*') {
+								if (!data.option) {
+									data.option = {};
+								}
+								data.option.fillColor = '#fff';
+							}
+							break;
+					}
+					result = cropper[data.method](data.option, data.secondOption);
+
+					switch (data.method) {
+						case 'getCroppedCanvas':
+							if (result) {
+								console.log(result)
+								if (!download.disabled) {
+									download.download = uploadedImageName;
+									download.href = result.toDataURL(uploadedImageType);
+
+									$(".large-img-name").html(uploadedImageName+"<br><span>1024 x 533</span>")
+
+									document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+
+									var output_preview_large = document.getElementById('output-preview-large');
+									output_preview_large.src = result.toDataURL(uploadedImageType)
+								
+									//check blur
+									let imgElement = document.getElementById('output-preview-large');
+									imgElement.onload = function () {
+										let src = cv.imread(imgElement);
+										let dst = new cv.Mat();
+										let men = new cv.Mat();
+										let menO = new cv.Mat();
+										cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+										// You can try more different parameters
+										var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+										console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+										if (men.data64F[0] > 10) {
+											document.getElementById('img-quality').innerHTML = 'Đạt'
+										} else {
+											document.getElementById('img-quality').innerHTML = 'Mờ'
+										}
+										// cv.imshow('canvasOutput', dst);
+										src.delete(); dst.delete();
+									};
+								
+									$(".ads-img .squares").addClass("is-show");
+
+								}
+							}
+
+							break;
+					}
+
+					if (typeof result === 'object' && result !== cropper && input) {
+						try {
+							input.value = JSON.stringify(result);
+						} catch (e) {
+							console.log(e.message);
+						}
+					}
+				}
+			};
+
+
+			// Import image
+			var inputImage = document.getElementById('change-large-img-input');
+
+			if (URL) {
+				inputImage.onchange = function () {
+					var files = this.files;
+					var file;
+
+					if (cropper && files && files.length) {
+
+						$("html").addClass("overlay-modal");
+						$("#modalEditImg").addClass("show");
+
+						file = files[0];
+
+						if (/^image\/\w+/.test(file.type)) {
+							uploadedImageType = file.type;
+							uploadedImageName = file.name;
+
+							if (uploadedImageURL) {
+								URL.revokeObjectURL(uploadedImageURL);
+							}
+
+							image.src = uploadedImageURL = URL.createObjectURL(file);
+							cropper.destroy();
+							cropper = new Cropper(image, options);
+							inputImage.value = null;
+						} else {
+							window.alert('Please choose an image file.');
+						}
+					}
+				};
+			} else {
+				inputImage.disabled = true;
+				inputImage.parentNode.className += ' disabled';
+			}	
+		};
+
 		$("#check-grid").change(function(event){
-			console.log(event)
 			if (this.checked){
 				$(".ads-img .squares").addClass("is-show");
 			} else {
 				$(".ads-img .squares").removeClass("is-show");
 			}
 		});
+		count = 0;
+		//- $(".check-msg").hide();
+		$(function() {
+			$(".square").click(function() {
+				if ($(this).hasClass('is-selected')){
+					$(this).removeClass("is-selected");
+					count = count-1;
+				} else {
+					$(this).addClass("is-selected");
+					count = count+1;
+				}
+				percent = Math.round(100*(count/25));
+				$(".check-msg").hide();
+				
+				if (count<8){
+					message = "(Đạt yêu cầu)";
+					$(".check-msg").removeClass("is-no");
+					$(".check-msg").addClass("is-ok");
+				} else {
+					message = "(Vượt quá 30%)";
+					$(".check-msg").removeClass("is-ok");
+					$(".check-msg").addClass("is-no");
+				}
+				
+				$(".check-msg").html(percent+"%");
+				
+				$(".check-msg").fadeIn("fast", function() {});
+			});
+		});
+
 
 		const text_input_items = document.getElementsByClassName('text-input-item')
 		const content_card_0 = document.getElementById('content-card-first')
@@ -407,4 +797,86 @@ block javaScripts extend
 				}
 			}
 		}
+
+		document.getElementById('first-input').oninput = value =>{
+			if(value.target.value){
+				document.getElementById('first-preview').innerHTML = value.target.value
+			} else {
+				document.getElementById('first-preview').innerHTML = 'Tiêu đề quảng cáo'
+			}
+		}
+
+		document.getElementById('second-input').oninput = value =>{
+			if(value.target.value){
+				document.getElementById('second-preview').innerHTML = value.target.value
+			} else {
+				document.getElementById('second-preview').innerHTML = 'Nội dung quảng cáo'
+			}
+		}
+
+		document.getElementById('third-input').oninput = value =>{
+			if(value.target.value){
+				document.getElementById('third-preview').innerHTML = value.target.value
+			} else {
+				document.getElementById('third-preview').innerHTML = 'Mô tả thêm'
+			}
+		}
+
+		document.getElementById('fourth-input').oninput = value =>{
+			if(value.target.value){
+				document.getElementById('fourth-preview').innerHTML = value.target.value
+			} else {
+				document.getElementById('fourth-preview').innerHTML = 'Thông tin thêm'
+			}
+		}
 		
+		document.getElementById('fifth-input').onchange = value =>{
+			if(value.target.value){
+				document.getElementById('fifth-preview').innerHTML = value.target.value
+			} else {
+				document.getElementById('fifth-preview').innerHTML = 'Mua ngay'
+			}
+		}
+
+		// check error
+		function checkPolicy(val) {
+			for (let i = 0; i < data.length; i++) {
+				const element = data[i];
+				if(val.includes(element.policy)) {
+					console.log('nguy hiem');
+					console.log(data[i].policy)
+					break;
+				}	
+			}
+		}
+		// check warning
+		function checkWarning(val) {
+			for (let i = 0; i < data2.length; i++) {
+				const element = data2[i];
+				if(val.includes(element.policy)) {
+					console.log('');
+					console.log(data2[i].policy)
+					break;
+				}
+				
+			}
+		}
+		function checkFormat(val) {
+			if(val.charAt(0) != val.charAt(0).toUpperCase() || val.charAt(0) == ' '){
+				document.getElementById('hihi3').innerHTML = 'Chữ đầu tiên chưa viết hoa'
+			}
+			else{
+				document.getElementById('hihi3').innerHTML = 'Chữ đầu tiên đã viết hoa'
+
+			}
+		}
+		function checkFormat2(val) {
+			for(let i = 1; i<val.length; i++){
+				if(val[i] != val[i].toLowerCase()){
+					document.getElementById('hihi2').innerHTML = 'k duoc viet hoa cac từ đằng sau'
+					break;
+				}
+			}
+		}
+
+		const InputFormat = /^[0-9a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$/
