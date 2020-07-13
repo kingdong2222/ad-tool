@@ -1170,8 +1170,8 @@
       	let valueLower = val.toLowerCase()
       	let getBanWordsList = []
       	for (let i = 0; i < warning_words.length; i++) {
-      		if(valueLower.includes(banned_words[i])) {
-      			getBanWordsList.push(banned_words[i])
+      		if(valueLower.includes(warning_words[i])) {
+      			getBanWordsList.push(warning_words[i])
       		}	
       	}
       	return getBanWordsList
@@ -1215,7 +1215,7 @@
       			banned_word_card.classList.remove('is-hidden')
       			let list = checkPolicy(value_1)
       			for(let i = 0; i < list.length; i++){
-      				$("#alert-card-third .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+      				$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
       			}
       		}
       		if(checkWarning(value_1).length > 0){
@@ -1223,7 +1223,7 @@
       			warning_word_card.classList.remove('is-hidden')
       			let list = checkWarning(value_1)
       			for(let i = 0; i < list.length; i++){
-      				$("#alert-card-first .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+      				$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
       			}
       		}
       	}
@@ -1245,7 +1245,7 @@
       			banned_word_card.classList.remove('is-hidden')
       			let list = checkPolicy(value_2)
       			for(let i = 0; i < list.length; i++){
-      				$("#alert-card-third .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+      				$("#alert-card-third .card-error-list").append( "<p class='error-item' id='second-"+i+"'>"+list[i]+" </p>" )
       			}
       		}
       		if(checkWarning(value_2).length > 0){
@@ -1253,7 +1253,7 @@
       			warning_word_card.classList.remove('is-hidden')
       			let list = checkWarning(value_2)
       			for(let i = 0; i < list.length; i++){
-      				$("#alert-card-first .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+      				$("#alert-card-first .card-error-list").append( "<p class='error-item' id='second-"+i+"'>"+list[i]+" </p>" )
       			}
       		}
       	}
@@ -1273,7 +1273,7 @@
       			banned_word_card.classList.remove('is-hidden')
       			let list = checkPolicy(value_3)
       			for(let i = 0; i < list.length; i++){
-      				$("#alert-card-third .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+      				$("#alert-card-third .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
       			}
       		}
       		if(checkWarning(value_3).length > 0){
@@ -1281,7 +1281,7 @@
       			warning_word_card.classList.remove('is-hidden')
       			let list = checkWarning(value_3)
       			for(let i = 0; i < list.length; i++){
-      				$("#alert-card-first .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+      				$("#alert-card-first .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
       			}
       		}
       	}
@@ -1301,7 +1301,7 @@
       			banned_word_card.classList.remove('is-hidden')
       			let list = checkPolicy(value_4)
       			for(let i = 0; i < list.length; i++){
-      				$("#alert-card-third .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+      				$("#alert-card-third .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
       			}
       		}
       		if(checkWarning(value_4).length > 0){
@@ -1309,11 +1309,15 @@
       			warning_word_card.classList.remove('is-hidden')
       			let list = checkWarning(value_4)
       			for(let i = 0; i < list.length; i++){
-      				$("#alert-card-first .card-error-list").append( "<p class='error-item'>"+list[i]+" </p>" )
+      				$("#alert-card-first .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
       			}
       		}
       	}
       }
+      
+      $('.card-error-list p.error-item').click(()=>{
+      	console.log($(this).attr('id'))
+      })
       
       first_input.onfocus = value => {
       	first_content_preview.classList.add('preview-focus')
