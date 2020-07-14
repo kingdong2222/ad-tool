@@ -78,6 +78,11 @@ block javaScripts extend
 			var actions = document.getElementById('actions');
 			var options = {
 				aspectRatio: 1,
+				autoCropArea: 1,
+				zoomable: false,
+				zoomOnTouch: false,
+				zoomOnWheel: false,
+				dragMode: 'none',
 			};
 			var cropper = new Cropper(image, options);
 			var originalImageURL = image.src;
@@ -234,6 +239,11 @@ block javaScripts extend
 			var actions = document.getElementById('actions');
 			var options = {
 				aspectRatio: 1,
+				autoCropArea: 1,
+				zoomable: false,
+				zoomOnTouch: false,
+				zoomOnWheel: false,
+				dragMode: 'none',
 			};
 			var cropper = new Cropper(image, options);
 			var originalImageURL = image.src;
@@ -386,6 +396,11 @@ block javaScripts extend
 			var actions = document.getElementById('actions');
 			var options = {
 				aspectRatio: 1024/533,
+				autoCropArea: 1,
+				zoomable: false,
+				zoomOnTouch: false,
+				zoomOnWheel: false,
+				dragMode: 'none',
 			};
 			var cropper = new Cropper(image, options);
 			var originalImageURL = image.src;
@@ -459,7 +474,7 @@ block javaScripts extend
 							}
 							break;
 					}
-					result = cropper[data.method](data.option, data.secondOption);
+					result = cropper[data.method]({width: 1024, height: 533}, data.secondOption);
 
 					switch (data.method) {
 						case 'getCroppedCanvas':
@@ -490,6 +505,7 @@ block javaScripts extend
 										// You can try more different parameters
 										var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
 										console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+										console.log(men.data64F[0])
 										if (men.data64F[0] > 10) {
 											document.getElementById('img-quality').innerHTML = 'Đạt'
 										} else {
@@ -565,6 +581,11 @@ block javaScripts extend
 			var actions = document.getElementById('actions');
 			var options = {
 				aspectRatio: 1024/533,
+				autoCropArea: 1,
+				zoomable: false,
+				zoomOnTouch: false,
+				zoomOnWheel: false,
+				dragMode: 'none',
 			};
 			var cropper = new Cropper(image, options);
 			var originalImageURL = image.src;
@@ -638,7 +659,7 @@ block javaScripts extend
 							}
 							break;
 					}
-					result = cropper[data.method](data.option, data.secondOption);
+					result = cropper[data.method]({width: 1024, height: 533}, data.secondOption);
 
 					switch (data.method) {
 						case 'getCroppedCanvas':
@@ -769,12 +790,31 @@ block javaScripts extend
 			});
 		});
 
+		document.getElementById('avatar-image-input').onmouseover = () => {
+			document.getElementsByClassName('avatar-image-input')[0].style.backgroundColor = '#F0F4F8'
+		}
+		document.getElementById('avatar-image-input').onmouseout = () => {
+			document.getElementsByClassName('avatar-image-input')[0].style.backgroundColor = '#FAFBFD'
+		}
+
+		document.getElementById('large-image-input').onmouseover = () => {
+			document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
+		}
+		document.getElementById('large-image-input').onmouseout = () => {
+			document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#FAFBFD'
+		}
+		document.getElementById('large-image-input').ondrop = (value) => {
+			cropLargeImg()
+			document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
+		}
+
 		const content_card_0 = document.getElementById('content-card-first')
 		const content_card_1 = document.getElementById('content-card-second')
 
 		const warning_word_card = document.getElementById('alert-card-first')
 		const warning_uppercase_card = document.getElementById('alert-card-second')
 		const banned_word_card = document.getElementById('alert-card-third')
+		const successful_card = document.getElementById('successful-card')
 
 		let first_input = document.getElementById('first-input')
 		let second_input = document.getElementById('second-input')
@@ -949,122 +989,224 @@ block javaScripts extend
 			let value_2 = second_input.value
 			let value_3 = third_input.value
 			let value_4 = fourth_input.value
+
+			let check_correct = 0
+
+			if(value_1 || value_2 || value_3 || value_4){
+				warning_word_card.classList.add('is-hidden')
+				warning_uppercase_card.classList.add('is-hidden')
+				banned_word_card.classList.add('is-hidden')
+				successful_card.classList.add('is-hidden')
+			}
+
+			$('.error-item').remove()
+
 			if(!first_input.value){
 				first_input.focus()
+			} else if(!second_input.value){
+				second_input.focus()
 			} else {
-				if(value_1.indexOf("  ") > -1 
-					|| value_1.indexOf("...") > -1
-					|| value_1.match(InputFormat) == null
-					|| checkFormat(value_1) == 1
-					|| checkFormat2(value_1) == 1){
+				if(value_1.indexOf("  ") > -1 || value_2.indexOf("  ") > -1 
+					|| value_1.indexOf("...") > -1 || value_2.indexOf("...") > -1
+					|| value_1.match(InputFormat) == null || value_2.match(InputFormat) == null
+					|| checkFormat(value_1) == 1 || checkFormat(value_2) == 1
+					|| checkFormat2(value_1) == 1 || checkFormat2(value_2) == 1){
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
-				} else{
-					$("#content-card-second .card-desc p").html('Nội dung đã được kiểm tra. Phần xem trước nằm bên phải màn hình.')
-				}	
-				if(checkPolicy(value_1).length > 0){
+					
+				} else if(checkPolicy(value_1).length > 0 || checkPolicy(value_2).length > 0){
 					content_card_1.classList.add('is-hidden')
 					banned_word_card.classList.remove('is-hidden')
-					let list = checkPolicy(value_1)
+					
+					let list_1 = checkPolicy(value_1)
+					let list_2 = checkPolicy(value_2)
+					let list = list_1.concat(list_2)
 					for(let i = 0; i < list.length; i++){
 						$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
 					}
-				}
-				if(checkWarning(value_1).length > 0){
+				} else if(checkWarning(value_1).length > 0 || checkWarning(value_2).length > 0){
 					content_card_1.classList.add('is-hidden')
 					warning_word_card.classList.remove('is-hidden')
-					let list = checkWarning(value_1)
+					
+					let list_1 = checkWarning(value_1)
+					let list_2 = checkWarning(value_2)
+					let list = list_1.concat(list_2)
 					for(let i = 0; i < list.length; i++){
 						$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
 					}
+				} else {
+					content_card_1.classList.add('is-hidden')
+					if(value_3 || value_4){
+						if(value_3){
+							if(value_3.indexOf("  ") > -1 
+								|| value_3.indexOf("...") > -1
+								|| value_3.match(InputFormat) == null
+								|| checkFormat(value_3) == 1
+								|| checkFormat2(value_3) == 1){
+								content_card_1.classList.add('is-hidden')
+								warning_uppercase_card.classList.remove('is-hidden')
+								successful_card.classList.add('is-hidden')
+							} else if(checkPolicy(value_3).length > 0){
+								content_card_1.classList.add('is-hidden')
+								banned_word_card.classList.remove('is-hidden')
+								successful_card.classList.add('is-hidden')
+								let list = checkPolicy(value_3)
+								for(let i = 0; i < list.length; i++){
+									$("#alert-card-third .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
+								}
+							} else if(checkWarning(value_3).length > 0){
+								content_card_1.classList.add('is-hidden')
+								warning_word_card.classList.remove('is-hidden')
+								successful_card.classList.add('is-hidden')
+								let list = checkWarning(value_3)
+								for(let i = 0; i < list.length; i++){
+									$("#alert-card-first .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
+								}
+							} else {
+								successful_card.classList.remove('is-hidden')
+							}
+						} else {
+							if(value_4.indexOf("  ") > -1 
+								|| value_4.indexOf("...") > -1
+								|| value_4.match(InputFormat) == null
+								|| checkFormat(value_4) == 1
+								|| checkFormat2(value_4) == 1){
+								content_card_1.classList.add('is-hidden')
+								warning_uppercase_card.classList.remove('is-hidden')
+								successful_card.classList.add('is-hidden')
+							} else if(checkPolicy(value_4).length > 0){
+								content_card_1.classList.add('is-hidden')
+								banned_word_card.classList.remove('is-hidden')
+								successful_card.classList.add('is-hidden')
+								let list = checkPolicy(value_4)
+								for(let i = 0; i < list.length; i++){
+									$("#alert-card-third .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
+								}
+							} else if(checkWarning(value_4).length > 0){
+								content_card_1.classList.add('is-hidden')
+								warning_word_card.classList.remove('is-hidden')
+								successful_card.classList.add('is-hidden')
+								let list = checkWarning(value_4)
+								for(let i = 0; i < list.length; i++){
+									$("#alert-card-first .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
+								}
+							} else {
+								successful_card.classList.remove('is-hidden')
+							}
+						}
+					} else if(value_3 && value_4){
+						if(value_3.indexOf("  ") > -1 || value_4.indexOf("  ") > -1 
+							|| value_3.indexOf("...") > -1 || value_4.indexOf("...") > -1
+							|| value_3.match(InputFormat) == null || value_4.match(InputFormat) == null
+							|| checkFormat(value_3) == 1 || checkFormat(value_4) == 1
+							|| checkFormat2(value_3) == 1 || checkFormat2(value_4) == 1){
+							content_card_1.classList.add('is-hidden')
+							warning_uppercase_card.classList.remove('is-hidden')	
+						} else if(checkPolicy(value_3).length > 0 || checkPolicy(value_4).length > 0){
+							content_card_1.classList.add('is-hidden')
+							banned_word_card.classList.remove('is-hidden')
+							
+							let list_1 = checkPolicy(value_3)
+							let list_2 = checkPolicy(value_4)
+							let list = list_1.concat(list_2)
+							for(let i = 0; i < list.length; i++){
+								$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
+							}
+						} else if(checkWarning(value_3).length > 0 || checkWarning(value_4).length > 0){
+							content_card_1.classList.add('is-hidden')
+							warning_word_card.classList.remove('is-hidden')
+							
+							let list_1 = checkWarning(value_3)
+							let list_2 = checkWarning(value_4)
+							let list = list_1.concat(list_2)
+							for(let i = 0; i < list.length; i++){
+								$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
+							}
+						} else {
+						}
+					}
 				}
 			}
-			if(!second_input.value){
-				second_input.focus()
-			} else {
-				if(value_2.indexOf("  ") > -1 
-					|| value_2.indexOf("...") > -1
-					|| value_2.match(InputFormat) == null
-					|| checkFormat(value_2) == 1
-					|| checkFormat2(value_2) == 1){
-					content_card_1.classList.add('is-hidden')
-					warning_uppercase_card.classList.remove('is-hidden')
-				} else{
-					$("#content-card-second .card-desc p").html('Nội dung đã được kiểm tra. Phần xem trước nằm bên phải màn hình.')
-				}	
-				if(checkPolicy(value_2).length > 0){
-					content_card_1.classList.add('is-hidden')
-					banned_word_card.classList.remove('is-hidden')
-					let list = checkPolicy(value_2)
-					for(let i = 0; i < list.length; i++){
-						$("#alert-card-third .card-error-list").append( "<p class='error-item' id='second-"+i+"'>"+list[i]+" </p>" )
-					}
-				}
-				if(checkWarning(value_2).length > 0){
-					content_card_1.classList.add('is-hidden')
-					warning_word_card.classList.remove('is-hidden')
-					let list = checkWarning(value_2)
-					for(let i = 0; i < list.length; i++){
-						$("#alert-card-first .card-error-list").append( "<p class='error-item' id='second-"+i+"'>"+list[i]+" </p>" )
-					}
-				}
-			}
-			if(value_3){
-				if(value_3.indexOf("  ") > -1 
-					|| value_3.indexOf("...") > -1
-					|| value_3.match(InputFormat) == null
-					|| checkFormat(value_3) == 1
-					|| checkFormat2(value_3) == 1){
-					content_card_1.classList.add('is-hidden')
-					warning_uppercase_card.classList.remove('is-hidden')
-				} else{
-					$("#content-card-second .card-desc p").html('Nội dung đã được kiểm tra. Phần xem trước nằm bên phải màn hình.')
-				}
-				if(checkPolicy(value_3).length > 0){
-					content_card_1.classList.add('is-hidden')
-					banned_word_card.classList.remove('is-hidden')
-					let list = checkPolicy(value_3)
-					for(let i = 0; i < list.length; i++){
-						$("#alert-card-third .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
-					}
-				}
-				if(checkWarning(value_3).length > 0){
-					content_card_1.classList.add('is-hidden')
-					warning_word_card.classList.remove('is-hidden')
-					let list = checkWarning(value_3)
-					for(let i = 0; i < list.length; i++){
-						$("#alert-card-first .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
-					}
-				}
-			}
-			if(value_4){
-				if(value_4.indexOf("  ") > -1 
-					|| value_4.indexOf("...") > -1
-					|| value_4.match(InputFormat) == null
-					|| checkFormat(value_4) == 1
-					|| checkFormat2(value_4) == 1){
-					content_card_1.classList.add('is-hidden')
-					warning_uppercase_card.classList.remove('is-hidden')
-				} else{
-					$("#content-card-second .card-desc p").html('Nội dung đã được kiểm tra. Phần xem trước nằm bên phải màn hình.')
-				}
-				if(checkPolicy(value_4).length > 0){
-					content_card_1.classList.add('is-hidden')
-					banned_word_card.classList.remove('is-hidden')
-					let list = checkPolicy(value_4)
-					for(let i = 0; i < list.length; i++){
-						$("#alert-card-third .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
-					}
-				}
-				if(checkWarning(value_4).length > 0){
-					content_card_1.classList.add('is-hidden')
-					warning_word_card.classList.remove('is-hidden')
-					let list = checkWarning(value_4)
-					for(let i = 0; i < list.length; i++){
-						$("#alert-card-first .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
-					}
-				}
-			}
+
+			//- if(value_3){
+			//- 	if(value_3.indexOf("  ") > -1 
+			//- 		|| value_3.indexOf("...") > -1
+			//- 		|| value_3.match(InputFormat) == null
+			//- 		|| checkFormat(value_3) == 1
+			//- 		|| checkFormat2(value_3) == 1){
+			//- 		content_card_1.classList.add('is-hidden')
+			//- 		warning_uppercase_card.classList.remove('is-hidden')
+					
+			//- 	} else if(checkPolicy(value_3).length > 0){
+			//- 		content_card_1.classList.add('is-hidden')
+			//- 		banned_word_card.classList.remove('is-hidden')
+					
+			//- 		let list = checkPolicy(value_3)
+			//- 		for(let i = 0; i < list.length; i++){
+			//- 			$("#alert-card-third .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
+			//- 		}
+			//- 	} else if(checkWarning(value_3).length > 0){
+			//- 		content_card_1.classList.add('is-hidden')
+			//- 		warning_word_card.classList.remove('is-hidden')
+					
+			//- 		let list = checkWarning(value_3)
+			//- 		for(let i = 0; i < list.length; i++){
+			//- 			$("#alert-card-first .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
+			//- 		}
+			//- 	} else {
+			//- 		check_correct +=1
+			//- 	}
+			//- }
+			//- if(value_4){
+			//- 	if(value_4.indexOf("  ") > -1 
+			//- 		|| value_4.indexOf("...") > -1
+			//- 		|| value_4.match(InputFormat) == null
+			//- 		|| checkFormat(value_4) == 1
+			//- 		|| checkFormat2(value_4) == 1){
+			//- 		content_card_1.classList.add('is-hidden')
+			//- 		warning_uppercase_card.classList.remove('is-hidden')
+					
+			//- 	} else if(checkPolicy(value_4).length > 0){
+			//- 		content_card_1.classList.add('is-hidden')
+			//- 		banned_word_card.classList.remove('is-hidden')
+					
+			//- 		let list = checkPolicy(value_4)
+			//- 		for(let i = 0; i < list.length; i++){
+			//- 			$("#alert-card-third .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
+			//- 		}
+			//- 	} else if(checkWarning(value_4).length > 0){
+			//- 		content_card_1.classList.add('is-hidden')
+			//- 		warning_word_card.classList.remove('is-hidden')
+					
+			//- 		let list = checkWarning(value_4)
+			//- 		for(let i = 0; i < list.length; i++){
+			//- 			$("#alert-card-first .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
+			//- 		}
+			//- 	} else {
+			//- 		check_correct +=1
+			//- 	}
+			//- }
+
+			//- console.log(check_correct)
+			//- if(check_correct >= 3){
+			//- 	if(value_1 && value_2 && value_3 && value_4){
+			//- 		content_card_1.classList.add('is-hidden')
+			//- 		successful_card.classList.remove('is-hidden')
+			//- 	}
+			//- } else if(check_correct >= 2){
+			//- 	if((value_1 && value_2 && value_4)||(value_1 && value_2 && value_3)){
+			//- 		content_card_1.classList.add('is-hidden')
+			//- 		successful_card.classList.remove('is-hidden')
+			//- 	}
+			//- } else if(check_correct >= 1){
+			//- 	if(value_1 && value_2){
+			//- 		content_card_1.classList.add('is-hidden')
+			//- 		successful_card.classList.remove('is-hidden')
+			//- 	}
+			//- } else {
+			//- 	console.log('error')
+			//- }
+
 		}
 
 		$('.card-error-list p.error-item').click(()=>{
