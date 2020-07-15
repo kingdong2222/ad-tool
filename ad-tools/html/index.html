@@ -42,21 +42,21 @@
               <h2 class="title">Nội dung</h2>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question"></i></h3>
+                  <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question" id="tippy-title-ad"></i></h3>
                   <p class="max-letter" id="max-letter-first">30</p>
                 </div>
                 <input id="first-input" type="text" placeholder="Nhập tiêu đề" maxlength="30">
               </div>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Nội dung quảng cáo<i class="icz icz-question"></i></h3>
+                  <h3 class="title">Nội dung quảng cáo<i class="icz icz-question" id="tippy-content-ad"></i></h3>
                   <p class="max-letter" id="max-letter-second">90</p>
                 </div>
                 <textarea id="second-input" placeholder="Nhập nội dung" maxlength="90"></textarea>
               </div>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question"></i></h3>
+                  <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question" id="tippy-avatar-upload"></i></h3>
                 </div>
                 <div class="image-input">
                   <div class="avatar-image-input">
@@ -68,21 +68,21 @@
               </div>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Mô tả thêm<i class="icz icz-question"></i></h3>
+                  <h3 class="title">Mô tả thêm<i class="icz icz-question" id="tippy-optional-desc"></i></h3>
                   <p class="max-letter" id="max-letter-third">48</p>
                 </div>
                 <input id="third-input" type="text" placeholder="Mô tả ngắn gọn" maxlength="48">
               </div>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Thông tin thêm<i class="icz icz-question"></i></h3>
+                  <h3 class="title">Thông tin thêm<i class="icz icz-question" id="tippy-optional-info"></i></h3>
                   <p class="max-letter" id="max-letter-fourth">48</p>
                 </div>
                 <input id="fourth-input" type="text" placeholder="Nhập thông tin thêm" maxlength="48">
               </div>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Nút kêu gọi<i class="icz icz-question"></i></h3>
+                  <h3 class="title">Nút kêu gọi<i class="icz icz-question" id="tippy-button-call-action"></i></h3>
                 </div>
                 <div class="select">
                   <select id="fifth-input">
@@ -97,7 +97,7 @@
               <h2 class="checking-title title">Kiểm tra</h2>
               <div class="text-input-item first-item">
                 <div class="label-title">
-                  <h3 class="title">Hình ảnh quảng cáo<i class="icz icz-question"></i></h3>
+                  <h3 class="title">Hình ảnh quảng cáo<i class="icz icz-question" id="tippy-large-image"></i></h3>
                 </div>
                 <div class="large-image-input">
                   <input id="large-image-input" type="file" accept="image/*">
@@ -181,7 +181,7 @@
               </div>
               <div class="text-input-item second-item">
                 <div class="label-title">
-                  <h3 class="title">Nội dung<i class="icz icz-question"></i></h3>
+                  <h3 class="title">Nội dung<i class="icz icz-question" id="tippy-notice-content"></i></h3>
                 </div>
                 <div class="content-card" id="content-card-first">
                   <div class="card-desc"><i class="icz icz-fill-info"></i>
@@ -266,12 +266,12 @@
           <div class="modal-content">
             <div class="modal-header">
               <div class="label-title">
-                <h3 class="title modal-title" id="editImgModalLabel">Hình ảnh quảng cáo<i class="icz icz-question"></i></h3>
+                <h3 class="title modal-title" id="editImgModalLabel">Hình ảnh quảng cáo<i class="icz icz-question" id="tippy-crop-img"></i></h3>
               </div>
               <div class="close-modal button-icon-close" type="button" data-dismiss="modal" aria-label="Close"><i class="icz icz-close"></i></div>
             </div>
             <div class="modal-body">
-              <div class="img-container"><img></div>
+              <div class="img-container" style="height: 70vh; width: 70vw"><img></div>
             </div>
             <div class="modal-footer" id="actions">
               <div class="docs-buttons">
@@ -460,6 +460,15 @@
       				$("html").addClass("overlay-modal");
       				$("#modalEditImg").addClass("show");
       
+      				tippy('#tippy-crop-img', {
+      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      					allowHTML: true,
+      					maxWidth: 270,
+      					theme:'zad',
+      					trigger:'click',
+      					showOnCreate: true,
+      				});
+      
       				file = files[0];
       
       				if (/^image\/\w+/.test(file.type)) {
@@ -617,6 +626,15 @@
       				$("html").addClass("overlay-modal");
       				$("#modalEditImg").addClass("show");
       
+      				tippy('#tippy-crop-img', {
+      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      					allowHTML: true,
+      					maxWidth: 270,
+      					theme:'zad',
+      					trigger:'click',
+      					showOnCreate: true,
+      				});
+      
       				file = files[0];
       
       				if (/^image\/\w+/.test(file.type)) {
@@ -662,7 +680,7 @@
       	var uploadedImageType = 'image/*';
       	var uploadedImageName = 'cropped.jpeg';
       	var uploadedImageURL;
-      
+      	
       	// Buttons
       	if (!document.createElement('canvas').getContext) {
       		$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
@@ -729,7 +747,7 @@
       					}
       					break;
       			}
-      			result = cropper[data.method]({width: 1024, height: 533}, data.secondOption);
+      			result = cropper[data.method]({width: 1024, height: 533,}, data.secondOption);
       
       			switch (data.method) {
       				case 'getCroppedCanvas':
@@ -750,7 +768,8 @@
       							output_preview_large.src = result.toDataURL(uploadedImageType)
       						
       							//check blur
-      							let imgElement = document.getElementById('output-preview-large');
+      							let imgElement = document.getElementById('imageSrc-preview');
+      							imgElement.src = result.toDataURL(uploadedImageType)
       							imgElement.onload = function () {
       								let src = cv.imread(imgElement);
       								let dst = new cv.Mat();
@@ -801,6 +820,15 @@
       
       				$("html").addClass("overlay-modal");
       				$("#modalEditImg").addClass("show");
+      
+      				tippy('#tippy-crop-img', {
+      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      					allowHTML: true,
+      					maxWidth: 270,
+      					theme:'zad',
+      					trigger:'click',
+      					showOnCreate: true,
+      				});
       
       				file = files[0];
       
@@ -982,6 +1010,15 @@
       
       				$("html").addClass("overlay-modal");
       				$("#modalEditImg").addClass("show");
+      
+      				tippy('#tippy-crop-img', {
+      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      					allowHTML: true,
+      					maxWidth: 270,
+      					theme:'zad',
+      					trigger:'click',
+      					showOnCreate: true,
+      				});
       
       				file = files[0];
       
@@ -1237,7 +1274,7 @@
       	}
       }
       //click button Test
-      const InputFormat = /^[a-z0-9A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$/g
+      const InputFormat = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s]+$/g
       document.getElementById('check-form-ad').onclick = value =>{
       	
       	let value_1 = first_input.value
@@ -1253,6 +1290,8 @@
       		banned_word_card.classList.add('is-hidden')
       		successful_card.classList.add('is-hidden')
       	}
+      
+      	console.log(value_1.match(InputFormat))
       
       	$('.error-item').remove()
       
@@ -1464,10 +1503,7 @@
       
       }
       
-      $('.card-error-list p.error-item').click(()=>{
-      	console.log($(this).attr('id'))
-      })
-      
+      //focus preview side when input
       first_input.onfocus = value => {
       	first_content_preview.classList.add('preview-focus')
       	second_content_preview.classList.remove('preview-focus')
@@ -1504,6 +1540,72 @@
       fourth_input.onblur = value =>{
       	fourth_content_preview.classList.toggle('preview-focus')
       }
+      
+      
+      //tooltip
+      tippy('#tippy-title-ad', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt tiêu đề</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-content-ad', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt nội dung</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-avatar-upload', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về ảnh đại diện</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-optional-desc', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về mô tả thêm</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-optional-info', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về thông tin thêm</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-button-call-action', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:0px">Hiển thị nút trên quảng cáo bạn muốn mọi người thực hiện.</p></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-large-image', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về hình ảnh quảng cáo</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-notice-content', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về nội dung quảng cáo</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
     </script>
   </body>
 </html>

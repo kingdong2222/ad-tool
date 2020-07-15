@@ -18,6 +18,36 @@
 		&.is-popup{background-color:rgba(36,46,66,1);@include padding($gap)}
 		.body{@include padding($gutter); }
 	}
+	.cropper-container.cropper-bg{
+		background: #1D1D1D;
+		.cropper-modal{
+			background-color: unset;
+		}
+	}
+	.tippy-block{
+		font-size: 14px;
+		font-weight: 400;
+	}
+	.tippy-box[data-theme~='zad'] {
+		background-color: #fff;
+		color: #050F2C;
+		box-shadow: 0 2px 10px 0 rgba(5,15,44,0.2);
+		.tippy-content{
+			padding: 9px 12px;
+		}
+	}
+	.tippy-box[data-theme~='zad'][data-placement^='top'] > .tippy-arrow::before {
+		border-top-color: #fff !important;
+	}
+	.tippy-box[data-theme~='zad'][data-placement^='bottom'] > .tippy-arrow::before {
+		border-bottom-color: #fff !important;
+	}
+	.tippy-box[data-theme~='zad'][data-placement^='left'] > .tippy-arrow::before {
+		border-left-color: #fff !important;
+	}
+	.tippy-box[data-theme~='zad'][data-placement^='right'] > .tippy-arrow::before {
+		border-right-color: #fff !important;
+	}
 	input:focus{border: 1px solid red}
 	.header{display:flex;align-items:center;background-color:#050F2E;min-width:1024px;height: 60px;position: relative;z-index: 100;width: 100%;
 		a.logo{display:block;
@@ -68,7 +98,7 @@
 	}
 	.show{display: flex !important;align-items: center;}
 	.modal{overflow-y: scroll !important;}
-	.modal-dialog{max-width: 1024px !important;  min-width: 500px; max-height: 700px !important;
+	.modal-dialog{max-width: 1024px !important;  min-width: 500px;
 		.modal-header{
 			align-items: center;
 		}
@@ -93,7 +123,7 @@
 				align-items: center;
 				.icz{
 					font-size: 16px;
-					padding-left: 0.5rem;
+					margin-left: 0.5rem;
 					color: #72809D;
 				}
 			}
@@ -128,7 +158,7 @@
 			margin-bottom: unset;
 			.icz{
 				font-size: 12px;
-				padding-left: 0.5rem;
+				margin-left: 0.5rem;
 				color: #72809D;
 			}
 		}
@@ -576,6 +606,8 @@
 						flex-grow: 1;
 						min-width: 0;
 						padding-right: 20px;
+						position: relative;
+   						top: 5px;
 						p{
 							margin-bottom: unset;
 							word-break: break-word;
@@ -586,6 +618,8 @@
 						}
 						.optional-info{
 							color: #989EA5;
+							position: relative;
+							top:-5px
 						}
 					}
 					.button-buy-now{
@@ -685,7 +719,7 @@
 				&.is-show{z-index:2;opacity:1;visibility:visible;}
 				.row{@include size(100%, 20%);margin: 0;
 					.square{float:left;@include size(20%, 100%);border:1px solid $white;
-						&.is-selected{background-color:rgba(255,0,0,0.5)}
+						&.is-selected{background-color:rgba(23,68,207,0.5)}
 					}
 				}
 			}

@@ -205,6 +205,15 @@ block javaScripts extend
 						$("html").addClass("overlay-modal");
 						$("#modalEditImg").addClass("show");
 
+						tippy('#tippy-crop-img', {
+							content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+							allowHTML: true,
+							maxWidth: 270,
+							theme:'zad',
+							trigger:'click',
+							showOnCreate: true,
+						});
+
 						file = files[0];
 
 						if (/^image\/\w+/.test(file.type)) {
@@ -362,6 +371,15 @@ block javaScripts extend
 						$("html").addClass("overlay-modal");
 						$("#modalEditImg").addClass("show");
 
+						tippy('#tippy-crop-img', {
+							content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+							allowHTML: true,
+							maxWidth: 270,
+							theme:'zad',
+							trigger:'click',
+							showOnCreate: true,
+						});
+
 						file = files[0];
 
 						if (/^image\/\w+/.test(file.type)) {
@@ -407,7 +425,7 @@ block javaScripts extend
 			var uploadedImageType = 'image/*';
 			var uploadedImageName = 'cropped.jpeg';
 			var uploadedImageURL;
-
+			
 			// Buttons
 			if (!document.createElement('canvas').getContext) {
 				$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
@@ -474,7 +492,7 @@ block javaScripts extend
 							}
 							break;
 					}
-					result = cropper[data.method]({width: 1024, height: 533}, data.secondOption);
+					result = cropper[data.method]({width: 1024, height: 533,}, data.secondOption);
 
 					switch (data.method) {
 						case 'getCroppedCanvas':
@@ -495,7 +513,8 @@ block javaScripts extend
 									output_preview_large.src = result.toDataURL(uploadedImageType)
 								
 									//check blur
-									let imgElement = document.getElementById('output-preview-large');
+									let imgElement = document.getElementById('imageSrc-preview');
+									imgElement.src = result.toDataURL(uploadedImageType)
 									imgElement.onload = function () {
 										let src = cv.imread(imgElement);
 										let dst = new cv.Mat();
@@ -546,6 +565,15 @@ block javaScripts extend
 
 						$("html").addClass("overlay-modal");
 						$("#modalEditImg").addClass("show");
+
+						tippy('#tippy-crop-img', {
+							content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+							allowHTML: true,
+							maxWidth: 270,
+							theme:'zad',
+							trigger:'click',
+							showOnCreate: true,
+						});
 
 						file = files[0];
 
@@ -727,6 +755,15 @@ block javaScripts extend
 
 						$("html").addClass("overlay-modal");
 						$("#modalEditImg").addClass("show");
+
+						tippy('#tippy-crop-img', {
+							content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+							allowHTML: true,
+							maxWidth: 270,
+							theme:'zad',
+							trigger:'click',
+							showOnCreate: true,
+						});
 
 						file = files[0];
 
@@ -982,7 +1019,7 @@ block javaScripts extend
 			}
 		}
 		//click button Test
-		const InputFormat = /^[a-z0-9A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$/g
+		const InputFormat = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s]+$/g
 		document.getElementById('check-form-ad').onclick = value =>{
 			
 			let value_1 = first_input.value
@@ -998,6 +1035,8 @@ block javaScripts extend
 				banned_word_card.classList.add('is-hidden')
 				successful_card.classList.add('is-hidden')
 			}
+
+			console.log(value_1.match(InputFormat))
 
 			$('.error-item').remove()
 
@@ -1209,10 +1248,7 @@ block javaScripts extend
 
 		}
 
-		$('.card-error-list p.error-item').click(()=>{
-			console.log($(this).attr('id'))
-		})
-
+		//focus preview side when input
 		first_input.onfocus = value => {
 			first_content_preview.classList.add('preview-focus')
 			second_content_preview.classList.remove('preview-focus')
@@ -1249,3 +1285,74 @@ block javaScripts extend
 		fourth_input.onblur = value =>{
 			fourth_content_preview.classList.toggle('preview-focus')
 		}
+
+
+		//tooltip
+		tippy('#tippy-title-ad', {
+			content: '<div class="tippy-block"><p style="margin-bottom:8px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt tiêu đề</a></div>',
+			allowHTML: true,
+			maxWidth: 270,
+			theme:'zad',
+			trigger:'click',
+		});
+
+		tippy('#tippy-content-ad', {
+			content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt nội dung</a></div>',
+			allowHTML: true,
+			maxWidth: 270,
+			theme:'zad',
+			trigger:'click',
+		});
+
+		tippy('#tippy-avatar-upload', {
+			content: '<div class="tippy-block"><p style="margin-bottom:8px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về ảnh đại diện</a></div>',
+			allowHTML: true,
+			maxWidth: 270,
+			theme:'zad',
+			trigger:'click',
+		});
+
+		tippy('#tippy-optional-desc', {
+			content: '<div class="tippy-block"><p style="margin-bottom:8px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về mô tả thêm</a></div>',
+			allowHTML: true,
+			maxWidth: 270,
+			theme:'zad',
+			trigger:'click',
+		});
+
+		tippy('#tippy-optional-info', {
+			content: '<div class="tippy-block"><p style="margin-bottom:8px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về thông tin thêm</a></div>',
+			allowHTML: true,
+			maxWidth: 270,
+			theme:'zad',
+			trigger:'click',
+		});
+
+		tippy('#tippy-button-call-action', {
+			content: '<div class="tippy-block"><p style="margin-bottom:0px">Hiển thị nút trên quảng cáo bạn muốn mọi người thực hiện.</p></div>',
+			allowHTML: true,
+			maxWidth: 270,
+			theme:'zad',
+			trigger:'click',
+		});
+
+		tippy('#tippy-large-image', {
+			content: '<div class="tippy-block"><p style="margin-bottom:8px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về hình ảnh quảng cáo</a></div>',
+			allowHTML: true,
+			maxWidth: 270,
+			theme:'zad',
+			trigger:'click',
+		});
+
+		tippy('#tippy-notice-content', {
+			content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về nội dung quảng cáo</a></div>',
+			allowHTML: true,
+			maxWidth: 270,
+			theme:'zad',
+			trigger:'click',
+		});
+
+
+
+
+		
