@@ -15,7 +15,7 @@
 	}
 	.avatar--s{@include size(24px);line-height:24px}
 	.avatar--m{@include size(36px);line-height:36px}
-	.avatar--l{@include size(44px);line-height:44px}
+	.avatar--l{@include size(48px);line-height:48px}
 	.avatar-img{@include position(absolute,0 null null 0);z-index:1;@include size(100%);@extend %backgroundCover--center;@extend %is-radius-rounded;}
 
 	/* Status */ 

@@ -32,23 +32,30 @@ main
                     .label-title
                         h3.title Mô tả thêm
                             i.icz.icz-question#tippy-optional-desc
-                        p.max-letter#max-letter-third 48
-                    input#third-input(type='text' placeholder='Mô tả ngắn gọn' maxlength=48)
+                        p.max-letter#max-letter-third 60
+                    input#third-input(type='text' placeholder='Mô tả ngắn gọn' maxlength=60)
                 .text-input-item
                     .label-title
                         h3.title Thông tin thêm
                             i.icz.icz-question#tippy-optional-info
-                        p.max-letter#max-letter-fourth 48
-                    input#fourth-input(type='text' placeholder='Nhập thông tin thêm' maxlength=48)
+                        p.max-letter#max-letter-fourth 60
+                    input#fourth-input(type='text' placeholder='Nhập thông tin thêm' maxlength=60)
                 .text-input-item
                     .label-title
                         h3.title Nút kêu gọi
                             i.icz.icz-question#tippy-button-call-action
                     .select
                         select#fifth-input
+                            option Đặt ngay
                             option Mua ngay
-                            option Bán ngay
-                .button.is-primary.is-large#check-form-ad Kiểm tra
+                            option Thử ngay
+                            option Tải ngay
+                            option Xem thêm
+                            option Nghe ngay
+                            option Chơi ngay
+                            option Đăng ký
+                            option Gọi điện
+                .button.is-primary.is-large#check-form-ad(disabled) Kiểm tra
 
             .container_col.checking
                 h2.checking-title.title Kiểm tra
@@ -155,9 +162,9 @@ main
                     .content-card#alert-card-second.is-hidden
                         .card-desc
                             i.icz.icz-fill-warning
-                            p Sử dụng định dạng vi phạm qui định quảng cáo
+                            p Nội dung có sử dụng kí tự đặc biệt/định dạng văn bản không được phép sử dụng
                         .card-error-list
-                            p Nội dung không được in hoa toàn bộ, in hoa tất cả chữ cái đầu tiên, sử dụng dấu ba chấm hoặc ký tự đặc biệt.
+                            //- p.warning-item Viết hoa nhiều chữ cái
                     .content-card#alert-card-third.is-hidden
                         .card-desc
                             i.icz.icz-fill-error
@@ -180,7 +187,7 @@ main
             .card-preview
                 .square-ads
                     .label-title
-                        .avatar.avatar--m
+                        .avatar.avatar--l
                             span.avatar-img(style="background-image:url(../html/images/avatar.png)")
                         h3.title#first-preview Tiêu đề quảng cáo
                     h3.title#second-preview Nội dung quảng cáo

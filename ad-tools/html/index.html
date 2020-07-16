@@ -69,16 +69,16 @@
               <div class="text-input-item">
                 <div class="label-title">
                   <h3 class="title">Mô tả thêm<i class="icz icz-question" id="tippy-optional-desc"></i></h3>
-                  <p class="max-letter" id="max-letter-third">48</p>
+                  <p class="max-letter" id="max-letter-third">60</p>
                 </div>
-                <input id="third-input" type="text" placeholder="Mô tả ngắn gọn" maxlength="48">
+                <input id="third-input" type="text" placeholder="Mô tả ngắn gọn" maxlength="60">
               </div>
               <div class="text-input-item">
                 <div class="label-title">
                   <h3 class="title">Thông tin thêm<i class="icz icz-question" id="tippy-optional-info"></i></h3>
-                  <p class="max-letter" id="max-letter-fourth">48</p>
+                  <p class="max-letter" id="max-letter-fourth">60</p>
                 </div>
-                <input id="fourth-input" type="text" placeholder="Nhập thông tin thêm" maxlength="48">
+                <input id="fourth-input" type="text" placeholder="Nhập thông tin thêm" maxlength="60">
               </div>
               <div class="text-input-item">
                 <div class="label-title">
@@ -86,12 +86,19 @@
                 </div>
                 <div class="select">
                   <select id="fifth-input">
+                    <option>Đặt ngay</option>
                     <option>Mua ngay</option>
-                    <option>Bán ngay</option>
+                    <option>Thử ngay</option>
+                    <option>Tải ngay</option>
+                    <option>Xem thêm</option>
+                    <option>Nghe ngay</option>
+                    <option>Chơi ngay</option>
+                    <option>Đăng ký</option>
+                    <option>Gọi điện</option>
                   </select>
                 </div>
               </div>
-              <div class="button is-primary is-large" id="check-form-ad">Kiểm tra</div>
+              <div class="button is-primary is-large" id="check-form-ad" disabled>Kiểm tra</div>
             </div>
             <div class="container_col checking">
               <h2 class="checking-title title">Kiểm tra</h2>
@@ -207,11 +214,9 @@
                 </div>
                 <div class="content-card is-hidden" id="alert-card-second">
                   <div class="card-desc"><i class="icz icz-fill-warning"></i>
-                    <p>Sử dụng định dạng vi phạm qui định quảng cáo</p>
+                    <p>Nội dung có sử dụng kí tự đặc biệt/định dạng văn bản không được phép sử dụng</p>
                   </div>
-                  <div class="card-error-list">
-                    <p>Nội dung không được in hoa toàn bộ, in hoa tất cả chữ cái đầu tiên, sử dụng dấu ba chấm hoặc ký tự đặc biệt.</p>
-                  </div>
+                  <div class="card-error-list"></div>
                 </div>
                 <div class="content-card is-hidden" id="alert-card-third">
                   <div class="card-desc"><i class="icz icz-fill-error"></i>
@@ -240,7 +245,7 @@
             <div class="card-preview">
               <div class="square-ads">
                 <div class="label-title">
-                  <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
+                  <div class="avatar avatar--l"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
                   <h3 class="title" id="first-preview">Tiêu đề quảng cáo</h3>
                 </div>
                 <h3 class="title" id="second-preview">Nội dung quảng cáo</h3>
@@ -1123,6 +1128,8 @@
       let third_content_preview = document.getElementById('third-preview')
       let fourth_content_preview = document.getElementById('fourth-preview')
       
+      let check_form_ad = document.getElementById('check-form-ad')
+      
       first_input.oninput = value =>{
       	if(value.target.value){
       		first_content_preview.innerHTML = value.target.value
@@ -1133,6 +1140,7 @@
       		else{
       			content_card_0.classList.add('is-hidden')
       			content_card_1.classList.remove('is-hidden')
+      			check_form_ad.removeAttribute('disabled')
       		}
       	} else {
       		first_content_preview.innerHTML = 'Tiêu đề quảng cáo'
@@ -1143,6 +1151,7 @@
       		else{
       			content_card_0.classList.remove('is-hidden')
       			content_card_1.classList.add('is-hidden')
+      			check_form_ad.setAttribute("disabled", "disabled");
       		}
       	}
       }
@@ -1157,6 +1166,7 @@
       		else{
       			content_card_0.classList.add('is-hidden')
       			content_card_1.classList.remove('is-hidden')
+      			check_form_ad.removeAttribute('disabled')
       		}
       	} else {
       		second_content_preview.innerHTML = 'Nội dung quảng cáo'
@@ -1167,6 +1177,7 @@
       		else{
       			content_card_0.classList.remove('is-hidden')
       			content_card_1.classList.add('is-hidden')
+      			check_form_ad.setAttribute("disabled", "disabled");
       		}
       	}
       }
@@ -1181,6 +1192,7 @@
       		else{
       			content_card_0.classList.add('is-hidden')
       			content_card_1.classList.remove('is-hidden')
+      			check_form_ad.removeAttribute('disabled')
       		}
       	} else {
       		third_content_preview.innerHTML = 'Mô tả thêm'
@@ -1191,6 +1203,7 @@
       		else{
       			content_card_0.classList.remove('is-hidden')
       			content_card_1.classList.add('is-hidden')
+      			check_form_ad.setAttribute("disabled", "disabled");
       		}
       	}
       }
@@ -1205,6 +1218,7 @@
       		else{
       			content_card_0.classList.add('is-hidden')
       			content_card_1.classList.remove('is-hidden')
+      			check_form_ad.removeAttribute('disabled')
       		}
       	} else {
       		fourth_content_preview.innerHTML = 'Thông tin thêm'
@@ -1215,10 +1229,20 @@
       		else{
       			content_card_0.classList.remove('is-hidden')
       			content_card_1.classList.add('is-hidden')
+      			check_form_ad.setAttribute("disabled", "disabled");
       		}
       	}
       }
       
+      document.getElementById('fifth-input').onfocus = value =>{
+      	console.log('1')
+      }
+      document.getElementById('fifth-input').onmouseout = value =>{
+      	console.log('2')
+      }
+      document.getElementById('fifth-input').onblur = value =>{
+      	console.log('3')
+      }
       document.getElementById('fifth-input').onchange = value =>{
       	if(value.target.value){
       		document.getElementById('fifth-preview').innerHTML = value.target.value
@@ -1260,6 +1284,7 @@
       	}
       	return getBanWordsList
       }
+      
       function checkFormat(val) {
       	if(val.charAt(0) != val.charAt(0).toUpperCase() || val.charAt(0) == ' ')
       		return 1;
