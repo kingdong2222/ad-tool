@@ -61,7 +61,7 @@
 				> li{flex-shrink:0;margin-right:2rem;
 					a.navbar-item{position: relative;display:flex;flex-direction: column;height:60px;justify-content: center;color:#828795;font-size:$size-medium;font-weight:$weight-semibold;@extend %tr-all;
 						border-bottom: 4px solid #050F2E; padding-top: 8px;
-						&:hover{
+						&:hover, &.active{
 							color:#fff;
 							border-bottom: 4px solid #F7F7F8;
 							text-decoration: none;
@@ -445,8 +445,8 @@
 						transform: translate(-50%, -50%);
 						color: #fff;
 						background-color: rgba(0,0,0,0.65);
-						width: 80px;
-						height: 80px;
+						width: 86px;
+						height: 86px;
 						border-radius: 99px;
 						display: flex;
 						justify-content: center;
@@ -633,8 +633,7 @@
 							margin-left: -5px;
 							padding: 3px 5px;
 							@extend %tr-all;
-							text-overflow: ellipsis;
-							overflow: hidden;
+							word-break: break-all;
 						}
 						.optional-info{
 							color: #989EA5;
@@ -794,6 +793,67 @@
 			.slider.round{border-radius:34px}
 			.slider.round:before{border-radius:50%}
 			input:checked[disabled] + label.slider{opacity:0.5;}
+		}
+		.ads-preview-list{
+			padding: 2.5rem 0;
+			h2{padding-left: 4rem;}
+			.preview-item-list{
+				display: flex;
+				flex-wrap: wrap;
+				padding: 0 4rem;
+				margin-left: -.75rem;
+				margin-right: -.75rem;
+				.preview-item-container{
+					padding: 0 .75rem;
+					margin-bottom: 2rem;
+				}
+				.preview-item{
+					height: 520px;
+					padding: 30px 8px 55px;
+					background-color: #fff;
+					border-radius: 12px;
+					box-shadow: 0 61px 84px 0 rgba(67,86,100,0.14);
+					.name-position{
+						font-size: 16px;
+						font-weight: 600;
+						letter-spacing: 0;
+						line-height: 20px;
+						text-align: center;
+						color: #050F2C;
+						margin-bottom: 14px;
+					}
+					.card-preview{
+						border: 1px solid #CDCFD5;
+						background-color: #F7F7F8;
+						border-radius: unset;
+						box-shadow: unset;
+						box-sizing: border-box;  
+						min-height: 400px;
+						padding-top: 56px;
+						width: 275px;
+						.square-ads{
+							padding: 1rem;
+							.label-title{
+								margin-bottom: 12px;
+							}
+							h3{
+								font-size: 12px;
+							}
+							.optional{
+								p{font-size: 10px;}
+							}
+							.button-buy-now{
+								padding: 3px 10px;
+								font-size: 12px;
+							}
+							.preview-sample{
+								height: 125px
+							}
+						}
+					}
+				}
+			}
+			
 		}
 	}
 

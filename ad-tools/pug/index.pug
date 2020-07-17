@@ -33,6 +33,8 @@ block modal
 
 block javaScripts extend
 	script.
+		document.getElementsByClassName("navbar-item")[0].classList.add('active')
+		
 		const button_toogle_slide = document.getElementById('button-toggle-slide-bar')
 		const main_body = document.getElementsByClassName('main-body')[0]
 		const slide_body = document.getElementsByClassName('slide-body')[0]
@@ -705,7 +707,8 @@ block javaScripts extend
 									output_preview_large.src = result.toDataURL(uploadedImageType)
 								
 									//check blur
-									let imgElement = document.getElementById('output-preview-large');
+									let imgElement = document.getElementById('imageSrc-preview');
+									imgElement.src = result.toDataURL(uploadedImageType)
 									imgElement.onload = function () {
 										let src = cv.imread(imgElement);
 										let dst = new cv.Mat();
@@ -881,6 +884,11 @@ block javaScripts extend
 					content_card_0.classList.add('is-hidden')
 					content_card_1.classList.remove('is-hidden')
 					check_form_ad.removeAttribute('disabled')
+
+					warning_word_card.classList.add('is-hidden')
+					warning_uppercase_card.classList.add('is-hidden')
+					banned_word_card.classList.add('is-hidden')
+					successful_card.classList.add('is-hidden')
 				}
 			} else {
 				first_content_preview.innerHTML = 'Tiêu đề quảng cáo'
@@ -892,6 +900,11 @@ block javaScripts extend
 					content_card_0.classList.remove('is-hidden')
 					content_card_1.classList.add('is-hidden')
 					check_form_ad.setAttribute("disabled", "disabled");
+
+					warning_word_card.classList.add('is-hidden')
+					warning_uppercase_card.classList.add('is-hidden')
+					banned_word_card.classList.add('is-hidden')
+					successful_card.classList.add('is-hidden')
 				}
 			}
 		}
@@ -907,6 +920,11 @@ block javaScripts extend
 					content_card_0.classList.add('is-hidden')
 					content_card_1.classList.remove('is-hidden')
 					check_form_ad.removeAttribute('disabled')
+
+					warning_word_card.classList.add('is-hidden')
+					warning_uppercase_card.classList.add('is-hidden')
+					banned_word_card.classList.add('is-hidden')
+					successful_card.classList.add('is-hidden')
 				}
 			} else {
 				second_content_preview.innerHTML = 'Nội dung quảng cáo'
@@ -918,6 +936,11 @@ block javaScripts extend
 					content_card_0.classList.remove('is-hidden')
 					content_card_1.classList.add('is-hidden')
 					check_form_ad.setAttribute("disabled", "disabled");
+
+					warning_word_card.classList.add('is-hidden')
+					warning_uppercase_card.classList.add('is-hidden')
+					banned_word_card.classList.add('is-hidden')
+					successful_card.classList.add('is-hidden')
 				}
 			}
 		}
@@ -933,6 +956,11 @@ block javaScripts extend
 					content_card_0.classList.add('is-hidden')
 					content_card_1.classList.remove('is-hidden')
 					check_form_ad.removeAttribute('disabled')
+
+					warning_word_card.classList.add('is-hidden')
+					warning_uppercase_card.classList.add('is-hidden')
+					banned_word_card.classList.add('is-hidden')
+					successful_card.classList.add('is-hidden')
 				}
 			} else {
 				third_content_preview.innerHTML = 'Mô tả thêm'
@@ -944,6 +972,11 @@ block javaScripts extend
 					content_card_0.classList.remove('is-hidden')
 					content_card_1.classList.add('is-hidden')
 					check_form_ad.setAttribute("disabled", "disabled");
+
+					warning_word_card.classList.add('is-hidden')
+					warning_uppercase_card.classList.add('is-hidden')
+					banned_word_card.classList.add('is-hidden')
+					successful_card.classList.add('is-hidden')
 				}
 			}
 		}
@@ -959,6 +992,11 @@ block javaScripts extend
 					content_card_0.classList.add('is-hidden')
 					content_card_1.classList.remove('is-hidden')
 					check_form_ad.removeAttribute('disabled')
+
+					warning_word_card.classList.add('is-hidden')
+					warning_uppercase_card.classList.add('is-hidden')
+					banned_word_card.classList.add('is-hidden')
+					successful_card.classList.add('is-hidden')
 				}
 			} else {
 				fourth_content_preview.innerHTML = 'Thông tin thêm'
@@ -970,19 +1008,15 @@ block javaScripts extend
 					content_card_0.classList.remove('is-hidden')
 					content_card_1.classList.add('is-hidden')
 					check_form_ad.setAttribute("disabled", "disabled");
+
+					warning_word_card.classList.add('is-hidden')
+					warning_uppercase_card.classList.add('is-hidden')
+					banned_word_card.classList.add('is-hidden')
+					successful_card.classList.add('is-hidden')
 				}
 			}
 		}
 
-		document.getElementById('fifth-input').onfocus = value =>{
-			console.log('1')
-		}
-		document.getElementById('fifth-input').onmouseout = value =>{
-			console.log('2')
-		}
-		document.getElementById('fifth-input').onblur = value =>{
-			console.log('3')
-		}
 		document.getElementById('fifth-input').onchange = value =>{
 			if(value.target.value){
 				document.getElementById('fifth-preview').innerHTML = value.target.value
@@ -996,7 +1030,7 @@ block javaScripts extend
 		}
 
 		let banned_words = [
-			'duy nhất', 'tốt nhất', 'nhất','cam kết'
+			'khóc thét','giật mình','hốt hoảng'
 		]
 		// check banned words
 		function checkPolicy(val) {
@@ -1011,7 +1045,7 @@ block javaScripts extend
 		}
 
 		let warning_words = [
-			'tin nóng', 'tin giật gân', 'tin 24h'
+			'duy nhất', 'tốt nhất', 'nhất','số một'
 		]
 		// check warning
 		function checkWarning(val) {
@@ -1024,7 +1058,6 @@ block javaScripts extend
 			}
 			return getBanWordsList
 		}
-
 		function checkFormat(val) {
 			if(val.charAt(0) != val.charAt(0).toUpperCase() || val.charAt(0) == ' ')
 				return 1;
@@ -1038,233 +1071,295 @@ block javaScripts extend
 				}
 			}
 		}
-		//click button Test
-		const InputFormat = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s]+$/g
+
+
+		const InputFormatWithPuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"-]+$/g
+
+		const InputFormatUpperCaseAfterDot = /([.?!] )([A-Z0-9])/
+
+		const InputFormatOnlyOnePuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*(\d*[.,!?;-]\d*\s+)[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*/
+
 		document.getElementById('check-form-ad').onclick = value =>{
 			
+			//get value input
 			let value_1 = first_input.value
 			let value_2 = second_input.value
 			let value_3 = third_input.value
 			let value_4 = fourth_input.value
 
-			let check_correct = 0
+			//clear warning. error cards
+			warning_word_card.classList.add('is-hidden')
+			warning_uppercase_card.classList.add('is-hidden')
+			banned_word_card.classList.add('is-hidden')
+			successful_card.classList.add('is-hidden')
 
-			if(value_1 || value_2 || value_3 || value_4){
-				warning_word_card.classList.add('is-hidden')
-				warning_uppercase_card.classList.add('is-hidden')
-				banned_word_card.classList.add('is-hidden')
-				successful_card.classList.add('is-hidden')
-			}
-
-			console.log(value_1.match(InputFormat))
+			let value_check_ad = true
 
 			$('.error-item').remove()
+			$('.warning-item').remove()
 
-			if(!first_input.value){
-				first_input.focus()
-			} else if(!second_input.value){
-				second_input.focus()
-			} else {
-				if(value_1.indexOf("  ") > -1 || value_2.indexOf("  ") > -1 
-					|| value_1.indexOf("...") > -1 || value_2.indexOf("...") > -1
-					|| value_1.match(InputFormat) == null || value_2.match(InputFormat) == null
-					|| checkFormat(value_1) == 1 || checkFormat(value_2) == 1
-					|| checkFormat2(value_1) == 1 || checkFormat2(value_2) == 1){
+			if(value_1){
+				if(checkFormat(value_1) == 1){
+					console.log('check')
+					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
-					
-				} else if(checkPolicy(value_1).length > 0 || checkPolicy(value_2).length > 0){
+					if($('#error-0').text().indexOf('Có khoảng trắng đầu câu') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Có khoảng trắng đầu câu</p>" )
+					}
+				} 
+				if(checkFormat2(value_1) == 1){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+					}
+				} 
+				if(value_1.match(InputFormatWithPuntuation)==null){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-2').text().indexOf('Sử dụng kí tự đặc biệt') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
+					}
+				} 
+				if(!value_1.match(InputFormatOnlyOnePuntuation)==null){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if(value_1.indexOf("...") > -1){
+						if($('#error-3').text().indexOf('Sử dụng dấu ba chấm') > 0){
+						} else {
+							$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
+						}
+					}
+					if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+					}
+				} 
+				if(checkPolicy(value_1).length > 0){
+					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					banned_word_card.classList.remove('is-hidden')
-					
-					let list_1 = checkPolicy(value_1)
-					let list_2 = checkPolicy(value_2)
-					let list = list_1.concat(list_2)
+
+					let list = checkPolicy(value_1)
 					for(let i = 0; i < list.length; i++){
-						$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
-					}
-				} else if(checkWarning(value_1).length > 0 || checkWarning(value_2).length > 0){
+						$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )
+					}		
+				} 
+				if(checkWarning(value_1).length > 0){
+					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_word_card.classList.remove('is-hidden')
-					
-					let list_1 = checkWarning(value_1)
-					let list_2 = checkWarning(value_2)
-					let list = list_1.concat(list_2)
-					for(let i = 0; i < list.length; i++){
-						$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
-					}
-				} else {
-					content_card_1.classList.add('is-hidden')
-					if(value_3 || value_4){
-						if(value_3){
-							if(value_3.indexOf("  ") > -1 
-								|| value_3.indexOf("...") > -1
-								|| value_3.match(InputFormat) == null
-								|| checkFormat(value_3) == 1
-								|| checkFormat2(value_3) == 1){
-								content_card_1.classList.add('is-hidden')
-								warning_uppercase_card.classList.remove('is-hidden')
-								successful_card.classList.add('is-hidden')
-							} else if(checkPolicy(value_3).length > 0){
-								content_card_1.classList.add('is-hidden')
-								banned_word_card.classList.remove('is-hidden')
-								successful_card.classList.add('is-hidden')
-								let list = checkPolicy(value_3)
-								for(let i = 0; i < list.length; i++){
-									$("#alert-card-third .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
-								}
-							} else if(checkWarning(value_3).length > 0){
-								content_card_1.classList.add('is-hidden')
-								warning_word_card.classList.remove('is-hidden')
-								successful_card.classList.add('is-hidden')
-								let list = checkWarning(value_3)
-								for(let i = 0; i < list.length; i++){
-									$("#alert-card-first .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
-								}
-							} else {
-								successful_card.classList.remove('is-hidden')
-							}
-						} else {
-							if(value_4.indexOf("  ") > -1 
-								|| value_4.indexOf("...") > -1
-								|| value_4.match(InputFormat) == null
-								|| checkFormat(value_4) == 1
-								|| checkFormat2(value_4) == 1){
-								content_card_1.classList.add('is-hidden')
-								warning_uppercase_card.classList.remove('is-hidden')
-								successful_card.classList.add('is-hidden')
-							} else if(checkPolicy(value_4).length > 0){
-								content_card_1.classList.add('is-hidden')
-								banned_word_card.classList.remove('is-hidden')
-								successful_card.classList.add('is-hidden')
-								let list = checkPolicy(value_4)
-								for(let i = 0; i < list.length; i++){
-									$("#alert-card-third .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
-								}
-							} else if(checkWarning(value_4).length > 0){
-								content_card_1.classList.add('is-hidden')
-								warning_word_card.classList.remove('is-hidden')
-								successful_card.classList.add('is-hidden')
-								let list = checkWarning(value_4)
-								for(let i = 0; i < list.length; i++){
-									$("#alert-card-first .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
-								}
-							} else {
-								successful_card.classList.remove('is-hidden')
-							}
-						}
-					} else if(value_3 && value_4){
-						if(value_3.indexOf("  ") > -1 || value_4.indexOf("  ") > -1 
-							|| value_3.indexOf("...") > -1 || value_4.indexOf("...") > -1
-							|| value_3.match(InputFormat) == null || value_4.match(InputFormat) == null
-							|| checkFormat(value_3) == 1 || checkFormat(value_4) == 1
-							|| checkFormat2(value_3) == 1 || checkFormat2(value_4) == 1){
-							content_card_1.classList.add('is-hidden')
-							warning_uppercase_card.classList.remove('is-hidden')	
-						} else if(checkPolicy(value_3).length > 0 || checkPolicy(value_4).length > 0){
-							content_card_1.classList.add('is-hidden')
-							banned_word_card.classList.remove('is-hidden')
-							
-							let list_1 = checkPolicy(value_3)
-							let list_2 = checkPolicy(value_4)
-							let list = list_1.concat(list_2)
-							for(let i = 0; i < list.length; i++){
-								$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
-							}
-						} else if(checkWarning(value_3).length > 0 || checkWarning(value_4).length > 0){
-							content_card_1.classList.add('is-hidden')
-							warning_word_card.classList.remove('is-hidden')
-							
-							let list_1 = checkWarning(value_3)
-							let list_2 = checkWarning(value_4)
-							let list = list_1.concat(list_2)
-							for(let i = 0; i < list.length; i++){
-								$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </pp" )
-							}
-						} else {
-						}
-					}
-				}
+
+					let list = checkWarning(value_1)
+					for(let i = 0; i < list.length; i++){$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )}
+				} 
+				
 			}
+			
+			if(value_2){
+				if(checkFormat(value_2) == 1){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-0').text().indexOf('Có khoảng trắng đầu câu') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Có khoảng trắng đầu câu</p>" )
+					}
+				} 
+				if(checkFormat2(value_2) == 1){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+					}
+				} 
+				if(value_2.match(InputFormatWithPuntuation)==null){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-2').text().indexOf('Sử dụng kí tự đặc biệt') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
+					}
+				} 
+				if(!value_2.match(InputFormatOnlyOnePuntuation)==null){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if(value_2.indexOf("...") > -1){
+						if($('#error-3').text().indexOf('Sử dụng dấu ba chấm') > 0){
+						} else {
+							$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
+						}
+					} 
+					if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+					}
+				} 
+				if(checkPolicy(value_2).length > 0){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					banned_word_card.classList.remove('is-hidden')
 
-			//- if(value_3){
-			//- 	if(value_3.indexOf("  ") > -1 
-			//- 		|| value_3.indexOf("...") > -1
-			//- 		|| value_3.match(InputFormat) == null
-			//- 		|| checkFormat(value_3) == 1
-			//- 		|| checkFormat2(value_3) == 1){
-			//- 		content_card_1.classList.add('is-hidden')
-			//- 		warning_uppercase_card.classList.remove('is-hidden')
-					
-			//- 	} else if(checkPolicy(value_3).length > 0){
-			//- 		content_card_1.classList.add('is-hidden')
-			//- 		banned_word_card.classList.remove('is-hidden')
-					
-			//- 		let list = checkPolicy(value_3)
-			//- 		for(let i = 0; i < list.length; i++){
-			//- 			$("#alert-card-third .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
-			//- 		}
-			//- 	} else if(checkWarning(value_3).length > 0){
-			//- 		content_card_1.classList.add('is-hidden')
-			//- 		warning_word_card.classList.remove('is-hidden')
-					
-			//- 		let list = checkWarning(value_3)
-			//- 		for(let i = 0; i < list.length; i++){
-			//- 			$("#alert-card-first .card-error-list").append("<p class='error-item' id='third-"+i+"'>"+list[i]+" </pp" )
-			//- 		}
-			//- 	} else {
-			//- 		check_correct +=1
-			//- 	}
-			//- }
-			//- if(value_4){
-			//- 	if(value_4.indexOf("  ") > -1 
-			//- 		|| value_4.indexOf("...") > -1
-			//- 		|| value_4.match(InputFormat) == null
-			//- 		|| checkFormat(value_4) == 1
-			//- 		|| checkFormat2(value_4) == 1){
-			//- 		content_card_1.classList.add('is-hidden')
-			//- 		warning_uppercase_card.classList.remove('is-hidden')
-					
-			//- 	} else if(checkPolicy(value_4).length > 0){
-			//- 		content_card_1.classList.add('is-hidden')
-			//- 		banned_word_card.classList.remove('is-hidden')
-					
-			//- 		let list = checkPolicy(value_4)
-			//- 		for(let i = 0; i < list.length; i++){
-			//- 			$("#alert-card-third .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
-			//- 		}
-			//- 	} else if(checkWarning(value_4).length > 0){
-			//- 		content_card_1.classList.add('is-hidden')
-			//- 		warning_word_card.classList.remove('is-hidden')
-					
-			//- 		let list = checkWarning(value_4)
-			//- 		for(let i = 0; i < list.length; i++){
-			//- 			$("#alert-card-first .card-error-list").append( "<p class='error-item' id='fourth-"+i+"'>"+list[i]+" </p>" )
-			//- 		}
-			//- 	} else {
-			//- 		check_correct +=1
-			//- 	}
-			//- }
+					let list = checkPolicy(value_2)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )
+					}		
+				} 
+				if(checkWarning(value_2).length > 0){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_word_card.classList.remove('is-hidden')
 
-			//- console.log(check_correct)
-			//- if(check_correct >= 3){
-			//- 	if(value_1 && value_2 && value_3 && value_4){
-			//- 		content_card_1.classList.add('is-hidden')
-			//- 		successful_card.classList.remove('is-hidden')
-			//- 	}
-			//- } else if(check_correct >= 2){
-			//- 	if((value_1 && value_2 && value_4)||(value_1 && value_2 && value_3)){
-			//- 		content_card_1.classList.add('is-hidden')
-			//- 		successful_card.classList.remove('is-hidden')
-			//- 	}
-			//- } else if(check_correct >= 1){
-			//- 	if(value_1 && value_2){
-			//- 		content_card_1.classList.add('is-hidden')
-			//- 		successful_card.classList.remove('is-hidden')
-			//- 	}
-			//- } else {
-			//- 	console.log('error')
-			//- }
+					let list = checkWarning(value_2)
+					for(let i = 0; i < list.length; i++){$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )}
+				}
+				
+			}
+			
+			if(value_3){
+				if(checkFormat(value_3) == 1){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-0').text().indexOf('Có khoảng trắng đầu câu') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Có khoảng trắng đầu câu</p>" )
+					}
+				} 
+				if(checkFormat2(value_3) == 1){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+					}
+				} 
+				if(value_3.match(InputFormatWithPuntuation)==null){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-2').text().indexOf('Sử dụng kí tự đặc biệt') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
+					}
+				} 
+				if(!value_3.match(InputFormatOnlyOnePuntuation)==null){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if(value_3.indexOf("...") > -1){
+						if($('#error-3').text().indexOf('Sử dụng dấu ba chấm') > 0){
+						} else {
+							$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
+						}
+					} 
+					if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+					}
+				} 
+				if(checkPolicy(value_3).length > 0){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					banned_word_card.classList.remove('is-hidden')
+
+					let list = checkPolicy(value_3)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )
+					}		
+				} 
+				if(checkWarning(value_3).length > 0){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_word_card.classList.remove('is-hidden')
+
+					let list = checkWarning(value_3)
+					for(let i = 0; i < list.length; i++){$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )}
+				}
+				
+			}
+			
+			if(value_4){
+				if(checkFormat(value_4) == 1){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-0').text().indexOf('Có khoảng trắng đầu câu') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Có khoảng trắng đầu câu</p>" )
+					}
+				} 
+				if(checkFormat2(value_4) == 1){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+					}
+				} 
+				if(value_4.match(InputFormatWithPuntuation)==null){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-2').text().indexOf('Sử dụng kí tự đặc biệt') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
+					}
+				} 
+				if(!value_4.match(InputFormatOnlyOnePuntuation)==null){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if(value_4.indexOf("...") > -1){
+						if($('#error-3').text().indexOf('Sử dụng dấu ba chấm') > 0){
+						} else {
+							$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
+						}
+					} 
+					if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') > 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+					}
+				} 
+				if(checkPolicy(value_4).length > 0){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					banned_word_card.classList.remove('is-hidden')
+
+					let list = checkPolicy(value_4)
+					for(let i = 0; i < list.length; i++){
+						$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )
+					}		
+				} 
+				if(checkWarning(value_4).length > 0){
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_word_card.classList.remove('is-hidden')
+
+					let list = checkWarning(value_4)
+					for(let i = 0; i < list.length; i++){$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )}
+				} 
+				
+			}
+			
+
+			if(value_check_ad == true){
+				content_card_1.classList.add('is-hidden')
+				successful_card.classList.remove('is-hidden')
+			}
 
 		}
 

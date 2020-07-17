@@ -1,0 +1,42 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var loading = false
+	- var header = true
+	//- - var navbar = true
+	- var modal = true
+	- var popperjs = true
+	- var tippyjs = true
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("")
+	- layoutClasses.push("ad-desktop")
+	- headerClasses.push("header")
+	- bodyClasses.push("page-content")
+	
+//- Add Header
+block header
+	include page/header.pug
+
+//- Add Body
+block body
+	include page/_position_preview.pug
+
+//- Add Modal
+block modal
+	//- include page/modal_edit_img.pug
+
+block javaScripts extend
+	script.
+		document.getElementsByClassName("navbar-item")[1].classList.add('active')
+		
+
+
+
+
+		
