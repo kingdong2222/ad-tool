@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fengyuanchen.github.io/cropperjs/css/cropper.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.js"></script>
+<script async src="https://ads.zalo.me/business/wp-content/themes/html5blank-stable/js/opencv.js" type="text/javascript"></script>
+    <style></style>
+  </head>
+  <body>
+    <div class="header"><a class="logo" href="#!"><i class="ico-logo"></i></a>
+      <div class="navbar-main">
+        <ul>
+          <li><a class="navbar-item" href="index.html">Công cụ kiểm tra quảng cáo</a></li>
+          <li><a class="navbar-item" href="position_preview.html">Vị trí hiển thị quảng cáo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-content">
+      <main>
+        <div class="main-body">
+          <div id="button-toggle-slide-bar"><i class="icz icz-right"></i></div>
+          <div class="container_cols">
+            <div class="container_col content">
+              <h2 class="title">Nội dung</h2>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question" id="tippy-title-ad"></i></h3>
+                  <p class="max-letter" id="max-letter-first">30</p>
+                </div>
+                <input id="first-input" type="text" placeholder="Nhập tiêu đề" maxlength="30">
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Nội dung quảng cáo<i class="icz icz-question" id="tippy-content-ad"></i></h3>
+                  <p class="max-letter" id="max-letter-second">90</p>
+                </div>
+                <textarea id="second-input" placeholder="Nhập nội dung" maxlength="90"></textarea>
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question" id="tippy-avatar-upload"></i></h3>
+                </div>
+                <div class="image-input">
+                  <div class="avatar-image-input">
+                    <input id="avatar-image-input" type="file" accept="image/*" tabindex="-1">
+                  </div><i class="icz icz-image-add-2">
+                    <input id="avatar-image-input-0" type="file" accept="image/*" tabindex="-1"></i>
+                  <p class="img-desc">Kích thước 150 x 150 pixel <br> Tối đa 2Mb</p>
+                </div>
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Mô tả thêm<i class="icz icz-question" id="tippy-optional-desc"></i></h3>
+                  <p class="max-letter" id="max-letter-third">60</p>
+                </div>
+                <input id="third-input" type="text" placeholder="Mô tả ngắn gọn" maxlength="60">
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Thông tin thêm<i class="icz icz-question" id="tippy-optional-info"></i></h3>
+                  <p class="max-letter" id="max-letter-fourth">60</p>
+                </div>
+                <input id="fourth-input" type="text" placeholder="Nhập thông tin thêm" maxlength="60">
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Nút kêu gọi<i class="icz icz-question" id="tippy-button-call-action"></i></h3>
+                </div>
+                <div class="select">
+                  <select id="fifth-input">
+                    <option>Đặt ngay</option>
+                    <option>Mua ngay</option>
+                    <option>Thử ngay</option>
+                    <option>Tải ngay</option>
+                    <option>Xem thêm</option>
+                    <option>Nghe ngay</option>
+                    <option>Chơi ngay</option>
+                    <option>Đăng ký</option>
+                    <option>Gọi điện</option>
+                  </select>
+                </div>
+              </div>
+              <div class="button is-primary is-large" id="check-form-ad" disabled>Kiểm tra</div>
+            </div>
+            <div class="container_col checking">
+              <h2 class="checking-title title">Kiểm tra</h2>
+              <div class="text-input-item first-item">
+                <div class="label-title">
+                  <h3 class="title">Hình ảnh quảng cáo<i class="icz icz-question" id="tippy-large-image"></i></h3>
+                </div>
+                <div class="large-image-input">
+                  <input id="large-image-input" type="file" accept="image/*">
+                  <p>Kéo thả ảnh vào hoặc <span>tải ảnh lên</span></p>
+                </div>
+                <div class="large-image-preview">
+                  <div class="image-preview-header">
+                    <p class="large-img-name">Banner final <br><span>1024 x 533</span></p>
+                    <div class="dropdown dropdown-call"><a class="button dropdown-toggle" role="button" id="dropdown-call" data-toggle="dropdown" aria-expanded="false"><span class="name-item">Tùy chọn</span><i class="icz icz-down"></i></a>
+                      <div class="dropdown-menu" aria-labelledby="dropdown-call">
+                        <ul>
+                          <li> <a id="change-large-img"><span class="name-item">Thay đổi ảnh</span>
+                              <input id="change-large-img-input" type="file" accept="image/*"></a></li>
+                          <li><a id="download-large-image"><span class="name-item">Tải ảnh xuống</span></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="image-preview-body">
+                    <div class="ads-img">
+                      <div class="img-container-preview" id="output-large-preview" style="background-image:url(https://via.placeholder.com/1024x533)"><img id="imageSrc-preview" src="" alt="" style="display:none"></div>
+                      <div class="squares">
+                        <div class="row">
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div style="clear:both;"></div>
+                        </div>
+                        <div class="row">
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div style="clear:both;"></div>
+                        </div>
+                        <div class="row">
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div style="clear:both;"></div>
+                        </div>
+                        <div class="row">
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div style="clear:both;"></div>
+                        </div>
+                        <div class="row">
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div class="square"></div>
+                          <div style="clear:both;"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ads-grid-switch">
+                      <p>Lưới kiểm tra chữ</p>
+                      <label class="switch">
+                        <input id="check-grid" type="checkbox" checked><span class="slider round"></span>
+                      </label>
+                    </div>
+                    <div class="ads-text-ratio">
+                      <p>Tỉ lệ văn bản:</p>
+                      <p class="check-msg">Hãy chọn các ô có xuất hiện chữ</p>
+                    </div>
+                    <div class="ads-img-quality">
+                      <p>Chất lượng ảnh:</p>
+                      <p id="img-quality">Mờ</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-input-item second-item">
+                <div class="label-title">
+                  <h3 class="title">Nội dung<i class="icz icz-question" id="tippy-notice-content"></i></h3>
+                </div>
+                <div class="content-card" id="content-card-first">
+                  <div class="card-desc"><i class="icz icz-fill-info"></i>
+                    <p>Quảng cáo của bạn chưa có nội dung.<br><a onclick="focusFirstInput()">Nhập nội dung </a>để tiến hành kiểm tra.</p>
+                  </div>
+                  <div class="card-error-list">
+                    <p>Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây.</p>
+                  </div>
+                </div>
+                <div class="content-card is-hidden" id="content-card-second">
+                  <div class="card-desc"><i class="icz icz-fill-info"></i>
+                    <p>Nội dung của bạn chưa được kiểm tra, nhấn kiểm tra để xem kết quả</p>
+                  </div>
+                  <div class="card-error-list">
+                    <p>Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây.</p>
+                  </div>
+                </div>
+                <div class="content-card is-hidden" id="alert-card-first">
+                  <div class="card-desc"><i class="icz icz-fill-warning"></i>
+                    <p>Sử dụng từ ngữ bị hạn chế</p>
+                  </div>
+                  <div class="card-error-list"></div>
+                </div>
+                <div class="content-card is-hidden" id="alert-card-second">
+                  <div class="card-desc"><i class="icz icz-fill-warning"></i>
+                    <p>Nội dung có sử dụng kí tự đặc biệt/định dạng văn bản không được phép sử dụng</p>
+                  </div>
+                  <div class="card-error-list"></div>
+                </div>
+                <div class="content-card is-hidden" id="alert-card-third">
+                  <div class="card-desc"><i class="icz icz-fill-error"></i>
+                    <p>Cảnh báo! Nội dung của bạn có sử dụng từ ngữ vi phạm qui định quảng cáo.</p>
+                  </div>
+                  <div class="card-error-list"></div>
+                </div>
+                <div class="content-card is-hidden" id="successful-card">
+                  <div class="card-desc"><i class="icz icz-fill-check"></i>
+                    <p>Tuyệt vời! Không phát hiện lỗi trong nội dung quảng cáo của bạn</p>
+                  </div>
+                  <div class="card-error-list">
+                    <p>Chúng tôi không phát hiện các lỗi vi phạm phổ biến nào trong quảng cáo của bạn.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="policy-bottom-desc">
+            <p>Đây là công cụ giúp bạn tối ưu hóa cài đặt quảng cáo. Việc xét duyệt quảng cáo không thuộc quản lý của công cụ này. <br>Xem thêm các <a>quy định quảng cáo </a>để tìm hiểu thêm về lĩnh vực kinh doanh của bạn,</p>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-body-container">
+            <h2 class="title">Xem trước hiển thị</h2>
+            <div class="card-preview">
+              <div class="square-ads">
+                <div class="label-title">
+                  <div class="avatar avatar--l"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
+                  <h3 class="title" id="first-preview">Tiêu đề quảng cáo</h3>
+                </div>
+                <h3 class="title" id="second-preview">Nội dung quảng cáo</h3>
+                <div class="preview-sample"></div>
+                <div class="ad-desc">
+                  <div class="optional">
+                    <p class="optional-desc" id="third-preview">Mô tả thêm</p>
+                    <p class="optional-info" id="fourth-preview">Thông tin thêm</p>
+                  </div>
+                  <div class="button-buy-now" id="fifth-preview">Mua ngay</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="bl-popup">
+    </div>
+    <div class="bl-modal">
+      <div class="modal fade" id="modalEditImg" tabindex="-1" role="dialog" aria-labelledby="editImgModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="label-title">
+                <h3 class="title modal-title" id="editImgModalLabel">Hình ảnh quảng cáo<i class="icz icz-question" id="tippy-crop-img"></i></h3>
+              </div>
+              <div class="close-modal button-icon-close" type="button" data-dismiss="modal" aria-label="Close"><i class="icz icz-close"></i></div>
+            </div>
+            <div class="modal-body">
+              <div class="img-container" style="height: 70vh; "><img></div>
+            </div>
+            <div class="modal-footer" id="actions">
+              <div class="docs-buttons">
+                <div class="button is-primary close-modal crop-done-button" id="download-avatar" data-method="getCroppedCanvas">Xong</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.getElementsByClassName("navbar-item")[0].classList.add('active')
+      
+      const button_toogle_slide = document.getElementById('button-toggle-slide-bar')
+      const main_body = document.getElementsByClassName('main-body')[0]
+      const slide_body = document.getElementsByClassName('slide-body')[0]
+      button_toogle_slide.onclick = () => {
+      	main_body.classList.toggle("expanded");
+      	slide_body.classList.toggle("narrowed")
+      	const icon_toggle = button_toogle_slide.getElementsByClassName('icz')[0]
+      	icon_toggle.classList.toggle('icz-right')
+      	icon_toggle.classList.toggle('icz-left')
+      }
+      
+      $(".close-modal").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal").removeClass("show");
+      	$("div").remove(".cropper-container");
+      });
+      
+      $("#avatar-image-input").click(()=>{
+      	crop()
+      })
+      $("#avatar-image-input-0").click(()=>{
+      	cropAvatarAgain()
+      })
+      
+      
+      $("#large-image-input").click(()=>{
+      	cropLargeImg()
+      })
+      $("#change-large-img").click(()=>{
+      	document.getElementById("change-large-img-input").click()
+      })
+      $('#change-large-img-input').click(()=>{
+      	cropLargeImgAgain()
+      })
+      
+      var crop = function(){
+      
+      	var Cropper = window.Cropper;
+      	var URL = window.URL || window.webkitURL;
+      	var container = document.querySelector('.img-container');
+      	var image = container.getElementsByTagName('img').item(0);
+      	var download = document.getElementById('download-avatar');
+      	var actions = document.getElementById('actions');
+      	var options = {
+      		aspectRatio: 1,
+      		autoCropArea: 1,
+      		zoomable: false,
+      		zoomOnTouch: false,
+      		zoomOnWheel: false,
+      		dragMode: 'none',
+      	};
+      	var cropper = new Cropper(image, options);
+      	var originalImageURL = image.src;
+      	var uploadedImageType = 'image/*';
+      	var uploadedImageName = 'cropped.jpeg';
+      	var uploadedImageURL;
+      
+      	// Buttons
+      	if (!document.createElement('canvas').getContext) {
+      		$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+      	}
+      
+      	if (typeof document.createElement('cropper').style.transition === 'undefined') {
+      		$('button[data-method="rotate"]').prop('disabled', true);
+      		$('button[data-method="scale"]').prop('disabled', true);
+      	}
+      
+      	// Methods
+      	actions.querySelector('.docs-buttons').onclick = function (event) {
+      		var e = event || window.event;
+      		var target = e.target || e.srcElement;
+      		var cropped;
+      		var result;
+      		var input;
+      		var data;
+      
+      		if (!cropper) {
+      			return;
+      		}
+      		while (target !== this) {
+      			if (target.getAttribute('data-method')) {
+      				break;
+      			}
+      
+      			target = target.parentNode;
+      		}
+      		if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+      			return;
+      		}
+      		data = {
+      			method: target.getAttribute('data-method'),
+      			target: target.getAttribute('data-target'),
+      			option: target.getAttribute('data-option') || undefined,
+      			secondOption: target.getAttribute('data-second-option') || undefined
+      		};
+      		cropped = cropper.cropped;
+      		if (data.method) {
+      			if (typeof data.target !== 'undefined') {
+      				input = document.querySelector(data.target);
+      
+      				if (!target.hasAttribute('data-option') && data.target && input) {
+      					try {
+      						data.option = JSON.parse(input.value);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      				}
+      			}
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					try {
+      						data.option = JSON.parse(data.option);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      					if (uploadedImageType === 'image/*') {
+      						if (!data.option) {
+      							data.option = {};
+      						}
+      						data.option.fillColor = '#fff';
+      					}
+      					break;
+      			}
+      			result = cropper[data.method](data.option, data.secondOption);
+      
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					if (result) {
+      						console.log(result)
+      						if (!download.disabled) {
+      							download.download = uploadedImageName;
+      							download.href = result.toDataURL(uploadedImageType);
+      
+      							$("p.img-desc").html(uploadedImageName+"<span><br>150x150</span>");
+      							$("p.img-desc").addClass('avatar-name')
+      							$( "div.avatar-image-input" ).replaceWith( "<img class='avatar-image-input' id='output' />" );
+      							var output = document.getElementById('output');
+      							output.src = result.toDataURL(uploadedImageType)
+      							
+      							$( "span.avatar-img" ).replaceWith( "<img class='avatar-img' id='output-preview' />" );
+      							var output_preview = document.getElementById('output-preview');
+      							output_preview.src = result.toDataURL(uploadedImageType)
+      						}
+      					}
+      
+      					break;
+      			}
+      
+      			if (typeof result === 'object' && result !== cropper && input) {
+      				try {
+      					input.value = JSON.stringify(result);
+      				} catch (e) {
+      					console.log(e.message);
+      				}
+      			}
+      		}
+      	};
+      
+      
+      	// Import image
+      	var inputImage = document.getElementById('avatar-image-input');
+      
+      	if (URL) {
+      		inputImage.onchange = function () {
+      			var files = this.files;
+      			var file;
+      
+      			if (cropper && files && files.length) {
+      
+      				$("html").addClass("overlay-modal");
+      				$("#modalEditImg").addClass("show");
+      
+      				tippy('#tippy-crop-img', {
+      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      					allowHTML: true,
+      					maxWidth: 270,
+      					theme:'zad',
+      					trigger:'click',
+      					showOnCreate: true,
+      				});
+      
+      				file = files[0];
+      
+      				if (/^image\/\w+/.test(file.type)) {
+      					uploadedImageType = file.type;
+      					uploadedImageName = file.name;
+      
+      					if (uploadedImageURL) {
+      						URL.revokeObjectURL(uploadedImageURL);
+      					}
+      
+      					image.src = uploadedImageURL = URL.createObjectURL(file);
+      					cropper.destroy();
+      					cropper = new Cropper(image, options);
+      					inputImage.value = null;
+      				} else {
+      					window.alert('Please choose an image file.');
+      				}
+      			}
+      		};
+      	} else {
+      		inputImage.disabled = true;
+      		inputImage.parentNode.className += ' disabled';
+      	}	
+      };
+      var cropAvatarAgain = function(){
+      
+      	var Cropper = window.Cropper;
+      	var URL = window.URL || window.webkitURL;
+      	var container = document.querySelector('.img-container');
+      	var image = container.getElementsByTagName('img').item(0);
+      	var download = document.getElementById('download-avatar');
+      	var actions = document.getElementById('actions');
+      	var options = {
+      		aspectRatio: 1,
+      		autoCropArea: 1,
+      		zoomable: false,
+      		zoomOnTouch: false,
+      		zoomOnWheel: false,
+      		dragMode: 'none',
+      	};
+      	var cropper = new Cropper(image, options);
+      	var originalImageURL = image.src;
+      	var uploadedImageType = 'image/*';
+      	var uploadedImageName = 'cropped.jpeg';
+      	var uploadedImageURL;
+      
+      	// Buttons
+      	if (!document.createElement('canvas').getContext) {
+      		$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+      	}
+      
+      	if (typeof document.createElement('cropper').style.transition === 'undefined') {
+      		$('button[data-method="rotate"]').prop('disabled', true);
+      		$('button[data-method="scale"]').prop('disabled', true);
+      	}
+      
+      	// Methods
+      	actions.querySelector('.docs-buttons').onclick = function (event) {
+      		var e = event || window.event;
+      		var target = e.target || e.srcElement;
+      		var cropped;
+      		var result;
+      		var input;
+      		var data;
+      
+      		if (!cropper) {
+      			return;
+      		}
+      		while (target !== this) {
+      			if (target.getAttribute('data-method')) {
+      				break;
+      			}
+      
+      			target = target.parentNode;
+      		}
+      		if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+      			return;
+      		}
+      		data = {
+      			method: target.getAttribute('data-method'),
+      			target: target.getAttribute('data-target'),
+      			option: target.getAttribute('data-option') || undefined,
+      			secondOption: target.getAttribute('data-second-option') || undefined
+      		};
+      		cropped = cropper.cropped;
+      		if (data.method) {
+      			if (typeof data.target !== 'undefined') {
+      				input = document.querySelector(data.target);
+      
+      				if (!target.hasAttribute('data-option') && data.target && input) {
+      					try {
+      						data.option = JSON.parse(input.value);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      				}
+      			}
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					try {
+      						data.option = JSON.parse(data.option);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      					if (uploadedImageType === 'image/*') {
+      						if (!data.option) {
+      							data.option = {};
+      						}
+      						data.option.fillColor = '#fff';
+      					}
+      					break;
+      			}
+      			result = cropper[data.method](data.option, data.secondOption);
+      
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					if (result) {
+      						console.log(result)
+      						if (!download.disabled) {
+      							download.download = uploadedImageName;
+      							download.href = result.toDataURL(uploadedImageType);
+      
+      							$("p.img-desc").html(uploadedImageName+"<span><br>150x150</span>");
+      							$("p.img-desc").addClass('avatar-name')
+      
+      							document.getElementById('output').src = result.toDataURL(uploadedImageType)
+      							document.getElementById('output-preview').src = result.toDataURL(uploadedImageType)
+      						}
+      					}
+      
+      					break;
+      			}
+      
+      			if (typeof result === 'object' && result !== cropper && input) {
+      				try {
+      					input.value = JSON.stringify(result);
+      				} catch (e) {
+      					console.log(e.message);
+      				}
+      			}
+      		}
+      	};
+      
+      
+      	// Import image
+      	var inputImage = document.getElementById('avatar-image-input-0');
+      
+      	if (URL) {
+      		inputImage.onchange = function () {
+      			var files = this.files;
+      			var file;
+      
+      			if (cropper && files && files.length) {
+      
+      				$("html").addClass("overlay-modal");
+      				$("#modalEditImg").addClass("show");
+      
+      				tippy('#tippy-crop-img', {
+      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      					allowHTML: true,
+      					maxWidth: 270,
+      					theme:'zad',
+      					trigger:'click',
+      					showOnCreate: true,
+      				});
+      
+      				file = files[0];
+      
+      				if (/^image\/\w+/.test(file.type)) {
+      					uploadedImageType = file.type;
+      					uploadedImageName = file.name;
+      
+      					if (uploadedImageURL) {
+      						URL.revokeObjectURL(uploadedImageURL);
+      					}
+      
+      					image.src = uploadedImageURL = URL.createObjectURL(file);
+      					cropper.destroy();
+      					cropper = new Cropper(image, options);
+      					inputImage.value = null;
+      				} else {
+      					window.alert('Please choose an image file.');
+      				}
+      			}
+      		};
+      	} else {
+      		inputImage.disabled = true;
+      		inputImage.parentNode.className += ' disabled';
+      	}	
+      };
+      var cropLargeImg = function(){
+      
+      	var Cropper = window.Cropper;
+      	var URL = window.URL || window.webkitURL;
+      	var container = document.querySelector('.img-container');
+      	var image = container.getElementsByTagName('img').item(0);
+      	var download = document.getElementById('download-large-image');
+      	var actions = document.getElementById('actions');
+      	var options = {
+      		aspectRatio: 1024/533,
+      		autoCropArea: 1,
+      		zoomable: false,
+      		zoomOnTouch: false,
+      		zoomOnWheel: false,
+      		dragMode: 'none',
+      	};
+      	var cropper = new Cropper(image, options);
+      	var originalImageURL = image.src;
+      	var uploadedImageType = 'image/*';
+      	var uploadedImageName = 'cropped.jpeg';
+      	var uploadedImageURL;
+      	
+      	// Buttons
+      	if (!document.createElement('canvas').getContext) {
+      		$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+      	}
+      
+      	if (typeof document.createElement('cropper').style.transition === 'undefined') {
+      		$('button[data-method="rotate"]').prop('disabled', true);
+      		$('button[data-method="scale"]').prop('disabled', true);
+      	}
+      
+      	// Methods
+      	actions.querySelector('.docs-buttons').onclick = function (event) {
+      		var e = event || window.event;
+      		var target = e.target || e.srcElement;
+      		var cropped;
+      		var result;
+      		var input;
+      		var data;
+      
+      		if (!cropper) {
+      			return;
+      		}
+      		while (target !== this) {
+      			if (target.getAttribute('data-method')) {
+      				break;
+      			}
+      
+      			target = target.parentNode;
+      		}
+      		if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+      			return;
+      		}
+      		data = {
+      			method: target.getAttribute('data-method'),
+      			target: target.getAttribute('data-target'),
+      			option: target.getAttribute('data-option') || undefined,
+      			secondOption: target.getAttribute('data-second-option') || undefined
+      		};
+      		cropped = cropper.cropped;
+      		if (data.method) {
+      			if (typeof data.target !== 'undefined') {
+      				input = document.querySelector(data.target);
+      
+      				if (!target.hasAttribute('data-option') && data.target && input) {
+      					try {
+      						data.option = JSON.parse(input.value);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      				}
+      			}
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					try {
+      						data.option = JSON.parse(data.option);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      					if (uploadedImageType === 'image/*') {
+      						if (!data.option) {
+      							data.option = {};
+      						}
+      						data.option.fillColor = '#fff';
+      					}
+      					break;
+      			}
+      			result = cropper[data.method]({width: 1024, height: 533,}, data.secondOption);
+      
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					if (result) {
+      						console.log(result)
+      						if (!download.disabled) {
+      							download.download = uploadedImageName;
+      							download.href = result.toDataURL(uploadedImageType);
+      							$(".large-image-preview").addClass('is-show')
+      							$(".large-image-input").addClass('is-hidden')
+      
+      							$(".large-img-name").html(uploadedImageName+"<br><span>1024 x 533</span>")
+      
+      							document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+      
+      							$( ".preview-sample" ).replaceWith( "<img class='preview-sample' id='output-preview-large' style='background:none;'/>" );
+      							var output_preview_large = document.getElementById('output-preview-large');
+      							output_preview_large.src = result.toDataURL(uploadedImageType)
+      						
+      							//check blur
+      							let imgElement = document.getElementById('imageSrc-preview');
+      							imgElement.src = result.toDataURL(uploadedImageType)
+      							imgElement.onload = function () {
+      								let src = cv.imread(imgElement);
+      								let dst = new cv.Mat();
+      								let men = new cv.Mat();
+      								let menO = new cv.Mat();
+      								cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+      								// You can try more different parameters
+      								var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+      								console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+      								console.log(men.data64F[0])
+      								if (men.data64F[0] > 10) {
+      									document.getElementById('img-quality').innerHTML = 'Đạt'
+      								} else {
+      									document.getElementById('img-quality').innerHTML = 'Mờ'
+      								}
+      								// cv.imshow('canvasOutput', dst);
+      								src.delete(); dst.delete();
+      							};
+      						
+      							$(".ads-img .squares").addClass("is-show");
+      
+      						}
+      					}
+      
+      					break;
+      			}
+      
+      			if (typeof result === 'object' && result !== cropper && input) {
+      				try {
+      					input.value = JSON.stringify(result);
+      				} catch (e) {
+      					console.log(e.message);
+      				}
+      			}
+      		}
+      	};
+      
+      
+      	// Import image
+      	var inputImage = document.getElementById('large-image-input');
+      
+      	if (URL) {
+      		inputImage.onchange = function () {
+      			var files = this.files;
+      			var file;
+      
+      			if (cropper && files && files.length) {
+      
+      				$("html").addClass("overlay-modal");
+      				$("#modalEditImg").addClass("show");
+      
+      				tippy('#tippy-crop-img', {
+      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      					allowHTML: true,
+      					maxWidth: 270,
+      					theme:'zad',
+      					trigger:'click',
+      					showOnCreate: true,
+      				});
+      
+      				file = files[0];
+      
+      				if (/^image\/\w+/.test(file.type)) {
+      					uploadedImageType = file.type;
+      					uploadedImageName = file.name;
+      
+      					if (uploadedImageURL) {
+      						URL.revokeObjectURL(uploadedImageURL);
+      					}
+      
+      					image.src = uploadedImageURL = URL.createObjectURL(file);
+      					cropper.destroy();
+      					cropper = new Cropper(image, options);
+      					inputImage.value = null;
+      				} else {
+      					window.alert('Please choose an image file.');
+      				}
+      			}
+      		};
+      	} else {
+      		inputImage.disabled = true;
+      		inputImage.parentNode.className += ' disabled';
+      	}	
+      };
+      var cropLargeImgAgain = function(){
+      
+      	var Cropper = window.Cropper;
+      	var URL = window.URL || window.webkitURL;
+      	var container = document.querySelector('.img-container');
+      	var image = container.getElementsByTagName('img').item(0);
+      	var download = document.getElementById('download-large-image');
+      	var actions = document.getElementById('actions');
+      	var options = {
+      		aspectRatio: 1024/533,
+      		autoCropArea: 1,
+      		zoomable: false,
+      		zoomOnTouch: false,
+      		zoomOnWheel: false,
+      		dragMode: 'none',
+      	};
+      	var cropper = new Cropper(image, options);
+      	var originalImageURL = image.src;
+      	var uploadedImageType = 'image/*';
+      	var uploadedImageName = 'cropped.jpeg';
+      	var uploadedImageURL;
+      
+      	// Buttons
+      	if (!document.createElement('canvas').getContext) {
+      		$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+      	}
+      
+      	if (typeof document.createElement('cropper').style.transition === 'undefined') {
+      		$('button[data-method="rotate"]').prop('disabled', true);
+      		$('button[data-method="scale"]').prop('disabled', true);
+      	}
+      
+      	// Methods
+      	actions.querySelector('.docs-buttons').onclick = function (event) {
+      		var e = event || window.event;
+      		var target = e.target || e.srcElement;
+      		var cropped;
+      		var result;
+      		var input;
+      		var data;
+      
+      		if (!cropper) {
+      			return;
+      		}
+      		while (target !== this) {
+      			if (target.getAttribute('data-method')) {
+      				break;
+      			}
+      
+      			target = target.parentNode;
+      		}
+      		if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+      			return;
+      		}
+      		data = {
+      			method: target.getAttribute('data-method'),
+      			target: target.getAttribute('data-target'),
+      			option: target.getAttribute('data-option') || undefined,
+      			secondOption: target.getAttribute('data-second-option') || undefined
+      		};
+      		cropped = cropper.cropped;
+      		if (data.method) {
+      			if (typeof data.target !== 'undefined') {
+      				input = document.querySelector(data.target);
+      
+      				if (!target.hasAttribute('data-option') && data.target && input) {
+      					try {
+      						data.option = JSON.parse(input.value);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      				}
+      			}
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					try {
+      						data.option = JSON.parse(data.option);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      					if (uploadedImageType === 'image/*') {
+      						if (!data.option) {
+      							data.option = {};
+      						}
+      						data.option.fillColor = '#fff';
+      					}
+      					break;
+      			}
+      			result = cropper[data.method]({width: 1024, height: 533}, data.secondOption);
+      
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					if (result) {
+      						console.log(result)
+      						if (!download.disabled) {
+      							download.download = uploadedImageName;
+      							download.href = result.toDataURL(uploadedImageType);
+      
+      							$(".large-img-name").html(uploadedImageName+"<br><span>1024 x 533</span>")
+      
+      							document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+      
+      							var output_preview_large = document.getElementById('output-preview-large');
+      							output_preview_large.src = result.toDataURL(uploadedImageType)
+      						
+      							//check blur
+      							let imgElement = document.getElementById('imageSrc-preview');
+      							imgElement.src = result.toDataURL(uploadedImageType)
+      							imgElement.onload = function () {
+      								let src = cv.imread(imgElement);
+      								let dst = new cv.Mat();
+      								let men = new cv.Mat();
+      								let menO = new cv.Mat();
+      								cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+      								// You can try more different parameters
+      								var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+      								console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+      								if (men.data64F[0] > 10) {
+      									document.getElementById('img-quality').innerHTML = 'Đạt'
+      								} else {
+      									document.getElementById('img-quality').innerHTML = 'Mờ'
+      								}
+      								// cv.imshow('canvasOutput', dst);
+      								src.delete(); dst.delete();
+      							};
+      						
+      							$(".ads-img .squares").addClass("is-show");
+      
+      						}
+      					}
+      
+      					break;
+      			}
+      
+      			if (typeof result === 'object' && result !== cropper && input) {
+      				try {
+      					input.value = JSON.stringify(result);
+      				} catch (e) {
+      					console.log(e.message);
+      				}
+      			}
+      		}
+      	};
+      
+      
+      	// Import image
+      	var inputImage = document.getElementById('change-large-img-input');
+      
+      	if (URL) {
+      		inputImage.onchange = function () {
+      			var files = this.files;
+      			var file;
+      
+      			if (cropper && files && files.length) {
+      
+      				$("html").addClass("overlay-modal");
+      				$("#modalEditImg").addClass("show");
+      
+      				tippy('#tippy-crop-img', {
+      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      					allowHTML: true,
+      					maxWidth: 270,
+      					theme:'zad',
+      					trigger:'click',
+      					showOnCreate: true,
+      				});
+      
+      				file = files[0];
+      
+      				if (/^image\/\w+/.test(file.type)) {
+      					uploadedImageType = file.type;
+      					uploadedImageName = file.name;
+      
+      					if (uploadedImageURL) {
+      						URL.revokeObjectURL(uploadedImageURL);
+      					}
+      
+      					image.src = uploadedImageURL = URL.createObjectURL(file);
+      					cropper.destroy();
+      					cropper = new Cropper(image, options);
+      					inputImage.value = null;
+      				} else {
+      					window.alert('Please choose an image file.');
+      				}
+      			}
+      		};
+      	} else {
+      		inputImage.disabled = true;
+      		inputImage.parentNode.className += ' disabled';
+      	}	
+      };
+      
+      $("#check-grid").change(function(event){
+      	if (this.checked){
+      		$(".ads-img .squares").addClass("is-show");
+      	} else {
+      		$(".ads-img .squares").removeClass("is-show");
+      	}
+      });
+      count = 0;
+      //- $(".check-msg").hide();
+      $(function() {
+      	$(".square").click(function() {
+      		if ($(this).hasClass('is-selected')){
+      			$(this).removeClass("is-selected");
+      			count = count-1;
+      		} else {
+      			$(this).addClass("is-selected");
+      			count = count+1;
+      		}
+      		percent = Math.round(100*(count/25));
+      		$(".check-msg").hide();
+      		
+      		if (count<8){
+      			message = "(Đạt yêu cầu)";
+      			$(".check-msg").removeClass("is-no");
+      			$(".check-msg").addClass("is-ok");
+      		} else {
+      			message = "(Vượt quá 30%)";
+      			$(".check-msg").removeClass("is-ok");
+      			$(".check-msg").addClass("is-no");
+      		}
+      		
+      		$(".check-msg").html(percent+"%");
+      		
+      		$(".check-msg").fadeIn("fast", function() {});
+      	});
+      });
+      
+      document.getElementById('avatar-image-input').onmouseover = () => {
+      	document.getElementsByClassName('avatar-image-input')[0].style.backgroundColor = '#F0F4F8'
+      }
+      document.getElementById('avatar-image-input').onmouseout = () => {
+      	document.getElementsByClassName('avatar-image-input')[0].style.backgroundColor = '#FAFBFD'
+      }
+      
+      document.getElementById('large-image-input').onmouseover = () => {
+      	document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
+      }
+      document.getElementById('large-image-input').onmouseout = () => {
+      	document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#FAFBFD'
+      }
+      document.getElementById('large-image-input').ondrop = (value) => {
+      	cropLargeImg()
+      	document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
+      }
+      
+      const content_card_0 = document.getElementById('content-card-first')
+      const content_card_1 = document.getElementById('content-card-second')
+      
+      const warning_word_card = document.getElementById('alert-card-first')
+      const warning_uppercase_card = document.getElementById('alert-card-second')
+      const banned_word_card = document.getElementById('alert-card-third')
+      const successful_card = document.getElementById('successful-card')
+      
+      let first_input = document.getElementById('first-input')
+      let second_input = document.getElementById('second-input')
+      let third_input = document.getElementById('third-input')
+      let fourth_input = document.getElementById('fourth-input')
+      
+      let first_max_letter = document.getElementById('max-letter-first')
+      let second_max_letter = document.getElementById('max-letter-second')
+      let third_max_letter = document.getElementById('max-letter-third')
+      let fourth_max_letter = document.getElementById('max-letter-fourth')
+      
+      let first_content_preview = document.getElementById('first-preview')
+      let second_content_preview = document.getElementById('second-preview')
+      let third_content_preview = document.getElementById('third-preview')
+      let fourth_content_preview = document.getElementById('fourth-preview')
+      
+      let check_form_ad = document.getElementById('check-form-ad')
+      
+      first_input.oninput = value =>{
+      	if(value.target.value){
+      		first_content_preview.innerHTML = value.target.value
+      		first_max_letter.innerHTML = first_input.maxLength - first_input.value.length
+      		if(second_input.value || third_input.value || fourth_input.value){
+      			//do nothing cause it's done already
+      		}
+      		else{
+      			content_card_0.classList.add('is-hidden')
+      			content_card_1.classList.remove('is-hidden')
+      			check_form_ad.removeAttribute('disabled')
+      
+      			warning_word_card.classList.add('is-hidden')
+      			warning_uppercase_card.classList.add('is-hidden')
+      			banned_word_card.classList.add('is-hidden')
+      			successful_card.classList.add('is-hidden')
+      		}
+      	} else {
+      		first_content_preview.innerHTML = 'Tiêu đề quảng cáo'
+      		first_max_letter.innerHTML = first_input.maxLength
+      		if(second_input.value || third_input.value || fourth_input.value){
+      			//do nothing cause it's done already
+      		}
+      		else{
+      			content_card_0.classList.remove('is-hidden')
+      			content_card_1.classList.add('is-hidden')
+      			check_form_ad.setAttribute("disabled", "disabled");
+      
+      			warning_word_card.classList.add('is-hidden')
+      			warning_uppercase_card.classList.add('is-hidden')
+      			banned_word_card.classList.add('is-hidden')
+      			successful_card.classList.add('is-hidden')
+      		}
+      	}
+      }
+      
+      second_input.oninput = value =>{
+      	if(value.target.value){
+      		second_content_preview.innerHTML = value.target.value
+      		second_max_letter.innerHTML = second_input.maxLength - second_input.value.length
+      		if(first_input.value || third_input.value || fourth_input.value){
+      			//do nothing cause it's done already
+      		}
+      		else{
+      			content_card_0.classList.add('is-hidden')
+      			content_card_1.classList.remove('is-hidden')
+      			check_form_ad.removeAttribute('disabled')
+      
+      			warning_word_card.classList.add('is-hidden')
+      			warning_uppercase_card.classList.add('is-hidden')
+      			banned_word_card.classList.add('is-hidden')
+      			successful_card.classList.add('is-hidden')
+      		}
+      	} else {
+      		second_content_preview.innerHTML = 'Nội dung quảng cáo'
+      		second_max_letter.innerHTML = second_input.maxLength
+      		if(first_input.value || third_input.value || fourth_input.value){
+      			//do nothing cause it's done already
+      		}
+      		else{
+      			content_card_0.classList.remove('is-hidden')
+      			content_card_1.classList.add('is-hidden')
+      			check_form_ad.setAttribute("disabled", "disabled");
+      
+      			warning_word_card.classList.add('is-hidden')
+      			warning_uppercase_card.classList.add('is-hidden')
+      			banned_word_card.classList.add('is-hidden')
+      			successful_card.classList.add('is-hidden')
+      		}
+      	}
+      }
+      
+      third_input.oninput = value =>{
+      	if(value.target.value){
+      		third_content_preview.innerHTML = value.target.value
+      		third_max_letter.innerHTML = third_input.maxLength - third_input.value.length
+      		if(second_input.value || first_input.value || fourth_input.value){
+      			//do nothing cause it's done already
+      		}
+      		else{
+      			content_card_0.classList.add('is-hidden')
+      			content_card_1.classList.remove('is-hidden')
+      			check_form_ad.removeAttribute('disabled')
+      
+      			warning_word_card.classList.add('is-hidden')
+      			warning_uppercase_card.classList.add('is-hidden')
+      			banned_word_card.classList.add('is-hidden')
+      			successful_card.classList.add('is-hidden')
+      		}
+      	} else {
+      		third_content_preview.innerHTML = 'Mô tả thêm'
+      		third_max_letter.innerHTML = third_input.maxLength
+      		if(second_input.value || first_input.value || fourth_input.value){
+      			//do nothing cause it's done already
+      		}
+      		else{
+      			content_card_0.classList.remove('is-hidden')
+      			content_card_1.classList.add('is-hidden')
+      			check_form_ad.setAttribute("disabled", "disabled");
+      
+      			warning_word_card.classList.add('is-hidden')
+      			warning_uppercase_card.classList.add('is-hidden')
+      			banned_word_card.classList.add('is-hidden')
+      			successful_card.classList.add('is-hidden')
+      		}
+      	}
+      }
+      
+      fourth_input.oninput = value =>{
+      	if(value.target.value){
+      		fourth_content_preview.innerHTML = value.target.value
+      		fourth_max_letter.innerHTML = fourth_input.maxLength - fourth_input.value.length
+      		if(second_input.value || first_input.value || third_input.value){
+      			//do nothing cause it's done already
+      		}
+      		else{
+      			content_card_0.classList.add('is-hidden')
+      			content_card_1.classList.remove('is-hidden')
+      			check_form_ad.removeAttribute('disabled')
+      
+      			warning_word_card.classList.add('is-hidden')
+      			warning_uppercase_card.classList.add('is-hidden')
+      			banned_word_card.classList.add('is-hidden')
+      			successful_card.classList.add('is-hidden')
+      		}
+      	} else {
+      		fourth_content_preview.innerHTML = 'Thông tin thêm'
+      		fourth_max_letter.innerHTML = fourth_input.maxLength
+      		if(second_input.value || first_input.value || third_input.value){
+      			//do nothing cause it's done already
+      		}
+      		else{
+      			content_card_0.classList.remove('is-hidden')
+      			content_card_1.classList.add('is-hidden')
+      			check_form_ad.setAttribute("disabled", "disabled");
+      
+      			warning_word_card.classList.add('is-hidden')
+      			warning_uppercase_card.classList.add('is-hidden')
+      			banned_word_card.classList.add('is-hidden')
+      			successful_card.classList.add('is-hidden')
+      		}
+      	}
+      }
+      
+      document.getElementById('fifth-input').onchange = value =>{
+      	if(value.target.value){
+      		document.getElementById('fifth-preview').innerHTML = value.target.value
+      	} else {
+      		document.getElementById('fifth-preview').innerHTML = 'Mua ngay'
+      	}
+      }
+      
+      function focusFirstInput(){
+      	first_input.focus()
+      }
+      
+      let banned_words = [
+      	'khóc thét','giật mình','hốt hoảng'
+      ]
+      // check banned words
+      function checkPolicy(val) {
+      	let valueLower = val.toLowerCase()
+      	let getBanWordsList = []
+      	for (let i = 0; i < banned_words.length; i++) {
+      		if(valueLower.includes(banned_words[i])) {
+      			getBanWordsList.push(banned_words[i])
+      		}	
+      	}
+      	return getBanWordsList
+      }
+      
+      let warning_words = [
+      	'duy nhất', 'tốt nhất', 'nhất','số một'
+      ]
+      // check warning
+      function checkWarning(val) {
+      	let valueLower = val.toLowerCase()
+      	let getBanWordsList = []
+      	for (let i = 0; i < warning_words.length; i++) {
+      		if(valueLower.includes(warning_words[i])) {
+      			getBanWordsList.push(warning_words[i])
+      		}	
+      	}
+      	return getBanWordsList
+      }
+      function checkFormat(val) {
+      	if(val.charAt(0) != val.charAt(0).toUpperCase() || val.charAt(0) == ' ')
+      		return 1;
+      			return 0;
+      }
+      function checkFormat2(val) {
+      	for(let i = 1; i<val.length; i++){
+      		if(val[i] != val[i].toLowerCase()){
+      			return 1;
+      			break;
+      		}
+      	}
+      }
+      
+      
+      const InputFormatWithPuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"-]+$/g
+      
+      const InputFormatUpperCaseAfterDot = /([.?!] )([A-Z0-9])/
+      
+      const InputFormatOnlyOnePuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*(\d*[.,!?;-]\d*\s+)[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*/
+      
+      document.getElementById('check-form-ad').onclick = value =>{
+      	
+      	//get value input
+      	let value_1 = first_input.value
+      	let value_2 = second_input.value
+      	let value_3 = third_input.value
+      	let value_4 = fourth_input.value
+      
+      	//clear warning. error cards
+      	warning_word_card.classList.add('is-hidden')
+      	warning_uppercase_card.classList.add('is-hidden')
+      	banned_word_card.classList.add('is-hidden')
+      	successful_card.classList.add('is-hidden')
+      
+      	let value_check_ad = true
+      
+      	$('.error-item').remove()
+      	$('.warning-item').remove()
+      
+      	if(value_1){
+      		if(checkFormat(value_1) == 1){
+      			console.log('check')
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-0').text().indexOf('Có khoảng trắng đầu câu') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Có khoảng trắng đầu câu</p>" )
+      			}
+      		} 
+      		if(checkFormat2(value_1) == 1){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+      			}
+      		} 
+      		if(value_1.match(InputFormatWithPuntuation)==null){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-2').text().indexOf('Sử dụng kí tự đặc biệt') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
+      			}
+      		} 
+      		if(!value_1.match(InputFormatOnlyOnePuntuation)==null){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if(value_1.indexOf("...") > -1){
+      				if($('#error-3').text().indexOf('Sử dụng dấu ba chấm') > 0){
+      				} else {
+      					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
+      				}
+      			}
+      			if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      			}
+      		} 
+      		if(checkPolicy(value_1).length > 0){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			banned_word_card.classList.remove('is-hidden')
+      
+      			let list = checkPolicy(value_1)
+      			for(let i = 0; i < list.length; i++){
+      				$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )
+      			}		
+      		} 
+      		if(checkWarning(value_1).length > 0){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_word_card.classList.remove('is-hidden')
+      
+      			let list = checkWarning(value_1)
+      			for(let i = 0; i < list.length; i++){$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )}
+      		} 
+      		
+      	}
+      	
+      	if(value_2){
+      		if(checkFormat(value_2) == 1){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-0').text().indexOf('Có khoảng trắng đầu câu') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Có khoảng trắng đầu câu</p>" )
+      			}
+      		} 
+      		if(checkFormat2(value_2) == 1){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+      			}
+      		} 
+      		if(value_2.match(InputFormatWithPuntuation)==null){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-2').text().indexOf('Sử dụng kí tự đặc biệt') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
+      			}
+      		} 
+      		if(!value_2.match(InputFormatOnlyOnePuntuation)==null){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if(value_2.indexOf("...") > -1){
+      				if($('#error-3').text().indexOf('Sử dụng dấu ba chấm') > 0){
+      				} else {
+      					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
+      				}
+      			} 
+      			if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      			}
+      		} 
+      		if(checkPolicy(value_2).length > 0){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			banned_word_card.classList.remove('is-hidden')
+      
+      			let list = checkPolicy(value_2)
+      			for(let i = 0; i < list.length; i++){
+      				$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )
+      			}		
+      		} 
+      		if(checkWarning(value_2).length > 0){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_word_card.classList.remove('is-hidden')
+      
+      			let list = checkWarning(value_2)
+      			for(let i = 0; i < list.length; i++){$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )}
+      		}
+      		
+      	}
+      	
+      	if(value_3){
+      		if(checkFormat(value_3) == 1){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-0').text().indexOf('Có khoảng trắng đầu câu') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Có khoảng trắng đầu câu</p>" )
+      			}
+      		} 
+      		if(checkFormat2(value_3) == 1){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+      			}
+      		} 
+      		if(value_3.match(InputFormatWithPuntuation)==null){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-2').text().indexOf('Sử dụng kí tự đặc biệt') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
+      			}
+      		} 
+      		if(!value_3.match(InputFormatOnlyOnePuntuation)==null){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if(value_3.indexOf("...") > -1){
+      				if($('#error-3').text().indexOf('Sử dụng dấu ba chấm') > 0){
+      				} else {
+      					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
+      				}
+      			} 
+      			if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      			}
+      		} 
+      		if(checkPolicy(value_3).length > 0){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			banned_word_card.classList.remove('is-hidden')
+      
+      			let list = checkPolicy(value_3)
+      			for(let i = 0; i < list.length; i++){
+      				$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )
+      			}		
+      		} 
+      		if(checkWarning(value_3).length > 0){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_word_card.classList.remove('is-hidden')
+      
+      			let list = checkWarning(value_3)
+      			for(let i = 0; i < list.length; i++){$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )}
+      		}
+      		
+      	}
+      	
+      	if(value_4){
+      		if(checkFormat(value_4) == 1){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-0').text().indexOf('Có khoảng trắng đầu câu') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Có khoảng trắng đầu câu</p>" )
+      			}
+      		} 
+      		if(checkFormat2(value_4) == 1){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+      			}
+      		} 
+      		if(value_4.match(InputFormatWithPuntuation)==null){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-2').text().indexOf('Sử dụng kí tự đặc biệt') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
+      			}
+      		} 
+      		if(!value_4.match(InputFormatOnlyOnePuntuation)==null){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if(value_4.indexOf("...") > -1){
+      				if($('#error-3').text().indexOf('Sử dụng dấu ba chấm') > 0){
+      				} else {
+      					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
+      				}
+      			} 
+      			if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') > 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      			}
+      		} 
+      		if(checkPolicy(value_4).length > 0){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			banned_word_card.classList.remove('is-hidden')
+      
+      			let list = checkPolicy(value_4)
+      			for(let i = 0; i < list.length; i++){
+      				$("#alert-card-third .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )
+      			}		
+      		} 
+      		if(checkWarning(value_4).length > 0){
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_word_card.classList.remove('is-hidden')
+      
+      			let list = checkWarning(value_4)
+      			for(let i = 0; i < list.length; i++){$("#alert-card-first .card-error-list").append( "<p class='error-item' id='first-"+i+"'>"+list[i]+" </p>" )}
+      		} 
+      		
+      	}
+      	
+      
+      	if(value_check_ad == true){
+      		content_card_1.classList.add('is-hidden')
+      		successful_card.classList.remove('is-hidden')
+      	}
+      
+      }
+      
+      //focus preview side when input
+      first_input.onfocus = value => {
+      	first_content_preview.classList.add('preview-focus')
+      	second_content_preview.classList.remove('preview-focus')
+      	third_content_preview.classList.remove('preview-focus')
+      	fourth_content_preview.classList.remove('preview-focus')
+      }
+      first_input.onblur = value =>{
+      	first_content_preview.classList.toggle('preview-focus')
+      }
+      second_input.onfocus = value => {
+      	second_content_preview.classList.add('preview-focus')
+      	first_content_preview.classList.remove('preview-focus')
+      	third_content_preview.classList.remove('preview-focus')
+      	fourth_content_preview.classList.remove('preview-focus')
+      }
+      second_input.onblur = value =>{
+      	second_content_preview.classList.toggle('preview-focus')
+      }
+      third_input.onfocus = value => {
+      	third_content_preview.classList.add('preview-focus')
+      	second_content_preview.classList.remove('preview-focus')
+      	first_content_preview.classList.remove('preview-focus')
+      	fourth_content_preview.classList.remove('preview-focus')
+      }
+      third_input.onblur = value =>{
+      	third_content_preview.classList.toggle('preview-focus')
+      }
+      fourth_input.onfocus = value => {
+      	fourth_content_preview.classList.add('preview-focus')
+      	second_content_preview.classList.remove('preview-focus')
+      	third_content_preview.classList.remove('preview-focus')
+      	first_content_preview.classList.remove('preview-focus')
+      }
+      fourth_input.onblur = value =>{
+      	fourth_content_preview.classList.toggle('preview-focus')
+      }
+      
+      
+      //tooltip
+      tippy('#tippy-title-ad', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt tiêu đề</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-content-ad', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt nội dung</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-avatar-upload', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về ảnh đại diện</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-optional-desc', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về mô tả thêm</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-optional-info', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về thông tin thêm</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-button-call-action', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:0px">Hiển thị nút trên quảng cáo bạn muốn mọi người thực hiện.</p></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-large-image', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về hình ảnh quảng cáo</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+      
+      tippy('#tippy-notice-content', {
+      	content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về nội dung quảng cáo</a></div>',
+      	allowHTML: true,
+      	maxWidth: 270,
+      	theme:'zad',
+      	trigger:'click',
+      });
+    </script>
+  </body>
+</html>
