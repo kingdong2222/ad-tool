@@ -295,6 +295,110 @@
     <script>
       document.getElementsByClassName("navbar-item")[0].classList.add('active')
       
+      const content_card_0 = document.getElementById('content-card-first')
+      const content_card_1 = document.getElementById('content-card-second')
+      
+      let check_form_ad = document.getElementById('check-form-ad')
+      
+      const warning_word_card = document.getElementById('alert-card-first')
+      const warning_uppercase_card = document.getElementById('alert-card-second')
+      const banned_word_card = document.getElementById('alert-card-third')
+      const successful_card = document.getElementById('successful-card')
+      
+      //- window.onload = () => {
+      	if(sessionStorage.getItem("value_1")){
+      		let value_1 = sessionStorage.getItem("value_1")
+      		$('#first-preview').html(value_1)
+      		$('#first-input').val(value_1)
+      
+      		content_card_0.classList.add('is-hidden')
+      		content_card_1.classList.remove('is-hidden')
+      		check_form_ad.removeAttribute('disabled')
+      	}
+      	if(sessionStorage.getItem("value_2")){
+      		let value_2 = sessionStorage.getItem("value_2")
+      		$('#second-preview').html(value_2)
+      		$('#second-input').val(value_2)
+      
+      		content_card_0.classList.add('is-hidden')
+      		content_card_1.classList.remove('is-hidden')
+      		check_form_ad.removeAttribute('disabled')
+      	}
+      	if(sessionStorage.getItem("value_3")){
+      		let value_3 = sessionStorage.getItem("value_3")
+      		$('#third-preview').html(value_3)
+      		$('#third-input').val(value_3)
+      
+      		content_card_0.classList.add('is-hidden')
+      		content_card_1.classList.remove('is-hidden')
+      		check_form_ad.removeAttribute('disabled')
+      	}
+      	if(sessionStorage.getItem("value_4")){
+      		let value_4 = sessionStorage.getItem("value_4")
+      		$('#fourth-preview').html(value_4)
+      		$('#fourth-input').val(value_4)
+      
+      		content_card_0.classList.add('is-hidden')
+      		content_card_1.classList.remove('is-hidden')
+      		check_form_ad.removeAttribute('disabled')
+      	}
+      	if(sessionStorage.getItem("value_5")){
+      		let value_5 = sessionStorage.getItem("value_5")
+      		$('#fifth-preview').html(value_5)
+      		$('#fifth-input').val(value_5)
+      	}
+      	if(sessionStorage.getItem("avatar_src")){
+      		let avatar_src = sessionStorage.getItem("avatar_src")
+      		let avatar_name = sessionStorage.getItem("name_avatar_src")
+      
+      		$( "span.avatar-img" ).replaceWith( "<img class='avatar-img' id='output-preview'/>" );
+      		$( ".avatar-img" ).attr("src", avatar_src)
+      
+      		$( "div.avatar-image-input" ).replaceWith( "<img class='avatar-image-input' id='output' />" );
+      		$( "#output" ).attr("src", avatar_src)
+      
+      		$("p.img-desc").html(avatar_name+"<span><br>150x150</span>");
+      		$("p.img-desc").addClass('avatar-name')
+      	}
+      	if(sessionStorage.getItem("large_img_src")){
+      		let large_img_src = sessionStorage.getItem("large_img_src")
+      		let large_img_name = sessionStorage.getItem("name_large_img_src")
+      
+      		$(".large-img-name").html(large_img_name+"<br><span>1024 x 533</span>")
+      
+      		$(".large-image-preview").addClass('is-show')
+      		$(".large-image-input").addClass('is-hidden')
+      
+      		$( ".preview-sample" ).replaceWith( "<img class='preview-sample' style='background:none;'/>" );
+      		$( ".preview-sample" ).attr("src", large_img_src)
+      
+      		document.getElementById('output-large-preview').style.backgroundImage = 'url(' + large_img_src + ')'
+      
+      		//check blur
+      		let imgElement = document.getElementById('imageSrc-preview');
+      		imgElement.src = large_img_src
+      		imgElement.onload = function () {
+      			let src = cv.imread(imgElement);
+      			let dst = new cv.Mat();
+      			let men = new cv.Mat();
+      			let menO = new cv.Mat();
+      			cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+      			// You can try more different parameters
+      			var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+      			console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+      			console.log(men.data64F[0])
+      			if (men.data64F[0] > 10) {
+      				document.getElementById('img-quality').innerHTML = 'Đạt'
+      			} else {
+      				document.getElementById('img-quality').innerHTML = 'Mờ'
+      			}
+      			// cv.imshow('canvasOutput', dst);
+      			src.delete(); dst.delete();
+      		};
+      		$(".ads-img .squares").addClass("is-show");
+      	}
+      //- }
+      
       const button_toogle_slide = document.getElementById('button-toggle-slide-bar')
       const main_body = document.getElementsByClassName('main-body')[0]
       const slide_body = document.getElementsByClassName('slide-body')[0]
@@ -439,6 +543,7 @@
       							output_preview.src = result.toDataURL(uploadedImageType)
       
       							sessionStorage.setItem("avatar_src", result.toDataURL(uploadedImageType))
+      							sessionStorage.setItem("name_avatar_src", uploadedImageName)
       						}
       					}
       
@@ -469,14 +574,16 @@
       				$("html").addClass("overlay-modal");
       				$("#modalEditImg").addClass("show");
       
-      				tippy('#tippy-crop-img', {
-      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
-      					allowHTML: true,
-      					maxWidth: 270,
-      					theme:'zad',
-      					trigger:'click',
-      					showOnCreate: true,
-      				});
+      				setTimeout(()=>{
+      					tippy('#tippy-crop-img', {
+      						content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      						allowHTML: true,
+      						maxWidth: 270,
+      						theme:'zad',
+      						trigger:'click',
+      						showOnCreate: true,
+      					});
+      				},100)
       
       				file = files[0];
       
@@ -607,6 +714,7 @@
       							document.getElementById('output-preview').src = result.toDataURL(uploadedImageType)
       
       							sessionStorage.setItem("avatar_src", result.toDataURL(uploadedImageType))
+      							sessionStorage.setItem("name_avatar_src", uploadedImageName)
       						}
       					}
       
@@ -637,14 +745,17 @@
       				$("html").addClass("overlay-modal");
       				$("#modalEditImg").addClass("show");
       
-      				tippy('#tippy-crop-img', {
-      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
-      					allowHTML: true,
-      					maxWidth: 270,
-      					theme:'zad',
-      					trigger:'click',
-      					showOnCreate: true,
-      				});
+      				setTimeout(()=>{
+      					tippy('#tippy-crop-img', {
+      						content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      						allowHTML: true,
+      						maxWidth: 270,
+      						theme:'zad',
+      						trigger:'click',
+      						showOnCreate: true,
+      					});
+      				},100)
+      				
       
       				file = files[0];
       
@@ -779,7 +890,8 @@
       							output_preview_large.src = result.toDataURL(uploadedImageType)
       
       							sessionStorage.setItem("large_img_src", result.toDataURL(uploadedImageType))
-      						
+      							sessionStorage.setItem("name_large_img_src", uploadedImageName)
+      
       							//check blur
       							let imgElement = document.getElementById('imageSrc-preview');
       							imgElement.src = result.toDataURL(uploadedImageType)
@@ -833,15 +945,17 @@
       
       				$("html").addClass("overlay-modal");
       				$("#modalEditImg").addClass("show");
-      
-      				tippy('#tippy-crop-img', {
-      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
-      					allowHTML: true,
-      					maxWidth: 270,
-      					theme:'zad',
-      					trigger:'click',
-      					showOnCreate: true,
-      				});
+      				setTimeout(()=>{
+      					tippy('#tippy-crop-img', {
+      						content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      						allowHTML: true,
+      						maxWidth: 270,
+      						theme:'zad',
+      						trigger:'click',
+      						showOnCreate: true,
+      					});
+      				},100)
+      				
       
       				file = files[0];
       
@@ -973,7 +1087,8 @@
       							output_preview_large.src = result.toDataURL(uploadedImageType)
       
       							sessionStorage.setItem("large_img_src", result.toDataURL(uploadedImageType))
-      						
+      							sessionStorage.setItem("name_large_img_src", uploadedImageName)
+      
       							//check blur
       							let imgElement = document.getElementById('imageSrc-preview');
       							imgElement.src = result.toDataURL(uploadedImageType)
@@ -1027,14 +1142,16 @@
       				$("html").addClass("overlay-modal");
       				$("#modalEditImg").addClass("show");
       
-      				tippy('#tippy-crop-img', {
-      					content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
-      					allowHTML: true,
-      					maxWidth: 270,
-      					theme:'zad',
-      					trigger:'click',
-      					showOnCreate: true,
-      				});
+      				setTimeout(()=>{
+      					tippy('#tippy-crop-img', {
+      						content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+      						allowHTML: true,
+      						maxWidth: 270,
+      						theme:'zad',
+      						trigger:'click',
+      						showOnCreate: true,
+      					});
+      				},100)
       
       				file = files[0];
       
@@ -1098,12 +1215,15 @@
       	});
       });
       
-      document.getElementById('avatar-image-input').onmouseover = () => {
-      	document.getElementsByClassName('avatar-image-input')[0].style.backgroundColor = '#F0F4F8'
+      if(document.getElementById('avatar-image-input')){
+      	document.getElementById('avatar-image-input').onmouseover = () => {
+      		document.getElementsByClassName('avatar-image-input')[0].style.backgroundColor = '#F0F4F8'
+      	}
+      	document.getElementById('avatar-image-input').onmouseout = () => {
+      		document.getElementsByClassName('avatar-image-input')[0].style.backgroundColor = '#FAFBFD'
+      	}
       }
-      document.getElementById('avatar-image-input').onmouseout = () => {
-      	document.getElementsByClassName('avatar-image-input')[0].style.backgroundColor = '#FAFBFD'
-      }
+      
       
       document.getElementById('large-image-input').onmouseover = () => {
       	document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
@@ -1116,13 +1236,6 @@
       	document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
       }
       
-      const content_card_0 = document.getElementById('content-card-first')
-      const content_card_1 = document.getElementById('content-card-second')
-      
-      const warning_word_card = document.getElementById('alert-card-first')
-      const warning_uppercase_card = document.getElementById('alert-card-second')
-      const banned_word_card = document.getElementById('alert-card-third')
-      const successful_card = document.getElementById('successful-card')
       
       let first_input = document.getElementById('first-input')
       let second_input = document.getElementById('second-input')
@@ -1139,7 +1252,6 @@
       let third_content_preview = document.getElementById('third-preview')
       let fourth_content_preview = document.getElementById('fourth-preview')
       
-      let check_form_ad = document.getElementById('check-form-ad')
       
       first_input.oninput = value =>{
       	if(value.target.value){

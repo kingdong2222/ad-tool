@@ -35,7 +35,7 @@ block javaScripts extend
 	script.
 		document.getElementsByClassName("navbar-item")[1].classList.add('active')
 
-		window.onload = () => {
+		//- window.onload = () => {
 			if(sessionStorage.getItem("value_1")){
 				let value_1 = sessionStorage.getItem("value_1")
 				$('.first-preview-position').html(value_1)
@@ -66,7 +66,7 @@ block javaScripts extend
 				$( ".preview-sample" ).replaceWith( "<img class='preview-sample' style='background:none;'/>" );
 				$( ".preview-sample" ).attr("src", large_img_src)
 			}
-		}
+		//- }
 		
 
 
