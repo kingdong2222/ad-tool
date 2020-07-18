@@ -382,12 +382,12 @@
 						cursor: pointer;
 						position: absolute;
 						opacity: 0;
-						top: 0;
+						top: -5px;
 						right: 0;
 						bottom: 0;
-						left: 0;
-						width: 100%;
-						height: 100%;
+						left: -1px;
+						width: 90px;
+						height: 90px;
 						z-index: 99;
 						font-size: 0;
 						padding: 0;
@@ -598,6 +598,7 @@
 					margin-bottom: 1rem;
 					.avatar{
 						margin-right: 12px;
+						min-width: 48px;
 					}
 				}
 				.title{
@@ -656,9 +657,18 @@
 					border-radius: 4px;
 					padding: 3px 5px;
 					// width: fit-content;
-					background-color: #fff;
-					text-overflow: ellipsis;
-					overflow: hidden;
+				}
+				.get-error{
+					width: 100%;
+					position: relative;
+					padding-right: 15px !important;
+					&:after{
+						content:"\ea30";
+						font: normal normal normal 16px "zadicon";
+						color: #FFD422;
+						position: absolute;
+    					right: 3px;
+					}
 				}
 			}
 		}
@@ -835,6 +845,10 @@
 							padding: 1rem;
 							.label-title{
 								margin-bottom: 12px;
+								.avatar{
+									margin-right: 8px;
+									min-width: unset;
+								}
 							}
 							h3{
 								font-size: 12px;

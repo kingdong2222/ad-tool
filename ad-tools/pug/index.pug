@@ -177,6 +177,8 @@ block javaScripts extend
 									$( "span.avatar-img" ).replaceWith( "<img class='avatar-img' id='output-preview' />" );
 									var output_preview = document.getElementById('output-preview');
 									output_preview.src = result.toDataURL(uploadedImageType)
+
+									sessionStorage.setItem("avatar_src", result.toDataURL(uploadedImageType))
 								}
 							}
 
@@ -343,6 +345,8 @@ block javaScripts extend
 
 									document.getElementById('output').src = result.toDataURL(uploadedImageType)
 									document.getElementById('output-preview').src = result.toDataURL(uploadedImageType)
+
+									sessionStorage.setItem("avatar_src", result.toDataURL(uploadedImageType))
 								}
 							}
 
@@ -513,6 +517,8 @@ block javaScripts extend
 									$( ".preview-sample" ).replaceWith( "<img class='preview-sample' id='output-preview-large' style='background:none;'/>" );
 									var output_preview_large = document.getElementById('output-preview-large');
 									output_preview_large.src = result.toDataURL(uploadedImageType)
+
+									sessionStorage.setItem("large_img_src", result.toDataURL(uploadedImageType))
 								
 									//check blur
 									let imgElement = document.getElementById('imageSrc-preview');
@@ -705,6 +711,8 @@ block javaScripts extend
 
 									var output_preview_large = document.getElementById('output-preview-large');
 									output_preview_large.src = result.toDataURL(uploadedImageType)
+
+									sessionStorage.setItem("large_img_src", result.toDataURL(uploadedImageType))
 								
 									//check blur
 									let imgElement = document.getElementById('imageSrc-preview');
@@ -876,6 +884,7 @@ block javaScripts extend
 		first_input.oninput = value =>{
 			if(value.target.value){
 				first_content_preview.innerHTML = value.target.value
+				sessionStorage.setItem("value_1", value.target.value)
 				first_max_letter.innerHTML = first_input.maxLength - first_input.value.length
 				if(second_input.value || third_input.value || fourth_input.value){
 					//do nothing cause it's done already
@@ -912,6 +921,7 @@ block javaScripts extend
 		second_input.oninput = value =>{
 			if(value.target.value){
 				second_content_preview.innerHTML = value.target.value
+				sessionStorage.setItem("value_2", value.target.value)
 				second_max_letter.innerHTML = second_input.maxLength - second_input.value.length
 				if(first_input.value || third_input.value || fourth_input.value){
 					//do nothing cause it's done already
@@ -948,6 +958,7 @@ block javaScripts extend
 		third_input.oninput = value =>{
 			if(value.target.value){
 				third_content_preview.innerHTML = value.target.value
+				sessionStorage.setItem("value_3", value.target.value)
 				third_max_letter.innerHTML = third_input.maxLength - third_input.value.length
 				if(second_input.value || first_input.value || fourth_input.value){
 					//do nothing cause it's done already
@@ -984,6 +995,7 @@ block javaScripts extend
 		fourth_input.oninput = value =>{
 			if(value.target.value){
 				fourth_content_preview.innerHTML = value.target.value
+				sessionStorage.setItem("value_4", value.target.value)
 				fourth_max_letter.innerHTML = fourth_input.maxLength - fourth_input.value.length
 				if(second_input.value || first_input.value || third_input.value){
 					//do nothing cause it's done already
@@ -1020,6 +1032,7 @@ block javaScripts extend
 		document.getElementById('fifth-input').onchange = value =>{
 			if(value.target.value){
 				document.getElementById('fifth-preview').innerHTML = value.target.value
+				sessionStorage.setItem("value_5", value.target.value)
 			} else {
 				document.getElementById('fifth-preview').innerHTML = 'Mua ngay'
 			}
@@ -1080,6 +1093,9 @@ block javaScripts extend
 		const InputFormatOnlyOnePuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*(\d*[.,!?;-]\d*\s+)[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*/
 
 		document.getElementById('check-form-ad').onclick = value =>{
+			document.getElementById('check-form-ad').classList.add('is-loading')
+
+			
 			
 			//get value input
 			let value_1 = first_input.value
@@ -1098,9 +1114,12 @@ block javaScripts extend
 			$('.error-item').remove()
 			$('.warning-item').remove()
 
+			setTimeout(()=>{
+				document.getElementById('check-form-ad').classList.remove('is-loading')
+
 			if(value_1){
 				if(checkFormat(value_1) == 1){
-					console.log('check')
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1110,6 +1129,7 @@ block javaScripts extend
 					}
 				} 
 				if(checkFormat2(value_1) == 1){
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1119,6 +1139,7 @@ block javaScripts extend
 					}
 				} 
 				if(value_1.match(InputFormatWithPuntuation)==null){
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1128,6 +1149,7 @@ block javaScripts extend
 					}
 				} 
 				if(!value_1.match(InputFormatOnlyOnePuntuation)==null){
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1143,6 +1165,7 @@ block javaScripts extend
 					}
 				} 
 				if(checkPolicy(value_1).length > 0){
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					banned_word_card.classList.remove('is-hidden')
@@ -1153,6 +1176,7 @@ block javaScripts extend
 					}		
 				} 
 				if(checkWarning(value_1).length > 0){
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_word_card.classList.remove('is-hidden')
@@ -1165,6 +1189,7 @@ block javaScripts extend
 			
 			if(value_2){
 				if(checkFormat(value_2) == 1){
+					second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1174,6 +1199,7 @@ block javaScripts extend
 					}
 				} 
 				if(checkFormat2(value_2) == 1){
+					second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1183,6 +1209,7 @@ block javaScripts extend
 					}
 				} 
 				if(value_2.match(InputFormatWithPuntuation)==null){
+					second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1192,6 +1219,7 @@ block javaScripts extend
 					}
 				} 
 				if(!value_2.match(InputFormatOnlyOnePuntuation)==null){
+					second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1207,6 +1235,7 @@ block javaScripts extend
 					}
 				} 
 				if(checkPolicy(value_2).length > 0){
+					second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					banned_word_card.classList.remove('is-hidden')
@@ -1217,6 +1246,7 @@ block javaScripts extend
 					}		
 				} 
 				if(checkWarning(value_2).length > 0){
+					second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_word_card.classList.remove('is-hidden')
@@ -1229,6 +1259,7 @@ block javaScripts extend
 			
 			if(value_3){
 				if(checkFormat(value_3) == 1){
+					third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1238,6 +1269,7 @@ block javaScripts extend
 					}
 				} 
 				if(checkFormat2(value_3) == 1){
+					third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1247,6 +1279,7 @@ block javaScripts extend
 					}
 				} 
 				if(value_3.match(InputFormatWithPuntuation)==null){
+					third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1256,6 +1289,7 @@ block javaScripts extend
 					}
 				} 
 				if(!value_3.match(InputFormatOnlyOnePuntuation)==null){
+					third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1271,6 +1305,7 @@ block javaScripts extend
 					}
 				} 
 				if(checkPolicy(value_3).length > 0){
+					third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					banned_word_card.classList.remove('is-hidden')
@@ -1281,6 +1316,7 @@ block javaScripts extend
 					}		
 				} 
 				if(checkWarning(value_3).length > 0){
+					third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_word_card.classList.remove('is-hidden')
@@ -1293,6 +1329,7 @@ block javaScripts extend
 			
 			if(value_4){
 				if(checkFormat(value_4) == 1){
+					fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1302,6 +1339,7 @@ block javaScripts extend
 					}
 				} 
 				if(checkFormat2(value_4) == 1){
+					fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1311,6 +1349,7 @@ block javaScripts extend
 					}
 				} 
 				if(value_4.match(InputFormatWithPuntuation)==null){
+					fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1320,6 +1359,7 @@ block javaScripts extend
 					}
 				} 
 				if(!value_4.match(InputFormatOnlyOnePuntuation)==null){
+					fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
@@ -1335,6 +1375,7 @@ block javaScripts extend
 					}
 				} 
 				if(checkPolicy(value_4).length > 0){
+					fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					banned_word_card.classList.remove('is-hidden')
@@ -1345,6 +1386,7 @@ block javaScripts extend
 					}		
 				} 
 				if(checkWarning(value_4).length > 0){
+					fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_word_card.classList.remove('is-hidden')
@@ -1357,10 +1399,17 @@ block javaScripts extend
 			
 
 			if(value_check_ad == true){
+
+				first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+				second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
+				third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
+				fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
+				
 				content_card_1.classList.add('is-hidden')
 				successful_card.classList.remove('is-hidden')
 			}
 
+			},500);
 		}
 
 		//focus preview side when input
