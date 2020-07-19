@@ -413,9 +413,11 @@
 					margin-bottom: unset;
 					&.avatar-name{
 						color: #131820;
+						font-weight: 500;
 					}
 					span{
 						color: #A3A8AF;
+						font-weight: normal;
 					}
 				}
 				i.icz{
@@ -567,7 +569,7 @@
 					}
 				}
 				&#alert-card-first, &#alert-card-second, &#successful-card, &#alert-card-third{
-					.card-desc{p{font-weight: 600;}}
+					.card-desc{p{font-weight: 500;}}
 				}
 			}
 		}	
@@ -590,6 +592,7 @@
 			width: 335px;
 			padding-top: 70px;
 			box-shadow: 0 61px 84px 0 rgba(67,86,100,0.14);
+			margin-top: 24px;
 			.square-ads{
 				background-color: #fff;
 				padding: 20px;
@@ -661,13 +664,15 @@
 				.get-error{
 					width: 100%;
 					position: relative;
-					padding-right: 15px !important;
+					padding-right: 18px !important;
+					margin-left: 0;
 					&:after{
 						content:"\ea30";
 						font: normal normal normal 16px "zadicon";
 						color: #FFD422;
 						position: absolute;
-    					right: 3px;
+						right: 3px;
+						bottom: 3px;
 					}
 				}
 			}
@@ -726,7 +731,7 @@
 				// align-items: center;
 				.large-img-name{
 					font-size: 14px;
-					font-weight: 600;
+					font-weight: 500;
 					color: #131820;
 					max-width: 218px;
 					white-space: nowrap;
@@ -734,7 +739,7 @@
 					text-overflow: ellipsis;
 					span{
 						color: #A3A8AF;
-						font-weight: 500;
+						font-weight: normal;
 					}
 				}
 			}

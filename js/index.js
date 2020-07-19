@@ -10,11 +10,23 @@ const warning_uppercase_card = document.getElementById('alert-card-second')
 const banned_word_card = document.getElementById('alert-card-third')
 const successful_card = document.getElementById('successful-card')
 
+let first_input = document.getElementById('first-input')
+let second_input = document.getElementById('second-input')
+let third_input = document.getElementById('third-input')
+let fourth_input = document.getElementById('fourth-input')
+
+let first_max_letter = document.getElementById('max-letter-first')
+let second_max_letter = document.getElementById('max-letter-second')
+let third_max_letter = document.getElementById('max-letter-third')
+let fourth_max_letter = document.getElementById('max-letter-fourth')
+
 //- window.onload = () => {
     if(sessionStorage.getItem("value_1")){
         let value_1 = sessionStorage.getItem("value_1")
         $('#first-preview').html(value_1)
         $('#first-input').val(value_1)
+
+        first_max_letter.innerHTML = first_input.maxLength - first_input.value.length +'/30'
 
         content_card_0.classList.add('is-hidden')
         content_card_1.classList.remove('is-hidden')
@@ -25,6 +37,8 @@ const successful_card = document.getElementById('successful-card')
         $('#second-preview').html(value_2)
         $('#second-input').val(value_2)
 
+        second_max_letter.innerHTML = second_input.maxLength - second_input.value.length +'/90'
+
         content_card_0.classList.add('is-hidden')
         content_card_1.classList.remove('is-hidden')
         check_form_ad.removeAttribute('disabled')
@@ -34,6 +48,8 @@ const successful_card = document.getElementById('successful-card')
         $('#third-preview').html(value_3)
         $('#third-input').val(value_3)
 
+        third_max_letter.innerHTML = third_input.maxLength - third_input.value.length +'/60'
+
         content_card_0.classList.add('is-hidden')
         content_card_1.classList.remove('is-hidden')
         check_form_ad.removeAttribute('disabled')
@@ -42,6 +58,8 @@ const successful_card = document.getElementById('successful-card')
         let value_4 = sessionStorage.getItem("value_4")
         $('#fourth-preview').html(value_4)
         $('#fourth-input').val(value_4)
+
+        fourth_max_letter.innerHTML = fourth_input.maxLength - fourth_input.value.length +'/60'
 
         content_card_0.classList.add('is-hidden')
         content_card_1.classList.remove('is-hidden')
@@ -157,6 +175,7 @@ var crop = function(){
         zoomOnTouch: false,
         zoomOnWheel: false,
         dragMode: 'none',
+        viewMode: 2,
     };
     var cropper = new Cropper(image, options);
     var originalImageURL = image.src;
@@ -332,6 +351,7 @@ var cropAvatarAgain = function(){
         zoomOnTouch: false,
         zoomOnWheel: false,
         dragMode: 'none',
+        viewMode: 2,
     };
     var cropper = new Cropper(image, options);
     var originalImageURL = image.src;
@@ -453,16 +473,16 @@ var cropAvatarAgain = function(){
                 $("html").addClass("overlay-modal");
                 $("#modalEditImg").addClass("show");
 
-                setTimeout(()=>{
+                // setTimeout(()=>{
                     tippy('#tippy-crop-img', {
                         content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
                         interactive: true,
-                        showOnCreate: true,
+                        // showOnCreate: true,
                     });
-                },100)
+                // },100)
                 
 
                 file = files[0];
@@ -504,6 +524,7 @@ var cropLargeImg = function(){
         zoomOnTouch: false,
         zoomOnWheel: false,
         dragMode: 'none',
+        viewMode: 2,
     };
     var cropper = new Cropper(image, options);
     var originalImageURL = image.src;
@@ -621,7 +642,7 @@ var cropLargeImg = function(){
                                 // cv.imshow('canvasOutput', dst);
                                 src.delete(); dst.delete();
                             };
-                        
+                            
                             $(".ads-img .squares").addClass("is-show");
 
                         }
@@ -704,6 +725,7 @@ var cropLargeImgAgain = function(){
         zoomOnTouch: false,
         zoomOnWheel: false,
         dragMode: 'none',
+        viewMode: 2,
     };
     var cropper = new Cropper(image, options);
     var originalImageURL = image.src;
@@ -791,8 +813,8 @@ var cropLargeImgAgain = function(){
 
                             document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
 
-                            var output_preview_large = document.getElementById('output-preview-large');
-                            output_preview_large.src = result.toDataURL(uploadedImageType)
+                            // var output_preview_large = document.getElementById('output-preview-large');
+                            // output_preview_large.src = result.toDataURL(uploadedImageType)
 
                             sessionStorage.setItem("large_img_src", result.toDataURL(uploadedImageType))
                             sessionStorage.setItem("name_large_img_src", uploadedImageName)
@@ -817,7 +839,9 @@ var cropLargeImgAgain = function(){
                                 // cv.imshow('canvasOutput', dst);
                                 src.delete(); dst.delete();
                             };
-                        
+                            $(".check-msg").html("Hãy chọn các ô có xuất hiện chữ");
+                            $(".check-msg").removeClass("is-ok");
+                            $(".square").removeClass("is-selected");
                             $(".ads-img .squares").addClass("is-show");
 
                         }
@@ -850,16 +874,16 @@ var cropLargeImgAgain = function(){
                 $("html").addClass("overlay-modal");
                 $("#modalEditImg").addClass("show");
 
-                setTimeout(()=>{
+                // setTimeout(()=>{
                     tippy('#tippy-crop-img', {
                         content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
                         interactive: true,
-                        showOnCreate: true,
+                        // showOnCreate: true,
                     });
-                },100)
+                // },100)
 
                 file = files[0];
 
@@ -944,17 +968,6 @@ document.getElementById('large-image-input').ondrop = (value) => {
     document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
 }
 
-
-let first_input = document.getElementById('first-input')
-let second_input = document.getElementById('second-input')
-let third_input = document.getElementById('third-input')
-let fourth_input = document.getElementById('fourth-input')
-
-let first_max_letter = document.getElementById('max-letter-first')
-let second_max_letter = document.getElementById('max-letter-second')
-let third_max_letter = document.getElementById('max-letter-third')
-let fourth_max_letter = document.getElementById('max-letter-fourth')
-
 let first_content_preview = document.getElementById('first-preview')
 let second_content_preview = document.getElementById('second-preview')
 let third_content_preview = document.getElementById('third-preview')
@@ -965,7 +978,7 @@ first_input.oninput = value =>{
     if(value.target.value){
         first_content_preview.innerHTML = value.target.value
         sessionStorage.setItem("value_1", value.target.value)
-        first_max_letter.innerHTML = first_input.maxLength - first_input.value.length
+        first_max_letter.innerHTML = first_input.maxLength - first_input.value.length +'/30'
         if(second_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1006,7 +1019,7 @@ second_input.oninput = value =>{
     if(value.target.value){
         second_content_preview.innerHTML = value.target.value
         sessionStorage.setItem("value_2", value.target.value)
-        second_max_letter.innerHTML = second_input.maxLength - second_input.value.length
+        second_max_letter.innerHTML = second_input.maxLength - second_input.value.length +'/90'
         if(first_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1047,7 +1060,7 @@ third_input.oninput = value =>{
     if(value.target.value){
         third_content_preview.innerHTML = value.target.value
         sessionStorage.setItem("value_3", value.target.value)
-        third_max_letter.innerHTML = third_input.maxLength - third_input.value.length
+        third_max_letter.innerHTML = third_input.maxLength - third_input.value.length +'/60'
         if(second_input.value || first_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1088,7 +1101,7 @@ fourth_input.oninput = value =>{
     if(value.target.value){
         fourth_content_preview.innerHTML = value.target.value
         sessionStorage.setItem("value_4", value.target.value)
-        fourth_max_letter.innerHTML = fourth_input.maxLength - fourth_input.value.length
+        fourth_max_letter.innerHTML = fourth_input.maxLength - fourth_input.value.length +'/60'
         if(second_input.value || first_input.value || third_input.value){
             //do nothing cause it's done already
         }
