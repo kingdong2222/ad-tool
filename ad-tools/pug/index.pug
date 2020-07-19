@@ -323,7 +323,7 @@ block javaScripts extend
 								allowHTML: true,
 								maxWidth: 270,
 								theme:'zad',
-								trigger:'click',
+								interactive: true,
 								showOnCreate: true,
 							});
 						},100)
@@ -494,7 +494,7 @@ block javaScripts extend
 								allowHTML: true,
 								maxWidth: 270,
 								theme:'zad',
-								trigger:'click',
+								interactive: true,
 								showOnCreate: true,
 							});
 						},100)
@@ -694,7 +694,7 @@ block javaScripts extend
 								allowHTML: true,
 								maxWidth: 270,
 								theme:'zad',
-								trigger:'click',
+								interactive: true,
 								showOnCreate: true,
 							});
 						},100)
@@ -891,7 +891,7 @@ block javaScripts extend
 								allowHTML: true,
 								maxWidth: 270,
 								theme:'zad',
-								trigger:'click',
+								interactive: true,
 								showOnCreate: true,
 							});
 						},100)
@@ -1204,16 +1204,19 @@ block javaScripts extend
 
 		const InputFormatWithPuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"-]+$/g
 
-		const InputFormatUpperCaseAfterDot = /([.?!] )([A-Z0-9])/
+		const InputFormatUpperAfterDot = /([.?!] )([A-Z0-9])/
 
-		const InputFormatOnlyOnePuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*(\d*[.,!?;-]\d*\s+)[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*/
+		const InputFormatFrom2Puntuation = /[.,?!'";:-]{2}/
 
 		const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&]*)/
-		
+
+		const InputPhoneNumber = /\d{3}/
+
+		//ABc
+		const InputUpperCaseSensitive1 = /[A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴÝỶỸ]{2}/
+
 		document.getElementById('check-form-ad').onclick = value =>{
 			document.getElementById('check-form-ad').classList.add('is-loading')
-
-			
 			
 			//get value input
 			let value_1 = first_input.value
@@ -1241,9 +1244,19 @@ block javaScripts extend
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
 					warning_uppercase_card.classList.remove('is-hidden')
-					if($('#error-5').text().indexOf('Có khoảng trắng đầu câu') == 0){
+					if($('#error-5').text().indexOf('Viết hoa đầu câu') == 0){
 					} else {
 						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Viết hoa đầu câu</p>" )
+					}
+				}
+				if(value_1.charAt(0).match(/[.,?!'";:-]/)){
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-6').text().indexOf('Có dấu câu ở đầu') == 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-6'>Có dấu câu ở đầu</p>" )
 					}
 				}
 				if(value_1.charAt(0) == ' '){
@@ -1257,13 +1270,18 @@ block javaScripts extend
 					}
 				} 
 				if(checkFormat2(value_1) == 1){
-					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-					value_check_ad = false
-					content_card_1.classList.add('is-hidden')
-					warning_uppercase_card.classList.remove('is-hidden')
-					if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') == 0){
+					if(value_1.match(InputFormatUpperAfterDot)){
+						value_check_ad = true
 					} else {
-						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+						value_check_ad = false
+						first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+					
+						content_card_1.classList.add('is-hidden')
+						warning_uppercase_card.classList.remove('is-hidden')
+						if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') == 0){
+						} else {
+							$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+						}
 					}
 				} 
 				if(value_1.match(InputFormatWithPuntuation)==null){
@@ -1276,9 +1294,7 @@ block javaScripts extend
 						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
 					}
 				} 
-				if(value_1.indexOf("..") > -1 || value_1.indexOf("...") > -1 || value_1.indexOf("''") > -1
-					|| value_1.indexOf("!!") > -1 || value_1.indexOf(",,") > -1 || value_1.indexOf("::") > -1
-					|| value_1.indexOf("??") > -1 || value_1.indexOf(`""`) > -1){
+				if(value_1.match(InputFormatFrom2Puntuation)){
 					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
@@ -1330,6 +1346,16 @@ block javaScripts extend
 						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Viết hoa đầu câu</p>" )
 					}
 				}
+				if(value_2.charAt(0).match(/[.,?!'";:-]/)){
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-6').text().indexOf('Có dấu câu ở đầu') == 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-6'>Có dấu câu ở đầu</p>" )
+					}
+				}
 				if(value_2.charAt(0) == ' '){
 					second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
 					value_check_ad = false
@@ -1360,9 +1386,7 @@ block javaScripts extend
 						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
 					}
 				} 
-				if(value_2.indexOf("..") > -1 || value_2.indexOf("...") > -1 || value_2.indexOf("''") > -1
-					|| value_2.indexOf("!!") > -1 || value_2.indexOf(",,") > -1 || value_2.indexOf("::") > -1
-					|| value_2.indexOf("??") > -1 || value_2.indexOf(`""`) > -1){
+				if(value_2.match(InputFormatFrom2Puntuation)){
 					second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
@@ -1414,6 +1438,16 @@ block javaScripts extend
 						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Viết hoa đầu câu</p>" )
 					}
 				}
+				if(value_3.charAt(0).match(/[.,?!'";:-]/)){
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-6').text().indexOf('Có dấu câu ở đầu') == 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-6'>Có dấu câu ở đầu</p>" )
+					}
+				}
 				if(value_3.charAt(0) == ' '){
 					third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 					value_check_ad = false
@@ -1444,9 +1478,7 @@ block javaScripts extend
 						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
 					}
 				} 
-				if(value_3.indexOf("..") > -1 || value_3.indexOf("...") > -1 || value_3.indexOf("''") > -1
-					|| value_3.indexOf("!!") > -1 || value_3.indexOf(",,") > -1 || value_3.indexOf("::") > -1
-					|| value_3.indexOf("??") > -1 || value_3.indexOf(`""`) > -1){
+				if(value_3.match(InputFormatFrom2Puntuation)){
 					third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
@@ -1498,6 +1530,16 @@ block javaScripts extend
 						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Viết hoa đầu câu</p>" )
 					}
 				}
+				if(value_4.charAt(0).match(/[.,?!'";:-]/)){
+					first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+					value_check_ad = false
+					content_card_1.classList.add('is-hidden')
+					warning_uppercase_card.classList.remove('is-hidden')
+					if($('#error-6').text().indexOf('Có dấu câu ở đầu') == 0){
+					} else {
+						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-6'>Có dấu câu ở đầu</p>" )
+					}
+				}
 				if(value_4.charAt(0) == ' '){
 					fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 					value_check_ad = false
@@ -1528,9 +1570,7 @@ block javaScripts extend
 						$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
 					}
 				} 
-				if(value_4.indexOf("..") > -1 || value_4.indexOf("...") > -1 || value_4.indexOf("''") > -1
-					|| value_4.indexOf("!!") > -1 || value_4.indexOf(",,") > -1 || value_4.indexOf("::") > -1
-					|| value_4.indexOf("??") > -1 || value_4.indexOf(`""`) > -1){
+				if(value_4.match(InputFormatFrom2Puntuation)){
 					fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 					value_check_ad = false
 					content_card_1.classList.add('is-hidden')
@@ -1631,7 +1671,7 @@ block javaScripts extend
 			allowHTML: true,
 			maxWidth: 270,
 			theme:'zad',
-			trigger:'click',
+			interactive: true,
 		});
 
 		tippy('#tippy-content-ad', {
@@ -1639,7 +1679,7 @@ block javaScripts extend
 			allowHTML: true,
 			maxWidth: 270,
 			theme:'zad',
-			trigger:'click',
+			interactive: true,
 		});
 
 		tippy('#tippy-avatar-upload', {
@@ -1647,7 +1687,7 @@ block javaScripts extend
 			allowHTML: true,
 			maxWidth: 270,
 			theme:'zad',
-			trigger:'click',
+			interactive: true,
 		});
 
 		tippy('#tippy-optional-desc', {
@@ -1655,7 +1695,7 @@ block javaScripts extend
 			allowHTML: true,
 			maxWidth: 270,
 			theme:'zad',
-			trigger:'click',
+			interactive: true,
 		});
 
 		tippy('#tippy-optional-info', {
@@ -1663,7 +1703,7 @@ block javaScripts extend
 			allowHTML: true,
 			maxWidth: 270,
 			theme:'zad',
-			trigger:'click',
+			interactive: true,
 		});
 
 		tippy('#tippy-button-call-action', {
@@ -1671,7 +1711,7 @@ block javaScripts extend
 			allowHTML: true,
 			maxWidth: 270,
 			theme:'zad',
-			trigger:'click',
+			interactive: true,
 		});
 
 		tippy('#tippy-large-image', {
@@ -1679,7 +1719,7 @@ block javaScripts extend
 			allowHTML: true,
 			maxWidth: 270,
 			theme:'zad',
-			trigger:'click',
+			interactive: true,
 		});
 
 		tippy('#tippy-notice-content', {
@@ -1687,7 +1727,7 @@ block javaScripts extend
 			allowHTML: true,
 			maxWidth: 270,
 			theme:'zad',
-			trigger:'click',
+			interactive: true,
 		});
 
 
