@@ -86,8 +86,8 @@
                 </div>
                 <div class="select">
                   <select id="fifth-input">
-                    <option>Đặt ngay</option>
                     <option>Mua ngay</option>
+                    <option>Đặt ngay</option>
                     <option>Thử ngay</option>
                     <option>Tải ngay</option>
                     <option>Xem thêm</option>
@@ -363,6 +363,9 @@
       	if(sessionStorage.getItem("large_img_src")){
       		let large_img_src = sessionStorage.getItem("large_img_src")
       		let large_img_name = sessionStorage.getItem("name_large_img_src")
+      
+      		document.getElementById('download-large-image').download = large_img_name
+      		document.getElementById('download-large-image').href = large_img_src
       
       		$(".large-img-name").html(large_img_name+"<br><span>1024 x 533</span>")
       
@@ -1415,7 +1418,8 @@
       }
       
       let banned_words = [
-      	'khóc thét','giật mình','hốt hoảng'
+      	'khóc thét','giật mình','hốt hoảng','phẫu thuật','lây nhiễm','quan hệ tình dục','tình dục','dương vật','âm đạo','bệnh lậu','giang mai','sùi mào gà','mụn rộp sinh dục',
+      	'chăm sóc vùng kín','nạo hút thai','phá thai','bệnh trĩ','hôi nách','hắc lào','lang ben','bệnh xã hội'
       ]
       // check banned words
       function checkPolicy(val) {
@@ -1464,6 +1468,8 @@
       
       const InputFormatOnlyOnePuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*(\d*[.,!?;-]\d*\s+)[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s'"+]*/
       
+      const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&]*)/
+      
       document.getElementById('check-form-ad').onclick = value =>{
       	document.getElementById('check-form-ad').classList.add('is-loading')
       
@@ -1490,7 +1496,17 @@
       		document.getElementById('check-form-ad').classList.remove('is-loading')
       
       	if(value_1){
-      		if(checkFormat(value_1) == 1){
+      		if(value_1.charAt(0) != value_1.charAt(0).toUpperCase()){
+      			first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-5').text().indexOf('Có khoảng trắng đầu câu') == 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Viết hoa đầu câu</p>" )
+      			}
+      		}
+      		if(value_1.charAt(0) == ' '){
       			first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
       			value_check_ad = false
       			content_card_1.classList.add('is-hidden')
@@ -1520,7 +1536,9 @@
       				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
       			}
       		} 
-      		if(!value_1.match(InputFormatOnlyOnePuntuation)==null){
+      		if(value_1.indexOf("..") > -1 || value_1.indexOf("...") > -1 || value_1.indexOf("''") > -1
+      			|| value_1.indexOf("!!") > -1 || value_1.indexOf(",,") > -1 || value_1.indexOf("::") > -1
+      			|| value_1.indexOf("??") > -1 || value_1.indexOf(`""`) > -1){
       			first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
       			value_check_ad = false
       			content_card_1.classList.add('is-hidden')
@@ -1530,11 +1548,13 @@
       				} else {
       					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
       				}
-      			}
-      			if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') == 0){
       			} else {
-      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      				if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') == 0){
+      				} else {
+      					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      				}
       			}
+      			
       		} 
       		if(checkPolicy(value_1).length > 0){
       			first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
@@ -1560,7 +1580,17 @@
       	}
       	
       	if(value_2){
-      		if(checkFormat(value_2) == 1){
+      		if(value_2.charAt(0) != value_2.charAt(0).toUpperCase()){
+      			first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-5').text().indexOf('Có khoảng trắng đầu câu') == 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Viết hoa đầu câu</p>" )
+      			}
+      		}
+      		if(value_2.charAt(0) == ' '){
       			second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
       			value_check_ad = false
       			content_card_1.classList.add('is-hidden')
@@ -1590,7 +1620,9 @@
       				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
       			}
       		} 
-      		if(!value_2.match(InputFormatOnlyOnePuntuation)==null){
+      		if(value_2.indexOf("..") > -1 || value_2.indexOf("...") > -1 || value_2.indexOf("''") > -1
+      			|| value_2.indexOf("!!") > -1 || value_2.indexOf(",,") > -1 || value_2.indexOf("::") > -1
+      			|| value_2.indexOf("??") > -1 || value_2.indexOf(`""`) > -1){
       			second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
       			value_check_ad = false
       			content_card_1.classList.add('is-hidden')
@@ -1600,11 +1632,13 @@
       				} else {
       					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
       				}
-      			} 
-      			if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') == 0){
       			} else {
-      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      				if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') == 0){
+      				} else {
+      					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      				}
       			}
+      			
       		} 
       		if(checkPolicy(value_2).length > 0){
       			second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -1630,7 +1664,17 @@
       	}
       	
       	if(value_3){
-      		if(checkFormat(value_3) == 1){
+      		if(value_3.charAt(0) != value_3.charAt(0).toUpperCase()){
+      			first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-5').text().indexOf('Có khoảng trắng đầu câu') == 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Viết hoa đầu câu</p>" )
+      			}
+      		}
+      		if(value_3.charAt(0) == ' '){
       			third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
       			value_check_ad = false
       			content_card_1.classList.add('is-hidden')
@@ -1660,7 +1704,9 @@
       				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
       			}
       		} 
-      		if(!value_3.match(InputFormatOnlyOnePuntuation)==null){
+      		if(value_3.indexOf("..") > -1 || value_3.indexOf("...") > -1 || value_3.indexOf("''") > -1
+      			|| value_3.indexOf("!!") > -1 || value_3.indexOf(",,") > -1 || value_3.indexOf("::") > -1
+      			|| value_3.indexOf("??") > -1 || value_3.indexOf(`""`) > -1){
       			third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
       			value_check_ad = false
       			content_card_1.classList.add('is-hidden')
@@ -1670,11 +1716,13 @@
       				} else {
       					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
       				}
-      			} 
-      			if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') == 0){
       			} else {
-      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      				if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') == 0){
+      				} else {
+      					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      				}
       			}
+      			
       		} 
       		if(checkPolicy(value_3).length > 0){
       			third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -1700,7 +1748,17 @@
       	}
       	
       	if(value_4){
-      		if(checkFormat(value_4) == 1){
+      		if(value_4.charAt(0) != value_4.charAt(0).toUpperCase()){
+      			first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+      			value_check_ad = false
+      			content_card_1.classList.add('is-hidden')
+      			warning_uppercase_card.classList.remove('is-hidden')
+      			if($('#error-5').text().indexOf('Có khoảng trắng đầu câu') == 0){
+      			} else {
+      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Viết hoa đầu câu</p>" )
+      			}
+      		}
+      		if(value_4.charAt(0) == ' '){
       			fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
       			value_check_ad = false
       			content_card_1.classList.add('is-hidden')
@@ -1730,7 +1788,9 @@
       				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-2'>Sử dụng kí tự đặc biệt</p>" )
       			}
       		} 
-      		if(!value_4.match(InputFormatOnlyOnePuntuation)==null){
+      		if(value_4.indexOf("..") > -1 || value_4.indexOf("...") > -1 || value_4.indexOf("''") > -1
+      			|| value_4.indexOf("!!") > -1 || value_4.indexOf(",,") > -1 || value_4.indexOf("::") > -1
+      			|| value_4.indexOf("??") > -1 || value_4.indexOf(`""`) > -1){
       			fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
       			value_check_ad = false
       			content_card_1.classList.add('is-hidden')
@@ -1740,11 +1800,13 @@
       				} else {
       					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
       				}
-      			} 
-      			if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') == 0){
       			} else {
-      				$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      				if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') == 0){
+      				} else {
+      					$("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+      				}
       			}
+      			
       		} 
       		if(checkPolicy(value_4).length > 0){
       			fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')

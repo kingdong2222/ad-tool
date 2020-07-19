@@ -634,7 +634,7 @@
 							margin-left: -5px;
 							padding: 3px 5px;
 							@extend %tr-all;
-							word-break: break-all;
+							word-break: break-word;
 						}
 						.optional-info{
 							color: #989EA5;
@@ -682,6 +682,7 @@
 			background: #fff;
 			transform: translateX(50%);
 			cursor: pointer;
+			z-index: 999;
 			.icz{
 				font-size: 1.125rem;
 				vertical-align: middle;
