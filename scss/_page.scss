@@ -155,6 +155,7 @@
 			font-size: 1.125rem;
 			font-weight: 600;
 			margin-bottom: 2rem;
+			padding: 0;
 		}
 		h3.title{
 			font-size: .875rem;
@@ -162,6 +163,7 @@
 			display: flex;
 			align-items: center;
 			margin-bottom: unset;
+			padding-top: 0;
 			.icz{
 				font-size: 12px;
 				margin-left: 0.5rem;
@@ -231,6 +233,9 @@
 			}
 			@include until(1280px){
 				min-width: 500px;
+			}
+			.slide-body-container{
+				h2{margin-bottom: 52px;}
 			}
 		}
 		.container_cols{
@@ -312,6 +317,7 @@
 				min-width: 100%;
 				max-width: 100%;
 				max-height: 200px;
+				display: block;
 			}
 			.select{
 				width: 100%;
@@ -373,7 +379,7 @@
 					height: 84px;
 					width: 84px;
 					background-color: #FAFBFD;
-					border: 2px dashed #DCE1E7;
+					border: 1px dashed #DCE1E7;
 					border-radius: 99px;
 					cursor: pointer;
 					margin-right: 20px;
@@ -466,7 +472,7 @@
 				position: relative;
 				height: 200px;
 				background-color: #FAFBFD;
-				border: 2px dashed #DCE1E7;
+				border: 1px dashed #DCE1E7;
 				border-radius: 8px;
 				// margin-top: 4px;
 				@extend %tr-all;
@@ -532,7 +538,7 @@
 					}
 					p{
 						font-size: 14px;
-						color: #020554;
+						color: #131820;
 						margin-bottom: unset;
 						a{
 							color: #248CFF;
@@ -549,7 +555,6 @@
 						margin-bottom: unset;
 						&.error-item{
 							color: #131820;
-							font-weight: 600;
 							border-bottom: 1px dotted;
 							width: fit-content;
 							cursor: pointer;
@@ -611,7 +616,7 @@
 					align-self: center;
 					@extend %tr-all;
 					width: fit-content;
-					line-break: anywhere;
+					word-break: break-word;
 				}
 				.preview-sample{
 					background:url(../../html/images/preview_sample.png) center center no-repeat;
@@ -629,20 +634,23 @@
 						font-size: 12px;
 						flex-grow: 1;
 						min-width: 0;
-						padding-right: 5px;
+						padding-right: 4px;
 						position: relative;
-   						top: 5px;
+   						top: 4px;
 						p{
 							margin-bottom: unset;
-							margin-left: -5px;
-							padding: 3px 5px;
+							margin-left: -4px;
+							padding: 2px 4px;
 							@extend %tr-all;
 							word-break: break-word;
 						}
 						.optional-info{
 							color: #989EA5;
 							position: relative;
-							top:-5px
+							top:-4px
+						}
+						.preview-focus{
+							padding: 2px 4px;
 						}
 					}
 					.button-buy-now{

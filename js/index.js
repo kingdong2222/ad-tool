@@ -3,22 +3,22 @@ document.getElementsByClassName("navbar-item")[0].classList.add('active')
 const content_card_0 = document.getElementById('content-card-first')
 const content_card_1 = document.getElementById('content-card-second')
 
-let check_form_ad = document.getElementById('check-form-ad')
+const check_form_ad = document.getElementById('check-form-ad')
 
 const warning_word_card = document.getElementById('alert-card-first')
 const warning_uppercase_card = document.getElementById('alert-card-second')
 const banned_word_card = document.getElementById('alert-card-third')
 const successful_card = document.getElementById('successful-card')
 
-let first_input = document.getElementById('first-input')
-let second_input = document.getElementById('second-input')
-let third_input = document.getElementById('third-input')
-let fourth_input = document.getElementById('fourth-input')
+const first_input = document.getElementById('first-input')
+const second_input = document.getElementById('second-input')
+const third_input = document.getElementById('third-input')
+const fourth_input = document.getElementById('fourth-input')
 
-let first_max_letter = document.getElementById('max-letter-first')
-let second_max_letter = document.getElementById('max-letter-second')
-let third_max_letter = document.getElementById('max-letter-third')
-let fourth_max_letter = document.getElementById('max-letter-fourth')
+const first_max_letter = document.getElementById('max-letter-first')
+const second_max_letter = document.getElementById('max-letter-second')
+const third_max_letter = document.getElementById('max-letter-third')
+const fourth_max_letter = document.getElementById('max-letter-fourth')
 
 //- window.onload = () => {
     if(sessionStorage.getItem("value_1")){
@@ -676,12 +676,17 @@ var cropLargeImg = function(){
                 $("#modalEditImg").addClass("show");
                 setTimeout(()=>{
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
-                        interactive: true,
                         showOnCreate: true,
+                        onShow(instance){
+                            instance.setProps({trigger: 'click'})
+                        },
+                        onHide(instance) {
+                            instance.setProps({trigger: 'mouseenter focus'})
+                        },
                     });
                 },100)
                 
@@ -876,12 +881,18 @@ var cropLargeImgAgain = function(){
 
                 // setTimeout(()=>{
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
-                        interactive: true,
+                        // interactive: true,
                         // showOnCreate: true,
+                        onShow(instance){
+                            instance.setProps({trigger: 'click'})
+                        },
+                        onHide(instance) {
+                            instance.setProps({trigger: 'mouseenter focus'})
+                        },
                     });
                 // },100)
 
@@ -968,10 +979,10 @@ document.getElementById('large-image-input').ondrop = (value) => {
     document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
 }
 
-let first_content_preview = document.getElementById('first-preview')
-let second_content_preview = document.getElementById('second-preview')
-let third_content_preview = document.getElementById('third-preview')
-let fourth_content_preview = document.getElementById('fourth-preview')
+const first_content_preview = document.getElementById('first-preview')
+const second_content_preview = document.getElementById('second-preview')
+const third_content_preview = document.getElementById('third-preview')
+const fourth_content_preview = document.getElementById('fourth-preview')
 
 
 first_input.oninput = value =>{
@@ -1331,7 +1342,7 @@ document.getElementById('check-form-ad').onclick = value =>{
     
     if(value_2){
         if(value_2.charAt(0) != value_2.charAt(0).toUpperCase()){
-            first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
             value_check_ad = false
             content_card_1.classList.add('is-hidden')
             warning_uppercase_card.classList.remove('is-hidden')
@@ -1341,7 +1352,7 @@ document.getElementById('check-form-ad').onclick = value =>{
             }
         }
         if(value_2.charAt(0).match(/[.,?!'";:-]/)){
-            first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
             value_check_ad = false
             content_card_1.classList.add('is-hidden')
             warning_uppercase_card.classList.remove('is-hidden')
@@ -1423,7 +1434,7 @@ document.getElementById('check-form-ad').onclick = value =>{
     
     if(value_3){
         if(value_3.charAt(0) != value_3.charAt(0).toUpperCase()){
-            first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
             value_check_ad = false
             content_card_1.classList.add('is-hidden')
             warning_uppercase_card.classList.remove('is-hidden')
@@ -1433,7 +1444,7 @@ document.getElementById('check-form-ad').onclick = value =>{
             }
         }
         if(value_3.charAt(0).match(/[.,?!'";:-]/)){
-            first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
             value_check_ad = false
             content_card_1.classList.add('is-hidden')
             warning_uppercase_card.classList.remove('is-hidden')
@@ -1515,7 +1526,7 @@ document.getElementById('check-form-ad').onclick = value =>{
     
     if(value_4){
         if(value_4.charAt(0) != value_4.charAt(0).toUpperCase()){
-            first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
             value_check_ad = false
             content_card_1.classList.add('is-hidden')
             warning_uppercase_card.classList.remove('is-hidden')
@@ -1525,7 +1536,7 @@ document.getElementById('check-form-ad').onclick = value =>{
             }
         }
         if(value_4.charAt(0).match(/[.,?!'";:-]/)){
-            first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
             value_check_ad = false
             content_card_1.classList.add('is-hidden')
             warning_uppercase_card.classList.remove('is-hidden')
@@ -1661,7 +1672,7 @@ fourth_input.onblur = value =>{
 
 //tooltip
 tippy('#tippy-title-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt tiêu đề</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt tiêu đề</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1669,7 +1680,7 @@ tippy('#tippy-title-ad', {
 });
 
 tippy('#tippy-content-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt nội dung</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt nội dung</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1677,7 +1688,7 @@ tippy('#tippy-content-ad', {
 });
 
 tippy('#tippy-avatar-upload', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về ảnh đại diện</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về ảnh đại diện</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1685,7 +1696,7 @@ tippy('#tippy-avatar-upload', {
 });
 
 tippy('#tippy-optional-desc', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về mô tả thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về mô tả thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1693,7 +1704,7 @@ tippy('#tippy-optional-desc', {
 });
 
 tippy('#tippy-optional-info', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về thông tin thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về thông tin thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1709,7 +1720,7 @@ tippy('#tippy-button-call-action', {
 });
 
 tippy('#tippy-large-image', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về hình ảnh quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về hình ảnh quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1717,12 +1728,13 @@ tippy('#tippy-large-image', {
 });
 
 tippy('#tippy-notice-content', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a style="color:#2997FF; text-align: right;display: block;">Xem quy định về nội dung quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về nội dung quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
     interactive: true,
 });
+
 
 
 
