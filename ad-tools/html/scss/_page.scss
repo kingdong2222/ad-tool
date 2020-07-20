@@ -27,14 +27,15 @@
 	}
 	.tippy-block{
 		font-size: 14px;
-		font-weight: 400;
+		line-height: 22px;
 	}
 	.tippy-box[data-theme~='zad'] {
 		background-color: #fff;
 		color: #050F2C;
 		box-shadow: 0 2px 10px 0 rgba(5,15,44,0.2);
+		border-radius: 8px;
 		.tippy-content{
-			padding: 9px 12px;
+			padding: 16px;
 		}
 	}
 	.tippy-box[data-theme~='zad'][data-placement^='top'] > .tippy-arrow::before {
@@ -523,8 +524,8 @@
 					flex-direction: row;
 					align-items: center;
 					border-bottom: 1px solid #DCE1E7;
-					padding-bottom: 10px;
-					margin-bottom: 10px;
+					padding-bottom: 16px;
+					margin-bottom: 16px;
 					.icz{
 						font-size: 16px;
 						margin-right: 12px;
@@ -552,6 +553,23 @@
 					p{
 						color: #A3A8AF;
 						font-size: 14px;
+						margin-bottom: 0;
+					}
+					ul{
+						padding-left: 20px;
+						margin-bottom: 0;
+						font-size: 14px;
+						li{
+							margin-bottom: 1rem;
+							&:last-child{margin-bottom: 0;}
+							p{
+								color: #141B29;
+								line-height: 22px;
+							}
+							span{
+								border-bottom: 1px dotted;
+							}
+						}
 					}
 				}
 			}
@@ -559,6 +577,7 @@
 		.policy-bottom-desc{
 			padding-top: 72px;
 			padding-bottom: 2rem;
+			width: 660px;
 			p{
 				font-size: 12px;
 				color: #ACB1B7;
@@ -777,8 +796,7 @@
 					color:#FF0000;
 				}
 				&#img-quality {
-					color: #060D33;
-					font-weight: 700;
+					color: #ff0000;
 				}
 			}
 		}

@@ -200,7 +200,7 @@ var crop = function(){
 
                 setTimeout(()=>{
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
@@ -369,7 +369,7 @@ var cropAvatarAgain = function(){
 
                 // setTimeout(()=>{
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
@@ -526,6 +526,7 @@ var cropLargeImg = function(){
                                 console.log(men.data64F[0])
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality').innerHTML = 'Đạt'
+                                    document.getElementById('img-quality').classList.toggle('is-ok')
                                 } else {
                                     document.getElementById('img-quality').innerHTML = 'Mờ'
                                 }
@@ -566,7 +567,7 @@ var cropLargeImg = function(){
                 $("#modalEditImg").addClass("show");
                 setTimeout(()=>{
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
@@ -724,6 +725,7 @@ var cropLargeImgAgain = function(){
                                 console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality').innerHTML = 'Đạt'
+                                    document.getElementById('img-quality').classList.toggle('is-ok')
                                 } else {
                                     document.getElementById('img-quality').innerHTML = 'Mờ'
                                 }
@@ -768,7 +770,7 @@ var cropLargeImgAgain = function(){
 
                 // setTimeout(()=>{
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:8px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; text-align: right;display: block;">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
@@ -1566,7 +1568,7 @@ fourth_input.onblur = value =>{
 
 //tooltip
 tippy('#tippy-title-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt tiêu đề</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt tiêu đề</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1574,7 +1576,7 @@ tippy('#tippy-title-ad', {
 });
 
 tippy('#tippy-content-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt nội dung</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt nội dung</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1582,7 +1584,7 @@ tippy('#tippy-content-ad', {
 });
 
 tippy('#tippy-avatar-upload', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về ảnh đại diện</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về ảnh đại diện</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1590,7 +1592,7 @@ tippy('#tippy-avatar-upload', {
 });
 
 tippy('#tippy-optional-desc', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về mô tả thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về mô tả thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1598,7 +1600,7 @@ tippy('#tippy-optional-desc', {
 });
 
 tippy('#tippy-optional-info', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về thông tin thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về thông tin thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1614,7 +1616,7 @@ tippy('#tippy-button-call-action', {
 });
 
 tippy('#tippy-large-image', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về hình ảnh quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về hình ảnh quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1622,7 +1624,7 @@ tippy('#tippy-large-image', {
 });
 
 tippy('#tippy-notice-content', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về nội dung quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về nội dung quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
