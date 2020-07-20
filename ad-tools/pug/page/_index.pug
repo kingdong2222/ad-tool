@@ -7,16 +7,16 @@ main
                 h2.title Nội dung kiểm tra
                 .text-input-item
                     .label-title
-                        h3.title Tiêu đề quảng cáo
+                        h3.title Tên nhà quảng cáo
                             i.icz.icz-question#tippy-title-ad
                         p.max-letter#max-letter-first 30/30
-                    input#first-input(type='text' placeholder='Nhập tiêu đề' maxlength=30)
+                    input#first-input(type='text' placeholder='Nhập tên nhà quảng cáo' maxlength=30)
                 .text-input-item
                     .label-title
                         h3.title Nội dung quảng cáo
                             i.icz.icz-question#tippy-content-ad
                         p.max-letter#max-letter-second 90/90
-                    textarea#second-input( placeholder='Nhập nội dung' maxlength=90)
+                    textarea#second-input( placeholder='Nhập nội dung quảng cáo' maxlength=90)
                 .text-input-item
                     .label-title
                         h3.title Ảnh đại diện
@@ -30,10 +30,10 @@ main
                         
                 .text-input-item
                     .label-title
-                        h3.title Mô tả thêm
+                        h3.title Mô tả
                             i.icz.icz-question#tippy-optional-desc
                         p.max-letter#max-letter-third 60/60
-                    input#third-input(type='text' placeholder='Mô tả ngắn gọn' maxlength=60)
+                    input#third-input(type='text' placeholder='Nhập mô tả' maxlength=60)
                 .text-input-item
                     .label-title
                         h3.title Thông tin thêm
@@ -153,34 +153,37 @@ main
                             p Nội dung của bạn chưa được kiểm tra, nhấn kiểm tra để xem kết quả
                         .card-error-list
                             p Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây.
-                    .content-card#alert-card-first.is-hidden
-                        .card-desc
-                            i.icz.icz-fill-warning
-                            p Sử dụng từ ngữ bị hạn chế
-                        .card-error-list
-                            //- p.error-item nhất
-                    .content-card#alert-card-second.is-hidden
-                        .card-desc
-                            i.icz.icz-fill-warning
-                            p Nội dung có sử dụng kí tự đặc biệt/định dạng văn bản không được phép sử dụng
-                        .card-error-list
-                            //- p.warning-item Viết hoa nhiều chữ cái
-                    .content-card#alert-card-third.is-hidden
+                    .content-card#alert-card-first
                         .card-desc
                             i.icz.icz-fill-error
-                            p Cảnh báo! Nội dung của bạn có sử dụng từ ngữ vi phạm qui định quảng cáo.
+                            p Lý do khiến quảng cáo của bạn sẽ bị từ chối
                         .card-error-list
-                            //- p.error-item Ngoại tình
-                    .content-card#successful-card.is-hidden
+                            ul
+                                li 
+                                    p Sử dụng từ ngữ bị hạn chế: 
+                                        span ngoại tình
+                                        |,
+                                        span nhất
+                                        |,
+                                        span duy nhất
+                                        |,
+                                        span vay nóng
+                                li
+                                    p Viết hoa toàn bộ nội dung
+                    .content-card#alert-card-second
                         .card-desc
-                            i.icz.icz-fill-check
-                            p Tuyệt vời! Không phát hiện lỗi trong nội dung quảng cáo của bạn
+                            i.icz.icz-fill-warning
+                            p Những lỗi có thể vi phạm quy định quảng cáo
                         .card-error-list
-                            p Chúng tôi không phát hiện các lỗi vi phạm phổ biến nào trong quảng cáo của bạn.
+                            ul
+                                li 
+                                    p Viết hoa nhiều chữ cái
+                                li 
+                                    p Sử dụng dấu ba chấm
         .policy-bottom-desc
-            p Đây là công cụ giúp bạn tối ưu hóa cài đặt quảng cáo. Việc xét duyệt quảng cáo không thuộc quản lý của công cụ này. <br>Xem thêm các 
+            p Đây là công cụ giúp bạn tối ưu hóa nội dung, hình ảnh quảng cáo. Đồng thời giúp kiểm tra các vi phạm có thể xảy ra trong nội dung. Công cụ không mặc định đảm bảo quảng cáo của bạn sẽ được duyệt. Xem thêm các 
                 a quy định quảng cáo 
-                |để tìm hiểu thêm về lĩnh vực kinh doanh của bạn,
+                |để tìm hiểu thêm về lĩnh vực kinh doanh của bạn.
     .slide-body
         .slide-body-container
             h2.title Xem trước
@@ -189,12 +192,12 @@ main
                     .label-title
                         .avatar.avatar--l
                             span.avatar-img(style="background-image:url(../html/images/avatar.png)")
-                        h3.title#first-preview Tiêu đề quảng cáo
+                        h3.title#first-preview Tên nhà quảng cáo
                     h3.title#second-preview Nội dung quảng cáo
                     .preview-sample
                     .ad-desc
                         .optional
-                            p.optional-desc#third-preview Mô tả thêm
+                            p.optional-desc#third-preview Mô tả
                             p.optional-info#fourth-preview Thông tin thêm
                         .button-buy-now#fifth-preview Mua ngay
 

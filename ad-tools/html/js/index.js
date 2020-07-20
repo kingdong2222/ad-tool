@@ -1,5 +1,10 @@
 document.getElementsByClassName("navbar-item")[0].classList.add('active')
 
+$('.navbar-item').click((e) => {
+    $(".navbar-item").toggleClass('active')
+    $('main').toggleClass('is-hidden')
+})
+
 const content_card_0 = document.getElementById('content-card-first')
 const content_card_1 = document.getElementById('content-card-second')
 
@@ -19,111 +24,6 @@ const first_max_letter = document.getElementById('max-letter-first')
 const second_max_letter = document.getElementById('max-letter-second')
 const third_max_letter = document.getElementById('max-letter-third')
 const fourth_max_letter = document.getElementById('max-letter-fourth')
-
-//- window.onload = () => {
-    if(sessionStorage.getItem("value_1")){
-        let value_1 = sessionStorage.getItem("value_1")
-        $('#first-preview').html(value_1)
-        $('#first-input').val(value_1)
-
-        first_max_letter.innerHTML = first_input.maxLength - first_input.value.length +'/30'
-
-        content_card_0.classList.add('is-hidden')
-        content_card_1.classList.remove('is-hidden')
-        check_form_ad.removeAttribute('disabled')
-    }
-    if(sessionStorage.getItem("value_2")){
-        let value_2 = sessionStorage.getItem("value_2")
-        $('#second-preview').html(value_2)
-        $('#second-input').val(value_2)
-
-        second_max_letter.innerHTML = second_input.maxLength - second_input.value.length +'/90'
-
-        content_card_0.classList.add('is-hidden')
-        content_card_1.classList.remove('is-hidden')
-        check_form_ad.removeAttribute('disabled')
-    }
-    if(sessionStorage.getItem("value_3")){
-        let value_3 = sessionStorage.getItem("value_3")
-        $('#third-preview').html(value_3)
-        $('#third-input').val(value_3)
-
-        third_max_letter.innerHTML = third_input.maxLength - third_input.value.length +'/60'
-
-        content_card_0.classList.add('is-hidden')
-        content_card_1.classList.remove('is-hidden')
-        check_form_ad.removeAttribute('disabled')
-    }
-    if(sessionStorage.getItem("value_4")){
-        let value_4 = sessionStorage.getItem("value_4")
-        $('#fourth-preview').html(value_4)
-        $('#fourth-input').val(value_4)
-
-        fourth_max_letter.innerHTML = fourth_input.maxLength - fourth_input.value.length +'/60'
-
-        content_card_0.classList.add('is-hidden')
-        content_card_1.classList.remove('is-hidden')
-        check_form_ad.removeAttribute('disabled')
-    }
-    if(sessionStorage.getItem("value_5")){
-        let value_5 = sessionStorage.getItem("value_5")
-        $('#fifth-preview').html(value_5)
-        $('#fifth-input').val(value_5)
-    }
-    if(sessionStorage.getItem("avatar_src")){
-        let avatar_src = sessionStorage.getItem("avatar_src")
-        let avatar_name = sessionStorage.getItem("name_avatar_src")
-
-        $( "span.avatar-img" ).replaceWith( "<img class='avatar-img' id='output-preview'/>" );
-        $( ".avatar-img" ).attr("src", avatar_src)
-
-        $( "div.avatar-image-input" ).replaceWith( "<img class='avatar-image-input' id='output' />" );
-        $( "#output" ).attr("src", avatar_src)
-
-        $("p.img-desc").html(avatar_name+"<span><br>150x150</span>");
-        $("p.img-desc").addClass('avatar-name')
-    }
-    if(sessionStorage.getItem("large_img_src")){
-        let large_img_src = sessionStorage.getItem("large_img_src")
-        let large_img_name = sessionStorage.getItem("name_large_img_src")
-
-        document.getElementById('download-large-image').download = large_img_name
-        document.getElementById('download-large-image').href = large_img_src
-
-        $(".large-img-name").html(large_img_name+"<br><span>1024 x 533</span>")
-
-        $(".large-image-preview").addClass('is-show')
-        $(".large-image-input").addClass('is-hidden')
-
-        $( ".preview-sample" ).replaceWith( "<img class='preview-sample' style='background:none;'/>" );
-        $( ".preview-sample" ).attr("src", large_img_src)
-
-        document.getElementById('output-large-preview').style.backgroundImage = 'url(' + large_img_src + ')'
-
-        //check blur
-        let imgElement = document.getElementById('imageSrc-preview');
-        imgElement.src = large_img_src
-        imgElement.onload = function () {
-            let src = cv.imread(imgElement);
-            let dst = new cv.Mat();
-            let men = new cv.Mat();
-            let menO = new cv.Mat();
-            cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
-            // You can try more different parameters
-            var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-            console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
-            console.log(men.data64F[0])
-            if (men.data64F[0] > 10) {
-                document.getElementById('img-quality').innerHTML = 'Đạt'
-            } else {
-                document.getElementById('img-quality').innerHTML = 'Mờ'
-            }
-            // cv.imshow('canvasOutput', dst);
-            src.delete(); dst.delete();
-        };
-        $(".ads-img .squares").addClass("is-show");
-    }
-//- }
 
 const button_toogle_slide = document.getElementById('button-toggle-slide-bar')
 const main_body = document.getElementsByClassName('main-body')[0]
@@ -266,11 +166,8 @@ var crop = function(){
                             output.src = result.toDataURL(uploadedImageType)
                             
                             $( "span.avatar-img" ).replaceWith( "<img class='avatar-img' id='output-preview' />" );
-                            var output_preview = document.getElementById('output-preview');
-                            output_preview.src = result.toDataURL(uploadedImageType)
+                            $( ".avatar-img" ).attr("src", result.toDataURL(uploadedImageType))
 
-                            sessionStorage.setItem("avatar_src", result.toDataURL(uploadedImageType))
-                            sessionStorage.setItem("name_avatar_src", uploadedImageName)
                         }
                     }
 
@@ -438,11 +335,8 @@ var cropAvatarAgain = function(){
                             $("p.img-desc").html(uploadedImageName+"<span><br>150x150</span>");
                             $("p.img-desc").addClass('avatar-name')
 
-                            document.getElementById('output').src = result.toDataURL(uploadedImageType)
-                            document.getElementById('output-preview').src = result.toDataURL(uploadedImageType)
+                            $( ".avatar-img" ).attr("src", result.toDataURL(uploadedImageType))
 
-                            sessionStorage.setItem("avatar_src", result.toDataURL(uploadedImageType))
-                            sessionStorage.setItem("name_avatar_src", uploadedImageName)
                         }
                     }
 
@@ -615,11 +509,7 @@ var cropLargeImg = function(){
                             document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
 
                             $( ".preview-sample" ).replaceWith( "<img class='preview-sample' id='output-preview-large' style='background:none;'/>" );
-                            var output_preview_large = document.getElementById('output-preview-large');
-                            output_preview_large.src = result.toDataURL(uploadedImageType)
-
-                            sessionStorage.setItem("large_img_src", result.toDataURL(uploadedImageType))
-                            sessionStorage.setItem("name_large_img_src", uploadedImageName)
+                            $( ".preview-sample" ).attr("src", result.toDataURL(uploadedImageType))
 
                             //check blur
                             let imgElement = document.getElementById('imageSrc-preview');
@@ -818,11 +708,7 @@ var cropLargeImgAgain = function(){
 
                             document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
 
-                            // var output_preview_large = document.getElementById('output-preview-large');
-                            // output_preview_large.src = result.toDataURL(uploadedImageType)
-
-                            sessionStorage.setItem("large_img_src", result.toDataURL(uploadedImageType))
-                            sessionStorage.setItem("name_large_img_src", uploadedImageName)
+                            $( ".preview-sample" ).attr("src", result.toDataURL(uploadedImageType))
 
                             //check blur
                             let imgElement = document.getElementById('imageSrc-preview');
@@ -844,6 +730,7 @@ var cropLargeImgAgain = function(){
                                 // cv.imshow('canvasOutput', dst);
                                 src.delete(); dst.delete();
                             };
+                            count = 0;
                             $(".check-msg").html("Hãy chọn các ô có xuất hiện chữ");
                             $(".check-msg").removeClass("is-ok");
                             $(".square").removeClass("is-selected");
@@ -987,9 +874,10 @@ const fourth_content_preview = document.getElementById('fourth-preview')
 
 first_input.oninput = value =>{
     if(value.target.value){
+        $('.first-preview-position').html(value.target.value)
         first_content_preview.innerHTML = value.target.value
-        sessionStorage.setItem("value_1", value.target.value)
         first_max_letter.innerHTML = first_input.maxLength - first_input.value.length +'/30'
+        first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
         if(second_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1002,12 +890,12 @@ first_input.oninput = value =>{
             warning_uppercase_card.classList.add('is-hidden')
             banned_word_card.classList.add('is-hidden')
             successful_card.classList.add('is-hidden')
-
-            first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
         }
     } else {
-        first_content_preview.innerHTML = 'Tiêu đề quảng cáo'
+        first_content_preview.innerHTML = 'Tên nhà quảng cáo'
+        $('.first-preview-position').html('Tên nhà quảng cáo')
         first_max_letter.innerHTML = first_input.maxLength
+        first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
         if(second_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1020,8 +908,6 @@ first_input.oninput = value =>{
             warning_uppercase_card.classList.add('is-hidden')
             banned_word_card.classList.add('is-hidden')
             successful_card.classList.add('is-hidden')
-
-            first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
         }
     }
 }
@@ -1029,8 +915,9 @@ first_input.oninput = value =>{
 second_input.oninput = value =>{
     if(value.target.value){
         second_content_preview.innerHTML = value.target.value
-        sessionStorage.setItem("value_2", value.target.value)
+        $('.second-preview-position').html(value.target.value)
         second_max_letter.innerHTML = second_input.maxLength - second_input.value.length +'/90'
+        second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
         if(first_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1043,12 +930,12 @@ second_input.oninput = value =>{
             warning_uppercase_card.classList.add('is-hidden')
             banned_word_card.classList.add('is-hidden')
             successful_card.classList.add('is-hidden')
-
-            second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
         }
     } else {
         second_content_preview.innerHTML = 'Nội dung quảng cáo'
+        $('.second-preview-position').html('Nội dung quảng cáo')
         second_max_letter.innerHTML = second_input.maxLength
+        second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
         if(first_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1061,8 +948,6 @@ second_input.oninput = value =>{
             warning_uppercase_card.classList.add('is-hidden')
             banned_word_card.classList.add('is-hidden')
             successful_card.classList.add('is-hidden')
-
-            second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
         }
     }
 }
@@ -1070,8 +955,9 @@ second_input.oninput = value =>{
 third_input.oninput = value =>{
     if(value.target.value){
         third_content_preview.innerHTML = value.target.value
-        sessionStorage.setItem("value_3", value.target.value)
+        $('.third-preview-position').html(value.target.value)
         third_max_letter.innerHTML = third_input.maxLength - third_input.value.length +'/60'
+        third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1084,12 +970,12 @@ third_input.oninput = value =>{
             warning_uppercase_card.classList.add('is-hidden')
             banned_word_card.classList.add('is-hidden')
             successful_card.classList.add('is-hidden')
-
-            third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
         }
     } else {
-        third_content_preview.innerHTML = 'Mô tả thêm'
+        third_content_preview.innerHTML = 'Mô tả'
+        $('.third-preview-position').html('Mô tả')
         third_max_letter.innerHTML = third_input.maxLength
+        third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1102,8 +988,6 @@ third_input.oninput = value =>{
             warning_uppercase_card.classList.add('is-hidden')
             banned_word_card.classList.add('is-hidden')
             successful_card.classList.add('is-hidden')
-
-            third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
         }
     }
 }
@@ -1111,8 +995,9 @@ third_input.oninput = value =>{
 fourth_input.oninput = value =>{
     if(value.target.value){
         fourth_content_preview.innerHTML = value.target.value
-        sessionStorage.setItem("value_4", value.target.value)
+        $('.fourth-preview-position').html(value.target.value)
         fourth_max_letter.innerHTML = fourth_input.maxLength - fourth_input.value.length +'/60'
+        fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || third_input.value){
             //do nothing cause it's done already
         }
@@ -1125,12 +1010,12 @@ fourth_input.oninput = value =>{
             warning_uppercase_card.classList.add('is-hidden')
             banned_word_card.classList.add('is-hidden')
             successful_card.classList.add('is-hidden')
-
-            fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
         }
     } else {
         fourth_content_preview.innerHTML = 'Thông tin thêm'
+        $('.fourth-preview-position').html('Thông tin thêm')
         fourth_max_letter.innerHTML = fourth_input.maxLength
+        fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || third_input.value){
             //do nothing cause it's done already
         }
@@ -1143,8 +1028,6 @@ fourth_input.oninput = value =>{
             warning_uppercase_card.classList.add('is-hidden')
             banned_word_card.classList.add('is-hidden')
             successful_card.classList.add('is-hidden')
-
-            fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
         }
     }
 }
@@ -1152,8 +1035,9 @@ fourth_input.oninput = value =>{
 document.getElementById('fifth-input').onchange = value =>{
     if(value.target.value){
         document.getElementById('fifth-preview').innerHTML = value.target.value
-        sessionStorage.setItem("value_5", value.target.value)
+        $('.fifth-preview-position').html(value.target.value)
     } else {
+        $('.fifth-preview-position').html('Mua ngay')
         document.getElementById('fifth-preview').innerHTML = 'Mua ngay'
     }
 }
@@ -1206,6 +1090,9 @@ function checkFormat2(val) {
     }
 }
 
+function isUpperCase(str) {
+    return str === str.toUpperCase();
+}
 
 const InputFormatWithPuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"-]+$/g
 
@@ -1215,7 +1102,9 @@ const InputFormatFrom2Puntuation = /[.,?!'";:-]{2}/
 
 const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&]*)/
 
-const InputPhoneNumber = /\d{3}/
+const InputPhoneNumber0 = /^(\d{1,3})(\d{0,3})[ ](\d{0,4})[ ](\d{0,4})$/
+
+const InputPhoneNumber1 = /^(\d{1,3})(\d{0,3})(\d{0,4})(\d{0,4})$/
 
 //ABc
 const InputUpperCaseSensitive1 = /[A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴÝỶỸ]{2}/
@@ -1249,9 +1138,9 @@ document.getElementById('check-form-ad').onclick = value =>{
             value_check_ad = false
             content_card_1.classList.add('is-hidden')
             warning_uppercase_card.classList.remove('is-hidden')
-            if($('#error-5').text().indexOf('Phải viết hoa chữ cái đầu câu') == 0){
+            if($('#error-5').text().indexOf('Viết hoa chữ cái đầu câu') == 0){
             } else {
-                $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Phải viết hoa chữ cái đầu câu</p>" )
+                $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-5'>Viết hoa chữ cái đầu câu</p>" )
             }
         }
         if(value_1.charAt(0).match(/[.,?!'";:-]/)){
@@ -1259,9 +1148,9 @@ document.getElementById('check-form-ad').onclick = value =>{
             value_check_ad = false
             content_card_1.classList.add('is-hidden')
             warning_uppercase_card.classList.remove('is-hidden')
-            if($('#error-6').text().indexOf('Có dấu câu ở đầu') == 0){
+            if($('#error-6').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
             } else {
-                $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-6'>Có dấu câu ở đầu</p>" )
+                $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-6'>Sử dụng dấu câu ở đầu</p>" )
             }
         }
         if(value_1.charAt(0) == ' '){
@@ -1269,9 +1158,9 @@ document.getElementById('check-form-ad').onclick = value =>{
             value_check_ad = false
             content_card_1.classList.add('is-hidden')
             warning_uppercase_card.classList.remove('is-hidden')
-            if($('#error-0').text().indexOf('Có khoảng trắng đầu câu') == 0){
+            if($('#error-0').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0){
             } else {
-                $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Có khoảng trắng đầu câu</p>" )
+                $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-0'>Sử dụng khoảng trắng đầu câu</p>" )
             }
         } 
         if(checkFormat2(value_1) == 1){
@@ -1310,9 +1199,9 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-3'>Sử dụng dấu ba chấm</p>" )
                 }
             } else {
-                if($('#error-4').text().indexOf('Viết dấu câu hai lần liên tiếp') == 0){
+                if($('#error-4').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0){
                 } else {
-                    $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Viết dấu câu hai lần liên tiếp</p>" )
+                    $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-4'>Sử dụng 2 dấu câu liên tiếp</p>" )
                 }
             }
             
@@ -1372,14 +1261,19 @@ document.getElementById('check-form-ad').onclick = value =>{
             }
         } 
         if(checkFormat2(value_2) == 1){
-            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-            value_check_ad = false
-            content_card_1.classList.add('is-hidden')
-            warning_uppercase_card.classList.remove('is-hidden')
-            if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') == 0){
+            if(value_2.match(InputFormatUpperAfterDot)){
+                value_check_ad = true
             } else {
-                $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                value_check_ad = false
+                content_card_1.classList.add('is-hidden')
+                warning_uppercase_card.classList.remove('is-hidden')
+                if($('#error-1').text().indexOf('Viết hoa nhiều chữ cái') == 0){
+                } else {
+                    $("#alert-card-second .card-error-list").append( "<p class='warning-item' id='error-1'>Viết hoa nhiều chữ cái</p>" )
+                }
             }
+            
         } 
         if(value_2.match(InputFormatWithPuntuation)==null){
             second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -1672,7 +1566,7 @@ fourth_input.onblur = value =>{
 
 //tooltip
 tippy('#tippy-title-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt tiêu đề</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt tiêu đề</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1680,7 +1574,7 @@ tippy('#tippy-title-ad', {
 });
 
 tippy('#tippy-content-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt nội dung</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về đặt nội dung</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1688,7 +1582,7 @@ tippy('#tippy-content-ad', {
 });
 
 tippy('#tippy-avatar-upload', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về ảnh đại diện</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về ảnh đại diện</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1696,7 +1590,7 @@ tippy('#tippy-avatar-upload', {
 });
 
 tippy('#tippy-optional-desc', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về mô tả thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về mô tả thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1704,7 +1598,7 @@ tippy('#tippy-optional-desc', {
 });
 
 tippy('#tippy-optional-info', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về thông tin thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về thông tin thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1720,7 +1614,7 @@ tippy('#tippy-button-call-action', {
 });
 
 tippy('#tippy-large-image', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về hình ảnh quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về hình ảnh quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
@@ -1728,7 +1622,7 @@ tippy('#tippy-large-image', {
 });
 
 tippy('#tippy-notice-content', {
-    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về nội dung quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:8px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; text-align: right;display: block;">Xem quy định về nội dung quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',

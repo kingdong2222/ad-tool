@@ -28,8 +28,8 @@
     <div class="header"><a class="logo" href="#!"><i class="ico-logo"></i></a>
       <div class="navbar-main">
         <ul>
-          <li><a class="navbar-item" href="index.html">Công cụ kiểm tra quảng cáo</a></li>
-          <li><a class="navbar-item" href="position_preview.html">Vị trí hiển thị quảng cáo</a></li>
+          <li><a class="navbar-item">Công cụ kiểm tra quảng cáo</a></li>
+          <li><a class="navbar-item">Vị trí hiển thị quảng cáo</a></li>
         </ul>
       </div>
     </div>
@@ -42,17 +42,17 @@
               <h2 class="title">Nội dung kiểm tra</h2>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Tiêu đề quảng cáo<i class="icz icz-question" id="tippy-title-ad"></i></h3>
+                  <h3 class="title">Tên nhà quảng cáo<i class="icz icz-question" id="tippy-title-ad"></i></h3>
                   <p class="max-letter" id="max-letter-first">30/30</p>
                 </div>
-                <input id="first-input" type="text" placeholder="Nhập tiêu đề" maxlength="30">
+                <input id="first-input" type="text" placeholder="Nhập tên nhà quảng cáo" maxlength="30">
               </div>
               <div class="text-input-item">
                 <div class="label-title">
                   <h3 class="title">Nội dung quảng cáo<i class="icz icz-question" id="tippy-content-ad"></i></h3>
                   <p class="max-letter" id="max-letter-second">90/90</p>
                 </div>
-                <textarea id="second-input" placeholder="Nhập nội dung" maxlength="90"></textarea>
+                <textarea id="second-input" placeholder="Nhập nội dung quảng cáo" maxlength="90"></textarea>
               </div>
               <div class="text-input-item">
                 <div class="label-title">
@@ -68,10 +68,10 @@
               </div>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Mô tả thêm<i class="icz icz-question" id="tippy-optional-desc"></i></h3>
+                  <h3 class="title">Mô tả<i class="icz icz-question" id="tippy-optional-desc"></i></h3>
                   <p class="max-letter" id="max-letter-third">60/60</p>
                 </div>
-                <input id="third-input" type="text" placeholder="Mô tả ngắn gọn" maxlength="60">
+                <input id="third-input" type="text" placeholder="Nhập mô tả" maxlength="60">
               </div>
               <div class="text-input-item">
                 <div class="label-title">
@@ -206,37 +206,41 @@
                     <p>Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây.</p>
                   </div>
                 </div>
-                <div class="content-card is-hidden" id="alert-card-first">
-                  <div class="card-desc"><i class="icz icz-fill-warning"></i>
-                    <p>Sử dụng từ ngữ bị hạn chế</p>
-                  </div>
-                  <div class="card-error-list"></div>
-                </div>
-                <div class="content-card is-hidden" id="alert-card-second">
-                  <div class="card-desc"><i class="icz icz-fill-warning"></i>
-                    <p>Nội dung có sử dụng kí tự đặc biệt/định dạng văn bản không được phép sử dụng</p>
-                  </div>
-                  <div class="card-error-list"></div>
-                </div>
-                <div class="content-card is-hidden" id="alert-card-third">
+                <div class="content-card" id="alert-card-first">
                   <div class="card-desc"><i class="icz icz-fill-error"></i>
-                    <p>Cảnh báo! Nội dung của bạn có sử dụng từ ngữ vi phạm qui định quảng cáo.</p>
-                  </div>
-                  <div class="card-error-list"></div>
-                </div>
-                <div class="content-card is-hidden" id="successful-card">
-                  <div class="card-desc"><i class="icz icz-fill-check"></i>
-                    <p>Tuyệt vời! Không phát hiện lỗi trong nội dung quảng cáo của bạn</p>
+                    <p>Lý do khiến quảng cáo của bạn sẽ bị từ chối</p>
                   </div>
                   <div class="card-error-list">
-                    <p>Chúng tôi không phát hiện các lỗi vi phạm phổ biến nào trong quảng cáo của bạn.</p>
+                    <ul>
+                      <li> 
+                        <p>Sử dụng từ ngữ bị hạn chế: <span>ngoại tình</span>,<span>nhất</span>,<span>duy nhất</span>,<span>vay nóng</span></p>
+                      </li>
+                      <li>
+                        <p>Viết hoa toàn bộ nội dung</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="content-card" id="alert-card-second">
+                  <div class="card-desc"><i class="icz icz-fill-warning"></i>
+                    <p>Những lỗi có thể vi phạm quy định quảng cáo</p>
+                  </div>
+                  <div class="card-error-list">
+                    <ul>
+                      <li> 
+                        <p>Viết hoa nhiều chữ cái</p>
+                      </li>
+                      <li> 
+                        <p>Sử dụng dấu ba chấm</p>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="policy-bottom-desc">
-            <p>Đây là công cụ giúp bạn tối ưu hóa cài đặt quảng cáo. Việc xét duyệt quảng cáo không thuộc quản lý của công cụ này. <br>Xem thêm các <a>quy định quảng cáo </a>để tìm hiểu thêm về lĩnh vực kinh doanh của bạn,</p>
+            <p>Đây là công cụ giúp bạn tối ưu hóa nội dung, hình ảnh quảng cáo. Đồng thời giúp kiểm tra các vi phạm có thể xảy ra trong nội dung. Công cụ không mặc định đảm bảo quảng cáo của bạn sẽ được duyệt. Xem thêm các <a>quy định quảng cáo </a>để tìm hiểu thêm về lĩnh vực kinh doanh của bạn.</p>
           </div>
         </div>
         <div class="slide-body">
@@ -246,16 +250,177 @@
               <div class="square-ads">
                 <div class="label-title">
                   <div class="avatar avatar--l"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
-                  <h3 class="title" id="first-preview">Tiêu đề quảng cáo</h3>
+                  <h3 class="title" id="first-preview">Tên nhà quảng cáo</h3>
                 </div>
                 <h3 class="title" id="second-preview">Nội dung quảng cáo</h3>
                 <div class="preview-sample"></div>
                 <div class="ad-desc">
                   <div class="optional">
-                    <p class="optional-desc" id="third-preview">Mô tả thêm</p>
+                    <p class="optional-desc" id="third-preview">Mô tả</p>
                     <p class="optional-info" id="fourth-preview">Thông tin thêm</p>
                   </div>
                   <div class="button-buy-now" id="fifth-preview">Mua ngay</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <main class="is-hidden">
+        <div class="ads-preview-list">
+          <h2 class="title preview-count">12 vị trí quảng cáo</h2>
+          <div class="preview-item-list">
+            <div class="preview-item-container">
+              <div class="preview-item">
+                <p class="name-position">Bản tin Zalo</p>
+                <div class="card-preview">
+                  <div class="square-ads">
+                    <div class="label-title">
+                      <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
+                      <h3 class="title first-preview-position">Tên nhà quảng cáo</h3>
+                    </div>
+                    <h3 class="title second-preview-position">Tiêu đề quảng cáo</h3>
+                    <div class="preview-sample"></div>
+                    <div class="ad-desc">
+                      <div class="optional">
+                        <p class="optional-desc third-preview-position">Mô tả</p>
+                        <p class="optional-info fourth-preview-position">Thông tin thêm</p>
+                      </div>
+                      <div class="button-buy-now fifth-preview-position">Mua ngay</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="preview-item-container"> 
+              <div class="preview-item">
+                <p class="name-position">Bản tin Zing</p>
+                <div class="card-preview">
+                  <div class="square-ads">
+                    <div class="label-title">
+                      <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
+                      <h3 class="title first-preview-position">Tên nhà quảng cáo</h3>
+                    </div>
+                    <h3 class="title second-preview-position">Tiêu đề quảng cáo</h3>
+                    <div class="preview-sample"></div>
+                    <div class="ad-desc">
+                      <div class="optional">
+                        <p class="optional-desc third-preview-position">Mô tả</p>
+                        <p class="optional-info fourth-preview-position">Thông tin thêm</p>
+                      </div>
+                      <div class="button-buy-now fifth-preview-position">Mua ngay</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="preview-item-container">
+              <div class="preview-item">
+                <p class="name-position">Slidebar Báo Mới</p>
+                <div class="card-preview">
+                  <div class="square-ads">
+                    <div class="label-title">
+                      <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
+                      <h3 class="title first-preview-position">Tên nhà quảng cáo</h3>
+                    </div>
+                    <h3 class="title second-preview-position">Tiêu đề quảng cáo</h3>
+                    <div class="preview-sample"></div>
+                    <div class="ad-desc">
+                      <div class="optional">
+                        <p class="optional-desc third-preview-position">Mô tả</p>
+                        <p class="optional-info fourth-preview-position">Thông tin thêm</p>
+                      </div>
+                      <div class="button-buy-now fifth-preview-position">Mua ngay</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="preview-item-container">
+              <div class="preview-item">
+                <p class="name-position">Zalo sản phẩm</p>
+                <div class="card-preview">
+                  <div class="square-ads">
+                    <div class="label-title">
+                      <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
+                      <h3 class="title first-preview-position">Tên nhà quảng cáo</h3>
+                    </div>
+                    <h3 class="title second-preview-position">Tiêu đề quảng cáo</h3>
+                    <div class="preview-sample"></div>
+                    <div class="ad-desc">
+                      <div class="optional">
+                        <p class="optional-desc third-preview-position">Mô tả</p>
+                        <p class="optional-info fourth-preview-position">Thông tin thêm</p>
+                      </div>
+                      <div class="button-buy-now fifth-preview-position">Mua ngay</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="preview-item-container">
+              <div class="preview-item">
+                <p class="name-position">Bản tin Zalo</p>
+                <div class="card-preview">
+                  <div class="square-ads">
+                    <div class="label-title">
+                      <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
+                      <h3 class="title first-preview-position">Tên nhà quảng cáo</h3>
+                    </div>
+                    <h3 class="title second-preview-position">Tiêu đề quảng cáo</h3>
+                    <div class="preview-sample"></div>
+                    <div class="ad-desc">
+                      <div class="optional">
+                        <p class="optional-desc third-preview-position">Mô tả</p>
+                        <p class="optional-info fourth-preview-position">Thông tin thêm</p>
+                      </div>
+                      <div class="button-buy-now fifth-preview-position">Mua ngay</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="preview-item-container">
+              <div class="preview-item">
+                <p class="name-position">Bản tin Zalo</p>
+                <div class="card-preview">
+                  <div class="square-ads">
+                    <div class="label-title">
+                      <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
+                      <h3 class="title first-preview-position">Tên nhà quảng cáo</h3>
+                    </div>
+                    <h3 class="title second-preview-position">Tiêu đề quảng cáo</h3>
+                    <div class="preview-sample"></div>
+                    <div class="ad-desc">
+                      <div class="optional">
+                        <p class="optional-desc third-preview-position">Mô tả</p>
+                        <p class="optional-info fourth-preview-position">Thông tin thêm</p>
+                      </div>
+                      <div class="button-buy-now fifth-preview-position">Mua ngay</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="preview-item-container">
+              <div class="preview-item">
+                <p class="name-position">Bản tin Zalo</p>
+                <div class="card-preview">
+                  <div class="square-ads">
+                    <div class="label-title">
+                      <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
+                      <h3 class="title first-preview-position">Tên nhà quảng cáo</h3>
+                    </div>
+                    <h3 class="title second-preview-position">Tiêu đề quảng cáo</h3>
+                    <div class="preview-sample"></div>
+                    <div class="ad-desc">
+                      <div class="optional">
+                        <p class="optional-desc third-preview-position">Mô tả</p>
+                        <p class="optional-info fourth-preview-position">Thông tin thêm</p>
+                      </div>
+                      <div class="button-buy-now fifth-preview-position">Mua ngay</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
