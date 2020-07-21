@@ -1,9 +1,17 @@
 document.getElementsByClassName("navbar-item")[0].classList.add('active')
 
-$('.navbar-item').click((e) => {
-    $(".navbar-item").toggleClass('active')
-    $('main').toggleClass('is-hidden')
-})
+document.getElementsByClassName("navbar-item")[0].onclick = () => {
+    document.getElementsByClassName("navbar-item")[0].classList.add('active')
+    document.getElementsByClassName("navbar-item")[1].classList.remove('active')
+    document.getElementsByTagName('MAIN')[0].classList.remove('is-hidden')
+    document.getElementsByTagName('MAIN')[1].classList.add('is-hidden')
+}
+document.getElementsByClassName("navbar-item")[1].onclick = () => {
+    document.getElementsByClassName("navbar-item")[1].classList.add('active')
+    document.getElementsByClassName("navbar-item")[0].classList.remove('active')
+    document.getElementsByTagName('MAIN')[0].classList.add('is-hidden')
+    document.getElementsByTagName('MAIN')[1].classList.remove('is-hidden')
+}
 
 const content_card_0 = document.getElementById('content-card-first')
 const content_card_1 = document.getElementById('content-card-second')
@@ -526,7 +534,7 @@ var cropLargeImg = function(){
                                     document.getElementById('img-quality').innerHTML = 'Đạt'
                                     document.getElementById('img-quality').classList.toggle('is-ok')
                                 } else {
-                                    document.getElementById('img-quality').innerHTML = 'Mờ'
+                                    document.getElementById('img-quality').innerHTML = 'Bị mờ'
                                     document.getElementById('img-quality').classList.remove('is-ok')
                                 }
                                 // cv.imshow('canvasOutput', dst);
@@ -726,7 +734,7 @@ var cropLargeImgAgain = function(){
                                     document.getElementById('img-quality').innerHTML = 'Đạt'
                                     document.getElementById('img-quality').classList.toggle('is-ok')
                                 } else {
-                                    document.getElementById('img-quality').innerHTML = 'Mờ'
+                                    document.getElementById('img-quality').innerHTML = 'Bị mờ'
                                     document.getElementById('img-quality').classList.remove('is-ok')
                                 }
                                 // cv.imshow('canvasOutput', dst);
@@ -1084,20 +1092,17 @@ function isUpperCase(str) {
     return str === str.toUpperCase();
 }
 
-const InputFormatWithPuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"-]+$/g
+const InputFormatWithPuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"-%]+$/g
 
 const InputFormatUpperAfterDot = /([.?!] )([A-Z0-9])/g
 
-const InputFormatFrom2Puntuation = /[.,?!'";:-]{2,}/g
+const InputFormatFrom2Puntuation = /[.,?!'";:-%]{2,}/g
 
 const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&]*)/g
 
 const InputPhoneNumber0 = /(\d{1,3})(\d{0,3})[ ](\d{0,4})[ ](\d{0,4})/g
 
 const InputPhoneNumber1 = /(\d{1,3})(\d{0,3})(\d{0,4})(\d{0,4})/g
-
-//ABc
-const InputUpperCaseSensitive1 = /[A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴÝỶỸ]{2}/
 
 document.getElementById('check-form-ad').onclick = value =>{
     document.getElementById('check-form-ad').classList.add('is-loading')
@@ -1115,6 +1120,7 @@ document.getElementById('check-form-ad').onclick = value =>{
     let value_check_ad = true
 
     $('.card-error-list ul li').remove()
+    $('.card-error-list p').remove()
 
     setTimeout(()=>{
         document.getElementById('check-form-ad').classList.remove('is-loading')
@@ -1150,38 +1156,39 @@ document.getElementById('check-form-ad').onclick = value =>{
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
                 let list = checkPolicy(value_1)
+                console.log(list[0])
                 for(let i=0; i<list.length;i++){
                     let item = list[i]
-                    if($('#banned-3').text().indexOf('Sử dụng từ thiếu xác thực') == 0){
+                    if($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0){
                         if($('#banned-3').text().includes(item)){
                         } else {
                             document.getElementById('banned-3').innerHTML += ', <span>'+item+'</span>'
                         }
                     } else {
-                        $("#alert-card-second .card-error-list ul").append( "<li><p id='banned-3'>Sử dụng từ thiếu xác thực: <span>"+item+"</span></p></li>" )
+                        $("#alert-card-first .card-error-list ul").append( "<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>"+item+"</span></p></li>" )
                     }
                 }	
             }  
-            if(checkFormat2(value_1) == 1){
-                if(isUpperCase(value_1)==true){
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0){
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>" )
-                    }
-                } else if(value_1.match(InputFormatUpperAfterDot)){
-                    value_check_ad = true
-                } else {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            // if(checkFormat2(value_1) == 1){
+            //     if(isUpperCase(value_1)==true){
+            //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            //         value_check_ad = false
+            //         if($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0){
+            //         } else {
+            //             $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>" )
+            //         }
+            //     } else if(value_1.match(InputFormatUpperAfterDot)){
+            //         value_check_ad = true
+            //     } else {
+            //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
 
-                    warning_card.classList.remove('is-hidden')
-                    if($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0){
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>" )
-                    }
-                }
-            }
+            //         warning_card.classList.remove('is-hidden')
+            //         if($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0){
+            //         } else {
+            //             $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>" )
+            //         }
+            //     }
+            // }
             
 
             //case warning
@@ -1289,7 +1296,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                             document.getElementById('banned-3').innerHTML += ', <span>'+item+'</span>'
                         }
                     } else {
-                        $("#alert-card-second .card-error-list ul").append( "<li><p id='banned-3'>Sử dụng từ thiếu xác thực: <span>"+item+"</span></p></li>" )
+                        $("#alert-card-first .card-error-list ul").append( "<li><p id='banned-3'>Sử dụng từ thiếu xác thực: <span>"+item+"</span></p></li>" )
                     }
                 }	
             }  
@@ -1420,7 +1427,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                             document.getElementById('banned-3').innerHTML += ', <span>'+item+'</span>'
                         }
                     } else {
-                        $("#alert-card-second .card-error-list ul").append( "<li><p id='banned-3'>Sử dụng từ thiếu xác thực: <span>"+item+"</span></p></li>" )
+                        $("#alert-card-first .card-error-list ul").append( "<li><p id='banned-3'>Sử dụng từ thiếu xác thực: <span>"+item+"</span></p></li>" )
                     }
                 }	
             }  
@@ -1551,7 +1558,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                             document.getElementById('banned-3').innerHTML += ', <span>'+item+'</span>'
                         }
                     } else {
-                        $("#alert-card-second .card-error-list ul").append( "<li><p id='banned-3'>Sử dụng từ thiếu xác thực: <span>"+item+"</span></p></li>" )
+                        $("#alert-card-first .card-error-list ul").append( "<li><p id='banned-3'>Sử dụng từ thiếu xác thực: <span>"+item+"</span></p></li>" )
                     }
                 }	
             }  
