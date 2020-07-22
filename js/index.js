@@ -1232,6 +1232,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                 }
             }
             if(value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)){
+                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0){
                 } else {
@@ -1256,6 +1257,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                 }
             } 
             if(value_1.match(/\s{2,}/g)){
+                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
                 } else {
@@ -1369,6 +1371,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                 }
             }
             if(value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)){
+                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0){
                 } else {
@@ -1393,6 +1396,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                 }
             } 
             if(value_2.match(/\s{2,}/g)){
+                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
                 } else {
@@ -1506,6 +1510,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                 }
             }
             if(value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)){
+                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0){
                 } else {
@@ -1530,6 +1535,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                 }
             } 
             if(value_3.match(/\s{2,}/g)){
+                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
                 } else {
@@ -1643,6 +1649,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                 }
             }
             if(value_4.match(InputLinkWeb) || value_4.match(InputPhoneNumber)){
+                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0){
                 } else {
@@ -1667,6 +1674,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                 }
             } 
             if(value_4.match(/\s{2,}/g)){
+                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
                 } else {
