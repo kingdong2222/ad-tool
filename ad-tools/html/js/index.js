@@ -535,7 +535,7 @@ var cropLargeImg = function(){
                                 console.log(men.data64F[0])
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality').innerHTML = 'Đạt'
-                                    document.getElementById('img-quality').classList.toggle('is-ok')
+                                    document.getElementById('img-quality').classList.add('is-ok')
                                 } else {
                                     document.getElementById('img-quality').innerHTML = 'Bị mờ'
                                     document.getElementById('img-quality').classList.remove('is-ok')
@@ -735,7 +735,7 @@ var cropLargeImgAgain = function(){
                                 console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality').innerHTML = 'Đạt'
-                                    document.getElementById('img-quality').classList.toggle('is-ok')
+                                    document.getElementById('img-quality').classList.add('is-ok')
                                 } else {
                                     document.getElementById('img-quality').innerHTML = 'Bị mờ'
                                     document.getElementById('img-quality').classList.remove('is-ok')
