@@ -501,7 +501,7 @@ var cropLargeImg = function(){
                     }
                     break;
             }
-            result = cropper[data.method]({width: 1024, height: 533,}, data.secondOption);
+            result = cropper[data.method]({width: 1024, height: 533,imageSmoothingQuality: 'high',}, data.secondOption);
 
             switch (data.method) {
                 case 'getCroppedCanvas':
@@ -534,7 +534,7 @@ var cropLargeImg = function(){
                                 console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 console.log(men.data64F[0])
                                 if (men.data64F[0] > 10) {
-                                    document.getElementById('img-quality').innerHTML = 'Đạt'
+                                    document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                     document.getElementById('img-quality').classList.add('is-ok')
                                 } else {
                                     document.getElementById('img-quality').innerHTML = 'Bị mờ'
@@ -705,7 +705,7 @@ var cropLargeImgAgain = function(){
                     }
                     break;
             }
-            result = cropper[data.method]({width: 1024, height: 533}, data.secondOption);
+            result = cropper[data.method]({width: 1024, height: 533, imageSmoothingQuality: 'high',}, data.secondOption);
 
             switch (data.method) {
                 case 'getCroppedCanvas':
@@ -734,7 +734,7 @@ var cropLargeImgAgain = function(){
                                 var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
                                 console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
-                                    document.getElementById('img-quality').innerHTML = 'Đạt'
+                                    document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                     document.getElementById('img-quality').classList.add('is-ok')
                                 } else {
                                     document.getElementById('img-quality').innerHTML = 'Bị mờ'
@@ -892,7 +892,6 @@ first_input.oninput = value =>{
         $('.first-preview-position').html(value.target.value)
         first_content_preview.innerHTML = value.target.value
         first_max_letter.innerHTML = first_input.value.length +'/30'
-        // first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
         if(second_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -908,7 +907,6 @@ first_input.oninput = value =>{
         first_content_preview.innerHTML = 'Tên nhà quảng cáo'
         $('.first-preview-position').html('Tên nhà quảng cáo')
         first_max_letter.innerHTML = '0/30'
-        // first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
         if(second_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -929,7 +927,6 @@ second_input.oninput = value =>{
         second_content_preview.innerHTML = value.target.value
         $('.second-preview-position').html(value.target.value)
         second_max_letter.innerHTML = second_input.value.length +'/90'
-        // second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
         if(first_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -945,7 +942,6 @@ second_input.oninput = value =>{
         second_content_preview.innerHTML = 'Nội dung quảng cáo'
         $('.second-preview-position').html('Nội dung quảng cáo')
         second_max_letter.innerHTML = '0/90'
-        // second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
         if(first_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -966,7 +962,6 @@ third_input.oninput = value =>{
         third_content_preview.innerHTML = value.target.value
         $('.third-preview-position').html(value.target.value)
         third_max_letter.innerHTML = third_input.value.length +'/60'
-        // third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -982,7 +977,6 @@ third_input.oninput = value =>{
         third_content_preview.innerHTML = 'Mô tả'
         $('.third-preview-position').html('Mô tả')
         third_max_letter.innerHTML = '0/60'
-        // third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || fourth_input.value){
             //do nothing cause it's done already
         }
@@ -1003,7 +997,6 @@ fourth_input.oninput = value =>{
         fourth_content_preview.innerHTML = value.target.value
         $('.fourth-preview-position').html(value.target.value)
         fourth_max_letter.innerHTML = fourth_input.value.length +'/60'
-        // fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || third_input.value){
             //do nothing cause it's done already
         }
@@ -1019,7 +1012,6 @@ fourth_input.oninput = value =>{
         fourth_content_preview.innerHTML = 'Thông tin thêm'
         $('.fourth-preview-position').html('Thông tin thêm')
         fourth_max_letter.innerHTML = '0/60'
-        // fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || third_input.value){
             //do nothing cause it's done already
         }
@@ -1065,7 +1057,7 @@ function checkPolicy(val) {
 }
 
 let warning_words = [
-    'duy nhất', 'tốt nhất', 'nhất','số một'
+    'nhất','số một'
 ]
 // check warning
 function checkWarning(val) {
@@ -1121,8 +1113,9 @@ document.getElementById('check-form-ad').onclick = value =>{
 
     let value_check_ad = true
 
-    $('.card-error-list ul li').remove()
-    $('.card-error-list p').remove()
+    $('#alert-card-first .card-error-list ul li').remove()
+    $('#alert-card-second .card-error-list ul li').remove()
+    $('#alert-card-first .card-error-list p').remove()
 
     setTimeout(()=>{
         document.getElementById('check-form-ad').classList.remove('is-loading')
