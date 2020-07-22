@@ -887,7 +887,7 @@ first_input.oninput = value =>{
     if(value.target.value){
         $('.first-preview-position').html(value.target.value)
         first_content_preview.innerHTML = value.target.value
-        first_max_letter.innerHTML = first_input.maxLength - first_input.value.length +'/30'
+        first_max_letter.innerHTML = first_input.value.length +'/30'
         // first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
         if(second_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
@@ -903,7 +903,7 @@ first_input.oninput = value =>{
     } else {
         first_content_preview.innerHTML = 'Tên nhà quảng cáo'
         $('.first-preview-position').html('Tên nhà quảng cáo')
-        first_max_letter.innerHTML = first_input.maxLength
+        first_max_letter.innerHTML = '0/30'
         // first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
         if(second_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
@@ -924,7 +924,7 @@ second_input.oninput = value =>{
     if(value.target.value){
         second_content_preview.innerHTML = value.target.value
         $('.second-preview-position').html(value.target.value)
-        second_max_letter.innerHTML = second_input.maxLength - second_input.value.length +'/90'
+        second_max_letter.innerHTML = second_input.value.length +'/90'
         // second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
         if(first_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
@@ -940,7 +940,7 @@ second_input.oninput = value =>{
     } else {
         second_content_preview.innerHTML = 'Nội dung quảng cáo'
         $('.second-preview-position').html('Nội dung quảng cáo')
-        second_max_letter.innerHTML = second_input.maxLength
+        second_max_letter.innerHTML = '0/90'
         // second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
         if(first_input.value || third_input.value || fourth_input.value){
             //do nothing cause it's done already
@@ -961,7 +961,7 @@ third_input.oninput = value =>{
     if(value.target.value){
         third_content_preview.innerHTML = value.target.value
         $('.third-preview-position').html(value.target.value)
-        third_max_letter.innerHTML = third_input.maxLength - third_input.value.length +'/60'
+        third_max_letter.innerHTML = third_input.value.length +'/60'
         // third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || fourth_input.value){
             //do nothing cause it's done already
@@ -977,7 +977,7 @@ third_input.oninput = value =>{
     } else {
         third_content_preview.innerHTML = 'Mô tả'
         $('.third-preview-position').html('Mô tả')
-        third_max_letter.innerHTML = third_input.maxLength
+        third_max_letter.innerHTML = '0/60'
         // third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || fourth_input.value){
             //do nothing cause it's done already
@@ -998,7 +998,7 @@ fourth_input.oninput = value =>{
     if(value.target.value){
         fourth_content_preview.innerHTML = value.target.value
         $('.fourth-preview-position').html(value.target.value)
-        fourth_max_letter.innerHTML = fourth_input.maxLength - fourth_input.value.length +'/60'
+        fourth_max_letter.innerHTML = fourth_input.value.length +'/60'
         // fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || third_input.value){
             //do nothing cause it's done already
@@ -1014,7 +1014,7 @@ fourth_input.oninput = value =>{
     } else {
         fourth_content_preview.innerHTML = 'Thông tin thêm'
         $('.fourth-preview-position').html('Thông tin thêm')
-        fourth_max_letter.innerHTML = fourth_input.maxLength
+        fourth_max_letter.innerHTML = '0/60'
         // fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
         if(second_input.value || first_input.value || third_input.value){
             //do nothing cause it's done already

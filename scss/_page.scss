@@ -540,8 +540,8 @@
 					p{
 						font-size: 14px;
 						color: #131820;
-						margin-bottom: unset;
-						font-weight: 600;
+						margin-bottom: unset
+						font-weight: 500;}
 						a{
 							color: #248CFF;
 							&:hover{
@@ -575,6 +575,7 @@
 					}
 				}
 				&#alert-card-first{
+					.card-desc{font-weight: 600;}
 					ul{
 						li{
 							display: flex;
@@ -592,6 +593,7 @@
 					}
 				}
 				&#alert-card-second{
+					.card-desc{font-weight: 600;}
 					ul{
 						li{
 							display: flex;
