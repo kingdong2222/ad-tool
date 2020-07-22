@@ -1095,7 +1095,7 @@ function isUpperCase(str) {
     return str === str.toUpperCase();
 }
 
-const InputFormatWithPuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"-%]+$/g
+const InputFormatWithPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"-%]/g
 
 const InputFormatUpperAfterDot = /([.?!] )([A-Z0-9])/g
 
@@ -1103,9 +1103,7 @@ const InputFormatFrom2Puntuation = /[%.,?!'";:-]{2,}/g
 
 const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&]*)/g
 
-const InputPhoneNumber0 = /(\d{1,3})(\d{0,3})[ ](\d{0,4})[ ](\d{0,4})/g
-
-const InputPhoneNumber1 = /(\d{1,3})(\d{0,3})(\d{0,4})(\d{0,4})/g
+const InputPhoneNumber = /(\d{3})(\d{3})(\d{4})/g
 
 document.getElementById('check-form-ad').onclick = value =>{
     document.getElementById('check-form-ad').classList.add('is-loading')
@@ -1233,7 +1231,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     
                 }
             }
-            if(value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber0) || value_1.match(InputPhoneNumber1)){
+            if(value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)){
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0){
                 } else {
@@ -1257,7 +1255,13 @@ document.getElementById('check-form-ad').onclick = value =>{
                     }
                 }
             } 
-            
+            if(value_1.indexOf('  ')){
+                warning_card.classList.remove('is-hidden')
+                if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
+                } else {
+                    $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>" )
+                }
+            } 
         }
         
         if(value_2){
@@ -1364,7 +1368,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     
                 }
             }
-            if(value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber0) || value_2.match(InputPhoneNumber1)){
+            if(value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)){
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0){
                 } else {
@@ -1388,7 +1392,13 @@ document.getElementById('check-form-ad').onclick = value =>{
                     }
                 }
             } 
-            
+            if(value_2.indexOf('  ')){
+                warning_card.classList.remove('is-hidden')
+                if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
+                } else {
+                    $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>" )
+                }
+            } 
         }
 
         if(value_3){
@@ -1495,7 +1505,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     
                 }
             }
-            if(value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber0) || value_3.match(InputPhoneNumber1)){
+            if(value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)){
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0){
                 } else {
@@ -1519,7 +1529,13 @@ document.getElementById('check-form-ad').onclick = value =>{
                     }
                 }
             } 
-            
+            if(value_3.indexOf('  ')){
+                warning_card.classList.remove('is-hidden')
+                if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
+                } else {
+                    $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>" )
+                }
+            } 
         }
 
         if(value_4){
@@ -1626,7 +1642,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     
                 }
             }
-            if(value_4.match(InputLinkWeb) || value_4.match(InputPhoneNumber0) || value_4.match(InputPhoneNumber1)){
+            if(value_4.match(InputLinkWeb) || value_4.match(InputPhoneNumber)){
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0){
                 } else {
@@ -1650,7 +1666,13 @@ document.getElementById('check-form-ad').onclick = value =>{
                     }
                 }
             } 
-            
+            if(value_4.indexOf('  ')){
+                warning_card.classList.remove('is-hidden')
+                if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
+                } else {
+                    $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>" )
+                }
+            } 
         }
 
         if(value_check_ad == true){

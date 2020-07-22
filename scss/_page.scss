@@ -50,6 +50,51 @@
 	.tippy-box[data-theme~='zad'][data-placement^='right'] > .tippy-arrow::before {
 		border-right-color: #fff !important;
 	}
+	.cropper-view-box{
+		outline: 1px solid #fff !important;
+		outline-color: #fff !important;
+	}
+	.cropper-line{
+		background-color: #fff !important;
+	}
+	.cropper-point{
+		background-color: #fff !important;
+		width: 12px !important;
+		height: 12px !important;
+		border-radius: 99px;
+		&.point-nw{
+			left: -6px !important;
+			top: -6px !important;
+		}
+		&.point-n{
+			margin-left: -6px !important;
+			top: -6px !important;
+		}
+		&.point-ne{
+			right: -6px !important;
+    		top: -6px !important;
+		}
+		&.point-e{
+			margin-top: -6px !important;
+    		right: -6px !important;
+		}
+		&.point-se{
+			bottom: -6px !important;
+			right: -6px !important;
+		}
+		&.point-s{
+			bottom: -6px !important;
+			margin-left: -6px !important;
+		}
+		&.point-w{
+			left: -6px !important;
+			margin-top: -6px !important;
+		}
+		&.point-sw{
+			bottom: -6px !important;
+			left: -6px !important;
+		}
+	}
 	input:focus{border: 1px solid red}
 	.header{display:flex;align-items:center;background-color:#050F2E;min-width:1024px;height: 60px;position: relative;z-index: 100;width: 100%;
 		a.logo{display:block;
@@ -540,8 +585,8 @@
 					p{
 						font-size: 14px;
 						color: #131820;
-						margin-bottom: unset
-						font-weight: 500;}
+						margin-bottom: unset;
+						font-weight: 500;
 						a{
 							color: #248CFF;
 							&:hover{
