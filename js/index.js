@@ -1132,9 +1132,9 @@ document.getElementById('check-form-ad').onclick = value =>{
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
                 
-                if($('#banned-0').text().indexOf('Viết hoa chữ cái đầu câu') == 0){
+                if($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0){
                 } else {
-                    $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Viết hoa chữ cái đầu câu</p></li>" )
+                    $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
             if(value_1.charAt(0).match(/[%.,?!'";:-]/)){
@@ -1270,9 +1270,9 @@ document.getElementById('check-form-ad').onclick = value =>{
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
                 
-                if($('#banned-0').text().indexOf('Viết hoa chữ cái đầu câu') == 0){
+                if($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0){
                 } else {
-                    $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Viết hoa chữ cái đầu câu</p></li>" )
+                    $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
             if(value_2.charAt(0).match(/[%.,?!'";:-]/)){
@@ -1407,9 +1407,9 @@ document.getElementById('check-form-ad').onclick = value =>{
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
                 
-                if($('#banned-0').text().indexOf('Viết hoa chữ cái đầu câu') == 0){
+                if($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0){
                 } else {
-                    $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Viết hoa chữ cái đầu câu</p></li>" )
+                    $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
             if(value_3.charAt(0).match(/[%.,?!'";:-]/)){
@@ -1544,9 +1544,9 @@ document.getElementById('check-form-ad').onclick = value =>{
                 fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                 value_check_ad = false
                 
-                if($('#banned-0').text().indexOf('Viết hoa chữ cái đầu câu') == 0){
+                if($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0){
                 } else {
-                    $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Viết hoa chữ cái đầu câu</p></li>" )
+                    $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
             if(value_4.charAt(0).match(/[%.,?!'";:-]/)){

@@ -57,11 +57,16 @@
 	.cropper-line{
 		background-color: #fff !important;
 	}
+	.cropper-dashed{
+		opacity: 1 !important;
+	}
 	.cropper-point{
 		background-color: #fff !important;
 		width: 12px !important;
 		height: 12px !important;
 		border-radius: 99px;
+		opacity: 1 !important;
+		box-shadow: 0 2px 4px 0 rgba(67,86,100,0.1), 0 5px 8px 0 rgba(67,86,100,0.12);
 		&.point-nw{
 			left: -6px !important;
 			top: -6px !important;
