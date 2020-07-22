@@ -211,6 +211,7 @@ var crop = function(){
                         maxWidth: 270,
                         theme:'zad',
                         interactive: true,
+                        delay: [200, null],
                         showOnCreate: true,
                     });
                 },100)
@@ -380,6 +381,7 @@ var cropAvatarAgain = function(){
                         maxWidth: 270,
                         theme:'zad',
                         interactive: true,
+                        delay: [200, null],
                         // showOnCreate: true,
                     });
                 // },100)
@@ -783,6 +785,7 @@ var cropLargeImgAgain = function(){
                         maxWidth: 270,
                         theme:'zad',
                         // interactive: true,
+                        delay: [200, null],
                         // showOnCreate: true,
                         onShow(instance){
                             instance.setProps({trigger: 'click'})
@@ -1658,6 +1661,7 @@ document.getElementById('check-form-ad').onclick = value =>{
             // fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
             
             content_card_1.classList.add('is-hidden')
+            $('#alert-card-first .card-error-list').append('<p>Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
         }
 
     },500);
@@ -1713,6 +1717,7 @@ tippy('#tippy-title-ad', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
+    delay: [200, null],
 });
 
 tippy('#tippy-content-ad', {
@@ -1721,6 +1726,7 @@ tippy('#tippy-content-ad', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
+    delay: [200, null],
 });
 
 tippy('#tippy-avatar-upload', {
@@ -1729,6 +1735,7 @@ tippy('#tippy-avatar-upload', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
+    delay: [200, null],
 });
 
 tippy('#tippy-optional-desc', {
@@ -1737,6 +1744,7 @@ tippy('#tippy-optional-desc', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
+    delay: [200, null],
 });
 
 tippy('#tippy-optional-info', {
@@ -1745,6 +1753,7 @@ tippy('#tippy-optional-info', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
+    delay: [200, null],
 });
 
 tippy('#tippy-button-call-action', {
@@ -1753,6 +1762,7 @@ tippy('#tippy-button-call-action', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
+    delay: [200, null],
 });
 
 tippy('#tippy-large-image', {
@@ -1761,6 +1771,7 @@ tippy('#tippy-large-image', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
+    delay: [200, null],
 });
 
 tippy('#tippy-notice-content', {
@@ -1769,5 +1780,6 @@ tippy('#tippy-notice-content', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
+    delay: [200, null],
 });
 
