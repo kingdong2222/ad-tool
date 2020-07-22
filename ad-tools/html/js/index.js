@@ -1255,7 +1255,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     }
                 }
             } 
-            if(value_1.indexOf('  ')){
+            if(value_1.match(/\s{2,}/g)){
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
                 } else {
@@ -1392,7 +1392,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     }
                 }
             } 
-            if(value_2.indexOf('  ')){
+            if(value_2value_1.match(/\s{2,}/g)){
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
                 } else {
@@ -1529,7 +1529,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     }
                 }
             } 
-            if(value_3.indexOf('  ')){
+            if(value_3value_1.match(/\s{2,}/g)){
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
                 } else {
@@ -1666,7 +1666,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     }
                 }
             } 
-            if(value_4.indexOf('  ')){
+            if(value_4value_1.match(/\s{2,}/g)){
                 warning_card.classList.remove('is-hidden')
                 if($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0){
                 } else {
