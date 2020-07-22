@@ -211,7 +211,7 @@ var crop = function(){
                         maxWidth: 270,
                         theme:'zad',
                         interactive: true,
-                        delay: [200, null],
+                        delay: [300, null],
                         showOnCreate: true,
                     });
                 },100)
@@ -382,7 +382,7 @@ var cropAvatarAgain = function(){
                         maxWidth: 270,
                         theme:'zad',
                         interactive: true,
-                        delay: [200, null],
+                        delay: [300, null],
                         // showOnCreate: true,
                     });
                 // },100)
@@ -786,7 +786,7 @@ var cropLargeImgAgain = function(){
                         maxWidth: 270,
                         theme:'zad',
                         // interactive: true,
-                        delay: [200, null],
+                        delay: [300, null],
                         // showOnCreate: true,
                         onShow(instance){
                             instance.setProps({trigger: 'click'})
@@ -1096,7 +1096,7 @@ function isUpperCase(str) {
     return str === str.toUpperCase();
 }
 
-const InputFormatWithPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"-%]/g
+const InputFormatWithPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"%-]/g
 
 const InputFormatUpperAfterDot = /([.?!] )([A-Z0-9])/g
 
@@ -1194,15 +1194,20 @@ document.getElementById('check-form-ad').onclick = value =>{
             
 
             //case warning
-            if(value_1.match(InputFormatWithPuntuation)==null){
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                //value_check_ad = false
+            if(value_1.match(InputFormatWithPuntuation)){
+                let array_match = Array.from(value_1.matchAll(InputFormatWithPuntuation), m => m[0])
+                let first_length = value_1.length
+                if(array_match.length < first_length){
+                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    //value_check_ad = false
 
-                warning_card.classList.remove('is-hidden')
-                if($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0){
-                } else {
-                    $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-1'>Có kí tự đặc biệt</p></li>" )
+                    warning_card.classList.remove('is-hidden')
+                    if($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0){
+                    } else {
+                        $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-1'>Có kí tự đặc biệt</p></li>" )
+                    }
                 }
+                
             } 
             if(value_1.match(InputFormatFrom2Puntuation)){
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
@@ -1333,14 +1338,19 @@ document.getElementById('check-form-ad').onclick = value =>{
             
 
             //case warning
-            if(value_2.match(InputFormatWithPuntuation)==null){
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                //value_check_ad = false
+            if(value_2.match(InputFormatWithPuntuation)){
 
-                warning_card.classList.remove('is-hidden')
-                if($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0){
-                } else {
-                    $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-1'>Có kí tự đặc biệt</p></li>" )
+                let array_match = Array.from(value_2.matchAll(InputFormatWithPuntuation), m => m[0])
+                let value_length = value_2.length
+                if(array_match.length < value_length){
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    //value_check_ad = false
+
+                    warning_card.classList.remove('is-hidden')
+                    if($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0){
+                    } else {
+                        $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-1'>Có kí tự đặc biệt</p></li>" )
+                    }
                 }
             } 
             if(value_2.match(InputFormatFrom2Puntuation)){
@@ -1472,14 +1482,18 @@ document.getElementById('check-form-ad').onclick = value =>{
             
 
             //case warning
-            if(value_3.match(InputFormatWithPuntuation)==null){
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                //value_check_ad = false
+            if(value_3.match(InputFormatWithPuntuation)){
+                let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
+                let value_length = value_3.length
+                if(array_match.length < value_length){
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    //value_check_ad = false
 
-                warning_card.classList.remove('is-hidden')
-                if($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0){
-                } else {
-                    $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-1'>Có kí tự đặc biệt</p></li>" )
+                    warning_card.classList.remove('is-hidden')
+                    if($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0){
+                    } else {
+                        $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-1'>Có kí tự đặc biệt</p></li>" )
+                    }
                 }
             } 
             if(value_3.match(InputFormatFrom2Puntuation)){
@@ -1611,14 +1625,18 @@ document.getElementById('check-form-ad').onclick = value =>{
             
 
             //case warning
-            if(value_4.match(InputFormatWithPuntuation)==null){
-                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                //value_check_ad = false
+            if(value_4.match(InputFormatWithPuntuation)){
+                let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
+                let value_length = value_4.length
+                if(array_match.length < value_length){
+                    fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                    //value_check_ad = false
 
-                warning_card.classList.remove('is-hidden')
-                if($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0){
-                } else {
-                    $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-1'>Có kí tự đặc biệt</p></li>" )
+                    warning_card.classList.remove('is-hidden')
+                    if($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0){
+                    } else {
+                        $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-1'>Có kí tự đặc biệt</p></li>" )
+                    }
                 }
             } 
             if(value_4.match(InputFormatFrom2Puntuation)){
@@ -1748,7 +1766,8 @@ tippy('#tippy-title-ad', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [200, null],
+    delay: [300, null],
+    // trigger: 'click',
 });
 
 tippy('#tippy-content-ad', {
@@ -1757,7 +1776,7 @@ tippy('#tippy-content-ad', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [200, null],
+    delay: [300, null],
 });
 
 tippy('#tippy-avatar-upload', {
@@ -1766,7 +1785,7 @@ tippy('#tippy-avatar-upload', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [200, null],
+    delay: [300, null],
 });
 
 tippy('#tippy-optional-desc', {
@@ -1775,7 +1794,7 @@ tippy('#tippy-optional-desc', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [200, null],
+    delay: [300, null],
 });
 
 tippy('#tippy-optional-info', {
@@ -1784,7 +1803,7 @@ tippy('#tippy-optional-info', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [200, null],
+    delay: [300, null],
 });
 
 tippy('#tippy-button-call-action', {
@@ -1793,7 +1812,7 @@ tippy('#tippy-button-call-action', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [200, null],
+    delay: [300, null],
 });
 
 tippy('#tippy-large-image', {
@@ -1802,7 +1821,7 @@ tippy('#tippy-large-image', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [200, null],
+    delay: [300, null],
 });
 
 tippy('#tippy-notice-content', {
@@ -1811,6 +1830,6 @@ tippy('#tippy-notice-content', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [200, null],
+    delay: [300, null],
 });
 

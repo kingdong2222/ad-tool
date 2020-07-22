@@ -21,9 +21,9 @@
 	}
 	.cropper-container.cropper-bg{
 		background: #1D1D1D;
-		.cropper-modal{
-			// background-color: unset;
-		}
+	}
+	.tippy-box{
+		max-width: 300px !important;
 	}
 	.tippy-block{
 		font-size: 14px;
@@ -100,6 +100,7 @@
 			left: -6px !important;
 		}
 	}
+	
 	input:focus{border: 1px solid red}
 	.header{display:flex;align-items:center;background-color:#050F2E;min-width:1024px;height: 60px;position: relative;z-index: 100;width: 100%;
 		a.logo{display:block;
@@ -384,18 +385,26 @@
 			.dropdown{
 				width: 100%;
 				a{
-					height: auto;
+					height: 100%;
 					width: 100%;
 					justify-content: space-between;
 					padding: 10px 12px;
 					border-color: #DCE1E7;
+					background-color: unset;
+					&:hover{
+						background-color: #F7F7F8;
+					}
+					&#download-large-image{
+						background-color: unset;
+					}
+					.icz{font-size: 1.125rem;}
 				}
 				.dropdown-menu{
 					width: 100%;
 					border-color: #DCE1E7;
 					border-radius: 4px !important;
 					right: 0;
-					left: unset !important;
+					left: -111px !important;
 					min-width: 130px !important;
 					padding: 0;
 					ul{
@@ -405,15 +414,28 @@
 							a{
 								&:hover{
 									text-decoration: none;
+									background-color: #F7F7F8 !important;
 								}
 							}
 						}
 					}
 				}
+				#change-large-img{
+					border-bottom-right-radius: unset;
+					border-top-right-radius: unset;
+				}
 			}
 			.dropdown-toggle{
+				height: 100%;
 				&::after{
 					display: none;
+				}
+				.button{
+					border-bottom-left-radius: unset;
+					border-top-left-radius: unset;
+					border-left: 0;
+					padding: 8px;
+					background-color: #e8ecf1;
 				}
 			}
 			.image-input{
@@ -838,11 +860,14 @@
 					white-space: nowrap;
 					overflow: hidden;
 					text-overflow: ellipsis;
+					padding-right: 8px;
 					span{
 						color: #A3A8AF;
 						font-weight: normal;
 					}
 				}
+				.field.is-grouped>.control:not(:last-child){margin-right: 0;}
+				.field{position: relative;}
 			}
 			#change-large-img-input{
 				display: none;
