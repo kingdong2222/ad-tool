@@ -1110,10 +1110,10 @@ document.getElementById('check-form-ad').onclick = value =>{
     document.getElementById('check-form-ad').classList.add('is-loading')
     
     //get value input
-    let value_1 = first_input.value
-    let value_2 = second_input.value
-    let value_3 = third_input.value
-    let value_4 = fourth_input.value
+    let value_1 = first_input.value.trimEnd()
+    let value_2 = second_input.value.trimEnd()
+    let value_3 = third_input.value.trimEnd()
+    let value_4 = fourth_input.value.trimEnd()
 
     //clear cards
     warning_card.classList.add('is-hidden')
