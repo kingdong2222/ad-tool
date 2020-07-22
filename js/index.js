@@ -342,6 +342,7 @@ var cropAvatarAgain = function(){
                             $("p.img-desc").html(uploadedImageName+"<span><br>150x150</span>");
                             $("p.img-desc").addClass('avatar-name')
 
+                            $( ".avatar-image-input" ).attr("src", result.toDataURL(uploadedImageType))
                             $( ".avatar-img" ).attr("src", result.toDataURL(uploadedImageType))
 
                         }
