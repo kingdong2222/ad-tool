@@ -42,7 +42,7 @@
               <h2 class="title">Nội dung kiểm tra</h2>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Tên nhà quảng cáo<i class="icz icz-question" id="tippy-title-ad"></i></h3>
+                  <h3 class="title">Tên nhà quảng cáo hoặc OA<i class="icz icz-question" id="tippy-title-ad"></i></h3>
                   <p class="max-letter" id="max-letter-first">30/30</p>
                 </div>
                 <input id="first-input" type="text" placeholder="Nhập tên nhà quảng cáo" maxlength="30">
@@ -207,21 +207,18 @@
                   </div>
                 </div>
                 <div class="content-card is-hidden" id="alert-card-first">
-                  <div class="card-desc"><i class="icz icz-fill-error"></i>
+                  <div class="card-desc">
                     <p>Lý do khiến quảng cáo của bạn sẽ bị từ chối</p>
                   </div>
                   <div class="card-error-list">
                     <p>Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>
-                    <ul></ul>
                   </div>
                 </div>
                 <div class="content-card is-hidden" id="alert-card-second">
-                  <div class="card-desc"><i class="icz icz-fill-warning"></i>
+                  <div class="card-desc">
                     <p>Những lỗi có thể vi phạm quy định quảng cáo</p>
                   </div>
-                  <div class="card-error-list">
-                    <ul></ul>
-                  </div>
+                  <div class="card-error-list"></div>
                 </div>
               </div>
             </div>
@@ -445,5 +442,13 @@
     <script src="js/tippy.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/index.js"></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-75517706-1" async></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-75517706-1');
+    </script>
   </body>
 </html>

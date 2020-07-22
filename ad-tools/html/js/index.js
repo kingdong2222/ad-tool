@@ -1096,7 +1096,7 @@ const InputFormatWithPuntuation = /^[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠà�
 
 const InputFormatUpperAfterDot = /([.?!] )([A-Z0-9])/g
 
-const InputFormatFrom2Puntuation = /[.,?!'";:-%]{2,}/g
+const InputFormatFrom2Puntuation = /[%.,?!'";:-]{2,}/g
 
 const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&]*)/g
 
@@ -1136,7 +1136,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_1.charAt(0).match(/[.,?!'";:-]/)){
+            if(value_1.charAt(0).match(/[%.,?!'";:-]/)){
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1268,7 +1268,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_2.charAt(0).match(/[.,?!'";:-]/)){
+            if(value_2.charAt(0).match(/[%.,?!'";:-]/)){
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1399,7 +1399,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_3.charAt(0).match(/[.,?!'";:-]/)){
+            if(value_3.charAt(0).match(/[%.,?!'";:-]/)){
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1530,7 +1530,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_4.charAt(0).match(/[.,?!'";:-]/)){
+            if(value_4.charAt(0).match(/[%.,?!'";:-]/)){
                 fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1658,7 +1658,6 @@ document.getElementById('check-form-ad').onclick = value =>{
             // fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
             
             content_card_1.classList.add('is-hidden')
-            $('#alert-card-first p').css("color",'#131820')
         }
 
     },500);
@@ -1771,7 +1770,4 @@ tippy('#tippy-notice-content', {
     theme:'zad',
     interactive: true,
 });
-
-
-
 

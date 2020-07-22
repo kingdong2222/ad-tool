@@ -34,5 +34,13 @@ block modal
 	include page/modal_edit_img.pug
 
 block javaScripts extend
+	script(src="https://www.googletagmanager.com/gtag/js?id=UA-75517706-1" async)
+	script.
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75517706-1');
+		
 
 		
