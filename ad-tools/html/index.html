@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Zalo Ads</title>
+    <title>Công cụ tối ưu hoá hình ảnh nội dung quảng cáo</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -20,7 +20,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.js"></script>
-<script async src="https://ads.zalo.me/business/wp-content/themes/html5blank-stable/js/opencv.js" type="text/javascript"></script><!-- Google Tag Manager -->
+<script async src="https://ads.zalo.me/business/wp-content/themes/html5blank-stable/js/opencv.js" type="text/javascript"></script>
+<script src="https://apis.google.com/js/api.js"></script><!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5W5QTD2');
 </script>
 <!-- End Google Tag Manager -->
@@ -44,10 +45,10 @@
               <h2 class="title">Nội dung kiểm tra</h2>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Tên nhà quảng cáo hoặc OA<i class="icz icz-question" id="tippy-title-ad"></i></h3>
+                  <h3 class="title">Tên nhãn hàng hoặc OA<i class="icz icz-question" id="tippy-title-ad"></i></h3>
                   <p class="max-letter" id="max-letter-first">0/30</p>
                 </div>
-                <input id="first-input" type="text" placeholder="Nhập tên nhà quảng cáo" maxlength="30">
+                <input id="first-input" type="text" placeholder="Nhập tên nhãn hàng" maxlength="30">
               </div>
               <div class="text-input-item">
                 <div class="label-title">
@@ -239,7 +240,7 @@
               <div class="square-ads">
                 <div class="label-title">
                   <div class="avatar avatar--l"><span class="avatar-img" style="background-image:url(../html/images/avatar.png)"></span></div>
-                  <h3 class="title" id="first-preview">Tên nhà quảng cáo</h3>
+                  <h3 class="title" id="first-preview">Tên nhãn hàng</h3>
                 </div>
                 <h3 class="title" id="second-preview">Nội dung quảng cáo</h3>
                 <div class="preview-sample"></div>
@@ -255,7 +256,7 @@
           </div>
         </div>
       </main>
-      <main class="is-hidden">
+      <main>
         <div class="ads-preview-list">
           <h2 class="title preview-count">12 vị trí quảng cáo</h2>
           <div class="preview-item-list">
@@ -281,9 +282,9 @@
                 </div>
               </div>
             </div>
-            <div class="preview-item-container"> 
+            <div class="preview-item-container" id="zalo-article"> 
               <div class="preview-item">
-                <p class="name-position">Bản tin Zing</p>
+                <p class="name-position">Zalo Article</p>
                 <div class="card-preview">
                   <div class="square-ads">
                     <div class="label-title">

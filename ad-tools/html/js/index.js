@@ -211,7 +211,8 @@ var crop = function(){
                         maxWidth: 270,
                         theme:'zad',
                         interactive: true,
-                        delay: [300, null],
+                        // delay: [300, null],
+                        placement: 'right-start',
                         showOnCreate: true,
                     });
                 },100)
@@ -382,7 +383,8 @@ var cropAvatarAgain = function(){
                         maxWidth: 270,
                         theme:'zad',
                         interactive: true,
-                        delay: [300, null],
+                        // delay: [300, null],
+                        placement: 'right-start',
                         // showOnCreate: true,
                     });
                 // },100)
@@ -786,7 +788,8 @@ var cropLargeImgAgain = function(){
                         maxWidth: 270,
                         theme:'zad',
                         // interactive: true,
-                        delay: [300, null],
+                        // delay: [300, null],
+                        placement: 'right-start',
                         // showOnCreate: true,
                         onShow(instance){
                             instance.setProps({trigger: 'click'})
@@ -1088,6 +1091,8 @@ function isUpperCase(str) {
     return str === str.toUpperCase();
 }
 
+const InputFormatNoPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w]/g
+
 const InputFormatWithPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"%-]/g
 
 const InputFormatUpperAfterDot = /([.?!] )([A-Z0-9])/g
@@ -1100,6 +1105,40 @@ const InputPhoneNumber = /(\d{3})(\d{3})(\d{4})/g
 
 document.getElementById('check-form-ad').onclick = value =>{
     document.getElementById('check-form-ad').classList.add('is-loading')
+
+        //get content from google sheet
+        function loadClient() {
+            gapi.client.setApiKey("AIzaSyAv3Q-3QIB1zdcT86BjzJVIfB9lWoBuzRc");
+            return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/sheets/v4/rest")
+                .then(function() { console.log("GAPI client loaded for API"); },
+                function(err) { console.error("Error loading GAPI client for API", err); });
+        }
+        // Make sure the client is loaded and sign-in is complete before calling this method.
+        function execute() {
+            return gapi.client.sheets.spreadsheets.values.batchGet({
+                "spreadsheetId": "1N5zxJzuFckxGRhplYf9yiIplhP7FBbUGTZVcxCTE7xA",
+                "dateTimeRenderOption": "FORMATTED_STRING",
+                "majorDimension": "COLUMNS",
+                "ranges": [
+                "A2:A",
+                "B2:B"
+            ],
+                "valueRenderOption": "FORMATTED_VALUE"
+            })
+            .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+
+                var list_1 = response.result.valueRanges[0].values[0]
+                var list_2 = response.result.valueRanges[1].values[0]
+
+                console.log(response)
+            },
+            function(err) { console.error("Execute error", err); });
+        }
+        gapi.load("client:auth2", function() {
+            gapi.auth2.init({client_id: "302224997211-ki6eslfvboevb0ttdl5v3jdiuhpn65nt.apps.googleusercontent.com"});
+        });
+        loadClient().then(execute)
     
     //get value input
     let value_1 = first_input.value.trimEnd()
@@ -1131,7 +1170,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_1.charAt(0).match(/[%.,?!'";:-]/)){
+            if(value_1.charAt(0).match(InputFormatNoPuntuation)== null){
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1276,7 +1315,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_2.charAt(0).match(/[%.,?!'";:-]/)){
+            if(value_2.charAt(0).match(InputFormatNoPuntuation)== null){
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1420,7 +1459,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_3.charAt(0).match(/[%.,?!'";:-]/)){
+            if(value_3.charAt(0).match(InputFormatNoPuntuation)== null){
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1563,7 +1602,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_4.charAt(0).match(/[%.,?!'";:-]/)){
+            if(value_4.charAt(0).match(InputFormatNoPuntuation)== null){
                 fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1754,12 +1793,13 @@ fourth_input.onblur = value =>{
 
 //tooltip
 tippy('#tippy-title-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Tên tiêu đề quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt tiêu đề</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Tên nhãn hàng sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt tên nhãn hàng</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [300, null],
+    // delay: [300, null],
+    placement: 'right-start',
     // trigger: 'click',
 });
 
@@ -1769,7 +1809,8 @@ tippy('#tippy-content-ad', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [300, null],
+    // delay: [300, null],
+    placement: 'right-start',
 });
 
 tippy('#tippy-avatar-upload', {
@@ -1778,7 +1819,8 @@ tippy('#tippy-avatar-upload', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [300, null],
+    // delay: [300, null],
+    placement: 'right-start',
 });
 
 tippy('#tippy-optional-desc', {
@@ -1787,7 +1829,8 @@ tippy('#tippy-optional-desc', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [300, null],
+    // delay: [300, null],
+    placement: 'right-start',
 });
 
 tippy('#tippy-optional-info', {
@@ -1796,7 +1839,8 @@ tippy('#tippy-optional-info', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [300, null],
+    // delay: [300, null],
+    placement: 'right-start',
 });
 
 tippy('#tippy-button-call-action', {
@@ -1805,7 +1849,8 @@ tippy('#tippy-button-call-action', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [300, null],
+    // delay: [300, null],
+    placement: 'right-start',
 });
 
 tippy('#tippy-large-image', {
@@ -1814,7 +1859,8 @@ tippy('#tippy-large-image', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [300, null],
+    // delay: [300, null],
+    placement: 'right-start',
 });
 
 tippy('#tippy-notice-content', {
@@ -1823,6 +1869,7 @@ tippy('#tippy-notice-content', {
     maxWidth: 270,
     theme:'zad',
     interactive: true,
-    delay: [300, null],
+    // delay: [300, null],
+    placement: 'right-start',
 });
 

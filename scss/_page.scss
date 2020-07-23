@@ -34,9 +34,16 @@
 		color: #050F2C;
 		box-shadow: 0 2px 10px 0 rgba(5,15,44,0.2);
 		border-radius: 8px;
+		top: -18px;
 		.tippy-content{
 			padding: 16px;
 		}
+		.tippy-arrow::before{
+			border-top-color: transparent !important;
+		}
+	}
+	.tippy-box[data-placement^=right]>.tippy-arrow:before{
+		top: 12px
 	}
 	.tippy-box[data-theme~='zad'][data-placement^='top'] > .tippy-arrow::before {
 		border-top-color: #fff !important;
