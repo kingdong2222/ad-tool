@@ -1043,32 +1043,49 @@ function focusFirstInput(){
     first_input.focus()
 }
 
-let banned_words = [
-    'khóc thét','giật mình','hốt hoảng','phẫu thuật','lây nhiễm','quan hệ tình dục','tình dục','dương vật','âm đạo','bệnh lậu','giang mai','sùi mào gà','mụn rộp sinh dục',
-    'chăm sóc vùng kín','nạo hút thai','phá thai','bệnh trĩ','hôi nách','hắc lào','lang ben','bệnh xã hội'
-]
+let banned_words = []
+let warning_words = []
+
+window.onload = () => {
+    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1N5zxJzuFckxGRhplYf9yiIplhP7FBbUGTZVcxCTE7xA/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=B2%3AB&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAQps-FHqKesLlZYEsIJQAv5UzUfmqwoxQ'
+    fetch(url_google_sheet)
+    .then(res => res.json())
+    .then((out) => {
+        // console.log(out)
+        banned_words = out.valueRanges[0].values
+        warning_words = out.valueRanges[1].values
+    })
+    .catch(err => { throw err });
+}
+
+// let banned_words = [
+//     'khóc thét','giật mình','hốt hoảng','phẫu thuật','lây nhiễm','quan hệ tình dục','tình dục','dương vật','âm đạo','bệnh lậu','giang mai','sùi mào gà','mụn rộp sinh dục',
+//     'chăm sóc vùng kín','nạo hút thai','phá thai','bệnh trĩ','hôi nách','hắc lào','lang ben','bệnh xã hội'
+// ]
 // check banned words
 function checkPolicy(val) {
+    let list = banned_words[0]
     let valueLower = val.toLowerCase()
     let getBanWordsList = []
-    for (let i = 0; i < banned_words.length; i++) {
-        if(valueLower.includes(banned_words[i])) {
-            getBanWordsList.push(banned_words[i])
+    for (let i = 0; i < list.length; i++) {
+        if(valueLower.includes(list[i])) {
+            getBanWordsList.push(list[i])
         }	
     }
     return getBanWordsList
 }
 
-let warning_words = [
-    'nhất','số một'
-]
+// let warning_words = [
+//     'nhất','số một'
+// ]
 // check warning
 function checkWarning(val) {
+    let list = warning_words[0]
     let valueLower = val.toLowerCase()
     let getBanWordsList = []
-    for (let i = 0; i < warning_words.length; i++) {
-        if(valueLower.includes(warning_words[i])) {
-            getBanWordsList.push(warning_words[i])
+    for (let i = 0; i < list.length; i++) {
+        if(valueLower.includes(list[i])) {
+            getBanWordsList.push(list[i])
         }	
     }
     return getBanWordsList
@@ -1105,40 +1122,6 @@ const InputPhoneNumber = /(\d{3})(\d{3})(\d{4})/g
 
 document.getElementById('check-form-ad').onclick = value =>{
     document.getElementById('check-form-ad').classList.add('is-loading')
-
-        //get content from google sheet
-        function loadClient() {
-            gapi.client.setApiKey("AIzaSyAv3Q-3QIB1zdcT86BjzJVIfB9lWoBuzRc");
-            return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/sheets/v4/rest")
-                .then(function() { console.log("GAPI client loaded for API"); },
-                function(err) { console.error("Error loading GAPI client for API", err); });
-        }
-        // Make sure the client is loaded and sign-in is complete before calling this method.
-        function execute() {
-            return gapi.client.sheets.spreadsheets.values.batchGet({
-                "spreadsheetId": "1N5zxJzuFckxGRhplYf9yiIplhP7FBbUGTZVcxCTE7xA",
-                "dateTimeRenderOption": "FORMATTED_STRING",
-                "majorDimension": "COLUMNS",
-                "ranges": [
-                "A2:A",
-                "B2:B"
-            ],
-                "valueRenderOption": "FORMATTED_VALUE"
-            })
-            .then(function(response) {
-                // Handle the results here (response.result has the parsed body).
-
-                var list_1 = response.result.valueRanges[0].values[0]
-                var list_2 = response.result.valueRanges[1].values[0]
-
-                console.log(response)
-            },
-            function(err) { console.error("Execute error", err); });
-        }
-        gapi.load("client:auth2", function() {
-            gapi.auth2.init({client_id: "302224997211-ki6eslfvboevb0ttdl5v3jdiuhpn65nt.apps.googleusercontent.com"});
-        });
-        loadClient().then(execute)
     
     //get value input
     let value_1 = first_input.value.trimEnd()
