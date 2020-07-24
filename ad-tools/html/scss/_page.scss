@@ -1165,7 +1165,7 @@
 				}
 				.preview-parent{
 					margin: unset;
-					margin-right: 12px;
+					margin-right: 8px;
 					flex-shrink: 0;
 					width: 35%;
 				}
@@ -1176,7 +1176,7 @@
 					border-radius: 8px;
 				}
 				.ad-desc-zalo-article-native{
-					// max-width: 110px;
+					max-width: 145px;
 					width: 100%;
 					.second-preview-position{
 						font-size: 12px;
@@ -1191,9 +1191,11 @@
 						display: flex;
 						align-items: center;
 						justify-content: space-between;
+						max-width: 95%;
 						.mini-desc-container{
 							display: flex;
 							align-items: center;
+							max-width: 90%;
 						}
 						.button{
 							font-size: 8px;
@@ -1333,10 +1335,11 @@
 				}
 				.ad-desc-zalo-article-native{
 					position: relative;
+					width: 100%;
 					.second-preview-position{
 						font-size: 12px;
 						font-weight: 600;
-						margin-bottom: 5px;
+						margin-bottom: 20px;
 						display: -webkit-box;
 						-webkit-line-clamp: 3;
 						-webkit-box-orient: vertical;  

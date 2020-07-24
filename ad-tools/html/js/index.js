@@ -521,7 +521,7 @@ var cropLargeImg = function(){
 
                             $( ".preview-sample" ).replaceWith( "<img class='preview-sample' id='output-preview-large' style='background:none;'/>" );
                             $( ".preview-sample" ).attr("src", result.toDataURL(uploadedImageType))
-                            $('.preview-parent').addClass('active')
+                            // $('.preview-parent').addClass('active')
                             //check blur
                             let imgElement = document.getElementById('imageSrc-preview');
                             imgElement.src = result.toDataURL(uploadedImageType)
@@ -722,7 +722,7 @@ var cropLargeImgAgain = function(){
                             document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
 
                             $( ".preview-sample" ).attr("src", result.toDataURL(uploadedImageType))
-                            $('.preview-parent').addClass('active')
+                            // $('.preview-parent').addClass('active')
                             //check blur
                             let imgElement = document.getElementById('imageSrc-preview');
                             imgElement.src = result.toDataURL(uploadedImageType)
