@@ -1,6 +1,6 @@
 main.is-hidden
     .ads-preview-list
-        h2.title.preview-count 12 vị trí quảng cáo
+        h2.title.preview-count 10 vị trí quảng cáo
         .preview-item-list
             .preview-item-container
                 .preview-item
@@ -10,9 +10,10 @@ main.is-hidden
                             .label-title
                                 .avatar.avatar--m
                                     span.avatar-img(style="background-image:url(../html/images/avatar.png)")
-                                h3.title.first-preview-position Tên nhà quảng cáo
-                            h3.title.second-preview-position Tiêu đề quảng cáo
-                            .preview-sample
+                                h3.title.first-preview-position Tên nhãn hàng
+                            h3.title.second-preview-position Nội dung quảng cáo
+                            .preview-parent
+                                .preview-sample
                             .ad-desc
                                 .optional
                                     p.optional-desc.third-preview-position Mô tả
@@ -23,95 +24,120 @@ main.is-hidden
                     p.name-position Zalo Article
                     .card-preview
                         .square-ads
-                            .label-title
-                                .avatar.avatar--m
-                                    span.avatar-img(style="background-image:url(../html/images/avatar.png)")
-                                h3.title.first-preview-position Tên nhà quảng cáo
-                            h3.title.second-preview-position Tiêu đề quảng cáo
-                            .preview-sample
-                            .ad-desc
-                                .optional
-                                    p.optional-desc.third-preview-position Mô tả
-                                    p.optional-info.fourth-preview-position Thông tin thêm
+                            .square-ads-container
+                                .label-title
+                                    .avatar
+                                        span.avatar-img(style="background-image:url(../html/images/avatar.png)")
+                                    h3.title.first-preview-position Tên nhãn hàng
+                                .preview-parent
+                                    .preview-sample
+                                p.second-preview-position Nội dung quảng cáo
+                                p.third-preview-position Mô tả
                                 .button-buy-now.fifth-preview-position Mua ngay
-            .preview-item-container
+            .preview-item-container#zalo-article-native
                 .preview-item
-                    p.name-position Slidebar Báo Mới
+                    p.name-position Zalo Article Native
+                    .card-preview
+                        .square-ads
+                            .preview-parent
+                                .preview-sample
+                            .ad-desc-zalo-article-native
+                                p.second-preview-position Nội dung quảng cáo
+                                .mini-desc
+                                    .button Tài trợ
+                                    p.first-preview-position Tên nhãn hàng
+            .preview-item-container#oa-suggestion
+                .preview-item
+                    p.name-position OA Suggestion
                     .card-preview
                         .square-ads
                             .label-title
-                                .avatar.avatar--m
+                                .avatar.avatar--l
                                     span.avatar-img(style="background-image:url(../html/images/avatar.png)")
-                                h3.title.first-preview-position Tên nhà quảng cáo
-                            h3.title.second-preview-position Tiêu đề quảng cáo
-                            .preview-sample
-                            .ad-desc
-                                .optional
-                                    p.optional-desc.third-preview-position Mô tả
-                                    p.optional-info.fourth-preview-position Thông tin thêm
-                                .button-buy-now.fifth-preview-position Mua ngay
-            .preview-item-container
+                                .oa-container
+                                    p.first-preview-position Tên nhãn hàng
+                                    p.second-preview-position Nội dung quảng cáo
+                                    p.sponsor Tài trợ
+            .preview-item-container#baomoi-1
                 .preview-item
-                    p.name-position Zalo sản phẩm
+                    p.name-position Baomoi App Native 1
                     .card-preview
                         .square-ads
+                            .preview-parent
+                                .preview-sample
+                            .ad-desc-zalo-article-native
+                                p.second-preview-position Nội dung quảng cáo
+                                .mini-desc
+                                    .mini-desc-container
+                                        .button Tài trợ
+                                        p.first-preview-position Tên nhãn hàng
+                                    .button.x_class x
+            .preview-item-container#baomoi-2
+                .preview-item
+                    p.name-position Baomoi App Native 2
+                    .card-preview
+                        .square-ads
+                            .preview-parent
+                                .preview-sample
+                            .label-title
+                                .avatar.avatar--s
+                                    span.avatar-img(style="background-image:url(../html/images/avatar.png)")
+                                .label-title-container
+                                    p.first-preview-position Tên nhãn hàng
+                                    p.second-preview-position Nội dung quảng cáo
+                            .button-buy-now.fifth-preview-position Mua ngay
+            .preview-item-container#baomoi-3
+                .preview-item
+                    p.name-position Baomoi App Native 3
+                    .card-preview
+                        .square-ads
+                            p.third-preview-position Mô tả
+                            p.second-preview-position Nội dung quảng cáo
+                            .preview-parent    
+                                .preview-sample  
+                            .label-title-content
+                                .label-title
+                                    .avatar.avatar--s
+                                        span.avatar-img(style="background-image:url(../html/images/avatar.png)")
+                                    p.first-preview-position Tên nhãn hàng
+                                .button-buy-now.fifth-preview-position Mua ngay
+            .preview-item-container#zingvn-native
+                .preview-item
+                    p.name-position Zing.vn App Native1
+                    .card-preview
+                        .square-ads
+                            .preview-parent
+                                .preview-sample
+                            .ad-desc-zalo-article-native
+                                p.second-preview-position Nội dung quảng cáo
+                                .mini-desc
+                                    p.sponsor-text Tài trợ
+                                    p.first-preview-position Tên nhãn hàng
+            .preview-item-container#zingvn-native1
+                .preview-item
+                    p.name-position Zing.vn App Native2
+                    .card-preview
+                        .square-ads
+                            .preview-parent
+                                .preview-sample
+                            .button-buy-now.fifth-preview-position Mua ngay
+                            p.first-preview-position Tên nhãn hàng
+                            p.second-preview-position Nội dung quảng cáo
+                            .clear
+            .preview-item-container#zalo-form
+                .preview-item
+                    p.name-position Zalo Form
+                    .card-preview
+                        .square-ads
+                            .preview-parent
+                                .preview-sample
                             .label-title
                                 .avatar.avatar--m
                                     span.avatar-img(style="background-image:url(../html/images/avatar.png)")
-                                h3.title.first-preview-position Tên nhà quảng cáo
-                            h3.title.second-preview-position Tiêu đề quảng cáo
-                            .preview-sample
-                            .ad-desc
-                                .optional
-                                    p.optional-desc.third-preview-position Mô tả
-                                    p.optional-info.fourth-preview-position Thông tin thêm
-                                .button-buy-now.fifth-preview-position Mua ngay
-            .preview-item-container
-                .preview-item
-                    p.name-position Bản tin Zalo
-                    .card-preview
-                        .square-ads
-                            .label-title
-                                .avatar.avatar--m
-                                    span.avatar-img(style="background-image:url(../html/images/avatar.png)")
-                                h3.title.first-preview-position Tên nhà quảng cáo
-                            h3.title.second-preview-position Tiêu đề quảng cáo
-                            .preview-sample
-                            .ad-desc
-                                .optional
-                                    p.optional-desc.third-preview-position Mô tả
-                                    p.optional-info.fourth-preview-position Thông tin thêm
-                                .button-buy-now.fifth-preview-position Mua ngay
-            .preview-item-container
-                .preview-item
-                    p.name-position Bản tin Zalo
-                    .card-preview
-                        .square-ads
-                            .label-title
-                                .avatar.avatar--m
-                                    span.avatar-img(style="background-image:url(../html/images/avatar.png)")
-                                h3.title.first-preview-position Tên nhà quảng cáo
-                            h3.title.second-preview-position Tiêu đề quảng cáo
-                            .preview-sample
-                            .ad-desc
-                                .optional
-                                    p.optional-desc.third-preview-position Mô tả
-                                    p.optional-info.fourth-preview-position Thông tin thêm
-                                .button-buy-now.fifth-preview-position Mua ngay
-            .preview-item-container
-                .preview-item
-                    p.name-position Bản tin Zalo
-                    .card-preview
-                        .square-ads
-                            .label-title
-                                .avatar.avatar--m
-                                    span.avatar-img(style="background-image:url(../html/images/avatar.png)")
-                                h3.title.first-preview-position Tên nhà quảng cáo
-                            h3.title.second-preview-position Tiêu đề quảng cáo
-                            .preview-sample
-                            .ad-desc
-                                .optional
-                                    p.optional-desc.third-preview-position Mô tả
-                                    p.optional-info.fourth-preview-position Thông tin thêm
-                                .button-buy-now.fifth-preview-position Mua ngay
+                                h3.title.first-preview-position Tên nhãn hàng
+                            .grey-rect.grey-rect-l.grey-rect-title
+                            .grey-rect.grey-rect-title
+                            .grey-rect.grey-rect-m
+                            .grey-rect
+                            .grey-rect
 
