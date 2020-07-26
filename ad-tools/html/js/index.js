@@ -206,14 +206,18 @@ var crop = function(){
 
                 setTimeout(()=>{
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; ">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
-                        interactive: true,
-                        // delay: [300, null],
-                        placement: 'right-start',
                         showOnCreate: true,
+                        placement: 'right-start',
+                        onShow(instance){
+                            instance.setProps({trigger: 'click'})
+                        },
+                        onHide(instance) {
+                            instance.setProps({trigger: 'mouseenter focus'})
+                        },
                     });
                 },100)
 
@@ -584,6 +588,7 @@ var cropLargeImg = function(){
                         maxWidth: 270,
                         theme:'zad',
                         showOnCreate: true,
+                        placement: 'right-start',
                         onShow(instance){
                             instance.setProps({trigger: 'click'})
                         },
