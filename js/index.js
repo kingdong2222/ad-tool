@@ -206,14 +206,18 @@ var crop = function(){
 
                 setTimeout(()=>{
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; ">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme:'zad',
-                        interactive: true,
-                        // delay: [300, null],
-                        placement: 'right-start',
                         showOnCreate: true,
+                        placement: 'right-start',
+                        onShow(instance){
+                            instance.setProps({trigger: 'click'})
+                        },
+                        onHide(instance) {
+                            instance.setProps({trigger: 'mouseenter focus'})
+                        },
                     });
                 },100)
 
@@ -584,6 +588,7 @@ var cropLargeImg = function(){
                         maxWidth: 270,
                         theme:'zad',
                         showOnCreate: true,
+                        placement: 'right-start',
                         onShow(instance){
                             instance.setProps({trigger: 'click'})
                         },
@@ -1110,11 +1115,11 @@ function isUpperCase(str) {
 
 const InputFormatNoPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w]/g
 
-const InputFormatWithPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,?!;:'"%-]/g
+const InputFormatWithPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,/?!;:'"%-]/g
 
 const InputFormatUpperAfterDot = /([.?!] )([A-Z0-9])/g
 
-const InputFormatFrom2Puntuation = /[%.,?!'";:-]{2,}/g
+const InputFormatFrom2Puntuation = /[%.,?!/'";:-]{2,}/g
 
 const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&]*)/g
 
@@ -1153,7 +1158,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_1.charAt(0).match(InputFormatNoPuntuation)== null){
+            if(value_1.charAt(0).match(InputFormatNoPuntuation)== null && value_1.charAt(0) != ' '){
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1298,7 +1303,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_2.charAt(0).match(InputFormatNoPuntuation)== null){
+            if(value_2.charAt(0).match(InputFormatNoPuntuation)== null && value_2.charAt(0) != ' '){
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1442,7 +1447,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_3.charAt(0).match(InputFormatNoPuntuation)== null){
+            if(value_3.charAt(0).match(InputFormatNoPuntuation)== null && value_3.charAt(0) != ' '){
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){
@@ -1585,7 +1590,7 @@ document.getElementById('check-form-ad').onclick = value =>{
                     $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>" )
                 }
             }
-            if(value_4.charAt(0).match(InputFormatNoPuntuation)== null){
+            if(value_4.charAt(0).match(InputFormatNoPuntuation)== null  && value_4.charAt(0) != ' '){
                 fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0){

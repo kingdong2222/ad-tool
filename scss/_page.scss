@@ -29,11 +29,6 @@
 		font-size: 14px;
 		line-height: 22px;
 	}
-	#tippy-10{
-		.tippy-box[data-theme~='zad']{
-			top: 0;
-		}
-	}
 	.tippy-box[data-theme~='zad'] {
 		background-color: #fff;
 		color: #050F2C;
@@ -747,7 +742,7 @@
 				.ad-desc{
 					display: flex;
 					justify-content: space-between;
-					align-items: center;
+					align-items: end;
 					padding-top: 12px;
 					.optional{
 						font-size: 12px;
@@ -781,6 +776,8 @@
 						border-radius: 14px;
 						padding: 4px 12px;
 						flex-shrink:0;
+						position: relative;
+    					top: 8px;
 					}
 				}
 				.preview-focus{
@@ -936,7 +933,7 @@
 		.ads-img-quality{padding-top: 20px;}
 		.switch{position:relative;display:inline-block;@include size(40px, 24px);margin-bottom: unset;
 			input{opacity:0;width:0;height:0}
-			.slider{position: absolute;;background-color:#d7e0ea;cursor:pointer;transition:.4s;top: 0;bottom:0;left:0;right:0;
+			.slider{position: absolute;;background-color:#989EA5;cursor:pointer;transition:.4s;top: 0;bottom:0;left:0;right:0;
 				&:after{display:none}
 				&:before{position: absolute;bottom:4px;left:4px;content:"";background-color:white;@include size(16px);transition:.4s;box-shadow:0 2px 5px rgba(67,86,100,0.12)!important}
 			}
@@ -999,15 +996,23 @@
 							h3{
 								font-size: 12px;
 							}
+							.ad-desc{
+								padding-top: 8px;
+							}
 							.optional{
-								p{font-size: 10px;}
+								p{
+									font-size: 10px;
+									padding: 0;
+									padding-top: 4px;
+								}
 							}
 							.button-buy-now{
-								padding: 3px 10px;
+								padding: 3px 8px;
 								font-size: 12px;
 							}
 							img.preview-sample{
-								margin: unset
+								margin: unset;
+								object-fit: cover;
 							}
 							.preview-parent{
 								margin-right: -12px;
@@ -1057,7 +1062,11 @@
 					.second-preview-position{
 						font-size: 12px;
 						font-weight: 600;
-						margin-bottom: 5px;
+						margin-bottom: 8px;
+						display: -webkit-box;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+						overflow: hidden;
 					}
 					.third-preview-position{
 						font-size: 12px;
@@ -1101,7 +1110,12 @@
 					.second-preview-position{
 						font-size: 12px;
 						font-weight: 600;
-						padding-bottom: 10px;
+						padding-bottom: 0px;
+						margin-bottom: 24px;
+						display: -webkit-box;
+						-webkit-line-clamp: 3;
+						-webkit-box-orient: vertical;
+						overflow: hidden;
 					}
 					.mini-desc{
 						display: flex;
@@ -1112,7 +1126,7 @@
 						.button{
 							font-size: 8px;
 							margin-right: 8px;
-							color: #d7e0ea;
+							color: #989EA5;
 							text-transform: uppercase;
 						}
 						.first-preview-position{
@@ -1140,8 +1154,12 @@
 					}
 					.second-preview-position{
 						font-size: 10px;
-						color: #d7e0ea;
+						color: #989EA5;
 						margin-bottom: 8px;
+						display: -webkit-box;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+						overflow: hidden;
 					}
 					.sponsor{
 						font-size: 10px;
@@ -1165,7 +1183,7 @@
 				}
 				.preview-parent{
 					margin: unset;
-					margin-right: 12px;
+					margin-right: 8px;
 					flex-shrink: 0;
 					width: 35%;
 				}
@@ -1176,7 +1194,7 @@
 					border-radius: 8px;
 				}
 				.ad-desc-zalo-article-native{
-					// max-width: 110px;
+					max-width: 145px;
 					width: 100%;
 					.second-preview-position{
 						font-size: 12px;
@@ -1191,14 +1209,16 @@
 						display: flex;
 						align-items: center;
 						justify-content: space-between;
+						max-width: 95%;
 						.mini-desc-container{
 							display: flex;
 							align-items: center;
+							max-width: 90%;
 						}
 						.button{
 							font-size: 8px;
 							margin-right: 4px;
-							color: #d7e0ea;
+							color: #989EA5;
 							text-transform: uppercase;
 							padding: 3px;
 						}
@@ -1257,7 +1277,13 @@
 						.first-preview-position{
 							font-weight: 600;
 						}
-						.second-preview-position{color:#7A7A7A}
+						.second-preview-position{
+							color:#7A7A7A;
+							display: -webkit-box;
+							-webkit-line-clamp: 2;
+							-webkit-box-orient: vertical;
+							overflow: hidden;
+						}
 					}
 				}
 			}
@@ -1291,7 +1317,13 @@
 					max-width: 100px;
 					text-overflow: ellipsis;
 				}
-				.second-preview-position{color:#7A7A7A}
+				.second-preview-position{
+					color:#7A7A7A;
+					display: -webkit-box;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+				}
 				.label-title-content{
 					display: flex;
 					justify-content: space-between;
@@ -1333,10 +1365,11 @@
 				}
 				.ad-desc-zalo-article-native{
 					position: relative;
+					width: 100%;
 					.second-preview-position{
 						font-size: 12px;
 						font-weight: 600;
-						margin-bottom: 5px;
+						margin-bottom: 20px;
 						display: -webkit-box;
 						-webkit-line-clamp: 3;
 						-webkit-box-orient: vertical;  
@@ -1352,7 +1385,7 @@
 							white-space: nowrap;
 							font-size: 8px;
 							margin-right: 8px;
-							color: #d7e0ea;
+							color: #989EA5;
 							text-transform: uppercase;
 						}
 						.first-preview-position{
@@ -1368,7 +1401,7 @@
 		}
 		#zingvn-native1{
 			.card-preview{
-				padding: 0 32px;
+				padding: 0 24px;
 			}
 			.square-ads{
 				padding: 0 5px 12px;
@@ -1388,11 +1421,11 @@
 					border-radius: 5px;
 					font-weight: 500;
 					float: right;
-					font-size: 12px;
+					font-size: 10px;
 					border: 1px solid #B1C5D4;
 					color: #0A98E7;
 					text-transform: uppercase;
-					padding: 3px 6px;
+					padding: 3px 5px;
 				}
 				p{margin-bottom: 0;font-size: 12px;}
 				.first-preview-position{
