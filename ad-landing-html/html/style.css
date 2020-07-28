@@ -12321,6 +12321,9 @@ body.is-bg-grey-v2 {
   .section-why .item-why.is-03 i.ico-why {
     background-position: -256px 0;
   }
+  .section-why .item-why.is-03 .title-why {
+    padding: 0;
+  }
   .section-why .item-why.is-04 {
     position: absolute;
     top: 500px;
