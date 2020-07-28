@@ -12212,7 +12212,7 @@ body.is-bg-grey-v2 {
 .section-why .item-why {
   margin-right: auto;
   margin-left: auto;
-  max-width: 160px;
+  width: 160px;
   text-align: center;
 }
 .section-why .item-why i.ico-why {
@@ -12226,7 +12226,7 @@ body.is-bg-grey-v2 {
   margin-left: auto;
 }
 .section-why .item-why .title-why {
-  font-size: 14px;
+  font-size: 16px;
   min-height: 44px;
 }
 .section-why .item-why p {

@@ -761,10 +761,10 @@ body{background:$white;-webkit-font-smoothing:antialiased;-webkit-text-size-adju
 	.item-why{
 		@include margin(null auto);
 		// @include padding(null 12px);
-		max-width: 160px;
+		width: 160px;
 		text-align:center;
 		i.ico-why{display:block;background:url(images/sprites_why.png);background-size:224px 56px;@include size(56px);@include margin(null auto $gutter-2)}
-		.title-why{font-size: 14px;min-height: 44px;}
+		.title-why{font-size: 16px;min-height: 44px;}
 		p{display:block;color:$grey;font-size:12px;}
 		&.is-01{
 			i.ico-why{background-position:0 0;}
