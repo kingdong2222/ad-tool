@@ -12240,6 +12240,9 @@ body.is-bg-grey-v2 {
 .section-why .item-why.is-01 i.ico-why {
   background-position: 0 0;
 }
+.section-why .item-why.is-02 {
+  margin-bottom: 24px;
+}
 .section-why .item-why.is-02 i.ico-why {
   background-position: -56px 0;
 }
@@ -12278,6 +12281,13 @@ body.is-bg-grey-v2 {
     height: 449px;
     width: 449px;
     margin-left: -225px;
+  }
+  .section-why .title-why {
+    font-size: 16px !important;
+    min-height: unset !important;
+  }
+  .section-why p {
+    font-size: 14px !important;
   }
   .section-why .item-why {
     max-width: 240px !important;

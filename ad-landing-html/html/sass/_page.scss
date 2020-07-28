@@ -795,6 +795,8 @@ body{background:$white;-webkit-font-smoothing:antialiased;-webkit-text-size-adju
 		.phone-swiper{@include size(320px, auto);
 			.ico-oval{@include position(absolute, 110px null null 50%);@include size(449px);margin-left:-225px}
 		}
+		.title-why{font-size: 16px !important;min-height: unset !important;}
+		p{font-size:14px !important;}
 		.item-why{max-width:240px !important;margin-bottom:0;@include padding(null 0);
 			i.ico-why{background-size:512px 128px;@include size(128px)}
 			&.is-01{
