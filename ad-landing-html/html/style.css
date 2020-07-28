@@ -12212,27 +12212,22 @@ body.is-bg-grey-v2 {
 .section-why .item-why {
   margin-right: auto;
   margin-left: auto;
-  width: 160px;
   text-align: center;
 }
 .section-why .item-why i.ico-why {
   display: block;
   background: url(images/sprites_why.png);
-  background-size: 224px 56px;
-  height: 56px;
-  width: 56px;
+  background-size: 280px 70px;
+  height: 70px;
+  width: 70px;
   margin-right: auto;
   margin-bottom: 8px;
   margin-left: auto;
 }
-.section-why .item-why .title-why {
-  font-size: 16px;
-  min-height: 44px;
-}
 .section-why .item-why p {
   display: block;
   color: #686E76;
-  font-size: 12px;
+  font-size: 14px;
 }
 .section-why .item-why.is-01 {
   margin-bottom: 24px;
@@ -12244,18 +12239,19 @@ body.is-bg-grey-v2 {
   margin-bottom: 24px;
 }
 .section-why .item-why.is-02 i.ico-why {
-  background-position: -56px 0;
+  background-position: -70px 0;
 }
 .section-why .item-why.is-03 i.ico-why {
-  background-position: -112px 0;
-}
-.section-why .item-why.is-03 .title-why {
-  padding: 0 10px;
+  background-position: -140px 0;
 }
 .section-why .item-why.is-04 i.ico-why {
-  background-position: -168px 0;
+  background-position: -210px 0;
 }
 @media screen and (max-width: 1023px) {
+  .section-why .item-why-groups {
+    width: 90%;
+    margin: 0 auto;
+  }
   .section-why .item-why-groups .item-why-group {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -12264,6 +12260,20 @@ body.is-bg-grey-v2 {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+  .section-why .item-why-groups .item-why-group .item-why {
+    width: 50%;
+  }
+  .section-why .item-why-groups .item-why-group .item-why .title-why {
+    max-width: 150px;
+    margin: 0 auto;
+    font-weight: 500;
+    font-size: 1em;
+  }
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .section-why .item-why-groups {
+    width: 75%;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -12281,13 +12291,6 @@ body.is-bg-grey-v2 {
     height: 449px;
     width: 449px;
     margin-left: -225px;
-  }
-  .section-why .title-why {
-    font-size: 16px !important;
-    min-height: unset !important;
-  }
-  .section-why p {
-    font-size: 14px !important;
   }
   .section-why .item-why {
     max-width: 240px !important;

@@ -761,32 +761,43 @@ body{background:$white;-webkit-font-smoothing:antialiased;-webkit-text-size-adju
 	.item-why{
 		@include margin(null auto);
 		// @include padding(null 12px);
-		width: 160px;
 		text-align:center;
-		i.ico-why{display:block;background:url(images/sprites_why.png);background-size:224px 56px;@include size(56px);@include margin(null auto $gutter-2)}
-		.title-why{font-size: 16px;min-height: 44px;}
-		p{display:block;color:$grey;font-size:12px;}
+		i.ico-why{display:block;background:url(images/sprites_why.png);background-size:280px 70px;@include size(70px);@include margin(null auto $gutter-2)}
+		p{display:block;color:$grey;font-size:14px;}
 		&.is-01{
 			i.ico-why{background-position:0 0;}
 			margin-bottom: 24px;
 		}
 		&.is-02{
-			i.ico-why{background-position:-56px 0;}
+			i.ico-why{background-position:-70px 0;}
 			margin-bottom: 24px;
 		}
 		&.is-03{
-			i.ico-why{background-position:-112px 0;}
-			.title-why{padding: 0 10px;}
+			i.ico-why{background-position:-140px 0;}
 		}
 		&.is-04{
-			i.ico-why{background-position:-168px 0;}
+			i.ico-why{background-position:-210px 0;}
 		}
 	}
 	@include until($desktop){
 		.item-why-groups{
+			width: 90%;
+			margin: 0 auto;
 			.item-why-group{
 				display: flex;
 				flex-direction: row;
+				.item-why{
+					width: 50%;
+					.title-why{
+						max-width: 150px;
+						margin: 0 auto;
+						font-weight: 500;
+						font-size: 1em;
+					}
+				}
+			}
+			@include from(768px){
+				width: 75%;
 			}
 		}
 	}
@@ -795,8 +806,6 @@ body{background:$white;-webkit-font-smoothing:antialiased;-webkit-text-size-adju
 		.phone-swiper{@include size(320px, auto);
 			.ico-oval{@include position(absolute, 110px null null 50%);@include size(449px);margin-left:-225px}
 		}
-		.title-why{font-size: 16px !important;min-height: unset !important;}
-		p{font-size:14px !important;}
 		.item-why{max-width:240px !important;margin-bottom:0;@include padding(null 0);
 			i.ico-why{background-size:512px 128px;@include size(128px)}
 			&.is-01{
