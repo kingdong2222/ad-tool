@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Zalo Ads</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="description" content="description here">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="author" content="Lam Nguyen">
+  <meta name="copyright" content="2018 Lam Nguyen">
+  <meta name="robots" content="index, follow">
+  <meta name="revisit-after" content="7 days">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <link rel="icon" type="image/ico" href="images/favicon.ico">
+  <!--link(href="css/animate.min.css" rel="stylesheet" type="text/css")-->
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <style></style>
+</head>
+<!-- Include Plugin-->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/tippy.min.js"></script>
+<script src="js/scripts.js"></script>
+
+<body>
+  <div data-off="slidebar left overlay">
+    <div class="slidebar-container">
+      <div class="user-info">
+        <div class="avatar avatar--m"><span class="avatar-img"
+            style="background-image:url(https://via.placeholder.com/150x150)"></span></div>
+        <div class="desc"><span>Laguna Laguna Laguna Loire</span></div>
+      </div>
+      <div class="search-input-form">
+        <input type="text" placeholder="Nhập nội dung cần tìm..."><a class="button-search"><i
+            class="icn icn-search"></i></a>
+      </div>
+      <ul>
+        <li class="menu-item current-menu-item"><a href="#!" aria-current="page">Home</a></li>
+        <li class="menu-item"><a href="#!">Giới thiệu</a></li>
+        <li class="menu-item"><a href="#!">Hướng dẫn</a></li>
+        <li class="menu-item menu-item-has-children"><a href="#!">Tài nguyên</a></li>
+        <li class="menu-item"><a class="func-modal-form" href="javascript:void(0)">Liên hệ tư vấn</a></li>
+        <li class="menu-item"><a href="#!">Hỗ trợ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrapper" data-name="container">
+    <header class="clear header" role="banner">
+      <div class="header-container"><a class="img-logo" href="index.html">Zalo Ads</a>
+        <nav class="nav" role="navigation">
+          <ul>
+            <li class="menu-item"><a href="#!">Home</a></li>
+            <li class="menu-item"><a href="gioithieu.html">Giới thiệu</a></li>
+            <li class="menu-item"><a href="huongdan.html">Tài nguyên</a></li>
+            <li class="menu-item"><a class="func-modal-form" href="javascript:void(0)">Đối tác</a></li>
+            <li class="menu-item"><a class="func-modal-form" href="javascript:void(0)">Tin tức</a></li>
+            <li class="menu-item"><a href="hotro.html">Liên hệ hỗ trợ</a></li>
+          </ul>
+        </nav>
+        <div class="group-header-right">
+          <div class="field field-button is-grouped dropdown">
+            <div class="control"><a class="button is-primary create-ad-top-button" href="#!"> <span
+                  class="is-hidden-touch">Quản lý quảng cáo</span><span class="is-hidden-desktop">Quản lý Ads</span></a>
+            </div>
+            <div class="control dropdown-toggle" href="#" role="button" id="dropdown-m1" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"><a class="button is-primary button-arr"><i class="arr"></i></a>
+            </div>
+            <div class="context-arr dropdown-menu" aria-labelledby="dropdown-m1">
+              <ul>
+                <li><a href="#!"><span>Tạo quảng cáo</span></a></li>
+                <li><a href="#!"><span>Tạo Official Account</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="group-search is-hidden-touch">
+            <div class="search-input-form" id="search-input-header">
+              <input id="search-input" type="text" placeholder="Nhập nội dung cần tìm..." disabled><a
+                class="button-search" id="button-search"><i class="icn icn-search"></i></a>
+              <button class="button-search" style="display: none;"><i class="icn icn-search"></i></button>
+            </div>
+          </div>
+        </div>
+        <button class="hamburger hamburger--collapse" type="button"><span class="hamburger-box"><span
+              class="hamburger-inner"></span></span></button>
+      </div>
+    </header>
+    <main role="main">
+      <main class="body-single" role="main">
+        <div class="section-cover-post-article">
+          <div class="columns"><img class="column" src="images/demo_post_cover.png">
+            <div class="container column">
+              <div class="category-container">
+                <div class="square-cate"></div><a class="post-category">Tạo quảng cáo</a>
+              </div>
+              <div class="post-title">
+                <p class="has-text-weight-bold">Bạn nên chọn hình thức quảng cáo nào?</p>
+              </div>
+              <div class="post-time">
+                <p>12 tháng 3, 2020</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- section-->
+        <div class="section-list-contents">
+          <section class="section-single container">
+            <div class="post-affix-content">
+              <div class="func-neo affix is-hidden-touch">
+                <ul>
+                  <li data-tippy-content="Về đầu trang" data-tippy-placement="right"><a
+                      class="func-social func-scroll"><i class="top-icon"></i></a></li>
+                  <li data-tippy-content="Chia sẻ Zalo" data-tippy-placement="right"><a
+                      class="func-social zalo-share-button" data-href="https://zing.vn" data-oaid="1676759766280665870"
+                      data-layout="2" data-color="blue" data-customize="true"><i class="icn icn-zalo"></i></a></li>
+                  <li data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"
+                    data-tippy-content="Chia sẻ Facebook" data-tippy-placement="right"><a
+                      class="func-social fb-share-button fb-xfbml-parse-ignore" target="_blank"
+                      href="https://www.facebook.com/sharer/sharer.php?u=https://ads.zalo.me/business/"><i
+                        class="icn icn-facebook"></i></a></li>
+                  <li data-tippy-content="Liên hệ" data-tippy-placement="right"><a class="func-social"
+                      href="https://ads.zalo.me/Support" target="_blank"> <i class="icn icn-bold-mail"></i></a></li>
+                </ul>
+              </div>
+              <!-- article-->
+              <article
+                class="post-16 post type-post status-publish format-standard has-post-thumbnail hentry category-huong-dan"
+                id="post-16">
+                <p><strong>Quảng cáo Video</strong> là hình thức tạo quảng cáo tương tác với người mua hàng một cách
+                  trực quan, sinh động và sáng tạo hơn, giúp nâng cao tỉ lệ mua hàng từ khách hàng tiềm năng trên Zalo.
+                </p>
+                <p>Để tạo quảng cáo Video, nhà quảng cáo truy cập vào trang Zalo Ads và thực hiện theo các bước hướng
+                  dẫn dưới đây.</p>
+                <p><strong>Bước 1: Thiết lập chiến dịch quảng cáo</strong></p>
+                <p>Người dùng vào trang <strong>Tạo Quảng Cáo</strong> >> chọn <strong>Loại chiến dịch </strong>(Hình
+                  thức quảng cáo) >> Nhấn <strong>Bắt đầu</strong>.</p>
+                <figure class="wp-block-image large-width-img"><img
+                    src="https://zalo-article-photo.zadn.vn/f27e40060247eb19b256#75404864" alt=""></figure>
+                <p><strong>Bước 2: Đặt tên chiến dịch và chọn ZOA để quảng cáo</strong></p>
+                <p>Chọn tài khoản Zalo Official Account thực hiện quảng cáo. Điền đường dẫn (liên kết) đến website cần
+                  quảng cáo. Nhấn nút <strong>Tạo quảng cáo.</strong></p>
+                <figure class="wp-block-image large-width-img"><img
+                    src="https://zalo-article-photo.zadn.vn/48c2d9ba9bfb72a52bea#75404899" alt=""></figure>
+                <p><strong>Bước 3: Nhắm chọn đối tượng quảng cáo:</strong></p>
+                <figure class="wp-block-image large-width-img"><img
+                    src="https://zalo-article-photo.zadn.vn/a2a661182659cf079648#75190324" alt=""></figure>
+                <p><strong>1. Địa điểm</strong></p>
+                <p>>> Để chọn địa điểm, chọn một trong hai lựa chọn:</p>
+                <p>· <strong>Tỉnh/Thành phố:</strong> điền tên tỉnh/thành phố vào ô bên dưới. Tối đa 5 tỉnh/thành phố
+                </p>
+                <p>· <strong>Vị trí cụ thể:</strong> điền tên thành phố, tỉnh thành hoặc một địa chỉ cụ thể</p>
+                <p>>> Để giới hạn hoặc mở rộng phạm vi:</p>
+                <p><em><strong>Cách 1:</strong></em>Chọn vào icon hình mũi tên để tăng giảm phạm vi.</p>
+                <p><strong><em>Cách 2: </em></strong>Chọn vào mũi tên trên ô địa điểm để điền chính xác phạm vi bán kính
+                  cần mở rộng hay thu hẹp.</p>
+                <figure class="wp-block-image"><img
+                    src="https://zalo-article-photo.zadn.vn/799e5a381d79f427ad68#75188436" alt=""></figure>
+                <p><strong>2. Giới tính</strong>: chọn theo nhóm đối tượng mục tiêu mà chiến dịch quảng cáo hướng đến.
+                </p>
+                <p><strong>3. Nền tảng:</strong> chọn hệ điều hành theo mục tiêu.</p>
+                <p><strong>4. Độ tuổi: </strong>di chuyển trên thanh để chọn độ tuổi phù hợp mục tiêu.</p>
+                <p><strong>5. Tiêu chí khác: </strong>chọn nhân khẩu học và sở thích theo hành vi nhóm khách hàng mục
+                  tiêu.</p>
+                <p><strong>Bước 4: Thiết lập ngân sách và chi phí quảng cáo</strong></p>
+                <p>Nhà quảng cáo thiết lập ngân sách quảng cáo bằng cách chọn <strong>Số lượng nhấp
+                    chuột </strong>và <strong>Đặt giá</strong> cho một nhấp chuột</p>
+                <figure class="wp-block-image"><img
+                    src="https://zalo-article-photo-td.zadn.vn/cd7289721f35f66baf24#44755042" alt=""></figure>
+                <p><strong>* Lưu ý:</strong></p>
+                <p><strong>· Giá Lượt hiển thị (chi phí hiển thị) / Lượt xem hoàn tất tùy thuộc việc nhà quảng cáo chọn
+                    nhóm đối tượng và thời điểm chạy quảng cáo mà giá hiển thị /xem hoàn tất sẽ thay đổi. Nhà quảng cáo
+                    cần linh động khi đặt giá quảng cáo .</strong></p>
+                <h2>this it title dude</h2>
+                <p><strong>· 1M tương đương với 1000 lượt hiển thị.</strong></p>
+                <p><strong>Bước 5: Chuẩn bị nội dung quảng cáo</strong></p>
+                <p>Nhà quảng cáo đăng tải hình ảnh và chuẩn bị nội dung quảng cáo theo yêu cầu.</p>
+                <figure class="wp-block-image"><img
+                    src="https://zalo-article-photo.zadn.vn/aa982ce06ea187ffdeb0#75404916" alt=""></figure>
+                <p><strong>1. Tên chiến dịch quảng cáo</strong></p>
+                <p><strong>2. Hình mô tả: </strong>thể hiện hình ảnh sử dụng cho quảng cáo. Nhà quảng cáo đăng tải ảnh
+                  có kích thước <strong>1200×627(px) </strong>và dung lượng không vượt quá 2MB.</p>
+                <p><strong>3. Tải video </strong>lên hệ thống sử dụng cho quảng cáo, có định dạng <strong>.MP4
+                    H.264</strong>, thời lượng tối đa <strong>60 giây</strong>, <strong>tỉ lệ 16:9</strong>.</p>
+                <p><strong>4. Mô tả: </strong>thể hiện thông tin ngắn gọn của sản phẩm, nội dung không vượt
+                  quá <strong>30 </strong>ký tự.</p>
+                <p><strong>5. Thông tin thêm: </strong>thể hiện thông tin giá sản phẩm hoặc khuyến mãi cho sản phẩm, nội
+                  dung không vượt quá <strong>60</strong> ký tự</p>
+                <p><strong>Bước 6: Chọn Thông tin thêm</strong></p>
+                <p>Cung cấp giấy xác nhận nội dung quảng cáo nếu sản phẩm là thuốc, thực phẩm chức năng, hoặc các sản
+                  phẩm/dịch vụ BQT Zalo Ads quy định yêu cầu giấy phép tại <strong>Chính sách quảng cáo.</strong></p>
+                <figure class="wp-block-image"><img
+                    src="https://zalo-article-photo.zadn.vn/6dedda539d12744c2d03#75190336" alt=""></figure>
+                <p><strong>Bước 7: Gửi duyệt</strong></p>
+                <p>Sau khi tạo nội dung quảng cáo, nhà quảng cáo có thể lưu nội dung để chỉnh sửa sau hoặc tiến hành gửi
+                  duyệt để đội ngũ quản trị Zalo Ads phê duyệt quảng cáo.</p>
+                <figure class="wp-block-image"><img
+                    src="https://zalo-article-photo.zadn.vn/d5f0604e270fce51971e#75190338" alt=""></figure>
+                <p>1. Chọn <strong>Lưu </strong>để lưu lại nội dung và quay lại chỉnh sửa sau. Khi quảng cáo chưa được
+                  gửi duyệt sẽ có trạng thái <strong>Tạo mới</strong> và sẽ không phân phối cho đến khi được gửi duyệt
+                </p>
+                <p>2. Chọn <strong>Gửi duyệt </strong>để đưa quảng cáo đến đội ngũ vận hành Zalo Ads kiểm tra và tiến
+                  hành xét duyệt. Thời gian duyệt quảng cáo trong khoảng 1 tiếng.</p>
+                <p>Nếu nhà quảng cáo có thắc mắc cần hỗ trợ, nhà quảng cáo có thể liên hệ với đội ngũ CSKH Zalo Ads theo
+                  phương thức sau:</p><a class="banner-adchecker is-desktop"
+                  href="https://ads.zalo.me/business/creative/adchecker?utm_source=CH_landing_banner"
+                  target="_blank"><img src="./images/banner-adchecker-single.png"></a>
+                <div class="footer-contact-post">
+                  <p>Zalo hi vọng rằng bài viết đã cho bạn một góc nhìn rõ hơn để có thể chọn được một hình thức quảng
+                    cáo phù hợp với nhu cầu của mình.</p>
+                  <p>Nếu có bất kì thắc mắc nào, bạn có thể liên hệ với đội ngũ Chăm sóc khách hàng của Zalo Ads qua:
+                  </p>
+                  <p>
+                    Liên hệ trong hệ thống: <a>https://ads.zalo.me</a><br>Email: <a>ads@zalo.me</a><br>Hotline:
+                    <a>1900988912</a></p>
+                </div>
+                <div class="useful-article">
+                  <p id="thank-you">Cám ơn bạn đã góp ý cho chúng tôi!</p>
+                  <div id="percent_useful_bar">
+                    <div id="green_percent_userful_bar"></div>
+                    <p></p>
+                  </div>
+                  <form id="form-sending" target="_self" onsubmit="return postToGoogle();" action="">
+                    <p>Bạn có thấy bài viết này hữu ích?</p>
+                    <div class="field is-grouped" id="group-button">
+                      <div class="control">
+                        <div class="button like-button" id="like-button"><img src="images/like.png">Có</div>
+                      </div>
+                      <div class="control">
+                        <div class="button dislike-button" id="dislike-button"><img src="images/dislike.png">Không</div>
+                      </div>
+                    </div>
+                    <div class="checkbox-radio" id="when-useless">
+                      <div class="radio">
+                        <input type="radio" name="useless" value="Đây không phải là những gì tôi đang tìm kiếm."
+                          checked>
+                        <label>Đây không phải là những gì tôi đang tìm kiếm.</label>
+                      </div>
+                      <div class="radio">
+                        <input type="radio" name="useless" value="Không có những ví dụ cụ thể">
+                        <label>Không có những ví dụ cụ thể.</label>
+                      </div>
+                      <div class="radio">
+                        <input type="radio" name="useless" value="Nội dung quá khó để hiểu.">
+                        <label>Nội dung quá khó để hiểu.</label>
+                      </div>
+                      <div class="radio">
+                        <input type="radio" name="useless" value="Thông tin trên không thể giải quyết vấn đề của tôi.">
+                        <label>Thông tin trên không thể giải quyết vấn đề của tôi.</label>
+                      </div>
+                      <div class="radio">
+                        <input type="radio" name="useless" value="Khác">
+                        <label>Khác</label>
+                      </div>
+                      <textarea id="another-option"
+                        placeholder="Vấn đề mà bạn đang cố gắng giải quyết là gì?"></textarea>
+                    </div>
+                    <textarea id="useful_note"
+                      style="display:none">Đây không phải là những gì tôi đang tìm kiếm.</textarea>
+                    <button class="button is-primary" id="send-to" type="submit">Gửi đi </button>
+                  </form>
+                </div>
+                <p style="display:none">Categorised in: <a href="https://staging.ads.zaloapp.com/?cat=1"
+                    rel="category">Hướng dẫn</a></p>
+                <p style="display:none">This post was written by admin</p><a class="post-edit-link"
+                  href="https://staging.ads.zaloapp.com/wp-admin/post.php?post=16&amp;action=edit">Edit This</a>
+                <div class="comments">
+                  <p>Comments are closed here.</p>
+                </div>
+              </article>
+              <!-- /article-->
+            </div>
+            <!-- /section-->
+            <div class="func-share is-hidden-desktop">
+              <ul>
+                <li><a class="func-social" href="#!"><i class="ic ic-zalo"></i></a></li>
+                <li><a class="func-social" href="#!"><i class="ic ic-fb"></i></a></li>
+                <li><a class="func-social" href="contact.html"><i class="ic ic-email"></i></a></li>
+              </ul>
+            </div>
+            <div class="article-button-wrap">
+              <div class="article-button article-prev">
+                <ul class="post-categories">
+                  <li><a href="https://staging.ads.zaloapp.com/?cat=1" rel="category">Hướng dẫn</a></li>
+                </ul>
+                <h2><a href="#!">Top 5 marketing campaigns on Zalo in 2016</a></h2>
+              </div>
+              <div class="article-button article-next">
+                <ul class="post-categories">
+                  <li><a href="https://staging.ads.zaloapp.com/?cat=1" rel="category">Hướng dẫn</a></li>
+                </ul>
+                <h2><a href="#!">Redefining customer’s path to purchase through mobile</a></h2>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+      <script src="https://stc-sp.zadn.vn/session-sdk/session-sdk.min.js"></script>
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    </main>
+    <div class="section-cta">
+      <div class="context">
+        <p>Tiếp cận 100 triệu khách hàng tiềm năng trên hệ sinh thái Zalo</p>
+        <h2>Bạn đã sẵn sàng bắt đầu với Zalo Ads?</h2>
+        <div class="buttons is-centered"><a class="button" href="#!">Tạo quảng cáo ngay</a></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="columns">
+        <div class="column is-two-fifths">
+          <h2 class="subtitle is-4 mb-3">Thông tin liên hệ</h2>
+          <ul class="addr-list">
+            <li><span class="lab">Hotline</span><span class="content"><a href="tel:1900988912">1900 988 912</a></span>
+            </li>
+            <li><span class="lab">Email</span><span class="content"><a
+                  href="mailto:ads@zaloapp.com">ads@zaloapp.com</a></span></li>
+            <li><span class="lab">Địa chỉ</span><span class="content">VNG Campus - Đường 13, KCX Tân Thuận, phường Tân
+                Thuận Đông, quận 7, Tp.HCM</span></li>
+          </ul>
+        </div>
+        <div class="column">
+          <h2 class="subtitle is-4 mb-3">Liên kết</h2>
+          <div class="columns">
+            <div class="column">
+              <ul class="link-list">
+                <li><a href="https://ads.zalo.me/client/member/profile">Thông tin tài khoản</a></li>
+                <li><a href="https://ads.zalo.me/client/payment/add-budget">Nạp tiền vào tài khoản</a></li>
+                <li><a href="https://ads.zalo.me/client/ads/select-campaign">Tạo quảng cáo</a></li>
+                <li><a href="https://ads.zaloapp.com/client/campaigns">Quản lý quảng cáo </a></li>
+              </ul>
+            </div>
+            <div class="column">
+              <ul class="link-list">
+                <li><a href="https://beta.ads.zalo.me/tai-lieu-huong-dan/" target="_blank">Tài liệu hướng dẫn</a></li>
+                <li><a href="https://beta.ads.zalo.me/p/tai-nguyen/chinh-sach/" target="_blank">Chính sách quảng cáo</a>
+                </li>
+                <li><a href="https://beta.ads.zalo.me/cau-hoi-thuong-gap/" target="_blank">Câu hỏi thường gặp</a></li>
+                <li><a href="https://beta.ads.zalo.me/p/tai-nguyen/toi-uu-quang-cao/" target="_blank">Tối ưu quảng
+                    cáo</a></li>
+              </ul>
+            </div>
+            <div class="column">
+              <ul class="link-list">
+                <li><a href="https://beta.ads.zalo.me/doi-tac-cao-cap/" target="_blank">Đối tác cao cấp</a></li>
+                <li><a class="func-modal-form" href="javascript:void(0)">Liên hệ tư vấn</a></li>
+                <li><a href="https://ads.zalo.me/Support" target="_blank">Các kênh hỗ trợ</a></li>
+                <li><a href="https://www.facebook.com/ZaloAds/" target="_blank">Zalo Ads trên facebook</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="cpr">©
+        <script>
+          var a = new Date()
+          document.write(a.getFullYear()); 
+        </script>
+        Zalo Ads. Một sản phẩm của Zalo
+      </p>
+      <script>
+        var headerStick = document.getElementsByTagName("HEADER")[0]
+        var headerStickContainer = headerStick.getElementsByClassName("header-container")[0]
+        var headerImgLogo = headerStickContainer.getElementsByClassName('img-logo')[0]
+        window.onscroll = function () {
+          onScrollHeaderTop();
+          onScrollFunNeoBar();
+          onScrollFunNeoBarPolicy();
+          onScrollHideBar();
+        };
+        onScrollHeaderTop = () => {
+          if (window.scrollY >= 15) {
+            headerStick.classList.add('fixed')
+          } else {
+            headerStick.classList.remove('fixed')
+          }
+        }
+        onScrollFunNeoBar = () => {
+          var FuncNeoBar = document.getElementsByClassName('affix')
+          if (FuncNeoBar) {
+            for (item of FuncNeoBar) {
+              if (window.scrollY >= 385) {
+                item.classList.add('add-padding-top')
+              } else {
+                item.classList.remove('add-padding-top')
+              }
+            }
+
+          }
+        }
+        onScrollFunNeoBarPolicy = () => {
+          var FuncNeoBar = document.getElementsByClassName('affix_policy')
+          if (FuncNeoBar) {
+            for (item of FuncNeoBar) {
+              if (window.scrollY >= 385) {
+                item.classList.add('add-padding-top-policy')
+              } else {
+                item.classList.remove('add-padding-top-policy')
+              }
+            }
+          }
+        }
+        onScrollHideBar = () => {
+          var listLargeImg = document.getElementsByClassName('large-width-img')
+          var FuncNeoBar = document.getElementsByClassName('affix')[0]
+          var barTop = FuncNeoBar.offsetTop
+          var barHeight = FuncNeoBar.offsetHeight
+
+          Array.from(listLargeImg).forEach(item => {
+
+            var imgHeight = item.offsetHeight
+            var imgTop = item.offsetTop
+            //- console.log(barTop+barHeight)
+            //- console.log('img Min Top',imgTop)
+            //- console.log('img Max Top',imgTop+imgHeight+barHeight)
+            //- console.log(barTop+barHeight >= imgTop && barTop+barHeight <= imgTop + imgHeight+barHeight)
+            if (barTop + barHeight >= imgTop && barTop + barHeight <= imgTop + imgHeight + barHeight) {
+              FuncNeoBar.style.opacity = 0
+            } else {
+              FuncNeoBar.style.opacity = 1
+            }
+          })
+        }
+        var buttonSearch = document.getElementById("button-search")
+        var searchInput = document.getElementById("search-input-header")
+        $('#search-input').bind('input', function (value) {
+          value = value.target.value
+          if (value) {
+            searchInput.getElementsByTagName('A')[0].style.display = 'none'
+            searchInput.getElementsByTagName('BUTTON')[0].style.display = 'flex'
+          } else {
+            searchInput.getElementsByTagName('A')[0].style.display = 'flex'
+            searchInput.getElementsByTagName('BUTTON')[0].style.display = 'none'
+          }
+        })
+        window.addEventListener('click', function (e) {
+          inputValueHeader = searchInput.getElementsByTagName('INPUT')[0].value
+          //- console.log(document.getSelection())
+          //- console.log('checl', document.getSelection().anchorNode.id)
+          if (buttonSearch.contains(e.target)) {
+            if (inputValueHeader) {
+              searchInput.getElementsByTagName('A')[0].style.display = 'none'
+              searchInput.getElementsByTagName('BUTTON')[0].style.display = 'flex'
+              searchInput.classList.toggle('active-search')
+              searchInput.getElementsByTagName("INPUT")[0].focus()
+              searchInput.getElementsByTagName("INPUT")[0].removeAttribute('disabled')
+            } else {
+              searchInput.classList.toggle('active-search')
+              searchInput.getElementsByTagName("INPUT")[0].focus()
+              searchInput.getElementsByTagName("INPUT")[0].removeAttribute('disabled')
+            }
+          } else if (searchInput.getElementsByTagName("INPUT")[0].contains(e.target)
+            || searchInput.getElementsByTagName("BUTTON")[0].contains(e.target)) {
+            searchInput.getElementsByTagName("INPUT")[0].focus()
+          } else {
+            if (document.getSelection().anchorNode) {
+              if (document.getSelection().anchorNode.className == 'search-input-form active-search') {
+
+              } else {
+                searchInput.classList.remove('active-search')
+                searchInput.getElementsByTagName('A')[0].style.display = 'flex'
+                searchInput.getElementsByTagName('BUTTON')[0].style.display = 'none'
+                searchInput.getElementsByTagName("INPUT")[0].setAttribute('disabled', '')
+              }
+            }
+
+          }
+        });
+      </script>
+    </footer>
+  </div>
+  <script>
+    tippy('[data-tippy-content]');
+    $('.func-scroll').on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: 0 }, 500);
+    });
+    function start() {
+      var duration = 2000;
+      $("#percent_useful_bar #green_percent_userful_bar").stop().css("width", 0).animate({
+        width: 0.8 * 175
+      }, {
+        duration: duration,
+        progress: function (promise, progress, ms) {
+          $('#percent_useful_bar p').text(Math.round(progress * 80) + '% đánh giá hữu ích');
+        }
+      });
+    }
+    //- var is_this_useful
+    var noteContent = document.getElementById('useful_note')
+    var likeButton = document.getElementById('like-button')
+    var dislikeButton = document.getElementById('dislike-button')
+    var formSending = document.getElementById('form-sending')
+    var thankyouText = document.getElementById('thank-you')
+    var userfulBar = document.getElementById('percent_useful_bar')
+    likeButton.addEventListener("click", () => {
+      formSending.style.display = 'none'
+      document.getElementsByClassName('useful-article')[0].style.flexDirection = 'column'
+      thankyouText.style.display = 'unset'
+      userfulBar.style.display = 'unset'
+      start()
+      //get username zalo
+      var userName = ''
+      var userInfo = document.getElementsByClassName('user-info')[0]
+
+      if (userInfo) {
+        var userDesc = userInfo.getElementsByClassName('desc')[0]
+        userName = userDesc.getElementsByTagName('SPAN')[0].innerHTML
+      } else {
+        userName = ''
+      }
+      //- $.ajax({
+      //- 	url: "https://docs.google.com/forms/d/e/1FAIpQLScz2lo_exBhRjeE933_f89lCVQaGX0l5ldb7aLzXyvqw5HyVQ/formResponse?",
+      //- 	data: {"entry.506773411":'tên bài viết',"entry.1708541852": window.location.href,"entry.1742133424":'Có', "entry.802725021": '',"entry.900901583":userName},
+      //- 	type: "POST",
+      //- 	dataType: "jsonp",
+      //- 	success: function(d)
+      //- {},
+      //- 	error: function(x, y, z) {}
+      //- });
+
+      return false;
+      //- var whenUseful = document.getElementById('when-useful')
+      //- var buttonSend = document.getElementById('send-to')
+      //- var whenUseless = document.getElementById('when-useless')
+      //- likeButton.classList.add('choose')
+      //- dislikeButton.classList.remove('choose')
+      //- whenUseful.style.display = 'unset'
+      //- buttonSend.style.display = 'unset'
+      //- whenUseless.style.display = 'none'
+    })
+    dislikeButton.addEventListener("click", () => {
+      if (screen.width >= 1024) {
+        formSending.style.flexDirection = 'column'
+      }
+      var buttonSend = document.getElementById('send-to')
+      var whenUseless = document.getElementById('when-useless')
+      dislikeButton.classList.add('choose')
+      likeButton.classList.remove('choose')
+      //- is_this_useful = false
+      document.getElementById('group-button').style.display = 'none'
+      whenUseless.style.display = 'flex'
+      buttonSend.style.display = 'unset'
+      formSending.getElementsByTagName('P')[0].innerHTML = 'Bạn không hài lòng với những điểm nào?'
+    })
+
+    var whenUseless = document.getElementById('when-useless')
+    var radioButtons = whenUseless.getElementsByClassName('radio')
+    Array.from(radioButtons).forEach((radio) => {
+      var labelValue = radio.getElementsByTagName('LABEL')[0].innerHTML
+      var radioInput = radio.getElementsByTagName('INPUT')[0]
+      radio.onclick = () => {
+        if (radioInput.checked) {
+          radioInput.checked = false
+        } else {
+          radioInput.checked = true
+          var anotherOption = document.getElementById('another-option')
+          if (radioInput.value == 'Khác') {
+            anotherOption.style.display = 'unset'
+            noteContent.innerHTML = ''
+          } else {
+            anotherOption.style.display = 'none'
+            noteContent.innerHTML = radioInput.value
+          }
+        }
+      }
+    })
+    $('#another-option').bind('input', value => {
+      document.getElementById('another-option').innerHTML = value.target.value
+    });
+    function postToGoogle() {
+      //get username zalo
+      var userName = ''
+      var userInfo = document.getElementsByClassName('user-info')[0]
+
+      if (userInfo) {
+        var userDesc = userInfo.getElementsByClassName('desc')[0]
+        userName = userDesc.getElementsByTagName('SPAN')[0].innerHTML
+      } else {
+        userName = ''
+      }
+
+      var anotherOptionValue = document.getElementById('another-option').innerHTML
+      var noteContentValue = noteContent.innerHTML
+      if (noteContentValue) {
+        formSending.style.display = 'none'
+        thankyouText.style.display = 'unset'
+        $.ajax({
+          url: "https://docs.google.com/forms/d/e/1FAIpQLScz2lo_exBhRjeE933_f89lCVQaGX0l5ldb7aLzXyvqw5HyVQ/formResponse?",
+          data: { "entry.506773411": 'tên bài viết', "entry.1708541852": window.location.href, "entry.1742133424": 'Không', "entry.802725021": noteContentValue, "entry.900901583": userName },
+          type: "POST",
+          dataType: "jsonp",
+          success: function (d) { },
+          error: function (x, y, z) { }
+        });
+
+        return false;
+      } else {
+        if (anotherOptionValue) {
+          formSending.style.display = 'none'
+          thankyouText.style.display = 'unset'
+          $.ajax({
+            url: "https://docs.google.com/forms/d/e/1FAIpQLScz2lo_exBhRjeE933_f89lCVQaGX0l5ldb7aLzXyvqw5HyVQ/formResponse?",
+            data: { "entry.506773411": 'tên bài viết', "entry.1708541852": window.location.href, "entry.1742133424": 'Không', "entry.802725021": anotherOptionValue, "entry.900901583": userName },
+            type: "POST",
+            dataType: "jsonp",
+            success: function (d) { },
+            error: function (x, y, z) { }
+          });
+
+          return false;
+        }
+        else {
+          alert('Nhập vấn đề bạn cần giải quyết')
+          return false;
+        }
+      }
+    }
+
+    //input ?ifame after permalink
+    var post_permalink_path = window.location.search
+    if (post_permalink_path.includes("iframe")) {
+      headerStick.style.display = 'none'
+      document.getElementsByTagName("FOOTER")[0].style.display = 'none'
+      document.getElementsByClassName("section-cta")[0].style.display = 'none'
+      document.getElementsByClassName("body-single")[0].style.marginTop = '0'
+    }
+  </script>
+</body>
+
+</html>
