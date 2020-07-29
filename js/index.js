@@ -1873,6 +1873,11 @@ FunctionHoverWord = (id) => {
     let banned_error_mess = document.getElementById(id)
     // let banned_word_focus = banned_error_mess.getElementsByTagName('SPAN')
 
+    let first_preview_OG = document.getElementById('first-preview').innerHTML;
+    let second_preview_OG = document.getElementById('second-preview').innerHTML;
+    let third_preview_OG = document.getElementById('third-preview').innerHTML;
+    let fourth_preview_OG = document.getElementById('fourth-preview').innerHTML;
+
     let first_preview_focus = document.getElementById('first-preview').innerHTML.toLowerCase();
     let second_preview_focus = document.getElementById('second-preview').innerHTML.toLowerCase();
     let third_preview_focus = document.getElementById('third-preview').innerHTML.toLowerCase();
@@ -1897,20 +1902,16 @@ FunctionHoverWord = (id) => {
         }
     },value => {
         if(first_preview_focus.indexOf(value.target.innerText)>-1){
-            let temp = first_preview_focus.replace('<span>'+value.target.innerText+"</span>",value.target.innerText)
-            document.getElementById('first-preview').innerHTML = temp
+            document.getElementById('first-preview').innerHTML = first_preview_OG
         }
         if(second_preview_focus.indexOf(value.target.innerText)>-1){
-            let temp = second_preview_focus.replace('<span>'+value.target.innerText+"</span>",value.target.innerText)
-            document.getElementById('second-preview').innerHTML = temp
+            document.getElementById('second-preview').innerHTML = second_preview_OG
         }
         if(third_preview_focus.indexOf(value.target.innerText)>-1){
-            let temp = third_preview_focus.replace('<span>'+value.target.innerText+"</span>",value.target.innerText)
-            document.getElementById('third-preview').innerHTML = temp
+            document.getElementById('third-preview').innerHTML = third_preview_OG
         }
         if(fourth_preview_focus.indexOf(value.target.innerText)>-1){
-            let temp = fourth_preview_focus.replace('<span>'+value.target.innerText+"</span>",value.target.innerText)
-            document.getElementById('fourth-preview').innerHTML = temp
+            document.getElementById('fourth-preview').innerHTML = fourth_preview_OG
         }
     })
 }
