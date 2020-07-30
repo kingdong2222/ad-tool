@@ -36,6 +36,9 @@ block modal
 block javaScripts extend
 	script(src="https://www.googletagmanager.com/gtag/js?id=UA-75517706-1" async)
 	script.
+		$('#banned-3 span').click(function(){
+			alert('asd')
+		});
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());

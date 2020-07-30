@@ -649,6 +649,7 @@
 							}
 							span{
 								border-bottom: 1px dotted;
+								cursor: pointer;
 							}
 						}
 					}
@@ -733,7 +734,7 @@
 					word-break: break-word;
 				}
 				.preview-sample{
-					background:url(../../html/images/preview_sample.png) center center no-repeat;
+					background:url(../images/preview_sample.png) center center no-repeat;
 					background-size: cover;
 					margin-top: 8px;
 					height: 150px;
@@ -793,6 +794,7 @@
 					border: 1px solid #FFD422;
 					padding: 2px;
 					margin-left: 7px;
+					top: 0;
 					&:after{
 						content:"\ea30";
 						font: normal normal normal 16px "zadicon";
@@ -805,6 +807,12 @@
 						&:after{
 							left: -20.5px;
 						}
+					}
+				}
+				#first-preview,#second-preview,#third-preview,#fourth-preview{
+					span{
+						background-color: rgba(248,184,0,0.3);
+						padding: 0 5px;
 					}
 				}
 			}

@@ -1327,13 +1327,13 @@ document.getElementById('check-form-ad').onclick = value =>{
                 let list = checkPolicy(value_2)
                 for(let i=0; i<list.length;i++){
                     let item = list[i]
-                    if($('#banned-3').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0){
+                    if($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0){
                         if($('#banned-3').text().includes(item)){
                         } else {
                             document.getElementById('banned-3').innerHTML += ', <span>'+item+'</span>'
                         }
                     } else {
-                        $("#alert-card-first .card-error-list ul").append( "<li><p id='banned-3'>Phản cảm, thiếu kiểm chứng: <span>"+item+"</span></p></li>" )
+                        $("#alert-card-first .card-error-list ul").append( "<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>"+item+"</span></p></li>" )
                     }
                 }	
                 setTimeout(FunctionHoverWord('banned-3'),500)
@@ -1731,12 +1731,6 @@ document.getElementById('check-form-ad').onclick = value =>{
         }
 
         if(value_check_ad == true){
-
-            // first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
-            // second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
-            // third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
-            // fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
-            
             content_card_1.classList.add('is-hidden')
             $('#alert-card-first .card-error-list').append('<p>Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
         }
@@ -1885,20 +1879,52 @@ FunctionHoverWord = (id) => {
 
     $('#'+id+' span').hover(value => {
         if(first_preview_focus.indexOf(value.target.innerText)>-1){
-            let temp = first_preview_focus.replace(value.target.innerText,'<span>'+value.target.innerText+"</span>")
-            document.getElementById('first-preview').innerHTML = temp
+            let lengthError = value.target.innerText.length
+            let beginIndexError = first_preview_focus.indexOf(value.target.innerText)
+            if(first_preview_focus.indexOf(first_preview_OG) == -1){
+                let textErrorCaseUpper = first_preview_OG.substr(beginIndexError,lengthError)
+                let temp = first_preview_OG.replace(textErrorCaseUpper,'<span>'+textErrorCaseUpper+"</span>")
+                document.getElementById('first-preview').innerHTML = temp
+            } else if(first_preview_focus.indexOf(first_preview_OG) > -1){
+                let temp = first_preview_OG.replace(value.target.innerText,'<span>'+value.target.innerText+"</span>")
+                document.getElementById('first-preview').innerHTML = temp
+            }
         }
         if(second_preview_focus.indexOf(value.target.innerText)>-1){
-            let temp = second_preview_focus.replace(value.target.innerText,'<span>'+value.target.innerText+"</span>")
-            document.getElementById('second-preview').innerHTML = temp
+            let lengthError = value.target.innerText.length
+            let beginIndexError = second_preview_focus.indexOf(value.target.innerText)
+            if(second_preview_focus.indexOf(second_preview_OG) == -1){
+                let textErrorCaseUpper = second_preview_OG.substr(beginIndexError,lengthError)
+                let temp = second_preview_OG.replace(textErrorCaseUpper,'<span>'+textErrorCaseUpper+"</span>")
+                document.getElementById('second-preview').innerHTML = temp
+            } else if(second_preview_focus.indexOf(second_preview_OG) > -1){
+                let temp = second_preview_OG.replace(value.target.innerText,'<span>'+value.target.innerText+"</span>")
+                document.getElementById('second-preview').innerHTML = temp
+            }
         }
         if(third_preview_focus.indexOf(value.target.innerText)>-1){
-            let temp = third_preview_focus.replace(value.target.innerText,'<span>'+value.target.innerText+"</span>")
-            document.getElementById('third-preview').innerHTML = temp
+            let lengthError = value.target.innerText.length
+            let beginIndexError = third_preview_focus.indexOf(value.target.innerText)
+            if(third_preview_focus.indexOf(third_preview_OG) == -1){
+                let textErrorCaseUpper = third_preview_OG.substr(beginIndexError,lengthError)
+                let temp = third_preview_OG.replace(textErrorCaseUpper,'<span>'+textErrorCaseUpper+"</span>")
+                document.getElementById('third-preview').innerHTML = temp
+            } else if(third_preview_focus.indexOf(third_preview_OG) > -1){
+                let temp = third_preview_OG.replace(value.target.innerText,'<span>'+value.target.innerText+"</span>")
+                document.getElementById('third-preview').innerHTML = temp
+            }
         }
         if(fourth_preview_focus.indexOf(value.target.innerText)>-1){
-            let temp = fourth_preview_focus.replace(value.target.innerText,'<span>'+value.target.innerText+"</span>")
-            document.getElementById('fourth-preview').innerHTML = temp
+            let lengthError = value.target.innerText.length
+            let beginIndexError = fourth_preview_focus.indexOf(value.target.innerText)
+            if(fourth_preview_focus.indexOf(fourth_preview_OG) == -1){
+                let textErrorCaseUpper = fourth_preview_OG.substr(beginIndexError,lengthError)
+                let temp = fourth_preview_OG.replace(textErrorCaseUpper,'<span>'+textErrorCaseUpper+"</span>")
+                document.getElementById('fourth-preview').innerHTML = temp
+            } else if(fourth_preview_focus.indexOf(fourth_preview_OG) > -1){
+                let temp = fourth_preview_OG.replace(value.target.innerText,'<span>'+value.target.innerText+"</span>")
+                document.getElementById('fourth-preview').innerHTML = temp
+            }
         }
     },value => {
         if(first_preview_focus.indexOf(value.target.innerText)>-1){
