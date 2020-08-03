@@ -9,7 +9,7 @@ block setting
 	- var modal = true
 	- var popperjs = true
 	- var tippyjs = true
-	- var position_previewjs = true
+	- var indexjs = false
 
 block head
 	include head.pug
@@ -26,7 +26,7 @@ block header
 
 //- Add Body
 block body
-	include page/_position_preview.pug
+	include page/_document_search.pug
 
 //- Add Modal
 block modal
@@ -34,10 +34,8 @@ block modal
 
 block javaScripts extend
 	script.
+		document.getElementsByClassName("navbar-item")[2].classList.add('active')
 		
-		
-
-
 
 
 		

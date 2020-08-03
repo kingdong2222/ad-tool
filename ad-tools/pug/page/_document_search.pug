@@ -1,0 +1,69 @@
+main.document_search
+    .main-body
+        .container_cols
+            .container_col.content
+                h2.title Nội dung tra cứu
+                .text-input-item
+                    .label-title
+                        h3.title Chọn ngành hàng kinh doanh
+                            i.icz.icz-question#tippy-button-call-action
+                    .select
+                        select#first-select
+                            option Chọn
+                            option Thực phẩm chức năng
+                            option Thuốc
+                            option Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế
+                            option Sữa và sản phẩm dinh dưỡng cho trẻ trên 24 tháng tuổi
+                            option Thực phẩm, phụ gia thực phẩm
+                            option Thực phẩm đã qua chế biến
+                            option Rượu có độ cồn dưới 15 độ và bia
+                            option Dịch vụ khám bệnh, chữa bệnh (bao gồm phòng khám nha khoa, thẩm mỹ viện có các chức năng phẫu thuật, dao kéo)
+                            option Trang thiết bị y tế
+                            option Thuốc và vật tư bảo vệ thực vật, sinh vật, thú y nói chung
+                            option Trò chơi điện tử
+                            option Dịch vụ vui chơi, giải trí cho đối tượng từ 16 tuổi trở lên
+                            option Dịch vụ về visa hộ chiếu
+                            option Sản phẩm dao kéo, dụng cụ nhà bếp
+                            option Tín dụng, tín chấp, dịch vụ tài chính cho vay, mượn tiền, đầu tư quỹ
+                            option Hẹn hò online
+                            option Dịch vụ cầm đồ
+                            option Xổ số
+                .text-input-item
+                    .label-title
+                        h3.title Chọn xuất xứ hàng hóa
+                            i.icz.icz-question#tippy-button-call-action
+                    .controls
+                        .control
+                            input(id="check0" type="checkbox")
+                            label(for="check0") Nhập khẩu theo đường chính ngạch
+                        .control
+                            input(id="check1" type="checkbox")
+                            label(for="check1") Trung Quốc, Lào, Campuchia, Thái Lan
+                        .control
+                            input(id="check2" type="checkbox")
+                            label(for="check2") Hàng có thương hiệu nổi tiếng
+                        .control
+                            input(id="check3" type="checkbox")
+                            label(for="check3") Khác
+                .text-input-item
+                    .label-title
+                        h3.title Hình ảnh quảng cáo
+                            i.icz.icz-question#tippy-button-call-action
+                    .controls
+                        .control
+                            input(id="check4" type="checkbox")
+                            label(for="check4") Có người nhìn rõ mặt trên banner
+                        .control
+                            input(id="check5" type="checkbox")
+                            label(for="check5") Có người nổi tiếng trong landing page
+                button.button.is-primary.is-large#check-form-ad(disabled) Tra cứu
+    .slide-body
+        h2.title Các loại giấy phép yêu cầu cho quảng cáo của bạn:
+        .label-title
+            h3.title Ngành hàng kinh doanh:
+                |&nbsp
+                span#first-select-preview Thực phẩm chức năng
+        ul#first-document-list
+            li Giấy xác nhận nội dung quảng cáo
+            li Giấy xác nhận nội dung quảng cáo
+

@@ -1,5 +1,13 @@
 
-document.getElementsByClassName("navbar-item")[0].classList.add('active')
+
+if(location.href.includes('position_preview')){
+    document.getElementsByClassName("navbar-item")[1].classList.add('active')
+    document.getElementsByClassName("navbar-item")[0].classList.remove('active')
+    document.getElementsByTagName('MAIN')[0].classList.add('is-hidden')
+    document.getElementsByTagName('MAIN')[1].classList.remove('is-hidden')
+} else {
+    document.getElementsByClassName("navbar-item")[0].classList.add('active')
+}
 document.getElementsByClassName("navbar-item")[0].onclick = () => {
     document.getElementsByClassName("navbar-item")[0].classList.add('active')
     document.getElementsByClassName("navbar-item")[1].classList.remove('active')

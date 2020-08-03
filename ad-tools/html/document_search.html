@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads - Công cụ tối ưu hoá hình ảnh nội dung quảng cáo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="Kiểm tra trước hình ảnh, nội dung quảng cáo. Tối ưu hiển thị để mang lại hiệu quả cao hơn.">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index, follow">
+    <meta property="og:url" content="https://ads.zalo.me/business/creative/adchecker/">
+    <meta property="og:title" content="Zalo Ads - Công cụ tối ưu hoá hình ảnh nội dung quảng cáo">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ads.zalo.me/business/wp-content/uploads/2020/07/share_fb.png">
+    <meta property="og:description" content="Kiểm tra trước hình ảnh, nội dung quảng cáo. Tối ưu hiển thị để mang lại hiệu quả cao hơn.">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fengyuanchen.github.io/cropperjs/css/cropper.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.js"></script>
+<script async src="https://ads.zalo.me/business/wp-content/themes/html5blank-stable/js/opencv.js" type="text/javascript"></script>
+<script src="https://apis.google.com/js/api.js"></script><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5W5QTD2');
+</script>
+<!-- End Google Tag Manager -->
+    <style></style>
+  </head>
+  <body>
+    <div class="header"><a class="logo" href="https://ads.zalo.me/business/creative/adchecker/"><i class="ico-logo"></i></a>
+      <div class="navbar-main">
+        <ul>
+          <li><a class="navbar-item" href="index.html">Công cụ kiểm tra quảng cáo</a></li>
+          <li><a class="navbar-item" href="index.html#position_preview">Vị trí hiển thị quảng cáo</a></li>
+          <li><a class="navbar-item" href="document_search.html">Tra cứu giấy phép</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-content">
+      <main class="document_search">
+        <div class="main-body">
+          <div class="container_cols">
+            <div class="container_col content">
+              <h2 class="title">Nội dung tra cứu</h2>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Chọn ngành hàng kinh doanh<i class="icz icz-question" id="tippy-button-call-action"></i></h3>
+                </div>
+                <div class="select">
+                  <select id="first-select">
+                    <option>Chọn</option>
+                    <option>Thực phẩm chức năng</option>
+                    <option>Thuốc</option>
+                    <option>Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế</option>
+                    <option>Sữa và sản phẩm dinh dưỡng cho trẻ trên 24 tháng tuổi</option>
+                    <option>Thực phẩm, phụ gia thực phẩm</option>
+                    <option>Thực phẩm đã qua chế biến</option>
+                    <option>Rượu có độ cồn dưới 15 độ và bia</option>
+                    <option>Dịch vụ khám bệnh, chữa bệnh (bao gồm phòng khám nha khoa, thẩm mỹ viện có các chức năng phẫu thuật, dao kéo)</option>
+                    <option>Trang thiết bị y tế</option>
+                    <option>Thuốc và vật tư bảo vệ thực vật, sinh vật, thú y nói chung</option>
+                    <option>Trò chơi điện tử</option>
+                    <option>Dịch vụ vui chơi, giải trí cho đối tượng từ 16 tuổi trở lên</option>
+                    <option>Dịch vụ về visa hộ chiếu</option>
+                    <option>Sản phẩm dao kéo, dụng cụ nhà bếp</option>
+                    <option>Tín dụng, tín chấp, dịch vụ tài chính cho vay, mượn tiền, đầu tư quỹ</option>
+                    <option>Hẹn hò online</option>
+                    <option>Dịch vụ cầm đồ</option>
+                    <option>Xổ số</option>
+                  </select>
+                </div>
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Chọn xuất xứ hàng hóa<i class="icz icz-question" id="tippy-button-call-action"></i></h3>
+                </div>
+                <div class="controls">
+                  <div class="control">
+                    <input id="check0" type="checkbox">
+                    <label for="check0">Nhập khẩu theo đường chính ngạch</label>
+                  </div>
+                  <div class="control">
+                    <input id="check1" type="checkbox">
+                    <label for="check1">Trung Quốc, Lào, Campuchia, Thái Lan</label>
+                  </div>
+                  <div class="control">
+                    <input id="check2" type="checkbox">
+                    <label for="check2">Hàng có thương hiệu nổi tiếng</label>
+                  </div>
+                  <div class="control">
+                    <input id="check3" type="checkbox">
+                    <label for="check3">Khác</label>
+                  </div>
+                </div>
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Hình ảnh quảng cáo<i class="icz icz-question" id="tippy-button-call-action"></i></h3>
+                </div>
+                <div class="controls">
+                  <div class="control">
+                    <input id="check4" type="checkbox">
+                    <label for="check4">Có người nhìn rõ mặt trên banner</label>
+                  </div>
+                  <div class="control">
+                    <input id="check5" type="checkbox">
+                    <label for="check5">Có người nổi tiếng trong landing page</label>
+                  </div>
+                </div>
+              </div>
+              <button class="button is-primary is-large" id="check-form-ad" disabled>Tra cứu</button>
+            </div>
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="title">Các loại giấy phép yêu cầu cho quảng cáo của bạn:</h2>
+          <div class="label-title">
+            <h3 class="title">
+              Ngành hàng kinh doanh:&nbsp<span id="first-select-preview">Thực phẩm chức năng</span></h3>
+          </div>
+          <ul id="first-document-list">
+            <li>Giấy xác nhận nội dung quảng cáo</li>
+            <li>Giấy xác nhận nội dung quảng cáo</li>
+          </ul>
+        </div>
+      </main>
+    </div>
+    <div class="bl-popup">
+    </div>
+    <div class="bl-modal">
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>document.getElementsByClassName("navbar-item")[2].classList.add('active')</script>
+  </body>
+</html>
