@@ -244,6 +244,7 @@
 		}
 		&.document_search{
 			@include until(1280px){width: auto}
+			.title{display: block;}
 			.main-body{
 				width: 33.33%;
 				@include until(1295px){
@@ -255,7 +256,7 @@
 				}
 				.controls{
 					padding-top: 8px;
-					.control{padding: 1px 0;}
+					.control{padding: 2px 0;}
 				}
 				.container_col{
 					min-width: unset;
@@ -264,9 +265,26 @@
 			.slide-body{
 				width: 66.67%;
 				align-items: flex-start;
-				padding-left: 4rem	;
+				padding-left: 4rem;
 				@include from(1920px){
 					width: 70%;
+				}
+				ul{
+					list-style: inside decimal;
+					li{
+						font-size: 14px;
+						padding: 4px 0;
+						&:first-child{padding-top: 0;}
+						em{
+							font-size: 12px;
+							color: #989EA5;
+							font-style: normal;
+						}
+					}
+				}
+				ul.or-document{
+					list-style: inside disc !important;
+    				padding-left: 16px;
 				}
 			}
 		}
@@ -801,6 +819,7 @@
 					@extend %tr-all;
 					width: fit-content;
 					word-break: break-word;
+					display: block;
 				}
 				.preview-sample{
 					background:url(../images/preview_sample.png) center center no-repeat;
@@ -827,8 +846,9 @@
 							padding: 2px 4px;
 							@extend %tr-all;
 							word-break: break-word;
-							display: flex;
-    						align-items: center;
+							// display: flex;
+							// align-items: center;
+							display: block;
 						}
 						.optional-info{
 							color: #989EA5;
@@ -863,13 +883,14 @@
 					border: 1px solid #FFD422;
 					padding: 2px;
 					margin-left: 7px;
-					top: 0;
+					top: 0 !important;
 					&:after{
 						content:"\ea30";
 						font: normal normal normal 16px "zadicon";
 						color: #FFD422;
 						position: absolute;
 						left: -22px;
+						top: 6px;
 					}
 					&#first-preview{
 						width: 100%;

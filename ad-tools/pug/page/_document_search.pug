@@ -5,11 +5,11 @@ main.document_search
                 h2.title Nội dung tra cứu
                 .text-input-item
                     .label-title
-                        h3.title Chọn ngành hàng kinh doanh
+                        h3.title Ngành hàng kinh doanh
                             i.icz.icz-question#tippy-button-call-action
                     .select
                         select#first-select
-                            option Chọn
+                            option Chọn ngành hàng
                             option Thực phẩm chức năng
                             option Thuốc
                             option Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế
@@ -30,7 +30,7 @@ main.document_search
                             option Xổ số
                 .text-input-item
                     .label-title
-                        h3.title Chọn xuất xứ hàng hóa
+                        h3.title Xuất xứ hàng hóa
                             i.icz.icz-question#tippy-button-call-action
                     .controls
                         .control
@@ -59,11 +59,9 @@ main.document_search
                 button.button.is-primary.is-large#check-form-ad(disabled) Tra cứu
     .slide-body
         h2.title Các loại giấy phép yêu cầu cho quảng cáo của bạn:
-        .label-title
-            h3.title Ngành hàng kinh doanh:
-                |&nbsp
-                span#first-select-preview Thực phẩm chức năng
-        ul#first-document-list
-            li Giấy xác nhận nội dung quảng cáo
-            li Giấy xác nhận nội dung quảng cáo
+        h3.title#before-searching Vui lòng chọn ngành hàng và nơi xuất xứ của mặt hàng bạn muốn quảng cáo. Sau đó ấn nút "Tra cứu"
+        ul#document-list
+            //- li Giấy xác nhận nội dung quảng cáo
+            //- li Giấy xác nhận 
+            //-     em (nội dung quảng cáo)
 
