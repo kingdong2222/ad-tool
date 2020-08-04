@@ -810,6 +810,11 @@
 						margin-right: 12px;
 						min-width: 48px;
 					}
+					.title{
+						&:after{
+							top: 2px
+						}
+					}
 				}
 				.title{
 					margin-left: -5px;
