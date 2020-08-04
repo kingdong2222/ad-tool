@@ -1081,8 +1081,12 @@ function checkPolicy(val) {
     let valueLower = val.toLowerCase()
     let getBanWordsList = []
     for (let i = 0; i < list.length; i++) {
-        if (valueLower.includes(list[i])) {
-            getBanWordsList.push(list[i])
+        if (valueLower.includes(list[i].toLowerCase())) {
+            let lowerError = list[i].toLowerCase()
+            let lengthError = lowerError.length
+            let beginIndexError = valueLower.indexOf(lowerError)
+            let temp = val.substr(beginIndexError, lengthError)
+            getBanWordsList.push(temp)
         }
     }
     return getBanWordsList
@@ -1097,8 +1101,12 @@ function checkWarning(val) {
     let valueLower = val.toLowerCase()
     let getBanWordsList = []
     for (let i = 0; i < list.length; i++) {
-        if (valueLower.includes(list[i])) {
-            getBanWordsList.push(list[i])
+        if (valueLower.includes(list[i].toLowerCase())) {
+            let lowerError = list[i].toLowerCase()
+            let lengthError = lowerError.length
+            let beginIndexError = valueLower.indexOf(lowerError)
+            let temp = val.substr(beginIndexError, lengthError)
+            getBanWordsList.push(temp)
         }
     }
     return getBanWordsList
@@ -1872,123 +1880,41 @@ tippy('#tippy-notice-content', {
 });
 
 FunctionHoverWord = (id) => {
-    let banned_error_mess = document.getElementById(id)
-    // let banned_word_focus = banned_error_mess.getElementsByTagName('SPAN')
 
     let first_preview_OG = document.getElementById('first-preview').innerHTML;
     let second_preview_OG = document.getElementById('second-preview').innerHTML;
     let third_preview_OG = document.getElementById('third-preview').innerHTML;
     let fourth_preview_OG = document.getElementById('fourth-preview').innerHTML;
 
-    let first_preview_focus = document.getElementById('first-preview').innerHTML.toLowerCase();
-    let second_preview_focus = document.getElementById('second-preview').innerHTML.toLowerCase();
-    let third_preview_focus = document.getElementById('third-preview').innerHTML.toLowerCase();
-    let fourth_preview_focus = document.getElementById('fourth-preview').innerHTML.toLowerCase();
-
     $('#' + id + ' span').hover(value => {
-        if (first_preview_focus.indexOf(value.target.innerText) > -1) {
-            let lengthError = value.target.innerText.length
-            let beginIndexError = first_preview_focus.indexOf(value.target.innerText)
-            if (first_preview_focus.indexOf(value.target.innerText) == 0) {
-                if (first_preview_focus.indexOf(first_preview_OG) == -1) {
-                    let textErrorCaseUpper = first_preview_OG.substr(beginIndexError, lengthError)
-                    let temp = first_preview_OG.replace(textErrorCaseUpper, '<span>' + textErrorCaseUpper + "&nbsp</span>")
-                    document.getElementById('first-preview').innerHTML = temp
-                } else if (first_preview_focus.indexOf(first_preview_OG) > -1) {
-                    let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "&nbsp</span>")
-                    document.getElementById('first-preview').innerHTML = temp
-                }
-            } else {
-                if (first_preview_focus.indexOf(first_preview_OG) == -1) {
-                    let textErrorCaseUpper = first_preview_OG.substr(beginIndexError, lengthError)
-                    let temp = first_preview_OG.replace(textErrorCaseUpper, '<span>&nbsp' + textErrorCaseUpper + "&nbsp</span>")
-                    document.getElementById('first-preview').innerHTML = temp
-                } else if (first_preview_focus.indexOf(first_preview_OG) > -1) {
-                    let temp = first_preview_OG.replace(value.target.innerText, '<span>&nbsp' + value.target.innerText + "&nbsp</span>")
-                    document.getElementById('first-preview').innerHTML = temp
-                }
-            }
+        if (first_preview_OG.indexOf(value.target.innerText) > -1) {
+            let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+            document.getElementById('first-preview').innerHTML = temp
         }
-        if (second_preview_focus.indexOf(value.target.innerText) > -1) {
-            let lengthError = value.target.innerText.length
-            let beginIndexError = second_preview_focus.indexOf(value.target.innerText)
-            if (second_preview_focus.indexOf(value.target.innerText) == 0) {
-                if (second_preview_focus.indexOf(second_preview_OG) == -1) {
-                    let textErrorCaseUpper = second_preview_OG.substr(beginIndexError, lengthError)
-                    let temp = second_preview_OG.replace(textErrorCaseUpper, '<span>' + textErrorCaseUpper + "&nbsp</span>")
-                    document.getElementById('second-preview').innerHTML = temp
-                } else if (second_preview_focus.indexOf(second_preview_OG) > -1) {
-                    let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "&nbsp</span>")
-                    document.getElementById('second-preview').innerHTML = temp
-                }
-            } else {
-                if (second_preview_focus.indexOf(second_preview_OG) == -1) {
-                    let textErrorCaseUpper = second_preview_OG.substr(beginIndexError, lengthError)
-                    let temp = second_preview_OG.replace(textErrorCaseUpper, '<span>&nbsp' + textErrorCaseUpper + "&nbsp</span>")
-                    document.getElementById('second-preview').innerHTML = temp
-                } else if (second_preview_focus.indexOf(second_preview_OG) > -1) {
-                    let temp = second_preview_OG.replace(value.target.innerText, '<span>&nbsp' + value.target.innerText + "&nbsp</span>")
-                    document.getElementById('second-preview').innerHTML = temp
-                }
-            }
+        if (second_preview_OG.indexOf(value.target.innerText) > -1) {
+            let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+            document.getElementById('second-preview').innerHTML = temp
         }
-        if (third_preview_focus.indexOf(value.target.innerText) > -1) {
-            let lengthError = value.target.innerText.length
-            let beginIndexError = third_preview_focus.indexOf(value.target.innerText)
-            if (third_preview_focus.indexOf(value.target.innerText) == 0) {
-                if (third_preview_focus.indexOf(third_preview_OG) == -1) {
-                    let textErrorCaseUpper = third_preview_OG.substr(beginIndexError, lengthError)
-                    let temp = third_preview_OG.replace(textErrorCaseUpper, '<span>' + textErrorCaseUpper + "&nbsp</span>")
-                    document.getElementById('third-preview').innerHTML = temp
-                } else if (third_preview_focus.indexOf(third_preview_OG) > -1) {
-                    let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "&nbsp</span>")
-                    document.getElementById('third-preview').innerHTML = temp
-                }
-            } else {
-                if (third_preview_focus.indexOf(third_preview_OG) == -1) {
-                    let textErrorCaseUpper = third_preview_OG.substr(beginIndexError, lengthError)
-                    let temp = third_preview_OG.replace(textErrorCaseUpper, '<span>&nbsp' + textErrorCaseUpper + "&nbsp</span>")
-                    document.getElementById('third-preview').innerHTML = temp
-                } else if (third_preview_focus.indexOf(third_preview_OG) > -1) {
-                    let temp = third_preview_OG.replace(value.target.innerText, '<span>&nbsp' + value.target.innerText + "&nbsp</span>")
-                    document.getElementById('third-preview').innerHTML = temp
-                }
-            }
+        if (third_preview_OG.indexOf(value.target.innerText) > -1) {
+            let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+            document.getElementById('third-preview').innerHTML = temp
         }
-        if (fourth_preview_focus.indexOf(value.target.innerText) > -1) {
-            let lengthError = value.target.innerText.length
-            let beginIndexError = fourth_preview_focus.indexOf(value.target.innerText)
-            if (fourth_preview_focus.indexOf(value.target.innerText) == 0) {
-                if (fourth_preview_focus.indexOf(fourth_preview_OG) == -1) {
-                    let textErrorCaseUpper = fourth_preview_OG.substr(beginIndexError, lengthError)
-                    let temp = fourth_preview_OG.replace(textErrorCaseUpper, '<span>' + textErrorCaseUpper + "&nbsp</span>")
-                    document.getElementById('fourth-preview').innerHTML = temp
-                } else if (fourth_preview_focus.indexOf(fourth_preview_OG) > -1) {
-                    let temp = fourth_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "&nbsp</span>")
-                    document.getElementById('fourth-preview').innerHTML = temp
-                }
-            } else {
-                if (fourth_preview_focus.indexOf(fourth_preview_OG) == -1) {
-                    let textErrorCaseUpper = fourth_preview_OG.substr(beginIndexError, lengthError)
-                    let temp = fourth_preview_OG.replace(textErrorCaseUpper, '<span>&nbsp' + textErrorCaseUpper + "&nbsp</span>")
-                    document.getElementById('fourth-preview').innerHTML = temp
-                } else if (fourth_preview_focus.indexOf(fourth_preview_OG) > -1) {
-                    let temp = fourth_preview_OG.replace(value.target.innerText, '<span>&nbsp' + value.target.innerText + "&nbsp</span>")
-                    document.getElementById('fourth-preview').innerHTML = temp
-                }
-            }
+        if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
+            let temp = fourth_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+            document.getElementById('fourth-preview').innerHTML = temp
         }
+        
     }, value => {
-        if (first_preview_focus.indexOf(value.target.innerText) > -1) {
+        if (first_preview_OG.indexOf(value.target.innerText) > -1) {
             document.getElementById('first-preview').innerHTML = first_preview_OG
         }
-        if (second_preview_focus.indexOf(value.target.innerText) > -1) {
+        if (second_preview_OG.indexOf(value.target.innerText) > -1) {
             document.getElementById('second-preview').innerHTML = second_preview_OG
         }
-        if (third_preview_focus.indexOf(value.target.innerText) > -1) {
+        if (third_preview_OG.indexOf(value.target.innerText) > -1) {
             document.getElementById('third-preview').innerHTML = third_preview_OG
         }
-        if (fourth_preview_focus.indexOf(value.target.innerText) > -1) {
+        if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
             document.getElementById('fourth-preview').innerHTML = fourth_preview_OG
         }
     })
