@@ -1057,24 +1057,42 @@ function focusFirstInput() {
 }
 
 let banned_words = []
+let banned_words_fixed = []
 let warning_words = []
+let warning_words_fixed = []
 
 window.onload = () => {
-    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1N5zxJzuFckxGRhplYf9yiIplhP7FBbUGTZVcxCTE7xA/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=C2%3AC&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAQps-FHqKesLlZYEsIJQAv5UzUfmqwoxQ'
+    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1N5zxJzuFckxGRhplYf9yiIplhP7FBbUGTZVcxCTE7xA/values:batchGet?dateTimeRenderOption=SERIAL_NUMBER&majorDimension=COLUMNS&ranges=A2%3AA&ranges=B2%3AB&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAQps-FHqKesLlZYEsIJQAv5UzUfmqwoxQ'
     fetch(url_google_sheet)
         .then(res => res.json())
         .then((out) => {
             // console.log(out)
             banned_words = out.valueRanges[0].values
-            warning_words = out.valueRanges[1].values
+            banned_words_fixed = out.valueRanges[1].values
+            warning_words = out.valueRanges[2].values
+            warning_words_fixed = out.valueRanges[3].values
+            case_sensitive_words = out.valueRanges[4].values
         })
         .catch(err => { throw err });
 }
 
-// let banned_words = [
-//     'khóc thét','giật mình','hốt hoảng','phẫu thuật','lây nhiễm','quan hệ tình dục','tình dục','dương vật','âm đạo','bệnh lậu','giang mai','sùi mào gà','mụn rộp sinh dục',
-//     'chăm sóc vùng kín','nạo hút thai','phá thai','bệnh trĩ','hôi nách','hắc lào','lang ben','bệnh xã hội'
-// ]
+// check sensitive words
+function checkSensitive(val) {
+    let list = case_sensitive_words[0]
+    // let valueLower = val.toLowerCase()
+    let getBanWordsList = []
+    for (let i = 0; i < list.length; i++) {
+        if (val.includes(list[i])) {
+            let lowerError = list[i]
+            let lengthError = lowerError.length
+            let beginIndexError = val.indexOf(lowerError)
+            let temp = val.substr(beginIndexError, lengthError)
+            getBanWordsList.push(temp)
+        }
+    }
+    return getBanWordsList
+}
+
 // check banned words
 function checkPolicy(val) {
     let list = banned_words[0]
@@ -1092,9 +1110,6 @@ function checkPolicy(val) {
     return getBanWordsList
 }
 
-// let warning_words = [
-//     'nhất','số một'
-// ]
 // check warning
 function checkWarning(val) {
     let list = warning_words[0]
@@ -1206,7 +1221,7 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord('banned-3'), 500)
+                setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             // if(checkFormat2(value_1) == 1){
             //     if(isUpperCase(value_1)==true){
@@ -1298,7 +1313,7 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord('warning-4'), 500)
+                setTimeout(FunctionHoverWord('warning-4'), 200)
             }
             if (value_1.match(/\s{2,}/g)) {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
@@ -1352,26 +1367,33 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord('banned-3'), 500)
+                setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_2) == 1) {
                 if (isUpperCase(value_2) == true) {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                    if(checkSensitive(value_2).length > 0){
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        }
                     }
                 } else if (value_2.match(InputFormatUpperAfterDot)) {
                     value_check_ad = true
                 } else {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                    if(checkSensitive(value_2).length > 0){
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                        } else {
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                        }
                     }
+                    
                 }
             }
 
@@ -1444,7 +1466,7 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord('warning-4'), 500)
+                setTimeout(FunctionHoverWord('warning-4'), 200)
             }
             if (value_2.match(/\s{2,}/g)) {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -1498,25 +1520,31 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord('banned-3'), 500)
+                setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_3) == 1) {
                 if (isUpperCase(value_3) == true) {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                    if(checkSensitive(value_3).length > 0){
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        }
                     }
                 } else if (value_3.match(InputFormatUpperAfterDot)) {
                     value_check_ad = true
                 } else {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                    if(checkSensitive(value_3).length > 0){
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                        third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                        } else {
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                        }
                     }
                 }
             }
@@ -1589,7 +1617,7 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord('warning-4'), 500)
+                setTimeout(FunctionHoverWord('warning-4'), 200)
             }
             if (value_3.match(/\s{2,}/g)) {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -1643,25 +1671,31 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord('banned-3'), 500)
+                setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_4) == 1) {
                 if (isUpperCase(value_4) == true) {
-                    fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                    if(checkSensitive(value_4).length > 0){
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        }
                     }
                 } else if (value_4.match(InputFormatUpperAfterDot)) {
                     value_check_ad = true
                 } else {
-                    fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                    if(checkSensitive(value_4).length > 0){
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                        } else {
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                        }
                     }
                 }
             }
@@ -1734,7 +1768,7 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord('warning-4'), 500)
+                setTimeout(FunctionHoverWord('warning-4'), 200)
             }
             if (value_4.match(/\s{2,}/g)) {
                 fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
@@ -1885,8 +1919,38 @@ FunctionHoverWord = (id) => {
     let second_preview_OG = document.getElementById('second-preview').innerHTML;
     let third_preview_OG = document.getElementById('third-preview').innerHTML;
     let fourth_preview_OG = document.getElementById('fourth-preview').innerHTML;
+    let list = []
+    let index
+    let error_fix_content
 
     $('#' + id + ' span').hover(value => {
+
+        if(id.includes('banned')){
+            list = banned_words_fixed[0]
+            index = banned_words[0].indexOf(value.target.innerText)
+            // error_fix_content = list[index] === undefined ? 'Vui lòng thay thế từ ngữ phù hợp' : list[index]
+            error_fix_content = list[index] 
+        } else {
+            list = warning_words_fixed[0]
+            index = warning_words[0].indexOf(value.target.innerText)
+            // error_fix_content = list[index] === undefined ? 'Vui lòng thay thế từ ngữ phù hợp' : list[index]
+            error_fix_content = list[index] 
+        }
+        error_fix_content === undefined ? null :
+            tippy(Array.from(document.querySelectorAll('span'))
+                    .find(el => el.textContent === value.target.innerText), {
+                content: '<div class="tippy-block"><p>'+error_fix_content+'</p></div>',
+                allowHTML: true,
+                maxWidth: 270,
+                theme: 'zad',
+                interactive: true,
+                // delay: [300, null],
+                placement: 'right-start',
+                // trigger: 'click',
+            });
+        
+        
+
         if (first_preview_OG.indexOf(value.target.innerText) > -1) {
             let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
             document.getElementById('first-preview').innerHTML = temp
