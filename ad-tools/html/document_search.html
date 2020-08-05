@@ -45,7 +45,7 @@
               <h2 class="title">Nội dung tra cứu</h2>
               <div class="text-input-item">
                 <div class="label-title">
-                  <h3 class="title">Ngành hàng kinh doanh<i class="icz icz-question" id="tippy-button-call-action"></i></h3>
+                  <h3 class="title">Ngành hàng kinh doanh (Bắt buộc)<i class="icz icz-question" id="tippy-button-call-action"></i></h3>
                 </div>
                 <div class="select">
                   <select id="first-select">
@@ -222,51 +222,9 @@
       $('#first-select').change(function(value) {
       	$('#first-select-preview').html(value.target.value)
       	if(value.target.value != 'Chọn ngành hàng'){
-      		if($('#check0')[0].checked || $('#check1')[0].checked || $('#check2')[0].checked || $('#check3')[0].checked){
-      			$('#check-form-ad').attr('disabled',false)
-      		}
+      		$('#check-form-ad').attr('disabled',false)
       	} else {
       		$('#check-form-ad').attr('disabled',true)
-      	}
-      })
-      $('#check0').change(function(value){
-      	if(value.target.checked){
-      		if($('#first-select').val() != 'Chọn ngành hàng'){
-      			$('#check-form-ad').attr('disabled',false)
-      		}
-      	} else {
-      		if($('#check1')[0].checked || $('#check2')[0].checked || $('#check3')[0].checked){}
-      		else{$('#check-form-ad').attr('disabled',true)}
-      	}
-      })
-      $('#check1').change(function(value){
-      	if(value.target.checked){
-      		if($('#first-select').val() != 'Chọn ngành hàng'){
-      			$('#check-form-ad').attr('disabled',false)
-      		}
-      	} else {
-      		if($('#check0')[0].checked || $('#check2')[0].checked || $('#check3')[0].checked){}
-      		else{$('#check-form-ad').attr('disabled',true)}
-      	}
-      })
-      $('#check2').change(function(value){
-      	if(value.target.checked){
-      		if($('#first-select').val() != 'Chọn ngành hàng'){
-      			$('#check-form-ad').attr('disabled',false)
-      		}
-      	} else {
-      		if($('#check1')[0].checked || $('#check0')[0].checked || $('#check3')[0].checked){}
-      		else{$('#check-form-ad').attr('disabled',true)}
-      	}
-      })
-      $('#check3').change(function(value){
-      	if(value.target.checked){
-      		if($('#first-select').val() != 'Chọn ngành hàng'){
-      			$('#check-form-ad').attr('disabled',false)
-      		}
-      	} else {
-      		if($('#check1')[0].checked || $('#check2')[0].checked || $('#check0')[0].checked){}
-      		else{$('#check-form-ad').attr('disabled',true)}
       	}
       })
       

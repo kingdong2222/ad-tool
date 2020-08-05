@@ -1144,9 +1144,9 @@ function isUpperCase(str) {
     return str === str.toUpperCase();
 }
 
-const InputFormatNoPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w]/g
+const InputFormatNoPuntuation = /[àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w]/g
 
-const InputFormatWithPuntuation = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\w\s.,/?!;:'"%-]/g
+const InputFormatWithPuntuation = /[àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w\s.,/?!;:'"%-]/g
 
 const InputFormatUpperAfterDot = /([.?!] )([A-Z0-9])/g
 
@@ -1160,10 +1160,10 @@ document.getElementById('check-form-ad').onclick = value => {
     document.getElementById('check-form-ad').classList.add('is-loading')
 
     //get value input
-    let value_1 = first_input.value.trimEnd()
-    let value_2 = second_input.value.trimEnd()
-    let value_3 = third_input.value.trimEnd()
-    let value_4 = fourth_input.value.trimEnd()
+    let value_1 = first_input.value.trimEnd().replace(/\n/g, " ")
+    let value_2 = second_input.value.trimEnd().replace(/\n/g, " ")
+    let value_3 = third_input.value.trimEnd().replace(/\n/g, " ")
+    let value_4 = fourth_input.value.trimEnd().replace(/\n/g, " ")
 
     //clear cards
     warning_card.classList.add('is-hidden')
@@ -1924,30 +1924,27 @@ FunctionHoverWord = (id) => {
     let error_fix_content
 
     $('#' + id + ' span').hover(value => {
-
-        if(id.includes('banned')){
-            list = banned_words_fixed[0]
-            index = banned_words[0].indexOf(value.target.innerText)
-            // error_fix_content = list[index] === undefined ? 'Vui lòng thay thế từ ngữ phù hợp' : list[index]
-            error_fix_content = list[index] 
-        } else {
-            list = warning_words_fixed[0]
-            index = warning_words[0].indexOf(value.target.innerText)
-            // error_fix_content = list[index] === undefined ? 'Vui lòng thay thế từ ngữ phù hợp' : list[index]
-            error_fix_content = list[index] 
-        }
-        error_fix_content === undefined ? null :
-            tippy(Array.from(document.querySelectorAll('span'))
-                    .find(el => el.textContent === value.target.innerText), {
-                content: '<div class="tippy-block"><p>'+error_fix_content+'</p></div>',
-                allowHTML: true,
-                maxWidth: 270,
-                theme: 'zad',
-                interactive: true,
-                // delay: [300, null],
-                placement: 'right-start',
-                // trigger: 'click',
-            });
+        // $("body [data-tippy-root]").remove()
+        // if(id.includes('banned')){
+        //     list = banned_words_fixed[0]
+        //     index = banned_words[0].indexOf(value.target.innerText)
+        //     error_fix_content = list[index] 
+        // } else {
+        //     list = warning_words_fixed[0]
+        //     index = warning_words[0].indexOf(value.target.innerText)
+        //     error_fix_content = list[index] 
+        // }
+        // error_fix_content === undefined || error_fix_content === '' ? null :
+        //     tippy(Array.from(document.querySelectorAll('span'))
+        //             .find(el => el.textContent === value.target.innerText), {
+        //         content: '<div class="tippy-block"><p>'+error_fix_content+'</p></div>',
+        //         allowHTML: true,
+        //         maxWidth: 270,
+        //         theme: 'zad1',
+        //         interactive: true,
+        //         // placement: 'right-start',
+        //         trigger: 'click',
+        //     });
         
         
 
@@ -1969,6 +1966,9 @@ FunctionHoverWord = (id) => {
         }
         
     }, value => {
+
+        // $("body [data-tippy-root]").remove()
+
         if (first_preview_OG.indexOf(value.target.innerText) > -1) {
             document.getElementById('first-preview').innerHTML = first_preview_OG
         }
