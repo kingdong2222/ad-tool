@@ -139,9 +139,10 @@
 		a.logo{display:block;
 			i.ico-logo{display:block;background:url(../images/v2/logo_v2.png) 0 0 no-repeat;background-size:cover;@include size(105px, 20px);margin-left: 4rem;margin-right: 7rem;
 				@include until(1295px){margin-left: 3rem}
+				@include until(1024px){margin-left: 1.5rem;}
 			}
 		}
-		.navbar-main{display:flex;align-items:center;
+		.navbar-main{display:none;align-items:center;
 			> ul{display:flex;margin-bottom:0;
 				> li{flex-shrink:0;margin-right:2rem;
 					a.navbar-item{position: relative;display:flex;flex-direction: column;height:60px;justify-content: center;color:#828795;font-size:$size-medium;font-weight:500;@extend %tr-all;
@@ -169,6 +170,7 @@
 					&:nth-child(2){display:block}
 				}
 			}
+			@include from(1024px){display:flex;}
 		}
 		@include widescreen{
 			.navbar-main>ul>li{display:block}
@@ -240,11 +242,47 @@
 		}
 	}
 	main{
-		display: flex !important;
+		&.is-mobile-only{
+			display: block !important;
+			padding-top: 5vh;
+			width: 100vw;
+			background-color: #fff;
+			.is-mobile-container{
+				width: 70%;
+				margin: 0 auto;
+				display: flex ;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+			@include from(768px){padding-top: 6vh;}
+			@include from(1024px){display: none !important;}
+			h2{
+				font-size: 18px;
+				font-weight: 500;
+				text-align: center;
+				color: #131820;
+				padding-top: 8px !important;
+				margin-bottom: 0 !important;
+			}
+			p{
+				padding-top: 16px !important;
+				font-size: 14px;
+				text-align: center;
+				color: #989EA5;
+				margin-bottom: 0 !important;
+			}
+			a.button{
+				font-size: 16px;
+				margin-top: 56px;
+			}
+			
+		}
+		display: none !important;
 		background-color: #F0F4F8;
 		min-height: 100vh;
 		@include until(1280px){width: fit-content}
-
+		@include from(1024px){display: flex !important}
 		
 		#output{
 			object-fit: contain;

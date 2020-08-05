@@ -1,5 +1,3 @@
-
-
 if(location.href.includes('position_preview')){
     document.getElementsByClassName("navbar-item")[1].classList.add('active')
     document.getElementsByClassName("navbar-item")[0].classList.remove('active')
@@ -939,9 +937,11 @@ first_input.oninput = value => {
 
 second_input.oninput = value => {
     second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
+    //convert multi enter to <br> for preview
+    let temp = value.target.value.replace(/\n/g, "<br>")
     if (value.target.value) {
-        second_content_preview.innerHTML = value.target.value
-        $('.second-preview-position').html(value.target.value)
+        second_content_preview.innerHTML = temp
+        $('.second-preview-position').html(temp)
         second_max_letter.innerHTML = second_input.value.length + '/90'
         if (first_input.value || third_input.value || fourth_input.value) {
             //do nothing cause it's done already
@@ -1922,31 +1922,31 @@ FunctionHoverWord = (id) => {
     let list = []
     let index
     let error_fix_content
+    let tempId = document.getElementById(id)
 
     $('#' + id + ' span').hover(value => {
-        // $("body [data-tippy-root]").remove()
-        // if(id.includes('banned')){
-        //     list = banned_words_fixed[0]
-        //     index = banned_words[0].indexOf(value.target.innerText)
-        //     error_fix_content = list[index] 
-        // } else {
-        //     list = warning_words_fixed[0]
-        //     index = warning_words[0].indexOf(value.target.innerText)
-        //     error_fix_content = list[index] 
-        // }
-        // error_fix_content === undefined || error_fix_content === '' ? null :
-        //     tippy(Array.from(document.querySelectorAll('span'))
-        //             .find(el => el.textContent === value.target.innerText), {
-        //         content: '<div class="tippy-block"><p>'+error_fix_content+'</p></div>',
-        //         allowHTML: true,
-        //         maxWidth: 270,
-        //         theme: 'zad1',
-        //         interactive: true,
-        //         // placement: 'right-start',
-        //         trigger: 'click',
-        //     });
+        if(id.includes('banned')){
+            list = banned_words_fixed[0]
+            index = banned_words[0].indexOf(value.target.innerText)
+            error_fix_content = list[index] 
+        } else {
+            list = warning_words_fixed[0]
+            index = warning_words[0].indexOf(value.target.innerText)
+            error_fix_content = list[index] 
+        }
         
-        
+        if(error_fix_content === undefined || error_fix_content === ''){
+        } else {
+            tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+                content: '<div class="tippy-block"><p>'+error_fix_content+'</p></div>',
+                allowHTML: true,
+                maxWidth: 270,
+                theme: 'zad1',
+                interactive: true,
+                // placement: 'right-start',
+                // trigger: 'click',
+            });
+        }
 
         if (first_preview_OG.indexOf(value.target.innerText) > -1) {
             let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
