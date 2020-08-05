@@ -1927,11 +1927,11 @@ FunctionHoverWord = (id) => {
     $('#' + id + ' span').hover(value => {
         if(id.includes('banned')){
             list = banned_words_fixed[0]
-            index = banned_words[0].indexOf(value.target.innerText)
+            index = banned_words[0].indexOf(value.target.innerText.toLowerCase())
             error_fix_content = list[index] 
         } else {
             list = warning_words_fixed[0]
-            index = warning_words[0].indexOf(value.target.innerText)
+            index = warning_words[0].indexOf(value.target.innerText.toLowerCase())
             error_fix_content = list[index] 
         }
         

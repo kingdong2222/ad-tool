@@ -294,21 +294,21 @@
 			padding: 0;
 		}
 		h3.title{
-			font-size: .875rem;
+			font-size: .75rem;
 			font-weight: 600;
 			display: flex;
 			align-items: center;
 			margin-bottom: unset;
 			padding-top: 0;
 			.icz{
-				font-size: 12px;
+				font-size: 14px;
 				margin-left: 0.5rem;
-				color: #72809D;
+				// color: #72809D;
 			}
 		}
 		&.document_search{
 			@include until(1280px){width: auto}
-			.title{display: block;}
+			// .title{display: block;}
 			.main-body{
 				width: 33.33%;
 				@include until(1295px){
@@ -485,7 +485,7 @@
 				width: 100%;
 				border: 1px solid #DCE1E7;
 				border-radius: 4px;
-				font-size: 14px;
+				font-size: 16px;
 				padding: 12px;
 				outline:none;
 				&:focus{
