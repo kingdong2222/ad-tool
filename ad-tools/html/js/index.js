@@ -1079,13 +1079,13 @@ window.onload = () => {
 // check sensitive words
 function checkSensitive(val) {
     let list = case_sensitive_words[0]
-    let valueLower = val.toLowerCase()
+    // let valueLower = val.toLowerCase()
     let getBanWordsList = []
     for (let i = 0; i < list.length; i++) {
-        if (valueLower.includes(list[i].toLowerCase())) {
-            let lowerError = list[i].toLowerCase()
+        if (val.includes(list[i])) {
+            let lowerError = list[i]
             let lengthError = lowerError.length
-            let beginIndexError = valueLower.indexOf(lowerError)
+            let beginIndexError = val.indexOf(lowerError)
             let temp = val.substr(beginIndexError, lengthError)
             getBanWordsList.push(temp)
         }
@@ -1371,11 +1371,14 @@ document.getElementById('check-form-ad').onclick = value => {
             }
             if (checkFormat2(value_2) == 1) {
                 if (isUpperCase(value_2) == true) {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                    if(checkSensitive(value_2).length > 0){
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        }
                     }
                 } else if (value_2.match(InputFormatUpperAfterDot)) {
                     value_check_ad = true
@@ -1521,11 +1524,14 @@ document.getElementById('check-form-ad').onclick = value => {
             }
             if (checkFormat2(value_3) == 1) {
                 if (isUpperCase(value_3) == true) {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                    if(checkSensitive(value_3).length > 0){
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        }
                     }
                 } else if (value_3.match(InputFormatUpperAfterDot)) {
                     value_check_ad = true
@@ -1669,11 +1675,14 @@ document.getElementById('check-form-ad').onclick = value => {
             }
             if (checkFormat2(value_4) == 1) {
                 if (isUpperCase(value_4) == true) {
-                    fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                    if(checkSensitive(value_4).length > 0){
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                        }
                     }
                 } else if (value_4.match(InputFormatUpperAfterDot)) {
                     value_check_ad = true
