@@ -9,6 +9,7 @@
 	}
 	body, html{height:100%;
 		@include from($tablet){height:auto}
+		p{font-family:Muli;}
 	}
 	.is-hidden{
 		display: none !important;
@@ -144,7 +145,7 @@
 				@include until(1024px){margin-left: 1.5rem;}
 			}
 		}
-		.navbar-main{display:none;align-items:center;
+		.navbar-main{display:none;align-items:center;font-family:Muli;
 			> ul{display:flex;margin-bottom:0;
 				> li{flex-shrink:0;margin-right:2rem;
 					a.navbar-item{position: relative;display:flex;flex-direction: column;height:60px;justify-content: center;color:#828795;font-size:$size-medium;font-weight:500;@extend %tr-all;
