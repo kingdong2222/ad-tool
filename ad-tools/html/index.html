@@ -75,14 +75,25 @@
                   <h3 class="title">Mô tả<i class="icz icz-question" id="tippy-optional-desc"></i></h3>
                   <p class="max-letter" id="max-letter-third">0/60</p>
                 </div>
-                <input id="third-input" type="text" placeholder="Nhập mô tả" maxlength="60">
+                <textarea id="third-input" type="text" placeholder="Nhập mô tả" maxlength="60" rows="1"></textarea>
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Quảng cáo của bạn là<i class="icz icz-question" id="tippy-tick-tpcn"></i></h3>
+                </div>
+                <div class="control">
+                  <input id="check_tpcn" type="checkbox">
+                  <label for="check_tpcn">Đây là quảng cáo “Thực phẩm chức năng”</label>
+                </div>
               </div>
               <div class="text-input-item">
                 <div class="label-title">
                   <h3 class="title">Thông tin thêm<i class="icz icz-question" id="tippy-optional-info"></i></h3>
                   <p class="max-letter" id="max-letter-fourth">0/60</p>
                 </div>
-                <input id="fourth-input" type="text" placeholder="Nhập thông tin thêm" maxlength="60">
+                <textarea class="tpcn-case" id="fourth-input" type="text" placeholder="Nhập thông tin thêm" maxlength="60" rows="1"></textarea>
+                <textarea class="tpcn-case is-hidden" id="fourth-tpcn-input" type="text" disabled maxlength="60" style="height:auto;">Sản phẩm này không phải là thuốc không có tác dụng thay thế</textarea>
+                <p class="tpcn-case is-hidden">Quảng cáo thực phẩm chức năng yêu cầu bổ sung thông tin này</p>
               </div>
               <div class="text-input-item">
                 <div class="label-title">
@@ -514,8 +525,8 @@
       </main>
       <main class="is-mobile-only">
         <div class="is-mobile-container"><img src="./images/ZAD_Illus_maintenance.png">
-          <h2 class="title">Công cụ hiện chỉ hộ trợ trên thiết bị máy vi tính.</h2>
-          <p>Phiên bản trên điện thoại sẽ được cập nhật vào thời gian sắp tới. Theo dõi thông tin về bản cập nhật tại trang chủ Zalo Ads</p><a class="button is-primary" href="https://ads.zalo.me/business/">Trang chủ Zalo Ads</a>
+          <h2 class="title">Công cụ hiện chỉ hỗ trợ trên thiết bị máy vi tính.</h2>
+          <p>Phiên bản trên điện thoại sẽ được cập nhật vào thời gian sắp tới.</p><a class="button is-primary" href="https://ads.zalo.me/business/">Trang chủ Zalo Ads</a>
         </div>
       </main>
     </div>

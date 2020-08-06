@@ -14,7 +14,8 @@
 		display: none !important;
 	}
 	/* General */
-	.page-content{min-width:1024px;@include margin(null auto);
+	.page-content{@include margin(null auto);min-width:1024px;
+		@include until($desktop){min-width: auto;}
 		@include until(1280px){overflow-x: scroll;}
 		&.is-popup{background-color:rgba(36,46,66,1);@include padding($gap)}
 		.body{@include padding($gutter); }
@@ -136,6 +137,7 @@
 	
 	input:focus{border: 1px solid red}
 	.header{display:flex;align-items:center;background-color:#050F2E;min-width:1024px;height: 60px;position: relative;z-index: 100;width: 100%;
+		@include until($desktop){min-width: auto;}
 		a.logo{display:block;
 			i.ico-logo{display:block;background:url(../images/v2/logo_v2.png) 0 0 no-repeat;background-size:cover;@include size(105px, 20px);margin-left: 4rem;margin-right: 7rem;
 				@include until(1295px){margin-left: 3rem}
@@ -244,7 +246,7 @@
 	main{
 		&.is-mobile-only{
 			display: block !important;
-			padding-top: 5vh;
+			padding-top: 3.5vh;
 			width: 100vw;
 			background-color: #fff;
 			.is-mobile-container{
@@ -300,7 +302,7 @@
 			align-items: center;
 			margin-bottom: unset;
 			padding-top: 0;
-			padding-bottom: 8px;
+			padding-bottom: 8px !important;
 			.icz{
 				font-size: 12px;
 				margin-left: 0.25rem;
@@ -481,26 +483,38 @@
 					margin-bottom: 0;
 				}
 			}
+			.control{
+				label{
+					margin-bottom: 0;
+				}
+			}
 			input, textarea{
-				height: 40px;
+				// min-height: 30px;
 				width: 100%;
 				border: 1px solid #DCE1E7;
 				border-radius: 4px;
 				font-size: 16px;
-				padding: 12px;
+				padding: 8px 12px;
 				outline:none;
+				resize: none;
 				&:focus{
 					border-color: #1744CF;
 					outline:none;
 					box-shadow: 0 0 0 0.125em rgba(23,69,207,0.15);
 				}
 			}
-			textarea{
-				min-height: 80px;
+			p.tpcn-case{
+				margin-bottom: 0;
+				font-size: 12px;
+				color: #E62100;
+			}
+			textarea#second-input{
+				min-height: 100px;
 				min-width: 100%;
 				max-width: 100%;
-				max-height: 200px;
+				max-height: 100px;
 				display: block;
+				resize: none;
 			}
 			.select{
 				width: 100%;
@@ -774,6 +788,7 @@
 							span{
 								border-bottom: 1px dotted;
 								cursor: pointer;
+								display: inline-block;
 							}
 						}
 					}
@@ -883,7 +898,7 @@
 				}
 				.title{
 					margin-left: -5px;
-					padding: 3px 5px;
+					padding: 3px 5px !important;
 					height: fit-content;
 					align-self: center;
 					@extend %tr-all;
@@ -951,7 +966,7 @@
 					width: auto;
 					position: relative;
 					border: 1px solid #FFD422;
-					padding: 2px;
+					padding: 2px !important;
 					margin-left: 7px;
 					top: 0 !important;
 					&:after{
