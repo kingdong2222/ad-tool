@@ -132,7 +132,20 @@ block javaScripts extend
 				$('#check-form-ad').attr('disabled',true)
 			}
 		})
-
+		document.getElementById('refresh-searching').onclick = value => {
+			$('#first-select').val('Chọn ngành hàng')
+			$('#check0')[0].checked = false
+			$('#check1')[0].checked = false
+			$('#check2')[0].checked = false
+			$('#check3')[0].checked = false
+			$('#check4')[0].checked = false
+			$('#check5')[0].checked = false
+			$('#img-empty').toggleClass('is-hidden')
+			$('#after-searching').toggleClass('is-hidden')
+			$('#before-searching').toggleClass('is-hidden')
+			$('#document-list li').remove()
+			$('.document-block-square').css('display','flex')
+		}
 		document.getElementById('check-form-ad').onclick = value => {
 			document.getElementById('check-form-ad').classList.add('is-loading')
 			$('#document-list li').remove()
@@ -147,8 +160,11 @@ block javaScripts extend
 			let checkbox_5 = $('#check5')[0].checked
 
 			setTimeout(() => {
+				$('.document-block-square').css('display','block')
 				document.getElementById('check-form-ad').classList.remove('is-loading')
-				$('#before-searching').remove()
+				$('#after-searching').toggleClass('is-hidden')
+				$('#img-empty').toggleClass('is-hidden')
+				$('#before-searching').toggleClass('is-hidden')
 				for(let i = 0; i < first_documents.length; i++){
 					if(first_documents[i].includes('Hoặc')){
 						$('#document-list').append('<ul class="or-document"><li>'+first_documents[i]+'</li></ul>')

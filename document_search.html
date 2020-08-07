@@ -33,8 +33,30 @@
         <ul>
           <li><a class="navbar-item" href="index.html">Công cụ kiểm tra quảng cáo</a></li>
           <li><a class="navbar-item" href="index.html#position_preview">Vị trí hiển thị quảng cáo</a></li>
-          <li><a class="navbar-item">Tra cứu giấy phép</a></li>
+          <li><a class="navbar-item" >Tra cứu giấy phép</a></li>
         </ul>
+      </div>
+      <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <i class="icz icz-fill-bell mr-2"></i><span>Lịch sử cập nhật</span></a>
+        <div class="dropdown-menu" aria-labelledby="dropdown-m2">
+          <p class="history-update-title">Chi tiết phiên bản</p>
+          <div class="history-list">
+            <div class="history-item">
+              <ul>
+                <li>Lorem Sepum</li>
+                <li>Lorem Sepum</li>
+                <li>Lorem Sepum</li>
+              </ul><span>Phiên bản 1.1 - 27/07/2020</span>
+            </div>
+            <div class="history-item">
+              <ul>
+                <li>Lorem Sepum</li>
+                <li>Lorem Sepum</li>
+                <li>Lorem Sepum</li>
+              </ul><span>Phiên bản 1.1 - 27/07/2020</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="page-content">
@@ -110,13 +132,16 @@
                 </div>
               </div>
               <button class="button is-primary is-large" id="check-form-ad" disabled>Tra cứu</button>
+              <button class="button is-large" id="refresh-searching">Làm mới</button>
             </div>
           </div>
         </div>
         <div class="slide-body">
-          <h2 class="title">Các loại giấy phép yêu cầu cho quảng cáo của bạn:</h2>
-          <h3 class="title" id="before-searching">Vui lòng chọn ngành hàng và nơi xuất xứ của mặt hàng bạn muốn quảng cáo. Sau đó ấn nút "Tra cứu"</h3>
-          <ul id="document-list"></ul>
+          <div class="document-block-square">
+            <h3 class="title is-hidden" id="after-searching">Các loại giấy phép yêu cầu cho quảng cáo của bạn:</h3><img id="img-empty" src="./images/zad_empty.png">
+            <h3 class="title" id="before-searching">Vui lòng chọn ngành hàng và nơi xuất xứ của mặt hàng bạn muốn quảng cáo. Sau đó ấn nút "Tra cứu"</h3>
+            <ul id="document-list"></ul>
+          </div>
         </div>
       </main>
       <main class="is-mobile-only">
@@ -233,7 +258,20 @@
       		$('#check-form-ad').attr('disabled',true)
       	}
       })
-      
+      document.getElementById('refresh-searching').onclick = value => {
+      	$('#first-select').val('Chọn ngành hàng')
+      	$('#check0')[0].checked = false
+      	$('#check1')[0].checked = false
+      	$('#check2')[0].checked = false
+      	$('#check3')[0].checked = false
+      	$('#check4')[0].checked = false
+      	$('#check5')[0].checked = false
+      	$('#img-empty').toggleClass('is-hidden')
+      	$('#after-searching').toggleClass('is-hidden')
+      	$('#before-searching').toggleClass('is-hidden')
+      	$('#document-list li').remove()
+      	$('.document-block-square').css('display','flex')
+      }
       document.getElementById('check-form-ad').onclick = value => {
       	document.getElementById('check-form-ad').classList.add('is-loading')
       	$('#document-list li').remove()
@@ -248,8 +286,11 @@
       	let checkbox_5 = $('#check5')[0].checked
       
       	setTimeout(() => {
+      		$('.document-block-square').css('display','block')
       		document.getElementById('check-form-ad').classList.remove('is-loading')
-      		$('#before-searching').remove()
+      		$('#after-searching').toggleClass('is-hidden')
+      		$('#img-empty').toggleClass('is-hidden')
+      		$('#before-searching').toggleClass('is-hidden')
       		for(let i = 0; i < first_documents.length; i++){
       			if(first_documents[i].includes('Hoặc')){
       				$('#document-list').append('<ul class="or-document"><li>'+first_documents[i]+'</li></ul>')

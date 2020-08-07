@@ -1086,8 +1086,10 @@ window.onload = () => {
             this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
         }
     }).on('input', function () {
-        this.style.height = 'auto';
-        this.style.height = (this.scrollHeight) + 'px';
+        if(this.scrollHeight>0){
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        }
     });
 
     //get data from google sheet

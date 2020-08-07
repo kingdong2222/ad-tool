@@ -57,11 +57,14 @@ main.document_search
                             input(id="check5" type="checkbox")
                             label(for="check5") Có người nổi tiếng trong landing page
                 button.button.is-primary.is-large#check-form-ad(disabled) Tra cứu
+                button.button.is-large#refresh-searching Làm mới
     .slide-body
-        h2.title Các loại giấy phép yêu cầu cho quảng cáo của bạn:
-        h3.title#before-searching Vui lòng chọn ngành hàng và nơi xuất xứ của mặt hàng bạn muốn quảng cáo. Sau đó ấn nút "Tra cứu"
-        ul#document-list
-            //- li Giấy xác nhận nội dung quảng cáo
-            //- li Giấy xác nhận 
-            //-     em (nội dung quảng cáo)
+        .document-block-square
+            h3.title#after-searching.is-hidden Các loại giấy phép yêu cầu cho quảng cáo của bạn:
+            img#img-empty(src="./images/zad_empty.png")
+            h3.title#before-searching Vui lòng chọn ngành hàng và nơi xuất xứ của mặt hàng bạn muốn quảng cáo. Sau đó ấn nút "Tra cứu"
+            ul#document-list
+                //- li Giấy xác nhận nội dung quảng cáo
+                //- li Giấy xác nhận 
+                //-     em (nội dung quảng cáo)
 
