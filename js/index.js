@@ -1422,6 +1422,16 @@ document.getElementById('check-form-ad').onclick = value => {
                         if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                         } else {
                             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                            setTimeout(function(){
+                            tippy('p#warning-0', {
+                                content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
+                                allowHTML: true,
+                                maxWidth: 270,
+                                theme: 'zad1',
+                                interactive: true,
+                                // delay: [300, null],
+                                // placement: 'right-start',
+                            });}, 200)
                         }
                     }
 
@@ -1575,6 +1585,16 @@ document.getElementById('check-form-ad').onclick = value => {
                         if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                         } else {
                             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                            setTimeout(function(){
+                                tippy('p#warning-0', {
+                                    content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
+                                    allowHTML: true,
+                                    maxWidth: 270,
+                                    theme: 'zad1',
+                                    interactive: true,
+                                    // delay: [300, null],
+                                    // placement: 'right-start',
+                                });}, 200)
                         }
                     }
                 }
@@ -1727,6 +1747,16 @@ document.getElementById('check-form-ad').onclick = value => {
                             if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                             } else {
                                 $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                                setTimeout(function(){
+                                    tippy('p#warning-0', {
+                                        content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
+                                        allowHTML: true,
+                                        maxWidth: 270,
+                                        theme: 'zad1',
+                                        interactive: true,
+                                        // delay: [300, null],
+                                        // placement: 'right-start',
+                                    });}, 200)
                             }
                         }
                     }
@@ -1970,14 +2000,22 @@ FunctionHoverWord = (id) => {
     $('#' + id + ' span').hover(value => {
         if (id.includes('banned')) {
             list = banned_words_fixed[0]
-            index = banned_words[0].indexOf(value.target.innerText.toLowerCase())
+            for(let i=0;i<banned_words[0].length;i++){
+                if(banned_words[0][i].toLowerCase()==value.target.innerText.toLowerCase()){
+                    index = i
+                }
+            }
             error_fix_content = list[index]
         } else {
             list = warning_words_fixed[0]
-            index = warning_words[0].indexOf(value.target.innerText.toLowerCase())
+            for(let i=0;i<warning_words[0].length;i++){
+                if(warning_words[0][i].toLowerCase()==value.target.innerText.toLowerCase()){
+                    index = i
+                }
+            }
             error_fix_content = list[index]
         }
-
+        console.log(error_fix_content)
         if (error_fix_content === undefined || error_fix_content === '') {
         } else {
             tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {

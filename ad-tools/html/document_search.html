@@ -69,9 +69,10 @@
                 <div class="label-title">
                   <h3 class="title">Ngành hàng kinh doanh (Bắt buộc)<i class="icz icz-question" id="tippy-button-call-action"></i></h3>
                 </div>
-                <div class="select">
+                <div class="select dropdown dropdown-document-searching">
+                  <div class="dropdown-toggle" role="button" id="dropdown-document-searching" data-toggle="dropdown" aria-expanded="false"></div>
                   <select id="first-select">
-                    <option>Chọn ngành hàng</option>
+                    <option id="first-select-preview">Chọn ngành hàng</option>
                     <option>Thực phẩm chức năng</option>
                     <option>Thuốc</option>
                     <option>Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế</option>
@@ -91,6 +92,28 @@
                     <option>Dịch vụ cầm đồ</option>
                     <option>Xổ số</option>
                   </select>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-document-searching">
+                    <ul>
+                      <li><a class="name-item">Chọn ngành hàng</a></li>
+                      <li><a class="name-item">Thực phẩm chức năng</a></li>
+                      <li><a class="name-item">Thuốc</a></li>
+                      <li><a class="name-item">Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế</a></li>
+                      <li><a class="name-item">Sữa và sản phẩm dinh dưỡng cho trẻ trên 24 tháng tuổi</a></li>
+                      <li><a class="name-item">Thực phẩm, phụ gia thực phẩm</a></li>
+                      <li><a class="name-item">Rượu có độ cồn dưới 15 độ và bia</a></li>
+                      <li><a class="name-item">Dịch vụ khám bệnh, chữa bệnh (bao gồm phòng khám nha khoa, thẩm mỹ viện có các chức năng phẫu thuật, dao kéo)</a></li>
+                      <li><a class="name-item">Trang thiết bị y tế</a></li>
+                      <li><a class="name-item">Thuốc và vật tư bảo vệ thực vật, sinh vật, thú y nói chung</a></li>
+                      <li><a class="name-item">Trò chơi điện tử</a></li>
+                      <li><a class="name-item">Dịch vụ vui chơi, giải trí cho đối tượng từ 16 tuổi trở lên</a></li>
+                      <li><a class="name-item">Dịch vụ về visa hộ chiếu</a></li>
+                      <li><a class="name-item">Sản phẩm dao kéo, dụng cụ nhà bếp</a></li>
+                      <li><a class="name-item">Tín dụng, tín chấp, dịch vụ tài chính cho vay, mượn tiền, đầu tư quỹ</a></li>
+                      <li><a class="name-item">Hẹn hò online</a></li>
+                      <li><a class="name-item">Dịch vụ cầm đồ</a></li>
+                      <li><a class="name-item">Xổ số</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <div class="text-input-item">
@@ -160,197 +183,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/tippy.min.js"></script>
     <script src="js/main.js"></script>
-    <script>
-      document.getElementsByClassName("navbar-item")[2].classList.add('active')
-      
-      const list_nganh_hang = {
-      	1:[
-      		'Giấy xác nhận nội dung quảng cáo <em>(được cấp bởi Bộ Y Tế - Cục An toàn Thực phẩm)</em>',
-      		'Giấy phép công bố tiêu chuẩn chất lượng sản phẩm <em>(được cấp bởi Bộ Y Tế - Cục An toàn Thực phẩm)</em>',
-      	],
-      	2:[
-      		'Giấy xác nhận nội dung quảng cáo <em>(được cấp bởi Bộ Y Tế - Cục Quản lý Dược)</em>'
-      	],
-      	3:[
-      		'Giấy xác nhận nội dung quảng cáo <em>(được cấp bởi Sở Y Tế)</em>',
-      		'Phiếu công bố sản phẩm mỹ phẩm <em>(được cấp bởi Sở Y Tế (hàng trong nước) hoặc Cục Quản lý dược – Bộ Y tế (hàng NK))</em>',
-      	],
-      	4:[
-      		'Giấy xác nhận nội dung quảng cáo <em>(được cấp bởi Bộ Y Tế - Cục Quản lý Môi trường y tế)</em>'
-      	],
-      	5:[
-      		'Giấy xác nhận nội dung quảng cáo <em>(được cấp bởi Bộ Y Tế)</em>'
-      	],
-      	6:[
-      		'Giấy tiếp nhận đăng ký bản công bố sản phẩm <em>(được cấp bởi Bộ Y Tế - Cục An toàn Thực phẩm)</em>'
-      	],
-      	7:[
-      		'Giấy chứng nhận an toàn vệ sinh thực phẩm <em>(được cấp bởi Bộ Y Tế - Cục An toàn Thực phẩm)</em>'
-      	],
-      	8:[
-      		'Giấy chứng nhận an toàn vệ sinh thực phẩm <em>(được cấp bởi Bộ Y Tế - Cục An toàn Thực phẩm)</em>'
-      	],
-      	9:[
-      		'Chứng chỉ hành nghề khám bệnh, chữa bệnh của bác sĩ đứng tên dịch vụ <em>(được cấp bởi Bộ Y Tế)</em>',
-      		'Giấy phép hoạt động khám bệnh, chữa bệnh <em>(được cấp bởi Bộ Y Tế)</em>'
-      	],
-      	10:[
-      		'Giấy xác nhận nội dung quảng cáo <em>(được cấp bởi Bộ Y Tế -  Cục trang thiết bị và công trình y tế)</em>'
-      	],
-      	11:[
-      		'Giấy xác nhận nội dung quảng cáo <em>(được cấp bởi Bộ Nông nghiệp và Phát triển nông thôn)</em>'
-      	],
-      	12:[
-      		'Giấy xác nhận nội dung quảng cáo',
-      		'(Hoặc) Giấy phép phát hành game <em>(được cấp bởi Cục Phát thanh truyền hình và Thông tin điện tử - Bộ TTTT)</em>'
-      	],
-      	13:[
-      		'Giấy xác nhận nội dung quảng cáo',
-      		'(Hoặc) Giấy phép kinh doanh có đăng ký ngành nghề phù hợp',
-      	],
-      	14:[
-      		'Giấy phép kinh doanh <em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>'
-      	],
-      	15:[
-      		'Giấy phép kinh doanh <em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>'
-      	],
-      	16:[
-      		'Giấy phép thành lập và hoạt động công ty tài chính <em>(được cấp bởi Ngân hàng nhà nước Việt Nam)</em>',
-      		'(Hoặc) Giấy phép kinh doanh + kiểm tra kỹ nội dung lãi suất <em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>'
-      	],
-      	17:[
-      		'Giấy phép xác nhận mạng xã hội <em>(đuợc cấp bởi Cục Phát thanh truyền hình và Thông tin điện tử - Bộ TTTT)</em>'
-      	],
-      	18:[
-      		'Giấy phép kinh doanh <em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
-      		'Giấy chứng nhận đủ điều kiện về an ninh, trật tự <em>(được cấp bởi Công an tỉnh/ thành phố)</em>'
-      	],
-      	19:[
-      		'Giấy chứng nhận đủ điều kiện kinh doanh xổ số (được cấp bởi Bộ Tài chính)',
-      		'(Hoặc) Hợp đồng đại lý/đại lý thứ cấp <em>(được cấp bởi Công ty xổ số/đại lý kinh doanh xổ số)</em>'
-      	]
-      }
-      const list_xuat_xu = {
-      	0:[
-      		'Giấy phép kinh doanh',
-      		'Tờ khai hải quan nhập khẩu tại Việt Nam <em>(được cấp bởi Cục Hải quan)</em>',
-      		'(Hoặc) Giấy chứng nhận xuất xứ hàng hóa',
-      		'(Hoặc) Giấy phép ủy quyền bán hàng chính hãng <em>(được cấp bởi Công ty sở hữu thương hiệu)</em>',
-      		'(Hoặc) Giấy chứng nhận đăng ký nhãn hiệu <em>(được cấp bởi Cục Sở hữu Trí tuệ - Bộ KHCN)</em>',
-      	],
-      	1:[
-      		'Tờ khai hải quan nhập khẩu tại Việt Nam <em>(được cấp bởi Cục Hải quan)</em>',
-      		'(Hoặc) Giấy chứng nhận xuất xứ hàng hóa',
-      		'(Hoặc) Giấy phép ủy quyền bán hàng chính hãng <em>(được cấp bởi Công ty sở hữu thương hiệu)</em>',
-      		'(Hoặc) Giấy chứng nhận đăng ký nhãn hiệu <em>(được cấp bởi Cục Sở hữu Trí tuệ - Bộ KHCN)</em>',
-      	]
-      }
-      const list_hinh_anh = [
-      	'CMND hoặc hợp đồng sử dụng hình ảnh có kèm CMND/ Passport nếu là người nước ngoài <em>(được cung cấp bởi Người xuất hiện trên quảng cáo/Người chạy quảng cáo)</em>',
-      	'(Hoặc) Cung cấp link stock nếu lấy ảnh từ internet',
-      ]
-      
-      $('#first-select').change(function(value) {
-      	$('#first-select-preview').html(value.target.value)
-      	if(value.target.value != 'Chọn ngành hàng'){
-      		$('#check-form-ad').attr('disabled',false)
-      	} else {
-      		$('#check-form-ad').attr('disabled',true)
-      	}
-      })
-      document.getElementById('refresh-searching').onclick = value => {
-      	$('#first-select').val('Chọn ngành hàng')
-      	$('#check0')[0].checked = false
-      	$('#check1')[0].checked = false
-      	$('#check2')[0].checked = false
-      	$('#check3')[0].checked = false
-      	$('#check4')[0].checked = false
-      	$('#check5')[0].checked = false
-      	$('#img-empty').toggleClass('is-hidden')
-      	$('#after-searching').toggleClass('is-hidden')
-      	$('#before-searching').toggleClass('is-hidden')
-      	$('#document-list li').remove()
-      	$('.document-block-square').css('display','flex')
-      }
-      document.getElementById('check-form-ad').onclick = value => {
-      	document.getElementById('check-form-ad').classList.add('is-loading')
-      	$('#document-list li').remove()
-      	let first_select = document.getElementById('first-select')
-      	let first_documents = list_nganh_hang[first_select.selectedIndex]
-      
-      	let checkbox_0 = $('#check0')[0].checked
-      	let checkbox_1 = $('#check1')[0].checked
-      	let checkbox_2 = $('#check2')[0].checked
-      	let checkbox_3 = $('#check3')[0].checked
-      	let checkbox_4 = $('#check4')[0].checked
-      	let checkbox_5 = $('#check5')[0].checked
-      
-      	setTimeout(() => {
-      		$('.document-block-square').css('display','block')
-      		document.getElementById('check-form-ad').classList.remove('is-loading')
-      		$('#after-searching').toggleClass('is-hidden')
-      		$('#img-empty').toggleClass('is-hidden')
-      		$('#before-searching').toggleClass('is-hidden')
-      		for(let i = 0; i < first_documents.length; i++){
-      			if(first_documents[i].includes('Hoặc')){
-      				$('#document-list').append('<ul class="or-document"><li>'+first_documents[i]+'</li></ul>')
-      			} else {
-      				$('#document-list').append('<li>'+first_documents[i]+'</li>')
-      			}
-      		}
-      		if(checkbox_3){
-      			if(checkbox_0 || checkbox_1 || checkbox_2){
-      				if(first_select == 13 || first_select == 14 || first_select == 15 || first_select == 16 || first_select == 18){
-      					for(let i = 0; i < list_xuat_xu[1].length; i++){
-      						if(list_xuat_xu[1][i].includes('Hoặc')){
-      							$('#document-list').append('<ul class="or-document"><li>'+list_xuat_xu[1][i]+'</li></ul>')
-      						} else {
-      							$('#document-list').append('<li>'+list_xuat_xu[1][i]+'</li>')
-      						}
-      					}
-      				} else {
-      					for(let i = 0; i < list_xuat_xu[0].length; i++){
-      						if(list_xuat_xu[0][i].includes('Hoặc')){
-      							$('#document-list').append('<ul class="or-document"><li>'+list_xuat_xu[0][i]+'</li></ul>')
-      						} else {
-      							$('#document-list').append('<li>'+list_xuat_xu[0][i]+'</li>')
-      						}
-      					}
-      				}
-      			} else {}
-      		} else{
-      			if(checkbox_0 || checkbox_1 || checkbox_2){
-      				if(first_select == 13 || first_select == 14 || first_select == 15 || first_select == 16 || first_select == 18){
-      					for(let i = 0; i < list_xuat_xu[1].length; i++){
-      						if(list_xuat_xu[1][i].includes('Hoặc')){
-      							$('#document-list').append('<ul class="or-document"><li>'+list_xuat_xu[1][i]+'</li></ul>')
-      						} else {
-      							$('#document-list').append('<li>'+list_xuat_xu[1][i]+'</li>')
-      						}
-      					}
-      				} else {
-      					for(let i = 0; i < list_xuat_xu[0].length; i++){
-      						if(list_xuat_xu[0][i].includes('Hoặc')){
-      							$('#document-list').append('<ul class="or-document"><li>'+list_xuat_xu[0][i]+'</li></ul>')
-      						} else {
-      							$('#document-list').append('<li>'+list_xuat_xu[0][i]+'</li>')
-      						}
-      					}
-      				}
-      			} else {}
-      		}
-      		if(checkbox_4 || checkbox_5){
-      			for(let i = 0; i < list_hinh_anh.length; i++){
-      				if(list_hinh_anh[i].includes('Hoặc')){
-      					$('#document-list').append('<ul class="or-document"><li>'+list_hinh_anh[i]+'</li></ul>')
-      				} else {
-      					$('#document-list').append('<li>'+list_hinh_anh[i]+'</li>')
-      				}
-      				
-      			}
-      		} else {}
-      	}, 500);
-      }
-    </script>
+    <script src="js/document_search.js"></script>
+    <script></script>
   </body>
 </html>

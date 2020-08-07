@@ -7,9 +7,10 @@ main.document_search
                     .label-title
                         h3.title Ngành hàng kinh doanh (Bắt buộc)
                             i.icz.icz-question#tippy-button-call-action
-                    .select
+                    .select.dropdown.dropdown-document-searching
+                        .dropdown-toggle(role="button" id="dropdown-document-searching" data-toggle="dropdown" aria-expanded="false")
                         select#first-select
-                            option Chọn ngành hàng
+                            option#first-select-preview Chọn ngành hàng
                             option Thực phẩm chức năng
                             option Thuốc
                             option Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế
@@ -28,6 +29,46 @@ main.document_search
                             option Hẹn hò online
                             option Dịch vụ cầm đồ
                             option Xổ số
+                        .dropdown-menu(aria-labelledby="dropdown-document-searching")
+                            ul
+                                li
+                                    a.name-item Chọn ngành hàng
+                                li
+                                    a.name-item Thực phẩm chức năng
+                                li
+                                    a.name-item Thuốc
+                                li
+                                    a.name-item Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế
+                                li
+                                    a.name-item Sữa và sản phẩm dinh dưỡng cho trẻ trên 24 tháng tuổi
+                                li
+                                    a.name-item Thực phẩm, phụ gia thực phẩm
+                                li
+                                    a.name-item Rượu có độ cồn dưới 15 độ và bia
+                                li
+                                    a.name-item Dịch vụ khám bệnh, chữa bệnh (bao gồm phòng khám nha khoa, thẩm mỹ viện có các chức năng phẫu thuật, dao kéo)
+                                li
+                                    a.name-item Trang thiết bị y tế
+                                li
+                                    a.name-item Thuốc và vật tư bảo vệ thực vật, sinh vật, thú y nói chung
+                                li
+                                    a.name-item Trò chơi điện tử
+                                li
+                                    a.name-item Dịch vụ vui chơi, giải trí cho đối tượng từ 16 tuổi trở lên
+                                li
+                                    a.name-item Dịch vụ về visa hộ chiếu
+                                li
+                                    a.name-item Sản phẩm dao kéo, dụng cụ nhà bếp
+                                li
+                                    a.name-item Tín dụng, tín chấp, dịch vụ tài chính cho vay, mượn tiền, đầu tư quỹ
+                                li
+                                    a.name-item Hẹn hò online
+                                li
+                                    a.name-item Dịch vụ cầm đồ
+                                li
+                                    a.name-item Xổ số
+                    
+                        
                 .text-input-item
                     .label-title
                         h3.title Xuất xứ hàng hóa
