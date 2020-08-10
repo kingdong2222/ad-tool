@@ -190,10 +190,11 @@
 				font-size: 1rem;
 				border: none;
 				color: #fff;
-				background-color: rgba(255,255,255,0.1);
 				font-family: Muli;
+				background-color: transparent;
 				&:hover{
 					color: #fff;
+					background-color: rgba(255,255,255,0.1);
 				}
 				icz{
 					font-size: 1.25rem !important;
