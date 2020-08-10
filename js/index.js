@@ -1106,7 +1106,6 @@ window.onload = () => {
         })
         .catch(err => { throw err });
 }
-
 // check sensitive words
 function checkSensitive(val) {
     let list = case_sensitive_words[0]
@@ -1123,7 +1122,6 @@ function checkSensitive(val) {
     }
     return getBanWordsList
 }
-
 // check banned words
 function checkPolicy(val) {
     let list = banned_words[0]
@@ -1140,7 +1138,6 @@ function checkPolicy(val) {
     }
     return getBanWordsList
 }
-
 // check warning
 function checkWarning(val) {
     let list = warning_words[0]
