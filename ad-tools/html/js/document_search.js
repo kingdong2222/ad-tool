@@ -115,11 +115,11 @@ document.getElementById('refresh-searching').onclick = value => {
         $('#check3')[0].checked = false
         $('#check4')[0].checked = false
         $('#check5')[0].checked = false
-        // $('#img-empty').removeClass('is-hidden')
-        // $('#after-searching').addClass('is-hidden')
-        // $('#before-searching').removeClass('is-hidden')
-        // $('#document-list li').remove()
-        // $('.document-block-square').css('display', 'flex')
+        $('#img-empty').removeClass('is-hidden')
+        $('#after-searching').addClass('is-hidden')
+        $('#before-searching').removeClass('is-hidden')
+        $('#document-list li').remove()
+        $('.document-block-square').css('display', 'flex')
     }, 500);
 }
 document.getElementById('check-form-ad').onclick = value => {

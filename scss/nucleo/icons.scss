@@ -21,7 +21,7 @@ $icz-warning-hex: unicode(ea0e);
 $icz-warning-triangle: unicode(ea0f);
 $icz-single-content: unicode(ea10);
 $icz-restore: unicode(ea11);
-$icz-image-add: unicode(ea12);
+$icz-picture-add: unicode(ea12);
 $icz-picture: unicode(ea13);
 $icz-archive-drawer: unicode(ea14);
 $icz-gps: unicode(ea15);
@@ -122,7 +122,18 @@ $icz-zoom-out: unicode(ea77);
 $icz-zoom-in: unicode(ea78);
 $icz-book: unicode(ea79);
 $icz-non-preview: unicode(ea7a);
-$icz-image-add-2: unicode(ea7b);
+$icz-filled-image-add: unicode(ea7b);
+$icz-chat: unicode(ea7c);
+$icz-fill-cheque: unicode(ea7d);
+$icz-fill-target: unicode(ea7e);
+$icz-fill-conference-room: unicode(ea7f);
+$icz-support: unicode(ea80);
+$icz-cheque: unicode(ea81);
+$icz-style: unicode(ea82);
+$icz-fill-chat: unicode(ea83);
+$icz-minus: unicode(ea84);
+$icz-data-upload: unicode(ea85);
+$icz-lock: unicode(ea86);
 
 .icz-account::before {
   content: $icz-account;
@@ -188,8 +199,8 @@ $icz-image-add-2: unicode(ea7b);
   content: $icz-restore;
 }
 
-.icz-image-add::before {
-  content: $icz-image-add;
+.icz-picture-add::before {
+  content: $icz-picture-add;
 }
 
 .icz-picture::before {
@@ -592,7 +603,51 @@ $icz-image-add-2: unicode(ea7b);
   content: $icz-non-preview;
 }
 
-.icz-image-add-2::before {
-  content: $icz-image-add-2;
+.icz-filled-image-add::before {
+  content: $icz-filled-image-add;
+}
+
+.icz-chat::before {
+  content: $icz-chat;
+}
+
+.icz-fill-cheque::before {
+  content: $icz-fill-cheque;
+}
+
+.icz-fill-target::before {
+  content: $icz-fill-target;
+}
+
+.icz-fill-conference-room::before {
+  content: $icz-fill-conference-room;
+}
+
+.icz-support::before {
+  content: $icz-support;
+}
+
+.icz-cheque::before {
+  content: $icz-cheque;
+}
+
+.icz-style::before {
+  content: $icz-style;
+}
+
+.icz-fill-chat::before {
+  content: $icz-fill-chat;
+}
+
+.icz-minus::before {
+  content: $icz-minus;
+}
+
+.icz-data-upload::before {
+  content: $icz-data-upload;
+}
+
+.icz-lock::before {
+  content: $icz-lock;
 }
 
