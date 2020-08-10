@@ -1314,7 +1314,7 @@ document.getElementById('check-form-ad').onclick = value => {
                             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
                         }
                     }
-
+                    setTimeout(FunctionHoverWord('warning-3'), 200)
                 }
             }
             if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
@@ -1477,7 +1477,7 @@ document.getElementById('check-form-ad').onclick = value => {
                             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
                         }
                     }
-
+                    setTimeout(FunctionHoverWord('warning-3'), 200)
                 }
             }
             if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
@@ -1638,7 +1638,7 @@ document.getElementById('check-form-ad').onclick = value => {
                             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
                         }
                     }
-
+                    setTimeout(FunctionHoverWord('warning-3'), 200)
                 }
             }
             if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
@@ -1801,7 +1801,7 @@ document.getElementById('check-form-ad').onclick = value => {
                                 $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
                             }
                         }
-
+                        setTimeout(FunctionHoverWord('warning-3'), 200)
                     }
                 }
                 // if(value_4.match(InputLinkWeb) || value_4.match(InputPhoneNumber)){
