@@ -115,11 +115,11 @@ document.getElementById('refresh-searching').onclick = value => {
         $('#check3')[0].checked = false
         $('#check4')[0].checked = false
         $('#check5')[0].checked = false
-        $('#img-empty').removeClass('is-hidden')
-        $('#after-searching').addClass('is-hidden')
-        $('#before-searching').removeClass('is-hidden')
-        $('#document-list li').remove()
-        $('.document-block-square').css('display', 'flex')
+        // $('#img-empty').removeClass('is-hidden')
+        // $('#after-searching').addClass('is-hidden')
+        // $('#before-searching').removeClass('is-hidden')
+        // $('#document-list li').remove()
+        // $('.document-block-square').css('display', 'flex')
     }, 500);
 }
 document.getElementById('check-form-ad').onclick = value => {
@@ -150,9 +150,18 @@ document.getElementById('check-form-ad').onclick = value => {
         $('#before-searching').addClass('is-hidden')
         for (let i = 0; i < first_documents.length; i++) {
             if (first_documents[i].includes('Hoặc')) {
-                $('#document-list').append('<ul class="or-document"><li>' + first_documents[i] + '</li></ul>')
+                $('#document-list .contain_or_job').append('<ul class="or-document"><li>' + first_documents[i] + '</li></ul>')
             } else {
-                $('#document-list').append('<li>' + first_documents[i] + '</li>')
+                if(first_documents[i+1]){
+                    if (first_documents[i+1].includes('Hoặc')) {
+                        $('#document-list').append('<li class="contain_or_job">' + first_documents[i] + '</li>')
+                    } else {
+                        $('#document-list').append('<li>' + first_documents[i] + '</li>')
+                    }
+                } else {
+                    $('#document-list').append('<li>' + first_documents[i] + '</li>')
+                }
+                
             }
         }
         if (checkbox_3) {
@@ -160,17 +169,35 @@ document.getElementById('check-form-ad').onclick = value => {
                 if (first_select.selectedIndex == 13 || first_select.selectedIndex == 14 || first_select.selectedIndex == 15 || first_select.selectedIndex == 16 || first_select.selectedIndex == 18) {
                     for (let i = 0; i < list_xuat_xu[1].length; i++) {
                         if (list_xuat_xu[1][i].includes('Hoặc')) {
-                            $('#document-list').append('<ul class="or-document"><li>' + list_xuat_xu[1][i] + '</li></ul>')
+                            $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[1][i] + '</li></ul>')
                         } else {
-                            $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
+                            if(list_xuat_xu[1][i+1]){
+                                if (list_xuat_xu[1][i+1].includes('Hoặc')) {
+                                    $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[1][i] + '</li>')
+                                } else {
+                                    $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
+                                }
+                            } else {
+                                $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
+                            }
+                             
                         }
                     }
                 } else {
                     for (let i = 0; i < list_xuat_xu[0].length; i++) {
                         if (list_xuat_xu[0][i].includes('Hoặc')) {
-                            $('#document-list').append('<ul class="or-document"><li>' + list_xuat_xu[0][i] + '</li></ul>')
+                            $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[0][i] + '</li></ul>')
                         } else {
-                            $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
+                            if(list_xuat_xu[0][i+1]){
+                                if (list_xuat_xu[0][i+1].includes('Hoặc')) {
+                                    $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[0][i] + '</li>')
+                                } else {    
+                                    $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
+                                }
+                            } else {
+                                $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
+                            }
+                            
                         }
                     }
                 }
@@ -180,17 +207,35 @@ document.getElementById('check-form-ad').onclick = value => {
                 if (first_select.selectedIndex == 13 || first_select.selectedIndex == 14 || first_select.selectedIndex == 15 || first_select.selectedIndex == 16 || first_select.selectedIndex == 18) {
                     for (let i = 0; i < list_xuat_xu[1].length; i++) {
                         if (list_xuat_xu[1][i].includes('Hoặc')) {
-                            $('#document-list').append('<ul class="or-document"><li>' + list_xuat_xu[1][i] + '</li></ul>')
+                            $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[1][i] + '</li></ul>')
                         } else {
-                            $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
+                            if(list_xuat_xu[1][i+1]){
+                                if (list_xuat_xu[1][i+1].includes('Hoặc')) {
+                                    $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[1][i] + '</li>')
+                                } else {
+                                    $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
+                                }
+                            } else {
+                                $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
+                            }
+                            
                         }
                     }
                 } else {
                     for (let i = 0; i < list_xuat_xu[0].length; i++) {
                         if (list_xuat_xu[0][i].includes('Hoặc')) {
-                            $('#document-list').append('<ul class="or-document"><li>' + list_xuat_xu[0][i] + '</li></ul>')
+                            $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[0][i] + '</li></ul>')
                         } else {
-                            $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
+                            if(list_xuat_xu[0][i+1]){
+                                if (list_xuat_xu[0][i+1].includes('Hoặc')) {
+                                    $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[0][i] + '</li>')
+                                } else {
+                                    $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
+                                }
+                            } else {
+                                $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
+                            }
+                            
                         }
                     }
                 }
@@ -199,9 +244,18 @@ document.getElementById('check-form-ad').onclick = value => {
         if (checkbox_4 || checkbox_5) {
             for (let i = 0; i < list_hinh_anh.length; i++) {
                 if (list_hinh_anh[i].includes('Hoặc')) {
-                    $('#document-list').append('<ul class="or-document"><li>' + list_hinh_anh[i] + '</li></ul>')
+                    $('#document-list .contain_or_img').append('<ul class="or-document"><li>' + list_hinh_anh[i] + '</li></ul>')
                 } else {
-                    $('#document-list').append('<li>' + list_hinh_anh[i] + '</li>')
+                    if(list_hinh_anh[i+1]){
+                        if (list_hinh_anh[i+1].includes('Hoặc')) {
+                            $('#document-list').append('<li class="contain_or_img">' + list_hinh_anh[i] + '</li>')
+                        } else {
+                            $('#document-list').append('<li>' + list_hinh_anh[i] + '</li>')
+                        }
+                    } else {
+                        $('#document-list').append('<li>' + list_hinh_anh[i] + '</li>')
+                    }
+                    
                 }
 
             }
