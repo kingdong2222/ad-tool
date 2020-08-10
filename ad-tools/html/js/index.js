@@ -1421,9 +1421,9 @@ document.getElementById('check-form-ad').onclick = value => {
                         warning_card.classList.remove('is-hidden')
                         if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-question' id='tippy-uppercase-fix'></i></p></li>")
                             setTimeout(function(){
-                            tippy('p#warning-0', {
+                            tippy('#tippy-uppercase-fix', {
                                 content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
                                 allowHTML: true,
                                 maxWidth: 270,
@@ -1584,9 +1584,9 @@ document.getElementById('check-form-ad').onclick = value => {
                         warning_card.classList.remove('is-hidden')
                         if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>")
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-question' id='tippy-uppercase-fix'></i><</p></li>")
                             setTimeout(function(){
-                                tippy('p#warning-0', {
+                                tippy('#tippy-uppercase-fix', {
                                     content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
                                     allowHTML: true,
                                     maxWidth: 270,
@@ -1746,7 +1746,7 @@ document.getElementById('check-form-ad').onclick = value => {
                             warning_card.classList.remove('is-hidden')
                             if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                             } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái<i class='icz icz-question' id='tippy-uppercase-fix'></i></p></li>")
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-question' id='tippy-uppercase-fix'></i></p></li>")
                                 setTimeout(function(){
                                     tippy('#tippy-uppercase-fix', {
                                         content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
