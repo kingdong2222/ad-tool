@@ -1176,13 +1176,22 @@ const InputFormatNoPuntuation = /[àáãạảăắằẳẵặâấầẩẫậ
 
 const InputFormatWithPuntuation = /[àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w\s.,/?!;:'"%-]/g
 
-const InputFormatUpperAfterDot = /([.?!] )([A-Z0-9])/g
+const InputFormatUpperAfterDot = /([.?!] )([ÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝA-Z0-9])/g
 
 const InputFormatFrom2Puntuation = /[%.,?!/'";:-]{2,}/g
 
 const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&]*)/g
 
 const InputPhoneNumber = /(\d{3})(\d{3})(\d{4})/g
+
+//puntation input spacing warning error
+const InputSpacingPuntationError_0 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:\s]{1,} )([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
+
+const InputSpacingPuntationError_1 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])([.,?!;:\s]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
+
+const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:\s]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
+
+const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:\s]{1,})/g
 
 document.getElementById('check-form-ad').onclick = value => {
     document.getElementById('check-form-ad').classList.add('is-loading')
@@ -1351,6 +1360,17 @@ document.getElementById('check-form-ad').onclick = value => {
                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
                 }
             }
+            if (value_1.match(InputSpacingPuntationError_0) 
+                || value_1.match(InputSpacingPuntationError_1)
+                || value_1.match(InputSpacingPuntationError_2)
+                || value_1.match(InputSpacingPuntationError_3)) {
+                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                warning_card.classList.remove('is-hidden')
+                if ($('#warning-6').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                } else {
+                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>Sử dụng dấu câu sai quy cách</p></li>")
+                }
+            }
         }
 
         if (value_2) {
@@ -1514,6 +1534,17 @@ document.getElementById('check-form-ad').onclick = value => {
                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
                 }
             }
+            if (value_2.match(InputSpacingPuntationError_0) 
+                || value_2.match(InputSpacingPuntationError_1)
+                || value_2.match(InputSpacingPuntationError_2)
+                || value_2.match(InputSpacingPuntationError_3)) {
+                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                warning_card.classList.remove('is-hidden')
+                if ($('#warning-6').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                } else {
+                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>Sử dụng dấu câu sai quy cách</p></li>")
+                }
+            }
         }
 
         if (value_3) {
@@ -1673,6 +1704,17 @@ document.getElementById('check-form-ad').onclick = value => {
                 if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
                 } else {
                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
+                }
+            }
+            if (value_3.match(InputSpacingPuntationError_0) 
+                || value_3.match(InputSpacingPuntationError_1)
+                || value_3.match(InputSpacingPuntationError_2)
+                || value_3.match(InputSpacingPuntationError_3)) {
+                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                warning_card.classList.remove('is-hidden')
+                if ($('#warning-6').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                } else {
+                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>Sử dụng dấu câu sai quy cách</p></li>")
                 }
             }
         }
@@ -1838,6 +1880,17 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
                     }
                 }
+                if (value_4.match(InputSpacingPuntationError_0) 
+                || value_4.match(InputSpacingPuntationError_1)
+                || value_4.match(InputSpacingPuntationError_2)
+                || value_4.match(InputSpacingPuntationError_3)) {
+                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                warning_card.classList.remove('is-hidden')
+                if ($('#warning-6').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                } else {
+                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>Sử dụng dấu câu sai quy cách</p></li>")
+                }
+            }
             }
         }
         if (value_check_ad == true) {
