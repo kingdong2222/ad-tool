@@ -2230,34 +2230,35 @@ document.getElementById('submit-ads').onclick = value => {
             contents = out.valueRanges[2].values[0]
             descs = out.valueRanges[3].values[0]
             infos = out.valueRanges[4].values[0]
-
+            let input_id_value = document.getElementById('input-id-ads').value.trimEnd()
             for (let i = 0; i < ids.length; i++) {
+                if(input_id_value === ids[i]){
+                    check_form_ad.removeAttribute('disabled')
 
-                check_form_ad.removeAttribute('disabled')
+                    //first input
+                    $('#first-input').val(names[i])
+                    $('.first-preview-position').html(names[i])
+                    first_content_preview.innerHTML = names[i]
+                    first_max_letter.innerHTML = names[i].length + '/30'
 
-                //first input
-                $('#first-input').val(names[i])
-                $('.first-preview-position').html(names[i])
-                first_content_preview.innerHTML = names[i]
-                first_max_letter.innerHTML = names[i].length + '/30'
+                    //second input
+                    $('#second-input').val(contents[i])
+                    $('.second-preview-position').html(contents[i])
+                    second_content_preview.innerHTML = contents[i]
+                    second_max_letter.innerHTML = contents[i].length + '/90'
 
-                //second input
-                $('#second-input').val(contents[i])
-                $('.second-preview-position').html(contents[i])
-                second_content_preview.innerHTML = contents[i]
-                second_max_letter.innerHTML = contents[i].length + '/90'
+                    //third input
+                    $('#third-input').val(descs[i])
+                    $('.third-preview-position').html(descs[i])
+                    third_content_preview.innerHTML = descs[i]
+                    third_max_letter.innerHTML = descs[i].length + '/60'
 
-                //third input
-                $('#third-input').val(descs[i])
-                $('.third-preview-position').html(descs[i])
-                third_content_preview.innerHTML = descs[i]
-                third_max_letter.innerHTML = descs[i].length + '/60'
-
-                //fourth input
-                $('#fourth-input').val(infos[i])
-                $('.fourth-preview-position').html(infos[i])
-                fourth_content_preview.innerHTML = infos[i]
-                fourth_max_letter.innerHTML = infos[i].length + '/60'
+                    //fourth input
+                    $('#fourth-input').val(infos[i])
+                    $('.fourth-preview-position').html(infos[i])
+                    fourth_content_preview.innerHTML = infos[i]
+                    fourth_max_letter.innerHTML = infos[i].length + '/60'
+                }
             }
         })
         .catch(err => { throw err });
