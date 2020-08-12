@@ -2143,7 +2143,7 @@ FunctionHoverWord = (id) => {
             }
             error_fix_content = list[index]
         }
-        console.log(error_fix_content)
+        // console.log(error_fix_content)
         if (error_fix_content === undefined || error_fix_content.charAt(0) == ' ') {
         } else {
             tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
