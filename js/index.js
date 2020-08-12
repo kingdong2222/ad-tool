@@ -1224,6 +1224,11 @@ document.getElementById('check-form-ad').onclick = value => {
     $('#alert-card-second .card-error-list ul li').remove()
     $('#alert-card-first .card-error-list p').remove()
 
+    first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+    second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
+    third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
+    fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
+
     setTimeout(() => {
         document.getElementById('check-form-ad').classList.remove('is-loading')
         banned_card.classList.remove('is-hidden')
@@ -2221,6 +2226,12 @@ document.getElementById('submit-ads').onclick = value => {
     let contents = []
     let descs = []
     let infos = []
+
+    first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+    second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
+    third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
+    fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
+    
     //get data from google sheet
     let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1z7vnnVIvJKjHK4aUUATkfJX4bGKvMyzrr9nbYbnQsRY/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&ranges=F2%3AF&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
     fetch(url_google_sheet)
