@@ -1173,9 +1173,9 @@ function checkFormat(val) {
 }
 function checkFormat2(val) {
     for (let i = 1; i < val.length; i++) {
-        if (val[i] != val[i].toLowerCase())
-            return 1;
-        return 0;
+        if (val[i] != val[i].toLowerCase()){
+            return 1; break;
+        }
     }
 }
 
