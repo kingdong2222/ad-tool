@@ -1173,10 +1173,9 @@ function checkFormat(val) {
 }
 function checkFormat2(val) {
     for (let i = 1; i < val.length; i++) {
-        if (val[i] != val[i].toLowerCase()) {
+        if (val[i] != val[i].toLowerCase()) 
             return 1;
-            break;
-        }
+        return 0;
     }
 }
 
@@ -1186,7 +1185,7 @@ function isUpperCase(str) {
 
 const InputFormatNoPuntuation = /[àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w]/g
 
-const InputFormatWithPuntuation = /[àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w\s.,/?!;:'"%-]/g
+const InputFormatWithPuntuation = /[àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w\s.,?!;:'"%]/g
 
 const InputFormatUpperAfterDot = /([.?!][ \n])([ÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝA-Z0-9])/g
 
@@ -1447,49 +1446,39 @@ document.getElementById('check-form-ad').onclick = value => {
                 } else if (value_2.match(InputFormatUpperAfterDot)) {
                     value_check_ad = true
                 } else {
-                    if (value_2.includes('\n')) {
-                        let list_enters = []
-                        for(let i = 0; i<value_2.length;i++){
-                            if(value_2[i]=== '\n'){list_enters.push(i)}
-                        }
-                        // console.log(list_enters)
+                    if (checkSensitive(value_2).length > 0) {
                     } else {
-                        if (checkSensitive(value_2).length > 0) {
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                         } else {
-                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                            warning_card.classList.remove('is-hidden')
-                            if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                                setTimeout(function () {
-                                    tippy('#tippy-uppercase-fix', {
-                                        content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                        allowHTML: true,
-                                        maxWidth: 270,
-                                        theme: 'zad1',
-                                        interactive: true,
-                                        // delay: [300, null],
-                                        // placement: 'right-start',
-                                    });
-                                }, 200)
-                            }
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
+                            setTimeout(function () {
+                                tippy('#tippy-uppercase-fix', {
+                                    content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
+                                    allowHTML: true,
+                                    maxWidth: 270,
+                                    theme: 'zad1',
+                                    interactive: true,
+                                    // delay: [300, null],
+                                    // placement: 'right-start',
+                                });
+                            }, 200)
                         }
                     }
                 }
             }
+
             if (value_2.match(InputSpacingPuntationError_0)
                 || value_2.match(InputSpacingPuntationError_1)
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
-                if (value_2.match(InputFormatUpperAfterDot)) {
-                    value_check_ad = true
+
+                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                value_check_ad = false
+                if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
                 } else {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
-                    }
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
                 }
             }
 
@@ -1572,6 +1561,55 @@ document.getElementById('check-form-ad').onclick = value => {
                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
                 }
             }
+
+
+            //case enters too much
+            if (value_2.includes('\n')) {
+
+                let list_enters = []
+                for(let i = 0; i<value_2.length;i++){
+                    if(value_2[i]=== '\n'){list_enters.push(i)}
+                }
+
+                //list sentence after cut with enter
+                let list_sentences = []
+                list_sentences.push(value_2.substr(0,list_enters[0]))
+                for(let i = 0;i<list_enters.length;i++){
+                    list_sentences.push(value_2.substring(list_enters[i]+1,list_enters[i+1]))
+                }
+
+                //check sentence one by one
+                for(let i = 0;i<list_sentences.length;i++){
+                    let temp = list_sentences[i]
+                    //banned
+                    if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        value_check_ad = false
+        
+                        if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
+                        }
+                    }
+                    if (temp.charAt(0).match(InputFormatNoPuntuation) == null && temp.charAt(0) != ' ') {
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
+                        }
+                    }
+                    if (temp.charAt(0) == ' ') {
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng khoảng trắng đầu câu</p></li>")
+                        }
+                    }
+                }
+
+            } 
 
         }
 
