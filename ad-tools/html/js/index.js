@@ -1173,7 +1173,7 @@ function checkFormat(val) {
 }
 function checkFormat2(val) {
     for (let i = 1; i < val.length; i++) {
-        if (val[i] != val[i].toLowerCase()) 
+        if (val[i] != val[i].toLowerCase())
             return 1;
         return 0;
     }
@@ -1215,6 +1215,7 @@ document.getElementById('check-form-ad').onclick = value => {
 
     //clear cards
     warning_card.classList.add('is-hidden')
+    content_card_0.classList.add('is-hidden')
     content_card_1.classList.add('is-hidden')
 
     let value_check_ad = true
@@ -1567,25 +1568,25 @@ document.getElementById('check-form-ad').onclick = value => {
             if (value_2.includes('\n')) {
 
                 let list_enters = []
-                for(let i = 0; i<value_2.length;i++){
-                    if(value_2[i]=== '\n'){list_enters.push(i)}
+                for (let i = 0; i < value_2.length; i++) {
+                    if (value_2[i] === '\n') { list_enters.push(i) }
                 }
 
                 //list sentence after cut with enter
                 let list_sentences = []
-                list_sentences.push(value_2.substr(0,list_enters[0]))
-                for(let i = 0;i<list_enters.length;i++){
-                    list_sentences.push(value_2.substring(list_enters[i]+1,list_enters[i+1]))
+                list_sentences.push(value_2.substr(0, list_enters[0]))
+                for (let i = 0; i < list_enters.length; i++) {
+                    list_sentences.push(value_2.substring(list_enters[i] + 1, list_enters[i + 1]))
                 }
 
                 //check sentence one by one
-                for(let i = 0;i<list_sentences.length;i++){
+                for (let i = 0; i < list_sentences.length; i++) {
                     let temp = list_sentences[i]
                     //banned
                     if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                         value_check_ad = false
-        
+
                         if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
                         } else {
                             $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
@@ -1609,7 +1610,7 @@ document.getElementById('check-form-ad').onclick = value => {
                     }
                 }
 
-            } 
+            }
 
         }
 
@@ -2211,3 +2212,89 @@ $('#check_tpcn').change(function (value) {
         fourth_max_letter.innerHTML = fourth_input.value.length + '/60'
     }
 })
+
+document.getElementById('submit-ads').onclick = value => {
+    let ids = []
+    let names = []
+    let contents = []
+    let descs = []
+    let infos = []
+    //get data from google sheet
+    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1z7vnnVIvJKjHK4aUUATkfJX4bGKvMyzrr9nbYbnQsRY/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&ranges=F2%3AF&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
+    fetch(url_google_sheet)
+        .then(res => res.json())
+        .then((out) => {
+            // console.log(out.valueRanges[0].values[0])
+            ids = out.valueRanges[0].values[0]
+            names = out.valueRanges[1].values[0]
+            contents = out.valueRanges[2].values[0]
+            descs = out.valueRanges[3].values[0]
+            infos = out.valueRanges[4].values[0]
+
+            for (let i = 0; i < ids.length; i++) {
+
+                check_form_ad.removeAttribute('disabled')
+
+                //first input
+                $('#first-input').val(names[i])
+                $('.first-preview-position').html(names[i])
+                first_content_preview.innerHTML = names[i]
+                first_max_letter.innerHTML = names[i].length + '/30'
+
+                //second input
+                $('#second-input').val(contents[i])
+                $('.second-preview-position').html(contents[i])
+                second_content_preview.innerHTML = contents[i]
+                second_max_letter.innerHTML = contents[i].length + '/90'
+
+                //third input
+                $('#third-input').val(descs[i])
+                $('.third-preview-position').html(descs[i])
+                third_content_preview.innerHTML = descs[i]
+                third_max_letter.innerHTML = descs[i].length + '/60'
+
+                //fourth input
+                $('#fourth-input').val(infos[i])
+                $('.fourth-preview-position').html(infos[i])
+                fourth_content_preview.innerHTML = infos[i]
+                fourth_max_letter.innerHTML = infos[i].length + '/60'
+            }
+        })
+        .catch(err => { throw err });
+
+    let input_id_value = document.getElementById('input-id-ads').value.trimEnd()
+    // for(let i=0;i<ids.length;i++){
+    //     // if(input_id_value === ids[i]){
+
+    //         check_form_ad.removeAttribute('disabled')
+
+    //         //first input
+    //         $('#first-input').val(names[i])
+    //         $('.first-preview-position').html(names[i])
+    //         first_content_preview.innerHTML = names[i]
+    //         first_max_letter.innerHTML = names[i].length + '/30'
+
+    //         //second input
+    //         $('#second-input').val(contents[i])
+    //         $('.second-preview-position').html(contents[i])
+    //         second_content_preview.innerHTML = contents[i]
+    //         second_max_letter.innerHTML = contents[i].length + '/90'
+
+    //         //third input
+    //         $('#third-input').val(descs[i])
+    //         $('.third-preview-position').html(descs[i])
+    //         third_content_preview.innerHTML = descs[i]
+    //         third_max_letter.innerHTML = descs[i].length + '/60'
+
+    //         //fourth input
+    //         $('#fourth-input').val(infos[i])
+    //         $('.fourth-preview-position').html(infos[i])
+    //         fourth_content_preview.innerHTML = infos[i]
+    //         fourth_max_letter.innerHTML = infos[i].length + '/60'
+
+    //     // } else {
+    //     //     alert('Không tìm thấy id của Ad');
+    //     //     break;
+    //     // }
+    // }
+}
