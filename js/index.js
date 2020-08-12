@@ -2143,8 +2143,8 @@ FunctionHoverWord = (id) => {
             }
             error_fix_content = list[index]
         }
-        // console.log(error_fix_content)
-        if (error_fix_content === undefined || error_fix_content.charAt(0) == ' ') {
+        // console.log(error_fix_content == '')
+        if (error_fix_content === undefined || error_fix_content.charAt(0) == ' ' || error_fix_content == '') {
         } else {
             tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                 content: '<div class="tippy-block"><p>' + error_fix_content + '</p></div>',
