@@ -2260,6 +2260,17 @@ document.getElementById('submit-ads').onclick = value => {
                     fourth_max_letter.innerHTML = infos[i].length + '/60'
                 }
             }
+            //resize textarea when input
+            $('textarea').each(function () {
+                if (this.scrollHeight > 0) {
+                    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+                }
+            }).on('input', function () {
+                if (this.scrollHeight > 0) {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                }
+            });
         })
         .catch(err => { throw err });
 
