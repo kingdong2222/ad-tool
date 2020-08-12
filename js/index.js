@@ -990,6 +990,12 @@ second_input.oninput = value => {
 }
 
 third_input.oninput = value => {
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
     third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
     if (value.target.value) {
         third_content_preview.innerHTML = value.target.value
@@ -1025,6 +1031,12 @@ third_input.oninput = value => {
 }
 
 fourth_input.oninput = value => {
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
     fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
     if (value.target.value) {
         fourth_content_preview.innerHTML = value.target.value
@@ -1082,11 +1094,11 @@ window.onload = () => {
 
     //resize textarea when input
     $('textarea').each(function () {
-        if(this.scrollHeight>0){
+        if (this.scrollHeight > 0) {
             this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
         }
     }).on('input', function () {
-        if(this.scrollHeight>0){
+        if (this.scrollHeight > 0) {
             this.style.height = 'auto';
             this.style.height = (this.scrollHeight) + 'px';
         }
@@ -1176,7 +1188,7 @@ const InputFormatNoPuntuation = /[àáãạảăắằẳẵặâấầẩẫậ
 
 const InputFormatWithPuntuation = /[àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w\s.,/?!;:'"%-]/g
 
-const InputFormatUpperAfterDot = /([.?!] )([ÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝA-Z0-9])/g
+const InputFormatUpperAfterDot = /([.?!][ \n])([ÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝA-Z0-9])/g
 
 const InputFormatFrom2Puntuation = /[%.,?!/'";:-]{2,}/g
 
@@ -1185,22 +1197,22 @@ const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA
 const InputPhoneNumber = /(\d{3})(\d{3})(\d{4})/g
 
 //puntation input spacing warning error
-const InputSpacingPuntationError_0 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:\s]{1,} )([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
+const InputSpacingPuntationError_0 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,} )([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
 
-const InputSpacingPuntationError_1 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])([.,?!;:\s]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
+const InputSpacingPuntationError_1 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])([.,?!;:]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
 
-const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:\s]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
+const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
 
-const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:\s]{1,})/g
+const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,})/g
 
 document.getElementById('check-form-ad').onclick = value => {
     document.getElementById('check-form-ad').classList.add('is-loading')
 
     //get value input
-    let value_1 = first_input.value.trimEnd().replace(/\n/g, " ")
-    let value_2 = second_input.value.trimEnd().replace(/\n/g, " ")
-    let value_3 = third_input.value.trimEnd().replace(/\n/g, " ")
-    let value_4 = fourth_input.value.trimEnd().replace(/\n/g, " ")
+    let value_1 = first_input.value.trimEnd()
+    let value_2 = second_input.value.trimEnd()
+    let value_3 = third_input.value.trimEnd()
+    let value_4 = fourth_input.value.trimEnd()
 
     //clear cards
     warning_card.classList.add('is-hidden')
@@ -1259,6 +1271,21 @@ document.getElementById('check-form-ad').onclick = value => {
                     }
                 }
                 setTimeout(FunctionHoverWord('banned-3'), 520)
+            }
+            if (value_1.match(InputSpacingPuntationError_0)
+                || value_1.match(InputSpacingPuntationError_1)
+                || value_1.match(InputSpacingPuntationError_2)
+                || value_1.match(InputSpacingPuntationError_3)) {
+                if (value_1.match(InputFormatUpperAfterDot)) {
+                    value_check_ad = true
+                } else {
+                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    value_check_ad = false
+                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                    } else {
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
+                    }
+                }
             }
             // if(checkFormat2(value_1) == 1){
             //     if(isUpperCase(value_1)==true){
@@ -1360,17 +1387,6 @@ document.getElementById('check-form-ad').onclick = value => {
                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
                 }
             }
-            if (value_1.match(InputSpacingPuntationError_0) 
-                || value_1.match(InputSpacingPuntationError_1)
-                || value_1.match(InputSpacingPuntationError_2)
-                || value_1.match(InputSpacingPuntationError_3)) {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-6').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
-                } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>Sử dụng dấu câu sai quy cách</p></li>")
-                }
-            }
         }
 
         if (value_2) {
@@ -1431,27 +1447,49 @@ document.getElementById('check-form-ad').onclick = value => {
                 } else if (value_2.match(InputFormatUpperAfterDot)) {
                     value_check_ad = true
                 } else {
-                    if (checkSensitive(value_2).length > 0) {
+                    if (value_2.includes('\n')) {
+                        let list_enters = []
+                        for(let i = 0; i<value_2.length;i++){
+                            if(value_2[i]=== '\n'){list_enters.push(i)}
+                        }
+                        // console.log(list_enters)
                     } else {
-                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-
-                        warning_card.classList.remove('is-hidden')
-                        if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                        if (checkSensitive(value_2).length > 0) {
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                            setTimeout(function(){
-                            tippy('#tippy-uppercase-fix', {
-                                content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                allowHTML: true,
-                                maxWidth: 270,
-                                theme: 'zad1',
-                                interactive: true,
-                                // delay: [300, null],
-                                // placement: 'right-start',
-                            });}, 200)
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
+                                setTimeout(function () {
+                                    tippy('#tippy-uppercase-fix', {
+                                        content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
+                                        allowHTML: true,
+                                        maxWidth: 270,
+                                        theme: 'zad1',
+                                        interactive: true,
+                                        // delay: [300, null],
+                                        // placement: 'right-start',
+                                    });
+                                }, 200)
+                            }
                         }
                     }
-
+                }
+            }
+            if (value_2.match(InputSpacingPuntationError_0)
+                || value_2.match(InputSpacingPuntationError_1)
+                || value_2.match(InputSpacingPuntationError_2)
+                || value_2.match(InputSpacingPuntationError_3)) {
+                if (value_2.match(InputFormatUpperAfterDot)) {
+                    value_check_ad = true
+                } else {
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    value_check_ad = false
+                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                    } else {
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
+                    }
                 }
             }
 
@@ -1526,7 +1564,7 @@ document.getElementById('check-form-ad').onclick = value => {
                 }
                 setTimeout(FunctionHoverWord('warning-4'), 200)
             }
-            if (value_2.match(/\s{2,}/g)) {
+            if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
@@ -1534,17 +1572,7 @@ document.getElementById('check-form-ad').onclick = value => {
                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
                 }
             }
-            if (value_2.match(InputSpacingPuntationError_0) 
-                || value_2.match(InputSpacingPuntationError_1)
-                || value_2.match(InputSpacingPuntationError_2)
-                || value_2.match(InputSpacingPuntationError_3)) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-6').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
-                } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>Sử dụng dấu câu sai quy cách</p></li>")
-                }
-            }
+
         }
 
         if (value_3) {
@@ -1613,7 +1641,7 @@ document.getElementById('check-form-ad').onclick = value => {
                         if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                         } else {
                             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                            setTimeout(function(){
+                            setTimeout(function () {
                                 tippy('#tippy-uppercase-fix', {
                                     content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
                                     allowHTML: true,
@@ -1622,8 +1650,24 @@ document.getElementById('check-form-ad').onclick = value => {
                                     interactive: true,
                                     // delay: [300, null],
                                     // placement: 'right-start',
-                                });}, 200)
+                                });
+                            }, 200)
                         }
+                    }
+                }
+            }
+            if (value_3.match(InputSpacingPuntationError_0)
+                || value_3.match(InputSpacingPuntationError_1)
+                || value_3.match(InputSpacingPuntationError_2)
+                || value_3.match(InputSpacingPuntationError_3)) {
+                if (value_3.match(InputFormatUpperAfterDot)) {
+                    value_check_ad = true
+                } else {
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    value_check_ad = false
+                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                    } else {
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
                     }
                 }
             }
@@ -1706,20 +1750,9 @@ document.getElementById('check-form-ad').onclick = value => {
                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
                 }
             }
-            if (value_3.match(InputSpacingPuntationError_0) 
-                || value_3.match(InputSpacingPuntationError_1)
-                || value_3.match(InputSpacingPuntationError_2)
-                || value_3.match(InputSpacingPuntationError_3)) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-6').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
-                } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>Sử dụng dấu câu sai quy cách</p></li>")
-                }
-            }
         }
-        if(tpcn_case){}
-        else{
+        if (tpcn_case) { }
+        else {
             if (value_4) {
                 //case banned
                 if (value_4.charAt(0) != value_4.charAt(0).toUpperCase()) {
@@ -1786,7 +1819,7 @@ document.getElementById('check-form-ad').onclick = value => {
                             if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                             } else {
                                 $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                                setTimeout(function(){
+                                setTimeout(function () {
                                     tippy('#tippy-uppercase-fix', {
                                         content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
                                         allowHTML: true,
@@ -1796,8 +1829,24 @@ document.getElementById('check-form-ad').onclick = value => {
                                         trigger: 'click',
                                         // delay: [300, null],
                                         // placement: 'right-start',
-                                    });}, 200)
+                                    });
+                                }, 200)
                             }
+                        }
+                    }
+                }
+                if (value_4.match(InputSpacingPuntationError_0)
+                    || value_4.match(InputSpacingPuntationError_1)
+                    || value_4.match(InputSpacingPuntationError_2)
+                    || value_4.match(InputSpacingPuntationError_3)) {
+                    if (value_4.match(InputFormatUpperAfterDot)) {
+                        value_check_ad = true
+                    } else {
+                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
                         }
                     }
                 }
@@ -1880,17 +1929,6 @@ document.getElementById('check-form-ad').onclick = value => {
                         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
                     }
                 }
-                if (value_4.match(InputSpacingPuntationError_0) 
-                || value_4.match(InputSpacingPuntationError_1)
-                || value_4.match(InputSpacingPuntationError_2)
-                || value_4.match(InputSpacingPuntationError_3)) {
-                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-6').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
-                } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>Sử dụng dấu câu sai quy cách</p></li>")
-                }
-            }
             }
         }
         if (value_check_ad == true) {
@@ -2051,16 +2089,16 @@ FunctionHoverWord = (id) => {
     $('#' + id + ' span').hover(value => {
         if (id.includes('banned')) {
             list = banned_words_fixed[0]
-            for(let i=0;i<banned_words[0].length;i++){
-                if(banned_words[0][i].toLowerCase()==value.target.innerText.toLowerCase()){
+            for (let i = 0; i < banned_words[0].length; i++) {
+                if (banned_words[0][i].toLowerCase() == value.target.innerText.toLowerCase()) {
                     index = i
                 }
             }
             error_fix_content = list[index]
         } else {
             list = warning_words_fixed[0]
-            for(let i=0;i<warning_words[0].length;i++){
-                if(warning_words[0][i].toLowerCase()==value.target.innerText.toLowerCase()){
+            for (let i = 0; i < warning_words[0].length; i++) {
+                if (warning_words[0][i].toLowerCase() == value.target.innerText.toLowerCase()) {
                     index = i
                 }
             }
@@ -2122,8 +2160,8 @@ FunctionHoverWord = (id) => {
 //checkbox for case TPCN
 let tpcn_case = false
 
-$('#check_tpcn').change(function(value){
-    if(value.target.checked){
+$('#check_tpcn').change(function (value) {
+    if (value.target.checked) {
         tpcn_case = true
         $('.tpcn-case').toggleClass('is-hidden')
         fourth_max_letter.innerHTML = '59/60'
