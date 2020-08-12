@@ -1486,9 +1486,9 @@ document.getElementById('check-form-ad').onclick = value => {
 
             //case warning
             if (value_2.match(InputFormatWithPuntuation)) {
-
-                let array_match = Array.from(value_2.matchAll(InputFormatWithPuntuation), m => m[0])
-                let value_length = value_2.length
+                let temp = encodeURIComponent(value_2)
+                let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
+                let value_length = temp.length
                 if (array_match.length < value_length) {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     //value_check_ad = false
@@ -1714,8 +1714,9 @@ document.getElementById('check-form-ad').onclick = value => {
 
             //case warning
             if (value_3.match(InputFormatWithPuntuation)) {
-                let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
-                let value_length = value_3.length
+                let temp = encodeURIComponent(value_3)
+                let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
+                let value_length = temp.length
                 if (array_match.length < value_length) {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     //value_check_ad = false
@@ -1893,8 +1894,9 @@ document.getElementById('check-form-ad').onclick = value => {
 
                 //case warning
                 if (value_4.match(InputFormatWithPuntuation)) {
-                    let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
-                    let value_length = value_4.length
+                    let temp = encodeURIComponent(value_4)
+                    let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
+                    let value_length = temp.length
                     if (array_match.length < value_length) {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         //value_check_ad = false
