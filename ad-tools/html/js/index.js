@@ -1173,7 +1173,7 @@ function checkFormat(val) {
 }
 function checkFormat2(val) {
     for (let i = 1; i < val.length; i++) {
-        if (val[i] != val[i].toLowerCase()){
+        if (val[i] != val[i].toLowerCase()) {
             return 1; break;
         }
     }
@@ -1204,7 +1204,13 @@ const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩ
 
 const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,})/g
 
+let list_check_ad_ban = []
+let list_check_ad_warn = []
+
 document.getElementById('check-form-ad').onclick = value => {
+    checkAdsFunc()
+}
+function checkAdsFunc(value) {
     document.getElementById('check-form-ad').classList.add('is-loading')
 
     //get value input
@@ -1256,7 +1262,7 @@ document.getElementById('check-form-ad').onclick = value => {
                 value_check_ad = false
                 if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng khoảng trắng đầu câu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
                 }
             }
             if (checkPolicy(value_1).length > 0) {
@@ -1418,7 +1424,7 @@ document.getElementById('check-form-ad').onclick = value => {
                 value_check_ad = false
                 if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng khoảng trắng đầu câu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
                 }
             }
             if (checkPolicy(value_2).length > 0) {
@@ -1450,29 +1456,28 @@ document.getElementById('check-form-ad').onclick = value => {
                         }
                     }
                 } else if (value_2.match(InputFormatUpperAfterDot)) {
-                    value_check_ad = true
+                }
+                if (checkSensitive(value_2).length > 0) {
                 } else {
-                    if (checkSensitive(value_2).length > 0) {
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    warning_card.classList.remove('is-hidden')
+                    if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                     } else {
-                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        warning_card.classList.remove('is-hidden')
-                        if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
-                        } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                            setTimeout(function () {
-                                tippy('#tippy-uppercase-fix', {
-                                    content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                    allowHTML: true,
-                                    maxWidth: 270,
-                                    theme: 'zad1',
-                                    interactive: true,
-                                    // delay: [300, null],
-                                    // placement: 'right-start',
-                                });
-                            }, 200)
-                        }
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
+                        setTimeout(function () {
+                            tippy('#tippy-uppercase-fix', {
+                                content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
+                                allowHTML: true,
+                                maxWidth: 270,
+                                theme: 'zad1',
+                                interactive: true,
+                                // delay: [300, null],
+                                // placement: 'right-start',
+                            });
+                        }, 200)
                     }
                 }
+
             }
 
             if (value_2.match(InputSpacingPuntationError_0)
@@ -1610,7 +1615,7 @@ document.getElementById('check-form-ad').onclick = value => {
                         value_check_ad = false
                         if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng khoảng trắng đầu câu</p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
                         }
                     }
                 }
@@ -1643,7 +1648,7 @@ document.getElementById('check-form-ad').onclick = value => {
                 value_check_ad = false
                 if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng khoảng trắng đầu câu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
                 }
             }
             if (checkPolicy(value_3).length > 0) {
@@ -1675,30 +1680,30 @@ document.getElementById('check-form-ad').onclick = value => {
                         }
                     }
                 } else if (value_3.match(InputFormatUpperAfterDot)) {
-                    value_check_ad = true
+                    
+                }
+                if (checkSensitive(value_3).length > 0) {
                 } else {
-                    if (checkSensitive(value_3).length > 0) {
-                    } else {
-                        third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 
-                        warning_card.classList.remove('is-hidden')
-                        if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
-                        } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                            setTimeout(function () {
-                                tippy('#tippy-uppercase-fix', {
-                                    content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                    allowHTML: true,
-                                    maxWidth: 270,
-                                    theme: 'zad1',
-                                    interactive: true,
-                                    // delay: [300, null],
-                                    // placement: 'right-start',
-                                });
-                            }, 200)
-                        }
+                    warning_card.classList.remove('is-hidden')
+                    if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                    } else {
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
+                        setTimeout(function () {
+                            tippy('#tippy-uppercase-fix', {
+                                content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
+                                allowHTML: true,
+                                maxWidth: 270,
+                                theme: 'zad1',
+                                interactive: true,
+                                // delay: [300, null],
+                                // placement: 'right-start',
+                            });
+                        }, 200)
                     }
                 }
+
             }
             if (value_3.match(InputSpacingPuntationError_0)
                 || value_3.match(InputSpacingPuntationError_1)
@@ -1822,7 +1827,7 @@ document.getElementById('check-form-ad').onclick = value => {
                     value_check_ad = false
                     if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng khoảng trắng đầu câu</p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
                     }
                 }
                 if (checkPolicy(value_4).length > 0) {
@@ -1854,31 +1859,31 @@ document.getElementById('check-form-ad').onclick = value => {
                             }
                         }
                     } else if (value_4.match(InputFormatUpperAfterDot)) {
-                        value_check_ad = true
+                        
+                    }
+                    if (checkSensitive(value_4).length > 0) {
                     } else {
-                        if (checkSensitive(value_4).length > 0) {
-                        } else {
-                            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 
-                            warning_card.classList.remove('is-hidden')
-                            if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                                setTimeout(function () {
-                                    tippy('#tippy-uppercase-fix', {
-                                        content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                        allowHTML: true,
-                                        maxWidth: 270,
-                                        theme: 'zad1',
-                                        interactive: true,
-                                        trigger: 'click',
-                                        // delay: [300, null],
-                                        // placement: 'right-start',
-                                    });
-                                }, 200)
-                            }
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                        } else {
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
+                            setTimeout(function () {
+                                tippy('#tippy-uppercase-fix', {
+                                    content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
+                                    allowHTML: true,
+                                    maxWidth: 270,
+                                    theme: 'zad1',
+                                    interactive: true,
+                                    trigger: 'click',
+                                    // delay: [300, null],
+                                    // placement: 'right-start',
+                                });
+                            }, 200)
                         }
                     }
+
                 }
                 if (value_4.match(InputSpacingPuntationError_0)
                     || value_4.match(InputSpacingPuntationError_1)
@@ -1981,7 +1986,55 @@ document.getElementById('check-form-ad').onclick = value => {
             content_card_1.classList.add('is-hidden')
             $('#alert-card-first .card-error-list').append('<p>Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
         }
-
+        let temp_id = value + 2
+        if (document.getElementById('banned-0')) {
+            let temp = $('#banned-0')[0].innerText
+            list_check_ad_ban.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('banned-1')) {
+            let temp = $('#banned-1')[0].innerText
+            list_check_ad_ban.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('banned-2')) {
+            let temp = $('#banned-2')[0].innerText
+            list_check_ad_ban.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('banned-3')) {
+            let temp = $('#banned-3')[0].innerText
+            list_check_ad_ban.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('banned-4')) {
+            let temp = $('#banned-4')[0].innerText
+            list_check_ad_ban.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('banned-5')) {
+            let temp = $('#banned-5')[0].innerText
+            list_check_ad_ban.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('warning-0')) {
+            let temp = $('#warning-0')[0].innerText
+            list_check_ad_warn.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('warning-1')) {
+            let temp = $('#warning-1')[0].innerText
+            list_check_ad_warn.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('warning-2')) {
+            let temp = $('#warning-2')[0].innerText
+            list_check_ad_warn.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('warning-3')) {
+            let temp = $('#warning-3')[0].innerText
+            list_check_ad_warn.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('warning-4')) {
+            let temp = $('#warning-4')[0].innerText
+            list_check_ad_warn.push(temp_id + '  ' + temp)
+        }
+        if (document.getElementById('warning-5')) {
+            let temp = $('#warning-5')[0].innerText
+            list_check_ad_warn.push(temp_id + '  ' + temp)
+        }
     }, 500);
 }
 
@@ -2220,6 +2273,8 @@ $('#check_tpcn').change(function (value) {
     }
 })
 
+
+
 document.getElementById('submit-ads').onclick = value => {
     let ids = []
     let names = []
@@ -2231,7 +2286,7 @@ document.getElementById('submit-ads').onclick = value => {
     second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
     third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
     fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
-    
+
     //get data from google sheet
     let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1z7vnnVIvJKjHK4aUUATkfJX4bGKvMyzrr9nbYbnQsRY/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&ranges=F2%3AF&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
     fetch(url_google_sheet)
@@ -2245,7 +2300,7 @@ document.getElementById('submit-ads').onclick = value => {
             infos = out.valueRanges[4].values[0]
             let input_id_value = document.getElementById('input-id-ads').value.trimEnd()
             for (let i = 0; i < ids.length; i++) {
-                if(input_id_value === ids[i]){
+                if (input_id_value === ids[i]) {
                     check_form_ad.removeAttribute('disabled')
 
                     //first input
@@ -2271,8 +2326,15 @@ document.getElementById('submit-ads').onclick = value => {
                     $('.fourth-preview-position').html(infos[i])
                     fourth_content_preview.innerHTML = infos[i]
                     fourth_max_letter.innerHTML = infos[i].length + '/60'
+
+                    // console.log(ids[i])
+                    checkAdsFunc(i)
+
+
+
                 }
             }
+
             //resize textarea when input
             $('textarea').each(function () {
                 if (this.scrollHeight > 0) {
@@ -2286,40 +2348,51 @@ document.getElementById('submit-ads').onclick = value => {
             });
         })
         .catch(err => { throw err });
-
-    let input_id_value = document.getElementById('input-id-ads').value.trimEnd()
-    // for(let i=0;i<ids.length;i++){
-    //     // if(input_id_value === ids[i]){
-
-    //         check_form_ad.removeAttribute('disabled')
-
-    //         //first input
-    //         $('#first-input').val(names[i])
-    //         $('.first-preview-position').html(names[i])
-    //         first_content_preview.innerHTML = names[i]
-    //         first_max_letter.innerHTML = names[i].length + '/30'
-
-    //         //second input
-    //         $('#second-input').val(contents[i])
-    //         $('.second-preview-position').html(contents[i])
-    //         second_content_preview.innerHTML = contents[i]
-    //         second_max_letter.innerHTML = contents[i].length + '/90'
-
-    //         //third input
-    //         $('#third-input').val(descs[i])
-    //         $('.third-preview-position').html(descs[i])
-    //         third_content_preview.innerHTML = descs[i]
-    //         third_max_letter.innerHTML = descs[i].length + '/60'
-
-    //         //fourth input
-    //         $('#fourth-input').val(infos[i])
-    //         $('.fourth-preview-position').html(infos[i])
-    //         fourth_content_preview.innerHTML = infos[i]
-    //         fourth_max_letter.innerHTML = infos[i].length + '/60'
-
-    //     // } else {
-    //     //     alert('Không tìm thấy id của Ad');
-    //     //     break;
-    //     // }
-    // }
 }
+console.log(list_check_ad_warn)
+console.log(list_check_ad_ban)
+let test_list = ['tung', 'thang']
+/**
+* Sample JavaScript code for sheets.spreadsheets.values.batchUpdate
+* See instructions for running APIs Explorer code samples locally:
+* https://developers.google.com/explorer-help/guides/code_samples#javascript
+*/
+
+function authenticate() {
+    return gapi.auth2.getAuthInstance()
+        .signIn({ scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/spreadsheets" })
+        .then(function () { console.log("Sign-in successful"); },
+            function (err) { console.error("Error signing in", err); });
+}
+function loadClientUpdate() {
+    gapi.client.setApiKey("AIzaSyBY-dRvVSnd2fsK8Brg3x-TLShzmZvjYd8");
+    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/sheets/v4/rest")
+        .then(function () { console.log("GAPI client loaded for API"); },
+            function (err) { console.error("Error loading GAPI client for API", err); });
+}
+// Make sure the client is loaded and sign-in is complete before calling this method.
+function executeUpdate() {
+    return gapi.client.sheets.spreadsheets.values.batchUpdate({
+        "spreadsheetId": "193-D09UDVnimF5IFtZyRmUb14Rt9Tm4Dpp5ckAI3D9o",
+        "resource": {
+            "valueInputOption": "RAW",
+            "data": [
+                {
+                    "majorDimension": "COLUMNS",
+                    "range": "C1:C",
+                    "values": [
+                        list_check_ad_warn
+                    ]
+                }
+            ]
+        }
+    })
+        .then(function (response) {
+            // Handle the results here (response.result has the parsed body).
+            console.log("Response", response);
+        },
+            function (err) { console.error("Execute error", err); });
+}
+gapi.load("client:auth2", function () {
+    gapi.auth2.init({ client_id: "302224997211-2vdq0p1dn78o4ngj34dav4t2uouslljl.apps.googleusercontent.com" });
+});

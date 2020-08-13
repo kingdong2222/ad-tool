@@ -5,6 +5,8 @@ main
         .container_cols
             .container_col.content
                 h2.title Nội dung kiểm tra
+                <button onclick="authenticate().then(loadClientUpdate)">load</button>
+                <button onclick="executeUpdate()">execute</button>
                 .test-ads
                     input#input-id-ads(type='number' placeholder='nhập mã ads')
                     button.button#submit-ads Submit
