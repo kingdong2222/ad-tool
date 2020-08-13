@@ -1657,13 +1657,13 @@ function checkAdsFunc(value) {
                 let list = checkPolicy(value_3)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
-                    if ($('#banned-3').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
+                    if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
                         if ($('#banned-3').text().includes(item)) {
                         } else {
                             document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
                         }
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
                     }
                 }
                 setTimeout(FunctionHoverWord('banned-3'), 520)
@@ -1710,7 +1710,7 @@ function checkAdsFunc(value) {
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
                 if (value_3.match(InputFormatUpperAfterDot)) {
-                    value_check_ad = true
+                    // value_check_ad = true
                 } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     value_check_ad = false
@@ -1836,13 +1836,13 @@ function checkAdsFunc(value) {
                     let list = checkPolicy(value_4)
                     for (let i = 0; i < list.length; i++) {
                         let item = list[i]
-                        if ($('#banned-3').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
+                        if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
                             if ($('#banned-3').text().includes(item)) {
                             } else {
                                 document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
                             }
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
                         }
                     }
                     setTimeout(FunctionHoverWord('banned-3'), 520)
@@ -1890,7 +1890,7 @@ function checkAdsFunc(value) {
                     || value_4.match(InputSpacingPuntationError_2)
                     || value_4.match(InputSpacingPuntationError_3)) {
                     if (value_4.match(InputFormatUpperAfterDot)) {
-                        value_check_ad = true
+                        // value_check_ad = true
                     } else {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         value_check_ad = false
