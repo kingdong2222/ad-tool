@@ -1,0 +1,38 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var loading = false
+	- var header = true
+	//- - var navbar = true
+	- var modal = true
+	- var popperjs = true
+	- var tippyjs = true
+	- var document_searchjs = true
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("")
+	- layoutClasses.push("ad-desktop")
+	- headerClasses.push("header")
+	- bodyClasses.push("page-content")
+	
+//- Add Header
+block header
+	include page/header.pug
+
+//- Add Body
+block body
+	include page/_document_search.pug
+	include page/_mobile_only_index.pug
+
+//- Add Modal
+block modal
+	//- include page/modal_edit_img.pug
+
+block javaScripts extend
+	script.
+		

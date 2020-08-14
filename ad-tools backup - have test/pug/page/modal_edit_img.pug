@@ -1,0 +1,15 @@
+.modal.fade#modalEditImg(tabindex="-1" role="dialog" aria-labelledby="editImgModalLabel" aria-hidden="true")
+    .modal-dialog(role="document")
+        .modal-content
+            .modal-header
+                .label-title
+                    h3.title.modal-title#editImgModalLabel Hình ảnh quảng cáo
+                        i.icz.icz-question#tippy-crop-img
+                .close-modal.button-icon-close(type="button" data-dismiss="modal" aria-label="Close")
+                    i.icz.icz-close
+            .modal-body(style="height: calc(100vh - 25vh); width: 1024px ")
+                .img-container(style="height: 100%; width: 1024px ")
+                    img
+            .modal-footer#actions
+                .docs-buttons
+                    .button.is-primary.close-modal.crop-done-button#download-avatar(data-method="getCroppedCanvas") Xong
