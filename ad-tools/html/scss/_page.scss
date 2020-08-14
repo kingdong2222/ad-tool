@@ -432,6 +432,14 @@
 				@include from(1920px){
 					padding-right: 40px;
 				}
+				.dropdown{
+					.dropdown-toggle{
+						display: none;
+					}
+					&:after{
+						display: none;
+					}
+				}
 				.controls{
 					.control{
 						&:first-child{

@@ -1657,13 +1657,13 @@ function checkAdsFunc(value) {
                 let list = checkPolicy(value_3)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
-                    if ($('#banned-3').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
+                    if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
                         if ($('#banned-3').text().includes(item)) {
                         } else {
                             document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
                         }
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
                     }
                 }
                 setTimeout(FunctionHoverWord('banned-3'), 520)
@@ -1710,7 +1710,7 @@ function checkAdsFunc(value) {
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
                 if (value_3.match(InputFormatUpperAfterDot)) {
-                    value_check_ad = true
+                    // value_check_ad = true
                 } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     value_check_ad = false
@@ -1836,13 +1836,13 @@ function checkAdsFunc(value) {
                     let list = checkPolicy(value_4)
                     for (let i = 0; i < list.length; i++) {
                         let item = list[i]
-                        if ($('#banned-3').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
+                        if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
                             if ($('#banned-3').text().includes(item)) {
                             } else {
                                 document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
                             }
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
                         }
                     }
                     setTimeout(FunctionHoverWord('banned-3'), 520)
@@ -1890,7 +1890,7 @@ function checkAdsFunc(value) {
                     || value_4.match(InputSpacingPuntationError_2)
                     || value_4.match(InputSpacingPuntationError_3)) {
                     if (value_4.match(InputFormatUpperAfterDot)) {
-                        value_check_ad = true
+                        // value_check_ad = true
                     } else {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         value_check_ad = false
@@ -2264,135 +2264,13 @@ $('#check_tpcn').change(function (value) {
         tpcn_case = true
         $('.tpcn-case').toggleClass('is-hidden')
         fourth_max_letter.innerHTML = '59/60'
-        fourth_content_preview.innerHTML = $('#fourth-tpcn-input').val()
+		fourth_content_preview.innerHTML = $('#fourth-tpcn-input').val()
+		$('.fourth-preview-position').html($('#fourth-tpcn-input').val())
     } else {
         tpcn_case = false
         $('.tpcn-case').toggleClass('is-hidden')
-        fourth_content_preview.innerHTML = fourth_input.value
+		fourth_content_preview.innerHTML = fourth_input.value
+		$('.fourth-preview-position').html(fourth_input.value)
         fourth_max_letter.innerHTML = fourth_input.value.length + '/60'
     }
 })
-
-
-
-document.getElementById('submit-ads').onclick = value => {
-    let ids = []
-    let names = []
-    let contents = []
-    let descs = []
-    let infos = []
-
-    first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
-    second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
-    third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
-    fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
-
-    //get data from google sheet
-    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1z7vnnVIvJKjHK4aUUATkfJX4bGKvMyzrr9nbYbnQsRY/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&ranges=F2%3AF&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
-    fetch(url_google_sheet)
-        .then(res => res.json())
-        .then((out) => {
-            // console.log(out.valueRanges[0].values[0])
-            ids = out.valueRanges[0].values[0]
-            names = out.valueRanges[1].values[0]
-            contents = out.valueRanges[2].values[0]
-            descs = out.valueRanges[3].values[0]
-            infos = out.valueRanges[4].values[0]
-            let input_id_value = document.getElementById('input-id-ads').value.trimEnd()
-            for (let i = 0; i < ids.length; i++) {
-                if (input_id_value === ids[i]) {
-                    check_form_ad.removeAttribute('disabled')
-
-                    //first input
-                    $('#first-input').val(names[i])
-                    $('.first-preview-position').html(names[i])
-                    first_content_preview.innerHTML = names[i]
-                    first_max_letter.innerHTML = names[i].length + '/30'
-
-                    //second input
-                    $('#second-input').val(contents[i])
-                    $('.second-preview-position').html(contents[i])
-                    second_content_preview.innerHTML = contents[i]
-                    second_max_letter.innerHTML = contents[i].length + '/90'
-
-                    //third input
-                    $('#third-input').val(descs[i])
-                    $('.third-preview-position').html(descs[i])
-                    third_content_preview.innerHTML = descs[i]
-                    third_max_letter.innerHTML = descs[i].length + '/60'
-
-                    //fourth input
-                    $('#fourth-input').val(infos[i])
-                    $('.fourth-preview-position').html(infos[i])
-                    fourth_content_preview.innerHTML = infos[i]
-                    fourth_max_letter.innerHTML = infos[i].length + '/60'
-
-                    // console.log(ids[i])
-                    checkAdsFunc(i)
-
-
-
-                }
-            }
-
-            //resize textarea when input
-            $('textarea').each(function () {
-                if (this.scrollHeight > 0) {
-                    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-                }
-            }).on('input', function () {
-                if (this.scrollHeight > 0) {
-                    this.style.height = 'auto';
-                    this.style.height = (this.scrollHeight) + 'px';
-                }
-            });
-        })
-        .catch(err => { throw err });
-}
-console.log(list_check_ad_warn)
-console.log(list_check_ad_ban)
-let test_list = ['tung', 'thang']
-/**
-* Sample JavaScript code for sheets.spreadsheets.values.batchUpdate
-* See instructions for running APIs Explorer code samples locally:
-* https://developers.google.com/explorer-help/guides/code_samples#javascript
-*/
-
-function authenticate() {
-    return gapi.auth2.getAuthInstance()
-        .signIn({ scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/spreadsheets" })
-        .then(function () { console.log("Sign-in successful"); },
-            function (err) { console.error("Error signing in", err); });
-}
-function loadClientUpdate() {
-    gapi.client.setApiKey("AIzaSyBY-dRvVSnd2fsK8Brg3x-TLShzmZvjYd8");
-    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/sheets/v4/rest")
-        .then(function () { console.log("GAPI client loaded for API"); },
-            function (err) { console.error("Error loading GAPI client for API", err); });
-}
-// Make sure the client is loaded and sign-in is complete before calling this method.
-function executeUpdate() {
-    return gapi.client.sheets.spreadsheets.values.batchUpdate({
-        "spreadsheetId": "193-D09UDVnimF5IFtZyRmUb14Rt9Tm4Dpp5ckAI3D9o",
-        "resource": {
-            "valueInputOption": "RAW",
-            "data": [
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "C1:C",
-                    "values": [
-                        list_check_ad_warn
-                    ]
-                }
-            ]
-        }
-    })
-        .then(function (response) {
-            // Handle the results here (response.result has the parsed body).
-            console.log("Response", response);
-        },
-            function (err) { console.error("Execute error", err); });
-}
-gapi.load("client:auth2", function () {
-    gapi.auth2.init({ client_id: "302224997211-2vdq0p1dn78o4ngj34dav4t2uouslljl.apps.googleusercontent.com" });
-});

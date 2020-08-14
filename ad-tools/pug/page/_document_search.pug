@@ -8,8 +8,10 @@ main.document_search
                         h3.title Ngành hàng kinh doanh (Bắt buộc)
                             i.icz.icz-support#tippy-button-call-action
                     .select.dropdown.dropdown-document-searching
+                        i.icz.icz-search
+                        input#first-select-preview(type='text' placeholder='Tìm kiếm ngành hàng kinh doanh')
                         .dropdown-toggle(role="button" id="dropdown-document-searching" data-toggle="dropdown" aria-expanded="false")
-                        select#first-select
+                        select#first-select.is-hidden
                             option#first-select-preview Chọn ngành hàng
                             option Thực phẩm chức năng
                             option Thuốc
