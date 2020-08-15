@@ -1,5 +1,10 @@
 document.getElementsByClassName("navbar-item")[2].classList.add('active')
-
+document.getElementById("first-select-preview").onfocus = () =>{
+    let tmp = document.getElementsByClassName('dropdown-document-searching')[0]
+    tmp.style.borderColor = '#1744CF'
+    tmp.style.boxShadow='0 0 0 0.125em rgba(23,69,207,0.15)'
+    $('.dropdown-menu')[1].classList.add('show')
+}
 const list_nganh_hang = {
     1: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế - Cục An toàn Thực phẩm)</em>',
@@ -86,9 +91,22 @@ const list_hinh_anh = [
     'CMND hoặc hợp đồng sử dụng hình ảnh có kèm CMND/ Passport nếu là người nước ngoài <br><em>(được cung cấp bởi Người xuất hiện trên quảng cáo/Người chạy quảng cáo)</em>',
     '(Hoặc) Cung cấp link stock nếu lấy ảnh từ internet',
 ]
+$(document).on("click", function(event){
+    var $trigger = $(".dropdown");
+    if($trigger !== event.target && !$trigger.has(event.target).length){
+        let tmp = document.getElementsByClassName('dropdown-document-searching')[0]
+        tmp.style.borderColor = '#DCE1E7'
+        tmp.style.boxShadow='none'
+        $('.dropdown-menu')[1].classList.remove('show')
+    }            
+});
 $('.name-item').click(value => {
     console.log(value.target.text)
-    $('#first-select-preview').html(value.target.text)
+    $('#first-select-preview').val(value.target.text)
+    let tmp = document.getElementsByClassName('dropdown-document-searching')[0]
+    tmp.style.borderColor = '#DCE1E7'
+    tmp.style.boxShadow='none'
+    $('.dropdown-menu')[1].classList.remove('show')
     if (value.target.text != 'Chọn ngành hàng') {
         $('#check-form-ad').attr('disabled', false)
     } else {

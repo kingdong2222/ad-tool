@@ -426,6 +426,9 @@
 			}
 			.main-body{
 				width: fit-content;
+				.container_cols{
+					min-width: 400px;
+				}
 				@include until(1295px){
 					padding-left: 3rem;
 				}
@@ -455,6 +458,21 @@
 				.container_col{
 					min-width: unset;
 					.dropdown{
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						border: 1px solid #DCE1E7;
+						border-radius: 4px;
+						padding-left: 12px;
+						transition: all .3s;
+						input{
+							border: none;
+							padding-left: 6px;
+							&:focus{
+								border: 0;
+								box-shadow: none;
+							}
+						}
 						.dropdown-menu{
 							left: 0 !important;
 							min-height: 300px;
@@ -685,6 +703,7 @@
 				font-weight: 600;
 				outline:none;
 				resize: none;
+				transition: all .3s;
 				&:focus{
 					border-color: #1744CF;
 					outline:none;

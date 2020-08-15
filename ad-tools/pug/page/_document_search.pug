@@ -5,7 +5,7 @@ main.document_search
                 h2.title Nội dung tra cứu
                 .text-input-item
                     .label-title
-                        h3.title Ngành hàng kinh doanh (Bắt buộc)
+                        h3.title Ngành hàng kinh doanh
                             i.icz.icz-support#tippy-button-call-action
                     .select.dropdown.dropdown-document-searching
                         i.icz.icz-search
@@ -67,11 +67,10 @@ main.document_search
                                     a.name-item Dịch vụ cầm đồ
                                 li
                                     a.name-item Xổ số
-                    
-                        
-                .text-input-item
+                .text-input-item.is-hidden
                     .label-title
-                        h3.title Xuất xứ hàng hóa
+                        h3.title Xuất xứ hàng hóa 
+                            span(không bắt buộc)
                             i.icz.icz-support#tippy-button-call-action
                     .controls
                         .control
@@ -83,9 +82,10 @@ main.document_search
                         .control
                             input(id="check2" type="checkbox")
                             label(for="check2") Hàng có thương hiệu nổi tiếng
-                .text-input-item
+                .text-input-item.is-hidden
                     .label-title
                         h3.title Hình ảnh quảng cáo
+                            span(không bắt buộc)
                             i.icz.icz-support#tippy-button-call-action
                     .controls
                         .control
