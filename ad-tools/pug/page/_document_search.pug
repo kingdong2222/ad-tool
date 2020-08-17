@@ -10,28 +10,7 @@ main.document_search
                     .select.dropdown.dropdown-document-searching
                         i.icz.icz-search
                         input#first-select-preview(type='text' placeholder='Tìm kiếm ngành hàng kinh doanh')
-                        .dropdown-toggle(role="button" id="dropdown-document-searching" data-toggle="dropdown" aria-expanded="false")
-                        select#first-select.is-hidden
-                            option#first-select-preview Chọn ngành hàng
-                            option Thực phẩm chức năng
-                            option Thuốc
-                            option Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế
-                            option Sữa và sản phẩm dinh dưỡng cho trẻ trên 24 tháng tuổi
-                            option Thực phẩm, phụ gia thực phẩm
-                            option Thực phẩm đã qua chế biến
-                            option Rượu có độ cồn dưới 15 độ và bia
-                            option Dịch vụ khám bệnh, chữa bệnh (bao gồm phòng khám nha khoa, thẩm mỹ viện có các chức năng phẫu thuật, dao kéo)
-                            option Trang thiết bị y tế
-                            option Thuốc và vật tư bảo vệ thực vật, sinh vật, thú y nói chung
-                            option Trò chơi điện tử
-                            option Dịch vụ vui chơi, giải trí cho đối tượng từ 16 tuổi trở lên
-                            option Dịch vụ về visa hộ chiếu
-                            option Sản phẩm dao kéo, dụng cụ nhà bếp
-                            option Tín dụng, tín chấp, dịch vụ tài chính cho vay, mượn tiền, đầu tư quỹ
-                            option Hẹn hò online
-                            option Dịch vụ cầm đồ
-                            option Xổ số
-                        .dropdown-menu(aria-labelledby="dropdown-document-searching")
+                        .dropdown-menu.show(aria-labelledby="dropdown-document-searching")
                             ul
                                 li
                                     a.name-item Thực phẩm chức năng
@@ -67,9 +46,9 @@ main.document_search
                                     a.name-item Dịch vụ cầm đồ
                                 li
                                     a.name-item Xổ số
-                .text-input-item.is-hidden
+                .text-input-item(style="opacity: 0")
                     .label-title
-                        h3.title Xuất xứ hàng hóa 
+                        h3.title Xuất xứ hàng hóa
                             span(không bắt buộc)
                             i.icz.icz-support#tippy-button-call-action
                     .controls
@@ -82,7 +61,7 @@ main.document_search
                         .control
                             input(id="check2" type="checkbox")
                             label(for="check2") Hàng có thương hiệu nổi tiếng
-                .text-input-item.is-hidden
+                .text-input-item(style="opacity: 0;margin-bottom: 72px;")
                     .label-title
                         h3.title Hình ảnh quảng cáo
                             span(không bắt buộc)
@@ -95,16 +74,15 @@ main.document_search
                             input(id="check5" type="checkbox")
                             label(for="check5") Có người nổi tiếng trong landing page
                 button.button.is-primary.is-large#check-form-ad(disabled) Tra cứu
-                button.button.is-large#refresh-searching Làm mới
+                button.button.is-large#refresh-searching(disabled) Làm mới
     .slide-body
-        .document-block-square
-            h2.title#after-searching.is-hidden Các loại giấy phép yêu cầu cho quảng cáo của bạn:
-            img#img-empty(src="./images/zad_empty.png")
-            h2.title#before-searching Vui lòng chọn ngành hàng và nơi xuất xứ của mặt hàng bạn muốn quảng cáo. Sau đó ấn nút "Tra cứu"
-            ul#document-list
-                //- li Giấy xác nhận nội dung quảng cáo
-                //- li Giấy xác nhận 
-                //-     em (nội dung quảng cáo)
-            h3.title Tìm hiểu thêm về các quy định giấy phép của Zalo Ads
-                a(href='https://ads.zalo.me/business/san-pham-can-giay-phep/' target='_blank') &nbsp;tại đây
+        //- img#img-empty(src="./images/zad_empty.png")
+        //- p#before-searching Vui lòng chọn ngành hàng kinh doanh để tra cứu giấy phép
+        h2.title Giấy phép yêu cầu
+        ul#document-list
+            li Giấy xác nhận nội dung quảng cáo
+            li Giấy xác nhận 
+                em <br>(nội dung quảng cáo)
+            //- h3.title Tìm hiểu thêm về các quy định giấy phép của Zalo Ads
+            //-     a(href='https://ads.zalo.me/business/san-pham-can-giay-phep/' target='_blank') &nbsp;tại đây
 

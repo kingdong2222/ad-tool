@@ -417,7 +417,6 @@
 		}
 		&.document_search{
 			@include until(1280px){width: auto}
-			min-height: 90vh;
 			// .title{display: block;}
 			.button{margin-top: 0 !important;
 				&#check-form-ad{
@@ -457,6 +456,7 @@
 				}
 				.container_col{
 					min-width: unset;
+					// width: 100%;
 					.dropdown{
 						display: flex;
 						flex-direction: row;
@@ -475,7 +475,11 @@
 						}
 						.dropdown-menu{
 							left: 0 !important;
-							min-height: 300px;
+							width: 312.95px;
+							min-height: 260px;
+							margin-top: 5px;
+							box-shadow: 0 2px 4px 0 rgba(67,86,100,0.1), 0 5px 8px 0 rgba(67,86,100,0.12) !important;
+							margin-left: -1px;
 							ul{
 								position: absolute;
     							top: 0;
@@ -489,59 +493,48 @@
 			}
 			.slide-body{
 				width: 70%;
-				align-items: flex-start;
 				padding: 4rem;
-				padding-top: 20px;
+				padding-top: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				@include from(1400px){
 					width: 90%;
 				}
-				.document-block-square{
-					width: 100%;
-					height: 100%;
-					padding: 20px;
-					background: #fff;
-					border-radius: 12px;
-					box-shadow: 0 61px 84px 0 rgba(67,86,100,0.14);
-					max-width: 100%;
-					min-width: 100%;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					position: relative;
-					h3.title{
-						position: absolute;
-						bottom: 12px;
-					}
-					img{
-						width: 500px;
-					}
+				img{
+					max-width: 300px;
 				}
-				#before-searching{
-					width: 70%;
-					@include from(1400px){
-						width: 50%;
-					}
-				}
-				#before-searching{
+				p{
+					width: 300px;
+					color: #989EA5;
+					font-size: 1rem;
 					text-align: center;
-					line-height: 24px;
 				}
 				ul{
 					list-style: inside decimal;
 					li{
-						font-size: 1.125rem;
+						position: relative;
+						font-size: 0.875rem;
 						padding: 1rem;
 						border: 1px solid #DCE1E7;
 						border-radius: 6px;
-						margin: 1.5rem 0;
+						margin-top: 6px;
+						padding-left: 56px;
 						line-height: 22px;
 						&:first-child{
 							margin-top: 0;
 						}
 						em{
-							font-size: 12px;
+							font-size: .75rem;
 							color: #989EA5;
 							font-style: normal;
+						}
+						i.icz{
+							position: absolute;
+							left: 20px;
+							top: 20px;
+							font-size: 24px;
+							color: #D7E1EA;
 						}
 					}
 				}
@@ -550,11 +543,19 @@
 				}
 				ul.or-document{
 					list-style: none !important;
-					padding-left: 2rem;
+					// padding-left: 2rem;
 					li{
 						padding: 8px 0;
 						border: 0;
 						margin: 0;
+						position: relative;
+						i.icz{
+							position: absolute;
+							left: 20px;
+							top: 20px;
+							font-size: 24px;
+							color: #D7E1EA;
+						}
 					}
 				}
 			}

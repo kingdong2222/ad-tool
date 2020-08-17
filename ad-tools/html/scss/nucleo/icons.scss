@@ -48,8 +48,6 @@ $icz-fill-picture: unicode(ea29);
 $icz-fill-question: unicode(ea2a);
 $icz-fill-info: unicode(ea2b);
 $icz-fill-settings: unicode(ea2c);
-$icz-fill-triangle-left: unicode(ea2d);
-$icz-fill-triangle-right: unicode(ea2e);
 $icz-fill-video: unicode(ea2f);
 $icz-fill-warning: unicode(ea30);
 $icz-fill-link: unicode(ea31);
@@ -134,6 +132,12 @@ $icz-fill-chat: unicode(ea83);
 $icz-minus: unicode(ea84);
 $icz-data-upload: unicode(ea85);
 $icz-lock: unicode(ea86);
+$icz-file-text: unicode(ea87);
+$icz-shape-arrow: unicode(ea88);
+$icz-fill-triangle-down: unicode(ea8a);
+$icz-fill-triangle-left: unicode(ea8b);
+$icz-fill-triangle-right: unicode(ea8c);
+$icz-fill-triangle-up: unicode(ea8d);
 
 .icz-account::before {
   content: $icz-account;
@@ -305,14 +309,6 @@ $icz-lock: unicode(ea86);
 
 .icz-fill-settings::before {
   content: $icz-fill-settings;
-}
-
-.icz-fill-triangle-left::before {
-  content: $icz-fill-triangle-left;
-}
-
-.icz-fill-triangle-right::before {
-  content: $icz-fill-triangle-right;
 }
 
 .icz-fill-video::before {
@@ -649,5 +645,29 @@ $icz-lock: unicode(ea86);
 
 .icz-lock::before {
   content: $icz-lock;
+}
+
+.icz-file-text::before {
+  content: $icz-file-text;
+}
+
+.icz-shape-arrow::before {
+  content: $icz-shape-arrow;
+}
+
+.icz-fill-triangle-down::before {
+  content: $icz-fill-triangle-down;
+}
+
+.icz-fill-triangle-left::before {
+  content: $icz-fill-triangle-left;
+}
+
+.icz-fill-triangle-right::before {
+  content: $icz-fill-triangle-right;
+}
+
+.icz-fill-triangle-up::before {
+  content: $icz-fill-triangle-up;
 }
 
