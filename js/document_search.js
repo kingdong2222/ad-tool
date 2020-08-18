@@ -1,5 +1,39 @@
 document.getElementsByClassName("navbar-item")[2].classList.add('active')
 
+let list_business_major = []
+let input_search_major = document.getElementById("first-select-preview")
+let document_search = document.getElementsByClassName('document_search')[0]
+
+window.onload = () => {
+	input_search_major.focus()
+	let temp = $('.name-item')
+	for(let i = 0; i<temp.length;i++){
+		list_business_major.push(temp[i].text)
+	}
+}
+input_search_major.onfocus = () =>{
+    let tmp = document.getElementsByClassName('dropdown-document-searching')[0]
+    tmp.style.borderColor = '#1744CF'
+    $('.dropdown-menu')[1].classList.add('show')
+}
+input_search_major.oninput = (value) =>{
+	let input = value.target.value.toUpperCase()
+	let ul = document_search.getElementsByTagName('UL')[0]
+	let li = ul.getElementsByTagName("li");
+	let a
+	for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(input) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+	let tmp = document.getElementsByClassName('dropdown-document-searching')[0]
+    tmp.style.borderColor = '#1744CF'
+    $('.dropdown-menu')[1].classList.add('show')
+}
 const list_nganh_hang = {
     1: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế - Cục An toàn Thực phẩm)</em>',
@@ -86,50 +120,68 @@ const list_hinh_anh = [
     'CMND hoặc hợp đồng sử dụng hình ảnh có kèm CMND/ Passport nếu là người nước ngoài <br><em>(được cung cấp bởi Người xuất hiện trên quảng cáo/Người chạy quảng cáo)</em>',
     '(Hoặc) Cung cấp link stock nếu lấy ảnh từ internet',
 ]
+$(document).on("click", function(event){
+    var $trigger = $(".dropdown");
+    if($trigger !== event.target && !$trigger.has(event.target).length){
+		if(input_search_major.value == '' || input_search_major.value == null){
+			input_search_major.focus()
+		} else if($('#first-select-preview').is(':focus')){
+			input_search_major.focus()
+		} else {
+			let tmp = document.getElementsByClassName('dropdown-document-searching')[0]
+			tmp.style.borderColor = '#DCE1E7'
+			$('.dropdown-menu')[1].classList.remove('show')
+		}
+    }            
+});
 $('.name-item').click(value => {
-    console.log(value.target.text)
-    $('#first-select-preview').html(value.target.text)
+    $('#first-select-preview').val(value.target.text)
+    let tmp = document.getElementsByClassName('dropdown-document-searching')[0]
+    tmp.style.borderColor = '#DCE1E7'
+	// tmp.style.boxShadow='none'
+	$('.text-input-item')[1].style.opacity = 1
+	$('.text-input-item')[2].style.opacity = 1
+    $('.dropdown-menu')[1].classList.remove('show')
     if (value.target.text != 'Chọn ngành hàng') {
-        $('#check-form-ad').attr('disabled', false)
+		$('#check-form-ad').attr('disabled', false)
+		$('#refresh-searching').attr('disabled', false)
     } else {
-        $('#check-form-ad').attr('disabled', true)
+		$('#check-form-ad').attr('disabled', true)
+		$('#refresh-searching').attr('disabled', false)
     }
 })
-//- $('#first-select').change(function(value) {
-//- 	console.log(value.target.value)
-//- 	$('#first-select-preview').html(value.target.value)
-//- 	if(value.target.value != 'Chọn ngành hàng'){
-//- 		$('#check-form-ad').attr('disabled',false)
-//- 	} else {
-//- 		$('#check-form-ad').attr('disabled',true)
-//- 	}
-//- })
 document.getElementById('refresh-searching').onclick = value => {
-    document.getElementById('refresh-searching').classList.add('is-loading')
+	document.getElementById('refresh-searching').classList.add('is-loading')
+
+	let slide_body = document_search.getElementsByClassName('slide-body')[0]
+	
+
     setTimeout(() => {
-        document.getElementById('refresh-searching').classList.remove('is-loading')
-        $('#first-select-preview').html('Chọn ngành hàng')
+		document.getElementById('refresh-searching').classList.remove('is-loading')
+		slide_body.style.display = 'flex'
+		input_search_major.focus()
+		input_search_major.value = '' 
         $('#check0')[0].checked = false
         $('#check1')[0].checked = false
         $('#check2')[0].checked = false
-        $('#check3')[0].checked = false
         $('#check4')[0].checked = false
         $('#check5')[0].checked = false
         $('#img-empty').removeClass('is-hidden')
-        $('#after-searching').addClass('is-hidden')
-        $('#before-searching').removeClass('is-hidden')
+		$('#before-searching').removeClass('is-hidden')
+		$('#after-searching').addClass('is-hidden')
         $('#document-list li').remove()
-        $('.document-block-square').css('display', 'flex')
     }, 500);
 }
 document.getElementById('check-form-ad').onclick = value => {
-    document.getElementById('check-form-ad').classList.add('is-loading')
-    let first_select = document.getElementById('first-select-preview')
-    let option_list = document.querySelectorAll("option")
+	document.getElementById('check-form-ad').classList.add('is-loading')
+
+	let slide_body = document_search.getElementsByClassName('slide-body')[0]
+	
+
     let index
-    for (let i = 0; i < option_list.length; i++) {
-        if (first_select.innerHTML == option_list[i].innerHTML) {
-            index = i
+    for (let i = 0; i < list_business_major.length; i++) {
+        if (input_search_major.value == list_business_major[i]) {
+            index = i + 1
         }
     }
     let first_documents = list_nganh_hang[index]
@@ -137,129 +189,92 @@ document.getElementById('check-form-ad').onclick = value => {
     let checkbox_0 = $('#check0')[0].checked
     let checkbox_1 = $('#check1')[0].checked
     let checkbox_2 = $('#check2')[0].checked
-    let checkbox_3 = $('#check3')[0].checked
     let checkbox_4 = $('#check4')[0].checked
     let checkbox_5 = $('#check5')[0].checked
 
     setTimeout(() => {
+		document.getElementById('check-form-ad').classList.remove('is-loading')
+		slide_body.style.display = 'block'
         $('#document-list li').remove()
-        $('.document-block-square').css('display', 'block')
-        document.getElementById('check-form-ad').classList.remove('is-loading')
-        $('#after-searching').removeClass('is-hidden')
         $('#img-empty').addClass('is-hidden')
-        $('#before-searching').addClass('is-hidden')
+		$('#before-searching').addClass('is-hidden')
+		$('#after-searching').removeClass('is-hidden')
+		
         for (let i = 0; i < first_documents.length; i++) {
             if (first_documents[i].includes('Hoặc')) {
-                $('#document-list .contain_or_job').append('<ul class="or-document"><li>' + first_documents[i] + '</li></ul>')
+                $('#document-list .contain_or_job').append('<ul class="or-document"><li>' + first_documents[i] + '<i class="icz icz-file-text"></i></li></ul>')
             } else {
                 if(first_documents[i+1]){
                     if (first_documents[i+1].includes('Hoặc')) {
-                        $('#document-list').append('<li class="contain_or_job">' + first_documents[i] + '</li>')
+                        $('#document-list').append('<li class="contain_or_job">' + first_documents[i] + '<i class="icz icz-file-text"></i></li>')
                     } else {
-                        $('#document-list').append('<li>' + first_documents[i] + '</li>')
+                        $('#document-list').append('<li>' + first_documents[i] + '<i class="icz icz-file-text"></i></li>')
                     }
                 } else {
-                    $('#document-list').append('<li>' + first_documents[i] + '</li>')
+                    $('#document-list').append('<li>' + first_documents[i] + '<i class="icz icz-file-text"></i></li>')
                 }
                 
             }
-        }
-        if (checkbox_3) {
-            if (checkbox_0 || checkbox_1 || checkbox_2) {
-                if (first_select.selectedIndex == 13 || first_select.selectedIndex == 14 || first_select.selectedIndex == 15 || first_select.selectedIndex == 16 || first_select.selectedIndex == 18) {
-                    for (let i = 0; i < list_xuat_xu[1].length; i++) {
-                        if (list_xuat_xu[1][i].includes('Hoặc')) {
-                            $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[1][i] + '</li></ul>')
-                        } else {
-                            if(list_xuat_xu[1][i+1]){
-                                if (list_xuat_xu[1][i+1].includes('Hoặc')) {
-                                    $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[1][i] + '</li>')
-                                } else {
-                                    $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
-                                }
-                            } else {
-                                $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
-                            }
-                             
-                        }
-                    }
-                } else {
-                    for (let i = 0; i < list_xuat_xu[0].length; i++) {
-                        if (list_xuat_xu[0][i].includes('Hoặc')) {
-                            $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[0][i] + '</li></ul>')
-                        } else {
-                            if(list_xuat_xu[0][i+1]){
-                                if (list_xuat_xu[0][i+1].includes('Hoặc')) {
-                                    $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[0][i] + '</li>')
-                                } else {    
-                                    $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
-                                }
-                            } else {
-                                $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
-                            }
-                            
-                        }
-                    }
-                }
-            } else { }
-        } else {
-            if (checkbox_0 || checkbox_1 || checkbox_2) {
-                if (first_select.selectedIndex == 13 || first_select.selectedIndex == 14 || first_select.selectedIndex == 15 || first_select.selectedIndex == 16 || first_select.selectedIndex == 18) {
-                    for (let i = 0; i < list_xuat_xu[1].length; i++) {
-                        if (list_xuat_xu[1][i].includes('Hoặc')) {
-                            $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[1][i] + '</li></ul>')
-                        } else {
-                            if(list_xuat_xu[1][i+1]){
-                                if (list_xuat_xu[1][i+1].includes('Hoặc')) {
-                                    $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[1][i] + '</li>')
-                                } else {
-                                    $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
-                                }
-                            } else {
-                                $('#document-list').append('<li>' + list_xuat_xu[1][i] + '</li>')
-                            }
-                            
-                        }
-                    }
-                } else {
-                    for (let i = 0; i < list_xuat_xu[0].length; i++) {
-                        if (list_xuat_xu[0][i].includes('Hoặc')) {
-                            $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[0][i] + '</li></ul>')
-                        } else {
-                            if(list_xuat_xu[0][i+1]){
-                                if (list_xuat_xu[0][i+1].includes('Hoặc')) {
-                                    $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[0][i] + '</li>')
-                                } else {
-                                    $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
-                                }
-                            } else {
-                                $('#document-list').append('<li>' + list_xuat_xu[0][i] + '</li>')
-                            }
-                            
-                        }
-                    }
-                }
-            } else { }
-        }
+		}
+		
+		if (checkbox_0 || checkbox_1 || checkbox_2) {
+			if (index == 13 || index == 14 || index == 15 || index == 16 || index == 18) {
+				for (let i = 0; i < list_xuat_xu[1].length; i++) {
+					if (list_xuat_xu[1][i].includes('Hoặc')) {
+						$('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[1][i] + '<i class="icz icz-file-text"></i></li></ul>')
+					} else {
+						if(list_xuat_xu[1][i+1]){
+							if (list_xuat_xu[1][i+1].includes('Hoặc')) {
+								$('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[1][i] + '<i class="icz icz-file-text"></i></li>')
+							} else {
+								$('#document-list').append('<li>' + list_xuat_xu[1][i] + '<i class="icz icz-file-text"></i></li>')
+							}
+						} else {
+							$('#document-list').append('<li>' + list_xuat_xu[1][i] + '<i class="icz icz-file-text"></i></li>')
+						}
+							
+					}
+				}
+			} else {
+				for (let i = 0; i < list_xuat_xu[0].length; i++) {
+					if (list_xuat_xu[0][i].includes('Hoặc')) {
+						$('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[0][i] + '<i class="icz icz-file-text"></i></li></ul>')
+					} else {
+						if(list_xuat_xu[0][i+1]){
+							if (list_xuat_xu[0][i+1].includes('Hoặc')) {
+								$('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[0][i] + '<i class="icz icz-file-text"></i></li>')
+							} else {    
+								$('#document-list').append('<li>' + list_xuat_xu[0][i] + '<i class="icz icz-file-text"></i></li>')
+							}
+						} else {
+							$('#document-list').append('<li>' + list_xuat_xu[0][i] + '<i class="icz icz-file-text"></i></li>')
+						}
+						
+					}
+				}
+			}
+		}
+        
         if (checkbox_4 || checkbox_5) {
             for (let i = 0; i < list_hinh_anh.length; i++) {
                 if (list_hinh_anh[i].includes('Hoặc')) {
-                    $('#document-list .contain_or_img').append('<ul class="or-document"><li>' + list_hinh_anh[i] + '</li></ul>')
+                    $('#document-list .contain_or_img').append('<ul class="or-document"><li>' + list_hinh_anh[i] + '<i class="icz icz-file-text"></i></li></ul>')
                 } else {
                     if(list_hinh_anh[i+1]){
                         if (list_hinh_anh[i+1].includes('Hoặc')) {
-                            $('#document-list').append('<li class="contain_or_img">' + list_hinh_anh[i] + '</li>')
+                            $('#document-list').append('<li class="contain_or_img">' + list_hinh_anh[i] + '<i class="icz icz-file-text"></i></li>')
                         } else {
-                            $('#document-list').append('<li>' + list_hinh_anh[i] + '</li>')
+                            $('#document-list').append('<li>' + list_hinh_anh[i] + '<i class="icz icz-file-text"></i></li>')
                         }
                     } else {
-                        $('#document-list').append('<li>' + list_hinh_anh[i] + '</li>')
+                        $('#document-list').append('<li>' + list_hinh_anh[i] + '<i class="icz icz-file-text"></i></li>')
                     }
                     
                 }
 
             }
-        } else { }
+		}
+		
     }, 500);
 }
 

@@ -76,13 +76,17 @@ main.document_search
                 button.button.is-primary.is-large#check-form-ad(disabled) Tra cứu
                 button.button.is-large#refresh-searching(disabled) Làm mới
     .slide-body
-        //- img#img-empty(src="./images/zad_empty.png")
-        //- p#before-searching Vui lòng chọn ngành hàng kinh doanh để tra cứu giấy phép
-        h2.title Giấy phép yêu cầu
+        img#img-empty(src="./images/zad_empty.png")
+        p#before-searching Vui lòng chọn ngành hàng kinh doanh để tra cứu giấy phép
+        h2.title.is-hidden#after-searching Giấy phép yêu cầu
         ul#document-list
-            li Giấy xác nhận nội dung quảng cáo
-            li Giấy xác nhận 
-                em <br>(nội dung quảng cáo)
+        //-     li 
+        //-         i.icz.icz-file-text
+        //-         |Giấy xác nhận nội dung quảng cáo
+        //-     li 
+        //-         i.icz.icz-file-text
+        //-         |Giấy xác nhận 
+        //-         em <br>(nội dung quảng cáo)
             //- h3.title Tìm hiểu thêm về các quy định giấy phép của Zalo Ads
             //-     a(href='https://ads.zalo.me/business/san-pham-can-giay-phep/' target='_blank') &nbsp;tại đây
 
