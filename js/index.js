@@ -933,6 +933,8 @@ first_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
+
+            $('#flying-button').fadeTo(3,1)
         }
     } else {
         first_content_preview.innerHTML = 'Tên nhà quảng cáo'
@@ -948,6 +950,8 @@ first_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
+
+            $('#flying-button').fadeTo(3,0)
         }
     }
 }
@@ -970,6 +974,8 @@ second_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
+
+            $('#flying-button').fadeTo(3,1)
         }
     } else {
         second_content_preview.innerHTML = 'Nội dung quảng cáo'
@@ -985,6 +991,8 @@ second_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
+
+            $('#flying-button').fadeTo(3,0)
         }
     }
 }
@@ -1011,6 +1019,8 @@ third_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
+
+            $('#flying-button').fadeTo(3,1)
         }
     } else {
         third_content_preview.innerHTML = 'Mô tả'
@@ -1026,6 +1036,8 @@ third_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
+
+            $('#flying-button').fadeTo(3,0)
         }
     }
 }
@@ -1052,6 +1064,8 @@ fourth_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
+
+            $('#flying-button').fadeTo(3,1)
         }
     } else {
         fourth_content_preview.innerHTML = 'Thông tin thêm'
@@ -1067,6 +1081,8 @@ fourth_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
+
+            $('#flying-button').fadeTo(3,0)
         }
     }
 }
@@ -2274,3 +2290,14 @@ $('#check_tpcn').change(function (value) {
         fourth_max_letter.innerHTML = fourth_input.value.length + '/60'
     }
 })
+
+window.onscroll = value => {
+    let offsetScrollY = window.pageYOffset
+    if(offsetScrollY > 30){
+        $('#flying-button').fadeTo(3,0)
+    } else {
+        if(first_input.value || second_input.value || third_input.value || fourth_input.value){
+            $('#flying-button').fadeTo(3,1)
+        }
+    }
+}

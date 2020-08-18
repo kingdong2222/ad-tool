@@ -346,6 +346,15 @@
 	}
 	main{
 		font-family: Muli;
+		position: relative;
+		#flying-button{
+			opacity: 0;
+			position: fixed;
+			bottom: 40px;
+			left: 40%;
+			z-index: 999;
+			box-shadow: 0 30px 50px 0 rgba(67,86,100,0.3);
+		}
 		&.is-mobile-only{
 			display: block !important;
 			padding-top: 3.5vh;
