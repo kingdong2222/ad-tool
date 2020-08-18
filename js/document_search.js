@@ -278,5 +278,15 @@ document.getElementById('check-form-ad').onclick = value => {
     }, 500);
 }
 
-
+//tooltip tippyjs
+tippy('#tippy-business-major', {
+    content: '<div class="tippy-block"><p>Các ngành hàng kinh doanh dưới đây khi quảng cáo phải đi kèm với các loại giấy phép theo quy định của Zalo Ads và cơ quan chức năng có thẩm quyền</p></div>',
+    allowHTML: true,
+    maxWidth: 270,
+    theme: 'zad',
+    interactive: true,
+    // delay: [300, null],
+    placement: 'right-start',
+    // trigger: 'click',
+});
 
