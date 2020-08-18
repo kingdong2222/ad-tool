@@ -934,9 +934,9 @@ first_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            if(window.pageYOffset < 30){
-                $('#flying-button').fadeTo(3,1)
-                $('#flying-button').css('bottom','40px')
+            if (window.pageYOffset < 30) {
+                $('#flying-button').fadeTo(3, 1)
+                $('#flying-button').css('bottom', '40px')
             }
         }
     } else {
@@ -953,10 +953,8 @@ first_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
-            if(window.pageYOffset > 30){
-                $('#flying-button').fadeTo(3,0)
-                $('#flying-button').css('bottom','0px')
-            }
+            $('#flying-button').fadeTo(3, 0)
+            $('#flying-button').css('bottom', '0px')
         }
     }
 }
@@ -980,9 +978,9 @@ second_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            if(window.pageYOffset < 30){
-                $('#flying-button').fadeTo(3,1)
-                $('#flying-button').css('bottom','40px')
+            if (window.pageYOffset < 30) {
+                $('#flying-button').fadeTo(3, 1)
+                $('#flying-button').css('bottom', '40px')
             }
         }
     } else {
@@ -1000,10 +998,8 @@ second_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            if(window.pageYOffset > 30){
-                $('#flying-button').fadeTo(3,0)
-                $('#flying-button').css('bottom','0px')
-            }
+            $('#flying-button').fadeTo(3, 0)
+            $('#flying-button').css('bottom', '0px')
         }
     }
 }
@@ -1031,9 +1027,9 @@ third_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            if(window.pageYOffset < 30){
-                $('#flying-button').fadeTo(3,1)
-                $('#flying-button').css('bottom','40px')
+            if (window.pageYOffset < 30) {
+                $('#flying-button').fadeTo(3, 1)
+                $('#flying-button').css('bottom', '40px')
             }
         }
     } else {
@@ -1051,10 +1047,8 @@ third_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            if(window.pageYOffset > 30){
-                $('#flying-button').fadeTo(3,0)
-                $('#flying-button').css('bottom','0px')
-            }
+            $('#flying-button').fadeTo(3, 0)
+            $('#flying-button').css('bottom', '0px')
         }
     }
 }
@@ -1081,9 +1075,9 @@ fourth_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
-            if(window.pageYOffset < 30){
-                $('#flying-button').fadeTo(3,1)
-                $('#flying-button').css('bottom','40px')
+            if (window.pageYOffset < 30) {
+                $('#flying-button').fadeTo(3, 1)
+                $('#flying-button').css('bottom', '40px')
             }
         }
     } else {
@@ -1101,10 +1095,8 @@ fourth_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            if(window.pageYOffset > 30){
-                $('#flying-button').fadeTo(3,0)
-                $('#flying-button').css('bottom','0px')
-            }
+            $('#flying-button').fadeTo(3, 0)
+            $('#flying-button').css('bottom', '0px')
         }
     }
 }
@@ -1718,7 +1710,7 @@ function checkAdsFunc(value) {
                         }
                     }
                 } else if (value_3.match(InputFormatUpperAfterDot)) {
-                    
+
                 }
                 if (checkSensitive(value_3).length > 0) {
                 } else {
@@ -1897,7 +1889,7 @@ function checkAdsFunc(value) {
                             }
                         }
                     } else if (value_4.match(InputFormatUpperAfterDot)) {
-                        
+
                     }
                     if (checkSensitive(value_4).length > 0) {
                     } else {
@@ -2302,26 +2294,26 @@ $('#check_tpcn').change(function (value) {
         tpcn_case = true
         $('.tpcn-case').toggleClass('is-hidden')
         fourth_max_letter.innerHTML = '59/60'
-		fourth_content_preview.innerHTML = $('#fourth-tpcn-input').val()
-		$('.fourth-preview-position').html($('#fourth-tpcn-input').val())
+        fourth_content_preview.innerHTML = $('#fourth-tpcn-input').val()
+        $('.fourth-preview-position').html($('#fourth-tpcn-input').val())
     } else {
         tpcn_case = false
         $('.tpcn-case').toggleClass('is-hidden')
-		fourth_content_preview.innerHTML = fourth_input.value
-		$('.fourth-preview-position').html(fourth_input.value)
+        fourth_content_preview.innerHTML = fourth_input.value
+        $('.fourth-preview-position').html(fourth_input.value)
         fourth_max_letter.innerHTML = fourth_input.value.length + '/60'
     }
 })
 
 window.onscroll = value => {
     let offsetScrollY = window.pageYOffset
-    if(offsetScrollY > 30){
-        $('#flying-button').fadeTo(3,0)
-        $('#flying-button').css('bottom','0px')
+    if (offsetScrollY > 30) {
+        $('#flying-button').fadeTo(3, 0)
+        $('#flying-button').css('bottom', '0px')
     } else {
-        if(first_input.value || second_input.value || third_input.value || fourth_input.value){
-            $('#flying-button').fadeTo(3,1)
-            $('#flying-button').css('bottom','40px')
+        if (first_input.value || second_input.value || third_input.value || fourth_input.value) {
+            $('#flying-button').fadeTo(3, 1)
+            $('#flying-button').css('bottom', '40px')
         }
     }
 }
