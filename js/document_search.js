@@ -44,7 +44,7 @@ const list_nganh_hang = {
     ],
     3: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Sở Y Tế)</em>',
-        'Phiếu công bố sản phẩm mỹ phẩm <br><em>(được cấp bởi Sở Y Tế (hàng trong nước) hoặc Cục Quản lý dược – Bộ Y tế (hàng NK))</em>',
+        'Phiếu công bố sản phẩm mỹ phẩm <br><em>(được cấp bởi Sở Y Tế (hàng trong nước) hoặc Cục Quản lý dược – Bộ Y tế (hàng NK)</em>',
     ],
     4: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế - Cục Quản lý Môi trường y tế)</em>'

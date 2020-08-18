@@ -345,6 +345,7 @@
 		}
 	}
 	main{
+		font-family: Muli;
 		&.is-mobile-only{
 			display: block !important;
 			padding-top: 3.5vh;
@@ -435,6 +436,7 @@
 					padding-right: 40px;
 				}
 				.dropdown{
+					font-family: Muli;
 					.dropdown-toggle{
 						display: none;
 					}
@@ -456,8 +458,18 @@
 				}
 				.container_col{
 					min-width: unset;
+					
+					button#refresh-searching:disabled {
+						&:hover{
+							color: unset
+						}
+					}
 					.text-input-item{
 						transition: all .3s;
+						min-width: 345px;
+						label{
+							font-size: 14px;
+						}
 					}
 					.dropdown{
 						display: flex;
@@ -470,6 +482,9 @@
 						input{
 							border: none;
 							padding-left: 6px;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
 							&:focus{
 								border: 0;
 								box-shadow: none;
@@ -477,7 +492,7 @@
 						}
 						.dropdown-menu{
 							left: 0 !important;
-							width: 312.95px;
+							width: 345px;
 							min-height: 260px;
 							margin-top: 5px;
 							box-shadow: 0 2px 4px 0 rgba(67,86,100,0.1), 0 5px 8px 0 rgba(67,86,100,0.12) !important;
@@ -517,7 +532,7 @@
 					li{
 						position: relative;
 						font-size: 0.875rem;
-						padding: 1rem;
+						padding: .75rem;
 						border: 1px solid #DCE1E7;
 						border-radius: 4px;
 						background-color: #fff;
@@ -582,6 +597,11 @@
 			}
 			@include until(1280px){
 				width: 100%
+			}
+			button.is-primary:disabled {
+				background-color: #F0F4F8;
+				color: #989EA5;
+				opacity: 1;
 			}
 			&.expanded{
 				width: 99%;
