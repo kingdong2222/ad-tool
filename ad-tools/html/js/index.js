@@ -934,7 +934,10 @@ first_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            $('#flying-button').fadeTo(3,1)
+            if(window.pageYOffset < 30){
+                $('#flying-button').fadeTo(3,1)
+                $('#flying-button').css('bottom','40px')
+            }
         }
     } else {
         first_content_preview.innerHTML = 'Tên nhà quảng cáo'
@@ -950,8 +953,10 @@ first_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
-
-            $('#flying-button').fadeTo(3,0)
+            if(window.pageYOffset > 30){
+                $('#flying-button').fadeTo(3,0)
+                $('#flying-button').css('bottom','0px')
+            }
         }
     }
 }
@@ -975,7 +980,10 @@ second_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            $('#flying-button').fadeTo(3,1)
+            if(window.pageYOffset < 30){
+                $('#flying-button').fadeTo(3,1)
+                $('#flying-button').css('bottom','40px')
+            }
         }
     } else {
         second_content_preview.innerHTML = 'Nội dung quảng cáo'
@@ -992,7 +1000,10 @@ second_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            $('#flying-button').fadeTo(3,0)
+            if(window.pageYOffset > 30){
+                $('#flying-button').fadeTo(3,0)
+                $('#flying-button').css('bottom','0px')
+            }
         }
     }
 }
@@ -1020,7 +1031,10 @@ third_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            $('#flying-button').fadeTo(3,1)
+            if(window.pageYOffset < 30){
+                $('#flying-button').fadeTo(3,1)
+                $('#flying-button').css('bottom','40px')
+            }
         }
     } else {
         third_content_preview.innerHTML = 'Mô tả'
@@ -1037,7 +1051,10 @@ third_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            $('#flying-button').fadeTo(3,0)
+            if(window.pageYOffset > 30){
+                $('#flying-button').fadeTo(3,0)
+                $('#flying-button').css('bottom','0px')
+            }
         }
     }
 }
@@ -1064,8 +1081,10 @@ fourth_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
-
-            $('#flying-button').fadeTo(3,1)
+            if(window.pageYOffset < 30){
+                $('#flying-button').fadeTo(3,1)
+                $('#flying-button').css('bottom','40px')
+            }
         }
     } else {
         fourth_content_preview.innerHTML = 'Thông tin thêm'
@@ -1082,7 +1101,10 @@ fourth_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            $('#flying-button').fadeTo(3,0)
+            if(window.pageYOffset > 30){
+                $('#flying-button').fadeTo(3,0)
+                $('#flying-button').css('bottom','0px')
+            }
         }
     }
 }
@@ -2295,9 +2317,11 @@ window.onscroll = value => {
     let offsetScrollY = window.pageYOffset
     if(offsetScrollY > 30){
         $('#flying-button').fadeTo(3,0)
+        $('#flying-button').css('bottom','0px')
     } else {
         if(first_input.value || second_input.value || third_input.value || fourth_input.value){
             $('#flying-button').fadeTo(3,1)
+            $('#flying-button').css('bottom','40px')
         }
     }
 }

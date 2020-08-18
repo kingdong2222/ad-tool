@@ -350,10 +350,11 @@
 		#flying-button{
 			opacity: 0;
 			position: fixed;
-			bottom: 40px;
+			bottom: 0px;
 			left: 40%;
 			z-index: 999;
 			box-shadow: 0 30px 50px 0 rgba(67,86,100,0.3);
+			transition: all .3s;
 		}
 		&.is-mobile-only{
 			display: block !important;
