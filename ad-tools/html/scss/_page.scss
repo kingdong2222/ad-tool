@@ -350,6 +350,7 @@
 	main{
 		font-family: Muli;
 		position: relative;
+		p{margin-bottom: 0;}
 		#flying-button{
 			opacity: 0;
 			position: fixed;
@@ -357,7 +358,7 @@
 			left: 40%;
 			z-index: 999;
 			box-shadow: 0 30px 50px 0 rgba(67,86,100,0.3);
-			transition: all .3s;
+			transition: all 0.3s ease-out;
 		}
 		&.is-mobile-only{
 			display: block !important;
@@ -1090,7 +1091,7 @@
 			}
 		}	
 		.policy-bottom-desc{
-			padding-top: 72px;
+			padding-top: 40px;
 			padding-bottom: 2rem;
 			width: 680px;
 			p{

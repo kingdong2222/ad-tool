@@ -936,8 +936,11 @@ first_input.oninput = value => {
             warning_card.classList.add('is-hidden')
 
             if (bounding.top > window.innerHeight) {
-                $('#flying-button').fadeTo(3, 1)
-                $('#flying-button').css('bottom', '40px')
+                $('#flying-button').css('display', 'unset')
+                setTimeout(()=>{
+                    $('#flying-button').css('bottom', '40px')
+                    $('#flying-button').css('opacity', '1')
+                },100)        
             }
         }
     } else {
@@ -954,8 +957,8 @@ first_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
-            $('#flying-button').fadeTo(3, 0)
-            $('#flying-button').css('bottom', '0px')
+
+            $('#flying-button').css('opacity', '0')
         }
     }
 }
@@ -982,8 +985,11 @@ second_input.oninput = value => {
             warning_card.classList.add('is-hidden')
 
             if (bounding.top > window.innerHeight) {
-                $('#flying-button').fadeTo(3, 1)
-                $('#flying-button').css('bottom', '40px')
+                $('#flying-button').css('display', 'unset')
+                setTimeout(()=>{
+                    $('#flying-button').css('bottom', '40px')
+                    $('#flying-button').css('opacity', '1')
+                },100) 
             }
         }
     } else {
@@ -1001,8 +1007,7 @@ second_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            $('#flying-button').fadeTo(3, 0)
-            $('#flying-button').css('bottom', '0px')
+            $('#flying-button').css('opacity', '0')
         }
     }
 }
@@ -1033,8 +1038,11 @@ third_input.oninput = value => {
             warning_card.classList.add('is-hidden')
 
             if (bounding.top > window.innerHeight) {
-                $('#flying-button').fadeTo(3, 1)
-                $('#flying-button').css('bottom', '40px')
+                $('#flying-button').css('display', 'unset')
+                setTimeout(()=>{
+                    $('#flying-button').css('bottom', '40px')
+                    $('#flying-button').css('opacity', '1')
+                },100) 
             }
         }
     } else {
@@ -1052,8 +1060,7 @@ third_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            $('#flying-button').fadeTo(3, 0)
-            $('#flying-button').css('bottom', '0px')
+            $('#flying-button').css('opacity', '0')
         }
     }
 }
@@ -1083,8 +1090,11 @@ fourth_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
             if (bounding.top > window.innerHeight) {
-                $('#flying-button').fadeTo(3, 1)
-                $('#flying-button').css('bottom', '40px')
+                $('#flying-button').css('display', 'unset')
+                setTimeout(()=>{
+                    $('#flying-button').css('bottom', '40px')
+                    $('#flying-button').css('opacity', '1')
+                },100) 
             }
         }
     } else {
@@ -1102,8 +1112,7 @@ fourth_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            $('#flying-button').fadeTo(3, 0)
-            $('#flying-button').css('bottom', '0px')
+            $('#flying-button').css('opacity', '0')
         }
     }
 }
@@ -2315,17 +2324,23 @@ $('#check_tpcn').change(function (value) {
 window.onscroll = value => {
     let buttonCheck = document.getElementById('check-form-ad')
     let bounding = buttonCheck.getBoundingClientRect();
-    console.log('top',bounding.top)
-    console.log('check if true ',bounding.top <= window.innerHeight)
+    // console.log('top',bounding.top)
+    // console.log('height',window.innerHeight)
     if (bounding.top <= window.innerHeight) {
-        $('#flying-button').fadeTo(3, 0)
-        $('#flying-button').css('bottom', '0px')
-        $('#check-form-ad').fadeTo(3, 1)
+        $('#flying-button').css('opacity', '0')
+        $('#check-form-ad').css('opacity', '1')
+        
+        if(bounding.top + bounding.height + 30 <= window.innerHeight){
+            $('#flying-button').css('display', 'none')
+        }
     } else {
         if (first_input.value || second_input.value || third_input.value || fourth_input.value) {
-            $('#flying-button').fadeTo(3, 1)
+            $('#flying-button').css('opacity', '1')
             $('#flying-button').css('bottom', '40px')
+            if(bounding.top + bounding.height + 30 > window.innerHeight){
+                $('#flying-button').css('display', 'unset')
+            }
         }
-        $('#check-form-ad').fadeTo(3, 0)
+        $('#check-form-ad').css('opacity', '0')
     }
 }
