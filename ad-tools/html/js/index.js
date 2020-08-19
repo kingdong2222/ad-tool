@@ -1256,8 +1256,12 @@ let list_check_ad_warn = []
 document.getElementById('check-form-ad').onclick = value => {
     checkAdsFunc()
 }
+document.getElementById('flying-button').onclick = value => {
+    checkAdsFunc()
+}
 function checkAdsFunc(value) {
     document.getElementById('check-form-ad').classList.add('is-loading')
+    document.getElementById('flying-button').classList.add('is-loading')
 
     //get value input
     let value_1 = first_input.value.trimEnd()
@@ -1282,8 +1286,12 @@ function checkAdsFunc(value) {
     fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
 
     setTimeout(() => {
+
         document.getElementById('check-form-ad').classList.remove('is-loading')
+        document.getElementById('flying-button').classList.remove('is-loading')
+
         banned_card.classList.remove('is-hidden')
+
         if (value_1) {
             //case banned
             if (value_1.charAt(0) != value_1.charAt(0).toUpperCase()) {
@@ -1847,6 +1855,7 @@ function checkAdsFunc(value) {
                 }
             }
         }
+
         if (tpcn_case) { }
         else {
             if (value_4) {
@@ -2028,6 +2037,7 @@ function checkAdsFunc(value) {
                 }
             }
         }
+        
         if (value_check_ad == true) {
             content_card_1.classList.add('is-hidden')
             $('#alert-card-first .card-error-list').append('<p>Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
