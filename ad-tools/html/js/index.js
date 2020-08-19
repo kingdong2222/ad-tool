@@ -918,7 +918,8 @@ const fourth_content_preview = document.getElementById('fourth-preview')
 
 
 first_input.oninput = value => {
-
+    let buttonCheck = document.getElementById('check-form-ad')
+    let bounding = buttonCheck.getBoundingClientRect();
     if (value.target.value) {
         $('.first-preview-position').html(value.target.value)
         first_content_preview.innerHTML = value.target.value
@@ -934,7 +935,7 @@ first_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            if (window.pageYOffset < 30) {
+            if (bounding.top > window.innerHeight) {
                 $('#flying-button').fadeTo(3, 1)
                 $('#flying-button').css('bottom', '40px')
             }
@@ -960,6 +961,8 @@ first_input.oninput = value => {
 }
 
 second_input.oninput = value => {
+    let buttonCheck = document.getElementById('check-form-ad')
+    let bounding = buttonCheck.getBoundingClientRect();
     second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
     //convert multi enter to <br> for preview
     let temp = value.target.value.replace(/\n/g, "<br>")
@@ -978,7 +981,7 @@ second_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            if (window.pageYOffset < 30) {
+            if (bounding.top > window.innerHeight) {
                 $('#flying-button').fadeTo(3, 1)
                 $('#flying-button').css('bottom', '40px')
             }
@@ -1005,6 +1008,8 @@ second_input.oninput = value => {
 }
 
 third_input.oninput = value => {
+    let buttonCheck = document.getElementById('check-form-ad')
+    let bounding = buttonCheck.getBoundingClientRect();
     $(window).keydown(function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
@@ -1027,7 +1032,7 @@ third_input.oninput = value => {
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
 
-            if (window.pageYOffset < 30) {
+            if (bounding.top > window.innerHeight) {
                 $('#flying-button').fadeTo(3, 1)
                 $('#flying-button').css('bottom', '40px')
             }
@@ -1054,6 +1059,8 @@ third_input.oninput = value => {
 }
 
 fourth_input.oninput = value => {
+    let buttonCheck = document.getElementById('check-form-ad')
+    let bounding = buttonCheck.getBoundingClientRect();
     $(window).keydown(function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
@@ -1075,7 +1082,7 @@ fourth_input.oninput = value => {
 
             banned_card.classList.add('is-hidden')
             warning_card.classList.add('is-hidden')
-            if (window.pageYOffset < 30) {
+            if (bounding.top > window.innerHeight) {
                 $('#flying-button').fadeTo(3, 1)
                 $('#flying-button').css('bottom', '40px')
             }
@@ -2306,14 +2313,19 @@ $('#check_tpcn').change(function (value) {
 })
 
 window.onscroll = value => {
-    let offsetScrollY = window.pageYOffset
-    if (offsetScrollY > 30) {
+    let buttonCheck = document.getElementById('check-form-ad')
+    let bounding = buttonCheck.getBoundingClientRect();
+    console.log('top',bounding.top)
+    console.log('check if true ',bounding.top <= window.innerHeight)
+    if (bounding.top <= window.innerHeight) {
         $('#flying-button').fadeTo(3, 0)
         $('#flying-button').css('bottom', '0px')
+        $('#check-form-ad').fadeTo(3, 1)
     } else {
         if (first_input.value || second_input.value || third_input.value || fourth_input.value) {
             $('#flying-button').fadeTo(3, 1)
             $('#flying-button').css('bottom', '40px')
         }
+        $('#check-form-ad').fadeTo(3, 0)
     }
 }
