@@ -18,6 +18,12 @@ document.getElementsByClassName("navbar-item")[1].onclick = () => {
     document.getElementsByTagName('MAIN')[0].classList.add('is-hidden')
     document.getElementsByTagName('MAIN')[1].classList.remove('is-hidden')
 }
+let banned_words = []
+let banned_words_fixed = []
+let warning_words = []
+let warning_words_fixed = []
+let list_check_ad_ban = []
+let list_check_ad_warn = []
 
 const content_card_0 = document.getElementById('content-card-first')
 const content_card_1 = document.getElementById('content-card-second')
@@ -40,6 +46,12 @@ const fourth_max_letter = document.getElementById('max-letter-fourth')
 const button_toogle_slide = document.getElementById('button-toggle-slide-bar')
 const main_body = document.getElementsByClassName('main-body')[0]
 const slide_body = document.getElementsByClassName('slide-body')[0]
+
+const first_content_preview = document.getElementById('first-preview')
+const second_content_preview = document.getElementById('second-preview')
+const third_content_preview = document.getElementById('third-preview')
+const fourth_content_preview = document.getElementById('fourth-preview')
+
 button_toogle_slide.onclick = () => {
     main_body.classList.toggle("expanded");
     slide_body.classList.toggle("narrowed")
@@ -60,8 +72,6 @@ $("#avatar-image-input").click(() => {
 $("#avatar-image-input-0").click(() => {
     cropAvatarAgain()
 })
-
-
 $("#large-image-input").click(() => {
     cropLargeImg()
 })
@@ -518,7 +528,7 @@ var cropLargeImg = function () {
             switch (data.method) {
                 case 'getCroppedCanvas':
                     if (result) {
-                        console.log(result)
+                        // console.log(result)
                         if (!download.disabled) {
                             download.download = uploadedImageName;
                             download.href = result.toDataURL(uploadedImageType);
@@ -543,8 +553,8 @@ var cropLargeImg = function () {
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
                                 var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-                                console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
-                                console.log(men.data64F[0])
+                                // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+                                // console.log(men.data64F[0])
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                     document.getElementById('img-quality').classList.add('is-ok')
@@ -558,13 +568,15 @@ var cropLargeImg = function () {
 
                             $(".ads-img .squares").addClass("is-show");
 
-                            // setTimeout(() => {
+                            let notice_download_img = localStorage.getItem("noticedownloadimg")
+                            notice_download_img ? null : localStorage.setItem("noticedownloadimg", true)
+
                             tippy('#dropdown-m1', {
                                 content: '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
                                 allowHTML: true,
                                 maxWidth: 270,
                                 theme: 'zad',
-                                showOnCreate: true,
+                                showOnCreate: notice_download_img ? false : true,
                                 placement: 'right-start',
                                 onShow(instance) {
                                     instance.setProps({ trigger: 'click' })
@@ -573,7 +585,6 @@ var cropLargeImg = function () {
                                     instance.destroy()
                                 }
                             });
-                            // }, 100)
 
                         }
                     }
@@ -604,13 +615,19 @@ var cropLargeImg = function () {
 
                 $("html").addClass("overlay-modal");
                 $("#modalEditImg").addClass("show");
+
+                let first_upload_img
+                first_upload_img = localStorage.getItem("firstuploadimg")
+
+                first_upload_img ? null : localStorage.setItem("firstuploadimg", true)
+
                 setTimeout(() => {
                     tippy('#tippy-crop-img', {
                         content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme: 'zad',
-                        showOnCreate: true,
+                        showOnCreate: first_upload_img ? false : true,
                         placement: 'right-start',
                         onShow(instance) {
                             instance.setProps({ trigger: 'click' })
@@ -911,10 +928,6 @@ document.getElementById('large-image-input').ondrop = (value) => {
     document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
 }
 
-const first_content_preview = document.getElementById('first-preview')
-const second_content_preview = document.getElementById('second-preview')
-const third_content_preview = document.getElementById('third-preview')
-const fourth_content_preview = document.getElementById('fourth-preview')
 
 
 first_input.oninput = value => {
@@ -937,10 +950,10 @@ first_input.oninput = value => {
 
             if (bounding.top > window.innerHeight) {
                 $('#flying-button').css('display', 'unset')
-                setTimeout(()=>{
+                setTimeout(() => {
                     $('#flying-button').css('bottom', '40px')
                     $('#flying-button').css('opacity', '1')
-                },100)        
+                }, 100)
             }
         }
     } else {
@@ -986,10 +999,10 @@ second_input.oninput = value => {
 
             if (bounding.top > window.innerHeight) {
                 $('#flying-button').css('display', 'unset')
-                setTimeout(()=>{
+                setTimeout(() => {
                     $('#flying-button').css('bottom', '40px')
                     $('#flying-button').css('opacity', '1')
-                },100) 
+                }, 100)
             }
         }
     } else {
@@ -1039,10 +1052,10 @@ third_input.oninput = value => {
 
             if (bounding.top > window.innerHeight) {
                 $('#flying-button').css('display', 'unset')
-                setTimeout(()=>{
+                setTimeout(() => {
                     $('#flying-button').css('bottom', '40px')
                     $('#flying-button').css('opacity', '1')
-                },100) 
+                }, 100)
             }
         }
     } else {
@@ -1091,10 +1104,10 @@ fourth_input.oninput = value => {
             warning_card.classList.add('is-hidden')
             if (bounding.top > window.innerHeight) {
                 $('#flying-button').css('display', 'unset')
-                setTimeout(()=>{
+                setTimeout(() => {
                     $('#flying-button').css('bottom', '40px')
                     $('#flying-button').css('opacity', '1')
-                },100) 
+                }, 100)
             }
         }
     } else {
@@ -1131,39 +1144,7 @@ function focusFirstInput() {
     first_input.focus()
 }
 
-let banned_words = []
-let banned_words_fixed = []
-let warning_words = []
-let warning_words_fixed = []
 
-window.onload = () => {
-
-    //resize textarea when input
-    $('textarea').each(function () {
-        if (this.scrollHeight > 0) {
-            this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-        }
-    }).on('input', function () {
-        if (this.scrollHeight > 0) {
-            this.style.height = 'auto';
-            this.style.height = (this.scrollHeight) + 'px';
-        }
-    });
-
-    //get data from google sheet
-    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1N5zxJzuFckxGRhplYf9yiIplhP7FBbUGTZVcxCTE7xA/values:batchGet?dateTimeRenderOption=SERIAL_NUMBER&majorDimension=COLUMNS&ranges=A2%3AA&ranges=B2%3AB&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAQps-FHqKesLlZYEsIJQAv5UzUfmqwoxQ'
-    fetch(url_google_sheet)
-        .then(res => res.json())
-        .then((out) => {
-            // console.log(out)
-            banned_words = out.valueRanges[0].values
-            banned_words_fixed = out.valueRanges[1].values
-            warning_words = out.valueRanges[2].values
-            warning_words_fixed = out.valueRanges[3].values
-            case_sensitive_words = out.valueRanges[4].values
-        })
-        .catch(err => { throw err });
-}
 // check sensitive words
 function checkSensitive(val) {
     let list = case_sensitive_words[0]
@@ -1212,11 +1193,7 @@ function checkWarning(val) {
     }
     return getBanWordsList
 }
-function checkFormat(val) {
-    if (val.charAt(0) != val.charAt(0).toUpperCase() || val.charAt(0) == ' ')
-        return 1;
-    return 0;
-}
+//check multi uppercase
 function checkFormat2(val) {
     for (let i = 1; i < val.length; i++) {
         if (val[i] != val[i].toLowerCase()) {
@@ -1224,7 +1201,7 @@ function checkFormat2(val) {
         }
     }
 }
-
+//check full uppercase
 function isUpperCase(str) {
     return str === str.toUpperCase();
 }
@@ -1250,8 +1227,7 @@ const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩ
 
 const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,})/g
 
-let list_check_ad_ban = []
-let list_check_ad_warn = []
+
 
 document.getElementById('check-form-ad').onclick = value => {
     checkAdsFunc()
@@ -2037,7 +2013,7 @@ function checkAdsFunc(value) {
                 }
             }
         }
-        
+
         if (value_check_ad == true) {
             content_card_1.classList.add('is-hidden')
             $('#alert-card-first .card-error-list').append('<p>Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
@@ -2339,18 +2315,20 @@ window.onscroll = value => {
     if (bounding.top <= window.innerHeight) {
         $('#flying-button').css('opacity', '0')
         $('#check-form-ad').css('opacity', '1')
-        
-        if(bounding.top + bounding.height + 30 <= window.innerHeight){
+
+        if (bounding.top + bounding.height + 30 <= window.innerHeight) {
             $('#flying-button').css('display', 'none')
         }
     } else {
         if (first_input.value || second_input.value || third_input.value || fourth_input.value) {
             $('#flying-button').css('opacity', '1')
             $('#flying-button').css('bottom', '40px')
-            if(bounding.top + bounding.height + 30 > window.innerHeight){
+            if (bounding.top + bounding.height + 30 > window.innerHeight) {
                 $('#flying-button').css('display', 'unset')
             }
         }
         $('#check-form-ad').css('opacity', '0')
     }
 }
+
+

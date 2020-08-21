@@ -36,24 +36,40 @@
           <li><a class="navbar-item" href="document_search.html">Tra cứu giấy phép</a></li>
         </ul>
       </div>
-      <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="OpenUpdateHistory()">
            <i class="icz icz-fill-bell"></i>
-          <div class="red-dot"></div><span>Lịch sử cập nhật</span></a>
+          <div class="red-dot" id="red_dot"></div><span>Lịch sử cập nhật</span></a>
         <div class="dropdown-menu" aria-labelledby="dropdown-m2">
           <p class="history-update-title">Chi tiết phiên bản</p>
           <div class="history-list">
             <div class="history-item">
               <ul>
                 <li> 
-                  <p>Thêm lựa chọn "Thực phẩm chức năng" Thêm lựa chọn "Thực phẩm chức năng"</p>
+                  <p>Thêm lựa chọn "Thực phẩm chức năng"</p>
+                </li>
+                <li> 
+                  <p>Thêm trang tra cứu giấy phép</p>
+                </li>
+                <li>
+                  <p>Thêm gợi ý chỉnh sửa cho từ CẤM, từ phản cảm, thiếu kiểm chứng</p>
+                </li>
+              </ul><span>Phiên bản 1.0.3 - 17/08/2020</span>
+            </div>
+            <div class="history-item">
+              <ul>
+                <li> 
+                  <p>Kiểm tra số điện thoại hoặc email</p>
                 </li>
                 <li> 
                   <p>Cập nhật lại Vị trí quảng cáo</p>
                 </li>
                 <li> 
-                  <p>Thêm trang Tra cứu giấy phép</p>
+                  <p>Kiểm tra từ ngữ phản cám, thiếu kiểm chứng</p>
                 </li>
-              </ul><span>Phiên bản 1.0.2 - 27/07/2020</span>
+                <li>
+                  <p>Kiểm tra từ CẤM</p>
+                </li>
+              </ul><span>Phiên bản 1.0.2 - 10/08/2020</span>
             </div>
             <div class="history-item">
               <ul>
@@ -61,10 +77,13 @@
                   <p>Kiểm tra chất lượng hình ảnh</p>
                 </li>
                 <li> 
+                  <p>Kiểm tra phần trăm ký tự trên ảnh</p>
+                </li>
+                <li> 
                   <p>Kiểm tra ký tự đặc biệt</p>
                 </li>
                 <li> 
-                  <p>Kiểm tra chữ viết hoa và gợi ý chỉnh sửa</p>
+                  <p>Kiểm tra chữ viết hoa</p>
                 </li>
               </ul><span>Phiên bản 1.0.1 - 27/07/2020</span>
             </div>
@@ -306,7 +325,7 @@
       </main>
       <main class="is-hidden">
         <div class="ads-preview-list">
-          <h2 class="title preview-count" style="font-weight: 500;">10 vị trí quảng cáo</h2>
+          <h2 class="title preview-count" style="font-weight: 500;">8 vị trí quảng cáo</h2>
           <div class="preview-item-list">
             <div class="preview-item-container">
               <div class="preview-item">
@@ -596,6 +615,7 @@
     <script src="js/tippy.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/general_main.js"></script>
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-75517706-1" async></script>
     <script>
       $('#banned-3 span').click(function(){

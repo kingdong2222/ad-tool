@@ -36,24 +36,40 @@
           <li><a class="navbar-item" href="document_search.html">Tra cứu giấy phép</a></li>
         </ul>
       </div>
-      <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="OpenUpdateHistory()">
            <i class="icz icz-fill-bell"></i>
-          <div class="red-dot"></div><span>Lịch sử cập nhật</span></a>
+          <div class="red-dot" id="red_dot"></div><span>Lịch sử cập nhật</span></a>
         <div class="dropdown-menu" aria-labelledby="dropdown-m2">
           <p class="history-update-title">Chi tiết phiên bản</p>
           <div class="history-list">
             <div class="history-item">
               <ul>
                 <li> 
-                  <p>Thêm lựa chọn "Thực phẩm chức năng" Thêm lựa chọn "Thực phẩm chức năng"</p>
+                  <p>Thêm lựa chọn "Thực phẩm chức năng"</p>
+                </li>
+                <li> 
+                  <p>Thêm trang tra cứu giấy phép</p>
+                </li>
+                <li>
+                  <p>Thêm gợi ý chỉnh sửa cho từ CẤM, từ phản cảm, thiếu kiểm chứng</p>
+                </li>
+              </ul><span>Phiên bản 1.0.3 - 17/08/2020</span>
+            </div>
+            <div class="history-item">
+              <ul>
+                <li> 
+                  <p>Kiểm tra số điện thoại hoặc email</p>
                 </li>
                 <li> 
                   <p>Cập nhật lại Vị trí quảng cáo</p>
                 </li>
                 <li> 
-                  <p>Thêm trang Tra cứu giấy phép</p>
+                  <p>Kiểm tra từ ngữ phản cám, thiếu kiểm chứng</p>
                 </li>
-              </ul><span>Phiên bản 1.0.2 - 27/07/2020</span>
+                <li>
+                  <p>Kiểm tra từ CẤM</p>
+                </li>
+              </ul><span>Phiên bản 1.0.2 - 10/08/2020</span>
             </div>
             <div class="history-item">
               <ul>
@@ -61,10 +77,13 @@
                   <p>Kiểm tra chất lượng hình ảnh</p>
                 </li>
                 <li> 
+                  <p>Kiểm tra phần trăm ký tự trên ảnh</p>
+                </li>
+                <li> 
                   <p>Kiểm tra ký tự đặc biệt</p>
                 </li>
                 <li> 
-                  <p>Kiểm tra chữ viết hoa và gợi ý chỉnh sửa</p>
+                  <p>Kiểm tra chữ viết hoa</p>
                 </li>
               </ul><span>Phiên bản 1.0.1 - 27/07/2020</span>
             </div>
@@ -86,15 +105,21 @@
                   <input id="first-select-preview" type="text" placeholder="Tìm kiếm ngành hàng kinh doanh">
                   <div class="dropdown-menu show" aria-labelledby="dropdown-document-searching">
                     <ul>
-                      <li><a class="name-item">Thực phẩm chức năng</a></li>
+                      <li><a class="name-item">Thực phẩm chức năng, thực phẩm bảo vệ sức khỏe, thực phẩm dinh dưỡng y học, thực phẩm dùng cho chế độ ăn đặc biệt, sản phẩm dinh dưỡng cho trẻ đến 36 tháng tuổi</a></li>
+                      <li><a class="name-item">Sữa và sản phẩm dinh dưỡng cho trẻ trên 24 tháng tuổi</a></li>
+                      <li><a class="name-item">Thực phẩm đã qua chế biến, phụ gia thực phẩm, chất hỗ trợ chế biến thực phẩm</a></li>
+                      <li><a class="name-item">Thực phẩm tươi sống</a></li>
+                      <li><a class="name-item">Mỹ phẩm</a></li>
                       <li><a class="name-item">Thuốc</a></li>
                       <li><a class="name-item">Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế</a></li>
-                      <li><a class="name-item">Sữa và sản phẩm dinh dưỡng cho trẻ trên 24 tháng tuổi</a></li>
-                      <li><a class="name-item">Thực phẩm, phụ gia thực phẩm</a></li>
+                      <li><a class="name-item">Thuốc bảo vệ thực vật, nguyên liệu thuốc bảo vệ thực vật, vật tư bảo vệ thực vật, sinh vật có ích dùng trong bảo vệ thực vật</a></li>
+                      <li><a class="name-item">Phân bón</a></li>
+                      <li><a class="name-item">Thuốc và vật tư thú y</a></li>
                       <li><a class="name-item">Rượu có độ cồn dưới 15 độ và bia</a></li>
-                      <li><a class="name-item">Dịch vụ khám bệnh, chữa bệnh (bao gồm phòng khám nha khoa, thẩm mỹ viện có các chức năng phẫu thuật, dao kéo)</a></li>
-                      <li><a class="name-item">Trang thiết bị y tế</a></li>
-                      <li><a class="name-item">Thuốc và vật tư bảo vệ thực vật, sinh vật, thú y nói chung</a></li>
+                      <li><a class="name-item">Dịch vụ khám bệnh, chữa bệnh (bao gồm phòng khám nha khoa)</a></li>
+                      <li><a class="name-item">Thẩm mỹ viện </a></li>
+                      <li><a class="name-item">Trang thiết bị y tế loại B,C,D</a></li>
+                      <li><a class="name-item">Trang thiết bị y tế loại A</a></li>
                       <li><a class="name-item">Trò chơi điện tử</a></li>
                       <li><a class="name-item">Dịch vụ vui chơi, giải trí cho đối tượng từ 16 tuổi trở lên</a></li>
                       <li><a class="name-item">Dịch vụ về visa hộ chiếu</a></li>
@@ -103,6 +128,13 @@
                       <li><a class="name-item">Hẹn hò online</a></li>
                       <li><a class="name-item">Dịch vụ cầm đồ</a></li>
                       <li><a class="name-item">Xổ số</a></li>
+                      <li><a class="name-item">Dịch vụ xăm hình (xăm, phun, thêu trên da có sử dụng thuốc gây tê dạng tiêm)</a></li>
+                      <li><a class="name-item">Sách (1 hoặc nhiều quyển sách)</a></li>
+                      <li><a class="name-item">Sàn thương mại điện tử</a></li>
+                      <li><a class="name-item">Spa có bao gồm hoạt động massage (Sử dụng phương pháp vật lý trị liệu)</a></li>
+                      <li><a class="name-item">Spa không bao gồm hoạt động massage</a></li>
+                      <li><a class="name-item">Phòng khám thú y</a></li>
+                      <li><a class="name-item">Thiết bị, phần mềm ngụy trang dùng để ghi âm, ghi hình, định vị</a></li>
                     </ul>
                   </div>
                 </div>
@@ -169,6 +201,7 @@
     <script src="js/tippy.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/document_search.js"></script>
+    <script src="js/general_main.js"></script>
     <script></script>
   </body>
 </html>

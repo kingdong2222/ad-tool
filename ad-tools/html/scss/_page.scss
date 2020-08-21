@@ -199,6 +199,8 @@
 				position: absolute;
 				left: 28px;
 				top: 8px;
+				transition: all .3s ease-out;
+				opacity: 0;
 			}
 			a{
 				font-size: 1rem;
@@ -442,9 +444,6 @@
 			}
 			.main-body{
 				width: fit-content;
-				.container_cols{
-					min-width: 400px;
-				}
 				@include until(1295px){
 					padding-left: 3rem;
 				}
@@ -474,7 +473,7 @@
 				}
 				.container_col{
 					min-width: unset;
-					
+					margin-right: 40px;
 					button#refresh-searching:disabled {
 						&:hover{
 							color: unset
@@ -485,11 +484,15 @@
 						min-width: 345px;
 						label{
 							font-size: 14px;
+							font-weight: 400;
 						}
 						.label-title{
 							span{
 								color: #8D98B2
 							}
+						}
+						input[type='checkbox']:disabled{
+							
 						}
 					}
 					.dropdown{
@@ -531,7 +534,8 @@
 			}
 			.slide-body{
 				width: 70%;
-				padding: 4rem;
+				// padding: 4rem;
+				padding-left: 40px;
 				padding-top: 40px;
 				display: flex;
 				align-items: center;
@@ -561,7 +565,7 @@
 						padding-left: 56px;
 						line-height: 22px;
 						font-weight: 500;
-						max-width: 700px;
+						max-width: 750px;
 						&:first-child{
 							margin-top: 0;
 						}
@@ -637,7 +641,7 @@
 				.first-item{
 					min-width: 380px;
 					max-width: 380px;
-					margin-right: 40px;
+					margin-right: 24px;
 					flex-grow: 1;
 				}
 				.second-item{

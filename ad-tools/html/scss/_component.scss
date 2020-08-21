@@ -76,7 +76,7 @@
 	/* Custom Checkbox */
 	[type="checkbox"]:checked,[type="checkbox"]:not(:checked){position:absolute;left:-9999px}
 	[type="checkbox"]:checked + label,[type="checkbox"]:not(:checked) + label{position:relative;display:inline-block;padding-left:24px;cursor:pointer;color:$text;font-size:$size-medium;line-height:1;font-family: Muli;}
-	[type="checkbox"]:checked + label:before,[type="checkbox"]:not(:checked) + label:before{@include position(absolute, 50% null null 0);content:"";background:$primary;@include size(16px);margin-top:-8px;border:1px solid $primary;border-radius:4px}
+	[type="checkbox"]:checked + label:before,[type="checkbox"]:not(:checked) + label:before{@include position(absolute, 50% null null 0);content:"";background: $primary;@include size(16px);margin-top:-8px;border:1px solid $primary;border-radius:4px}
 	[type="checkbox"]:checked + label:after,[type="checkbox"]:not(:checked) + label:after{@include position(absolute, 50% null null 0);content:"\ea0a";@include size(16px);margin-top:-7px;@include padding(null 2px);color:$white;font-size:0.75rem;font-family:$font-icon;transition:all 0.2s ease}
 	[type="checkbox"]:not(:checked) + label:after{opacity:0;transform:scale(0)}
 	[type="checkbox"]:checked + label:after{opacity:1;transform:scale(1)}
