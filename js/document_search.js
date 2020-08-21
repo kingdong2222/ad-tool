@@ -184,6 +184,11 @@ const getIndexList = (value) => {
 }
 $('.name-item').click(value => {
     $('#first-select-preview').val(value.target.text)
+    $('#check0')[0].checked = false
+    $('#check1')[0].checked = false
+    $('#check2')[0].checked = false
+    $('#check4')[0].checked = false
+    $('#check5')[0].checked = false
     let tmp = document.getElementsByClassName('dropdown-document-searching')[0]
     tmp.style.borderColor = '#DCE1E7'
     // tmp.style.boxShadow='none'
@@ -202,12 +207,21 @@ $('.name-item').click(value => {
     //case khong co xuat xu hang hoa
     if (tempIndex == 12 || tempIndex == 13 || tempIndex == 15 || tempIndex == 17 || tempIndex == 18 || tempIndex == 20 || tempIndex == 27
         || tempIndex == 21 || tempIndex == 22 || tempIndex == 23 || tempIndex == 24 || tempIndex == 25 || tempIndex == 26 || tempIndex == 28 || tempIndex == 29) {
-        $('#check0')[0].checked = false
-        $('#check1')[0].checked = false
-        $('#check2')[0].checked = false
         $('#check0')[0].disabled = true
         $('#check1')[0].disabled = true
         $('#check2')[0].disabled = true
+        let second_textinput = document.getElementsByClassName('text-input-item')[1]
+        let title = second_textinput.getElementsByClassName('title')[0]
+        title.style.color = '#989EA5'
+        title.getElementsByTagName('SPAN')[0].color = '#989EA5'
+    } else {
+        $('#check0')[0].disabled = false
+        $('#check1')[0].disabled = false
+        $('#check2')[0].disabled = false
+        let second_textinput = document.getElementsByClassName('text-input-item')[1]
+        let title = second_textinput.getElementsByClassName('title')[0]
+        title.style.color = '#131820'
+        title.getElementsByTagName('SPAN')[0].color = '#8D98B2'
     }
 })
 document.getElementById('refresh-searching').onclick = value => {

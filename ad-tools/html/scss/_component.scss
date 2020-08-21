@@ -66,21 +66,25 @@
 	/* Custom Radio */
 	[type="radio"]:checked,[type="radio"]:not(:checked){position:absolute;left:-9999px}
 	[type="radio"]:checked + label,[type="radio"]:not(:checked) + label{position:relative;display:inline-block;padding-left:24px;cursor:pointer;color:$text;font-size:$size-medium;line-height:1;font-family: Muli;}
-	[type="radio"]:checked + label:before,[type="radio"]:not(:checked) + label:before{@include position(absolute, 50% null null 0);content:"";background:#fff;@include size(16px);margin-top:-8px;border:1px solid $primary;border-radius:100%;}
+	[type="radio"]:checked + label:before,[type="radio"]:not(:checked) + label:before{@include position(absolute, 50% null null 0);content:"";background:#fff;@include size(16px);margin-top:-8px;border:1px solid $grey;border-radius:100%;}
 	[type="radio"]:checked + label:after,[type="radio"]:not(:checked) + label:after{@include position(absolute, 50% null null 4px);content:"";background:$primary;@include size(8px);margin-top:-4px;border-radius:100%;transition:all 0.2s ease}
 	[type="radio"]:not(:checked) + label:after{opacity:0;transform:scale(0)}
 	[type="radio"]:checked + label:after{opacity:1;transform:scale(1)}
 	[type="radio"]:checked + label:after{opacity:1;transform:scale(1)}
-	[type="radio"]:not(:checked) + label:before{background:transparent;border-color:$grey-light}
+	[type="radio"]:not(:checked) + label:before{background:transparent;border-color:$grey}
+	[type="radio"]:disabled + label:before{background:transparent;border-color:$grey-light;cursor: not-allowed}
+	[type="radio"]:disabled + label{color:#989EA5;cursor: not-allowed}
 
 	/* Custom Checkbox */
 	[type="checkbox"]:checked,[type="checkbox"]:not(:checked){position:absolute;left:-9999px}
 	[type="checkbox"]:checked + label,[type="checkbox"]:not(:checked) + label{position:relative;display:inline-block;padding-left:24px;cursor:pointer;color:$text;font-size:$size-medium;line-height:1;font-family: Muli;}
-	[type="checkbox"]:checked + label:before,[type="checkbox"]:not(:checked) + label:before{@include position(absolute, 50% null null 0);content:"";background: $primary;@include size(16px);margin-top:-8px;border:1px solid $primary;border-radius:4px}
+	[type="checkbox"]:checked + label:before,[type="checkbox"]:not(:checked) + label:before{@include position(absolute, 50% null null 0);content:"";background: $primary;@include size(16px);margin-top:-8px;border:1px solid $grey;border-radius:4px}
 	[type="checkbox"]:checked + label:after,[type="checkbox"]:not(:checked) + label:after{@include position(absolute, 50% null null 0);content:"\ea0a";@include size(16px);margin-top:-7px;@include padding(null 2px);color:$white;font-size:0.75rem;font-family:$font-icon;transition:all 0.2s ease}
 	[type="checkbox"]:not(:checked) + label:after{opacity:0;transform:scale(0)}
 	[type="checkbox"]:checked + label:after{opacity:1;transform:scale(1)}
-	[type="checkbox"]:not(:checked) + label:before{background:transparent;border-color:$grey-light}
+	[type="checkbox"]:not(:checked) + label:before{background:transparent;border-color:$grey}
+	[type="checkbox"]:disabled + label:before{background:transparent;border-color:$grey-light;cursor: not-allowed}
+	[type="checkbox"]:disabled + label{color:#989EA5;cursor: not-allowed}
 
 	/* Input group */
 	.input-group{display:block;position:relative;margin-bottom:8px;
