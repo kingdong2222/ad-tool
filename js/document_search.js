@@ -10,6 +10,11 @@ input_search_major.onfocus = () => {
     let tmp = document.getElementsByClassName('dropdown-document-searching')[0]
     tmp.style.borderColor = '#1744CF'
     $('.dropdown-menu')[1].classList.add('show')
+    let ul = document_search.getElementsByTagName('UL')[0]
+    let li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        li[i].style.display = "";
+    }
 }
 input_search_major.oninput = (value) => {
     let input = value.target.value.toUpperCase()
