@@ -272,7 +272,12 @@
 						color: #131820;
 						white-space: normal;
 						position: relative;
-						&:before {content: "•";position: absolute;vertical-align: middle;}
+						&:before {
+							content: '\2022';
+							font-weight: bold;
+							display: inline-block; 
+							width: 1.25em;
+						}
 					}
 				}
 			}
@@ -1930,6 +1935,49 @@
 	}
 .clear{
 	clear: both;
+}
+.rating-component{
+	.rating > input{display:none} 
+	.rating > label:before{background:none;overflow:inherit;width:auto;height:auto;margin:2px;font-size:10px;font-family:$font-icon;display:block;content:"\ea13"}
+	.rating > label:after{display:none}
+	.rating > .half:before{content:"\ea25";position:absolute}
+	.rating > label{color:#ddd;float:right;margin-bottom:0}
+
+	.rating > input:checked ~ label, /* show gold star when clicked */
+	.rating:not(:checked) > label:hover, /* hover current star */
+	.rating:not(:checked) > label:hover ~ label{color:red} /* hover previous stars in list */
+
+	.rating > input:checked + label:hover, /* hover current star when changing rating */
+	.rating > input:checked ~ label:hover,
+	.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+	.rating > input:checked ~ label:hover ~ label{color:red}
+
+	.rating-star{display:flex;align-items:center;margin-left:-2px;
+		[class^=icn]{flex-shrink:0;display:block;@include size(14px, 16px);margin-left:0!important;margin-right:0!important;@include padding(3px 2px);color:#ddd!important;font-size:10px;
+			&.active{color:#FFE739!important}
+		}
+		&.is-medium{
+			[class^=icn]{@include size(17px, 20px);@include padding(3px 2px);font-size:14px;}
+		}
+		&.is-large{
+			[class^=icn]{@include size(20px, 22px);@include padding(3px 2px);font-size:16px;}
+		}
+	}
+	/* Component */
+	.rating > input:checked ~ label, /* show gold star when clicked */
+	.rating:not(:checked) > label:hover, /* hover current star */
+	.rating:not(:checked) > label:hover ~ label{color:green} /* hover previous stars in list */
+
+	.rating > input:checked + label:hover, /* hover current star when changing rating */
+	.rating > input:checked ~ label:hover,
+	.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+	.rating > input:checked ~ label:hover ~ label{color:green}
+
+	.rating-star{
+		[class^=icn]{
+			&.active{color:green}
+		}
+	}
 }
 
 

@@ -66,7 +66,6 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 var OpenUpdateHistory = () => {
-    console.log('check')
     let dropdown = document.getElementsByClassName('dropdown')[0]
     setTimeout(() => {
         let dropdown_menu = dropdown.getElementsByClassName('is-show')[0]
