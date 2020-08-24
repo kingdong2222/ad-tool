@@ -139,8 +139,8 @@ const list_nganh_hang = {
     ],
     29: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
-        'Chứng chỉ hành nghề thú y đứng tên người quản lý/người trực tiếp bán thuốc thú y <br><em>(được cấp bởi Cục Thú y/Chi cục Thú y)</em>',
-        'Giấy chứng nhận đủ điều kiện buôn bán thuốc thú y (Nếu phòng khám có thêm hoạt động buôn bán thuốc thú y trên giấy phép KD',
+        'Chứng chỉ hành nghề thú y đứng tên người quản lý/ người trực tiếp bán thuốc thú y <br><em>(được cấp bởi Cục Thú y/ Chi cục Thú y)</em>',
+        'Giấy chứng nhận đủ điều kiện buôn bán thuốc thú y (Nếu phòng khám có thêm hoạt động buôn bán thuốc thú y trên giấy phép KD)'
     ],
     30: [
         'Giấy chứng nhận đủ điều kiện về an ninh, trật tự <br><em>(được cấp bởi Bộ Công An)</em>',
@@ -264,6 +264,8 @@ document.getElementById('check-form-ad').onclick = value => {
     let checkbox_4 = $('#check4')[0].checked
     let checkbox_5 = $('#check5')[0].checked
 
+    let count = 0
+
     setTimeout(() => {
         document.getElementById('check-form-ad').classList.remove('is-loading')
         slide_body.style.display = 'block'
@@ -273,17 +275,19 @@ document.getElementById('check-form-ad').onclick = value => {
         $('#after-searching').removeClass('is-hidden')
 
         for (let i = 0; i < first_documents.length; i++) {
+            
             if (first_documents[i].includes('Hoặc')) {
-                $('#document-list .contain_or_job').append('<ul class="or-document"><li>' + first_documents[i] + '<i class="icz icz-file-text"></i></li></ul>')
+                $('#document-list .contain_or_job').append('<ul class="or-document"><li><p>' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li></ul>')
             } else {
+                count += 1
                 if (first_documents[i + 1]) {
                     if (first_documents[i + 1].includes('Hoặc')) {
-                        $('#document-list').append('<li class="contain_or_job">' + first_documents[i] + '<i class="icz icz-file-text"></i></li>')
+                        $('#document-list').append('<li class="contain_or_job has_contain"><p>'+ count + '. ' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li>')
                     } else {
-                        $('#document-list').append('<li>' + first_documents[i] + '<i class="icz icz-file-text"></i></li>')
+                        $('#document-list').append('<li><p>'+ count + '. ' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li>')
                     }
                 } else {
-                    $('#document-list').append('<li>' + first_documents[i] + '<i class="icz icz-file-text"></i></li>')
+                    $('#document-list').append('<li><p>'+ count + '. ' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li>')
                 }
 
             }
@@ -292,34 +296,38 @@ document.getElementById('check-form-ad').onclick = value => {
         if (checkbox_0 || checkbox_1 || checkbox_2) {
             if (index == 17 || index == 18 || index == 19 || index == 20 || index == 22 || index == 27 || index == 28 || index == 29) {
                 for (let i = 0; i < list_xuat_xu[1].length; i++) {
+                    
                     if (list_xuat_xu[1][i].includes('Hoặc')) {
-                        $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[1][i] + '<i class="icz icz-file-text"></i></li></ul>')
+                        $('#document-list .contain_or_madein').append('<ul class="or-document"><li><p>' + list_xuat_xu[1][i] + '</p><i class="icz icz-file-text"></i></li></ul>')
                     } else {
+                        count += 1
                         if (list_xuat_xu[1][i + 1]) {
                             if (list_xuat_xu[1][i + 1].includes('Hoặc')) {
-                                $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[1][i] + '<i class="icz icz-file-text"></i></li>')
+                                $('#document-list').append('<li class="contain_or_madein has_contain"><p>' + list_xuat_xu[1][i] + '</p><i class="icz icz-file-text"></i></li>')
                             } else {
-                                $('#document-list').append('<li>' + list_xuat_xu[1][i] + '<i class="icz icz-file-text"></i></li>')
+                                $('#document-list').append('<li><p>'+ count + '. ' + list_xuat_xu[1][i] + '</p><i class="icz icz-file-text"></i></li>')
                             }
                         } else {
-                            $('#document-list').append('<li>' + list_xuat_xu[1][i] + '<i class="icz icz-file-text"></i></li>')
+                            $('#document-list').append('<li><p>'+ count + '. ' + list_xuat_xu[1][i] + '</p><i class="icz icz-file-text"></i></li>')
                         }
 
                     }
                 }
             } else {
                 for (let i = 0; i < list_xuat_xu[0].length; i++) {
+                    
                     if (list_xuat_xu[0][i].includes('Hoặc')) {
-                        $('#document-list .contain_or_madein').append('<ul class="or-document"><li>' + list_xuat_xu[0][i] + '<i class="icz icz-file-text"></i></li></ul>')
+                        $('#document-list .contain_or_madein').append('<ul class="or-document"><li><p>' + list_xuat_xu[0][i] + '</p><i class="icz icz-file-text"></i></li></ul>')
                     } else {
+                        count += 1
                         if (list_xuat_xu[0][i + 1]) {
                             if (list_xuat_xu[0][i + 1].includes('Hoặc')) {
-                                $('#document-list').append('<li class="contain_or_madein">' + list_xuat_xu[0][i] + '<i class="icz icz-file-text"></i></li>')
+                                $('#document-list').append('<li class="contain_or_madein has_contain"><p>'+ count + '. ' + list_xuat_xu[0][i] + '</p><i class="icz icz-file-text"></i></li>')
                             } else {
-                                $('#document-list').append('<li>' + list_xuat_xu[0][i] + '<i class="icz icz-file-text"></i></li>')
+                                $('#document-list').append('<li><p>'+ count + '. ' + list_xuat_xu[0][i] + '</p><i class="icz icz-file-text"></i></li>')
                             }
                         } else {
-                            $('#document-list').append('<li>' + list_xuat_xu[0][i] + '<i class="icz icz-file-text"></i></li>')
+                            $('#document-list').append('<li><p>'+ count + '. ' + list_xuat_xu[0][i] + '</p><i class="icz icz-file-text"></i></li>')
                         }
 
                     }
@@ -329,17 +337,19 @@ document.getElementById('check-form-ad').onclick = value => {
 
         if (checkbox_4 || checkbox_5) {
             for (let i = 0; i < list_hinh_anh.length; i++) {
+                
                 if (list_hinh_anh[i].includes('Hoặc')) {
-                    $('#document-list .contain_or_img').append('<ul class="or-document"><li>' + list_hinh_anh[i] + '<i class="icz icz-file-text"></i></li></ul>')
+                    $('#document-list .contain_or_img').append('<ul class="or-document"><li><p>' + list_hinh_anh[i] + '</p><i class="icz icz-file-text"></i></li></ul>')
                 } else {
+                    count += 1
                     if (list_hinh_anh[i + 1]) {
                         if (list_hinh_anh[i + 1].includes('Hoặc')) {
-                            $('#document-list').append('<li class="contain_or_img">' + list_hinh_anh[i] + '<i class="icz icz-file-text"></i></li>')
+                            $('#document-list').append('<li class="contain_or_img has_contain"><p>'+ count + '. ' + list_hinh_anh[i] + '</p><i class="icz icz-file-text"></i></li>')
                         } else {
-                            $('#document-list').append('<li>' + list_hinh_anh[i] + '<i class="icz icz-file-text"></i></li>')
+                            $('#document-list').append('<li><p>'+ count + '. ' + list_hinh_anh[i] + '</p><i class="icz icz-file-text"></i></li>')
                         }
                     } else {
-                        $('#document-list').append('<li>' + list_hinh_anh[i] + '<i class="icz icz-file-text"></i></li>')
+                        $('#document-list').append('<li><p>'+ count + '. ' + list_hinh_anh[i] + '</p><i class="icz icz-file-text"></i></li>')
                     }
 
                 }
