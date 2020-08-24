@@ -273,7 +273,7 @@
 							padding: 0;
 							border-bottom: none;
 							background-color: unset;
-							padding-left: 16px;
+							padding-left: 8px;
 							align-self: flex-end;
 						}
 						p{
@@ -282,7 +282,7 @@
 						
 						&:before {
 							content: '\2022';
-							font-weight: bold;
+							font-size: 0.75rem;
 							display: inline-block;
 						}
 					}
@@ -583,6 +583,7 @@
 						background-color: #fff;
 						margin-top: 6px;
 						padding-left: 60px;
+						padding-right: 20px;
 						max-width: 750px;
 						display: flex;
 						flex-direction: row;
