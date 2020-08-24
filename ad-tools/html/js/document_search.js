@@ -249,6 +249,9 @@ document.getElementById('refresh-searching').onclick = value => {
         $('#document-list li').remove()
     }, 500);
 }
+document.getElementById('icz-down').onclick = value => {
+    $('.dropdown-menu')[1].classList.add('show')
+}
 document.getElementById('check-form-ad').onclick = value => {
     document.getElementById('check-form-ad').classList.add('is-loading')
 
