@@ -39,13 +39,16 @@ const list_nganh_hang = {
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế - Cục An toàn Thực phẩm)</em>',
     ],
     2: [
-        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế)</em>'
+        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế - Cục An toàn Thực phẩm)</em>',
     ],
     3: [
+        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế)</em>'
+    ],
+    4: [
         'Bản tự công bố <br><em>(thường có trên website công ty)</em>',
         'Phiếu kết quả kiểm nghiệm an toàn thực phẩm <br><em>(được cấp bởi Tổng cục tiêu chuẩn đo lường chất lượng)</em>',
     ],
-    4: [
+    5: [
         'Giấy chứng nhận cơ sở đủ điều kiện an toàn vệ sinh thực phẩm',
         '(Hoặc) Giấy chứng nhận thực hành sản xuất tốt (GMP)',
         '(Hoặc) Giấy chứng nhận hệ thống phân tích mối nguy và điểm kiểm soát tới hạn (HACCP)',
@@ -54,95 +57,98 @@ const list_nganh_hang = {
         '(Hoặc) Giấy chứng nhận tiêu chuẩn toàn cầu về an toàn thực phẩm (BRC)',
         '(Hoặc) Giấy chứng nhận hệ thống an toàn thực phẩm (FSSC 22000) hoặc tương đương còn hiệu lực',
     ],
-    5: [
+    6: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Sở Y Tế)</em>',
         '(Hoặc) Phiếu công bố sản phẩm mỹ phẩm <br><em>(được cấp bởi Sở Y Tế (hàng trong nước)/ Cục Quản lý dược – Bộ Y tế (hàng NK))</em>'
     ],
-    6: [
+    7: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế - Cục Quản lý Dược)</em>'
     ],
-    7: [
+    8: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế - Cục Quản lý Môi trường y tế)</em>'
     ],
-    8: [
+    9: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Cục Bảo vệ thực vật - Bộ Nông nghiệp và Phát triển nông thôn)</em>'
     ],
-    9: [
-        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Sở Nông Nghiệp & PTNT nơi cty sản xuất đặt trụ sở)</em>',
-    ],
     10: [
-        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Cục Thú y  - Bộ Nông nghiệp và Phát triển nông thôn)</em>'
+        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Cục Bảo vệ thực vật - Bộ Nông nghiệp và Phát triển nông thôn)</em>'
     ],
     11: [
-        'Giấy chứng nhận an toàn vệ sinh thực phẩm <br><em>(được cấp bởi Vụ khoa học và công nghệ/ Vụ thị trường trong nước/Sở Công Thương)</em>'
+        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Sở Nông Nghiệp & PTNT nơi cty sản xuất đặt trụ sở)</em>',
     ],
     12: [
-        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế )</em>'
+        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Cục Thú y  - Bộ Nông nghiệp và Phát triển nông thôn)</em>'
     ],
     13: [
+        'Giấy chứng nhận an toàn vệ sinh thực phẩm <br><em>(được cấp bởi Vụ khoa học và công nghệ/ Vụ thị trường trong nước/Sở Công Thương)</em>'
+    ],
+    14: [
+        'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế )</em>'
+    ],
+    15: [
         'Chứng chỉ hành nghề khám bệnh, chữa bệnh của bác sĩ đứng tên dịch vụ <br><em>(được cấp bởi Sở Y Tế )</em>',
         'Giấy phép hoạt động khám bệnh, chữa bệnh <br><em>(được cấp bởi Sở Y Tế )</em>',
     ],
-    14: [
+    16: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế -  Cục trang thiết bị và công trình y tế)</em>'
     ],
-    15: [
+    17: [
         'Văn bản công bố tiêu chuẩn áp dụng của trang thiết bị y tế loại A <br><em>(được cấp bởi Công ty công bố gửi Sở Y Tế)</em>',
         '(Hoặc) Phiếu tiếp nhận hồ sơ công bố tiêu chuẩn áp dụng của trang thiết bị y tế thuộc loại A <br><em>(được cấp bởi Sở Y Tế)</em>',
     ],
-    16: [
+    18: [
         'Giấy xác nhận nội dung quảng cáo',
         '(Hoặc) Giấy phép phát hành game <br><em>(được cấp bởi Cục Phát thanh truyền hình và Thông tin điện tử - Bộ TTTT)</em>'
     ],
-    17: [
+    19: [
         'Giấy xác nhận nội dung quảng cáo',
         '(Hoặc) Giấy phép kinh doanh có đăng ký ngành nghề phù hợp <br><em>(đuợc cấp bởi Sở Kế hoạch - Đầu tư)</em>'
     ],
-    18: [
-        'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
-    ],
-    19: [
-        'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
-    ],
     20: [
+        'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
+    ],
+    21: [
+        'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
+    ],
+    22: [
         'Giấy phép thành lập và hoạt động công ty tài chính <br><em>(được cấp bởi Ngân hàng nhà nước Việt Nam)</em>',
         '(Hoặc) Giấy phép kinh doanh + kiểm tra kỹ nội dung lãi suất <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
     ],
-    21: [
+    23: [
         'Giấy phép xác nhận mạng xã hội <br><em>(được cấp bởi Cục Phát thanh truyền hình và Thông tin điện tử - Bộ TTTT)</em>',
     ],
-    22: [
+    24: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
         'Giấy chứng nhận đủ điều kiện về an ninh, trật tự <br><em>(được cấp bởi Công an tỉnh/ thành phố)</em>',
     ],
-    23: [
+    25: [
         'Giấy chứng nhận đủ điều kiện kinh doanh xổ số <br><em>(được cấp bởi Bộ Tài chính)</em>',
         '(Hoặc) Hợp đồng đại lý/đại lý thứ cấp <br><em>(được cấp bởi Công ty xổ số/đại lý kinh doanh xổ số)</em>',
     ],
-    24: [
+    26: [
         'Giấy phép hoạt động <br><em>(được cấp bởi Sở Y tế)</em>',
     ],
-    25: [
+    27: [
         'Kiểm tra xem sách có được xuất bản ở Việt Nam không',
     ],
-    26: [
+    28: [
         'Giấy phép sàn thương mại điện tử <br><em>(được cấp bởi Bộ Công thương)</em>',
         '(Hoặc) Thông báo Bộ Công Thương <br><em>(được cấp bởi Bộ Công thương)</em>',
     ],
-    27: [
+    29: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
         'Giấy chứng nhận đủ điều kiện về an ninh trật tự (Chỉ yêu cầu nếu nội dung có hình ảnh nhạy cảm, gợi dục...) <br><em>(được cấp bởi Công an tỉnh/ thành phố)</em>',
         'Chứng chỉ hành nghề bác sĩ',
     ],
-    28: [
+    30: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
     ],
-    29: [
+    31: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
         'Chứng chỉ hành nghề thú y đứng tên người quản lý/ người trực tiếp bán thuốc thú y <br><em>(được cấp bởi Cục Thú y/ Chi cục Thú y)</em>',
         'Giấy chứng nhận đủ điều kiện buôn bán thuốc thú y (Nếu phòng khám có thêm hoạt động buôn bán thuốc thú y trên giấy phép KD)'
     ],
-    30: [
+    32: [
         'Giấy chứng nhận đủ điều kiện về an ninh, trật tự <br><em>(được cấp bởi Bộ Công An)</em>',
     ]
 }
@@ -208,10 +214,9 @@ $('.name-item').click(value => {
         $('#refresh-searching').attr('disabled', false)
     }
     let tempIndex = getIndexList(value.target.text)
-
     //case khong co xuat xu hang hoa
-    if (tempIndex == 12 || tempIndex == 13 || tempIndex == 15 || tempIndex == 17 || tempIndex == 18 || tempIndex == 20 || tempIndex == 27
-        || tempIndex == 21 || tempIndex == 22 || tempIndex == 23 || tempIndex == 24 || tempIndex == 25 || tempIndex == 26 || tempIndex == 28 || tempIndex == 29) {
+    if (tempIndex == 14 || tempIndex == 15 || tempIndex == 18 || tempIndex == 19 || tempIndex == 20 || tempIndex == 22 || tempIndex == 29
+        || tempIndex == 23 || tempIndex == 24 || tempIndex == 25 || tempIndex == 26 || tempIndex == 27 || tempIndex == 28 || tempIndex == 30 || tempIndex == 31) {
         $('#check0')[0].disabled = true
         $('#check1')[0].disabled = true
         $('#check2')[0].disabled = true
@@ -297,7 +302,7 @@ document.getElementById('check-form-ad').onclick = value => {
         }
 
         if (checkbox_0 || checkbox_1 || checkbox_2) {
-            if (index == 17 || index == 18 || index == 19 || index == 20 || index == 22 || index == 27 || index == 28 || index == 29) {
+            if (index == 19 || index == 20 || index == 21 || index == 22 || index == 24 || index == 29 || index == 30 || index == 31) {
                 for (let i = 0; i < list_xuat_xu[1].length; i++) {
                     
                     if (list_xuat_xu[1][i].includes('Hoặc')) {

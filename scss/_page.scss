@@ -542,6 +542,10 @@
     							top: 0;
 								li{
 									white-space: normal;
+									a.name-item{
+										min-height: 40px;
+										padding: 8px 12px;
+									}
 								}
 							}
 						}
