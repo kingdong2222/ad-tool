@@ -22,8 +22,6 @@ let banned_words = []
 let banned_words_fixed = []
 let warning_words = []
 let warning_words_fixed = []
-let list_check_ad_ban = []
-let list_check_ad_warn = []
 
 const content_card_0 = document.getElementById('content-card-first')
 const content_card_1 = document.getElementById('content-card-second')
@@ -1354,7 +1352,7 @@ function checkAdsFunc(value) {
             // }
 
             //test spelling aka kiem tra chinh ta
-            $.post('http://nlp.laban.vn/wiki/spelling_checker_api/', {
+            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
                 text: value_1
             }, function (resp) {
                 list_mistakes = resp.result[0].mistakes.reverse()
@@ -1557,14 +1555,14 @@ function checkAdsFunc(value) {
             }
 
             //test spelling aka kiem tra chinh ta
-            $.post('http://nlp.laban.vn/wiki/spelling_checker_api/', {
+            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
                 text: value_2
             }, function (resp) {
                 list_mistakes = resp.result[0].mistakes.reverse()
                 let mistake_item
                 let fixed_item
                 if (list_mistakes.length > 0) {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     value_check_ad = false
                     for (let i = 0; i < list_mistakes.length; i++) {
                         mistake_item = list_mistakes[i].text
@@ -1815,16 +1813,16 @@ function checkAdsFunc(value) {
             }
 
             //test spelling aka kiem tra chinh ta
-            $.post('http://nlp.laban.vn/wiki/spelling_checker_api/', {
+            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
                 text: value_3
             }, function (resp) {
                 list_mistakes = resp.result[0].mistakes.reverse()
                 let mistake_item
                 let fixed_item
                 if (list_mistakes.length > 0) {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     value_check_ad = false
-                    console.log(list_mistakes)
+                    // console.log(list_mistakes)
                     for (let i = 0; i < list_mistakes.length; i++) {
                         mistake_item = list_mistakes[i].text
                         fixed_item = list_mistakes[i].suggest[0][0]
@@ -2027,16 +2025,16 @@ function checkAdsFunc(value) {
                 }
 
                 //test spelling aka kiem tra chinh ta
-                $.post('http://nlp.laban.vn/wiki/spelling_checker_api/', {
+                $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
                     text: value_4
                 }, function (resp) {
                     list_mistakes = resp.result[0].mistakes.reverse()
                     let mistake_item
                     let fixed_item
                     if (list_mistakes.length > 0) {
-                        first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         value_check_ad = false
-                        console.log(list_mistakes)
+                        // console.log(list_mistakes)
                         for (let i = 0; i < list_mistakes.length; i++) {
                             mistake_item = list_mistakes[i].text
                             fixed_item = list_mistakes[i].suggest[0][0]
@@ -2144,56 +2142,6 @@ function checkAdsFunc(value) {
                 $('#alert-card-first .card-error-list').append('<p>Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
             }
         }, 500)
-
-        let temp_id = value + 2
-        if (document.getElementById('banned-0')) {
-            let temp = $('#banned-0')[0].innerText
-            list_check_ad_ban.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('banned-1')) {
-            let temp = $('#banned-1')[0].innerText
-            list_check_ad_ban.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('banned-2')) {
-            let temp = $('#banned-2')[0].innerText
-            list_check_ad_ban.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('banned-3')) {
-            let temp = $('#banned-3')[0].innerText
-            list_check_ad_ban.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('banned-4')) {
-            let temp = $('#banned-4')[0].innerText
-            list_check_ad_ban.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('banned-5')) {
-            let temp = $('#banned-5')[0].innerText
-            list_check_ad_ban.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('warning-0')) {
-            let temp = $('#warning-0')[0].innerText
-            list_check_ad_warn.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('warning-1')) {
-            let temp = $('#warning-1')[0].innerText
-            list_check_ad_warn.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('warning-2')) {
-            let temp = $('#warning-2')[0].innerText
-            list_check_ad_warn.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('warning-3')) {
-            let temp = $('#warning-3')[0].innerText
-            list_check_ad_warn.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('warning-4')) {
-            let temp = $('#warning-4')[0].innerText
-            list_check_ad_warn.push(temp_id + '  ' + temp)
-        }
-        if (document.getElementById('warning-5')) {
-            let temp = $('#warning-5')[0].innerText
-            list_check_ad_warn.push(temp_id + '  ' + temp)
-        }
     }, 500);
 }
 
