@@ -30,6 +30,11 @@
 	.tippy-block{
 		font-size: 14px;
 		line-height: 22px;
+		span{
+			color: #A3A8AF;
+			border-bottom-width: 0 !important;
+			cursor: normal !important;
+		}
 	}
 	.tippy-box[data-theme~='zad'] {
 		background-color: #fff;

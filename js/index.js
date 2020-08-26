@@ -2298,7 +2298,7 @@ FunctionHoverWord = (id) => {
                 for(let i = 0; i<fixed_list.length;i++){
                     if(fixed_list[i].mistake_item == value.target.innerText){
                         tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
-                            content: '<div class="tippy-block"><p>Từ thay thế: ' + fixed_list[i].fixed_item + '</p></div>',
+                            content: '<div class="tippy-block"><p><span>Từ gợi ý:</span> ' + fixed_list[i].fixed_item + '</p></div>',
                             allowHTML: true,
                             maxWidth: 270,
                             theme: 'zad1',
