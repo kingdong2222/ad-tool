@@ -2288,7 +2288,7 @@ document.getElementById('submit-ads').onclick = value => {
     fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
 
     //get data from google sheet
-    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1z7vnnVIvJKjHK4aUUATkfJX4bGKvMyzrr9nbYbnQsRY/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&ranges=F2%3AF&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
+    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1XoHKyLL0Xc329NyZIyRv3bBwxC55iWSkl3f0hc2X7vE/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&ranges=F2%3AF&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
     fetch(url_google_sheet)
         .then(res => res.json())
         .then((out) => {
@@ -2298,54 +2298,54 @@ document.getElementById('submit-ads').onclick = value => {
             contents = out.valueRanges[2].values[0]
             descs = out.valueRanges[3].values[0]
             infos = out.valueRanges[4].values[0]
-            let input_id_value = document.getElementById('input-id-ads').value.trimEnd()
-            for (let i = 0; i < ids.length; i++) {
-                if (input_id_value === ids[i]) {
-                    check_form_ad.removeAttribute('disabled')
+            // let input_id_value = document.getElementById('input-id-ads').value.trimEnd()
+            // for (let i = 0; i < ids.length; i++) {
+            //     if (input_id_value === ids[i]) {
+            //         check_form_ad.removeAttribute('disabled')
 
-                    //first input
-                    $('#first-input').val(names[i])
-                    $('.first-preview-position').html(names[i])
-                    first_content_preview.innerHTML = names[i]
-                    first_max_letter.innerHTML = names[i].length + '/30'
+            //         //first input
+            //         $('#first-input').val(names[i])
+            //         $('.first-preview-position').html(names[i])
+            //         first_content_preview.innerHTML = names[i]
+            //         first_max_letter.innerHTML = names[i].length + '/30'
 
-                    //second input
-                    $('#second-input').val(contents[i])
-                    $('.second-preview-position').html(contents[i])
-                    second_content_preview.innerHTML = contents[i]
-                    second_max_letter.innerHTML = contents[i].length + '/90'
+            //         //second input
+            //         $('#second-input').val(contents[i])
+            //         $('.second-preview-position').html(contents[i])
+            //         second_content_preview.innerHTML = contents[i]
+            //         second_max_letter.innerHTML = contents[i].length + '/90'
 
-                    //third input
-                    $('#third-input').val(descs[i])
-                    $('.third-preview-position').html(descs[i])
-                    third_content_preview.innerHTML = descs[i]
-                    third_max_letter.innerHTML = descs[i].length + '/60'
+            //         //third input
+            //         $('#third-input').val(descs[i])
+            //         $('.third-preview-position').html(descs[i])
+            //         third_content_preview.innerHTML = descs[i]
+            //         third_max_letter.innerHTML = descs[i].length + '/60'
 
-                    //fourth input
-                    $('#fourth-input').val(infos[i])
-                    $('.fourth-preview-position').html(infos[i])
-                    fourth_content_preview.innerHTML = infos[i]
-                    fourth_max_letter.innerHTML = infos[i].length + '/60'
+            //         //fourth input
+            //         $('#fourth-input').val(infos[i])
+            //         $('.fourth-preview-position').html(infos[i])
+            //         fourth_content_preview.innerHTML = infos[i]
+            //         fourth_max_letter.innerHTML = infos[i].length + '/60'
 
-                    // console.log(ids[i])
-                    checkAdsFunc(i)
+            //         // console.log(ids[i])
+            //         checkAdsFunc(i)
 
 
 
-                }
-            }
+            //     }
+            // }
 
             //resize textarea when input
-            $('textarea').each(function () {
-                if (this.scrollHeight > 0) {
-                    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-                }
-            }).on('input', function () {
-                if (this.scrollHeight > 0) {
-                    this.style.height = 'auto';
-                    this.style.height = (this.scrollHeight) + 'px';
-                }
-            });
+            // $('textarea').each(function () {
+            //     if (this.scrollHeight > 0) {
+            //         this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+            //     }
+            // }).on('input', function () {
+            //     if (this.scrollHeight > 0) {
+            //         this.style.height = 'auto';
+            //         this.style.height = (this.scrollHeight) + 'px';
+            //     }
+            // });
         })
         .catch(err => { throw err });
 }

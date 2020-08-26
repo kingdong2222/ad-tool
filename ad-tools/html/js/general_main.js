@@ -1,6 +1,7 @@
 let version_update = '1.0.3'
 
 window.onload = () => {
+
     //check cookie about new update
     let cookie_update = getCookie('version_update')
     if (cookie_update == version_update) {
@@ -42,6 +43,28 @@ window.onload = () => {
             })
             .catch(err => { throw err });
     }
+
+    let ids = []
+    let names = []
+    let contents = []
+    let descs = []
+    let infos = []
+
+    //get data test 30k ads from google sheet >.<
+    // let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1XoHKyLL0Xc329NyZIyRv3bBwxC55iWSkl3f0hc2X7vE/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&ranges=F2%3AF&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
+    // fetch(url_google_sheet)
+    //     .then(res => res.json())
+    //     .then((out) => {
+    //         // console.log(out.valueRanges[0].values[0])
+    //         ids = out.valueRanges[0].values[0]
+    //         names = out.valueRanges[1].values[0]
+    //         contents = out.valueRanges[2].values[0]
+    //         descs = out.valueRanges[3].values[0]
+    //         infos = out.valueRanges[4].values[0]
+
+    //     })
+    //     .catch(err => { throw err });
+
 }
 
 function getCookie(cname) {
