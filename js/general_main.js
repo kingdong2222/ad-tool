@@ -25,6 +25,7 @@ window.onload = () => {
             list_business_major.push(temp[i].text)
         }
     } else {
+        console.log('back-to-index')
         //resize textarea when input
         $('textarea').each(function () {
             if (this.scrollHeight > 0) {
