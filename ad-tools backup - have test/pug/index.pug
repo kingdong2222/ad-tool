@@ -5,11 +5,11 @@ block setting
 	- var layout = true
 	- var loading = false
 	- var header = true
-	//- - var navbar = true
 	- var modal = true
 	- var popperjs = true
 	- var tippyjs = true
 	- var indexjs = true
+	- var generaljs = true
 
 block head
 	include head.pug
@@ -29,6 +29,7 @@ block body
 	include page/_index.pug
 	include page/_position_preview.pug
 	include page/_mobile_only_index.pug
+	//- include page/rating_component.pug
 //- Add Modal
 block modal
 	include page/modal_edit_img.pug
@@ -42,7 +43,6 @@ block javaScripts extend
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-
 		gtag('config', 'UA-75517706-1');
 	noscript
 		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5W5QTD2" height="0" width="0" style="display:none;visibility:hidden"></iframe>

@@ -800,6 +800,9 @@
 					margin-bottom: 0;
 				}
 			}
+			textarea{
+				overflow-y:hidden;
+			}
 			input, textarea{
 				// min-height: 30px;
 				width: 100%;

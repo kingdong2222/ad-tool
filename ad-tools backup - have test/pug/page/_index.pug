@@ -1,15 +1,11 @@
 main
+    button.button.is-primary.is-large#flying-button Kiểm tra nội dung
     .main-body
         #button-toggle-slide-bar
             i.icz.icz-right
         .container_cols
             .container_col.content
                 h2.title Nội dung kiểm tra
-                <button onclick="authenticate().then(loadClientUpdate)">load</button>
-                <button onclick="executeUpdate()">execute</button>
-                .test-ads
-                    input#input-id-ads(type='number' placeholder='nhập mã ads')
-                    button.button#submit-ads Submit
                 .text-input-item
                     .label-title
                         h3.title Tên nhãn hàng hoặc OA
@@ -32,7 +28,6 @@ main
                         i.icz.icz-image-add-2
                             input#avatar-image-input-0(type='file' accept=".png, .jpg, .jpeg" tabindex='-1')
                         p.img-desc Kích thước 150 x 150 pixel <br> Tối đa 2Mb
-                        
                 .text-input-item
                     .label-title
                         h3.title Mô tả
@@ -52,7 +47,7 @@ main
                             i.icz.icz-support#tippy-optional-info
                         p.max-letter#max-letter-fourth 0/60
                     textarea.tpcn-case#fourth-input(type='text' placeholder='Nhập thông tin thêm' maxlength=60 rows=1)
-                    textarea.tpcn-case.is-hidden#fourth-tpcn-input(type='text' disabled maxlength=60 style="color: #A3A8AF;background: #F0F4F8;") Sản phẩm này không phải là thuốc không có tác dụng thay thế
+                    textarea.tpcn-case.is-hidden#fourth-tpcn-input(type='text' disabled maxlength=60 style="color: #A3A8AF;background: #F0F4F8;") Sản phẩm này không phải là thuốc, không có tác dụng thay thế
                     p.tpcn-case.is-hidden Quảng cáo thực phẩm chức năng yêu cầu bổ sung thông tin này
                 .text-input-item
                     .label-title
@@ -69,7 +64,10 @@ main
                             option Chơi ngay
                             option Đăng ký
                             option Gọi điện
-                button.button.is-primary.is-large#check-form-ad(disabled) Kiểm tra
+                button.button.is-primary.is-large#check-form-ad(disabled) Kiểm tra nội dung
+                button.button.is-primary.is-large#check-3k-ad Kiểm tra 3k
+                button.button.is-primary.is-large(onclick="authenticate().then(loadClientUpdate)") Auth
+                button.button.is-primary.is-large(onclick="execute()") Execute
 
             .container_col.checking
                 h2.checking-title.title Kết quả kiểm tra
@@ -169,7 +167,7 @@ main
                     .content-card#alert-card-first.is-hidden
                         .card-desc
                             //- i.icz.icz-fill-error
-                            p Lý do khiến quảng cáo của bạn sẽ bị từ chối
+                            p Các lỗi khiến quảng cáo của bạn sẽ bị từ chối
                         .card-error-list
                             //- p Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.
                             ul

@@ -60,13 +60,11 @@ button_toogle_slide.onclick = () => {
     icon_toggle.classList.toggle('icz-right')
     icon_toggle.classList.toggle('icz-left')
 }
-
 $(".close-modal").click(function () {
     $("html").removeClass("overlay-modal");
     $(".modal").removeClass("show");
     $("div").remove(".cropper-container");
 });
-
 $("#avatar-image-input").click(() => {
     crop()
 })
@@ -929,8 +927,6 @@ document.getElementById('large-image-input').ondrop = (value) => {
     document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
 }
 
-
-
 first_input.oninput = value => {
     let buttonCheck = document.getElementById('check-form-ad')
     let bounding = buttonCheck.getBoundingClientRect();
@@ -1145,7 +1141,6 @@ function focusFirstInput() {
     first_input.focus()
 }
 
-
 // check sensitive words
 function checkSensitive(val) {
     let list = case_sensitive_words[0]
@@ -1207,7 +1202,6 @@ function isUpperCase(str) {
     return str === str.toUpperCase();
 }
 
-
 const InputFormatNoPuntuation = /[àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w]/g
 
 const InputFormatWithPuntuation = /[àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w\s\/\.,?!;:'"%]/g
@@ -1229,17 +1223,15 @@ const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩ
 
 const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,})/g
 
-
-
 document.getElementById('check-form-ad').onclick = value => {
+    document.getElementById('check-form-ad').classList.add('is-loading')
     checkAdsFunc()
 }
 document.getElementById('flying-button').onclick = value => {
+    document.getElementById('flying-button').classList.add('is-loading')
     checkAdsFunc()
 }
 function checkAdsFunc(value) {
-    document.getElementById('check-form-ad').classList.add('is-loading')
-    document.getElementById('flying-button').classList.add('is-loading')
 
     //get value input
     let value_1 = first_input.value.trimEnd()
@@ -2294,9 +2286,9 @@ FunctionHoverWord = (id) => {
 
     $('#' + id + ' span').hover(value => {
         if (id.includes('banned')) {
-            if (id.includes('6')){
-                for(let i = 0; i<fixed_list.length;i++){
-                    if(fixed_list[i].mistake_item == value.target.innerText){
+            if (id.includes('6')) {
+                for (let i = 0; i < fixed_list.length; i++) {
+                    if (fixed_list[i].mistake_item == value.target.innerText) {
                         tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                             content: '<div class="tippy-block"><p><span>Từ gợi ý:</span> ' + fixed_list[i].fixed_item + '</p></div>',
                             allowHTML: true,
@@ -2387,7 +2379,7 @@ $('#check_tpcn').change(function (value) {
     if (value.target.checked) {
         tpcn_case = true
         $('.tpcn-case').toggleClass('is-hidden')
-        fourth_max_letter.innerHTML = '59/60'
+        fourth_max_letter.innerHTML = '60/60'
         fourth_content_preview.innerHTML = $('#fourth-tpcn-input').val()
         $('.fourth-preview-position').html($('#fourth-tpcn-input').val())
     } else {
@@ -2422,5 +2414,7 @@ window.onscroll = value => {
         $('#check-form-ad').css('opacity', '0')
     }
 }
+
+
 
 
