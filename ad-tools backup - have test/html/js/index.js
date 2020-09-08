@@ -1163,7 +1163,7 @@ function checkPolicy(val) {
     let valueLower = val.toLowerCase()
     let getBanWordsList = []
     for (let i = 0; i < list.length; i++) {
-        if (valueLower.includes(list[i].toLowerCase())) {
+        if (valueLower.includes(list[i].toLowerCase()) && list[i] != '') {
             let lowerError = list[i].toLowerCase()
             let lengthError = lowerError.length
             let beginIndexError = valueLower.indexOf(lowerError)
@@ -1179,7 +1179,7 @@ function checkWarning(val) {
     let valueLower = val.toLowerCase()
     let getBanWordsList = []
     for (let i = 0; i < list.length; i++) {
-        if (valueLower.includes(list[i].toLowerCase())) {
+        if (valueLower.includes(list[i].toLowerCase()) && list[i] != '') {
             let lowerError = list[i].toLowerCase()
             let lengthError = lowerError.length
             let beginIndexError = valueLower.indexOf(lowerError)
@@ -2432,7 +2432,7 @@ document.getElementById('check-3k-ad').onclick = () => {
     for (let i = 0; i < ids.length; i++) {
         setTimeout(() => {
             check3kAds(i, names[i], contents[i], descs[i], infos[i])
-        }, 2100 * i)
+        }, 2000 * i)
     }
 }
 
@@ -2587,7 +2587,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 let first_length = value_1.length
                 if (array_match.length < first_length) {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    value_check_3k_ad = false
+                    value_check_ad = false
                     listJ[id] == '' ? listJ[id] = 'x' : null
                     warning_card.classList.remove('is-hidden')
                     if ($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0) {
@@ -2600,7 +2600,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             if (value_1.match(InputFormatFrom2Puntuation)) {
                 listI[id] == '' ? listI[id] = 'x' : null
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
+                value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 if (value_1.indexOf("...") > -1) {
                     if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
@@ -2635,7 +2635,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             }
             if (checkWarning(value_1).length > 0) {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
+                value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 let list = checkWarning(value_1)
                 for (let i = 0; i < list.length; i++) {
@@ -2658,7 +2658,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             if (value_1.match(/\s{2,}/g)) {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
-                value_check_3k_ad = false
+                value_check_ad = false
                 listI[id] == '' ? listI[id] = 'x' : null
                 if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
                 } else {
@@ -2737,7 +2737,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 if (checkSensitive(value_2).length > 0) {
                 } else {
                     listK[id] == '' ? listK[id] = 'x' : null
-                    value_check_3k_ad = false
+                    value_check_ad = false
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
                     if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
@@ -2816,7 +2816,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 let value_length = temp.length
                 if (array_match.length < value_length) {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    value_check_3k_ad = false
+                    value_check_ad = false
 
                     warning_card.classList.remove('is-hidden')
                     listJ[id] == '' ? listJ[id] = 'x' : null
@@ -2829,7 +2829,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             if (value_2.match(InputFormatFrom2Puntuation)) {
                 listI[id] == '' ? listI[id] = 'x' : null
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
+                value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 if (value_2.indexOf("...") > -1) {
                     if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
@@ -2865,7 +2865,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             }
             if (checkWarning(value_2).length > 0) {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
+                value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 let list = checkWarning(value_2)
                 for (let i = 0; i < list.length; i++) {
@@ -2889,7 +2889,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
-                value_check_3k_ad = false
+                value_check_ad = false
                 listI[id] == '' ? listI[id] = 'x' : null
                 if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
                 } else {
@@ -3022,7 +3022,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 if (checkSensitive(value_3).length > 0) {
                 } else {
                     listK[id] == '' ? listK[id] = 'x' : null
-                    value_check_3k_ad = false
+                    value_check_ad = false
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 
                     warning_card.classList.remove('is-hidden')
@@ -3106,7 +3106,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 let value_length = temp.length
                 if (array_match.length < value_length) {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    value_check_3k_ad = false
+                    value_check_ad = false
 
                     warning_card.classList.remove('is-hidden')
                     listJ[id] == '' ? listJ[id] = 'x' : null
@@ -3119,7 +3119,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             if (value_3.match(InputFormatFrom2Puntuation)) {
                 listI[id] == '' ? listI[id] = 'x' : null
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
+                value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 if (value_3.indexOf("...") > -1) {
                     if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
@@ -3155,7 +3155,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             }
             if (checkWarning(value_3).length > 0) {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
+                value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 let list = checkWarning(value_3)
                 for (let i = 0; i < list.length; i++) {
@@ -3181,7 +3181,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
                 listI[id] == '' ? listI[id] = 'x' : null
-                value_check_3k_ad = false
+                value_check_ad = false
                 if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
                 } else {
                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
@@ -3192,8 +3192,8 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
         if (tpcn_case) { }
         else {
             if (value_4) {
-                if (value_4 == 'Sản phẩm không phải là thuốc không có tác dụng thay thế'
-                    || value_4 == 'Sản phẩm này không phải là thuốc, không có tác dụng thay thế') {
+                if (value_4 == 'Sản phẩm không phải thuốc'
+                    || value_4 == 'Sản phẩm này không phải là thuốc') {
 
                 } else {
                     //case banned
@@ -3267,6 +3267,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                             fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                             listK[id] == '' ? listK[id] = 'x' : null
                             warning_card.classList.remove('is-hidden')
+                            value_check_ad = true
                             if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
                             } else {
                                 $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
@@ -3347,7 +3348,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                         let value_length = temp.length
                         if (array_match.length < value_length) {
                             fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                            value_check_3k_ad = false
+                            value_check_ad = false
 
                             warning_card.classList.remove('is-hidden')
                             listJ[id] == '' ? listJ[id] = 'x' : null
@@ -3360,7 +3361,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                     if (value_4.match(InputFormatFrom2Puntuation)) {
                         listI[id] == '' ? listI[id] = 'x' : null
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        //value_check_3k_ad = false
+                        value_check_ad = false
                         warning_card.classList.remove('is-hidden')
                         if (value_4.indexOf("...") > -1) {
                             if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
@@ -3388,7 +3389,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                     }
                     if (checkWarning(value_4).length > 0) {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
+                        value_check_ad = false
                         warning_card.classList.remove('is-hidden')
                         let list = checkWarning(value_4)
                         for (let i = 0; i < list.length; i++) {
@@ -3422,7 +3423,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         warning_card.classList.remove('is-hidden')
                         listI[id] == '' ? listI[id] = 'x' : null
-                        value_check_3k_ad = false
+                        value_check_ad = false
                         if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
                         } else {
                             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
@@ -3433,14 +3434,16 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             }
         }
         setTimeout(() => {
-            if (value_check_3k_ad == true) {
+            if (value_check_3k_ad == true && value_check_ad == true) {
                 listF[id] = 'Không'
                 content_card_1.classList.add('is-hidden')
                 $('#alert-card-first .card-error-list').append('<p>Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
-            } else {
-                listF[id] = 'Có'
+            } else if(value_check_3k_ad == true && value_check_ad == false){
+                listF[id] = 'Cảnh báo'
+            } else if(value_check_3k_ad == false && value_check_ad == false || value_check_3k_ad == false && value_check_ad == true){
+                listF[id] = 'Từ chối'
             }
-        }, 2000)
+        }, 1500)
     }
 
 }
@@ -3471,55 +3474,55 @@ function execute() {
                         listF
                     ]
                 },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "G2:G",
-                    "values": [
-                        listG
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "H2:H",
-                    "values": [
-                        listH
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "I2:I",
-                    "values": [
-                        listI
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "J2:J",
-                    "values": [
-                        listJ
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "K2:K",
-                    "values": [
-                        listK
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "L2:L",
-                    "values": [
-                        listL
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "M2:M",
-                    "values": [
-                        listM
-                    ]
-                },
+                // {
+                //     "majorDimension": "COLUMNS",
+                //     "range": "G2:G",
+                //     "values": [
+                //         listG
+                //     ]
+                // },
+                // {
+                //     "majorDimension": "COLUMNS",
+                //     "range": "H2:H",
+                //     "values": [
+                //         listH
+                //     ]
+                // },
+                // {
+                //     "majorDimension": "COLUMNS",
+                //     "range": "I2:I",
+                //     "values": [
+                //         listI
+                //     ]
+                // },
+                // {
+                //     "majorDimension": "COLUMNS",
+                //     "range": "J2:J",
+                //     "values": [
+                //         listJ
+                //     ]
+                // },
+                // {
+                //     "majorDimension": "COLUMNS",
+                //     "range": "K2:K",
+                //     "values": [
+                //         listK
+                //     ]
+                // },
+                // {
+                //     "majorDimension": "COLUMNS",
+                //     "range": "L2:L",
+                //     "values": [
+                //         listL
+                //     ]
+                // },
+                // {
+                //     "majorDimension": "COLUMNS",
+                //     "range": "M2:M",
+                //     "values": [
+                //         listM
+                //     ]
+                // },
             ]
         }
     })
