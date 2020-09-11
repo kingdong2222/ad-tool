@@ -48,6 +48,25 @@ window.onload = () => {
             })
             .catch(err => { throw err });
     }
+
+    //popup rating block
+    let rating_block_hide = $('.rating-block').hasClass('is-hidden')
+    console.log(rating_block_hide)
+
+
+    //get data test 30k ads from google sheet >.<
+    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1DDOoUyDPYWf3WTuOYEPHRp4iswDxpizHrloLw4LqRTM/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=B2%3AB&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
+    fetch(url_google_sheet)
+        .then(res => res.json())
+        .then((out) => {
+            console.log(out)
+            ids = out.valueRanges[0].values[0]
+            names = out.valueRanges[1].values[0]
+            contents = out.valueRanges[2].values[0]
+            descs = out.valueRanges[3].values[0]
+            infos = out.valueRanges[4].values[0]
+        })
+        .catch(err => { throw err });
 }
 
 

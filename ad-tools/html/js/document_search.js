@@ -150,6 +150,9 @@ const list_nganh_hang = {
     ],
     32: [
         'Giấy chứng nhận đủ điều kiện về an ninh, trật tự <br><em>(được cấp bởi Bộ Công An)</em>',
+    ],
+    33: [
+        'Giấy xác nhận nội dung quảng cáo'
     ]
 }
 const list_xuat_xu = {
@@ -207,10 +210,10 @@ $('.name-item').click(value => {
     $('.text-input-item')[2].style.opacity = 1
     $('.dropdown-menu')[1].classList.remove('show')
     if (value.target.text != 'Chọn ngành hàng') {
-        $('#check-form-ad').attr('disabled', false)
+        $('#check-document').attr('disabled', false)
         $('#refresh-searching').attr('disabled', false)
     } else {
-        $('#check-form-ad').attr('disabled', true)
+        $('#check-document').attr('disabled', true)
         $('#refresh-searching').attr('disabled', false)
     }
     let tempIndex = getIndexList(value.target.text)
@@ -257,8 +260,8 @@ document.getElementById('refresh-searching').onclick = value => {
 document.getElementById('icz-down').onclick = value => {
     $('.dropdown-menu')[1].classList.add('show')
 }
-document.getElementById('check-form-ad').onclick = value => {
-    document.getElementById('check-form-ad').classList.add('is-loading')
+document.getElementById('check-document').onclick = value => {
+    document.getElementById('check-document').classList.add('is-loading')
 
     let slide_body = document_search.getElementsByClassName('slide-body')[0]
 
@@ -275,7 +278,7 @@ document.getElementById('check-form-ad').onclick = value => {
     let count = 0
 
     setTimeout(() => {
-        document.getElementById('check-form-ad').classList.remove('is-loading')
+        document.getElementById('check-document').classList.remove('is-loading')
         slide_body.style.display = 'block'
         $('#document-list li').remove()
         $('#img-empty').addClass('is-hidden')

@@ -73,9 +73,11 @@ $("#avatar-image-input-0").click(() => {
 })
 $("#large-image-input").click(() => {
     cropLargeImg()
+    dataLayer.push({'event': 'event_UploadImg'})
 })
 $("#change-large-img").click(() => {
     document.getElementById("change-large-img-input").click()
+    dataLayer.push({'event': 'event_UploadImg'})
 })
 $('#change-large-img-input').click(() => {
     cropLargeImgAgain()
@@ -1345,7 +1347,8 @@ function checkAdsFunc(value) {
 
             //test spelling aka kiem tra chinh ta
             $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                text: value_1
+                text: value_1,
+                app_type: "zad"
             }, function (resp) {
                 list_mistakes = resp.result[0].mistakes.reverse()
                 let mistake_item
@@ -1549,7 +1552,8 @@ function checkAdsFunc(value) {
 
             //test spelling aka kiem tra chinh ta
             $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                text: value_2
+                text: value_2,
+                app_type: "zad"
             }, function (resp) {
                 list_mistakes = resp.result[0].mistakes.reverse()
                 let mistake_item
@@ -1808,7 +1812,8 @@ function checkAdsFunc(value) {
 
             //test spelling aka kiem tra chinh ta
             $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                text: value_3
+                text: value_3,
+                app_type: "zad"
             }, function (resp) {
                 list_mistakes = resp.result[0].mistakes.reverse()
                 let mistake_item
@@ -2021,7 +2026,8 @@ function checkAdsFunc(value) {
 
                 //test spelling aka kiem tra chinh ta
                 $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                    text: value_4
+                    text: value_4,
+                    app_type: "zad"
                 }, function (resp) {
                     list_mistakes = resp.result[0].mistakes.reverse()
                     let mistake_item
@@ -2432,7 +2438,7 @@ document.getElementById('check-3k-ad').onclick = () => {
     for (let i = 0; i < ids.length; i++) {
         setTimeout(() => {
             check3kAds(i, names[i], contents[i], descs[i], infos[i])
-        }, 2000 * i)
+        }, 2500 * i)
     }
 }
 
@@ -2546,7 +2552,8 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
 
             //test spelling aka kiem tra chinh ta
             $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                text: value_1
+                text: value_1,
+                app_type: "zad"
             }).then(function (resp) {
                 list_mistakes = resp.result[0].mistakes.reverse()
                 let mistake_item
@@ -2775,7 +2782,8 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
 
             //test spelling aka kiem tra chinh ta
             $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                text: value_2
+                text: value_2,
+                app_type: "zad"
             }).then(function (resp) {
                 list_mistakes = resp.result[0].mistakes.reverse()
                 let mistake_item
@@ -3063,7 +3071,8 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
 
             //test spelling aka kiem tra chinh ta
             $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                text: value_3
+                text: value_3,
+                app_type: "zad"
             }).then(function (resp) {
                 list_mistakes = resp.result[0].mistakes.reverse()
                 let mistake_item
@@ -3306,7 +3315,8 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
 
                     //test spelling aka kiem tra chinh ta
                     $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                        text: value_4
+                        text: value_4,
+                        app_type: "zad"
                     }).then(function (resp) {
                         list_mistakes = resp.result[0].mistakes.reverse()
                         let mistake_item
@@ -3443,7 +3453,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             } else if(value_check_3k_ad == false && value_check_ad == false || value_check_3k_ad == false && value_check_ad == true){
                 listF[id] = 'Từ chối'
             }
-        }, 1500)
+        }, 2000)
     }
 
 }
