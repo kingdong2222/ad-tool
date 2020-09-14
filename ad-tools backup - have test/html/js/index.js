@@ -2293,7 +2293,6 @@ FunctionHoverWord = (id) => {
     let index
     let error_fix_content
     let tempId = document.getElementById(id)
-
     $('#' + id + ' span').hover(value => {
         if (id.includes('banned')) {
             if (id.includes('6')) {
@@ -2345,39 +2344,53 @@ FunctionHoverWord = (id) => {
                 }
             });
         }
-
-        if (first_preview_OG.indexOf(value.target.innerText) > -1) {
-            let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-            document.getElementById('first-preview').innerHTML = temp
+        if($('#first-preview').hasClass('get-error')){
+            if (first_preview_OG.indexOf(value.target.innerText) > -1) {
+                let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                document.getElementById('first-preview').innerHTML = temp
+            }
         }
-        if (second_preview_OG.indexOf(value.target.innerText) > -1) {
-            let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-            document.getElementById('second-preview').innerHTML = temp
+        if($('#second-preview').hasClass('get-error')){
+            if (second_preview_OG.indexOf(value.target.innerText) > -1) {
+                let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                document.getElementById('second-preview').innerHTML = temp
+            }
         }
-        if (third_preview_OG.indexOf(value.target.innerText) > -1) {
-            let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-            document.getElementById('third-preview').innerHTML = temp
+        if($('#third-preview').hasClass('get-error')){
+            if (third_preview_OG.indexOf(value.target.innerText) > -1) {
+                let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                document.getElementById('third-preview').innerHTML = temp
+            }
         }
-        if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
-            let temp = fourth_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-            document.getElementById('fourth-preview').innerHTML = temp
+        if($('#fourth-preview').hasClass('get-error')){
+            if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
+                let temp = fourth_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                document.getElementById('fourth-preview').innerHTML = temp
+            }
         }
 
     }, value => {
 
         // $("body [data-tippy-root]").remove()
-
-        if (first_preview_OG.indexOf(value.target.innerText) > -1) {
-            document.getElementById('first-preview').innerHTML = first_preview_OG
+        if($('#first-preview').hasClass('get-error')){
+            if (first_preview_OG.indexOf(value.target.innerText) > -1) {
+                document.getElementById('first-preview').innerHTML = first_preview_OG
+            }
         }
-        if (second_preview_OG.indexOf(value.target.innerText) > -1) {
-            document.getElementById('second-preview').innerHTML = second_preview_OG
+        if($('#second-preview').hasClass('get-error')){
+            if (second_preview_OG.indexOf(value.target.innerText) > -1) {
+                document.getElementById('second-preview').innerHTML = second_preview_OG
+            }
         }
-        if (third_preview_OG.indexOf(value.target.innerText) > -1) {
-            document.getElementById('third-preview').innerHTML = third_preview_OG
+        if($('#third-preview').hasClass('get-error')){
+            if (third_preview_OG.indexOf(value.target.innerText) > -1) {
+                document.getElementById('third-preview').innerHTML = third_preview_OG
+            }
         }
-        if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
-            document.getElementById('fourth-preview').innerHTML = fourth_preview_OG
+        if($('#fourth-preview').hasClass('get-error')){
+            if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
+                document.getElementById('fourth-preview').innerHTML = fourth_preview_OG
+            }
         }
     })
 }

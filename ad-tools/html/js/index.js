@@ -2295,8 +2295,6 @@ FunctionHoverWord = (id) => {
     let index
     let error_fix_content
     let tempId = document.getElementById(id)
-    console.log('second',document.getElementById('second-preview'))
-    console.log('fourth',document.getElementById('fourth-preview'))
     $('#' + id + ' span').hover(value => {
         if (id.includes('banned')) {
             if (id.includes('6')) {
