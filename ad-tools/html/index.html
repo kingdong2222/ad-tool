@@ -180,9 +180,6 @@
                 </div>
               </div>
               <button class="button is-primary is-large" id="check-form-ad" disabled>Kiểm tra nội dung</button>
-              <button class="button is-primary is-large" id="check-3k-ad">Kiểm tra 3k</button>
-              <button class="button is-primary is-large" onclick="authenticate().then(loadClientUpdate)">Auth</button>
-              <button class="button is-primary is-large" onclick="execute()">Execute</button>
             </div>
             <div class="container_col checking">
               <h2 class="checking-title title">Kết quả kiểm tra</h2>
@@ -203,7 +200,7 @@
                       <div class="control dropdown-toggle" href="#" role="button" id="dropdown-m1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a class="button"><i class="icz icz-down"></i></a></div>
                       <div class="dropdown-menu" aria-labelledby="dropdown-m1">
                         <ul>
-                          <li><a id="download-large-image">Tải ảnh xuống</a></li>
+                          <li><a id="download-large-image" onclick="dataLayer.push({'event': 'event_DownloadImg'});">Tải ảnh xuống</a></li>
                         </ul>
                       </div>
                     </div>
@@ -261,7 +258,7 @@
                       </label>
                     </div>
                     <div class="ads-text-ratio">
-                      <p>Tỉ lệ văn bản:</p>
+                      <p>Tỉ lệ văn bản:<br><span>(không bao gồm logo)</span></p>
                       <p class="check-msg">Hãy chọn các ô có xuất hiện chữ</p>
                     </div>
                     <div class="ads-img-quality">
@@ -293,7 +290,12 @@
                 </div>
                 <div class="content-card is-hidden" id="alert-card-first">
                   <div class="card-desc">
-                    <p>Các lỗi khiến quảng cáo của bạn sẽ bị từ chối</p>
+                    <p>Quảng cáo sẽ bị từ chối nếu xuất hiện những lỗi sau</p>
+                  </div>
+                  <div class="is-hidden" id="card-no-error">
+                    <ul>
+                      <li>Không có lỗi nào</li>
+                    </ul>
                   </div>
                   <div class="card-error-list">
                     <ul></ul>
@@ -301,7 +303,7 @@
                 </div>
                 <div class="content-card is-hidden" id="alert-card-second">
                   <div class="card-desc">
-                    <p>Những lỗi có thể vi phạm quy định quảng cáo</p>
+                    <p>Có <a id="warning-tip"> <span>0 </span>gợi ý chỉnh sửa </a>trong quảng cáo của bạn</p>
                   </div>
                   <div class="card-error-list">
                     <ul></ul>
@@ -598,6 +600,30 @@
           <p>Phiên bản trên điện thoại sẽ được cập nhật vào thời gian sắp tới.</p><a class="button is-primary" href="https://ads.zalo.me/business/">Trang chủ Zalo Ads</a>
         </div>
       </main>
+      <div class="rating-block is-hidden">
+        <div class="button-icon-close" id="close-rating-block" type="button"><i class="icz icz-close"></i></div>
+        <div class="first view">
+          <p>Mức độ hài lòng của bạn về công cụ này</p>
+          <div class="rating-num">
+            <label class="rating-button">1</label>
+            <label class="rating-button">2</label>
+            <label class="rating-button">3</label>
+            <label class="rating-button">4</label>
+            <label class="rating-button">5</label>
+            <label class="rating-button">6</label>
+            <label class="rating-button">7</label>
+          </div>
+          <div class="text-rating">
+            <p>Không hài lòng</p>
+            <p>Rất hài lòng</p>
+          </div>
+          <textarea class="is-hidden" type="text" placeholder="Nhập ý kiến của bạn" rows="3"></textarea>
+          <button class="button is-primary" id="send-rating-feedback" disabled>Gửi phản hồi</button>
+        </div>
+        <div class="second view is-hidden"><i class="icz icz-fill-check"></i>
+          <p>Phản hồi của bạn đã được gửi đi, chúng tôi sẽ lưu lại những đóng góp của bạn để hoàn thiện sản phẩm.</p>
+        </div>
+      </div>
     </div>
     <div class="bl-popup">
     </div>

@@ -238,6 +238,7 @@ $('.name-item').click(value => {
     }
 })
 document.getElementById('refresh-searching').onclick = value => {
+    dataLayer.push({'event': 'event_ValidateDoc'})
     document.getElementById('refresh-searching').classList.add('is-loading')
     let slide_body = document_search.getElementsByClassName('slide-body')[0]
 

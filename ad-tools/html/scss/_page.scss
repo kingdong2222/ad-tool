@@ -1084,7 +1084,7 @@
 						}
 					}
 				}
-				.card-error-list{
+				.card-error-list, #card-no-error{
 					p{
 						color: #A3A8AF;
 						font-size: 14px;
@@ -1119,6 +1119,25 @@
 				}
 				&#alert-card-first{
 					.card-desc{font-weight: 600;}
+					.card-error-list{
+						ul{
+							li{
+								display: flex;
+								align-items: baseline;
+								&::before{
+									margin-right: 12px;
+									position: relative;
+									top: 1px;
+									content: "\ea62";
+									color: #D61F00;
+									font: normal normal normal 12px "zadicon";
+								}
+								
+							}
+						}
+					}
+				}
+				#card-no-error{
 					ul{
 						li{
 							display: flex;
@@ -1127,11 +1146,10 @@
 								margin-right: 12px;
 								position: relative;
 								top: 1px;
-								content: "\ea62";
-								color: #D61F00;
+								content: "\ea38";
+								color: #7DA731;
     							font: normal normal normal 12px "zadicon";
 							}
-							
 						}
 					}
 				}
@@ -1416,6 +1434,11 @@
 				font-weight: 600;
 			}
 		}
+		.ads-text-ratio{
+			p{
+				line-height: 16px;
+			}
+		}
 		.ads-text-ratio, .ads-img-quality{
 			display: flex;
 			flex-direction: row;
@@ -1433,6 +1456,10 @@
 				}
 				&#img-quality {
 					color: #ff0000;
+				}
+				span{
+					font-size: 12px;
+					color: #989EA5;
 				}
 			}
 		}
@@ -1995,47 +2022,107 @@
 .clear{
 	clear: both;
 }
-.rating-component{
-	.rating > input{display:none} 
-	.rating > label:before{background:none;overflow:inherit;width:auto;height:auto;margin:2px;font-size:10px;font-family:$font-icon;display:block;content:"\ea13"}
-	.rating > label:after{display:none}
-	.rating > .half:before{content:"\ea25";position:absolute}
-	.rating > label{color:#ddd;float:right;margin-bottom:0}
-
-	.rating > input:checked ~ label, /* show gold star when clicked */
-	.rating:not(:checked) > label:hover, /* hover current star */
-	.rating:not(:checked) > label:hover ~ label{color:red} /* hover previous stars in list */
-
-	.rating > input:checked + label:hover, /* hover current star when changing rating */
-	.rating > input:checked ~ label:hover,
-	.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-	.rating > input:checked ~ label:hover ~ label{color:red}
-
-	.rating-star{display:flex;align-items:center;margin-left:-2px;
-		[class^=icn]{flex-shrink:0;display:block;@include size(14px, 16px);margin-left:0!important;margin-right:0!important;@include padding(3px 2px);color:#ddd!important;font-size:10px;
-			&.active{color:#FFE739!important}
-		}
-		&.is-medium{
-			[class^=icn]{@include size(17px, 20px);@include padding(3px 2px);font-size:14px;}
-		}
-		&.is-large{
-			[class^=icn]{@include size(20px, 22px);@include padding(3px 2px);font-size:16px;}
+.rating-block{
+	padding: 24px;
+	border-radius: 8px;
+	background-color: #fff;
+	border: 1px solid #DCE1E7;
+	position: fixed;
+    right: 40px;
+    bottom: 40px;
+	z-index: 999;
+	transition: all .3s;
+	font-family:Muli;
+	// opacity: 0;
+	.view{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		&.second{
+			i{
+				font-size: 2rem;
+				color: #7DA731;
+				margin-bottom: 24px;
+			}
+			p{
+				width: 310px;
+				text-align: center;
+			}
 		}
 	}
-	/* Component */
-	.rating > input:checked ~ label, /* show gold star when clicked */
-	.rating:not(:checked) > label:hover, /* hover current star */
-	.rating:not(:checked) > label:hover ~ label{color:green} /* hover previous stars in list */
-
-	.rating > input:checked + label:hover, /* hover current star when changing rating */
-	.rating > input:checked ~ label:hover,
-	.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-	.rating > input:checked ~ label:hover ~ label{color:green}
-
-	.rating-star{
-		[class^=icn]{
-			&.active{color:green}
+	.button-icon-close{
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		i{padding: 10px}
+	}
+	p{
+		font-size: 14px;
+		margin-bottom: 24px;
+		color: #131820;
+	}
+	.rating-num{
+		display: flex;
+	}
+	.rating-button{
+		background-color: #F0F4F8;
+		border-radius: 99px;
+		width: 28px;
+		height: 28px;
+		text-align: center;
+		margin-right: 12px;
+		margin-bottom: 12px;
+		font-size: 14px;
+		color: #131820;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: all .3s;
+		cursor: pointer;
+		&:last-child{
+			margin-right: 0;
 		}
+		&:hover, &.selected{
+			color: #fff;
+			background-color: #1744CF;
+		}
+	}
+	.text-rating{
+		width: 310px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 24px;
+		p{
+			font-size: 10px;
+			color: #778699;
+			margin-bottom: 0;
+		}
+	}
+	textarea{
+		width: 310px;
+		border: 1px solid #DCE1E7;
+		border-radius: 4px;
+		outline:none;
+		resize: none;
+		transition: all .3s;
+		padding: 8px 12px;
+		font-size: 14px;
+		margin-bottom: 24px;
+		overflow-y: hidden;
+		&:focus{
+			border-color: #1744CF;
+			outline:none;
+			box-shadow: 0 0 0 0.125em rgba(23,69,207,0.15);
+		}
+	}
+	button{
+		width: 100%;
+	}
+	button.is-primary:disabled {
+		background-color: #F0F4F8;
+		color: #989EA5;
+		opacity: 1;
 	}
 }
 

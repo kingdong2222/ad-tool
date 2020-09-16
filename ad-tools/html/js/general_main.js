@@ -49,21 +49,56 @@ window.onload = () => {
             .catch(err => { throw err });
     }
 
-    //get data test 30k ads from google sheet >.<
-    let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1DDOoUyDPYWf3WTuOYEPHRp4iswDxpizHrloLw4LqRTM/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=B2%3AB&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
-    fetch(url_google_sheet)
-        .then(res => res.json())
-        .then((out) => {
-            console.log(out)
-            ids = out.valueRanges[0].values[0]
-            names = out.valueRanges[1].values[0]
-            contents = out.valueRanges[2].values[0]
-            descs = out.valueRanges[3].values[0]
-            infos = out.valueRanges[4].values[0]
-        })
-        .catch(err => { throw err });
+    //check user rated or not
+    let had_rated = getCookie('has_rated')
+    if (had_rated == 'rated') {
+    } else {
+        // popup rating block
+        let rating_block_hide = $('.rating-block').hasClass('is-hidden')
+
+        //check cookie for showing rating block
+        let had_validated = getCookie('has_validated')
+        if (had_validated == 'validated') {
+            if (rating_block_hide) {
+                $('.rating-block').removeClass('is-hidden')
+            }
+        }
+    }
+
+}
+$('.rating-button').click(function () {
+    $('.rating-button').removeClass('selected')
+    $(this).addClass('selected')
+    $('.rating-block textarea').removeClass('is-hidden')
+    $('#send-rating-feedback').removeAttr('disabled')
+});
+document.getElementById('close-rating-block').onclick = () => {
+    $('.rating-block').addClass('is-hidden')
 }
 
+document.getElementById('send-rating-feedback').onclick = () => {
+
+    $('.first').addClass('is-hidden')
+    $('.second').removeClass('is-hidden')
+
+    let rate = $('.rating-button.selected').text()
+    let content = $('.rating-block textarea').val()
+
+    $.ajax({
+        url: "https://docs.google.com/forms/d/e/1FAIpQLSfam7XB9lmQw0BsfdgDxNk9s_9FDI4YGGiODikeB53Fkf-9JQ/formResponse?",
+        data: { "entry.340411331": rate, "entry.1740786677": content },
+        type: "POST",
+        dataType: "jsonp",
+        success: function (d) { },
+        error: function (x, y, z) { }
+    });
+
+    setCookie('has_rated', 'rated', 30)
+
+    setTimeout(()=>{
+        $('.rating-block').addClass('is-hidden')
+    },3000)
+}
 
 function getCookie(cname) {
     var name = cname + "=";

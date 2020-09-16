@@ -65,9 +65,6 @@ main
                             option Đăng ký
                             option Gọi điện
                 button.button.is-primary.is-large#check-form-ad(disabled) Kiểm tra nội dung
-                button.button.is-primary.is-large#check-3k-ad Kiểm tra 3k
-                button.button.is-primary.is-large(onclick="authenticate().then(loadClientUpdate)") Auth
-                button.button.is-primary.is-large(onclick="execute()") Execute
 
             .container_col.checking
                 h2.checking-title.title Kết quả kiểm tra
@@ -94,7 +91,7 @@ main
                                 .dropdown-menu(aria-labelledby="dropdown-m1")
                                     ul
                                         li
-                                            a#download-large-image Tải ảnh xuống
+                                            a#download-large-image(onclick="dataLayer.push({'event': 'event_DownloadImg'});") Tải ảnh xuống
                         .image-preview-body
                             .ads-img
                                 #output-large-preview.img-container-preview(style='background-image:url(https://via.placeholder.com/1024x533)')
@@ -141,7 +138,8 @@ main
                                     input#check-grid(type="checkbox" checked)
                                     span.slider.round
                             .ads-text-ratio
-                                p Tỉ lệ văn bản:
+                                p Tỉ lệ văn bản:<br>
+                                    span (không bao gồm logo)
                                 p.check-msg Hãy chọn các ô có xuất hiện chữ
                             .ads-img-quality
                                 p Chất lượng ảnh:
@@ -166,32 +164,21 @@ main
                             p Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây.
                     .content-card#alert-card-first.is-hidden
                         .card-desc
-                            //- i.icz.icz-fill-error
-                            p Các lỗi khiến quảng cáo của bạn sẽ bị từ chối
-                        .card-error-list
-                            //- p Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.
+                            p Quảng cáo sẽ bị từ chối nếu xuất hiện những lỗi sau
+                        #card-no-error.is-hidden
                             ul
-                                //- li 
-                                //-     p Sử dụng từ ngữ bị hạn chế: 
-                                //-         span  ngoại tình
-                                //-         |,
-                                //-         span  nhất
-                                //-         |,
-                                //-         span  duy nhất
-                                //-         |,
-                                //-         span  vay nóng
-                                //- li
-                                //-     p Viết hoa toàn bộ nội dung
+                                li Không có lỗi nào
+                        .card-error-list
+                            ul
                     .content-card#alert-card-second.is-hidden
                         .card-desc
-                            //- i.icz.icz-fill-warning
-                            p Những lỗi có thể vi phạm quy định quảng cáo
+                            p Có 
+                                a#warning-tip 
+                                    span 0 
+                                    |gợi ý chỉnh sửa 
+                                |trong quảng cáo của bạn
                         .card-error-list
                             ul
-                            //-     li 
-                            //-         p Viết hoa nhiều chữ cái
-                            //-     li 
-                            //-         p Sử dụng dấu ba chấm
         .policy-bottom-desc
             p Đây là công cụ giúp bạn tối ưu hóa nội dung, hình ảnh quảng cáo. Đồng thời giúp kiểm tra các vi phạm có thể xảy ra trong nội dung. Công cụ không mặc định đảm bảo quảng cáo của bạn sẽ được duyệt. Xem thêm các 
                 a(href='https://ads.zalo.me/business/p/chinh-sach/' target="_blank") quy định quảng cáo 
