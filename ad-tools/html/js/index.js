@@ -554,7 +554,6 @@ var cropLargeImg = function () {
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
                                 var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-                                cv.meanStdDev(dst, menO, men)
                                 // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 // console.log(men.data64F[0])
                                 if (men.data64F[0] > 10) {
@@ -781,8 +780,7 @@ var cropLargeImgAgain = function () {
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
                                 var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-                                cv.meanStdDev(dst, menO, men)
-                                // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+                                console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                     document.getElementById('img-quality').classList.add('is-ok')
@@ -2476,8 +2474,8 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
         content_card_0.classList.add('is-hidden')
         content_card_1.classList.add('is-hidden')
 
-        let value_check_ad = true
-        let value_check_3k_ad = true
+        let value_check_ad = true //banned
+        let value_check_3k_ad = true //warning
 
         $('#alert-card-first .card-error-list ul li').remove()
         $('#alert-card-second .card-error-list ul li').remove()
@@ -2636,13 +2634,17 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                         let item = matches[i]
                         //show location in string
                         // console.log(mini_array[i])
-                        if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                            if ($('#warning-3').text().includes(item)) {
-                            } else {
-                                document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                            }
+                        if (item == '%,' || item == '%.') {
+                            warning_card.classList.add('is-hidden')
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                            if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
+                                if ($('#warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                            }
                         }
                     }
                 }
@@ -2744,7 +2746,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             }
             if (checkFormat2(value_2) == 1) {
                 if (isUpperCase(value_2) == true) {
-                    if (checkSensitive(value_2).length > 0) {
+                    if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
                     } else {
                         listK[id] == '' ? listK[id] = 'x' : null
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -2754,11 +2756,10 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                             $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
                         }
                     }
-                } else if (value_2.match(InputFormatUpperAfterDot)) {
                 }
-                if (checkSensitive(value_2).length > 0) {
+                if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
                 } else {
-                    listK[id] == '' ? listK[id] = 'x' : null
+                    // listK[id] == '' ? listK[id] = 'x' : null
                     value_check_ad = false
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
@@ -2866,13 +2867,17 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                         let item = matches[i]
                         //show location in string
                         // console.log(mini_array[i])
-                        if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                            if ($('#warning-3').text().includes(item)) {
-                            } else {
-                                document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                            }
+                        if (item == '%,' || item == '%.') {
+                            warning_card.classList.add('is-hidden')
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                            if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
+                                if ($('#warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                            }
                         }
                     }
                     setTimeout(FunctionHoverWord('warning-3'), 200)
@@ -3029,7 +3034,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             }
             if (checkFormat2(value_3) == 1) {
                 if (isUpperCase(value_3) == true) {
-                    if (checkSensitive(value_3).length > 0) {
+                    if (checkSensitive(value_3).length > 0 || value_3.match(InputFormatUpperAfterDot)) {
                     } else {
                         listK[id] == '' ? listK[id] = 'x' : null
                         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -3039,12 +3044,10 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                             $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
                         }
                     }
-                } else if (value_3.match(InputFormatUpperAfterDot)) {
-
                 }
-                if (checkSensitive(value_3).length > 0) {
+                if (checkSensitive(value_3).length > 0  || value_3.match(InputFormatUpperAfterDot)) {
                 } else {
-                    listK[id] == '' ? listK[id] = 'x' : null
+                    // listK[id] == '' ? listK[id] = 'x' : null
                     value_check_ad = false
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 
@@ -3157,13 +3160,17 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                         let item = matches[i]
                         //show location in string
                         // console.log(mini_array[i])
-                        if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                            if ($('#warning-3').text().includes(item)) {
-                            } else {
-                                document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                            }
+                        if (item == '%,' || item == '%.') {
+                            warning_card.classList.add('is-hidden')
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                            if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
+                                if ($('#warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                            }
                         }
                     }
                     setTimeout(FunctionHoverWord('warning-3'), 200)
@@ -3216,8 +3223,8 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
         if (tpcn_case) { }
         else {
             if (value_4) {
-                if (value_4 == 'Sản phẩm không phải thuốc'
-                    || value_4 == 'Sản phẩm này không phải là thuốc') {
+                if (value_4.includes('là thuốc')
+                    || value_4.includes('phải thuốc')) {
 
                 } else {
                     //case banned
@@ -3273,7 +3280,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                     }
                     if (checkFormat2(value_4) == 1) {
                         if (isUpperCase(value_4) == true) {
-                            if (checkSensitive(value_4).length > 0) {
+                            if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
                             } else {
                                 listK[id] == '' ? listK[id] = 'x' : null
                                 fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
@@ -3283,13 +3290,11 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                                     $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
                                 }
                             }
-                        } else if (value_4.match(InputFormatUpperAfterDot)) {
-
                         }
-                        if (checkSensitive(value_4).length > 0) {
+                        if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
                         } else {
                             fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                            listK[id] == '' ? listK[id] = 'x' : null
+                            // listK[id] == '' ? listK[id] = 'x' : null
                             warning_card.classList.remove('is-hidden')
                             value_check_ad = true
                             if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
@@ -3400,13 +3405,17 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                                 let item = matches[i]
                                 //show location in string
                                 // console.log(mini_array[i])
-                                if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                                    if ($('#warning-3').text().includes(item)) {
-                                    } else {
-                                        document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                    }
+                                if (item == '%,' || item == '%.') {
+                                    warning_card.classList.add('is-hidden')
                                 } else {
-                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                                    if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
+                                        if ($('#warning-3').text().includes(item)) {
+                                        } else {
+                                            document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                        }
+                                    } else {
+                                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                                    }
                                 }
                             }
                             setTimeout(FunctionHoverWord('warning-3'), 200)
@@ -3499,55 +3508,55 @@ function execute() {
                         listF
                     ]
                 },
-                // {
-                //     "majorDimension": "COLUMNS",
-                //     "range": "G2:G",
-                //     "values": [
-                //         listG
-                //     ]
-                // },
-                // {
-                //     "majorDimension": "COLUMNS",
-                //     "range": "H2:H",
-                //     "values": [
-                //         listH
-                //     ]
-                // },
-                // {
-                //     "majorDimension": "COLUMNS",
-                //     "range": "I2:I",
-                //     "values": [
-                //         listI
-                //     ]
-                // },
-                // {
-                //     "majorDimension": "COLUMNS",
-                //     "range": "J2:J",
-                //     "values": [
-                //         listJ
-                //     ]
-                // },
-                // {
-                //     "majorDimension": "COLUMNS",
-                //     "range": "K2:K",
-                //     "values": [
-                //         listK
-                //     ]
-                // },
-                // {
-                //     "majorDimension": "COLUMNS",
-                //     "range": "L2:L",
-                //     "values": [
-                //         listL
-                //     ]
-                // },
-                // {
-                //     "majorDimension": "COLUMNS",
-                //     "range": "M2:M",
-                //     "values": [
-                //         listM
-                //     ]
-                // },
+                {
+                    "majorDimension": "COLUMNS",
+                    "range": "G2:G",
+                    "values": [
+                        listG
+                    ]
+                },
+                {
+                    "majorDimension": "COLUMNS",
+                    "range": "H2:H",
+                    "values": [
+                        listH
+                    ]
+                },
+                {
+                    "majorDimension": "COLUMNS",
+                    "range": "I2:I",
+                    "values": [
+                        listI
+                    ]
+                },
+                {
+                    "majorDimension": "COLUMNS",
+                    "range": "J2:J",
+                    "values": [
+                        listJ
+                    ]
+                },
+                {
+                    "majorDimension": "COLUMNS",
+                    "range": "K2:K",
+                    "values": [
+                        listK
+                    ]
+                },
+                {
+                    "majorDimension": "COLUMNS",
+                    "range": "L2:L",
+                    "values": [
+                        listL
+                    ]
+                },
+                {
+                    "majorDimension": "COLUMNS",
+                    "range": "M2:M",
+                    "values": [
+                        listM
+                    ]
+                },
             ]
         }
     })

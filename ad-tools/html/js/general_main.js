@@ -49,11 +49,6 @@ window.onload = () => {
             .catch(err => { throw err });
     }
 
-    //popup rating block
-    let rating_block_hide = $('.rating-block').hasClass('is-hidden')
-    console.log(rating_block_hide)
-
-
     //get data test 30k ads from google sheet >.<
     let url_google_sheet = 'https://sheets.googleapis.com/v4/spreadsheets/1DDOoUyDPYWf3WTuOYEPHRp4iswDxpizHrloLw4LqRTM/values:batchGet?dateTimeRenderOption=FORMATTED_STRING&majorDimension=COLUMNS&ranges=A2%3AA&ranges=B2%3AB&ranges=C2%3AC&ranges=D2%3AD&ranges=E2%3AE&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAeVDEEB13CGK4GLUEBuME0S3yyyHQnLZU'
     fetch(url_google_sheet)
