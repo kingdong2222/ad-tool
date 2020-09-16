@@ -3489,7 +3489,7 @@ function authenticate() {
             function (err) { console.error("Error signing in", err); });
 }
 function loadClientUpdate() {
-    gapi.client.setApiKey("AIzaSyCOID-P_6smy2NXoGxIIzZSHxquh0lQ4IM");
+    gapi.client.setApiKey("AIzaSyBY-dRvVSnd2fsK8Brg3x-TLShzmZvjYd8");
     return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/sheets/v4/rest")
         .then(function () { console.log("GAPI client loaded for API"); },
             function (err) { console.error("Error loading GAPI client for API", err); });
@@ -3567,7 +3567,7 @@ function execute() {
             function (err) { console.error("Execute error", err); });
 }
 gapi.load("client:auth2", function () {
-    gapi.auth2.init({ client_id: "302224997211-5hedt5isjaabihgo4r3qerkgdcm3trfv.apps.googleusercontent.com" });
+    gapi.auth2.init({ client_id: "302224997211-2vdq0p1dn78o4ngj34dav4t2uouslljl.apps.googleusercontent.com" });
 });
 
 
