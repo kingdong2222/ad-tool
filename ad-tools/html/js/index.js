@@ -1409,24 +1409,22 @@ function checkAdsFunc(value) {
             //case warning
             if (value_1.match(InputFormatWithPuntuation)) {
                 let array_match = Array.from(value_1.matchAll(InputFormatWithPuntuation), m => m[0])
-                let correct_string = array_match.toString().replace(/,/g, "")
                 let string2array = value_1.split('')
                 let first_length = value_1.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
                 if (array_match.length < first_length) {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
                     //value_check_ad = false
-                    for (let i = 0; i <= string2array.length; i++) {
-                        if (correct_string.includes(string2array[i]) == false) {
-                            if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
-                                if ($('#warning-1 span').text().includes(string2array[i])) {
-                                } else {
-                                    document.getElementById('warning-1').innerHTML += ' <span>' + string2array[i] + '</span>'
-                                }
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#warning-1 span').text().includes(difference[i])) {
                             } else {
-                                count_warning += 1
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " " + string2array[i] + "</p></li>")
+                                document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
                             }
+                        } else {
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
                         }
                     }
                     setTimeout(FunctionHoverWord('warning-1'), 200)
@@ -1626,26 +1624,23 @@ function checkAdsFunc(value) {
 
             //case warning
             if (value_2.match(InputFormatWithPuntuation)) {
-                let temp = encodeURIComponent(value_2)
-                let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
-                let correct_string = array_match.toString().replace(/,/g, "")
-                let string2array = temp.split('')
-                let first_length = temp.length
+                let array_match = Array.from(value_2.matchAll(InputFormatWithPuntuation), m => m[0])
+                let string2array = value_2.split('')
+                let first_length = value_2.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
                 if (array_match.length < first_length) {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
                     //value_check_ad = false
-                    for (let i = 0; i <= string2array.length; i++) {
-                        if (correct_string.includes(string2array[i]) == false) {
-                            if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
-                                if ($('#warning-1 span').text().includes(string2array[i])) {
-                                } else {
-                                    document.getElementById('warning-1').innerHTML += ' <span>' + string2array[i] + '</span>'
-                                }
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#warning-1 span').text().includes(difference[i])) {
                             } else {
-                                count_warning += 1
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " " + string2array[i] + "</p></li>")
+                                document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
                             }
+                        } else {
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
                         }
                     }
                     setTimeout(FunctionHoverWord('warning-1'), 200)
@@ -1899,26 +1894,24 @@ function checkAdsFunc(value) {
 
             //case warning
             if (value_3.match(InputFormatWithPuntuation)) {
-                let temp = encodeURIComponent(value_3)
-                let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
-                let correct_string = array_match.toString().replace(/,/g, "")
-                let string2array = temp.split('')
-                let first_length = temp.length
+                
+                let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
+                let string2array = value_3.split('')
+                let first_length = value_3.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
                 if (array_match.length < first_length) {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
                     //value_check_ad = false
-                    for (let i = 0; i <= string2array.length; i++) {
-                        if (correct_string.includes(string2array[i]) == false) {
-                            if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
-                                if ($('#warning-1 span').text().includes(string2array[i])) {
-                                } else {
-                                    document.getElementById('warning-1').innerHTML += ' <span>' + string2array[i] + '</span>'
-                                }
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#warning-1 span').text().includes(difference[i])) {
                             } else {
-                                count_warning += 1
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " " + string2array[i] + "</p></li>")
+                                document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
                             }
+                        } else {
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
                         }
                     }
                     setTimeout(FunctionHoverWord('warning-1'), 200)
@@ -2123,26 +2116,24 @@ function checkAdsFunc(value) {
 
                 //case warning
                 if (value_4.match(InputFormatWithPuntuation)) {
-                    let temp = encodeURIComponent(value_4)
-                    let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
-                    let correct_string = array_match.toString().replace(/,/g, "")
-                    let string2array = temp.split('')
-                    let first_length = temp.length
+                    
+                    let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
+                    let string2array = value_4.split('')
+                    let first_length = value_4.length
+                    let difference = string2array.filter(x => array_match.indexOf(x) === -1)
                     if (array_match.length < first_length) {
-                        first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         warning_card.classList.remove('is-hidden')
                         //value_check_ad = false
-                        for (let i = 0; i <= string2array.length; i++) {
-                            if (correct_string.includes(string2array[i]) == false) {
-                                if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
-                                    if ($('#warning-1 span').text().includes(string2array[i])) {
-                                    } else {
-                                        document.getElementById('warning-1').innerHTML += ' <span>' + string2array[i] + '</span>'
-                                    }
+                        for (let i = 0; i < difference.length; i++) {
+                            if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+                                if ($('#warning-1 span').text().includes(difference[i])) {
                                 } else {
-                                    count_warning += 1
-                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " " + string2array[i] + "</p></li>")
+                                    document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
                                 }
+                            } else {
+                                count_warning += 1
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
                             }
                         }
                         setTimeout(FunctionHoverWord('warning-1'), 200)
@@ -2226,7 +2217,7 @@ function checkAdsFunc(value) {
         if(count_warning > 0){
             $('#warning-tip span').html(count_warning + ' ')
             tippy('#warning-tip', {
-                content: '<div class="tippy-block"><p style="font-weight: normal; margin-bottom: 0;"><b>Gợi ý chỉnh sửa</b> là những nội dung nghi ngờ vi phạm vi định quảng cáo. Bỏ qua nếu bạn chắc rằng những gợi ý này không chính xác</p></div>',
+                content: '<div class="tippy-block"><p style="font-weight: normal; margin-bottom: 0;"><b>Gợi ý chỉnh sửa</b> là những nội dung nghi ngờ vi phạm qui định quảng cáo. Bỏ qua nếu bạn chắc rằng những gợi ý này không chính xác</p></div>',
                 allowHTML: true,
                 maxWidth: 250,
                 theme: 'zad1',

@@ -5,8 +5,19 @@ let contents = []
 let descs = []
 let infos = []
 
+let version_cache = '1.0.1'
 
 window.onload = () => {
+
+    //cache cookie
+    let cache_temp = getCookie('cache_cookie')
+    if(cache_temp == version_cache){
+        console.log(version_cache)
+    } else {
+        window.location.reload();
+        setCookie('cache_cookie', version_cache, 1)
+    }
+    
     //check cookie about new update
     let cookie_update = getCookie('version_update')
     if (cookie_update == version_update) {
@@ -74,6 +85,7 @@ $('.rating-button').click(function () {
 });
 document.getElementById('close-rating-block').onclick = () => {
     $('.rating-block').addClass('is-hidden')
+    setCookie('has_rated', 'rated', 30)
 }
 
 document.getElementById('send-rating-feedback').onclick = () => {
@@ -97,7 +109,7 @@ document.getElementById('send-rating-feedback').onclick = () => {
 
     setTimeout(()=>{
         $('.rating-block').addClass('is-hidden')
-    },3000)
+    },2000)
 }
 
 function getCookie(cname) {
