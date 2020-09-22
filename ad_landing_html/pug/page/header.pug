@@ -1,0 +1,45 @@
+block header
+
+.header-container
+	a.img-logo(href='index.html') Zalo Ads
+	nav.nav(role='navigation')
+		ul
+			li.menu-item
+				a(href='#!') Home
+			li.menu-item
+				a(href='gioithieu.html') Giới thiệu
+			li.menu-item
+				a(href='huongdan.html') Tài nguyên
+			li.menu-item
+				a.func-modal-form(href='javascript:void(0)') Đối tác
+			li.menu-item
+				a.func-modal-form(href='javascript:void(0)') Tin tức
+			li.menu-item
+				a(href='hotro.html') Liên hệ hỗ trợ
+	.group-header-right
+		.field.field-button.is-grouped.dropdown
+			.control
+				a.button.is-primary.create-ad-top-button(href="#!") 
+					span.is-hidden-touch Quản lý quảng cáo
+					span.is-hidden-desktop Quản lý Ads
+			.control.dropdown-toggle(href="#" role="button" id="dropdown-m1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+				a.button.is-primary.button-arr
+					i.arr
+			.context-arr.dropdown-menu(aria-labelledby="dropdown-m1")
+				ul
+					li
+						a(href='#!')
+							span Tạo quảng cáo
+					li
+						a(href='#!')
+							span Tạo Official Account
+		.group-search.is-hidden-touch
+			.search-input-form#search-input-header
+				input#search-input(type="text" placeholder="Nhập nội dung cần tìm..." disabled)
+				a.button-search#button-search
+					i.icn.icn-search
+				button.button-search(style='display: none;')
+					i.icn.icn-search
+	button.hamburger.hamburger--collapse(type='button')
+		span.hamburger-box
+			span.hamburger-inner

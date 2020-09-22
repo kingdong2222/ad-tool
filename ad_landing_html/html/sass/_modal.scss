@@ -1,0 +1,58 @@
+// Core variables and mixins bourbon
+@import "bourbon";
+
+// Modal Core
+.modal-open{overflow:hidden}
+.modal-open .modal{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.modal{display:none;@include position(fixed, 0);z-index:1050;overflow:hidden;outline:0}
+.modal-dialog{position:relative;width:auto;@include margin(0.5rem);pointer-events:none}
+.modal.fade .modal-dialog{transition:-webkit-transform 0.3s ease-out;transition:transform 0.3s ease-out;transform:translate(0, -25%)}
+.modal.show .modal-dialog{transform:translate(0, 0)}
+.modal-dialog-centered{display:flex;align-items:center;min-height:calc(100% - (0.5rem * 2));
+	&:before{display:block;height:calc(100vh - (0.5rem * 2));content:""}
+}
+.modal-content{position:relative;display:flex;flex-direction:column;background-color:#fff;width:100%;pointer-events:auto;background-clip:padding-box;@extend %is-shadow;border-radius:$radius;outline:0}
+.modal-backdrop{@include position(fixed, 0);z-index:1040;background-color:#000}
+.modal-backdrop.fade{opacity:0}
+.modal-backdrop.show{opacity:0.5}
+.modal-header{display:flex;align-items:flex-start;justify-content:space-between;width:100%;@include padding(1rem);border-bottom:1px solid $border;border-top-left-radius:$radius;border-top-right-radius:$radius;}
+.modal-header .close{@include margin(-1rem -1rem -1rem auto);@include padding(1rem);}
+.modal-title{margin-bottom:0;line-height:1.5}
+.modal-body{position:relative;flex:1 1 auto;width:100%;@include padding(1rem)}
+.modal-footer{display:flex;align-items:center;justify-content:flex-end;width:100%;@include padding(1rem);border-top:1px solid $border;}
+.modal-footer>:not(:first-child){margin-left:.25rem}
+.modal-footer>:not(:last-child){margin-right:.25rem}
+.modal-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}
+@include from($tablet){
+	.modal-dialog{max-width:500px;@include margin(1.75rem auto)}
+	.modal-dialog-centered{min-height:calc(100% - (1.75rem * 2))}
+	.modal-dialog-centered:before{height:calc(100vh - (1.75rem * 2))}
+}
+
+// Modal Custom
+.modal{
+	.modal-content{
+		&.is-form{display:block;max-height:inherit!important;height:auto;@include margin(0 auto);@include padding(20px);
+			@include from($tablet){@include padding(40px 60px)}
+		}
+	}
+	.modal-header{position:relative;@include padding($gutter-4 $gutter-4 0);border-bottom:0;
+		.close{top:$gutter-2;right:$gutter-2;@include margin(0);}
+	}
+	.modal-body{@include padding($gutter-4);}
+	.modal-footer{background-color:shade(#eff0f5, 2%);@include padding($gutter-4);border:0;
+		.button{
+			&.is-text{text-decoration:none;
+				&:hover{background:none;color:$primary}
+			}
+		}
+	}
+	.close{display:block;@include position(absolute, 0 0 null null);z-index:20;@include padding(10px);color:$text;
+		i{display:block;@include size(32px);@include padding(0);font-size:2rem}
+		&:hover{opacity:0.75}
+	}
+	.is-large{max-width:1070px}
+	.is-medium{max-width:780px}
+	.is-normal{max-width:640px}
+}
+

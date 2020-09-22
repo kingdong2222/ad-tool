@@ -1,0 +1,126 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var header = true
+	- var footer = false
+	- var modal = false
+	- var swiperjs = true
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("")
+	- layoutClasses.push("ad-layout")
+	- headerClasses.push("header")
+	- bodyClasses.push("page-content")
+	- footerClasses.push("footer")
+	
+//- Add Header
+block header
+	include page/header.pug
+
+//- Add Body
+block body
+	include page/_dsdoitac.pug
+
+
+block javaScripts extend
+	script.
+		let list_doitac = []
+		let partner_component = (item) => {
+			return "<a class='bl-partner' id='"+item.index+"'>"
+				+ "<img class='hover' src='"+item.logo+"'/>"
+				+ "<img class='grayscale' src='"+item.logo_grayscale+"'/>"
+				+ "<p class='partner-name'>"+item.name+"</p>"
+				+ "<p class='partner-desc'>"+item.desc+"</p></a>"
+		}
+		window.onload = () => {
+			//- let blocks = document.getElementsByClassName('bl-partner')
+			//- let windowHeight = window.innerHeight
+			//- for(let i = 0;i < blocks.length; i++){
+			//- 	let itemTop = blocks[i].getBoundingClientRect().top
+			//- 	let temp = blocks[i].classList
+			//- 	if(itemTop > windowHeight){
+			//- 		//- temp.add('is-hidden')
+			//- 		temp.add('loading-opacity')
+			//- 	} else {
+			//- 		//- temp.remove('is-hidden')
+			//- 		temp.remove('loading-opacity')
+			//- 	}
+			//- }
+			fetch("images/list_doitac.json")
+				.then(response => response.json())
+				.then(json => {
+					list_doitac = json
+					let length = window.innerWidth <= 1024 ? 7 : 8
+					for(let i = 0; i <= length; i ++){
+						$( "#image-logo" ).append(partner_component(json[i]))
+					}
+				});
+		}
+		var lastScrollTop = 0;
+		window.onscroll = () => {
+			var st = window.pageYOffset || document.documentElement.scrollTop;
+			let circleLoading = document.getElementById('loading-circle')
+			let listBlocks = document.getElementsByClassName('bl-partner')
+			let windowHeight = window.innerHeight
+			let windowWidth = window.innerWidth
+
+			if (st > lastScrollTop){
+				//scroll down	
+				let lastBlockId = parseInt($('.bl-partner').last().attr('id'))
+				let last_block = listBlocks[lastBlockId]
+				if(last_block.getBoundingClientRect().top + 300 <= windowHeight){
+					if(lastBlockId+1 == list_doitac.length){
+						//when list is over
+						circleLoading.style.opacity = 0
+					} else {
+						circleLoading.style.opacity = 1
+						setTimeout(()=>{
+							circleLoading.style.opacity = 0
+							if(windowWidth <= 1024){
+								//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+1]))
+								//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+2]))
+								//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+3]))
+								//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+4]))
+							} else {
+								//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+1]))
+								//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+2]))
+								//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+3]))
+							}
+						},1000)
+					}
+				}
+			} else {
+				//scroll up
+				circleLoading.style.display = 'none'
+			}
+			lastScrollTop = st <= 0 ? 0 : st;
+			
+			//- scrollLoadMore()
+		}
+		scrollLoadMore = () => {
+			let blocks = document.getElementsByClassName('bl-partner')
+			let windowHeight = window.innerHeight
+			let circleLoading = document.getElementById('loading-circle')
+			for(let i = 0;i < blocks.length; i++){
+				let itemTop = blocks[i].getBoundingClientRect().top
+				let temp = blocks[i].classList
+				if(itemTop + 100 <= windowHeight){
+
+					circleLoading.style.opacity == 1 ? null
+					: circleLoading.style.opacity = 1
+
+					//- setTimeout(()=>{
+					//- 	temp.remove('is-hidden')
+					//- },300)
+					setTimeout(()=>{
+						circleLoading.style.opacity = 0
+						temp.remove('loading-opacity')
+					},500)
+				}
+			}
+		}

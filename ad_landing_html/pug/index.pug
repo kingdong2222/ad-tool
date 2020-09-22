@@ -1,0 +1,184 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var header = true
+	- var footer = true
+	- var modal = true
+	- var swiperjs = true
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("")
+	- layoutClasses.push("ad-layout")
+	- headerClasses.push("header")
+	- bodyClasses.push("page-content")
+	- footerClasses.push("footer")
+	
+//- Add Header
+block header
+	include page/header.pug
+
+//- Add Body
+block body
+	include page/_home.pug
+
+//- Add Footer
+block footer
+	include page/footer.pug
+
+//- Add Modal
+block modal
+	include page/modal_form.pug
+
+block javaScripts extend
+	script.
+	
+		var menu_inactive_icon = document.createElement('i');
+		menu_inactive_icon.setAttribute('class', 'icn icn-small-right');
+		
+		var menu_active_icon = document.createElement('i');
+		menu_active_icon.setAttribute('class', 'icn icn-small-down');
+		
+		var coll = document.getElementsByClassName("menu-item-has-children");
+		var html_coll = document.querySelector(".menu-item-has-children a");
+		html_coll.appendChild(menu_inactive_icon)
+		var i;
+
+		for (i = 0; i < coll.length; i++) {
+			coll[i].addEventListener("click", function() {
+				//- html_coll.removeChild(menu_inactive_icon)
+				//- html_coll.appendChild(menu_active_icon)
+				this.classList.toggle("active");
+				var content = html_coll.nextElementSibling;
+				if (content.style.maxHeight){
+				content.style.maxHeight = null;
+				html_coll.removeChild(menu_active_icon)
+				html_coll.appendChild(menu_inactive_icon)
+				} else {
+				content.style.maxHeight = content.scrollHeight + "px";
+				html_coll.removeChild(menu_inactive_icon)
+				html_coll.appendChild(menu_active_icon)
+				} 
+			});
+		}
+		
+		function dropdownFunc() {
+			document.getElementById("another-dropdown").classList.toggle("another-dropdown-show");
+		}
+		window.onclick = function(event) {
+			if (!event.target.matches('.button-another-dropdown')) {
+					var dropdowns = document.getElementsByClassName("hidden-another-dropdown");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('another-dropdown-show')) {
+						openDropdown.classList.remove('another-dropdown-show');
+					}
+				}
+			}
+		}
+
+		$('.func-modal-form').click(function() {
+			$('#modal-form').modal('show');
+		});
+		
+		$(document).ready(function () {
+			//initialize swiper when document ready
+			var swiper = new Swiper ('#phone-swiper', {
+				autoplay: {
+					delay: 3000,
+				},
+				speed: 700,
+				touchRatio: 0,
+				spaceBetween: 0,
+				loop: true,
+			});
+
+			var swiper = new Swiper('.showcase-tabs', {
+				slidesPerView: 'auto',
+				simulateTouch: true,
+				loop: false,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				breakpoints: {
+					1024:{
+						simulateTouch: false,
+						spaceBetween: 0,
+					}
+				}
+			})
+		});
+		window.addEventListener('load',() =>{
+			var myVideo = document.getElementById("video-homepage-ad"); 
+			var backgroundOverlayVideo = document.getElementById("background-overlay");
+			var buttonPlayVideo = document.getElementById("button-play");
+			var buttonPlayPause = backgroundOverlayVideo.getElementsByClassName('icn')[0]
+			myVideo.onended = ()=>{
+				buttonPlayPause.classList.remove('icn-bold-pause')
+				buttonPlayPause.classList.add('icn-bold-play')
+				buttonPlayPause.style.opacity = '1'
+			}
+			var vid = document.getElementById("video-homepage-ad");
+
+			function videoTimeUpdate(e)
+			{
+				vid.addAttribute("controls");
+			}
+				
+			vid.addEventListener('timeupdate', videoTimeUpdate, false);
+		})
+		
+			
+		function playPause() { 	
+				var myVideo = document.getElementById("video-homepage-ad"); 
+				var backgroundOverlayVideo = document.getElementById("background-overlay");
+				var buttonPlayVideo = document.getElementById("button-play");
+				var buttonPlayPause = backgroundOverlayVideo.getElementsByClassName('icn')[0]
+				var screenWidth = document.documentElement.clientWidth
+				if (myVideo.paused) {
+					myVideo.play();
+					if(screenWidth >= 1024){
+						buttonPlayPause.classList.add('icn-bold-pause')
+						buttonPlayPause.classList.remove('icn-bold-play')
+						buttonPlayPause.style.opacity = '0'
+					} else {
+						var iconPlayVideo = buttonPlayVideo.getElementsByTagName('I')[0]
+						iconPlayVideo.style.display = 'none'
+						buttonPlayPause.classList.add('icn-bold-pause')
+						buttonPlayPause.classList.remove('icn-bold-play')
+					}
+				} else {
+					myVideo.pause();
+					if(screenWidth >= 1024){
+						buttonPlayPause.classList.remove('icn-bold-pause')
+						buttonPlayPause.classList.add('icn-bold-play')
+						buttonPlayPause.style.opacity = '1'
+					} else {
+						var iconPlayVideo = buttonPlayVideo.getElementsByTagName('I')[0]
+						iconPlayVideo.style.display = 'block'
+						buttonPlayPause.classList.remove('icn-bold-pause')
+						buttonPlayPause.classList.add('icn-bold-play')
+					}			
+				}	
+		}
+		$('.nav-link').click(()=>{
+			setTimeout(()=>{
+				if($( "#tab5" ).hasClass("show")){
+					$('#tab5 video').trigger('play')
+				} else {
+					$('#tab5 video').trigger('pause')
+				}
+			},300)
+		})
+
+
+			
+
+	<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+	<script src="https://stc-sp.zadn.vn/session-sdk/session-sdk.min.js"></script>
