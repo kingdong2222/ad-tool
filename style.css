@@ -16868,11 +16868,10 @@ body.is-bg-grey-v2 {
   opacity: 0;
 }
 .partner-template section.section-list-doitac .module-loading .context-loading {
-  top: unset !important;
+  top: 90vh !important;
   position: fixed;
-  top: 0;
+  top: 90vh;
   right: 0;
-  bottom: 80px;
   left: 0;
   z-index: 10;
   opacity: 0;
