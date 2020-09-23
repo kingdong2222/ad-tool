@@ -1225,6 +1225,9 @@ const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩ
 
 const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,})/g
 
+//case sensitive for numbers
+const InputSpacingPuntationError_4 =/([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])( [.,]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])/g
+
 document.getElementById('check-form-ad').onclick = value => {
     document.getElementById('check-form-ad').classList.add('is-loading')
     checkAdsFunc()
@@ -1313,9 +1316,12 @@ function checkAdsFunc(value) {
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
                 || value_1.match(InputSpacingPuntationError_3)) {
+                    console.log(value_1.match(InputSpacingPuntationError_4))
                 if (value_1.match(InputFormatUpperAfterDot)) {
-                    value_check_ad = true
-                } else {
+                    // value_check_ad = true
+                } else if(value_1.match(InputSpacingPuntationError_4) == null){
+                    // value_check_ad = true
+                }else {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                     value_check_ad = false
                     if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
@@ -1541,13 +1547,18 @@ function checkAdsFunc(value) {
                 || value_2.match(InputSpacingPuntationError_1)
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
-
+                    if (value_2.match(InputFormatUpperAfterDot)) {
+                        // value_check_3k_ad = true
+                    } else if(value_2.match(InputSpacingPuntationError_4) == null){
+                        // value_check_3k_ad = true
+                    } else {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
                 } else {
                     $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
                 }
+            }
             }
 
             //test spelling aka kiem tra chinh ta
@@ -1798,9 +1809,11 @@ function checkAdsFunc(value) {
                 || value_3.match(InputSpacingPuntationError_1)
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
-                if (value_3.match(InputFormatUpperAfterDot)) {
-                    // value_check_ad = true
-                } else {
+                    if (value_1.match(InputFormatUpperAfterDot)) {
+                        // value_check_3k_ad = true
+                    } else if(value_1.match(InputSpacingPuntationError_4) == null){
+                        // value_check_3k_ad = true
+                    } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     value_check_ad = false
                     if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
@@ -2012,9 +2025,11 @@ function checkAdsFunc(value) {
                     || value_4.match(InputSpacingPuntationError_1)
                     || value_4.match(InputSpacingPuntationError_2)
                     || value_4.match(InputSpacingPuntationError_3)) {
-                    if (value_4.match(InputFormatUpperAfterDot)) {
-                        // value_check_ad = true
-                    } else {
+                        if (value_1.match(InputFormatUpperAfterDot)) {
+                            // value_check_3k_ad = true
+                        } else if(value_1.match(InputSpacingPuntationError_4) == null){
+                            // value_check_3k_ad = true
+                        } else {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         value_check_ad = false
                         if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
@@ -2451,7 +2466,7 @@ document.getElementById('check-3k-ad').onclick = () => {
     for (let i = 0; i < ids.length; i++) {
         setTimeout(() => {
             check3kAds(i, names[i], contents[i], descs[i], infos[i])
-        }, 2500 * i)
+        }, 500 * i)
     }
 }
 
@@ -2550,8 +2565,11 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
                 || value_1.match(InputSpacingPuntationError_3)) {
+                    console.log(value_check_3k_ad = true)
                 if (value_1.match(InputFormatUpperAfterDot)) {
-                    value_check_3k_ad = true
+                    // value_check_3k_ad = true
+                } else if(value_1.match(InputSpacingPuntationError_4) == null){
+                    // value_check_3k_ad = true
                 } else {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                     value_check_3k_ad = false
@@ -2564,42 +2582,42 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             }
 
             //test spelling aka kiem tra chinh ta
-            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                text: value_1,
-                app_type: "zad"
-            }).then(function (resp) {
-                list_mistakes = resp.result[0].mistakes.reverse()
-                let mistake_item
-                let fixed_item
-                if (list_mistakes.length > 0) {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    value_check_3k_ad = false
-                    for (let i = 0; i < list_mistakes.length; i++) {
-                        mistake_item = list_mistakes[i].text
-                        fixed_item = list_mistakes[i].suggest[0][0]
-                        fixed_list.push({
-                            mistake_item: mistake_item,
-                            fixed_item: fixed_item
-                        })
-                        if (listG[id].indexOf(mistake_item) >= 0) {
-                        } else {
-                            listG[id] += mistake_item + ', '
-                        }
-                        if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
+            // $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
+            //     text: value_1,
+            //     app_type: "zad"
+            // }).then(function (resp) {
+            //     list_mistakes = resp.result[0].mistakes.reverse()
+            //     let mistake_item
+            //     let fixed_item
+            //     if (list_mistakes.length > 0) {
+            //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            //         value_check_3k_ad = false
+            //         for (let i = 0; i < list_mistakes.length; i++) {
+            //             mistake_item = list_mistakes[i].text
+            //             fixed_item = list_mistakes[i].suggest[0][0]
+            //             fixed_list.push({
+            //                 mistake_item: mistake_item,
+            //                 fixed_item: fixed_item
+            //             })
+            //             if (listG[id].indexOf(mistake_item) >= 0) {
+            //             } else {
+            //                 listG[id] += mistake_item + ', '
+            //             }
+            //             if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
 
 
 
-                            if ($('#banned-6 span').text().includes(mistake_item)) {
-                            } else {
-                                document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
-                            }
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
+            //                 if ($('#banned-6 span').text().includes(mistake_item)) {
+            //                 } else {
+            //                     document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+            //                 }
+            //             } else {
+            //                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
 
-                        }
-                    }
-                }
-            })
+            //             }
+            //         }
+            //     }
+            // })
 
             //case warning
             if (value_1.match(InputFormatWithPuntuation)) {
@@ -2786,7 +2804,11 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 || value_2.match(InputSpacingPuntationError_1)
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
-
+                    if (value_2.match(InputFormatUpperAfterDot)) {
+                        // value_check_3k_ad = true
+                    } else if(value_2.match(InputSpacingPuntationError_4) == null){
+                        // value_check_3k_ad = true
+                    } else {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_3k_ad = false
                 listI[id] == '' ? listI[id] = 'x' : null
@@ -2795,42 +2817,43 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                     $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
                 }
             }
+            }
 
             //test spelling aka kiem tra chinh ta
-            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                text: value_2,
-                app_type: "zad"
-            }).then(function (resp) {
-                list_mistakes = resp.result[0].mistakes.reverse()
-                let mistake_item
-                let fixed_item
-                if (list_mistakes.length > 0) {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    value_check_3k_ad = false
-                    for (let i = 0; i < list_mistakes.length; i++) {
-                        mistake_item = list_mistakes[i].text
-                        fixed_item = list_mistakes[i].suggest[0][0]
-                        fixed_list.push({
-                            mistake_item: mistake_item,
-                            fixed_item: fixed_item
-                        })
-                        if (listG[id].indexOf(mistake_item) >= 0) {
-                        } else {
-                            listG[id] += mistake_item + ', '
-                        }
-                        if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
+            // $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
+            //     text: value_2,
+            //     app_type: "zad"
+            // }).then(function (resp) {
+            //     list_mistakes = resp.result[0].mistakes.reverse()
+            //     let mistake_item
+            //     let fixed_item
+            //     if (list_mistakes.length > 0) {
+            //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+            //         value_check_3k_ad = false
+            //         for (let i = 0; i < list_mistakes.length; i++) {
+            //             mistake_item = list_mistakes[i].text
+            //             fixed_item = list_mistakes[i].suggest[0][0]
+            //             fixed_list.push({
+            //                 mistake_item: mistake_item,
+            //                 fixed_item: fixed_item
+            //             })
+            //             if (listG[id].indexOf(mistake_item) >= 0) {
+            //             } else {
+            //                 listG[id] += mistake_item + ', '
+            //             }
+            //             if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
 
-                            if ($('#banned-6 span').text().includes(mistake_item)) {
-                            } else {
-                                document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
-                            }
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
-                        }
-                    }
-                }
-                setTimeout(FunctionHoverWord('banned-6'), 520)
-            })
+            //                 if ($('#banned-6 span').text().includes(mistake_item)) {
+            //                 } else {
+            //                     document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+            //                 }
+            //             } else {
+            //                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
+            //             }
+            //         }
+            //     }
+            //     setTimeout(FunctionHoverWord('banned-6'), 520)
+            // })
 
 
             //case warning
@@ -3074,9 +3097,11 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 || value_3.match(InputSpacingPuntationError_1)
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
-                if (value_3.match(InputFormatUpperAfterDot)) {
-                    // value_check_3k_ad  = true
-                } else {
+                    if (value_3.match(InputFormatUpperAfterDot)) {
+                        // value_check_3k_ad = true
+                    } else if(value_3.match(InputSpacingPuntationError_4) == null){
+                        // value_check_3k_ad = true
+                    } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     value_check_3k_ad = false
                     listI[id] == '' ? listI[id] = 'x' : null
@@ -3088,42 +3113,42 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             }
 
             //test spelling aka kiem tra chinh ta
-            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                text: value_3,
-                app_type: "zad"
-            }).then(function (resp) {
-                list_mistakes = resp.result[0].mistakes.reverse()
-                let mistake_item
-                let fixed_item
-                if (list_mistakes.length > 0) {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    value_check_3k_ad = false
-                    // console.log(list_mistakes)
-                    for (let i = 0; i < list_mistakes.length; i++) {
-                        mistake_item = list_mistakes[i].text
-                        fixed_item = list_mistakes[i].suggest[0][0]
-                        fixed_list.push({
-                            mistake_item: mistake_item,
-                            fixed_item: fixed_item
-                        })
-                        if (listG[id].indexOf(mistake_item) >= 0) {
-                        } else {
-                            listG[id] += mistake_item + ', '
-                        }
-                        if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
+            // $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
+            //     text: value_3,
+            //     app_type: "zad"
+            // }).then(function (resp) {
+            //     list_mistakes = resp.result[0].mistakes.reverse()
+            //     let mistake_item
+            //     let fixed_item
+            //     if (list_mistakes.length > 0) {
+            //         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+            //         value_check_3k_ad = false
+            //         // console.log(list_mistakes)
+            //         for (let i = 0; i < list_mistakes.length; i++) {
+            //             mistake_item = list_mistakes[i].text
+            //             fixed_item = list_mistakes[i].suggest[0][0]
+            //             fixed_list.push({
+            //                 mistake_item: mistake_item,
+            //                 fixed_item: fixed_item
+            //             })
+            //             if (listG[id].indexOf(mistake_item) >= 0) {
+            //             } else {
+            //                 listG[id] += mistake_item + ', '
+            //             }
+            //             if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
 
-                            if ($('#banned-6 span').text().includes(mistake_item)) {
-                            } else {
-                                document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
-                            }
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
+            //                 if ($('#banned-6 span').text().includes(mistake_item)) {
+            //                 } else {
+            //                     document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+            //                 }
+            //             } else {
+            //                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
 
-                        }
-                    }
-                }
-                setTimeout(FunctionHoverWord('banned-6'), 520)
-            })
+            //             }
+            //         }
+            //     }
+            //     setTimeout(FunctionHoverWord('banned-6'), 520)
+            // })
 
 
             //case warning
@@ -3320,9 +3345,11 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                         || value_4.match(InputSpacingPuntationError_1)
                         || value_4.match(InputSpacingPuntationError_2)
                         || value_4.match(InputSpacingPuntationError_3)) {
-                        if (value_4.match(InputFormatUpperAfterDot)) {
-                            // value_check_3k_ad  = true
-                        } else {
+                            if (value_4.match(InputFormatUpperAfterDot)) {
+                                // value_check_3k_ad = true
+                            } else if(value_4.match(InputSpacingPuntationError_4) == null){
+                                // value_check_3k_ad = true
+                            } else {
                             fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                             value_check_3k_ad = false
                             listI[id] == '' ? listI[id] = 'x' : null
@@ -3334,42 +3361,42 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                     }
 
                     //test spelling aka kiem tra chinh ta
-                    $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                        text: value_4,
-                        app_type: "zad"
-                    }).then(function (resp) {
-                        list_mistakes = resp.result[0].mistakes.reverse()
-                        let mistake_item
-                        let fixed_item
-                        if (list_mistakes.length > 0) {
-                            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                            value_check_3k_ad = false
-                            // console.log(list_mistakes)
-                            for (let i = 0; i < list_mistakes.length; i++) {
-                                mistake_item = list_mistakes[i].text
-                                fixed_item = list_mistakes[i].suggest[0][0]
-                                fixed_list.push({
-                                    mistake_item: mistake_item,
-                                    fixed_item: fixed_item
-                                })
-                                if (listG[id].indexOf(mistake_item) >= 0) {
-                                } else {
-                                    listG[id] += mistake_item + ', '
-                                }
-                                if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
+                    // $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
+                    //     text: value_4,
+                    //     app_type: "zad"
+                    // }).then(function (resp) {
+                    //     list_mistakes = resp.result[0].mistakes.reverse()
+                    //     let mistake_item
+                    //     let fixed_item
+                    //     if (list_mistakes.length > 0) {
+                    //         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                    //         value_check_3k_ad = false
+                    //         // console.log(list_mistakes)
+                    //         for (let i = 0; i < list_mistakes.length; i++) {
+                    //             mistake_item = list_mistakes[i].text
+                    //             fixed_item = list_mistakes[i].suggest[0][0]
+                    //             fixed_list.push({
+                    //                 mistake_item: mistake_item,
+                    //                 fixed_item: fixed_item
+                    //             })
+                    //             if (listG[id].indexOf(mistake_item) >= 0) {
+                    //             } else {
+                    //                 listG[id] += mistake_item + ', '
+                    //             }
+                    //             if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
 
-                                    if ($('#banned-6 span').text().includes(mistake_item)) {
-                                    } else {
-                                        document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
-                                    }
-                                } else {
-                                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
+                    //                 if ($('#banned-6 span').text().includes(mistake_item)) {
+                    //                 } else {
+                    //                     document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                    //                 }
+                    //             } else {
+                    //                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
 
-                                }
-                            }
-                        }
-                        setTimeout(FunctionHoverWord('banned-6'), 520)
-                    })
+                    //             }
+                    //         }
+                    //     }
+                    //     setTimeout(FunctionHoverWord('banned-6'), 520)
+                    // })
 
                     //case warning
                     if (value_4.match(InputFormatWithPuntuation)) {
@@ -3477,7 +3504,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
             } else if(value_check_3k_ad == false && value_check_ad == false || value_check_3k_ad == false && value_check_ad == true){
                 listF[id] = 'Từ chối'
             }
-        }, 2000)
+        }, 400)
     }
 
 }
