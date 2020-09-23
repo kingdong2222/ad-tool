@@ -16746,8 +16746,11 @@ body.is-bg-grey-v2 {
   color: #686E76;
   text-align: center;
 }
-.partner-template section.section-list-doitac .image-logo .bl-partner.loading-opacity {
-  opacity: 0;
+.partner-template section.section-list-doitac .image-logo.is-small .bl-partner {
+  max-width: 250px;
+}
+.partner-template section.section-list-doitac .image-logo.is-small .bl-partner img {
+  max-width: 120px;
 }
 .partner-template section.section-list-doitac .box-be-collab {
   background: url(images/bg_footer_cta.png) top center no-repeat;

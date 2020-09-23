@@ -87,20 +87,29 @@
                 <h2 class="title">Danh sách đối tác cao cấp <span class="text-nowrap">Zalo Ads</span></h2>
                 <div class="sub-title">
                   <p>Đối tác cao cấp của chúng tôi là các chuyên gia đã qua đào tạo với đầy đủ chuyên môn và kinh nghiệm được chứng nhận bởi Zalo Ads.</p>
-                  <p>Bạn quan tâm đến việc trở thành đối tác cao cấp của chúng tôi?</p>
-                  <p>
-                    Hãy đọc thêm <a href="https://ads.zalo.me/business/doi-tac-cao-cap/">tại đây</a>.</p>
                 </div>
               </div>
             </div>
-            <div class="image-logo"></div>
-            <div class="module-loading is-active" id="loading-circle">
-              <div class="context-loading">
-                <svg class="spinner" width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="path" fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-                </svg>
+            <div class="image-logo pb-0"><a class="bl-partner"><img class="hover" src="images/logo_mediaz.png"><img class="grayscale" src="images/logo_mediaz_grayscale.png">
+                <p class="partner-name">Mediaz</p>
+                <p class="partner-desc">Mang đến các dịch vụ Digital Marketing toàn diện tại Việt Nam từ tư vấn đến triển khai và đo lường hiệu quả cho chiến dịch.</p></a><a class="bl-partner"><img class="hover" src="images/logo_sapo.png"><img class="grayscale" src="images/logo_sapo_grayscale.png">
+                <p class="partner-name">Sapo</p>
+                <p class="partner-desc">Chuyên về Ecom & Internet. Cung cấp nền tảng bán hàng đa kênh, tư vấn tổng thể  & triển khai các hoạt động marketing mang hiệu quả tối đa.</p></a><a class="bl-partner"><img class="hover" src="images/logo_newtab.png"><img class="grayscale" src="images/logo_newtab_grayscale.png">
+                <p class="partner-name">Newtab Digital</p>
+                <p class="partner-desc">Chuyên hoạch định & triển khai các hoạt động MKT Online, đa dạng các dịch vụ, chi phí tối ưu, hiệu quả cao, đo lường và báo cáo minh bạch.</p></a><a class="bl-partner"><img class="hover" src="images/logo_zafago.png"><img class="grayscale" src="images/logo_zafago_grayscale.png">
+                <p class="partner-name">Zafago</p>
+                <p class="partner-desc">Chuyên cung cấp các giải pháp toàn diện Digital Marketing đem lại hiệu quả doanh thu, tăng % lợi nhuận. Hỗ trợ KH trên nền tảng kênh Zalo</p></a><a class="bl-partner"><img class="hover" src="images/logo_ants.png"><img class="grayscale" src="images/logo_ants_grayscale.png">
+                <p class="partner-name">ANTS</p>
+                <p class="partner-desc">Với nền tảng KTS & dữ liệu công nghệ hàng đầu ĐNA, ANTS nhắm mục tiêu chính xác, hiệu quả, tần suất tiếp cận & phân phối đúng KH tiềm năng.</p></a><a class="bl-partner"><img class="hover" src="images/logo_ants.png"><img class="grayscale" src="images/logo_ants_grayscale.png">
+                <p class="partner-name">ANTS</p>
+                <p class="partner-desc">Với nền tảng KTS & dữ liệu công nghệ hàng đầu ĐNA, ANTS nhắm mục tiêu chính xác, hiệu quả, tần suất tiếp cận & phân phối đúng KH tiềm năng.</p></a></div>
+            <div class="main-container">
+              <div class="question">
+                <p class="has-text-weight-bold">Các Đối Tác Khác <span class="text-nowrap">Zalo Ads</span></p>
               </div>
+              <p>Các đối tác cao cấp với đầy đủ chuyên môn và kinh nghiệm được chứng nhận bởi <span class="text-nowrap">Zalo Ads.</span></p>
             </div>
+            <div class="image-logo is-small" id="image-logo"></div>
             <div class="box-be-collab">
               <div class="context">
                 <p>Nhanh tay đăng ký để được đội ngũ Zalo Ads hỗ trợ trực tiếp.</p>
@@ -161,6 +170,7 @@
       </main>
     </div>
     <script>
+      let list_doitac = []
       let partner_component = (item) => {
       	return "<a class='bl-partner' id='"+item.index+"'>"
       		+ "<img class='hover' src='"+item.logo+"'/>"
@@ -185,9 +195,10 @@
       	fetch("images/list_doitac.json")
       		.then(response => response.json())
       		.then(json => {
-      			let length = window.innerWidth <= 1024 ? 3 : 2
-      			for(let i = 0; i <= length; i ++){
-      				$( ".image-logo" ).append(partner_component(json[i]))
+      			list_doitac = json
+      			//- let length = window.innerWidth <= 1024 ? 7 : 8
+      			for(let i = 0; i <= list_doitac.length; i ++){
+      				$( "#image-logo" ).append(partner_component(json[i]))
       			}
       		});
       }
@@ -195,37 +206,35 @@
       window.onscroll = () => {
       	var st = window.pageYOffset || document.documentElement.scrollTop;
       	let circleLoading = document.getElementById('loading-circle')
-      	let length = window.innerWidth <= 1024 ? 3 : 2
+      	let listBlocks = document.getElementsByClassName('bl-partner')
+      	let windowHeight = window.innerHeight
+      	let windowWidth = window.innerWidth
       
       	if (st > lastScrollTop){
-      		//scroll down
-      		fetch("images/list_doitac.json")
-      			.then(response => response.json())
-      			.then(json => {
-      				let temp = parseInt($('.bl-partner').last().attr('id'))+ 1
-      				if(temp == json.length){
-      					circleLoading.style.display = 'none'
-      				} else {
-      					circleLoading.style.display = 'unset'
-      					circleLoading.style.opacity = 1
-      				}
-      				
-      
+      		//scroll down	
+      		let lastBlockId = parseInt($('.bl-partner').last().attr('id'))
+      		let last_block = listBlocks[lastBlockId]
+      		if(last_block.getBoundingClientRect().top + 300 <= windowHeight){
+      			if(lastBlockId+1 == list_doitac.length){
+      				//when list is over
+      				circleLoading.style.opacity = 0
+      			} else {
+      				circleLoading.style.opacity = 1
       				setTimeout(()=>{
-      					let id = parseInt($('.bl-partner').last().attr('id'))+ 1
-      					let tmp = id - 1
       					circleLoading.style.opacity = 0
-      					if(id > tmp){
-      						if(id == json.length){
-      							//- circleLoading.style.display = 'none'
-      						} else {
-      							$( ".image-logo" ).append(partner_component(json[id]))
-      						}	
+      					if(windowWidth <= 1024){
+      						//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+1]))
+      						//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+2]))
+      						//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+3]))
+      						//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+4]))
+      					} else {
+      						//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+1]))
+      						//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+2]))
+      						//- $( ".image-logo" ).append(partner_component(list_doitac[lastBlockId+3]))
       					}
       				},1000)
-      		});
-      			
-      		
+      			}
+      		}
       	} else {
       		//scroll up
       		circleLoading.style.display = 'none'
@@ -233,28 +242,6 @@
       	lastScrollTop = st <= 0 ? 0 : st;
       	
       	//- scrollLoadMore()
-      }
-      scrollLoadMore = () => {
-      	let blocks = document.getElementsByClassName('bl-partner')
-      	let windowHeight = window.innerHeight
-      	let circleLoading = document.getElementById('loading-circle')
-      	for(let i = 0;i < blocks.length; i++){
-      		let itemTop = blocks[i].getBoundingClientRect().top
-      		let temp = blocks[i].classList
-      		if(itemTop + 100 <= windowHeight){
-      
-      			circleLoading.style.opacity == 1 ? null
-      			: circleLoading.style.opacity = 1
-      
-      			//- setTimeout(()=>{
-      			//- 	temp.remove('is-hidden')
-      			//- },300)
-      			setTimeout(()=>{
-      				circleLoading.style.opacity = 0
-      				temp.remove('loading-opacity')
-      			},500)
-      		}
-      	}
       }
     </script>
   </body>
