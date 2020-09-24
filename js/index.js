@@ -1567,7 +1567,7 @@ function checkAdsFunc() {
                         }
                     }
                 }
-                if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
+                if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot) || value_2.includes('\n')) {
                 } else {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
@@ -1776,6 +1776,16 @@ function checkAdsFunc() {
                         if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                         } else {
                             $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
+                        }
+                    }
+                    //warning
+                    if (checkFormat2(temp) == 1) {
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        } else {
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            count_warning += 1
                         }
                     }
                 }

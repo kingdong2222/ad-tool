@@ -1724,6 +1724,16 @@ function checkAdsFunc(value) {
                             $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
                         }
                     }
+                    //warning
+                    if (checkFormat2(temp) == 1) {
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        } else {
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            count_warning += 1
+                        }
+                    }
                 }
 
             }
@@ -2786,7 +2796,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                         }
                     }
                 }
-                if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
+                if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)||value_2.includes('\n')) {
                 } else {
                     // listK[id] == '' ? listK[id] = 'x' : null
                     value_check_ad = false
@@ -3008,6 +3018,16 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                         if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
                         } else {
                             $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
+                        }
+                    }
+                    //warning
+                    if (checkFormat2(temp) == 1) {
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        } else {
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            count_warning += 1
                         }
                     }
                 }
