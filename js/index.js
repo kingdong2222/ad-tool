@@ -1556,28 +1556,65 @@ function checkAdsFunc() {
                 setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_2) == 1) {
-                if (isUpperCase(value_2) == true) {
-                    if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
+                if (value_2.match(InputFormatUpperAfterDot)) {
+                    list_after_dot = []
+                    for (let i = 0; i < value_2.length; i++) {
+                        if (value_2[i] == '.' || value_2[i] == '!' || value_2[i] == '?') {
+                            list_after_dot.push(i)
+                        }
+                    }
+                    let list_sentences = []
+                    list_sentences.push(value_2.substr(0, list_after_dot[0]))
+                    for (let i = 0; i < list_after_dot.length; i++) {
+                        list_sentences.push(value_2.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                    }
+                    //check sentence one by one
+                    for (let i = 0; i < list_sentences.length; i++) {
+                        let temp = list_sentences[i]
+                        //banned
+                        if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
+
+                            if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                            }
+                        }
+                        //warning
+                        if (checkFormat2(temp) == 1) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                count_warning += 1
+                            }
+                        }
+                    }
+                } else {
+                    if (isUpperCase(value_2) == true) {
+                        if (checkSensitive(value_2).length > 0) {
+                        } else {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
+                            if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                            }
+                        }
+                    }
+                    if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
                     } else {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        value_check_ad = false
-                        if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            count_warning += 1
                         }
                     }
                 }
-                if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot) || value_2.includes('\n')) {
-                } else {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                        count_warning += 1
-                    }
-                }
-
             }
 
             if (value_2.match(InputSpacingPuntationError_0)
@@ -1839,26 +1876,64 @@ function checkAdsFunc() {
                 setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_3) == 1) {
-                if (isUpperCase(value_3) == true) {
-                    if (checkSensitive(value_3).length > 0 || value_3.match(InputFormatUpperAfterDot)) {
-                    } else {
-                        third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                        value_check_ad = false
-                        if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                if (value_3.match(InputFormatUpperAfterDot)) {
+                    list_after_dot = []
+                    for (let i = 0; i < value_3.length; i++) {
+                        if (value_3[i] == '.' || value_3[i] == '!' || value_3[i] == '?') {
+                            list_after_dot.push(i)
                         }
                     }
-                }
-                if (checkSensitive(value_3).length > 0 || value_3.match(InputFormatUpperAfterDot)) {
-                } else {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    let list_sentences = []
+                    list_sentences.push(value_3.substr(0, list_after_dot[0]))
+                    for (let i = 0; i < list_after_dot.length; i++) {
+                        list_sentences.push(value_3.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                    }
+                    //check sentence one by one
+                    for (let i = 0; i < list_sentences.length; i++) {
+                        let temp = list_sentences[i]
+                        //banned
+                        if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
 
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                            }
+                        }
+                        //warning
+                        if (checkFormat2(temp) == 1) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                count_warning += 1
+                            }
+                        }
+                    }
+                } else {
+                    if (isUpperCase(value_3) == true) {
+                        if (checkSensitive(value_3).length > 0) {
+                        } else {
+                            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                            value_check_ad = false
+                            if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                            }
+                        }
+                    }
+                    if (checkSensitive(value_3).length > 0) {
                     } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                        third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        } else {
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                        }
                     }
                 }
 
@@ -2065,26 +2140,64 @@ function checkAdsFunc() {
                     setTimeout(FunctionHoverWord('banned-3'), 520)
                 }
                 if (checkFormat2(value_4) == 1) {
-                    if (isUpperCase(value_4) == true) {
-                        if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
-                        } else {
-                            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                            value_check_ad = false
-                            if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
-                            } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                    if (value_4.match(InputFormatUpperAfterDot)) {
+                        list_after_dot = []
+                        for (let i = 0; i < value_4.length; i++) {
+                            if (value_4[i] == '.' || value_4[i] == '!' || value_4[i] == '?') {
+                                list_after_dot.push(i)
                             }
                         }
-                    }
-                    if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
+                        let list_sentences = []
+                        list_sentences.push(value_4.substr(0, list_after_dot[0]))
+                        for (let i = 0; i < list_after_dot.length; i++) {
+                            list_sentences.push(value_4.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                        }
+                        //check sentence one by one
+                        for (let i = 0; i < list_sentences.length; i++) {
+                            let temp = list_sentences[i]
+                            //banned
+                            if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                                value_check_ad = false
+    
+                                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                                } else {
+                                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                                }
+                            }
+                            //warning
+                            if (checkFormat2(temp) == 1) {
+                                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                                warning_card.classList.remove('is-hidden')
+                                if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                                } else {
+                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                    count_warning += 1
+                                }
+                            }
+                        }
                     } else {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-
-                        warning_card.classList.remove('is-hidden')
-                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        if (isUpperCase(value_4) == true) {
+                            if (checkSensitive(value_4).length > 0) {
+                            } else {
+                                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                                value_check_ad = false
+                                if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
+                                } else {
+                                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                                }
+                            }
+                        }
+                        if (checkSensitive(value_4).length > 0) {
                         } else {
-                            count_warning += 1
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                count_warning += 1
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            }
                         }
                     }
 
