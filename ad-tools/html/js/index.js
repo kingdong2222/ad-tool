@@ -1604,7 +1604,7 @@ function checkAdsFunc() {
                     }
                     if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
                     } else {
-                        if (temp.match(InputSpacingPuntationError_1)) {
+                        if (value_2.match(InputSpacingPuntationError_1)) {
 
                         } else {
                             second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -2016,7 +2016,7 @@ function checkAdsFunc() {
                     }
                     if (checkSensitive(value_3).length > 0) {
                     } else {
-                        if (temp.match(InputSpacingPuntationError_1)) {
+                        if (value_3.match(InputSpacingPuntationError_1)) {
 
                         } else {
                             third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -2282,7 +2282,7 @@ function checkAdsFunc() {
                         }
                         if (checkSensitive(value_4).length > 0) {
                         } else {
-                            if (temp.match(InputSpacingPuntationError_1)) {
+                            if (value_4.match(InputSpacingPuntationError_1)) {
 
                             } else {
                                 fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
