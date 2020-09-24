@@ -101,7 +101,6 @@ var crop = function () {
         viewMode: 2,
     };
     var cropper = new Cropper(image, options);
-    var originalImageURL = image.src;
     var uploadedImageType = 'image/*';
     var uploadedImageName = 'cropped.jpeg';
     var uploadedImageURL;
@@ -120,7 +119,6 @@ var crop = function () {
     actions.querySelector('.docs-buttons').onclick = function (event) {
         var e = event || window.event;
         var target = e.target || e.srcElement;
-        var cropped;
         var result;
         var input;
         var data;
@@ -144,7 +142,6 @@ var crop = function () {
             option: target.getAttribute('data-option') || undefined,
             secondOption: target.getAttribute('data-second-option') || undefined
         };
-        cropped = cropper.cropped;
         if (data.method) {
             if (typeof data.target !== 'undefined') {
                 input = document.querySelector(data.target);
@@ -221,13 +218,22 @@ var crop = function () {
                 $("html").addClass("overlay-modal");
                 $("#modalEditImg").addClass("show");
 
+                let cookie_first_user = getCookie('first_user_adchecker')
+                let tmp_cookie
+                if (cookie_first_user) {
+                    tmp_cookie = false
+                } else {
+                    setCookie('first_user_adchecker', 'first_user_adchecker', 30)
+                    tmp_cookie = true
+                }
+
                 setTimeout(() => {
                     tippy('#tippy-crop-img', {
                         content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme: 'zad',
-                        showOnCreate: true,
+                        showOnCreate: tmp_cookie,
                         placement: 'right-start',
                         onShow(instance) {
                             instance.setProps({ trigger: 'click' })
@@ -280,7 +286,6 @@ var cropAvatarAgain = function () {
         viewMode: 2,
     };
     var cropper = new Cropper(image, options);
-    var originalImageURL = image.src;
     var uploadedImageType = 'image/*';
     var uploadedImageName = 'cropped.jpeg';
     var uploadedImageURL;
@@ -299,7 +304,6 @@ var cropAvatarAgain = function () {
     actions.querySelector('.docs-buttons').onclick = function (event) {
         var e = event || window.event;
         var target = e.target || e.srcElement;
-        var cropped;
         var result;
         var input;
         var data;
@@ -323,7 +327,6 @@ var cropAvatarAgain = function () {
             option: target.getAttribute('data-option') || undefined,
             secondOption: target.getAttribute('data-second-option') || undefined
         };
-        cropped = cropper.cropped;
         if (data.method) {
             if (typeof data.target !== 'undefined') {
                 input = document.querySelector(data.target);
@@ -453,7 +456,6 @@ var cropLargeImg = function () {
         viewMode: 2,
     };
     var cropper = new Cropper(image, options);
-    var originalImageURL = image.src;
     var uploadedImageType = 'image/*';
     var uploadedImageName = 'cropped.jpeg';
     var uploadedImageURL;
@@ -472,7 +474,6 @@ var cropLargeImg = function () {
     actions.querySelector('.docs-buttons').onclick = function (event) {
         var e = event || window.event;
         var target = e.target || e.srcElement;
-        var cropped;
         var result;
         var input;
         var data;
@@ -496,7 +497,6 @@ var cropLargeImg = function () {
             option: target.getAttribute('data-option') || undefined,
             secondOption: target.getAttribute('data-second-option') || undefined
         };
-        cropped = cropper.cropped;
         if (data.method) {
             if (typeof data.target !== 'undefined') {
                 input = document.querySelector(data.target);
@@ -550,10 +550,8 @@ var cropLargeImg = function () {
                                 let src = cv.imread(imgElement);
                                 let dst = new cv.Mat();
                                 let men = new cv.Mat();
-                                let menO = new cv.Mat();
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
-                                var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
                                 // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 // console.log(men.data64F[0])
                                 if (men.data64F[0] > 10) {
@@ -569,20 +567,26 @@ var cropLargeImg = function () {
 
                             $(".ads-img .squares").addClass("is-show");
 
-                            let notice_download_img = localStorage.getItem("noticedownloadimg")
-                            notice_download_img ? null : localStorage.setItem("noticedownloadimg", true)
+                            let cookie_first_download = getCookie('first_user_download')
+                            let tmp_cookie
+                            if (cookie_first_download) {
+                                tmp_cookie = false
+                            } else {
+                                setCookie('first_user_download', 'first_user_download', 30)
+                                tmp_cookie = true
+                            }
 
                             tippy('#dropdown-m1', {
                                 content: '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
                                 allowHTML: true,
                                 maxWidth: 270,
                                 theme: 'zad',
-                                showOnCreate: notice_download_img ? false : true,
+                                showOnCreate: tmp_cookie,
                                 placement: 'right-start',
                                 onShow(instance) {
                                     instance.setProps({ trigger: 'click' })
                                 },
-                                onTrigger(instance, event) {
+                                onTrigger(instance) {
                                     instance.destroy()
                                 }
                             });
@@ -617,10 +621,15 @@ var cropLargeImg = function () {
                 $("html").addClass("overlay-modal");
                 $("#modalEditImg").addClass("show");
 
-                let first_upload_img
-                first_upload_img = localStorage.getItem("firstuploadimg")
+                let cookie_first_user = getCookie('first_user_adchecker')
+                let tmp_cookie
+                if (cookie_first_user) {
+                    tmp_cookie = false
+                } else {
+                    setCookie('first_user_adchecker', 'first_user_adchecker', 30)
+                    tmp_cookie = true
+                }
 
-                first_upload_img ? null : localStorage.setItem("firstuploadimg", true)
 
                 setTimeout(() => {
                     tippy('#tippy-crop-img', {
@@ -628,7 +637,7 @@ var cropLargeImg = function () {
                         allowHTML: true,
                         maxWidth: 270,
                         theme: 'zad',
-                        showOnCreate: first_upload_img ? false : true,
+                        showOnCreate: tmp_cookie,
                         placement: 'right-start',
                         onShow(instance) {
                             instance.setProps({ trigger: 'click' })
@@ -682,7 +691,6 @@ var cropLargeImgAgain = function () {
         viewMode: 2,
     };
     var cropper = new Cropper(image, options);
-    var originalImageURL = image.src;
     var uploadedImageType = 'image/*';
     var uploadedImageName = 'cropped.jpeg';
     var uploadedImageURL;
@@ -701,7 +709,6 @@ var cropLargeImgAgain = function () {
     actions.querySelector('.docs-buttons').onclick = function (event) {
         var e = event || window.event;
         var target = e.target || e.srcElement;
-        var cropped;
         var result;
         var input;
         var data;
@@ -725,7 +732,6 @@ var cropLargeImgAgain = function () {
             option: target.getAttribute('data-option') || undefined,
             secondOption: target.getAttribute('data-second-option') || undefined
         };
-        cropped = cropper.cropped;
         if (data.method) {
             if (typeof data.target !== 'undefined') {
                 input = document.querySelector(data.target);
@@ -871,7 +877,7 @@ var cropLargeImgAgain = function () {
     }
 };
 
-$("#check-grid").change(function (event) {
+$("#check-grid").change(function () {
     if (this.checked) {
         $(".ads-img .squares").addClass("is-show");
     } else {
@@ -924,7 +930,7 @@ document.getElementById('large-image-input').onmouseover = () => {
 document.getElementById('large-image-input').onmouseout = () => {
     document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#FAFBFD'
 }
-document.getElementById('large-image-input').ondrop = (value) => {
+document.getElementById('large-image-input').ondrop = () => {
     cropLargeImg()
     document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
 }
@@ -1228,15 +1234,21 @@ const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩ
 //case sensitive for numbers
 const InputSpacingPuntationError_4 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])([.,]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])/g
 
-document.getElementById('check-form-ad').onclick = value => {
+document.getElementById('check-form-ad').onclick = () => {
     document.getElementById('check-form-ad').classList.add('is-loading')
-    checkAdsFunc()
-}
-document.getElementById('flying-button').onclick = value => {
     document.getElementById('flying-button').classList.add('is-loading')
     checkAdsFunc()
+    //google track
+    // dataLayer.push({ 'event': 'event_ValidateAd' })
 }
-function checkAdsFunc(value) {
+document.getElementById('flying-button').onclick = () => {
+    document.getElementById('flying-button').classList.add('is-loading')
+    document.getElementById('check-form-ad').classList.add('is-loading')
+    checkAdsFunc()
+    //google track
+    // dataLayer.push({ 'event': 'event_ValidateAd' })
+}
+function checkAdsFunc() {
 
     //get value input
     let value_1 = first_input.value.trimEnd()
@@ -1248,6 +1260,29 @@ function checkAdsFunc(value) {
     warning_card.classList.add('is-hidden')
     content_card_0.classList.add('is-hidden')
     content_card_1.classList.add('is-hidden')
+
+    $('#card-no-error').hasClass('is-hidden') == false ? $('#card-no-error').addClass('is-hidden') : null
+
+    let count_warning = 0
+
+    //warning mess
+    let warn_mess_0 = 'Có viết hoa nhiều chữ cái (ngoại trừ tên riêng và danh từ riêng)'
+    let warn_mess_1 = 'Sử dụng từ phản cảm, thiếu kiểm chứng:'
+    let warn_mess_2 = 'Sử dụng dấu câu sai qui cách:'
+    let warn_mess_3 = 'Sử dụng dấu ba chấm'
+    let warn_mess_4 = 'Sử dụng kí tự đặc biệt:'
+    let warn_mess_5 = 'Có 2 khoảng trắng liên tiếp'
+    let warn_mess_6 = 'Có số điện thoại hoặc địa chỉ website'
+
+    //banned mess
+    let ban_mess_0 = 'Sử dụng từ ngữ bị hạn chế:'
+    let ban_mess_1 = 'Viết hoa toàn bộ'
+    let ban_mess_2 = 'Sử dụng khoảng trắng đầu câu'
+    let ban_mess_3 = 'Không viết hoa chữ cái đầu câu'
+    let ban_mess_4 = 'Sử dụng dấu câu sai quy cách'
+    let ban_mess_5 = 'Sử dụng dấu câu ở đầu'
+    let ban_mess_6 = 'Có chứa từ sai chính tả:'
+
 
     let value_check_ad = true
 
@@ -1273,25 +1308,25 @@ function checkAdsFunc(value) {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
 
-                if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
+                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-0'>" + ban_mess_3 + "</p></li>")
                 }
             }
             if (value_1.charAt(0).match(InputFormatNoPuntuation) == null && value_1.charAt(0) != ' ') {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
-                if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
+                if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
                 }
             }
             if (value_1.charAt(0) == ' ') {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
-                if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
+                if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
                 }
             }
             if (checkPolicy(value_1).length > 0) {
@@ -1301,13 +1336,13 @@ function checkAdsFunc(value) {
                 // console.log(list[0])
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
-                    if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
+                    if ($('#banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#banned-3 span').text().includes(item)) {
                         } else {
                             document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
                         }
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
                     }
                 }
                 setTimeout(FunctionHoverWord('banned-3'), 520)
@@ -1316,40 +1351,23 @@ function checkAdsFunc(value) {
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
                 || value_1.match(InputSpacingPuntationError_3)) {
-                console.log(value_1.match(InputSpacingPuntationError_4))
                 if (value_1.match(InputFormatUpperAfterDot)) {
-                    // value_check_ad = true
-                } else if (value_1.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_ad = true
+                    value_check_ad = true
                 } else {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                    if (value_1.match(InputFormatUpperAfterDot)) {
+                        // value_check_ad = true
+                    } else if (value_1.match(InputSpacingPuntationError_4) == null) {
+                        // value_check_ad = true
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
+                        first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                        value_check_ad = false
+                        if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
+                        }
                     }
                 }
             }
-            // if(checkFormat2(value_1) == 1){
-            //     if(isUpperCase(value_1)==true){
-            //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-            //         value_check_ad = false
-            //         if($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0){
-            //         } else {
-            //             $("#alert-card-first .card-error-list ul").append( "<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>" )
-            //         }
-            //     } else if(value_1.match(InputFormatUpperAfterDot)){
-            //         value_check_ad = true
-            //     } else {
-            //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-
-            //         warning_card.classList.remove('is-hidden')
-            //         if($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0){
-            //         } else {
-            //             $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-0'>Viết hoa nhiều chữ cái</p></li>" )
-            //         }
-            //     }
-            // }
 
             //test spelling aka kiem tra chinh ta
             $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
@@ -1370,13 +1388,13 @@ function checkAdsFunc(value) {
                             mistake_item: mistake_item,
                             fixed_item: fixed_item
                         })
-                        if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
+                        if ($('#banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#banned-6 span').text().includes(mistake_item)) {
                             } else {
                                 document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
                             }
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
                         }
                     }
                 }
@@ -1386,42 +1404,59 @@ function checkAdsFunc(value) {
             //case warning
             if (value_1.match(InputFormatWithPuntuation)) {
                 let array_match = Array.from(value_1.matchAll(InputFormatWithPuntuation), m => m[0])
+                let string2array = value_1.split('')
                 let first_length = value_1.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
                 if (array_match.length < first_length) {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    //value_check_ad = false
-
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>Có kí tự đặc biệt</p></li>")
+                    //value_check_ad = false
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#warning-1 span').text().includes(difference[i])) {
+                            } else {
+                                document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                            }
+                        } else {
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
+                        }
                     }
+                    setTimeout(FunctionHoverWord('warning-1'), 200)
                 }
 
             }
             if (value_1.match(InputFormatFrom2Puntuation)) {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+
                 //value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 if (value_1.indexOf("...") > -1) {
-                    if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
+                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>Sử dụng dấu ba chấm</p></li>")
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
                     }
                 } else {
                     let matches = Array.from(value_1.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    let mini_array = [...value_1.matchAll(InputFormatFrom2Puntuation)];
                     for (let i = 0; i < matches.length; i++) {
                         let item = matches[i]
                         //show location in string
                         // console.log(mini_array[i])
-                        if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                            if ($('#warning-3').text().includes(item)) {
-                            } else {
-                                document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                            }
+                        if (item == '%,' || item == '%.') {
+                            warning_card.classList.add('is-hidden')
+                            first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                            first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                            if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+                                if ($('#warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                count_warning += 1
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+                            }
                         }
                     }
                     setTimeout(FunctionHoverWord('warning-3'), 200)
@@ -1432,9 +1467,10 @@ function checkAdsFunc(value) {
                 } else {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0) {
+                    if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Có số điện thoại hoặc địa chỉ website</p></li>")
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
                     }
                 }
             }
@@ -1445,13 +1481,14 @@ function checkAdsFunc(value) {
                 let list = checkWarning(value_1)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
-                    if ($('#warning-4').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
+                    if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#warning-4 span').text().includes(item)) {
                         } else {
                             document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
                         }
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
                     }
                 }
                 setTimeout(FunctionHoverWord('warning-4'), 200)
@@ -1459,9 +1496,10 @@ function checkAdsFunc(value) {
             if (value_1.match(/\s{2,}/g)) {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
-                if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
+                if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
                 } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
+                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
+                    count_warning += 1
                 }
             }
         }
@@ -1472,25 +1510,32 @@ function checkAdsFunc(value) {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
 
-                if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
+                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
                 }
             }
             if (value_2.charAt(0).match(InputFormatNoPuntuation) == null && value_2.charAt(0) != ' ') {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_ad = false
-                if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
+                console.log(value_2)
+                let tmp = decodeURIComponent(value_2)
+                console.log(tmp.length)
+                if (value_2.includes('')) {
+                    console.log('check')
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    value_check_ad = false
+                    if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
+                    } else {
+                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
+                    }
                 }
             }
             if (value_2.charAt(0) == ' ') {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
-                if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
+                if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
                 }
             }
             if (checkPolicy(value_2).length > 0) {
@@ -1499,48 +1544,37 @@ function checkAdsFunc(value) {
                 let list = checkPolicy(value_2)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
-                    if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
+                    if ($('#banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#banned-3 span').text().includes(item)) {
                         } else {
                             document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
                         }
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
                     }
                 }
                 setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_2) == 1) {
                 if (isUpperCase(value_2) == true) {
-                    if (checkSensitive(value_2).length > 0) {
+                    if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
                     } else {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                         value_check_ad = false
-                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                        if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
                         }
                     }
-                } else if (value_2.match(InputFormatUpperAfterDot)) {
                 }
-                if (checkSensitive(value_2).length > 0) {
+                if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
                 } else {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                        setTimeout(function () {
-                            tippy('#tippy-uppercase-fix', {
-                                content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                allowHTML: true,
-                                maxWidth: 270,
-                                theme: 'zad1',
-                                interactive: true,
-                                // delay: [300, null],
-                                // placement: 'right-start',
-                            });
-                        }, 200)
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                        count_warning += 1
                     }
                 }
 
@@ -1551,15 +1585,15 @@ function checkAdsFunc(value) {
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
                 if (value_2.match(InputFormatUpperAfterDot)) {
-                    // value_check_3k_ad = true
+                    // value_check_ad = true
                 } else if (value_2.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_3k_ad = true
+                    // value_check_ad = true
                 } else {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     value_check_ad = false
-                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                    if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
                     }
                 }
             }
@@ -1583,13 +1617,13 @@ function checkAdsFunc(value) {
                             mistake_item: mistake_item,
                             fixed_item: fixed_item
                         })
-                        if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
+                        if ($('#banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#banned-6 span').text().includes(mistake_item)) {
                             } else {
                                 document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
                             }
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
                         }
                     }
                 }
@@ -1599,43 +1633,60 @@ function checkAdsFunc(value) {
 
             //case warning
             if (value_2.match(InputFormatWithPuntuation)) {
-                let temp = encodeURIComponent(value_2)
-                let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
-                let value_length = temp.length
-                if (array_match.length < value_length) {
+                let array_match = Array.from(value_2.matchAll(InputFormatWithPuntuation), m => m[0])
+                let string2array = value_2.split('')
+                let first_length = value_2.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                if (array_match.length < first_length) {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    //value_check_ad = false
-
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>Có kí tự đặc biệt</p></li>")
+                    //value_check_ad = false
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#warning-1 span').text().includes(difference[i])) {
+                            } else {
+                                document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                            }
+                        } else {
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
+                        }
                     }
+                    setTimeout(FunctionHoverWord('warning-1'), 200)
                 }
             }
             if (value_2.match(InputFormatFrom2Puntuation)) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+
                 //value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 if (value_2.indexOf("...") > -1) {
-                    if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>Sử dụng dấu ba chấm</p></li>")
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
                     }
                 } else {
                     let matches = Array.from(value_2.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    let mini_array = [...value_2.matchAll(InputFormatFrom2Puntuation)];
                     for (let i = 0; i < matches.length; i++) {
                         let item = matches[i]
                         //show location in string
                         // console.log(mini_array[i])
-                        if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                            if ($('#warning-3').text().includes(item)) {
-                            } else {
-                                document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                            }
+
+                        if (item == '%,' || item == '%.') {
+                            warning_card.classList.add('is-hidden')
+                            first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+                                if ($('#warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                count_warning += 1
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+                            }
                         }
                     }
                     setTimeout(FunctionHoverWord('warning-3'), 200)
@@ -1646,9 +1697,10 @@ function checkAdsFunc(value) {
                 } else {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0) {
+                    if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Có số điện thoại hoặc địa chỉ website</p></li>")
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
                     }
                 }
             }
@@ -1659,13 +1711,14 @@ function checkAdsFunc(value) {
                 let list = checkWarning(value_2)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
-                    if ($('#warning-4').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
+                    if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#warning-4 span').text().includes(item)) {
                         } else {
                             document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
                         }
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
                     }
                 }
                 setTimeout(FunctionHoverWord('warning-4'), 200)
@@ -1673,9 +1726,10 @@ function checkAdsFunc(value) {
             if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
-                if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
+                if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
                 } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
+                    count_warning += 1
+                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
                 }
             }
 
@@ -1703,25 +1757,25 @@ function checkAdsFunc(value) {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                         value_check_ad = false
 
-                        if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
+                        if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
                         }
                     }
                     if (temp.charAt(0).match(InputFormatNoPuntuation) == null && temp.charAt(0) != ' ') {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                         value_check_ad = false
-                        if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
+                        if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
                         }
                     }
                     if (temp.charAt(0) == ' ') {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                         value_check_ad = false
-                        if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
+                        if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
                         }
                     }
                 }
@@ -1736,25 +1790,25 @@ function checkAdsFunc(value) {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
 
-                if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
+                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
                 }
             }
             if (value_3.charAt(0).match(InputFormatNoPuntuation) == null && value_3.charAt(0) != ' ') {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
-                if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
+                if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
                 }
             }
             if (value_3.charAt(0) == ' ') {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
-                if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
+                if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
                 }
             }
             if (checkPolicy(value_3).length > 0) {
@@ -1763,50 +1817,38 @@ function checkAdsFunc(value) {
                 let list = checkPolicy(value_3)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
-                    if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
+                    if ($('#banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#banned-3 span').text().includes(item)) {
                         } else {
                             document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
                         }
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
                     }
                 }
                 setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_3) == 1) {
                 if (isUpperCase(value_3) == true) {
-                    if (checkSensitive(value_3).length > 0) {
+                    if (checkSensitive(value_3).length > 0 || value_3.match(InputFormatUpperAfterDot)) {
                     } else {
                         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                         value_check_ad = false
-                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                        if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
                         }
                     }
-                } else if (value_3.match(InputFormatUpperAfterDot)) {
-
                 }
-                if (checkSensitive(value_3).length > 0) {
+                if (checkSensitive(value_3).length > 0 || value_3.match(InputFormatUpperAfterDot)) {
                 } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                        setTimeout(function () {
-                            tippy('#tippy-uppercase-fix', {
-                                content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                allowHTML: true,
-                                maxWidth: 270,
-                                theme: 'zad1',
-                                interactive: true,
-                                // delay: [300, null],
-                                // placement: 'right-start',
-                            });
-                        }, 200)
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
                     }
                 }
 
@@ -1816,15 +1858,15 @@ function checkAdsFunc(value) {
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
                 if (value_3.match(InputFormatUpperAfterDot)) {
-                    // value_check_3k_ad = true
+                    // value_check_ad = true
                 } else if (value_3.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_3k_ad = true
+                    // value_check_ad = true
                 } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     value_check_ad = false
-                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                    if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
                     }
                 }
             }
@@ -1849,13 +1891,13 @@ function checkAdsFunc(value) {
                             mistake_item: mistake_item,
                             fixed_item: fixed_item
                         })
-                        if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
+                        if ($('#banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#banned-6 span').text().includes(mistake_item)) {
                             } else {
                                 document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
                             }
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
                         }
                     }
                 }
@@ -1865,44 +1907,61 @@ function checkAdsFunc(value) {
 
             //case warning
             if (value_3.match(InputFormatWithPuntuation)) {
-                let temp = encodeURIComponent(value_3)
-                let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
-                let value_length = temp.length
-                if (array_match.length < value_length) {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    //value_check_ad = false
 
+                let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
+                let string2array = value_3.split('')
+                let first_length = value_3.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                if (array_match.length < first_length) {
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>Có kí tự đặc biệt</p></li>")
+                    //value_check_ad = false
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#warning-1 span').text().includes(difference[i])) {
+                            } else {
+                                document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                            }
+                        } else {
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
+                        }
                     }
+                    setTimeout(FunctionHoverWord('warning-1'), 200)
                 }
             }
             if (value_3.match(InputFormatFrom2Puntuation)) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+
                 //value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 if (value_3.indexOf("...") > -1) {
-                    if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>Sử dụng dấu ba chấm</p></li>")
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
                     }
                 } else {
                     let matches = Array.from(value_3.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    let mini_array = [...value_3.matchAll(InputFormatFrom2Puntuation)];
                     for (let i = 0; i < matches.length; i++) {
                         let item = matches[i]
                         //show location in string
                         // console.log(mini_array[i])
-                        if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                            if ($('#warning-3').text().includes(item)) {
-                            } else {
-                                document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                            }
+                        if (item == '%,' || item == '%.') {
+                            warning_card.classList.add('is-hidden')
+                            first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                            if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+                                if ($('#warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                count_warning += 1
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+                            }
                         }
+
                     }
                     setTimeout(FunctionHoverWord('warning-3'), 200)
                 }
@@ -1912,9 +1971,10 @@ function checkAdsFunc(value) {
                 } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0) {
+                    if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Có số điện thoại hoặc địa chỉ website</p></li>")
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
                     }
                 }
             }
@@ -1925,13 +1985,14 @@ function checkAdsFunc(value) {
                 let list = checkWarning(value_3)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
-                    if ($('#warning-4').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
+                    if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#warning-4 span').text().includes(item)) {
                         } else {
                             document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
                         }
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + "  <span>" + item + "</span></p></li>")
                     }
                 }
                 setTimeout(FunctionHoverWord('warning-4'), 200)
@@ -1939,9 +2000,10 @@ function checkAdsFunc(value) {
             if (value_3.match(/\s{2,}/g)) {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 warning_card.classList.remove('is-hidden')
-                if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
+                if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
                 } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
+                    count_warning += 1
+                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
                 }
             }
         }
@@ -1954,25 +2016,25 @@ function checkAdsFunc(value) {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     value_check_ad = false
 
-                    if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
+                    if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
                     }
                 }
                 if (value_4.charAt(0).match(InputFormatNoPuntuation) == null && value_4.charAt(0) != ' ') {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     value_check_ad = false
-                    if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
+                    if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
                     }
                 }
                 if (value_4.charAt(0) == ' ') {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     value_check_ad = false
-                    if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
+                    if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
                     }
                 }
                 if (checkPolicy(value_4).length > 0) {
@@ -1981,51 +2043,38 @@ function checkAdsFunc(value) {
                     let list = checkPolicy(value_4)
                     for (let i = 0; i < list.length; i++) {
                         let item = list[i]
-                        if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
+                        if ($('#banned-3').text().indexOf(ban_mess_0) == 0) {
                             if ($('#banned-3 span').text().includes(item)) {
                             } else {
                                 document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
                             }
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
                         }
                     }
                     setTimeout(FunctionHoverWord('banned-3'), 520)
                 }
                 if (checkFormat2(value_4) == 1) {
                     if (isUpperCase(value_4) == true) {
-                        if (checkSensitive(value_4).length > 0) {
+                        if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
                         } else {
                             fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                             value_check_ad = false
-                            if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
+                            if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
                             } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
                             }
                         }
-                    } else if (value_4.match(InputFormatUpperAfterDot)) {
-
                     }
-                    if (checkSensitive(value_4).length > 0) {
+                    if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
                     } else {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 
                         warning_card.classList.remove('is-hidden')
-                        if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
+                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                            setTimeout(function () {
-                                tippy('#tippy-uppercase-fix', {
-                                    content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                    allowHTML: true,
-                                    maxWidth: 270,
-                                    theme: 'zad1',
-                                    interactive: true,
-                                    trigger: 'click',
-                                    // delay: [300, null],
-                                    // placement: 'right-start',
-                                });
-                            }, 200)
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
                         }
                     }
 
@@ -2034,16 +2083,16 @@ function checkAdsFunc(value) {
                     || value_4.match(InputSpacingPuntationError_1)
                     || value_4.match(InputSpacingPuntationError_2)
                     || value_4.match(InputSpacingPuntationError_3)) {
-                    if (value_1.match(InputFormatUpperAfterDot)) {
-                        // value_check_3k_ad = true
-                    } else if (value_1.match(InputSpacingPuntationError_4) == null) {
-                        // value_check_3k_ad = true
+                    if (value_4.match(InputFormatUpperAfterDot)) {
+                        // value_check_ad = true
+                    } else if (value_4.match(InputSpacingPuntationError_4) == null) {
+                        // value_check_ad = true
                     } else {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         value_check_ad = false
-                        if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
+                        if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
                         }
                     }
                 }
@@ -2068,13 +2117,13 @@ function checkAdsFunc(value) {
                                 mistake_item: mistake_item,
                                 fixed_item: fixed_item
                             })
-                            if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
+                            if ($('#banned-6').text().indexOf(ban_mess_6) == 0) {
                                 if ($('#banned-6 span').text().includes(mistake_item)) {
                                 } else {
                                     document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
                                 }
                             } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
+                                $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
                             }
                         }
                     }
@@ -2084,56 +2133,66 @@ function checkAdsFunc(value) {
 
                 //case warning
                 if (value_4.match(InputFormatWithPuntuation)) {
-                    let temp = encodeURIComponent(value_4)
-                    let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
-                    let value_length = temp.length
-                    if (array_match.length < value_length) {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        //value_check_ad = false
 
+                    let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
+                    let string2array = value_4.split('')
+                    let first_length = value_4.length
+                    let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                    if (array_match.length < first_length) {
+                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         warning_card.classList.remove('is-hidden')
-                        if ($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0) {
-                        } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>Có kí tự đặc biệt</p></li>")
+                        //value_check_ad = false
+                        for (let i = 0; i < difference.length; i++) {
+                            if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+                                if ($('#warning-1 span').text().includes(difference[i])) {
+                                } else {
+                                    document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                                }
+                            } else {
+                                count_warning += 1
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
+                            }
                         }
+                        setTimeout(FunctionHoverWord('warning-1'), 200)
                     }
                 }
                 if (value_4.match(InputFormatFrom2Puntuation)) {
-                    fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+
                     //value_check_ad = false
                     warning_card.classList.remove('is-hidden')
                     if (value_4.indexOf("...") > -1) {
-                        if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
+                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                        if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>Sử dụng dấu ba chấm</p></li>")
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
                         }
                     } else {
                         let matches = Array.from(value_4.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                        let mini_array = [...value_4.matchAll(InputFormatFrom2Puntuation)];
                         for (let i = 0; i < matches.length; i++) {
                             let item = matches[i]
                             //show location in string
                             // console.log(mini_array[i])
-                            if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                                if ($('#warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
+                            if (item == '%,' || item == '%.') {
+                                warning_card.classList.add('is-hidden')
+                                first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
                             } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
+                                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                                if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+                                    if ($('#warning-3').text().includes(item)) {
+                                    } else {
+                                        document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                    }
+                                } else {
+                                    count_warning += 1
+                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+                                }
                             }
+
                         }
                         setTimeout(FunctionHoverWord('warning-3'), 200)
                     }
                 }
-                // if(value_4.match(InputLinkWeb) || value_4.match(InputPhoneNumber)){
-                //     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                //     warning_card.classList.remove('is-hidden')
-                //     if($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0){
-                //     } else {
-                //         $("#alert-card-second .card-error-list ul").append( "<li><p id='warning-3'>Có số điện thoại hoặc địa chỉ website</p></li>" )
-                //     }
-                // } 
                 if (checkWarning(value_4).length > 0) {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     //value_check_ad = false
@@ -2141,13 +2200,14 @@ function checkAdsFunc(value) {
                     let list = checkWarning(value_4)
                     for (let i = 0; i < list.length; i++) {
                         let item = list[i]
-                        if ($('#warning-4').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
+                        if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
                             if ($('#warning-4 span').text().includes(item)) {
                             } else {
                                 document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
                             }
                         } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
                         }
                     }
                     setTimeout(FunctionHoverWord('warning-4'), 200)
@@ -2155,9 +2215,10 @@ function checkAdsFunc(value) {
                 if (value_4.match(/\s{2,}/g)) {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
+                    if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
                     } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
                     }
                 }
             }
@@ -2165,51 +2226,70 @@ function checkAdsFunc(value) {
         setTimeout(() => {
             if (value_check_ad == true) {
                 content_card_1.classList.add('is-hidden')
-                $('#alert-card-first .card-error-list').append('<p id="no-error-mess">Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
+                $('#card-no-error').removeClass('is-hidden')
+                // $('#alert-card-first .card-error-list').append('<p id="no-error-mess">Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
             }
         }, 500)
+        if (count_warning > 0) {
+            $('#warning-tip span').html(count_warning + ' ')
+            tippy('#warning-tip', {
+                content: '<div class="tippy-block"><p style="font-weight: normal; margin-bottom: 0;"><b>Gợi ý chỉnh sửa</b> là những nội dung nghi ngờ vi phạm qui định quảng cáo. Bỏ qua nếu bạn chắc rằng những gợi ý này không chính xác</p></div>',
+                allowHTML: true,
+                maxWidth: 250,
+                theme: 'zad1',
+            });
+        }
+
+        //check user rated or not
+        let had_rated = getCookie('has_rated')
+        if (had_rated == 'rated') {
+        } else {
+            // set cookie for showing rating block
+            setCookie('has_validated', 'validated', 30)
+        }
+
     }, 500);
 }
 
 //focus preview side when input
-first_input.onfocus = value => {
+first_input.onfocus = () => {
     first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
     first_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
     fourth_content_preview.classList.remove('preview-focus')
 }
-first_input.onblur = value => {
+first_input.onblur = () => {
     first_content_preview.classList.toggle('preview-focus')
 }
-second_input.onfocus = value => {
+second_input.onfocus = () => {
     second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
     second_content_preview.classList.add('preview-focus')
     first_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
     fourth_content_preview.classList.remove('preview-focus')
 }
-second_input.onblur = value => {
+second_input.onblur = () => {
     second_content_preview.classList.toggle('preview-focus')
 }
-third_input.onfocus = value => {
+third_input.onfocus = () => {
     third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
     third_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     first_content_preview.classList.remove('preview-focus')
     fourth_content_preview.classList.remove('preview-focus')
 }
-third_input.onblur = value => {
+third_input.onblur = () => {
     third_content_preview.classList.toggle('preview-focus')
 }
-fourth_input.onfocus = value => {
+fourth_input.onfocus = () => {
     fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
     fourth_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
     first_content_preview.classList.remove('preview-focus')
 }
-fourth_input.onblur = value => {
+fourth_input.onblur = () => {
     fourth_content_preview.classList.toggle('preview-focus')
 }
 
@@ -2328,7 +2408,7 @@ FunctionHoverWord = (id) => {
                             maxWidth: 270,
                             theme: 'zad1',
                             interactive: true,
-                            onUntrigger(instance, event) {
+                            onUntrigger(instance) {
                                 instance.destroy()
                             }
                         });
@@ -2363,7 +2443,7 @@ FunctionHoverWord = (id) => {
                 interactive: true,
                 // placement: 'right-start',
                 // trigger: 'click',
-                onUntrigger(instance, event) {
+                onUntrigger(instance) {
                     instance.destroy()
                 }
             });
@@ -2438,7 +2518,7 @@ $('#check_tpcn').change(function (value) {
     }
 })
 
-window.onscroll = value => {
+window.onscroll = () => {
     let buttonCheck = document.getElementById('check-form-ad')
     let bounding = buttonCheck.getBoundingClientRect();
     // console.log('top',bounding.top)
@@ -2462,1156 +2542,5 @@ window.onscroll = value => {
     }
 }
 
-let listF = []
-let listG = []
-let listH = []
-let listI = []
-let listJ = []
-let listK = []
-let listL = []
-let listM = []
-
-document.getElementById('check-3k-ad').onclick = () => {
-    for (let i = 0; i < ids.length; i++) {
-        setTimeout(() => {
-            check3kAds(i, names[i], contents[i], descs[i], infos[i])
-        }, 500 * i)
-    }
-}
-
-function check3kAds(id, value_1, value_2, value_3, value_4) {
-
-    if (value_2.length > 90) {
-        listF[id] = ''
-        listG[id] = ''
-        listH[id] = ''
-        listI[id] = ''
-        listJ[id] = ''
-        listK[id] = ''
-        listL[id] = ''
-        listM[id] = ''
-    } else {
-
-
-        //clear cards
-        warning_card.classList.add('is-hidden')
-        content_card_0.classList.add('is-hidden')
-        content_card_1.classList.add('is-hidden')
-
-        let value_check_ad = true //banned
-        let value_check_3k_ad = true //warning
-
-        $('#alert-card-first .card-error-list ul li').remove()
-        $('#alert-card-second .card-error-list ul li').remove()
-        $('#alert-card-first .card-error-list p').remove()
-
-        banned_card.classList.remove('is-hidden')
-
-        listF[id] = ''
-        listG[id] = ''
-        listH[id] = ''
-        listI[id] = ''
-        listJ[id] = ''
-        listK[id] = ''
-        listL[id] = ''
-        listM[id] = ''
-
-        if (value_1) {
-            //case banned
-            if (value_1.charAt(0) != value_1.charAt(0).toUpperCase()) {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listK[id] == '' ? listK[id] = 'x' : null
-                if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
-                }
-            }
-            if (value_1.charAt(0).match(InputFormatNoPuntuation) == null && value_1.charAt(0) != ' ') {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listH[id] == '' ? listH[id] = 'x' : null
-                listI[id] == '' ? listI[id] = 'x' : null
-                if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
-                }
-            }
-            if (value_1.charAt(0) == ' ') {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listI[id] == '' ? listI[id] = 'x' : null
-                if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
-                }
-            }
-            if (checkPolicy(value_1).length > 0) {
-
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                let list = checkPolicy(value_1)
-                // console.log(list[0])
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if (listL[id].indexOf(item) >= 0) {
-                    } else {
-                        listL[id] += item + ', '
-                    }
-                    if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
-                        if ($('#banned-3 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
-
-
-                    }
-                }
-            }
-            if (value_1.match(InputSpacingPuntationError_0)
-                || value_1.match(InputSpacingPuntationError_1)
-                || value_1.match(InputSpacingPuntationError_2)
-                || value_1.match(InputSpacingPuntationError_3)) {
-                if (value_1.match(InputFormatUpperAfterDot)) {
-                    // value_check_3k_ad = true
-                } else if (value_1.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_3k_ad = true
-                } else {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    value_check_3k_ad = false
-                    listI[id] == '' ? listI[id] = 'x' : null
-                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
-                    }
-                }
-            }
-
-            //test spelling aka kiem tra chinh ta
-            // $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-            //     text: value_1,
-            //     app_type: "zad"
-            // }).then(function (resp) {
-            //     list_mistakes = resp.result[0].mistakes.reverse()
-            //     let mistake_item
-            //     let fixed_item
-            //     if (list_mistakes.length > 0) {
-            //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-            //         value_check_3k_ad = false
-            //         for (let i = 0; i < list_mistakes.length; i++) {
-            //             mistake_item = list_mistakes[i].text
-            //             fixed_item = list_mistakes[i].suggest[0][0]
-            //             fixed_list.push({
-            //                 mistake_item: mistake_item,
-            //                 fixed_item: fixed_item
-            //             })
-            //             if (listG[id].indexOf(mistake_item) >= 0) {
-            //             } else {
-            //                 listG[id] += mistake_item + ', '
-            //             }
-            //             if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
-
-
-
-            //                 if ($('#banned-6 span').text().includes(mistake_item)) {
-            //                 } else {
-            //                     document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
-            //                 }
-            //             } else {
-            //                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
-
-            //             }
-            //         }
-            //     }
-            // })
-
-            //case warning
-            if (value_1.match(InputFormatWithPuntuation)) {
-                let array_match = Array.from(value_1.matchAll(InputFormatWithPuntuation), m => m[0])
-                let first_length = value_1.length
-                if (array_match.length < first_length) {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    listJ[id] == '' ? listJ[id] = 'x' : null
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>Có kí tự đặc biệt</p></li>")
-                    }
-                }
-
-            }
-            if (value_1.match(InputFormatFrom2Puntuation)) {
-                listI[id] == '' ? listI[id] = 'x' : null
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                if (value_1.indexOf("...") > -1) {
-                    if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>Sử dụng dấu ba chấm</p></li>")
-                    }
-                } else {
-                    let matches = Array.from(value_1.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    let mini_array = [...value_1.matchAll(InputFormatFrom2Puntuation)];
-                    for (let i = 0; i < matches.length; i++) {
-                        let item = matches[i]
-                        //show location in string
-                        // console.log(mini_array[i])
-                        if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
-                        } else {
-                            if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                                if ($('#warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
-                            }
-                        }
-                    }
-                }
-            }
-            if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
-                if (value_1.match(InputSpacingPuntationError_4) == null) {
-                } else {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Có số điện thoại hoặc địa chỉ website</p></li>")
-                    }
-                }
-            }
-            if (checkWarning(value_1).length > 0) {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                let list = checkWarning(value_1)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-
-                    if (listM[id].indexOf(item) >= 0) {
-                    } else {
-                        listM[id] += item + ', '
-                    }
-                    if ($('#warning-4').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
-                        if ($('#warning-4 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
-                    }
-                }
-            }
-            if (value_1.match(/\s{2,}/g)) {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                value_check_ad = false
-                listI[id] == '' ? listI[id] = 'x' : null
-                if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
-                } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
-                }
-            }
-        }
-
-        if (value_2) {
-            //case banned
-            if (value_2.charAt(0) != value_2.charAt(0).toUpperCase()) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listK[id] == '' ? listK[id] = 'x' : null
-                if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
-                }
-            }
-            if (value_2.charAt(0).match(InputFormatNoPuntuation) == null && value_2.charAt(0) != ' ') {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listH[id] == '' ? listH[id] = 'x' : null
-                listI[id] == '' ? listI[id] = 'x' : null
-                if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
-                }
-            }
-            if (value_2.charAt(0) == ' ') {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listI[id] == '' ? listI[id] = 'x' : null
-                if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
-                }
-            }
-            if (checkPolicy(value_2).length > 0) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                let list = checkPolicy(value_2)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if (listL[id].indexOf(item) >= 0) {
-                    } else {
-                        listL[id] += item + ', '
-                    }
-                    if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
-
-                        if ($('#banned-3 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
-
-                    }
-                }
-                setTimeout(FunctionHoverWord('banned-3'), 520)
-            }
-            if (checkFormat2(value_2) == 1) {
-                if (isUpperCase(value_2) == true) {
-                    if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
-                    } else {
-                        listK[id] == '' ? listK[id] = 'x' : null
-                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
-                        }
-                    }
-                }
-                if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
-                } else {
-                    // listK[id] == '' ? listK[id] = 'x' : null
-                    value_check_ad = false
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                        setTimeout(function () {
-                            tippy('#tippy-uppercase-fix', {
-                                content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                allowHTML: true,
-                                maxWidth: 270,
-                                theme: 'zad1',
-                                interactive: true,
-                                // delay: [300, null],
-                                // placement: 'right-start',
-                            });
-                        }, 200)
-                    }
-                }
-
-            }
-
-            if (value_2.match(InputSpacingPuntationError_0)
-                || value_2.match(InputSpacingPuntationError_1)
-                || value_2.match(InputSpacingPuntationError_2)
-                || value_2.match(InputSpacingPuntationError_3)) {
-                if (value_2.match(InputFormatUpperAfterDot)) {
-                    // value_check_3k_ad = true
-                } else if (value_2.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_3k_ad = true
-                } else {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    value_check_3k_ad = false
-                    listI[id] == '' ? listI[id] = 'x' : null
-                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
-                    }
-                }
-            }
-
-            //test spelling aka kiem tra chinh ta
-            // $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-            //     text: value_2,
-            //     app_type: "zad"
-            // }).then(function (resp) {
-            //     list_mistakes = resp.result[0].mistakes.reverse()
-            //     let mistake_item
-            //     let fixed_item
-            //     if (list_mistakes.length > 0) {
-            //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-            //         value_check_3k_ad = false
-            //         for (let i = 0; i < list_mistakes.length; i++) {
-            //             mistake_item = list_mistakes[i].text
-            //             fixed_item = list_mistakes[i].suggest[0][0]
-            //             fixed_list.push({
-            //                 mistake_item: mistake_item,
-            //                 fixed_item: fixed_item
-            //             })
-            //             if (listG[id].indexOf(mistake_item) >= 0) {
-            //             } else {
-            //                 listG[id] += mistake_item + ', '
-            //             }
-            //             if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
-
-            //                 if ($('#banned-6 span').text().includes(mistake_item)) {
-            //                 } else {
-            //                     document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
-            //                 }
-            //             } else {
-            //                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
-            //             }
-            //         }
-            //     }
-            //     setTimeout(FunctionHoverWord('banned-6'), 520)
-            // })
-
-
-            //case warning
-            if (value_2.match(InputFormatWithPuntuation)) {
-                let temp = encodeURIComponent(value_2)
-                let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
-                let value_length = temp.length
-                if (array_match.length < value_length) {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    value_check_ad = false
-
-                    warning_card.classList.remove('is-hidden')
-                    listJ[id] == '' ? listJ[id] = 'x' : null
-                    if ($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>Có kí tự đặc biệt</p></li>")
-                    }
-                }
-            }
-            if (value_2.match(InputFormatFrom2Puntuation)) {
-                listI[id] == '' ? listI[id] = 'x' : null
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                if (value_2.indexOf("...") > -1) {
-                    if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>Sử dụng dấu ba chấm</p></li>")
-                    }
-                } else {
-                    let matches = Array.from(value_2.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    let mini_array = [...value_2.matchAll(InputFormatFrom2Puntuation)];
-                    for (let i = 0; i < matches.length; i++) {
-                        let item = matches[i]
-                        //show location in string
-                        // console.log(mini_array[i])
-                        if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
-                        } else {
-                            if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                                if ($('#warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
-                            }
-                        }
-                    }
-                    setTimeout(FunctionHoverWord('warning-3'), 200)
-                }
-            }
-            if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
-                if (value_2.match(InputSpacingPuntationError_4) == null) {
-                } else {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Có số điện thoại hoặc địa chỉ website</p></li>")
-                    }
-                }
-            }
-            if (checkWarning(value_2).length > 0) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                let list = checkWarning(value_2)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if (listM[id].indexOf(item) >= 0) {
-                    } else {
-                        listM[id] += item + ', '
-                    }
-                    if ($('#warning-4').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
-
-                        if ($('#warning-4 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
-                    }
-                }
-                setTimeout(FunctionHoverWord('warning-4'), 200)
-            }
-            if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                value_check_ad = false
-                listI[id] == '' ? listI[id] = 'x' : null
-                if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
-                } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
-                }
-            }
-
-
-            //case enters too much
-            if (value_2.includes('\n')) {
-
-                let list_enters = []
-                for (let i = 0; i < value_2.length; i++) {
-                    if (value_2[i] === '\n') { list_enters.push(i) }
-                }
-
-                //list sentence after cut with enter
-                let list_sentences = []
-                list_sentences.push(value_2.substr(0, list_enters[0]))
-                for (let i = 0; i < list_enters.length; i++) {
-                    list_sentences.push(value_2.substring(list_enters[i] + 1, list_enters[i + 1]))
-                }
-
-                //check sentence one by one
-                for (let i = 0; i < list_sentences.length; i++) {
-                    let temp = list_sentences[i]
-                    //banned
-                    if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
-                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        listK[id] == '' ? listK[id] = 'x' : null
-                        if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
-                        }
-                    }
-                    if (temp.charAt(0).match(InputFormatNoPuntuation) == null && temp.charAt(0) != ' ') {
-                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        listH[id] == '' ? listH[id] = 'x' : null
-                        listI[id] == '' ? listI[id] = 'x' : null
-                        if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
-                        }
-                    }
-                    if (temp.charAt(0) == ' ') {
-                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        listI[id] == '' ? listI[id] = 'x' : null
-                        if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
-                        }
-                    }
-                }
-
-            }
-
-        }
-
-        if (value_3) {
-            //case banned
-            if (value_3.charAt(0) != value_3.charAt(0).toUpperCase()) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listK[id] == '' ? listK[id] = 'x' : null
-                if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
-                }
-            }
-            if (value_3.charAt(0).match(InputFormatNoPuntuation) == null && value_3.charAt(0) != ' ') {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listH[id] == '' ? listH[id] = 'x' : null
-                listI[id] == '' ? listI[id] = 'x' : null
-                if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
-                }
-            }
-            if (value_3.charAt(0) == ' ') {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listI[id] == '' ? listI[id] = 'x' : null
-                if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
-                }
-            }
-            if (checkPolicy(value_3).length > 0) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                let list = checkPolicy(value_3)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if (listL[id].indexOf(item) >= 0) {
-                    } else {
-                        listL[id] += item + ', '
-                    }
-                    if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
-
-                        if ($('#banned-3 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
-
-                    }
-                }
-                setTimeout(FunctionHoverWord('banned-3'), 520)
-            }
-            if (checkFormat2(value_3) == 1) {
-                if (isUpperCase(value_3) == true) {
-                    if (checkSensitive(value_3).length > 0 || value_3.match(InputFormatUpperAfterDot)) {
-                    } else {
-                        listK[id] == '' ? listK[id] = 'x' : null
-                        third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
-                        }
-                    }
-                }
-                if (checkSensitive(value_3).length > 0 || value_3.match(InputFormatUpperAfterDot)) {
-                } else {
-                    // listK[id] == '' ? listK[id] = 'x' : null
-                    value_check_ad = false
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                        setTimeout(function () {
-                            tippy('#tippy-uppercase-fix', {
-                                content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                allowHTML: true,
-                                maxWidth: 270,
-                                theme: 'zad1',
-                                interactive: true,
-                                // delay: [300, null],
-                                // placement: 'right-start',
-                            });
-                        }, 200)
-                    }
-                }
-
-            }
-            if (value_3.match(InputSpacingPuntationError_0)
-                || value_3.match(InputSpacingPuntationError_1)
-                || value_3.match(InputSpacingPuntationError_2)
-                || value_3.match(InputSpacingPuntationError_3)) {
-                if (value_3.match(InputFormatUpperAfterDot)) {
-                    // value_check_3k_ad = true
-                } else if (value_3.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_3k_ad = true
-                } else {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    value_check_3k_ad = false
-                    listI[id] == '' ? listI[id] = 'x' : null
-                    if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
-                    }
-                }
-            }
-
-            //test spelling aka kiem tra chinh ta
-            // $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-            //     text: value_3,
-            //     app_type: "zad"
-            // }).then(function (resp) {
-            //     list_mistakes = resp.result[0].mistakes.reverse()
-            //     let mistake_item
-            //     let fixed_item
-            //     if (list_mistakes.length > 0) {
-            //         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-            //         value_check_3k_ad = false
-            //         // console.log(list_mistakes)
-            //         for (let i = 0; i < list_mistakes.length; i++) {
-            //             mistake_item = list_mistakes[i].text
-            //             fixed_item = list_mistakes[i].suggest[0][0]
-            //             fixed_list.push({
-            //                 mistake_item: mistake_item,
-            //                 fixed_item: fixed_item
-            //             })
-            //             if (listG[id].indexOf(mistake_item) >= 0) {
-            //             } else {
-            //                 listG[id] += mistake_item + ', '
-            //             }
-            //             if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
-
-            //                 if ($('#banned-6 span').text().includes(mistake_item)) {
-            //                 } else {
-            //                     document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
-            //                 }
-            //             } else {
-            //                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
-
-            //             }
-            //         }
-            //     }
-            //     setTimeout(FunctionHoverWord('banned-6'), 520)
-            // })
-
-
-            //case warning
-            if (value_3.match(InputFormatWithPuntuation)) {
-                let temp = encodeURIComponent(value_3)
-                let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
-                let value_length = temp.length
-                if (array_match.length < value_length) {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    value_check_ad = false
-
-                    warning_card.classList.remove('is-hidden')
-                    listJ[id] == '' ? listJ[id] = 'x' : null
-                    if ($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>Có kí tự đặc biệt</p></li>")
-                    }
-                }
-            }
-            if (value_3.match(InputFormatFrom2Puntuation)) {
-                listI[id] == '' ? listI[id] = 'x' : null
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                if (value_3.indexOf("...") > -1) {
-                    if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>Sử dụng dấu ba chấm</p></li>")
-                    }
-                } else {
-                    let matches = Array.from(value_3.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    let mini_array = [...value_3.matchAll(InputFormatFrom2Puntuation)];
-                    for (let i = 0; i < matches.length; i++) {
-                        let item = matches[i]
-                        //show location in string
-                        // console.log(mini_array[i])
-                        if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
-                        } else {
-                            if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                                if ($('#warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
-                            }
-                        }
-                    }
-                    setTimeout(FunctionHoverWord('warning-3'), 200)
-                }
-            }
-            if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
-                if (value_3.match(InputSpacingPuntationError_4) == null) {
-                } else {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-3').text().indexOf('Có số điện thoại hoặc địa chỉ website') == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Có số điện thoại hoặc địa chỉ website</p></li>")
-                    }
-                }
-            }
-            if (checkWarning(value_3).length > 0) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                let list = checkWarning(value_3)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if (listM[id].indexOf(item) >= 0) {
-                    } else {
-                        listM[id] += item + ', '
-                    }
-                    if ($('#warning-4').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
-
-                        if ($('#warning-4 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
-
-                    }
-                }
-                setTimeout(FunctionHoverWord('warning-4'), 200)
-            }
-            if (value_3.match(/\s{2,}/g)) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                listI[id] == '' ? listI[id] = 'x' : null
-                value_check_ad = false
-                if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
-                } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
-                }
-            }
-        }
-
-        if (tpcn_case) { }
-        else {
-            if (value_4) {
-                if (value_4.includes('là thuốc')
-                    || value_4.includes('phải thuốc')) {
-
-                } else {
-                    //case banned
-                    if (value_4.charAt(0) != value_4.charAt(0).toUpperCase()) {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        listK[id] == '' ? listK[id] = 'x' : null
-                        if ($('#banned-0').text().indexOf('Không viết hoa chữ cái đầu câu') == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>Không viết hoa chữ cái đầu câu</p></li>")
-                        }
-                    }
-                    if (value_4.charAt(0).match(InputFormatNoPuntuation) == null && value_4.charAt(0) != ' ') {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        listH[id] == '' ? listH[id] = 'x' : null
-                        listI[id] == '' ? listI[id] = 'x' : null
-                        if ($('#banned-1').text().indexOf('Sử dụng dấu câu ở đầu') == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
-                        }
-                    }
-                    if (value_4.charAt(0) == ' ') {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        listI[id] == '' ? listI[id] = 'x' : null
-                        if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
-                        }
-                    }
-                    if (checkPolicy(value_4).length > 0) {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        let list = checkPolicy(value_4)
-                        for (let i = 0; i < list.length; i++) {
-                            let item = list[i]
-                            if (listL[id].indexOf(item) >= 0) {
-                            } else {
-                                listL[id] += item + ', '
-                            }
-                            if ($('#banned-3').text().indexOf('Sử dụng từ ngữ bị hạn chế') == 0) {
-                                if ($('#banned-3 span').text().includes(item)) {
-                                } else {
-                                    document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
-                                }
-                            } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>Sử dụng từ ngữ bị hạn chế: <span>" + item + "</span></p></li>")
-
-                            }
-                        }
-                        setTimeout(FunctionHoverWord('banned-3'), 520)
-                    }
-                    if (checkFormat2(value_4) == 1) {
-                        if (isUpperCase(value_4) == true) {
-                            if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
-                            } else {
-                                listK[id] == '' ? listK[id] = 'x' : null
-                                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                                value_check_3k_ad = false
-                                if ($('#banned-4').text().indexOf('Viết hoa toàn bộ nội dung') == 0) {
-                                } else {
-                                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>Viết hoa toàn bộ nội dung</p></li>")
-                                }
-                            }
-                        }
-                        if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
-                        } else {
-                            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                            // listK[id] == '' ? listK[id] = 'x' : null
-                            warning_card.classList.remove('is-hidden')
-                            value_check_ad = true
-                            if ($('#warning-0').text().indexOf('Viết hoa nhiều chữ cái') == 0) {
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>Viết hoa nhiều chữ cái <i class='icz icz-support' id='tippy-uppercase-fix'></i></p></li>")
-                                setTimeout(function () {
-                                    tippy('#tippy-uppercase-fix', {
-                                        content: '<div class="tippy-block"><p>Chỉ viết hoa chữ cái đầu câu và danh từ riêng</p></div>',
-                                        allowHTML: true,
-                                        maxWidth: 270,
-                                        theme: 'zad1',
-                                        interactive: true,
-                                        trigger: 'click',
-                                        // delay: [300, null],
-                                        // placement: 'right-start',
-                                    });
-                                }, 200)
-                            }
-                        }
-
-                    }
-                    if (value_4.match(InputSpacingPuntationError_0)
-                        || value_4.match(InputSpacingPuntationError_1)
-                        || value_4.match(InputSpacingPuntationError_2)
-                        || value_4.match(InputSpacingPuntationError_3)) {
-                        if (value_4.match(InputFormatUpperAfterDot)) {
-                            // value_check_3k_ad = true
-                        } else if (value_4.match(InputSpacingPuntationError_4) == null) {
-                            // value_check_3k_ad = true
-                        } else {
-                            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                            value_check_3k_ad = false
-                            listI[id] == '' ? listI[id] = 'x' : null
-                            if ($('#banned-5').text().indexOf('Sử dụng dấu câu sai quy cách') == 0) {
-                            } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>Sử dụng dấu câu sai quy cách</p></li>")
-                            }
-                        }
-                    }
-
-                    //test spelling aka kiem tra chinh ta
-                    // $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
-                    //     text: value_4,
-                    //     app_type: "zad"
-                    // }).then(function (resp) {
-                    //     list_mistakes = resp.result[0].mistakes.reverse()
-                    //     let mistake_item
-                    //     let fixed_item
-                    //     if (list_mistakes.length > 0) {
-                    //         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                    //         value_check_3k_ad = false
-                    //         // console.log(list_mistakes)
-                    //         for (let i = 0; i < list_mistakes.length; i++) {
-                    //             mistake_item = list_mistakes[i].text
-                    //             fixed_item = list_mistakes[i].suggest[0][0]
-                    //             fixed_list.push({
-                    //                 mistake_item: mistake_item,
-                    //                 fixed_item: fixed_item
-                    //             })
-                    //             if (listG[id].indexOf(mistake_item) >= 0) {
-                    //             } else {
-                    //                 listG[id] += mistake_item + ', '
-                    //             }
-                    //             if ($('#banned-6').text().indexOf('Có chứa từ sai chính tả') == 0) {
-
-                    //                 if ($('#banned-6 span').text().includes(mistake_item)) {
-                    //                 } else {
-                    //                     document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
-                    //                 }
-                    //             } else {
-                    //                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>Có chứa từ sai chính tả: <span>" + mistake_item + "</span></p></li>")
-
-                    //             }
-                    //         }
-                    //     }
-                    //     setTimeout(FunctionHoverWord('banned-6'), 520)
-                    // })
-
-                    //case warning
-                    if (value_4.match(InputFormatWithPuntuation)) {
-                        let temp = encodeURIComponent(value_4)
-                        let array_match = Array.from(temp.matchAll(InputFormatWithPuntuation), m => m[0])
-                        let value_length = temp.length
-                        if (array_match.length < value_length) {
-                            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                            value_check_ad = false
-
-                            warning_card.classList.remove('is-hidden')
-                            listJ[id] == '' ? listJ[id] = 'x' : null
-                            if ($('#warning-1').text().indexOf('Có kí tự đặc biệt') == 0) {
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>Có kí tự đặc biệt</p></li>")
-                            }
-                        }
-                    }
-                    if (value_4.match(InputFormatFrom2Puntuation)) {
-                        listI[id] == '' ? listI[id] = 'x' : null
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        value_check_ad = false
-                        warning_card.classList.remove('is-hidden')
-                        if (value_4.indexOf("...") > -1) {
-                            if ($('#warning-2').text().indexOf('Sử dụng dấu ba chấm') == 0) {
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>Sử dụng dấu ba chấm</p></li>")
-                            }
-                        } else {
-                            let matches = Array.from(value_4.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                            let mini_array = [...value_4.matchAll(InputFormatFrom2Puntuation)];
-                            for (let i = 0; i < matches.length; i++) {
-                                let item = matches[i]
-                                //show location in string
-                                // console.log(mini_array[i])
-                                if (item == '%,' || item == '%.') {
-                                    warning_card.classList.add('is-hidden')
-                                } else {
-                                    if ($('#warning-3').text().indexOf('Sử dụng 2 dấu câu liên tiếp') == 0) {
-                                        if ($('#warning-3').text().includes(item)) {
-                                        } else {
-                                            document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                        }
-                                    } else {
-                                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>Sử dụng 2 dấu câu liên tiếp: <span>" + item + "</span></p></li>")
-                                    }
-                                }
-                            }
-                            setTimeout(FunctionHoverWord('warning-3'), 200)
-                        }
-                    }
-                    if (checkWarning(value_4).length > 0) {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        value_check_ad = false
-                        warning_card.classList.remove('is-hidden')
-                        let list = checkWarning(value_4)
-                        for (let i = 0; i < list.length; i++) {
-                            let item = list[i]
-                            if (listM[id].indexOf(item) >= 0) {
-                            } else {
-                                if (item == 'thuốc') {
-                                    if (value_4.includes('Sản phẩm này không phải là thuốc') || value_4.includes('Sản phẩm không phải là thuốc')) {
-
-                                    } else {
-                                        listM[id] += item + ', '
-                                    }
-                                } else {
-                                    listM[id] += item + ', '
-                                }
-
-                            }
-                            if ($('#warning-4').text().indexOf('Phản cảm, thiếu kiểm chứng') == 0) {
-
-                                if ($('#warning-4 span').text().includes(item)) {
-                                } else {
-                                    document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
-                                }
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>Phản cảm, thiếu kiểm chứng: <span>" + item + "</span></p></li>")
-                            }
-                        }
-                        setTimeout(FunctionHoverWord('warning-4'), 200)
-                    }
-                    if (value_4.match(/\s{2,}/g)) {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        warning_card.classList.remove('is-hidden')
-                        listI[id] == '' ? listI[id] = 'x' : null
-                        value_check_ad = false
-                        if ($('#warning-5').text().indexOf('Sử dụng 2 khoảng trắng liên tục') == 0) {
-                        } else {
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>Sử dụng 2 khoảng trắng liên tục</p></li>")
-                        }
-                    }
-                }
-
-            }
-        }
-        setTimeout(() => {
-            if (value_check_3k_ad == true && value_check_ad == true) {
-                listF[id] = 'Không'
-                content_card_1.classList.add('is-hidden')
-                $('#alert-card-first .card-error-list').append('<p>Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
-            } else if (value_check_3k_ad == true && value_check_ad == false) {
-                listF[id] = 'Cảnh báo'
-            } else if (value_check_3k_ad == false && value_check_ad == false || value_check_3k_ad == false && value_check_ad == true) {
-                listF[id] = 'Từ chối'
-            }
-        }, 400)
-    }
-
-}
-
-function authenticate() {
-    return gapi.auth2.getAuthInstance()
-        .signIn({ scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/spreadsheets" })
-        .then(function () { console.log("Sign-in successful"); },
-            function (err) { console.error("Error signing in", err); });
-}
-function loadClientUpdate() {
-    gapi.client.setApiKey("AIzaSyBY-dRvVSnd2fsK8Brg3x-TLShzmZvjYd8");
-    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/sheets/v4/rest")
-        .then(function () { console.log("GAPI client loaded for API"); },
-            function (err) { console.error("Error loading GAPI client for API", err); });
-}
-// Make sure the client is loaded and sign-in is complete before calling this method.
-function execute() {
-    return gapi.client.sheets.spreadsheets.values.batchUpdate({
-        "spreadsheetId": "1DDOoUyDPYWf3WTuOYEPHRp4iswDxpizHrloLw4LqRTM",
-        "resource": {
-            "valueInputOption": "RAW",
-            "data": [
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "F2:F",
-                    "values": [
-                        listF
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "G2:G",
-                    "values": [
-                        listG
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "H2:H",
-                    "values": [
-                        listH
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "I2:I",
-                    "values": [
-                        listI
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "J2:J",
-                    "values": [
-                        listJ
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "K2:K",
-                    "values": [
-                        listK
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "L2:L",
-                    "values": [
-                        listL
-                    ]
-                },
-                {
-                    "majorDimension": "COLUMNS",
-                    "range": "M2:M",
-                    "values": [
-                        listM
-                    ]
-                },
-            ]
-        }
-    })
-        .then(function (response) {
-            // Handle the results here (response.result has the parsed body).
-            console.log("Response", response);
-        },
-            function (err) { console.error("Execute error", err); });
-}
-gapi.load("client:auth2", function () {
-    gapi.auth2.init({ client_id: "302224997211-2vdq0p1dn78o4ngj34dav4t2uouslljl.apps.googleusercontent.com" });
-});
 
 
