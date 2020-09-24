@@ -1554,7 +1554,7 @@ function checkAdsFunc() {
                 setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_2) == 1) {
-                if (value_2.match(InputFormatUpperAfterDot)) {
+                if (value_2.match(InputFormatUpperAfterDot) && !value_2.includes('\n')) {
                     list_after_dot = []
                     for (let i = 0; i < value_2.length; i++) {
                         if (value_2[i] == '.' || value_2[i] == '!' || value_2[i] == '?') {
@@ -1581,9 +1581,6 @@ function checkAdsFunc() {
                         }
                         //warning
                         if (checkFormat2(temp) == 1) {
-
-                            console.log(temp)
-                            console.log(checkFormat2(temp))
                             second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                             warning_card.classList.remove('is-hidden')
                             if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
@@ -1784,7 +1781,6 @@ function checkAdsFunc() {
                 for (let i = 0; i < list_enters.length; i++) {
                     list_sentences.push(value_2.substring(list_enters[i] + 1, list_enters[i + 1]))
                 }
-
                 //check sentence one by one
                 for (let i = 0; i < list_sentences.length; i++) {
                     let temp = list_sentences[i]
