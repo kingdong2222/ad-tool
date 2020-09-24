@@ -101,7 +101,6 @@ var crop = function () {
         viewMode: 2,
     };
     var cropper = new Cropper(image, options);
-    var originalImageURL = image.src;
     var uploadedImageType = 'image/*';
     var uploadedImageName = 'cropped.jpeg';
     var uploadedImageURL;
@@ -120,7 +119,6 @@ var crop = function () {
     actions.querySelector('.docs-buttons').onclick = function (event) {
         var e = event || window.event;
         var target = e.target || e.srcElement;
-        var cropped;
         var result;
         var input;
         var data;
@@ -144,7 +142,6 @@ var crop = function () {
             option: target.getAttribute('data-option') || undefined,
             secondOption: target.getAttribute('data-second-option') || undefined
         };
-        cropped = cropper.cropped;
         if (data.method) {
             if (typeof data.target !== 'undefined') {
                 input = document.querySelector(data.target);
@@ -289,7 +286,6 @@ var cropAvatarAgain = function () {
         viewMode: 2,
     };
     var cropper = new Cropper(image, options);
-    var originalImageURL = image.src;
     var uploadedImageType = 'image/*';
     var uploadedImageName = 'cropped.jpeg';
     var uploadedImageURL;
@@ -308,7 +304,6 @@ var cropAvatarAgain = function () {
     actions.querySelector('.docs-buttons').onclick = function (event) {
         var e = event || window.event;
         var target = e.target || e.srcElement;
-        var cropped;
         var result;
         var input;
         var data;
@@ -332,7 +327,6 @@ var cropAvatarAgain = function () {
             option: target.getAttribute('data-option') || undefined,
             secondOption: target.getAttribute('data-second-option') || undefined
         };
-        cropped = cropper.cropped;
         if (data.method) {
             if (typeof data.target !== 'undefined') {
                 input = document.querySelector(data.target);
@@ -462,7 +456,6 @@ var cropLargeImg = function () {
         viewMode: 2,
     };
     var cropper = new Cropper(image, options);
-    var originalImageURL = image.src;
     var uploadedImageType = 'image/*';
     var uploadedImageName = 'cropped.jpeg';
     var uploadedImageURL;
@@ -481,7 +474,6 @@ var cropLargeImg = function () {
     actions.querySelector('.docs-buttons').onclick = function (event) {
         var e = event || window.event;
         var target = e.target || e.srcElement;
-        var cropped;
         var result;
         var input;
         var data;
@@ -505,7 +497,6 @@ var cropLargeImg = function () {
             option: target.getAttribute('data-option') || undefined,
             secondOption: target.getAttribute('data-second-option') || undefined
         };
-        cropped = cropper.cropped;
         if (data.method) {
             if (typeof data.target !== 'undefined') {
                 input = document.querySelector(data.target);
@@ -559,10 +550,8 @@ var cropLargeImg = function () {
                                 let src = cv.imread(imgElement);
                                 let dst = new cv.Mat();
                                 let men = new cv.Mat();
-                                let menO = new cv.Mat();
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
-                                var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
                                 // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 // console.log(men.data64F[0])
                                 if (men.data64F[0] > 10) {
@@ -597,7 +586,7 @@ var cropLargeImg = function () {
                                 onShow(instance) {
                                     instance.setProps({ trigger: 'click' })
                                 },
-                                onTrigger(instance, event) {
+                                onTrigger(instance) {
                                     instance.destroy()
                                 }
                             });
@@ -702,7 +691,6 @@ var cropLargeImgAgain = function () {
         viewMode: 2,
     };
     var cropper = new Cropper(image, options);
-    var originalImageURL = image.src;
     var uploadedImageType = 'image/*';
     var uploadedImageName = 'cropped.jpeg';
     var uploadedImageURL;
@@ -721,7 +709,6 @@ var cropLargeImgAgain = function () {
     actions.querySelector('.docs-buttons').onclick = function (event) {
         var e = event || window.event;
         var target = e.target || e.srcElement;
-        var cropped;
         var result;
         var input;
         var data;
@@ -745,7 +732,6 @@ var cropLargeImgAgain = function () {
             option: target.getAttribute('data-option') || undefined,
             secondOption: target.getAttribute('data-second-option') || undefined
         };
-        cropped = cropper.cropped;
         if (data.method) {
             if (typeof data.target !== 'undefined') {
                 input = document.querySelector(data.target);
@@ -891,7 +877,7 @@ var cropLargeImgAgain = function () {
     }
 };
 
-$("#check-grid").change(function (event) {
+$("#check-grid").change(function () {
     if (this.checked) {
         $(".ads-img .squares").addClass("is-show");
     } else {
@@ -944,7 +930,7 @@ document.getElementById('large-image-input').onmouseover = () => {
 document.getElementById('large-image-input').onmouseout = () => {
     document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#FAFBFD'
 }
-document.getElementById('large-image-input').ondrop = (value) => {
+document.getElementById('large-image-input').ondrop = () => {
     cropLargeImg()
     document.getElementsByClassName('large-image-input')[0].style.backgroundColor = '#F0F4F8'
 }
@@ -1213,11 +1199,21 @@ function checkWarning(val) {
 }
 //check multi uppercase
 function checkFormat2(val) {
-    for (let i = 1; i < val.length; i++) {
-        if (val[i] != val[i].toLowerCase()) {
-            return 1; break;
+    if (val.charAt(0) == ' ') {
+        for (let i = 2; i < val.length; i++) {
+            if (val[i] != val[i].toLowerCase()) {
+                return 1; break;
+            }
+        }
+    } else {
+        //i = 1 because of the first uppercase letter of sentence
+        for (let i = 1; i < val.length; i++) {
+            if (val[i] != val[i].toLowerCase()) {
+                return 1; break;
+            }
         }
     }
+
 }
 //check full uppercase
 function isUpperCase(str) {
@@ -1245,21 +1241,24 @@ const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩ
 
 const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,})/g
 
-document.getElementById('check-form-ad').onclick = value => {
+//case sensitive for numbers
+const InputSpacingPuntationError_4 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])([.,]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])/g
+
+document.getElementById('check-form-ad').onclick = () => {
     document.getElementById('check-form-ad').classList.add('is-loading')
     document.getElementById('flying-button').classList.add('is-loading')
     checkAdsFunc()
     //google track
-    dataLayer.push({'event': 'event_ValidateAd'})
+    // dataLayer.push({ 'event': 'event_ValidateAd' })
 }
-document.getElementById('flying-button').onclick = value => {
+document.getElementById('flying-button').onclick = () => {
     document.getElementById('flying-button').classList.add('is-loading')
     document.getElementById('check-form-ad').classList.add('is-loading')
     checkAdsFunc()
     //google track
-    dataLayer.push({'event': 'event_ValidateAd'})
+    // dataLayer.push({ 'event': 'event_ValidateAd' })
 }
-function checkAdsFunc(value) {
+function checkAdsFunc() {
 
     //get value input
     let value_1 = first_input.value.trimEnd()
@@ -1362,8 +1361,8 @@ function checkAdsFunc(value) {
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
                 || value_1.match(InputSpacingPuntationError_3)) {
-                if (value_1.match(InputFormatUpperAfterDot)) {
-                    value_check_ad = true
+                if (value_1.match(InputSpacingPuntationError_4) == null) {
+                    // value_check_ad = true
                 } else {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                     value_check_ad = false
@@ -1372,6 +1371,7 @@ function checkAdsFunc(value) {
                         $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
                     }
                 }
+
             }
 
             //test spelling aka kiem tra chinh ta
@@ -1432,7 +1432,7 @@ function checkAdsFunc(value) {
 
             }
             if (value_1.match(InputFormatFrom2Puntuation)) {
-                
+
                 //value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 if (value_1.indexOf("...") > -1) {
@@ -1444,7 +1444,6 @@ function checkAdsFunc(value) {
                     }
                 } else {
                     let matches = Array.from(value_1.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    let mini_array = [...value_1.matchAll(InputFormatFrom2Puntuation)];
                     for (let i = 0; i < matches.length; i++) {
                         let item = matches[i]
                         //show location in string
@@ -1469,12 +1468,15 @@ function checkAdsFunc(value) {
                 }
             }
             if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
+                if (value_1.match(InputSpacingPuntationError_4) == null) {
                 } else {
-                    count_warning += 1
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
+                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    warning_card.classList.remove('is-hidden')
+                    if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
+                    } else {
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
+                    }
                 }
             }
             if (checkWarning(value_1).length > 0) {
@@ -1552,40 +1554,80 @@ function checkAdsFunc(value) {
                 setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_2) == 1) {
-                if (isUpperCase(value_2) == true) {
-                    if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
+                if (value_2.match(InputFormatUpperAfterDot) && !value_2.includes('\n')) {
+                    list_after_dot = []
+                    for (let i = 0; i < value_2.length; i++) {
+                        if (value_2[i] == '.' || value_2[i] == '!' || value_2[i] == '?') {
+                            list_after_dot.push(i)
+                        }
+                    }
+                    let list_sentences = []
+                    list_sentences.push(value_2.substr(0, list_after_dot[0]))
+                    for (let i = 0; i < list_after_dot.length; i++) {
+                        list_sentences.push(value_2.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                    }
+                    //check sentence one by one
+                    for (let i = 0; i < list_sentences.length; i++) {
+                        let temp = list_sentences[i]
+                        //banned
+                        if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
+
+                            if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                            }
+                        }
+                        //warning
+                        if (checkFormat2(temp) == 1) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                count_warning += 1
+                            }
+                        }
+                    }
+                } else {
+                    if (isUpperCase(value_2) == true) {
+                        if (checkSensitive(value_2).length > 0) {
+                        } else {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
+                            if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                            }
+                        }
+                    }
+                    if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
                     } else {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        value_check_ad = false
-                        if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            count_warning += 1
                         }
                     }
                 }
-                if (checkSensitive(value_2).length > 0 || value_2.match(InputFormatUpperAfterDot)) {
-                } else {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                        count_warning += 1
-                    }
-                }
-
             }
 
             if (value_2.match(InputSpacingPuntationError_0)
                 || value_2.match(InputSpacingPuntationError_1)
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
-
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_ad = false
-                if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
+                if (value_2.match(InputSpacingPuntationError_4) == null) {
+                    // value_check_ad = true
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    value_check_ad = false
+                    if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
+                    } else {
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
+                    }
                 }
             }
 
@@ -1647,7 +1689,7 @@ function checkAdsFunc(value) {
                 }
             }
             if (value_2.match(InputFormatFrom2Puntuation)) {
-                
+
                 //value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 if (value_2.indexOf("...") > -1) {
@@ -1659,7 +1701,6 @@ function checkAdsFunc(value) {
                     }
                 } else {
                     let matches = Array.from(value_2.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    let mini_array = [...value_2.matchAll(InputFormatFrom2Puntuation)];
                     for (let i = 0; i < matches.length; i++) {
                         let item = matches[i]
                         //show location in string
@@ -1685,12 +1726,15 @@ function checkAdsFunc(value) {
                 }
             }
             if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
+                if (value_2.match(InputSpacingPuntationError_4) == null) {
                 } else {
-                    count_warning += 1
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    warning_card.classList.remove('is-hidden')
+                    if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
+                    } else {
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
+                    }
                 }
             }
             if (checkWarning(value_2).length > 0) {
@@ -1722,13 +1766,17 @@ function checkAdsFunc(value) {
                 }
             }
 
-
             //case enters too much
             if (value_2.includes('\n')) {
 
                 let list_enters = []
                 for (let i = 0; i < value_2.length; i++) {
-                    if (value_2[i] === '\n') { list_enters.push(i) }
+                    if (value_2[i] === '\n'
+                        || value_2[i] == '.'
+                        || value_2[i] == '!'
+                        || value_2[i] == '?') {
+                        list_enters.push(i)
+                    }
                 }
 
                 //list sentence after cut with enter
@@ -1737,7 +1785,6 @@ function checkAdsFunc(value) {
                 for (let i = 0; i < list_enters.length; i++) {
                     list_sentences.push(value_2.substring(list_enters[i] + 1, list_enters[i + 1]))
                 }
-
                 //check sentence one by one
                 for (let i = 0; i < list_sentences.length; i++) {
                     let temp = list_sentences[i]
@@ -1752,19 +1799,33 @@ function checkAdsFunc(value) {
                         }
                     }
                     if (temp.charAt(0).match(InputFormatNoPuntuation) == null && temp.charAt(0) != ' ') {
-                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        value_check_ad = false
-                        if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
+                        if (temp.length <= 1) {
                         } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
+                            if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
+                            }
                         }
                     }
                     if (temp.charAt(0) == ' ') {
+                        console.log(temp)
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                         value_check_ad = false
                         if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                         } else {
                             $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
+                        }
+                    }
+                    //warning
+                    if (checkFormat2(temp) == 1) {
+                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        } else {
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            count_warning += 1
                         }
                     }
                 }
@@ -1818,26 +1879,64 @@ function checkAdsFunc(value) {
                 setTimeout(FunctionHoverWord('banned-3'), 520)
             }
             if (checkFormat2(value_3) == 1) {
-                if (isUpperCase(value_3) == true) {
-                    if (checkSensitive(value_3).length > 0 || value_3.match(InputFormatUpperAfterDot)) {
-                    } else {
-                        third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                        value_check_ad = false
-                        if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                if (value_3.match(InputFormatUpperAfterDot)) {
+                    list_after_dot = []
+                    for (let i = 0; i < value_3.length; i++) {
+                        if (value_3[i] == '.' || value_3[i] == '!' || value_3[i] == '?') {
+                            list_after_dot.push(i)
                         }
                     }
-                }
-                if (checkSensitive(value_3).length > 0 || value_3.match(InputFormatUpperAfterDot)) {
-                } else {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    let list_sentences = []
+                    list_sentences.push(value_3.substr(0, list_after_dot[0]))
+                    for (let i = 0; i < list_after_dot.length; i++) {
+                        list_sentences.push(value_3.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                    }
+                    //check sentence one by one
+                    for (let i = 0; i < list_sentences.length; i++) {
+                        let temp = list_sentences[i]
+                        //banned
+                        if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
 
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                            }
+                        }
+                        //warning
+                        if (checkFormat2(temp) == 1) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                count_warning += 1
+                            }
+                        }
+                    }
+                } else {
+                    if (isUpperCase(value_3) == true) {
+                        if (checkSensitive(value_3).length > 0) {
+                        } else {
+                            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                            value_check_ad = false
+                            if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                            }
+                        }
+                    }
+                    if (checkSensitive(value_3).length > 0) {
                     } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                        third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+
+                        warning_card.classList.remove('is-hidden')
+                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        } else {
+                            count_warning += 1
+                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                        }
                     }
                 }
 
@@ -1846,7 +1945,7 @@ function checkAdsFunc(value) {
                 || value_3.match(InputSpacingPuntationError_1)
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
-                if (value_3.match(InputFormatUpperAfterDot)) {
+                if (value_3.match(InputSpacingPuntationError_4) == null) {
                     // value_check_ad = true
                 } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -1894,7 +1993,7 @@ function checkAdsFunc(value) {
 
             //case warning
             if (value_3.match(InputFormatWithPuntuation)) {
-                
+
                 let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
                 let string2array = value_3.split('')
                 let first_length = value_3.length
@@ -1918,7 +2017,7 @@ function checkAdsFunc(value) {
                 }
             }
             if (value_3.match(InputFormatFrom2Puntuation)) {
-                
+
                 //value_check_ad = false
                 warning_card.classList.remove('is-hidden')
                 if (value_3.indexOf("...") > -1) {
@@ -1929,7 +2028,6 @@ function checkAdsFunc(value) {
                     }
                 } else {
                     let matches = Array.from(value_3.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    let mini_array = [...value_3.matchAll(InputFormatFrom2Puntuation)];
                     for (let i = 0; i < matches.length; i++) {
                         let item = matches[i]
                         //show location in string
@@ -1949,18 +2047,21 @@ function checkAdsFunc(value) {
                                 $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
                             }
                         }
-                        
+
                     }
                     setTimeout(FunctionHoverWord('warning-3'), 200)
                 }
             }
             if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
+                if (value_3.match(InputSpacingPuntationError_4) == null) {
                 } else {
-                    count_warning += 1
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    warning_card.classList.remove('is-hidden')
+                    if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
+                    } else {
+                        count_warning += 1
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
+                    }
                 }
             }
             if (checkWarning(value_3).length > 0) {
@@ -2040,26 +2141,64 @@ function checkAdsFunc(value) {
                     setTimeout(FunctionHoverWord('banned-3'), 520)
                 }
                 if (checkFormat2(value_4) == 1) {
-                    if (isUpperCase(value_4) == true) {
-                        if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
-                        } else {
-                            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                            value_check_ad = false
-                            if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
-                            } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                    if (value_4.match(InputFormatUpperAfterDot)) {
+                        list_after_dot = []
+                        for (let i = 0; i < value_4.length; i++) {
+                            if (value_4[i] == '.' || value_4[i] == '!' || value_4[i] == '?') {
+                                list_after_dot.push(i)
                             }
                         }
-                    }
-                    if (checkSensitive(value_4).length > 0 || value_4.match(InputFormatUpperAfterDot)) {
-                    } else {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                        let list_sentences = []
+                        list_sentences.push(value_4.substr(0, list_after_dot[0]))
+                        for (let i = 0; i < list_after_dot.length; i++) {
+                            list_sentences.push(value_4.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                        }
+                        //check sentence one by one
+                        for (let i = 0; i < list_sentences.length; i++) {
+                            let temp = list_sentences[i]
+                            //banned
+                            if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                                value_check_ad = false
 
-                        warning_card.classList.remove('is-hidden')
-                        if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                                } else {
+                                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                                }
+                            }
+                            //warning
+                            if (checkFormat2(temp) == 1) {
+                                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                                warning_card.classList.remove('is-hidden')
+                                if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                                } else {
+                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                    count_warning += 1
+                                }
+                            }
+                        }
+                    } else {
+                        if (isUpperCase(value_4) == true) {
+                            if (checkSensitive(value_4).length > 0) {
+                            } else {
+                                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                                value_check_ad = false
+                                if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
+                                } else {
+                                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                                }
+                            }
+                        }
+                        if (checkSensitive(value_4).length > 0) {
                         } else {
-                            count_warning += 1
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                count_warning += 1
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            }
                         }
                     }
 
@@ -2068,7 +2207,7 @@ function checkAdsFunc(value) {
                     || value_4.match(InputSpacingPuntationError_1)
                     || value_4.match(InputSpacingPuntationError_2)
                     || value_4.match(InputSpacingPuntationError_3)) {
-                    if (value_4.match(InputFormatUpperAfterDot)) {
+                    if (value_4.match(InputSpacingPuntationError_4) == null) {
                         // value_check_ad = true
                     } else {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
@@ -2116,7 +2255,7 @@ function checkAdsFunc(value) {
 
                 //case warning
                 if (value_4.match(InputFormatWithPuntuation)) {
-                    
+
                     let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
                     let string2array = value_4.split('')
                     let first_length = value_4.length
@@ -2140,7 +2279,7 @@ function checkAdsFunc(value) {
                     }
                 }
                 if (value_4.match(InputFormatFrom2Puntuation)) {
-                    
+
                     //value_check_ad = false
                     warning_card.classList.remove('is-hidden')
                     if (value_4.indexOf("...") > -1) {
@@ -2152,7 +2291,6 @@ function checkAdsFunc(value) {
                         }
                     } else {
                         let matches = Array.from(value_4.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                        let mini_array = [...value_4.matchAll(InputFormatFrom2Puntuation)];
                         for (let i = 0; i < matches.length; i++) {
                             let item = matches[i]
                             //show location in string
@@ -2172,7 +2310,7 @@ function checkAdsFunc(value) {
                                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
                                 }
                             }
-                            
+
                         }
                         setTimeout(FunctionHoverWord('warning-3'), 200)
                     }
@@ -2212,9 +2350,9 @@ function checkAdsFunc(value) {
                 content_card_1.classList.add('is-hidden')
                 $('#card-no-error').removeClass('is-hidden')
                 // $('#alert-card-first .card-error-list').append('<p id="no-error-mess">Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
-            } 
+            }
         }, 500)
-        if(count_warning > 0){
+        if (count_warning > 0) {
             $('#warning-tip span').html(count_warning + ' ')
             tippy('#warning-tip', {
                 content: '<div class="tippy-block"><p style="font-weight: normal; margin-bottom: 0;"><b>Gợi ý chỉnh sửa</b> là những nội dung nghi ngờ vi phạm qui định quảng cáo. Bỏ qua nếu bạn chắc rằng những gợi ý này không chính xác</p></div>',
@@ -2226,54 +2364,54 @@ function checkAdsFunc(value) {
 
         //check user rated or not
         let had_rated = getCookie('has_rated')
-        if(had_rated == 'rated'){
+        if (had_rated == 'rated') {
         } else {
             // set cookie for showing rating block
-            setCookie('has_validated','validated', 30)
+            setCookie('has_validated', 'validated', 30)
         }
-        
+
     }, 500);
 }
 
 //focus preview side when input
-first_input.onfocus = value => {
+first_input.onfocus = () => {
     first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
     first_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
     fourth_content_preview.classList.remove('preview-focus')
 }
-first_input.onblur = value => {
+first_input.onblur = () => {
     first_content_preview.classList.toggle('preview-focus')
 }
-second_input.onfocus = value => {
+second_input.onfocus = () => {
     second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
     second_content_preview.classList.add('preview-focus')
     first_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
     fourth_content_preview.classList.remove('preview-focus')
 }
-second_input.onblur = value => {
+second_input.onblur = () => {
     second_content_preview.classList.toggle('preview-focus')
 }
-third_input.onfocus = value => {
+third_input.onfocus = () => {
     third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
     third_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     first_content_preview.classList.remove('preview-focus')
     fourth_content_preview.classList.remove('preview-focus')
 }
-third_input.onblur = value => {
+third_input.onblur = () => {
     third_content_preview.classList.toggle('preview-focus')
 }
-fourth_input.onfocus = value => {
+fourth_input.onfocus = () => {
     fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
     fourth_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
     first_content_preview.classList.remove('preview-focus')
 }
-fourth_input.onblur = value => {
+fourth_input.onblur = () => {
     fourth_content_preview.classList.toggle('preview-focus')
 }
 
@@ -2392,7 +2530,7 @@ FunctionHoverWord = (id) => {
                             maxWidth: 270,
                             theme: 'zad1',
                             interactive: true,
-                            onUntrigger(instance, event) {
+                            onUntrigger(instance) {
                                 instance.destroy()
                             }
                         });
@@ -2427,7 +2565,7 @@ FunctionHoverWord = (id) => {
                 interactive: true,
                 // placement: 'right-start',
                 // trigger: 'click',
-                onUntrigger(instance, event) {
+                onUntrigger(instance) {
                     instance.destroy()
                 }
             });
@@ -2502,7 +2640,7 @@ $('#check_tpcn').change(function (value) {
     }
 })
 
-window.onscroll = value => {
+window.onscroll = () => {
     let buttonCheck = document.getElementById('check-form-ad')
     let bounding = buttonCheck.getBoundingClientRect();
     // console.log('top',bounding.top)
