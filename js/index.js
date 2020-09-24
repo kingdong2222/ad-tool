@@ -1199,11 +1199,21 @@ function checkWarning(val) {
 }
 //check multi uppercase
 function checkFormat2(val) {
-    for (let i = 1; i < val.length; i++) {
-        if (val[i] != val[i].toLowerCase()) {
-            return 1; break;
+    if (val.charAt(0) == ' ') {
+        for (let i = 2; i < val.length; i++) {
+            if (val[i] != val[i].toLowerCase()) {
+                return 1; break;
+            }
+        }
+    } else {
+        //i = 1 because of the first uppercase letter of sentence
+        for (let i = 1; i < val.length; i++) {
+            if (val[i] != val[i].toLowerCase()) {
+                return 1; break;
+            }
         }
     }
+
 }
 //check full uppercase
 function isUpperCase(str) {
@@ -1351,22 +1361,17 @@ function checkAdsFunc() {
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
                 || value_1.match(InputSpacingPuntationError_3)) {
-                if (value_1.match(InputFormatUpperAfterDot)) {
-                    value_check_ad = true
+                if (value_1.match(InputSpacingPuntationError_4) == null) {
+                    // value_check_ad = true
                 } else {
-                    if (value_1.match(InputFormatUpperAfterDot)) {
-                        // value_check_ad = true
-                    } else if (value_1.match(InputSpacingPuntationError_4) == null) {
-                        // value_check_ad = true
+                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    value_check_ad = false
+                    if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
                     } else {
-                        first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                        value_check_ad = false
-                        if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
-                        }
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
                     }
                 }
+
             }
 
             //test spelling aka kiem tra chinh ta
@@ -1516,18 +1521,11 @@ function checkAdsFunc() {
                 }
             }
             if (value_2.charAt(0).match(InputFormatNoPuntuation) == null && value_2.charAt(0) != ' ') {
-                console.log(value_2)
-                let tmp = decodeURIComponent(value_2)
-                console.log(tmp.length)
-                if (value_2.includes('')) {
-                    console.log('check')
+                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                value_check_ad = false
+                if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
                 } else {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
-                    }
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
                 }
             }
             if (value_2.charAt(0) == ' ') {
@@ -1583,6 +1581,9 @@ function checkAdsFunc() {
                         }
                         //warning
                         if (checkFormat2(temp) == 1) {
+
+                            console.log(temp)
+                            console.log(checkFormat2(temp))
                             second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                             warning_card.classList.remove('is-hidden')
                             if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
@@ -1621,9 +1622,7 @@ function checkAdsFunc() {
                 || value_2.match(InputSpacingPuntationError_1)
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
-                if (value_2.match(InputFormatUpperAfterDot)) {
-                    // value_check_ad = true
-                } else if (value_2.match(InputSpacingPuntationError_4) == null) {
+                if (value_2.match(InputSpacingPuntationError_4) == null) {
                     // value_check_ad = true
                 } else {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -1942,9 +1941,7 @@ function checkAdsFunc() {
                 || value_3.match(InputSpacingPuntationError_1)
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
-                if (value_3.match(InputFormatUpperAfterDot)) {
-                    // value_check_ad = true
-                } else if (value_3.match(InputSpacingPuntationError_4) == null) {
+                if (value_3.match(InputSpacingPuntationError_4) == null) {
                     // value_check_ad = true
                 } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -2159,7 +2156,7 @@ function checkAdsFunc() {
                             if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
                                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                                 value_check_ad = false
-    
+
                                 if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                                 } else {
                                     $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
@@ -2206,9 +2203,7 @@ function checkAdsFunc() {
                     || value_4.match(InputSpacingPuntationError_1)
                     || value_4.match(InputSpacingPuntationError_2)
                     || value_4.match(InputSpacingPuntationError_3)) {
-                    if (value_4.match(InputFormatUpperAfterDot)) {
-                        // value_check_ad = true
-                    } else if (value_4.match(InputSpacingPuntationError_4) == null) {
+                    if (value_4.match(InputSpacingPuntationError_4) == null) {
                         // value_check_ad = true
                     } else {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')

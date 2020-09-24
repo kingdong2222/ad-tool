@@ -1193,9 +1193,18 @@ function checkWarning(val) {
 }
 //check multi uppercase
 function checkFormat2(val) {
-    for (let i = 1; i < val.length; i++) {
-        if (val[i] != val[i].toLowerCase()) {
-            return 1; break;
+    if (val.charAt(0) == ' ') {
+        for (let i = 2; i < val.length; i++) {
+            if (val[i] != val[i].toLowerCase()) {
+                return 1; break;
+            }
+        }
+    } else {
+        //i = 1 because of the first uppercase letter of sentence
+        for (let i = 1; i < val.length; i++) {
+            if (val[i] != val[i].toLowerCase()) {
+                return 1; break;
+            }
         }
     }
 }
@@ -2584,9 +2593,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
                 || value_1.match(InputSpacingPuntationError_3)) {
-                if (value_1.match(InputFormatUpperAfterDot)) {
-                    // value_check_3k_ad = true
-                } else if (value_1.match(InputSpacingPuntationError_4) == null) {
+                if (value_1.match(InputSpacingPuntationError_4) == null) {
                     // value_check_3k_ad = true
                 } else {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
@@ -2825,9 +2832,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 || value_2.match(InputSpacingPuntationError_1)
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
-                if (value_2.match(InputFormatUpperAfterDot)) {
-                    // value_check_3k_ad = true
-                } else if (value_2.match(InputSpacingPuntationError_4) == null) {
+                if (value_2.match(InputSpacingPuntationError_4) == null) {
                     // value_check_3k_ad = true
                 } else {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -2991,6 +2996,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 //check sentence one by one
                 for (let i = 0; i < list_sentences.length; i++) {
                     let temp = list_sentences[i]
+                    
                     //banned
                     if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -3131,9 +3137,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                 || value_3.match(InputSpacingPuntationError_1)
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
-                if (value_3.match(InputFormatUpperAfterDot)) {
-                    // value_check_3k_ad = true
-                } else if (value_3.match(InputSpacingPuntationError_4) == null) {
+                if (value_3.match(InputSpacingPuntationError_4) == null) {
                     // value_check_3k_ad = true
                 } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -3382,9 +3386,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                         || value_4.match(InputSpacingPuntationError_1)
                         || value_4.match(InputSpacingPuntationError_2)
                         || value_4.match(InputSpacingPuntationError_3)) {
-                        if (value_4.match(InputFormatUpperAfterDot)) {
-                            // value_check_3k_ad = true
-                        } else if (value_4.match(InputSpacingPuntationError_4) == null) {
+                        if (value_4.match(InputSpacingPuntationError_4) == null) {
                             // value_check_3k_ad = true
                         } else {
                             fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
