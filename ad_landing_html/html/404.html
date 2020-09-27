@@ -281,10 +281,27 @@
           }
           
           $('.card').click(function() {
-          	$('.card').removeClass('active')
-          	$('.card a').addClass('collapsed')
-          	$('.card .collapse').removeClass('show')
-          	$(this).addClass('active')
+          	let section = 'section-0'
+          	let index = $(this).index()
+          	let num
+          	let value = ''
+          	let copyText
+          	if($('#click-section-0').hasClass('is-active')){
+          		index >= 10 ? num = String(index) : num = String('0'+index)
+          		value = 'https://ads.zalo.me/business/cau-hoi-thuong-gap/#' + section + '#'+num
+          		$(this).append("<input id='input-copy' value='"+value+"'/>")
+          	} else {
+          		section = 'section-1'
+          		index >= 10 ? num = String(index) : num = String('0'+index)
+          		value = 'https://ads.zalo.me/business/cau-hoi-thuong-gap/#' + section + '#'+num
+          		$(this).append("<input id='input-copy' value='"+value+"'/>")
+          	}
+          
+          	copyText = document.getElementById("input-copy");
+          	copyText.select();
+          	copyText.setSelectionRange(0, 99999);
+          	document.execCommand("copy");
+          	copyText.remove();
           });
         </script>
       </footer>
