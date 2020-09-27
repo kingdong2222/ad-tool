@@ -2490,6 +2490,26 @@ let listK = []
 let listL = []
 let listM = []
 
+ //warning mess
+ let warn_mess_0 = 'Có viết hoa nhiều chữ cái (ngoại trừ tên riêng và danh từ riêng)'
+ let warn_mess_1 = 'Sử dụng từ phản cảm, thiếu kiểm chứng:'
+ let warn_mess_2 = 'Sử dụng dấu câu sai qui cách:'
+ let warn_mess_3 = 'Sử dụng dấu ba chấm'
+ let warn_mess_4 = 'Sử dụng kí tự đặc biệt:'
+ let warn_mess_5 = 'Có 2 khoảng trắng liên tiếp'
+ let warn_mess_6 = 'Có số điện thoại hoặc địa chỉ website'
+
+ //banned mess
+ let ban_mess_0 = 'Sử dụng từ ngữ bị hạn chế:'
+ let ban_mess_1 = 'Viết hoa toàn bộ'
+ let ban_mess_2 = 'Sử dụng khoảng trắng đầu câu'
+ let ban_mess_3 = 'Không viết hoa chữ cái đầu câu'
+ let ban_mess_4 = 'Sử dụng dấu câu sai quy cách'
+ let ban_mess_5 = 'Sử dụng dấu câu ở đầu'
+ let ban_mess_6 = 'Có chứa từ sai chính tả:'
+
+ let count_warning = 0
+
 document.getElementById('check-3k-ad').onclick = () => {
     for (let i = 0; i < ids.length; i++) {
         setTimeout(() => {
@@ -2500,16 +2520,16 @@ document.getElementById('check-3k-ad').onclick = () => {
 
 function check3kAds(id, value_1, value_2, value_3, value_4) {
 
-    if (value_2.length > 90) {
-        listF[id] = ''
-        listG[id] = ''
-        listH[id] = ''
-        listI[id] = ''
-        listJ[id] = ''
-        listK[id] = ''
-        listL[id] = ''
-        listM[id] = ''
-    } else {
+    // if (value_2.length > 90) {
+    //     listF[id] = ''
+    //     listG[id] = ''
+    //     listH[id] = ''
+    //     listI[id] = ''
+    //     listJ[id] = ''
+    //     listK[id] = ''
+    //     listL[id] = ''
+    //     listM[id] = ''
+    // } else {
 
 
         //clear cards
@@ -3017,15 +3037,15 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                             $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
                         }
                     }
-                    if (temp.charAt(0) == ' ') {
-                        second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        value_check_3k_ad = false
-                        listI[id] == '' ? listI[id] = 'x' : null
-                        if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
-                        }
-                    }
+                    // if (temp.charAt(0) == ' ') {
+                    //     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    //     value_check_3k_ad = false
+                    //     listI[id] == '' ? listI[id] = 'x' : null
+                    //     if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
+                    //     } else {
+                    //         $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
+                    //     }
+                    // }
                     //warning
                     if (checkFormat2(temp) == 1) {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -3546,7 +3566,7 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
         }, 400)
     }
 
-}
+// }
 
 function authenticate() {
     return gapi.auth2.getAuthInstance()
