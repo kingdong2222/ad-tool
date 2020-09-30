@@ -1,45 +1,56 @@
 block header
 
-.header-container
-	a.img-logo(href='index.html') Zalo Ads
-	nav.nav(role='navigation')
-		ul
-			li.menu-item
-				a(href='#!') Home
-			li.menu-item
-				a(href='gioithieu.html') Giới thiệu
-			li.menu-item
-				a(href='huongdan.html') Tài nguyên
-			li.menu-item
-				a.func-modal-form(href='javascript:void(0)') Đối tác
-			li.menu-item
-				a.func-modal-form(href='javascript:void(0)') Tin tức
-			li.menu-item
-				a(href='hotro.html') Liên hệ hỗ trợ
-	.group-header-right
-		.field.field-button.is-grouped.dropdown
-			.control
-				a.button.is-primary.create-ad-top-button(href="#!") 
-					span.is-hidden-touch Quản lý quảng cáo
-					span.is-hidden-desktop Quản lý Ads
-			.control.dropdown-toggle(href="#" role="button" id="dropdown-m1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-				a.button.is-primary.button-arr
-					i.arr
-			.context-arr.dropdown-menu(aria-labelledby="dropdown-m1")
+a.logo(href="https://ads.zalo.me/business/creative/adchecker/")
+	i.ico-logo
+.navbar-main
+	ul
+		li
+			a().navbar-item Công cụ kiểm tra quảng cáo
+		li
+			a().navbar-item Vị trí hiển thị quảng cáo
+		li
+			a(href="document_search.html").navbar-item Tra cứu giấy phép
+.dropdown
+	a.button.dropdown-toggle(role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="OpenUpdateHistory()") 
+		<i class="icz icz-fill-bell"></i>
+		.red-dot#red_dot
+		span Lịch sử cập nhật
+	.dropdown-menu(aria-labelledby="dropdown-m2")
+		p.history-update-title Chi tiết phiên bản
+		.history-list
+			.history-item
 				ul
-					li
-						a(href='#!')
-							span Tạo quảng cáo
-					li
-						a(href='#!')
-							span Tạo Official Account
-		.group-search.is-hidden-touch
-			.search-input-form#search-input-header
-				input#search-input(type="text" placeholder="Nhập nội dung cần tìm..." disabled)
-				a.button-search#button-search
-					i.icn.icn-search
-				button.button-search(style='display: none;')
-					i.icn.icn-search
-	button.hamburger.hamburger--collapse(type='button')
-		span.hamburger-box
-			span.hamburger-inner
+					li 
+						p Thêm tính năng kiểm tra chính tả và gợi ý chỉnh sửa
+				p Phiên bản 1.0.4 - 17/08/2020
+			.history-item
+				ul
+					li 
+						p Thêm tính năng Tra cứu giấy phép
+					li 
+						p Thêm tính năng gợi ý chỉnh sửa cho từ CẤM, từ phản cảm, thiếu kiểm chứng
+					li 
+						p Bổ sung điều kiện quảng cáo cho “Thực phẩm chức năng”
+				p Phiên bản 1.0.3 - 17/08/2020
+			.history-item
+				ul
+					li 
+						p Kiểm tra nội dung có chứa số điện thoại hoặc email
+					li 
+						p Cập nhật lại Vị trí quảng cáo
+					li 
+						p Kiểm tra nội dung có chứa từ ngữ phản cảm, thiếu kiểm chứng
+					li 
+						p Kiểm tra nội dung có chứa từ CẤM
+				p Phiên bản 1.0.2 - 10/08/2020
+			.history-item
+				ul
+					li 
+						p Tự động kiểm tra chất lượng hình ảnh
+					li 
+						p Kiểm tra phần trăm ký tự trên ảnh
+					li 
+						p Kiểm tra nội dung có chứa ký tự đặc biệt
+					li 
+						p Kiểm tra nội dung có chữ viết hoa
+				p Phiên bản 1.0.1 - 27/07/2020
