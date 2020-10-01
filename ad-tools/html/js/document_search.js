@@ -80,7 +80,8 @@ const list_nganh_hang = {
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Cục Thú y  - Bộ Nông nghiệp và Phát triển nông thôn)</em>'
     ],
     13: [
-        'Giấy chứng nhận an toàn vệ sinh thực phẩm <br><em>(được cấp bởi Vụ khoa học và công nghệ/ Vụ thị trường trong nước/Sở Công Thương)</em>'
+        'Giấy chứng nhận an toàn vệ sinh thực phẩm <br><em>(được cấp bởi Vụ khoa học và công nghệ/ Vụ thị trường trong nước/Sở Công Thương)</em>',
+        'Thông tin về nồng độ cồn của sản phẩm trong phần giấy phép đính kèm'
     ],
     14: [
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế )</em>'
@@ -137,8 +138,7 @@ const list_nganh_hang = {
     ],
     29: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
-        'Giấy chứng nhận đủ điều kiện về an ninh trật tự (Chỉ yêu cầu nếu nội dung có hình ảnh nhạy cảm, gợi dục...) <br><em>(được cấp bởi Công an tỉnh/ thành phố)</em>',
-        'Chứng chỉ hành nghề bác sĩ',
+        'Chứng chỉ hành nghề bác sĩ của người chịu trách nhiệm chuyên môn kĩ thuật <br><em>(Sử dụng phương pháp vật lý trị liệu)</em>',
     ],
     30: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',

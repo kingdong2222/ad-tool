@@ -550,16 +550,17 @@ var cropLargeImg = function (val) {
                                 let src = cv.imread(imgElement);
                                 let dst = new cv.Mat();
                                 let men = new cv.Mat();
+                                let menO = new cv.Mat();
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
-                                // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
-                                // console.log(men.data64F[0])
+                                var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+                                console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
-                                    document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
-                                    document.getElementById('img-quality').classList.add('is-ok')
+                                    document.getElementById('img-quality-mobile').innerHTML = 'Đạt tiêu chuẩn'
+                                    document.getElementById('img-quality-mobile').classList.add('is-ok')
                                 } else {
-                                    document.getElementById('img-quality').innerHTML = 'Bị mờ'
-                                    document.getElementById('img-quality').classList.remove('is-ok')
+                                    document.getElementById('img-quality-mobile').innerHTML = 'Bị mờ'
+                                    document.getElementById('img-quality-mobile').classList.remove('is-ok')
                                 }
                                 // cv.imshow('canvasOutput', dst);
                                 src.delete(); dst.delete();
@@ -589,10 +590,11 @@ var cropLargeImg = function (val) {
                                     let src = cv.imread(imgElement);
                                     let dst = new cv.Mat();
                                     let men = new cv.Mat();
+                                    let menO = new cv.Mat();
                                     cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                     // You can try more different parameters
-                                    // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
-                                    // console.log(men.data64F[0])
+                                    var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+                                    console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
                                     if (men.data64F[0] > 10) {
                                         document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                         document.getElementById('img-quality').classList.add('is-ok')
@@ -822,10 +824,11 @@ var cropLargeImgAgain = function (val) {
                                 let src = cv.imread(imgElement);
                                 let dst = new cv.Mat();
                                 let men = new cv.Mat();
+                                let menO = new cv.Mat();
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
-                                // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
-                                // console.log(men.data64F[0])
+                                var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+                                console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                     document.getElementById('img-quality').classList.add('is-ok')
@@ -858,7 +861,7 @@ var cropLargeImgAgain = function (val) {
                                     cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                     // You can try more different parameters
                                     var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-                                    console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+                                    console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
                                     if (men.data64F[0] > 10) {
                                         document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                         document.getElementById('img-quality').classList.add('is-ok')
@@ -3727,7 +3730,7 @@ function checkAdsFunc_mobile() {
             }
         }
 
-        if (tpcn_case) { }
+        if (tpcn_case_mobile) { }
         else {
             if (value_4) {
                 $("#fourth-error-list li").remove()

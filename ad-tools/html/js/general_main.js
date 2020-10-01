@@ -5,18 +5,8 @@ let contents = []
 let descs = []
 let infos = []
 
-let version_cache = '1.0.1'
-
 window.onload = () => {
 
-    //cache cookie
-    let cache_temp = getCookie('cache_cookie')
-    if(cache_temp == version_cache){
-        console.log(version_cache)
-    } else {
-        window.location.reload();
-        setCookie('cache_cookie', version_cache, 1)
-    }
     
     //check cookie about new update
     let cookie_update = getCookie('version_update')

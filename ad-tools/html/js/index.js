@@ -73,11 +73,11 @@ $("#avatar-image-input-0").click(() => {
 })
 $("#large-image-input").click(() => {
     cropLargeImg()
-    dataLayer.push({ 'event': 'event_UploadImg' })
+    // dataLayer.push({ 'event': 'event_UploadImg' })
 })
 $("#change-large-img").click(() => {
     document.getElementById("change-large-img-input").click()
-    dataLayer.push({ 'event': 'event_UploadImg' })
+    // dataLayer.push({ 'event': 'event_UploadImg' })
 })
 $('#change-large-img-input').click(() => {
     cropLargeImgAgain()
@@ -438,14 +438,22 @@ var cropAvatarAgain = function () {
         inputImage.parentNode.className += ' disabled';
     }
 };
-var cropLargeImg = function () {
+var cropLargeImg = function (val) {
 
     var Cropper = window.Cropper;
     var URL = window.URL || window.webkitURL;
-    var container = document.querySelector('.img-container');
+    var container
+    var actions;
+    if (val == 'mobile') {
+        container = document.querySelector('.img-container-mobile');
+        actions = document.getElementById('actions-mobile');
+    } else {
+        container = document.querySelector('.img-container');
+        actions = document.getElementById('actions');
+    }
     var image = container.getElementsByTagName('img').item(0);
     var download = document.getElementById('download-large-image');
-    var actions = document.getElementById('actions');
+
     var options = {
         aspectRatio: 1024 / 533,
         autoCropArea: 1,
@@ -529,69 +537,104 @@ var cropLargeImg = function () {
             switch (data.method) {
                 case 'getCroppedCanvas':
                     if (result) {
-                        // console.log(result)
-                        if (!download.disabled) {
-                            download.download = uploadedImageName;
-                            download.href = result.toDataURL(uploadedImageType);
-                            $(".large-image-preview").addClass('is-show')
-                            $(".large-image-input").addClass('is-hidden')
-
+                        if (val == 'mobile') {
+                            $(".large-image-preview-mobile").addClass('is-show')
+                            $(".large-image-input-mobile").addClass('is-hidden')
                             $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
-
-                            document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
-
-                            $(".preview-sample").replaceWith("<img class='preview-sample' id='output-preview-large' style='background:none;'/>");
-                            $(".preview-sample").attr("src", result.toDataURL(uploadedImageType))
-                            // $('.preview-parent').addClass('active')
+                            document.getElementById('output-large-preview-mobile').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+                            
                             //check blur
-                            let imgElement = document.getElementById('imageSrc-preview');
+                            let imgElement = document.getElementById('imageSrc-preview-mobile');
                             imgElement.src = result.toDataURL(uploadedImageType)
                             imgElement.onload = function () {
                                 let src = cv.imread(imgElement);
                                 let dst = new cv.Mat();
                                 let men = new cv.Mat();
+                                let menO = new cv.Mat();
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
-                                // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
-                                // console.log(men.data64F[0])
+                                var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+                                console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
-                                    document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
-                                    document.getElementById('img-quality').classList.add('is-ok')
+                                    document.getElementById('img-quality-mobile').innerHTML = 'Đạt tiêu chuẩn'
+                                    document.getElementById('img-quality-mobile').classList.add('is-ok')
                                 } else {
-                                    document.getElementById('img-quality').innerHTML = 'Bị mờ'
-                                    document.getElementById('img-quality').classList.remove('is-ok')
+                                    document.getElementById('img-quality-mobile').innerHTML = 'Bị mờ'
+                                    document.getElementById('img-quality-mobile').classList.remove('is-ok')
                                 }
                                 // cv.imshow('canvasOutput', dst);
                                 src.delete(); dst.delete();
                             };
 
+                            
                             $(".ads-img .squares").addClass("is-show");
+                        } else {
+                            if (!download.disabled) {
+                                download.download = uploadedImageName;
+                                download.href = result.toDataURL(uploadedImageType);
+                                $(".large-image-preview").addClass('is-show')
+                                $(".large-image-input").addClass('is-hidden')
 
-                            let cookie_first_download = getCookie('first_user_download')
-                            let tmp_cookie
-                            if (cookie_first_download) {
-                                tmp_cookie = false
-                            } else {
-                                setCookie('first_user_download', 'first_user_download', 30)
-                                tmp_cookie = true
-                            }
+                                $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
 
-                            tippy('#dropdown-m1', {
-                                content: '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
-                                allowHTML: true,
-                                maxWidth: 270,
-                                theme: 'zad',
-                                showOnCreate: tmp_cookie,
-                                placement: 'right-start',
-                                onShow(instance) {
-                                    instance.setProps({ trigger: 'click' })
-                                },
-                                onTrigger(instance) {
-                                    instance.destroy()
+                                document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+
+                                $(".preview-sample").replaceWith("<img class='preview-sample' id='output-preview-large' style='background:none;'/>");
+                                $(".preview-sample").attr("src", result.toDataURL(uploadedImageType))
+                                // $('.preview-parent').addClass('active')
+
+                                //check blur
+                                let imgElement = document.getElementById('imageSrc-preview');
+                                imgElement.src = result.toDataURL(uploadedImageType)
+                                imgElement.onload = function () {
+                                    let src = cv.imread(imgElement);
+                                    let dst = new cv.Mat();
+                                    let men = new cv.Mat();
+                                    let menO = new cv.Mat();
+                                    cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+                                    // You can try more different parameters
+                                    var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+                                    console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
+                                    if (men.data64F[0] > 10) {
+                                        document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
+                                        document.getElementById('img-quality').classList.add('is-ok')
+                                    } else {
+                                        document.getElementById('img-quality').innerHTML = 'Bị mờ'
+                                        document.getElementById('img-quality').classList.remove('is-ok')
+                                    }
+                                    // cv.imshow('canvasOutput', dst);
+                                    src.delete(); dst.delete();
+                                };
+
+                                $(".ads-img .squares").addClass("is-show");
+
+                                let cookie_first_download = getCookie('first_user_download')
+                                let tmp_cookie
+                                if (cookie_first_download) {
+                                    tmp_cookie = false
+                                } else {
+                                    setCookie('first_user_download', 'first_user_download', 30)
+                                    tmp_cookie = true
                                 }
-                            });
 
+                                tippy('#dropdown-m1', {
+                                    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+                                    allowHTML: true,
+                                    maxWidth: 270,
+                                    theme: 'zad',
+                                    showOnCreate: tmp_cookie,
+                                    placement: 'right-start',
+                                    onShow(instance) {
+                                        instance.setProps({ trigger: 'click' })
+                                    },
+                                    onTrigger(instance) {
+                                        instance.destroy()
+                                    }
+                                });
+
+                            }
                         }
+
                     }
 
                     break;
@@ -607,9 +650,8 @@ var cropLargeImg = function () {
         }
     };
 
-
     // Import image
-    var inputImage = document.getElementById('large-image-input');
+    var inputImage = val == 'mobile' ? document.getElementById('large-image-input-mobile') : document.getElementById('large-image-input');
 
     if (URL) {
         inputImage.onchange = function () {
@@ -617,9 +659,30 @@ var cropLargeImg = function () {
             var file;
 
             if (cropper && files && files.length) {
+                if (val == 'mobile') {
+                    $("html").addClass("overlay-popup")
+                    $("#popup-editImg").addClass("is-show")
+                } else {
+                    $("html").addClass("overlay-modal");
+                    $("#modalEditImg").addClass("show");
 
-                $("html").addClass("overlay-modal");
-                $("#modalEditImg").addClass("show");
+                    setTimeout(() => {
+                        tippy('#tippy-crop-img', {
+                            content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+                            allowHTML: true,
+                            maxWidth: 270,
+                            theme: 'zad',
+                            showOnCreate: tmp_cookie,
+                            placement: 'right-start',
+                            onShow(instance) {
+                                instance.setProps({ trigger: 'click' })
+                            },
+                            onHide(instance) {
+                                instance.setProps({ trigger: 'mouseenter focus' })
+                            },
+                        });
+                    }, 100)
+                }
 
                 let cookie_first_user = getCookie('first_user_adchecker')
                 let tmp_cookie
@@ -629,25 +692,6 @@ var cropLargeImg = function () {
                     setCookie('first_user_adchecker', 'first_user_adchecker', 30)
                     tmp_cookie = true
                 }
-
-
-                setTimeout(() => {
-                    tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
-                        allowHTML: true,
-                        maxWidth: 270,
-                        theme: 'zad',
-                        showOnCreate: tmp_cookie,
-                        placement: 'right-start',
-                        onShow(instance) {
-                            instance.setProps({ trigger: 'click' })
-                        },
-                        onHide(instance) {
-                            instance.setProps({ trigger: 'mouseenter focus' })
-                        },
-                    });
-                }, 100)
-
 
                 file = files[0];
 
@@ -673,14 +717,19 @@ var cropLargeImg = function () {
         inputImage.parentNode.className += ' disabled';
     }
 };
-var cropLargeImgAgain = function () {
+var cropLargeImgAgain = function (val) {
 
     var Cropper = window.Cropper;
     var URL = window.URL || window.webkitURL;
-    var container = document.querySelector('.img-container');
+    if (val == 'mobile') {
+        container = document.querySelector('.img-container-mobile');
+        actions = document.getElementById('actions-mobile');
+    } else {
+        container = document.querySelector('.img-container');
+        actions = document.getElementById('actions');
+    }
     var image = container.getElementsByTagName('img').item(0);
     var download = document.getElementById('download-large-image');
-    var actions = document.getElementById('actions');
     var options = {
         aspectRatio: 1024 / 533,
         autoCropArea: 1,
@@ -764,19 +813,12 @@ var cropLargeImgAgain = function () {
             switch (data.method) {
                 case 'getCroppedCanvas':
                     if (result) {
-                        console.log(result)
-                        if (!download.disabled) {
-                            download.download = uploadedImageName;
-                            download.href = result.toDataURL(uploadedImageType);
-
+                        if (val == 'mobile') {
                             $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
-
-                            document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
-
-                            $(".preview-sample").attr("src", result.toDataURL(uploadedImageType))
-                            // $('.preview-parent').addClass('active')
+                            document.getElementById('output-large-preview-mobile').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+                            $(".ads-img .squares").addClass("is-show");
                             //check blur
-                            let imgElement = document.getElementById('imageSrc-preview');
+                            let imgElement = document.getElementById('imageSrc-preview-mobile');
                             imgElement.src = result.toDataURL(uploadedImageType)
                             imgElement.onload = function () {
                                 let src = cv.imread(imgElement);
@@ -786,7 +828,7 @@ var cropLargeImgAgain = function () {
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
                                 var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-                                console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+                                console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                     document.getElementById('img-quality').classList.add('is-ok')
@@ -797,12 +839,45 @@ var cropLargeImgAgain = function () {
                                 // cv.imshow('canvasOutput', dst);
                                 src.delete(); dst.delete();
                             };
-                            count = 0;
-                            $(".check-msg").html("Hãy chọn các ô có xuất hiện chữ");
-                            $(".check-msg").removeClass("is-ok");
-                            $(".square").removeClass("is-selected");
-                            $(".ads-img .squares").addClass("is-show");
+                        } else {
+                            if (!download.disabled) {
+                                download.download = uploadedImageName;
+                                download.href = result.toDataURL(uploadedImageType);
 
+                                $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
+
+                                document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+
+                                $(".preview-sample").attr("src", result.toDataURL(uploadedImageType))
+                                // $('.preview-parent').addClass('active')
+                                //check blur
+                                let imgElement = document.getElementById('imageSrc-preview');
+                                imgElement.src = result.toDataURL(uploadedImageType)
+                                imgElement.onload = function () {
+                                    let src = cv.imread(imgElement);
+                                    let dst = new cv.Mat();
+                                    let men = new cv.Mat();
+                                    let menO = new cv.Mat();
+                                    cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+                                    // You can try more different parameters
+                                    var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+                                    console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
+                                    if (men.data64F[0] > 10) {
+                                        document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
+                                        document.getElementById('img-quality').classList.add('is-ok')
+                                    } else {
+                                        document.getElementById('img-quality').innerHTML = 'Bị mờ'
+                                        document.getElementById('img-quality').classList.remove('is-ok')
+                                    }
+                                    // cv.imshow('canvasOutput', dst);
+                                    src.delete(); dst.delete();
+                                };
+                                count = 0;
+                                $(".check-msg").html("Hãy chọn các ô có xuất hiện chữ");
+                                $(".check-msg").removeClass("is-ok");
+                                $(".square").removeClass("is-selected");
+                                $(".ads-img .squares").addClass("is-show");
+                            }
                         }
                     }
 
@@ -821,7 +896,7 @@ var cropLargeImgAgain = function () {
 
 
     // Import image
-    var inputImage = document.getElementById('change-large-img-input');
+    var inputImage = val == 'mobile' ? document.getElementById('change-large-img-input-mobile') : document.getElementById('change-large-img-input');
 
     if (URL) {
         inputImage.onchange = function () {
@@ -829,28 +904,28 @@ var cropLargeImgAgain = function () {
             var file;
 
             if (cropper && files && files.length) {
+                if (val == 'mobile') {
+                    $("html").addClass("overlay-popup")
+                    $("#popup-editImg").addClass("is-show")
+                } else {
+                    $("html").addClass("overlay-modal");
+                    $("#modalEditImg").addClass("show");
 
-                $("html").addClass("overlay-modal");
-                $("#modalEditImg").addClass("show");
+                    tippy('#tippy-crop-img', {
+                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+                        allowHTML: true,
+                        maxWidth: 270,
+                        theme: 'zad',
+                        placement: 'right-start',
+                        onShow(instance) {
+                            instance.setProps({ trigger: 'click' })
+                        },
+                        onHide(instance) {
+                            instance.setProps({ trigger: 'mouseenter focus' })
+                        },
+                    });
+                }
 
-                // setTimeout(()=>{
-                tippy('#tippy-crop-img', {
-                    content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
-                    allowHTML: true,
-                    maxWidth: 270,
-                    theme: 'zad',
-                    // interactive: true,
-                    // delay: [300, null],
-                    placement: 'right-start',
-                    // showOnCreate: true,
-                    onShow(instance) {
-                        instance.setProps({ trigger: 'click' })
-                    },
-                    onHide(instance) {
-                        instance.setProps({ trigger: 'mouseenter focus' })
-                    },
-                });
-                // },100)
 
                 file = files[0];
 
@@ -1242,7 +1317,7 @@ const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩ
 const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,})/g
 
 //case sensitive for numbers
-const InputSpacingPuntationError_4 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])([.,?!;:]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])/g
+const InputSpacingPuntationError_4 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])([.,]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])/g
 
 document.getElementById('check-form-ad').onclick = () => {
     document.getElementById('check-form-ad').classList.add('is-loading')
@@ -1472,10 +1547,10 @@ function checkAdsFunc() {
                 } else {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
+                    if ($('#warning-6').text().indexOf(warn_mess_6) == 0) {
                     } else {
                         count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>" + warn_mess_6 + "</p></li>")
                     }
                 }
             }
@@ -1734,10 +1809,10 @@ function checkAdsFunc() {
                 } else {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
+                    if ($('#warning-6').text().indexOf(warn_mess_6) == 0) {
                     } else {
                         count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>" + warn_mess_6 + "</p></li>")
                     }
                 }
             }
@@ -2148,10 +2223,10 @@ function checkAdsFunc() {
                 } else {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     warning_card.classList.remove('is-hidden')
-                    if ($('#warning-3').text().indexOf(warn_mess_6) == 0) {
+                    if ($('#warning-6').text().indexOf(warn_mess_6) == 0) {
                     } else {
                         count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_6 + "</p></li>")
+                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>" + warn_mess_6 + "</p></li>")
                     }
                 }
             }
@@ -2759,5 +2834,1119 @@ window.onscroll = () => {
     }
 }
 
+//mobile functions
 
+let tabs_mobile = document.getElementsByClassName('tabs')[0]
+let tag_lis = tabs_mobile.getElementsByTagName('LI')
+let buttons_a = tabs_mobile.getElementsByTagName('A')
+
+for (let i = 0; i < buttons_a.length; i++) {
+    buttons_a[i].onclick = () => {
+        for (let j = 0; j < tag_lis.length; j++) {
+            tag_lis[j].classList.remove('is-active')
+        }
+        tag_lis[i].classList.add('is-active')
+        let temp_value_a = buttons_a[i].textContent
+        if (temp_value_a.includes('hình ảnh')) {
+            $('.checking').removeClass('is-hidden')
+            $('.content').addClass('is-hidden')
+        } else {
+            $('.checking').addClass('is-hidden')
+            $('.content').removeClass('is-hidden')
+        }
+    }
+}
+
+const first_input_mobile = document.getElementById('first-input-mobile')
+const second_input_mobile = document.getElementById('second-input-mobile')
+const third_input_mobile = document.getElementById('third-input-mobile')
+const fourth_input_mobile = document.getElementById('fourth-input-mobile')
+
+const first_max_letter_mobile = document.getElementById('max-letter-first-mobile')
+const second_max_letter_mobile = document.getElementById('max-letter-second-mobile')
+const third_max_letter_mobile = document.getElementById('max-letter-third-mobile')
+const fourth_max_letter_mobile = document.getElementById('max-letter-fourth-mobile')
+
+const check_form_ad_mobile = document.getElementById('check-form-ad-mobile')
+
+first_input_mobile.oninput = value => {
+    if (value.target.value) {
+        first_max_letter_mobile.innerHTML = first_input_mobile.value.length + '/30'
+        if (second_input.value || third_input.value || fourth_input.value) {
+            //do nothing cause it's done already
+        } else {
+            check_form_ad_mobile.removeAttribute('disabled')
+        }
+    } else {
+        first_max_letter_mobile.innerHTML = '0/30'
+        if (second_input.value || third_input.value || fourth_input.value) {
+            //do nothing cause it's done already
+        }
+        else {
+            check_form_ad_mobile.setAttribute("disabled", "disabled");
+        }
+    }
+}
+
+second_input_mobile.oninput = value => {
+    if (value.target.value) {
+        second_max_letter_mobile.innerHTML = second_input_mobile.value.length + '/30'
+        if (first_input.value || third_input.value || fourth_input.value) {
+            //do nothing cause it's done already
+        } else {
+            check_form_ad_mobile.removeAttribute('disabled')
+        }
+    } else {
+        second_max_letter_mobile.innerHTML = '0/30'
+        if (first_input.value || third_input.value || fourth_input.value) {
+            //do nothing cause it's done already
+        }
+        else {
+            check_form_ad_mobile.setAttribute("disabled", "disabled");
+        }
+    }
+}
+
+third_input_mobile.oninput = value => {
+    if (value.target.value) {
+        third_max_letter_mobile.innerHTML = third_input_mobile.value.length + '/30'
+        if (first_input.value || second_input.value || fourth_input.value) {
+            //do nothing cause it's done already
+        } else {
+            check_form_ad_mobile.removeAttribute('disabled')
+        }
+    } else {
+        third_max_letter_mobile.innerHTML = '0/30'
+        if (first_input.value || second_input.value || fourth_input.value) {
+            //do nothing cause it's done already
+        }
+        else {
+            check_form_ad_mobile.setAttribute("disabled", "disabled");
+        }
+    }
+}
+
+fourth_input_mobile.oninput = value => {
+    if (value.target.value) {
+        fourth_max_letter_mobile.innerHTML = fourth_input_mobile.value.length + '/30'
+        if (first_input.value || second_input.value || third_input.value) {
+            //do nothing cause it's done already
+        } else {
+            check_form_ad_mobile.removeAttribute('disabled')
+        }
+    } else {
+        fourth_max_letter_mobile.innerHTML = '0/30'
+        if (first_input.value || second_input.value || third_input.value) {
+            //do nothing cause it's done already
+        }
+        else {
+            check_form_ad_mobile.setAttribute("disabled", "disabled");
+        }
+    }
+}
+
+//checkbox for case TPCN
+let tpcn_case_mobile = false
+
+$('#check_tpcn_mobile').change(function (value) {
+    if (value.target.checked) {
+        tpcn_case_mobile = true
+        $('.tpcn-case').toggleClass('is-hidden')
+        fourth_max_letter_mobile.innerHTML = '60/60'
+    } else {
+        tpcn_case_mobile = false
+        $('.tpcn-case').toggleClass('is-hidden')
+        fourth_max_letter_mobile.innerHTML = fourth_input_mobile.value.length + '/60'
+    }
+})
+
+$("#large-image-input-mobile").click(() => {
+    cropLargeImg('mobile')
+    // dataLayer.push({ 'event': 'event_UploadImg' })
+})
+$("#change-img-popup").click(() => {
+    document.getElementById("large-image-input-mobile").click()
+    // dataLayer.push({ 'event': 'event_UploadImg' })
+})
+//button tag a call input
+$("#change-large-img-mobile").click(() => {
+    document.getElementById("change-large-img-input-mobile").click()
+    // dataLayer.push({ 'event': 'event_UploadImg' })
+})
+//input of button
+$('#change-large-img-input-mobile').click(() => {
+    cropLargeImgAgain('mobile')
+})
+
+$(".func-close-popup").click(function () {
+    $("html").removeClass("overlay-popup");
+    $(".popup-container").removeClass("is-show");
+    $("div").remove(".cropper-container");
+});
+
+document.getElementById('check-form-ad-mobile').onclick = () => {
+    document.getElementById('check-form-ad-mobile').classList.add('is-loading')
+    checkAdsFunc_mobile()
+    //google track
+    // dataLayer.push({ 'event': 'event_ValidateAd' })
+}
+function checkAdsFunc_mobile() {
+
+    //get value input
+    let value_1 = first_input_mobile.value.trimEnd()
+    let value_2 = second_input_mobile.value.trimEnd()
+    let value_3 = third_input_mobile.value.trimEnd()
+    let value_4 = fourth_input_mobile.value.trimEnd()
+
+    //warning mess
+    let warn_mess_0 = 'Có viết hoa nhiều chữ cái (ngoại trừ tên riêng và danh từ riêng)'
+    let warn_mess_1 = 'Sử dụng từ phản cảm, thiếu kiểm chứng:'
+    let warn_mess_2 = 'Sử dụng dấu câu sai qui cách:'
+    let warn_mess_3 = 'Sử dụng dấu ba chấm'
+    let warn_mess_4 = 'Sử dụng kí tự đặc biệt:'
+    let warn_mess_5 = 'Có 2 khoảng trắng liên tiếp'
+    let warn_mess_6 = 'Có số điện thoại hoặc địa chỉ website'
+
+    //banned mess
+    let ban_mess_0 = 'Sử dụng từ ngữ bị hạn chế:'
+    let ban_mess_1 = 'Viết hoa toàn bộ'
+    let ban_mess_2 = 'Sử dụng khoảng trắng đầu câu'
+    let ban_mess_3 = 'Không viết hoa chữ cái đầu câu'
+    let ban_mess_4 = 'Sử dụng dấu câu sai quy cách'
+    let ban_mess_5 = 'Sử dụng dấu câu ở đầu'
+    let ban_mess_6 = 'Có chứa từ sai chính tả:'
+
+    setTimeout(() => {
+        document.getElementById('check-form-ad-mobile').classList.remove('is-loading')
+
+        if (value_1) {
+            $("#first-error-list li").remove()
+            //case banned
+            if (value_1.charAt(0) != value_1.charAt(0).toUpperCase()) {
+                if ($('#first-banned-0').text().indexOf(ban_mess_3) == 0) {
+                } else {
+                    $("#first-error-list").append("<li class='banned' id='first-banned-0'>" + ban_mess_3 + "</li>")
+                }
+            }
+            if (value_1.charAt(0).match(InputFormatNoPuntuation) == null && value_1.charAt(0) != ' ') {
+                if ($('#first-banned-1').text().indexOf(ban_mess_5) == 0) {
+                } else {
+                    $("#first-error-list").append("<li class='banned' id='first-banned-1'>" + ban_mess_5 + "</li>")
+                }
+            }
+            if (value_1.charAt(0) == ' ') {
+                if ($('#first-banned-2').text().indexOf(ban_mess_2) == 0) {
+                } else {
+                    $("#first-error-list").append("<li class='banned' id='first-banned-2'>" + ban_mess_2 + "</li>")
+                }
+            }
+            if (checkPolicy(value_1).length > 0) {
+                let list = checkPolicy(value_1)
+                for (let i = 0; i < list.length; i++) {
+                    let item = list[i]
+                    if ($('#first-banned-3').text().indexOf(ban_mess_0) == 0) {
+                        if ($('#first-banned-3 span').text().includes(item)) {
+                        } else {
+                            document.getElementById('first-banned-3').innerHTML += ', <span>' + item + '</span>'
+                        }
+                    } else {
+                        $("#first-error-list").append("<li class='banned' id='first-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
+                    }
+                }
+            }
+            if (value_1.match(InputSpacingPuntationError_0)
+                || value_1.match(InputSpacingPuntationError_1)
+                || value_1.match(InputSpacingPuntationError_2)
+                || value_1.match(InputSpacingPuntationError_3)) {
+                if (value_1.match(InputSpacingPuntationError_4) == null) {
+                    // value_check_ad = true
+                } else {
+                    if ($('#first-banned-5').text().indexOf(ban_mess_4) == 0) {
+                    } else {
+                        $("#first-error-list").append("<li class='banned' id='first-banned-5'>" + ban_mess_4 + "</li>")
+                    }
+                }
+
+            }
+
+            //test spelling aka kiem tra chinh ta
+            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
+                text: value_1,
+                app_type: "zad"
+            }, function (resp) {
+                list_mistakes = resp.result[0].mistakes.reverse()
+                let mistake_item
+                let fixed_item
+                if (list_mistakes.length > 0) {
+                    for (let i = 0; i < list_mistakes.length; i++) {
+                        mistake_item = list_mistakes[i].text
+                        fixed_item = list_mistakes[i].suggest[0][0]
+                        fixed_list.push({
+                            mistake_item: mistake_item,
+                            fixed_item: fixed_item
+                        })
+                        if ($('#first-banned-6').text().indexOf(ban_mess_6) == 0) {
+                            if ($('#first-banned-6 span').text().includes(mistake_item)) {
+                            } else {
+                                document.getElementById('first-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                            }
+                        } else {
+                            $("#first-error-list").append("<li class='banned' id='first-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
+                        }
+                    }
+                }
+            })
+
+            //case warning
+            if (value_1.match(InputFormatWithPuntuation)) {
+                let array_match = Array.from(value_1.matchAll(InputFormatWithPuntuation), m => m[0])
+                let string2array = value_1.split('')
+                let first_length = value_1.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                if (array_match.length < first_length) {
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#first-warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#first-warning-1 span').text().includes(difference[i])) {
+                            } else {
+                                document.getElementById('first-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                            }
+                        } else {
+                            $("#first-error-list").append("<li class='warning' id='first-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
+                        }
+                    }
+                }
+
+            }
+            if (value_1.match(InputFormatFrom2Puntuation)) {
+                if (value_1.indexOf("...") > -1) {
+                    $("#first-error-list").append("<li class='warning' id='first-warning-2'>" + warn_mess_3 + "</li>")
+                } else {
+                    let matches = Array.from(value_1.matchAll(InputFormatFrom2Puntuation), m => m[0])
+                    for (let i = 0; i < matches.length; i++) {
+                        let item = matches[i]
+                        if (item == '%,' || item == '%.') {
+                        } else {
+                            if ($('#first-warning-3').text().indexOf(warn_mess_2) == 0) {
+                                if ($('#first-warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('first-warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                $("#first-error-list").append("<li class='warning' id='first-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
+                            }
+                        }
+                    }
+                }
+            }
+            if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
+                if (value_1.match(InputSpacingPuntationError_4) == null) {
+                } else {
+                    if ($('#first-warning-6').text().indexOf(warn_mess_6) == 0) {
+                    } else {
+                        $("#first-error-list").append("<li class='warning' id='first-warning-6'>" + warn_mess_6 + "</li>")
+                    }
+                }
+            }
+            if (checkWarning(value_1).length > 0) {
+                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                //value_check_ad = false
+                warning_card.classList.remove('is-hidden')
+                let list = checkWarning(value_1)
+                for (let i = 0; i < list.length; i++) {
+                    let item = list[i]
+                    if ($('#first-warning-4').text().indexOf(warn_mess_1) == 0) {
+                        if ($('#first-warning-4 span').text().includes(item)) {
+                        } else {
+                            document.getElementById('first-warning-4').innerHTML += ', <span>' + item + '</span>'
+                        }
+                    } else {
+                        $("#first-error-list").append("<li class='warning' id='first-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
+                    }
+                }
+            }
+            if (value_1.match(/\s{2,}/g)) {
+                if ($('#first-warning-5').text().indexOf(warn_mess_5) == 0) {
+                } else {
+                    $("#first-error-list").append("<li class='warning' id='first-warning-5'>" + warn_mess_5 + "</li>")
+                }
+            }
+        }
+
+        if (value_2) {
+            $("#second-error-list li").remove()
+            //case banned
+            if (value_2.charAt(0) != value_2.charAt(0).toUpperCase()) {
+                if ($('#second-banned-0').text().indexOf(ban_mess_3) == 0) {
+                } else {
+                    $("#second-error-list").append("<li class='banned' id='second-banned-0'>" + ban_mess_3 + "</li>")
+                }
+            }
+            if (value_2.charAt(0).match(InputFormatNoPuntuation) == null && value_2.charAt(0) != ' ') {
+                if ($('#second-banned-1').text().indexOf(ban_mess_5) == 0) {
+                } else {
+                    $("#second-error-list").append("<li class='banned' id='second-banned-1'>" + ban_mess_5 + "</li>")
+                }
+            }
+            if (value_2.charAt(0) == ' ') {
+                if ($('#second-banned-2').text().indexOf(ban_mess_2) == 0) {
+                } else {
+                    $("#second-error-list").append("<li class='banned' id='second-banned-2'>" + ban_mess_2 + "</p></li>")
+                }
+            }
+            if (checkPolicy(value_2).length > 0) {
+                let list = checkPolicy(value_2)
+                for (let i = 0; i < list.length; i++) {
+                    let item = list[i]
+                    if ($('#second-banned-3').text().indexOf(ban_mess_0) == 0) {
+                        if ($('#second-banned-3 span').text().includes(item)) {
+                        } else {
+                            document.getElementById('second-banned-3').innerHTML += ', <span>' + item + '</span>'
+                        }
+                    } else {
+                        $("#second-error-list").append("<li class='banned' id='second-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
+                    }
+                }
+            }
+            if (checkFormat2(value_2) == 1) {
+                if (value_2.match(InputFormatUpperAfterDot) && !value_2.includes('\n')) {
+                    list_after_dot = []
+                    for (let i = 0; i < value_2.length; i++) {
+                        if (value_2[i] == '.' || value_2[i] == '!' || value_2[i] == '?') {
+                            list_after_dot.push(i)
+                        }
+                    }
+                    let list_sentences = []
+                    list_sentences.push(value_2.substr(0, list_after_dot[0]))
+                    for (let i = 0; i < list_after_dot.length; i++) {
+                        list_sentences.push(value_2.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                    }
+                    //check sentence one by one
+                    for (let i = 0; i < list_sentences.length; i++) {
+                        let temp = list_sentences[i]
+                        //banned
+                        if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                            if ($('#second-banned-0').text().indexOf(ban_mess_3) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='banned' id='second-banned-0'>" + ban_mess_3 + "</li>")
+                            }
+                        }
+                        //warning
+                        if (checkFormat2(temp) == 1) {
+                            if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                            }
+                        }
+                    }
+                } else {
+                    if (isUpperCase(value_2) == true) {
+                        if (checkSensitive(value_2).length > 0) {
+                        } else {
+                            if ($('#second-banned-4').text().indexOf(ban_mess_1) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='banned' id='second-banned-4'>" + ban_mess_1 + "</li>")
+                            }
+                        }
+                    }
+                    if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
+                    } else {
+                        if (value_2.match(InputSpacingPuntationError_1)) {
+                        } else {
+                            if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (value_2.match(InputSpacingPuntationError_0)
+                || value_2.match(InputSpacingPuntationError_1)
+                || value_2.match(InputSpacingPuntationError_2)
+                || value_2.match(InputSpacingPuntationError_3)) {
+                if (value_2.match(InputSpacingPuntationError_4) == null) {
+                } else {
+                    if ($('#second-banned-5').text().indexOf(ban_mess_4) == 0) {
+                    } else {
+                        $("#second-error-list").append("<li class='banned' id='second-banned-5'>" + ban_mess_4 + "</li>")
+                    }
+                }
+            }
+
+            //test spelling aka kiem tra chinh ta
+            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
+                text: value_2,
+                app_type: "zad"
+            }, function (resp) {
+                list_mistakes = resp.result[0].mistakes.reverse()
+                let mistake_item
+                let fixed_item
+                if (list_mistakes.length > 0) {
+                    for (let i = 0; i < list_mistakes.length; i++) {
+                        mistake_item = list_mistakes[i].text
+                        fixed_item = list_mistakes[i].suggest[0][0]
+                        fixed_list.push({
+                            mistake_item: mistake_item,
+                            fixed_item: fixed_item
+                        })
+                        if ($('#second-banned-6').text().indexOf(ban_mess_6) == 0) {
+                            if ($('#second-banned-6 span').text().includes(mistake_item)) {
+                            } else {
+                                document.getElementById('second-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                            }
+                        } else {
+                            $("#second-error-list").append("<li class='banned' id='second-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
+                        }
+                    }
+                }
+            })
+
+
+            //case warning
+            if (value_2.match(InputFormatWithPuntuation)) {
+                let array_match = Array.from(value_2.matchAll(InputFormatWithPuntuation), m => m[0])
+                let string2array = value_2.split('')
+                let first_length = value_2.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                if (array_match.length < first_length) {
+                    //value_check_ad = false
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#second-warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#second-warning-1 span').text().includes(difference[i])) {
+                            } else {
+                                document.getElementById('second-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                            }
+                        } else {
+                            $("#second-error-list").append("<li class='banned' id='second-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
+                        }
+                    }
+                }
+            }
+            if (value_2.match(InputFormatFrom2Puntuation)) {
+
+                //value_check_ad = false
+                warning_card.classList.remove('is-hidden')
+                if (value_2.indexOf("...") > -1) {
+                    $("#second-error-list").append("<li class='warning' id='second-warning-2'>" + warn_mess_3 + "</li>")
+                } else {
+                    let matches = Array.from(value_2.matchAll(InputFormatFrom2Puntuation), m => m[0])
+                    for (let i = 0; i < matches.length; i++) {
+                        let item = matches[i]
+
+                        if (item == '%,' || item == '%.') {
+                        } else {
+                            if ($('#second-warning-3').text().indexOf(warn_mess_2) == 0) {
+                                if ($('#second-warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('second-warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                $("#second-error-list").append("<li class='warning' id='second-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
+                            }
+                        }
+                    }
+                }
+            }
+            if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
+                if (value_2.match(InputSpacingPuntationError_4) == null) {
+                } else {
+                    if ($('#second-warning-6').text().indexOf(warn_mess_6) == 0) {
+                    } else {
+                        $("#second-error-list").append("<li class='warning' id='second-warning-6'>" + warn_mess_6 + "</li>")
+                    }
+                }
+            }
+            if (checkWarning(value_2).length > 0) {
+                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                //value_check_ad = false
+                warning_card.classList.remove('is-hidden')
+                let list = checkWarning(value_2)
+                for (let i = 0; i < list.length; i++) {
+                    let item = list[i]
+                    if ($('#second-warning-4').text().indexOf(warn_mess_1) == 0) {
+                        if ($('#second-warning-4 span').text().includes(item)) {
+                        } else {
+                            document.getElementById('second-warning-4').innerHTML += ', <span>' + item + '</span>'
+                        }
+                    } else {
+                        $("#second-error-list").append("<li class='warning' id='second-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
+                    }
+                }
+            }
+            if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
+                if ($('#second-warning-5').text().indexOf(warn_mess_5) == 0) {
+                } else {
+                    $("#second-error-list").append("<li class='warning' id='second-warning-5'>" + warn_mess_5 + "</li>")
+                }
+            }
+
+            //case enters too much
+            if (value_2.includes('\n')) {
+
+                let list_enters = []
+                let list_after_dot = []
+                for (let i = 0; i < value_2.length; i++) {
+                    if (value_2[i] === '\n') {
+                        list_enters.push(i)
+                    }
+                    if (value_2[i] == '.'
+                        || value_2[i] == '!'
+                        || value_2[i] == '?') {
+                        list_after_dot.push(i)
+                    }
+                }
+
+                //list sentence after cut with enter
+                let list_sentences = []
+                let list_sentences_after_dot = []
+                list_sentences.push(value_2.substr(0, list_enters[0]))
+                for (let i = 0; i < list_enters.length; i++) {
+                    list_sentences.push(value_2.substring(list_enters[i] + 1, list_enters[i + 1]))
+                }
+                for (let i = 0; i < list_after_dot.length; i++) {
+                    list_sentences_after_dot.push(value_2.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                }
+                //check sentence one by one
+                for (let i = 0; i < list_sentences.length; i++) {
+                    let temp = list_sentences[i]
+                    //banned
+                    if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                        if ($('#second-banned-0').text().indexOf(ban_mess_3) == 0) {
+                        } else {
+                            $("#second-error-list").append("<li class='banned' id='second-banned-0'>" + ban_mess_3 + "</li>")
+                        }
+                    }
+                    if (temp.charAt(0).match(InputFormatNoPuntuation) == null && temp.charAt(0) != ' ') {
+                        if (temp.length <= 1) {
+                        } else {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
+                            if ($('#second-banned-1').text().indexOf(ban_mess_5) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='banned' id='second-banned-1'>" + ban_mess_5 + "</li>")
+                            }
+                        }
+                    }
+                    if (temp.charAt(0) == ' ') {
+                        if (list_sentences_after_dot.length > 0) {
+
+                        } else {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
+                            if ($('#second-banned-2').text().indexOf(ban_mess_2) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='banned' id='second-banned-2'>" + ban_mess_2 + "</li>")
+                            }
+                        }
+                    }
+                    if (temp.match(InputSpacingPuntationError_0)
+                        || temp.match(InputSpacingPuntationError_1)
+                        || temp.match(InputSpacingPuntationError_2)
+                        || temp.match(InputSpacingPuntationError_3)) {
+                        if (temp.match(InputSpacingPuntationError_4) == null) {
+                        } else {
+                            if ($('#second-banned-5').text().indexOf(ban_mess_4) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='banned' id='second-banned-5'>" + ban_mess_4 + "</li>")
+                            }
+                        }
+                    }
+
+                    //warning
+                    if (checkFormat2(temp) == 1) {
+                        if (temp.match(InputFormatUpperAfterDot)) {
+                            list_after_dot_0 = []
+                            for (let i = 0; i < temp.length; i++) {
+                                if (temp[i] == '.' || temp[i] == '!' || temp[i] == '?') {
+                                    list_after_dot_0.push(i)
+                                }
+                            }
+                            let list_sentences_0 = []
+                            list_sentences_0.push(temp.substr(0, list_after_dot_0[0]))
+                            for (let i = 0; i < list_after_dot_0.length; i++) {
+                                list_sentences_0.push(temp.substring(list_after_dot_0[i] + 1, list_after_dot_0[i + 1]))
+                            }
+                            //check sentence one by one
+                            for (let i = 0; i < list_sentences_0.length; i++) {
+                                let temp = list_sentences_0[i]
+                                //banned
+                                if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+
+                                    if ($('#second-banned-0').text().indexOf(ban_mess_3) == 0) {
+                                    } else {
+                                        $("#second-error-list").append("<li class='banned' id='second-banned-0'>" + ban_mess_3 + "</li>")
+                                    }
+                                }
+                                //warning
+                                if (checkFormat2(temp) == 1) {
+                                    if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                    } else {
+                                        $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                                    }
+                                }
+                            }
+                        } else {
+                            if (isUpperCase(temp) == true) {
+                                if (checkSensitive(temp).length > 0) {
+                                } else {
+                                    if ($('#second-banned-4').text().indexOf(ban_mess_1) == 0) {
+                                    } else {
+                                        $("#second-error-list").append("<li class='banned' id='second-banned-4'>" + ban_mess_1 + "</li>")
+                                    }
+                                }
+                            }
+                            if (checkSensitive(temp).length > 0) {
+                            } else {
+                                if (temp.match(InputSpacingPuntationError_1)) {
+
+                                } else {
+                                    if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                    } else {
+                                        $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        if (value_3) {
+            $("#third-error-list li").remove()
+            //case banned
+            if (value_3.charAt(0) != value_3.charAt(0).toUpperCase()) {
+                if ($('#third-banned-0').text().indexOf(ban_mess_3) == 0) {
+                } else {
+                    $("#third-error-list").append("<li class='banned' id='third-banned-0'>" + ban_mess_3 + "</li>")
+                }
+            }
+            if (value_3.charAt(0).match(InputFormatNoPuntuation) == null && value_3.charAt(0) != ' ') {
+                if ($('#third-banned-1').text().indexOf(ban_mess_5) == 0) {
+                } else {
+                    $("#third-error-list").append("<li class='banned' id='third-banned-1'>" + ban_mess_5 + "</li>")
+                }
+            }
+            if (value_3.charAt(0) == ' ') {
+                if ($('#third-banned-2').text().indexOf(ban_mess_2) == 0) {
+                } else {
+                    $("#third-error-list").append("<li class='banned' id='third-banned-2'>" + ban_mess_2 + "</li>")
+                }
+            }
+            if (checkPolicy(value_3).length > 0) {
+                let list = checkPolicy(value_3)
+                for (let i = 0; i < list.length; i++) {
+                    let item = list[i]
+                    if ($('#third-banned-3').text().indexOf(ban_mess_0) == 0) {
+                        if ($('#third-banned-3 span').text().includes(item)) {
+                        } else {
+                            document.getElementById('third-banned-3').innerHTML += ', <span>' + item + '</span>'
+                        }
+                    } else {
+                        $("#third-error-list").append("<li class='banned' id='third-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
+                    }
+                }
+            }
+            if (checkFormat2(value_3) == 1) {
+                if (value_3.match(InputFormatUpperAfterDot)) {
+                    list_after_dot = []
+                    for (let i = 0; i < value_3.length; i++) {
+                        if (value_3[i] == '.' || value_3[i] == '!' || value_3[i] == '?') {
+                            list_after_dot.push(i)
+                        }
+                    }
+                    let list_sentences = []
+                    list_sentences.push(value_3.substr(0, list_after_dot[0]))
+                    for (let i = 0; i < list_after_dot.length; i++) {
+                        list_sentences.push(value_3.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                    }
+                    //check sentence one by one
+                    for (let i = 0; i < list_sentences.length; i++) {
+                        let temp = list_sentences[i]
+                        //banned
+                        if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                            if ($('#third-banned-0').text().indexOf(ban_mess_3) == 0) {
+                            } else {
+                                $("#third-error-list").append("<li class='banned' id='third-banned-0'>" + ban_mess_3 + "</li>")
+                            }
+                        }
+                        //warning
+                        if (checkFormat2(temp) == 1) {
+                            if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
+                            }
+                        }
+                    }
+                } else {
+                    if (isUpperCase(value_3) == true) {
+                        if (checkSensitive(value_3).length > 0) {
+                        } else {
+                            if ($('#third-banned-4').text().indexOf(ban_mess_1) == 0) {
+                            } else {
+                                $("#third-error-list").append("<li class='banned' id='third-banned-4'>" + ban_mess_1 + "</li>")
+                            }
+                        }
+                    }
+                    if (checkSensitive(value_3).length > 0) {
+                    } else {
+                        if (value_3.match(InputSpacingPuntationError_1)) {
+                        } else {
+                            if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
+                            }
+                        }
+                    }
+                }
+
+            }
+            if (value_3.match(InputSpacingPuntationError_0)
+                || value_3.match(InputSpacingPuntationError_1)
+                || value_3.match(InputSpacingPuntationError_2)
+                || value_3.match(InputSpacingPuntationError_3)) {
+                if (value_3.match(InputSpacingPuntationError_4) == null) {
+                    // value_check_ad = true
+                } else {
+                    if ($('#third-banned-5').text().indexOf(ban_mess_4) == 0) {
+                    } else {
+                        $("#third-error-list").append("<li class='banned' id='third-banned-5'>" + ban_mess_4 + "</li>")
+                    }
+                }
+            }
+
+            //test spelling aka kiem tra chinh ta
+            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
+                text: value_3,
+                app_type: "zad"
+            }, function (resp) {
+                list_mistakes = resp.result[0].mistakes.reverse()
+                let mistake_item
+                let fixed_item
+                if (list_mistakes.length > 0) {
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    value_check_ad = false
+                    $('#alert-card-first .card-error-list #no-error-mess').remove()
+                    // console.log(list_mistakes)
+                    for (let i = 0; i < list_mistakes.length; i++) {
+                        mistake_item = list_mistakes[i].text
+                        fixed_item = list_mistakes[i].suggest[0][0]
+                        fixed_list.push({
+                            mistake_item: mistake_item,
+                            fixed_item: fixed_item
+                        })
+                        if ($('#third-banned-6').text().indexOf(ban_mess_6) == 0) {
+                            if ($('#third-banned-6 span').text().includes(mistake_item)) {
+                            } else {
+                                document.getElementById('third-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                            }
+                        } else {
+                            $("#third-error-list").append("<li class='banned' id='third-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
+                        }
+                    }
+                }
+            })
+
+            //case warning
+            if (value_3.match(InputFormatWithPuntuation)) {
+                let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
+                let string2array = value_3.split('')
+                let first_length = value_3.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                if (array_match.length < first_length) {
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#third-warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#third-warning-1 span').text().includes(difference[i])) {
+                            } else {
+                                document.getElementById('third-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                            }
+                        } else {
+                            $("#third-error-list").append("<li class='banned' id='third-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
+                        }
+                    }
+                }
+            }
+            if (value_3.match(InputFormatFrom2Puntuation)) {
+                if (value_3.indexOf("...") > -1) {
+                    if ($('#third-warning-2').text().indexOf(warn_mess_3) == 0) {
+                    } else {
+                        $("#third-error-list").append("<li class='warning' id='third-warning-2'>" + warn_mess_3 + "</li>")
+                    }
+                } else {
+                    let matches = Array.from(value_3.matchAll(InputFormatFrom2Puntuation), m => m[0])
+                    for (let i = 0; i < matches.length; i++) {
+                        let item = matches[i]
+                        if (item == '%,' || item == '%.') {
+                        } else {
+                            if ($('#third-warning-3').text().indexOf(warn_mess_2) == 0) {
+                                if ($('#third-warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('third-warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                $("#third-error-list").append("<li class='warning' id='third-warning-3'>" + warn_mess_2 + " <span>" + item + "</span</li>")
+                            }
+                        }
+                    }
+                }
+            }
+            if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
+                if (value_3.match(InputSpacingPuntationError_4) == null) {
+                } else {
+                    if ($('#third-warning-6').text().indexOf(warn_mess_6) == 0) {
+                    } else {
+                        $("#third-error-list").append("<li class='warning' id='third-warning-6'>" + warn_mess_6 + "</p></li>")
+                    }
+                }
+            }
+            if (checkWarning(value_3).length > 0) {
+                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                //value_check_ad = false
+                warning_card.classList.remove('is-hidden')
+                let list = checkWarning(value_3)
+                for (let i = 0; i < list.length; i++) {
+                    let item = list[i]
+                    if ($('#third-warning-4').text().indexOf(warn_mess_1) == 0) {
+                        if ($('#third-warning-4 span').text().includes(item)) {
+                        } else {
+                            document.getElementById('third-warning-4').innerHTML += ', <span>' + item + '</span>'
+                        }
+                    } else {
+                        $("#third-error-list").append("<li class='warning' id='third-warning-4'>" + warn_mess_1 + "  <span>" + item + "</span></li>")
+                    }
+                }
+            }
+            if (value_3.match(/\s{2,}/g)) {
+                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                warning_card.classList.remove('is-hidden')
+                if ($('#third-warning-5').text().indexOf(warn_mess_5) == 0) {
+                } else {
+                    $("#third-error-list").append("<li class='warning' id='third-warning-5'>" + warn_mess_5 + "</li>")
+                }
+            }
+        }
+
+        if (tpcn_case_mobile) { }
+        else {
+            if (value_4) {
+                $("#fourth-error-list li").remove()
+                //case banned
+                if (value_4.charAt(0) != value_4.charAt(0).toUpperCase()) {
+
+                    if ($('#fourth-banned-0').text().indexOf(ban_mess_3) == 0) {
+                    } else {
+                        $("#fourth-error-list").append("<li class='banned' id='fourth-banned-0'>" + ban_mess_3 + "</li>")
+                    }
+                }
+                if (value_4.charAt(0).match(InputFormatNoPuntuation) == null && value_4.charAt(0) != ' ') {
+                    if ($('#fourth-banned-1').text().indexOf(ban_mess_5) == 0) {
+                    } else {
+                        $("#fourth-error-list").append("<li class='banned' id='fourth-banned-1'>" + ban_mess_5 + "</li>")
+                    }
+                }
+                if (value_4.charAt(0) == ' ') {
+                    if ($('#fourth-banned-2').text().indexOf(ban_mess_2) == 0) {
+                    } else {
+                        $("#fourth-error-list").append("<li class='banned' id='fourth-banned-2'>" + ban_mess_2 + "</li>")
+                    }
+                }
+                if (checkPolicy(value_4).length > 0) {
+                    let list = checkPolicy(value_4)
+                    for (let i = 0; i < list.length; i++) {
+                        let item = list[i]
+                        if ($('#fourth-banned-3').text().indexOf(ban_mess_0) == 0) {
+                            if ($('#fourth-banned-3 span').text().includes(item)) {
+                            } else {
+                                document.getElementById('fourth-banned-3').innerHTML += ', <span>' + item + '</span>'
+                            }
+                        } else {
+                            $("#fourth-error-list").append("<li class='banned'id='fourth-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
+                        }
+                    }
+                }
+                if (checkFormat2(value_4) == 1) {
+                    if (value_4.match(InputFormatUpperAfterDot)) {
+                        list_after_dot = []
+                        for (let i = 0; i < value_4.length; i++) {
+                            if (value_4[i] == '.' || value_4[i] == '!' || value_4[i] == '?') {
+                                list_after_dot.push(i)
+                            }
+                        }
+                        let list_sentences = []
+                        list_sentences.push(value_4.substr(0, list_after_dot[0]))
+                        for (let i = 0; i < list_after_dot.length; i++) {
+                            list_sentences.push(value_4.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                        }
+                        //check sentence one by one
+                        for (let i = 0; i < list_sentences.length; i++) {
+                            let temp = list_sentences[i]
+                            //banned
+                            if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+
+                                if ($('#fourth-banned-0').text().indexOf(ban_mess_3) == 0) {
+                                } else {
+                                    $("#fourth-error-list").append("<li class='banned' id='fourth-banned-0'>" + ban_mess_3 + "</li>")
+                                }
+                            }
+                            //warning
+                            if (checkFormat2(temp) == 1) {
+                                if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                } else {
+                                    $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
+                                }
+                            }
+                        }
+                    } else {
+                        if (isUpperCase(value_4) == true) {
+                            if (checkSensitive(value_4).length > 0) {
+                            } else {
+                                if ($('#fourth-banned-4').text().indexOf(ban_mess_1) == 0) {
+                                } else {
+                                    $("#fourth-error-list").append("<li class='banned' id='fourth-banned-4'>" + ban_mess_1 + "</li>")
+                                }
+                            }
+                        }
+                        if (checkSensitive(value_4).length > 0) {
+                        } else {
+                            if (value_4.match(InputSpacingPuntationError_1)) {
+                            } else {
+                                if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                } else {
+                                    $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
+                                }
+                            }
+                        }
+                    }
+
+                }
+                if (value_4.match(InputSpacingPuntationError_0)
+                    || value_4.match(InputSpacingPuntationError_1)
+                    || value_4.match(InputSpacingPuntationError_2)
+                    || value_4.match(InputSpacingPuntationError_3)) {
+                    if (value_4.match(InputSpacingPuntationError_4) == null) {
+                        // value_check_ad = true
+                    } else {
+                        if ($('#fourth-banned-5').text().indexOf(ban_mess_4) == 0) {
+                        } else {
+                            $("#fourth-error-list").append("<li class='banned' id='fourth-banned-5'>" + ban_mess_4 + "</li>")
+                        }
+                    }
+                }
+
+                //test spelling aka kiem tra chinh ta
+                $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
+                    text: value_4,
+                    app_type: "zad"
+                }, function (resp) {
+                    list_mistakes = resp.result[0].mistakes.reverse()
+                    let mistake_item
+                    let fixed_item
+                    if (list_mistakes.length > 0) {
+                        // console.log(list_mistakes)
+                        for (let i = 0; i < list_mistakes.length; i++) {
+                            mistake_item = list_mistakes[i].text
+                            fixed_item = list_mistakes[i].suggest[0][0]
+                            fixed_list.push({
+                                mistake_item: mistake_item,
+                                fixed_item: fixed_item
+                            })
+                            if ($('#fourth-banned-6').text().indexOf(ban_mess_6) == 0) {
+                                if ($('#fourth-banned-6 span').text().includes(mistake_item)) {
+                                } else {
+                                    document.getElementById('fourth-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                }
+                            } else {
+                                $("#fourth-error-list").append("<li class='banned' id='fourth-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
+                            }
+                        }
+                    }
+                })
+
+
+                //case warning
+                if (value_4.match(InputFormatWithPuntuation)) {
+
+                    let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
+                    let string2array = value_4.split('')
+                    let first_length = value_4.length
+                    let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                    if (array_match.length < first_length) {
+                        for (let i = 0; i < difference.length; i++) {
+                            if ($('#fourth-warning-1').text().indexOf(warn_mess_4) == 0) {
+                                if ($('#fourth-warning-1 span').text().includes(difference[i])) {
+                                } else {
+                                    document.getElementById('fourth-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                                }
+                            } else {
+                                count_warning += 1
+                                $("#fourth-error-list").append("<li class='warning' id='fourth-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
+                            }
+                        }
+                    }
+                }
+                if (value_4.match(InputFormatFrom2Puntuation)) {
+
+                    //value_check_ad = false
+                    warning_card.classList.remove('is-hidden')
+                    if (value_4.indexOf("...") > -1) {
+                        if ($('#fourth-warning-2').text().indexOf(warn_mess_3) == 0) {
+                        } else {
+                            count_warning += 1
+                            $("#fourth-error-list").append("<li class='warning' id='fourth-warning-2'>" + warn_mess_3 + "</li>")
+                        }
+                    } else {
+                        let matches = Array.from(value_4.matchAll(InputFormatFrom2Puntuation), m => m[0])
+                        for (let i = 0; i < matches.length; i++) {
+                            let item = matches[i]
+                            if (item == '%,' || item == '%.') {
+                            } else {
+                                if ($('#fourth-warning-3').text().indexOf(warn_mess_2) == 0) {
+                                    if ($('#fourth-warning-3').text().includes(item)) {
+                                    } else {
+                                        document.getElementById('fourth-warning-3').innerHTML += ' <span>' + item + '</span>'
+                                    }
+                                } else {
+                                    $("#fourth-error-list").append("<li class='warning' id='fourth-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
+                                }
+                            }
+                        }
+                    }
+                }
+                if (checkWarning(value_4).length > 0) {
+                    let list = checkWarning(value_4)
+                    for (let i = 0; i < list.length; i++) {
+                        let item = list[i]
+                        if ($('#fourth-warning-4').text().indexOf(warn_mess_1) == 0) {
+                            if ($('#warning-4 span').text().includes(item)) {
+                            } else {
+                                document.getElementById('fourth-warning-4').innerHTML += ', <span>' + item + '</span>'
+                            }
+                        } else {
+                            $("#fourth-error-list").append("<li class='warning' id='fourth-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
+                        }
+                    }
+                }
+                if (value_4.match(/\s{2,}/g)) {
+                    if ($('#fourth-warning-5').text().indexOf(warn_mess_5) == 0) {
+                    } else {
+                        $("#fourth-error-list").append("<li class='warning' id='fourth-warning-5'>" + warn_mess_5 + "</li>")
+                    }
+                }
+            }
+        }
+
+        //check user rated or not
+        let had_rated = getCookie('has_rated')
+        if (had_rated == 'rated') {
+        } else {
+            // set cookie for showing rating block
+            setCookie('has_validated', 'validated', 30)
+        }
+
+    }, 500);
+}
 
