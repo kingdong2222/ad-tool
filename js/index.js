@@ -542,6 +542,30 @@ var cropLargeImg = function (val) {
                             $(".large-image-input-mobile").addClass('is-hidden')
                             $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
                             document.getElementById('output-large-preview-mobile').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+                            
+                            //check blur
+                            let imgElement = document.getElementById('imageSrc-preview-mobile');
+                            imgElement.src = result.toDataURL(uploadedImageType)
+                            imgElement.onload = function () {
+                                let src = cv.imread(imgElement);
+                                let dst = new cv.Mat();
+                                let men = new cv.Mat();
+                                cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+                                // You can try more different parameters
+                                // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+                                // console.log(men.data64F[0])
+                                if (men.data64F[0] > 10) {
+                                    document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
+                                    document.getElementById('img-quality').classList.add('is-ok')
+                                } else {
+                                    document.getElementById('img-quality').innerHTML = 'Bị mờ'
+                                    document.getElementById('img-quality').classList.remove('is-ok')
+                                }
+                                // cv.imshow('canvasOutput', dst);
+                                src.delete(); dst.delete();
+                            };
+
+                            
                             $(".ads-img .squares").addClass("is-show");
                         } else {
                             if (!download.disabled) {
@@ -791,6 +815,27 @@ var cropLargeImgAgain = function (val) {
                             $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
                             document.getElementById('output-large-preview-mobile').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
                             $(".ads-img .squares").addClass("is-show");
+                            //check blur
+                            let imgElement = document.getElementById('imageSrc-preview-mobile');
+                            imgElement.src = result.toDataURL(uploadedImageType)
+                            imgElement.onload = function () {
+                                let src = cv.imread(imgElement);
+                                let dst = new cv.Mat();
+                                let men = new cv.Mat();
+                                cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+                                // You can try more different parameters
+                                // console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
+                                // console.log(men.data64F[0])
+                                if (men.data64F[0] > 10) {
+                                    document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
+                                    document.getElementById('img-quality').classList.add('is-ok')
+                                } else {
+                                    document.getElementById('img-quality').innerHTML = 'Bị mờ'
+                                    document.getElementById('img-quality').classList.remove('is-ok')
+                                }
+                                // cv.imshow('canvasOutput', dst);
+                                src.delete(); dst.delete();
+                            };
                         } else {
                             if (!download.disabled) {
                                 download.download = uploadedImageName;
