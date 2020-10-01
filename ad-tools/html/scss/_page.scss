@@ -463,13 +463,15 @@
 						padding: 0 1.5rem;
 						a{
 							padding: 0.75rem 0 .375rem 0;
+							font-weight: 500;
 						}
 						&.is-active{
 							a{
-								border-width: 2px;
+								border-width: 3px;
 								border-color: #1744CF;
 								color: #1744CF;
 								margin-bottom: -2px;
+								
 							}
 						}
 					}
