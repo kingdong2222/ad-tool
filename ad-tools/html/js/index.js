@@ -2872,14 +2872,14 @@ const check_form_ad_mobile = document.getElementById('check-form-ad-mobile')
 first_input_mobile.oninput = value => {
     if (value.target.value) {
         first_max_letter_mobile.innerHTML = first_input_mobile.value.length + '/30'
-        if (second_input.value || third_input.value || fourth_input.value) {
+        if (second_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         } else {
             check_form_ad_mobile.removeAttribute('disabled')
         }
     } else {
         first_max_letter_mobile.innerHTML = '0/30'
-        if (second_input.value || third_input.value || fourth_input.value) {
+        if (second_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         }
         else {
@@ -2891,14 +2891,14 @@ first_input_mobile.oninput = value => {
 second_input_mobile.oninput = value => {
     if (value.target.value) {
         second_max_letter_mobile.innerHTML = second_input_mobile.value.length + '/30'
-        if (first_input.value || third_input.value || fourth_input.value) {
+        if (first_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         } else {
             check_form_ad_mobile.removeAttribute('disabled')
         }
     } else {
         second_max_letter_mobile.innerHTML = '0/30'
-        if (first_input.value || third_input.value || fourth_input.value) {
+        if (first_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         }
         else {
@@ -2910,14 +2910,14 @@ second_input_mobile.oninput = value => {
 third_input_mobile.oninput = value => {
     if (value.target.value) {
         third_max_letter_mobile.innerHTML = third_input_mobile.value.length + '/30'
-        if (first_input.value || second_input.value || fourth_input.value) {
+        if (first_input_mobile.value || second_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         } else {
             check_form_ad_mobile.removeAttribute('disabled')
         }
     } else {
         third_max_letter_mobile.innerHTML = '0/30'
-        if (first_input.value || second_input.value || fourth_input.value) {
+        if (first_input_mobile.value || second_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         }
         else {
@@ -2929,14 +2929,14 @@ third_input_mobile.oninput = value => {
 fourth_input_mobile.oninput = value => {
     if (value.target.value) {
         fourth_max_letter_mobile.innerHTML = fourth_input_mobile.value.length + '/30'
-        if (first_input.value || second_input.value || third_input.value) {
+        if (first_input_mobile.value || second_input_mobile.value || third_input_mobile.value) {
             //do nothing cause it's done already
         } else {
             check_form_ad_mobile.removeAttribute('disabled')
         }
     } else {
         fourth_max_letter_mobile.innerHTML = '0/30'
-        if (first_input.value || second_input.value || third_input.value) {
+        if (first_input_mobile.value || second_input_mobile.value || third_input_mobile.value) {
             //do nothing cause it's done already
         }
         else {
