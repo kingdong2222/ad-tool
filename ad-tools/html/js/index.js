@@ -816,6 +816,10 @@ var cropLargeImgAgain = function (val) {
                         if (val == 'mobile') {
                             $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
                             document.getElementById('output-large-preview-mobile').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+                            count = 0;
+                            $(".check-msg").html("Hãy chọn các ô có xuất hiện chữ");
+                            $(".check-msg").removeClass("is-ok");
+                            $(".square").removeClass("is-selected");
                             $(".ads-img .squares").addClass("is-show");
                             //check blur
                             let imgElement = document.getElementById('imageSrc-preview-mobile');
@@ -3993,3 +3997,8 @@ document.getElementById('close-success-notification').onclick = () => {
     let block_noti = document.getElementById('block-success')
     block_noti.classList.add('is-hidden')
 }
+
+document.getElementById('tippy-title-ad-mobile').onclick = () => {
+    console.log('check')
+}
+
