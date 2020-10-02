@@ -3992,6 +3992,7 @@ function checkAdsFunc_mobile() {
 document.getElementById('close-notification').onclick = () => {
     let block_noti = document.getElementById('block-noti')
     block_noti.classList.add('is-hidden')
+    setCookie('close-noti-block', 'closed', 30)
 }
 
 document.getElementById('close-success-notification').onclick = () => {

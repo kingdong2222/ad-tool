@@ -62,9 +62,21 @@ window.onload = () => {
         if (had_validated == 'validated') {
             if (rating_block_hide) {
                 $('.rating-block').removeClass('is-hidden')
+                if(screen.width < 768){
+                    $("html").addClass("overlay-popup");
+                }
             }
         }
     }
+    //mobile
+    if(screen.width < 768){
+        let close_noti_block = getCookie('close-noti-block')
+        if(close_noti_block == 'closed'){
+        } else {
+            $('#block-noti').toggleClass('is-hidden')
+        }
+    }
+    
 
 }
 $('.rating-button').click(function () {
@@ -76,9 +88,17 @@ $('.rating-button').click(function () {
 document.getElementById('close-rating-block').onclick = () => {
     $('.rating-block').addClass('is-hidden')
     setCookie('has_rated', 'rated', 30)
+    if($("html").hasClass("overlay-popup")){
+        $("html").removeClass("overlay-popup");
+    }
+    
 }
 
 document.getElementById('send-rating-feedback').onclick = () => {
+
+    if(screen.width < 768){
+        $("html").addClass("overlay-popup");
+    }
 
     $('.first').addClass('is-hidden')
     $('.second').removeClass('is-hidden')
