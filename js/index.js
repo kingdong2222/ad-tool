@@ -660,6 +660,7 @@ var cropLargeImg = function (val) {
 
             if (cropper && files && files.length) {
                 if (val == 'mobile') {
+                    $("div").remove(".cropper-container");
                     $("html").addClass("overlay-popup")
                     $("#popup-editImg").addClass("is-show")
                 } else {
@@ -3980,9 +3981,9 @@ function checkAdsFunc_mobile() {
                 && checkEmptyErrorList('second-error-list') == true
                 && checkEmptyErrorList('third-error-list') == true
                 && checkEmptyErrorList('fourth-error-list') == true) {
-                    let elmnt = document.getElementById("block-success");
-                    elmnt.classList.remove('is-hidden')
-                    elmnt.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+                let elmnt = document.getElementById("block-success");
+                elmnt.classList.remove('is-hidden')
+                elmnt.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
             }
         }, 500)
     }, 700);
@@ -3998,7 +3999,23 @@ document.getElementById('close-success-notification').onclick = () => {
     block_noti.classList.add('is-hidden')
 }
 
-document.getElementById('tippy-title-ad-mobile').onclick = () => {
-    console.log('check')
+let close_tooltip = () => {
+    $("html").removeClass("overlay-popup");
+    $('.is-show').remove()
 }
+
+// document.getElementById('tippy-title-ad-mobile').onclick = () => {
+//     $("html").addClass("overlay-popup")
+//     let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+//             <div class="bl-popup-heading">
+//                 <span>Chỉnh sửa hình ảnh</span>
+//                 <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+//             </div>
+//             <div class="bl-popup-context">
+//                 <p>Tên Tên nhãn hàng sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
+//                 <a href=''>Xem quy định về đặt tên nhãn hàng</a>
+//              </div>
+//      </div>`
+//     $('.bl-popup').append(temp_html)
+// }
 

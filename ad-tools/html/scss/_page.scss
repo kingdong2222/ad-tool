@@ -390,6 +390,17 @@
 				font-size: 1rem;
 			}
 		}
+		#popup-tooltip{
+			&.is-show{
+				height: 40%;
+			}
+			.bl-popup-heading{
+				justify-content: space-between;
+				a{
+					position: relative;
+				}
+			}
+		}
 	}
 	main{
 		font-family: Muli;
