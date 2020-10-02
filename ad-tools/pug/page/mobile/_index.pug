@@ -6,6 +6,15 @@ main.is-mobile
             li
                 a Kiểm tra hình ảnh
     .main-body
+        .notification.is-success.mb-3#block-success.is-hidden
+            i.icz.icz-fill-check
+            button.delete#close-success-notification
+            h4(style="margin-bottom: unset") Không có lỗi nào
+        .notification.is-info.mb-3#block-noti
+            i.icz.icz-fill-bulb
+            button.delete#close-notification
+            h4 Một số tính năng và trãi nghiệm sẽ bị giới hạn trên phiên bản điện thoại
+            p Hiện phiên bản trên điện thoại chỉ hổ trợ kiểm tra nội dung và hình ảnh quảng cáo. Vui lòng chuyển sang máy tính để sử dụng đầy đủ các tính năng của công cụ.
         .container_cols
             .container_col.content
                 .text-input-item
@@ -13,7 +22,9 @@ main.is-mobile
                         h3.title Tên nhãn hàng hoặc OA
                             i.icz.icz-support#tippy-title-ad-mobile
                         p.max-letter#max-letter-first-mobile 0/30
-                    input#first-input-mobile(type='text' placeholder='Nhập tên nhãn hàng' maxlength=30)
+                    .input-block
+                        input#first-input-mobile(type='text' placeholder='Nhập tên nhãn hàng' maxlength=30)
+                        i.icz.icz-fill-remove
                     ul.error-list#first-error-list
                         //- li.banned Khong viet hoa dau cau 
                         //-     span check
@@ -25,14 +36,18 @@ main.is-mobile
                         h3.title Nội dung quảng cáo
                             i.icz.icz-support#tippy-content-ad-mobile
                         p.max-letter#max-letter-second-mobile 0/90
-                    textarea#second-input-mobile( placeholder='Nhập nội dung quảng cáo' maxlength=90)
+                    .input-block
+                        textarea#second-input-mobile( placeholder='Nhập nội dung quảng cáo' maxlength=90)
+                        i.icz.icz-fill-remove
                     ul.error-list#second-error-list
                 .text-input-item
                     .label-title
                         h3.title Mô tả
                             i.icz.icz-support#tippy-optional-desc-mobile
                         p.max-letter#max-letter-third-mobile 0/60
-                    textarea#third-input-mobile(type='text' placeholder='Nhập mô tả' maxlength=60 rows=1)
+                    .input-block
+                        textarea#third-input-mobile(type='text' placeholder='Nhập mô tả' maxlength=60 rows=1)
+                        i.icz.icz-fill-remove
                     ul.error-list#third-error-list
                 .text-input-item
                     .label-title
@@ -46,7 +61,9 @@ main.is-mobile
                         h3.title Thông tin thêm
                             i.icz.icz-support#tippy-optional-info-mobile
                         p.max-letter#max-letter-fourth-mobile 0/60
-                    textarea.tpcn-case#fourth-input-mobile(type='text' placeholder='Nhập thông tin thêm' maxlength=60 rows=1)
+                    .input-block
+                        textarea.tpcn-case#fourth-input-mobile(type='text' placeholder='Nhập thông tin thêm' maxlength=60 rows=1)
+                        i.icz.icz-fill-remove
                     ul.error-list#fourth-error-list
                     textarea.tpcn-case.is-hidden#fourth-tpcn-input-mobile(type='text' disabled maxlength=60 style="color: #A3A8AF;background: #F0F4F8;") Sản phẩm này không phải là thuốc, không có tác dụng thay thế
                     p.tpcn-case.is-hidden Quảng cáo thực phẩm chức năng yêu cầu bổ sung thông tin này

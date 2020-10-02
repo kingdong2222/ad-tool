@@ -542,7 +542,7 @@ var cropLargeImg = function (val) {
                             $(".large-image-input-mobile").addClass('is-hidden')
                             $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
                             document.getElementById('output-large-preview-mobile').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
-                            
+
                             //check blur
                             let imgElement = document.getElementById('imageSrc-preview-mobile');
                             imgElement.src = result.toDataURL(uploadedImageType)
@@ -554,7 +554,7 @@ var cropLargeImg = function (val) {
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
                                 var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-                                console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
+                                console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality-mobile').innerHTML = 'Đạt tiêu chuẩn'
                                     document.getElementById('img-quality-mobile').classList.add('is-ok')
@@ -566,7 +566,7 @@ var cropLargeImg = function (val) {
                                 src.delete(); dst.delete();
                             };
 
-                            
+
                             $(".ads-img .squares").addClass("is-show");
                         } else {
                             if (!download.disabled) {
@@ -594,7 +594,7 @@ var cropLargeImg = function (val) {
                                     cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                     // You can try more different parameters
                                     var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-                                    console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
+                                    console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                     if (men.data64F[0] > 10) {
                                         document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                         document.getElementById('img-quality').classList.add('is-ok')
@@ -828,7 +828,7 @@ var cropLargeImgAgain = function (val) {
                                 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                 // You can try more different parameters
                                 var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-                                console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
+                                console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
                                     document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                     document.getElementById('img-quality').classList.add('is-ok')
@@ -861,7 +861,7 @@ var cropLargeImgAgain = function (val) {
                                     cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
                                     // You can try more different parameters
                                     var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
-                                    console.log(t,cv.meanStdDev(dst, menO, men),menO.data64F[0], men.data64F[0]);
+                                    console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                     if (men.data64F[0] > 10) {
                                         document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
                                         document.getElementById('img-quality').classList.add('is-ok')
@@ -2870,16 +2870,19 @@ const fourth_max_letter_mobile = document.getElementById('max-letter-fourth-mobi
 const check_form_ad_mobile = document.getElementById('check-form-ad-mobile')
 
 first_input_mobile.oninput = value => {
+    // let clean_button = first_input_mobile.nextSibling 
     if (value.target.value) {
+        // clean_button.style.opacity = '1'
         first_max_letter_mobile.innerHTML = first_input_mobile.value.length + '/30'
-        if (second_input.value || third_input.value || fourth_input.value) {
+        if (second_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         } else {
             check_form_ad_mobile.removeAttribute('disabled')
         }
     } else {
         first_max_letter_mobile.innerHTML = '0/30'
-        if (second_input.value || third_input.value || fourth_input.value) {
+        // clean_button.style.opacity = '0'
+        if (second_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         }
         else {
@@ -2889,16 +2892,19 @@ first_input_mobile.oninput = value => {
 }
 
 second_input_mobile.oninput = value => {
+    // let clean_button = second_input_mobile.nextSibling 
     if (value.target.value) {
+        // clean_button.style.opacity = '1'
         second_max_letter_mobile.innerHTML = second_input_mobile.value.length + '/30'
-        if (first_input.value || third_input.value || fourth_input.value) {
+        if (first_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         } else {
             check_form_ad_mobile.removeAttribute('disabled')
         }
     } else {
+        // clean_button.style.opacity = '0'
         second_max_letter_mobile.innerHTML = '0/30'
-        if (first_input.value || third_input.value || fourth_input.value) {
+        if (first_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         }
         else {
@@ -2908,16 +2914,19 @@ second_input_mobile.oninput = value => {
 }
 
 third_input_mobile.oninput = value => {
+    // let clean_button = third_input_mobile.nextSibling 
     if (value.target.value) {
+        // clean_button.style.opacity = '1'
         third_max_letter_mobile.innerHTML = third_input_mobile.value.length + '/30'
-        if (first_input.value || second_input.value || fourth_input.value) {
+        if (first_input_mobile.value || second_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         } else {
             check_form_ad_mobile.removeAttribute('disabled')
         }
     } else {
+        // clean_button.style.opacity = '0'
         third_max_letter_mobile.innerHTML = '0/30'
-        if (first_input.value || second_input.value || fourth_input.value) {
+        if (first_input_mobile.value || second_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         }
         else {
@@ -2927,16 +2936,19 @@ third_input_mobile.oninput = value => {
 }
 
 fourth_input_mobile.oninput = value => {
+    // let clean_button = fourth_input_mobile.nextSibling 
     if (value.target.value) {
+        // clean_button.style.opacity = '1'
         fourth_max_letter_mobile.innerHTML = fourth_input_mobile.value.length + '/30'
-        if (first_input.value || second_input.value || third_input.value) {
+        if (first_input_mobile.value || second_input_mobile.value || third_input_mobile.value) {
             //do nothing cause it's done already
         } else {
             check_form_ad_mobile.removeAttribute('disabled')
         }
     } else {
+        // clean_button.style.opacity = '0'
         fourth_max_letter_mobile.innerHTML = '0/30'
-        if (first_input.value || second_input.value || third_input.value) {
+        if (first_input_mobile.value || second_input_mobile.value || third_input_mobile.value) {
             //do nothing cause it's done already
         }
         else {
@@ -2944,6 +2956,11 @@ fourth_input_mobile.oninput = value => {
         }
     }
 }
+
+//clear input update sau
+// first_input_mobile.nextSibling.onclick = () => {
+//     console.log('check')
+// }
 
 //checkbox for case TPCN
 let tpcn_case_mobile = false
@@ -2953,9 +2970,11 @@ $('#check_tpcn_mobile').change(function (value) {
         tpcn_case_mobile = true
         $('.tpcn-case').toggleClass('is-hidden')
         fourth_max_letter_mobile.innerHTML = '60/60'
+        $('#fourth-error-list').toggleClass('is-hidden')
     } else {
         tpcn_case_mobile = false
         $('.tpcn-case').toggleClass('is-hidden')
+        $('#fourth-error-list').toggleClass('is-hidden')
         fourth_max_letter_mobile.innerHTML = fourth_input_mobile.value.length + '/60'
     }
 })
@@ -2990,6 +3009,11 @@ document.getElementById('check-form-ad-mobile').onclick = () => {
     //google track
     // dataLayer.push({ 'event': 'event_ValidateAd' })
 }
+
+const checkEmptyErrorList = id => {
+    return document.getElementById(id).innerHTML.trim() == ""
+}
+
 function checkAdsFunc_mobile() {
 
     //get value input
@@ -3947,6 +3971,25 @@ function checkAdsFunc_mobile() {
             setCookie('has_validated', 'validated', 30)
         }
 
-    }, 500);
+        setTimeout(() => {
+            if (checkEmptyErrorList('first-error-list') == true
+                && checkEmptyErrorList('second-error-list') == true
+                && checkEmptyErrorList('third-error-list') == true
+                && checkEmptyErrorList('fourth-error-list') == true) {
+                    let elmnt = document.getElementById("block-success");
+                    elmnt.classList.remove('is-hidden')
+                    elmnt.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+            }
+        }, 500)
+    }, 700);
 }
 
+document.getElementById('close-notification').onclick = () => {
+    let block_noti = document.getElementById('block-noti')
+    block_noti.classList.add('is-hidden')
+}
+
+document.getElementById('close-success-notification').onclick = () => {
+    let block_noti = document.getElementById('block-success')
+    block_noti.classList.add('is-hidden')
+}

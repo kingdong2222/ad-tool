@@ -602,6 +602,15 @@
           </ul>
         </div>
         <div class="main-body">
+          <div class="notification is-success mb-3 is-hidden" id="block-success"><i class="icz icz-fill-check"></i>
+            <button class="delete" id="close-success-notification"></button>
+            <h4 style="margin-bottom: unset">Không có lỗi nào</h4>
+          </div>
+          <div class="notification is-info mb-3" id="block-noti"><i class="icz icz-fill-bulb"></i>
+            <button class="delete" id="close-notification"></button>
+            <h4>Một số tính năng và trãi nghiệm sẽ bị giới hạn trên phiên bản điện thoại</h4>
+            <p>Hiện phiên bản trên điện thoại chỉ hổ trợ kiểm tra nội dung và hình ảnh quảng cáo. Vui lòng chuyển sang máy tính để sử dụng đầy đủ các tính năng của công cụ.</p>
+          </div>
           <div class="container_cols">
             <div class="container_col content">
               <div class="text-input-item">
@@ -609,7 +618,9 @@
                   <h3 class="title">Tên nhãn hàng hoặc OA<i class="icz icz-support" id="tippy-title-ad-mobile"></i></h3>
                   <p class="max-letter" id="max-letter-first-mobile">0/30</p>
                 </div>
-                <input id="first-input-mobile" type="text" placeholder="Nhập tên nhãn hàng" maxlength="30">
+                <div class="input-block">
+                  <input id="first-input-mobile" type="text" placeholder="Nhập tên nhãn hàng" maxlength="30"><i class="icz icz-fill-remove"></i>
+                </div>
                 <ul class="error-list" id="first-error-list"></ul>
               </div>
               <div class="text-input-item">
@@ -617,7 +628,9 @@
                   <h3 class="title">Nội dung quảng cáo<i class="icz icz-support" id="tippy-content-ad-mobile"></i></h3>
                   <p class="max-letter" id="max-letter-second-mobile">0/90</p>
                 </div>
-                <textarea id="second-input-mobile" placeholder="Nhập nội dung quảng cáo" maxlength="90"></textarea>
+                <div class="input-block">
+                  <textarea id="second-input-mobile" placeholder="Nhập nội dung quảng cáo" maxlength="90"></textarea><i class="icz icz-fill-remove"></i>
+                </div>
                 <ul class="error-list" id="second-error-list"></ul>
               </div>
               <div class="text-input-item">
@@ -625,7 +638,9 @@
                   <h3 class="title">Mô tả<i class="icz icz-support" id="tippy-optional-desc-mobile"></i></h3>
                   <p class="max-letter" id="max-letter-third-mobile">0/60</p>
                 </div>
-                <textarea id="third-input-mobile" type="text" placeholder="Nhập mô tả" maxlength="60" rows="1"></textarea>
+                <div class="input-block">
+                  <textarea id="third-input-mobile" type="text" placeholder="Nhập mô tả" maxlength="60" rows="1"></textarea><i class="icz icz-fill-remove"></i>
+                </div>
                 <ul class="error-list" id="third-error-list"></ul>
               </div>
               <div class="text-input-item">
@@ -642,7 +657,9 @@
                   <h3 class="title">Thông tin thêm<i class="icz icz-support" id="tippy-optional-info-mobile"></i></h3>
                   <p class="max-letter" id="max-letter-fourth-mobile">0/60</p>
                 </div>
-                <textarea class="tpcn-case" id="fourth-input-mobile" type="text" placeholder="Nhập thông tin thêm" maxlength="60" rows="1"></textarea>
+                <div class="input-block">
+                  <textarea class="tpcn-case" id="fourth-input-mobile" type="text" placeholder="Nhập thông tin thêm" maxlength="60" rows="1"></textarea><i class="icz icz-fill-remove"></i>
+                </div>
                 <ul class="error-list" id="fourth-error-list"></ul>
                 <textarea class="tpcn-case is-hidden" id="fourth-tpcn-input-mobile" type="text" disabled maxlength="60" style="color: #A3A8AF;background: #F0F4F8;">Sản phẩm này không phải là thuốc, không có tác dụng thay thế</textarea>
                 <p class="tpcn-case is-hidden">Quảng cáo thực phẩm chức năng yêu cầu bổ sung thông tin này</p>
