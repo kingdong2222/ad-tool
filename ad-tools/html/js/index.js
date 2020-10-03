@@ -4000,23 +4000,81 @@ document.getElementById('close-success-notification').onclick = () => {
     block_noti.classList.add('is-hidden')
 }
 
-let close_tooltip = () => {
-    $("html").removeClass("overlay-popup");
-    $('.is-show').remove()
+
+
+//mobile tool tip custom
+
+document.getElementById('tippy-title-ad-mobile').onclick = () => {
+    $("html").addClass("overlay-popup")
+    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+            <div class="bl-popup-heading">
+                <span>Nội dung kiểm tra</span>
+                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+            </div>
+            <div class="bl-popup-context">
+                <p>Tên nhãn hàng sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
+                <a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank">Xem quy định về đặt tên nhãn hàng</a>
+             </div>
+     </div>`
+    $('.bl-popup').append(temp_html)
 }
 
-// document.getElementById('tippy-title-ad-mobile').onclick = () => {
-//     $("html").addClass("overlay-popup")
-//     let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
-//             <div class="bl-popup-heading">
-//                 <span>Chỉnh sửa hình ảnh</span>
-//                 <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
-//             </div>
-//             <div class="bl-popup-context">
-//                 <p>Tên Tên nhãn hàng sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
-//                 <a href=''>Xem quy định về đặt tên nhãn hàng</a>
-//              </div>
-//      </div>`
-//     $('.bl-popup').append(temp_html)
-// }
+document.getElementById('tippy-title-ad-mobile').onclick = () => {
+    $("html").addClass("overlay-popup")
+    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+            <div class="bl-popup-heading">
+                <span>Nội dung kiểm tra</span>
+                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+            </div>
+            <div class="bl-popup-context">
+                <p>Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
+                <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt nội dung</a>
+             </div>
+     </div>`
+    $('.bl-popup').append(temp_html)
+}
 
+document.getElementById('tippy-optional-desc-mobile').onclick = () => {
+    $("html").addClass("overlay-popup")
+    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+            <div class="bl-popup-heading">
+                <span>Nội dung kiểm tra</span>
+                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+            </div>
+            <div class="bl-popup-context">
+                <p>Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
+                <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về mô tả thêm</a>
+             </div>
+     </div>`
+    $('.bl-popup').append(temp_html)
+}
+
+document.getElementById('tippy-optional-info-mobile').onclick = () => {
+    $("html").addClass("overlay-popup")
+    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+            <div class="bl-popup-heading">
+                <span>Nội dung kiểm tra</span>
+                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+            </div>
+            <div class="bl-popup-context">
+                <p>Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
+                <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về thông tin thêm</a>
+             </div>
+     </div>`
+    $('.bl-popup').append(temp_html)
+}
+
+document.getElementById('tippy-large-image-mobile').onclick = () => {
+    $("html").addClass("overlay-popup")
+    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+            <div class="bl-popup-heading">
+                <span>Hình ảnh quảng cáo</span>
+                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+            </div>
+            <div class="bl-popup-context">
+                <p>Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p>
+                <a  href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về hình ảnh quảng cáo</a>
+             </div>
+     </div>`
+    $('.bl-popup').append(temp_html)
+}

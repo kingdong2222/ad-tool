@@ -69,16 +69,93 @@ window.onload = () => {
         }
     }
     //mobile
-    if(screen.width < 768){
+    if(screen.width <= 768){
         let close_noti_block = getCookie('close-noti-block')
         if(close_noti_block == 'closed'){
         } else {
             $('#block-noti').toggleClass('is-hidden')
         }
-    }
-    
 
+        $('#dropdown-m2').removeAttr("data-toggle")
+    }
 }
+let close_tooltip = () => {
+    $("html").removeClass("overlay-popup");
+    $('.is-show').remove()
+}
+$("#dropdown-m2").click(function(){
+    if(screen.width <= 768){
+        $("html").addClass("overlay-popup")
+        let temp_html = `<div class="popup-container is-show" id="popup-update">
+                <div class="bl-popup-heading">
+                    <span>Lịch sử cập nhật</span>
+                    <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                </div>
+                <div class="bl-popup-context">
+                <div class="history-list">
+                    <div class="history-item">
+                    <ul>
+                        <li> 
+                        <p>Thêm tính năng kiểm tra chính tả và gợi ý chỉnh sửa</p>
+                        </li>
+                    </ul>
+                    <p>Phiên bản 1.0.4 - 17/08/2020</p>
+                    </div>
+                    <div class="history-item">
+                    <ul>
+                        <li> 
+                        <p>Thêm tính năng Tra cứu giấy phép</p>
+                        </li>
+                        <li> 
+                        <p>Thêm tính năng gợi ý chỉnh sửa cho từ CẤM, từ phản cảm, thiếu kiểm chứng</p>
+                        </li>
+                        <li> 
+                        <p>Bổ sung điều kiện quảng cáo cho “Thực phẩm chức năng”</p>
+                        </li>
+                    </ul>
+                    <p>Phiên bản 1.0.3 - 17/08/2020</p>
+                    </div>
+                    <div class="history-item">
+                    <ul>
+                        <li> 
+                        <p>Kiểm tra nội dung có chứa số điện thoại hoặc email</p>
+                        </li>
+                        <li> 
+                        <p>Cập nhật lại Vị trí quảng cáo</p>
+                        </li>
+                        <li> 
+                        <p>Kiểm tra nội dung có chứa từ ngữ phản cảm, thiếu kiểm chứng</p>
+                        </li>
+                        <li> 
+                        <p>Kiểm tra nội dung có chứa từ CẤM</p>
+                        </li>
+                    </ul>
+                    <p>Phiên bản 1.0.2 - 10/08/2020</p>
+                    </div>
+                    <div class="history-item">
+                    <ul>
+                        <li> 
+                        <p>Tự động kiểm tra chất lượng hình ảnh</p>
+                        </li>
+                        <li> 
+                        <p>Kiểm tra phần trăm ký tự trên ảnh</p>
+                        </li>
+                        <li> 
+                        <p>Kiểm tra nội dung có chứa ký tự đặc biệt</p>
+                        </li>
+                        <li> 
+                        <p>Kiểm tra nội dung có chữ viết hoa</p>
+                        </li>
+                    </ul>
+                    <p>Phiên bản 1.0.1 - 27/07/2020</p>
+                    </div>
+                </div>
+                </div>
+         </div>`
+        $('.bl-popup').append(temp_html)
+    }
+})
+
 $('.rating-button').click(function () {
     $('.rating-button').removeClass('selected')
     $(this).addClass('selected')
