@@ -3082,6 +3082,7 @@ function checkAdsFunc_mobile() {
                         $("#first-error-list").append("<li class='banned' id='first-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
                     }
                 }
+                setTimeout(ErrorClickTooltip('first-banned-3', ban_mess_0.replace(':', '')), 500)
             }
             if (value_1.match(InputSpacingPuntationError_0)
                 || value_1.match(InputSpacingPuntationError_1)
@@ -3123,6 +3124,7 @@ function checkAdsFunc_mobile() {
                             $("#first-error-list").append("<li class='banned' id='first-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
                         }
                     }
+                    setTimeout(ErrorClickTooltip('first-banned-6', ban_mess_6.replace(':', '')), 500)
                 }
             })
 
@@ -3144,7 +3146,6 @@ function checkAdsFunc_mobile() {
                         }
                     }
                 }
-
             }
             if (value_1.match(InputFormatFrom2Puntuation)) {
                 if (value_1.indexOf("...") > -1) {
@@ -3177,9 +3178,6 @@ function checkAdsFunc_mobile() {
                 }
             }
             if (checkWarning(value_1).length > 0) {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
                 let list = checkWarning(value_1)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
@@ -3192,6 +3190,7 @@ function checkAdsFunc_mobile() {
                         $("#first-error-list").append("<li class='warning' id='first-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
                     }
                 }
+                setTimeout(ErrorClickTooltip('first-warning-4', warn_mess_1.replace(':', '')), 500)
             }
             if (value_1.match(/\s{2,}/g)) {
                 if ($('#first-warning-5').text().indexOf(warn_mess_5) == 0) {
@@ -3235,6 +3234,7 @@ function checkAdsFunc_mobile() {
                         $("#second-error-list").append("<li class='banned' id='second-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
                     }
                 }
+                setTimeout(ErrorClickTooltip('second-banned-3', ban_mess_0.replace(':', '')), 500)
             }
             if (checkFormat2(value_2) == 1) {
                 if (value_2.match(InputFormatUpperAfterDot) && !value_2.includes('\n')) {
@@ -3328,6 +3328,7 @@ function checkAdsFunc_mobile() {
                             $("#second-error-list").append("<li class='banned' id='second-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
                         }
                     }
+                    setTimeout(ErrorClickTooltip('second-banned-6', ban_mess_6.replace(':', '')), 500)
                 }
             })
 
@@ -3354,8 +3355,6 @@ function checkAdsFunc_mobile() {
             }
             if (value_2.match(InputFormatFrom2Puntuation)) {
 
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
                 if (value_2.indexOf("...") > -1) {
                     $("#second-error-list").append("<li class='warning' id='second-warning-2'>" + warn_mess_3 + "</li>")
                 } else {
@@ -3387,9 +3386,6 @@ function checkAdsFunc_mobile() {
                 }
             }
             if (checkWarning(value_2).length > 0) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
                 let list = checkWarning(value_2)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
@@ -3402,6 +3398,7 @@ function checkAdsFunc_mobile() {
                         $("#second-error-list").append("<li class='warning' id='second-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
                     }
                 }
+                setTimeout(ErrorClickTooltip('first-warning-4', warn_mess_1.replace(':', '')), 500)
             }
             if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
                 if ($('#second-warning-5').text().indexOf(warn_mess_5) == 0) {
@@ -3579,6 +3576,7 @@ function checkAdsFunc_mobile() {
                         $("#third-error-list").append("<li class='banned' id='third-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
                     }
                 }
+                setTimeout(ErrorClickTooltip('third-banned-3', ban_mess_0.replace(':', '')), 500)
             }
             if (checkFormat2(value_3) == 1) {
                 if (value_3.match(InputFormatUpperAfterDot)) {
@@ -3657,9 +3655,6 @@ function checkAdsFunc_mobile() {
                 let mistake_item
                 let fixed_item
                 if (list_mistakes.length > 0) {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    value_check_ad = false
-                    $('#alert-card-first .card-error-list #no-error-mess').remove()
                     // console.log(list_mistakes)
                     for (let i = 0; i < list_mistakes.length; i++) {
                         mistake_item = list_mistakes[i].text
@@ -3677,6 +3672,7 @@ function checkAdsFunc_mobile() {
                             $("#third-error-list").append("<li class='banned' id='third-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
                         }
                     }
+                    setTimeout(ErrorClickTooltip('third-banned-6', ban_mess_6.replace(':', '')), 500)
                 }
             })
 
@@ -3733,9 +3729,6 @@ function checkAdsFunc_mobile() {
                 }
             }
             if (checkWarning(value_3).length > 0) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
                 let list = checkWarning(value_3)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
@@ -3748,6 +3741,7 @@ function checkAdsFunc_mobile() {
                         $("#third-error-list").append("<li class='warning' id='third-warning-4'>" + warn_mess_1 + "  <span>" + item + "</span></li>")
                     }
                 }
+                setTimeout(ErrorClickTooltip('third-warning-4', warn_mess_1.replace(':', '')), 500)
             }
             if (value_3.match(/\s{2,}/g)) {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -3796,6 +3790,7 @@ function checkAdsFunc_mobile() {
                             $("#fourth-error-list").append("<li class='banned'id='fourth-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
                         }
                     }
+                    setTimeout(ErrorClickTooltip('fourth-banned-3', ban_mess_0.replace(':', '')), 500)
                 }
                 if (checkFormat2(value_4) == 1) {
                     if (value_4.match(InputFormatUpperAfterDot)) {
@@ -3892,6 +3887,7 @@ function checkAdsFunc_mobile() {
                                 $("#fourth-error-list").append("<li class='banned' id='fourth-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
                             }
                         }
+                        setTimeout(ErrorClickTooltip('fourth-banned-6', ban_mess_6.replace(':', '')), 500)
                     }
                 })
 
@@ -3919,8 +3915,6 @@ function checkAdsFunc_mobile() {
                 }
                 if (value_4.match(InputFormatFrom2Puntuation)) {
 
-                    //value_check_ad = false
-                    warning_card.classList.remove('is-hidden')
                     if (value_4.indexOf("...") > -1) {
                         if ($('#fourth-warning-2').text().indexOf(warn_mess_3) == 0) {
                         } else {
@@ -3958,6 +3952,7 @@ function checkAdsFunc_mobile() {
                             $("#fourth-error-list").append("<li class='warning' id='fourth-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
                         }
                     }
+                    setTimeout(ErrorClickTooltip('fourth-warning-4', warn_mess_1.replace(':', '')), 500)
                 }
                 if (value_4.match(/\s{2,}/g)) {
                     if ($('#fourth-warning-5').text().indexOf(warn_mess_5) == 0) {
@@ -4003,7 +3998,6 @@ document.getElementById('close-success-notification').onclick = () => {
 
 
 //mobile tool tip custom
-
 document.getElementById('tippy-title-ad-mobile').onclick = () => {
     $("html").addClass("overlay-popup")
     let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
@@ -4077,4 +4071,72 @@ document.getElementById('tippy-large-image-mobile').onclick = () => {
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
+}
+
+$('.bl-popup').on("click", function (event) {
+    var $trigger = $("#popup-tooltip");
+    if ($trigger !== event.target && !$trigger.has(event.target).length) {
+        close_tooltip()
+    }
+});
+
+ErrorClickTooltip = (id, title) => {
+    let list = []
+    let index
+    let error_fix_content
+    let tempId = document.getElementById(id)
+    $('#' + id + ' span').click(value => {
+        if (id.includes('banned')) {
+            if (id.includes('6')) {
+                //check spelling laban api
+                for (let i = 0; i < fixed_list.length; i++) {
+                    if (fixed_list[i].mistake_item == value.target.innerText) {
+                        $("html").addClass("overlay-popup")
+                        let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+                                    <div class="bl-popup-heading">
+                                        <span>`+ title + `</span>
+                                        <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                                    </div>
+                                    <div class="bl-popup-context">
+                                        <p>Từ gợi ý: `+ fixed_list[i].fixed_item + `</p>
+                                    </div>
+                                </div>`
+                        $('.bl-popup').append(temp_html)
+                    }
+                }
+            } else {
+                list = banned_words_fixed[0]
+                for (let i = 0; i < banned_words[0].length; i++) {
+                    if (banned_words[0][i].toLowerCase() == value.target.innerText.toLowerCase()) {
+                        index = i
+                    }
+                }
+                error_fix_content = list[index]
+            }
+        } else {
+            list = warning_words_fixed[0]
+            for (let i = 0; i < warning_words[0].length; i++) {
+                if (warning_words[0][i].toLowerCase() == value.target.innerText.toLowerCase()) {
+                    index = i
+                }
+            }
+            error_fix_content = list[index]
+        }
+        // console.log(error_fix_content)
+        if (error_fix_content === undefined || error_fix_content.charAt(0) == ' ' || error_fix_content == '') {
+        } else {
+            $("html").addClass("overlay-popup")
+            let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+                                    <div class="bl-popup-heading">
+                                        <span>`+ title + `</span>
+                                        <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                                    </div>
+                                    <div class="bl-popup-context">
+                                        <p>`+ error_fix_content + `</p>
+                                    </div>
+                                </div>`
+            $('.bl-popup').append(temp_html)
+        }
+
+    })
 }

@@ -396,6 +396,9 @@
 			}
 			.bl-popup-heading{
 				justify-content: space-between;
+				padding-left: 1rem;
+				padding-right: 1rem;
+				font-size: 16px;
 				a{
 					position: relative;
 				}
@@ -404,6 +407,7 @@
 				padding-top: 66px;
 				padding-left: 16px;
 				padding-right: 16px;
+				font-size: 14px;
 			}
 		}
 		#popup-update{
@@ -620,6 +624,14 @@
 							}
 						}
 					}
+				}
+			}
+			h3.title{
+				margin-bottom: 0 !important;
+				.icz{
+					padding: 10px;
+					padding-left: 4px;
+					margin-left: 0;
 				}
 			}
 		}
