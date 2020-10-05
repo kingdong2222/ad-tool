@@ -4072,7 +4072,7 @@ document.getElementById('tippy-optional-info-mobile').onclick = () => {
     },100)
 }
 
-document.getElementById('tippy-optional-info-mobile').onclick = () => {
+document.getElementById('tippy-tick-tpcn-mobile').onclick = () => {
     let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Quảng cáo “Thực phẩm chức năng”</span>
