@@ -4078,6 +4078,10 @@ $('.bl-popup').on("click", function (event) {
     if ($trigger !== event.target && !$trigger.has(event.target).length) {
         close_tooltip()
     }
+    //rating block
+    if($('.rating-block').hasClass('is-hidden') == false){
+        $('.rating-block').addClass('is-hidden')
+    }
 });
 
 ErrorClickTooltip = (id, title) => {
