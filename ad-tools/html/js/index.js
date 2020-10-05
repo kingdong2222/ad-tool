@@ -4112,17 +4112,25 @@ document.getElementById('tippy-large-image-mobile').onclick = () => {
 $('.bl-popup').on("click", function (event) {
     var $trigger = $("#popup-tooltip");
     if ($trigger !== event.target && !$trigger.has(event.target).length) {
-        close_tooltip('popup-tooltip')
+        if($("#popup-tooltip").hasClass('is-show')){
+            close_tooltip('popup-tooltip')
+        }
+        //update block
+        let update_block = $("#popup-update");
+        if(update_block !== event.target && !update_block.has(event.target).length){
+            if($('#popup-update').hasClass('is-show')){
+                close_tooltip('popup-update')
+            }
+        }
     }
     //rating block
     if($('.rating-block').hasClass('is-hidden') == false){
         $('.rating-block').addClass('is-hidden')
         setCookie('has_rated', 'rated', 30)
     }
-    //update block
-    if($('#popup-update').hasClass('is-show')){
-        close_tooltip('popup-update')
-    }
+    
+    
+    
 });
 
 ErrorClickTooltip = (id, title) => {
