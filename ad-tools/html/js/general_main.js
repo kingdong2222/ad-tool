@@ -91,8 +91,7 @@ let close_tooltip = (id) => {
 }
 $("#dropdown-m2").click(function(){
     if(screen.width <= 768){
-        $("html").addClass("overlay-popup")
-        let temp_html = `<div class="popup-container is-show" id="popup-update">
+        let temp_html = `<div class="popup-container" id="popup-update">
                 <div class="bl-popup-heading">
                     <span>Lịch sử cập nhật</span>
                     <a class="func-close-popup" onclick='close_tooltip("popup-update")'><i class="icz icz-close"></i></a>
@@ -159,6 +158,10 @@ $("#dropdown-m2").click(function(){
                 </div>
          </div>`
         $('.bl-popup').append(temp_html)
+        setTimeout(()=>{
+            $("html").addClass("overlay-popup")
+            $('#popup-update').addClass('is-show')
+        },100)
     }
 })
 

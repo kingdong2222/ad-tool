@@ -4000,8 +4000,8 @@ document.getElementById('close-success-notification').onclick = () => {
 
 //mobile tool tip custom
 document.getElementById('tippy-title-ad-mobile').onclick = () => {
-    $("html").addClass("overlay-popup")
-    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+    
+    let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Nội dung kiểm tra</span>
                 <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
@@ -4012,11 +4012,14 @@ document.getElementById('tippy-title-ad-mobile').onclick = () => {
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
+    setTimeout(()=>{
+        $("html").addClass("overlay-popup")
+        $('#popup-tooltip').addClass('is-show')
+    },100)
 }
 
-document.getElementById('tippy-title-ad-mobile').onclick = () => {
-    $("html").addClass("overlay-popup")
-    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+document.getElementById('tippy-content-ad-mobile').onclick = () => {
+    let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Nội dung kiểm tra</span>
                 <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
@@ -4027,11 +4030,14 @@ document.getElementById('tippy-title-ad-mobile').onclick = () => {
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
+    setTimeout(()=>{
+        $("html").addClass("overlay-popup")
+        $('#popup-tooltip').addClass('is-show')
+    },100)
 }
 
 document.getElementById('tippy-optional-desc-mobile').onclick = () => {
-    $("html").addClass("overlay-popup")
-    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+    let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Nội dung kiểm tra</span>
                 <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
@@ -4042,11 +4048,14 @@ document.getElementById('tippy-optional-desc-mobile').onclick = () => {
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
+    setTimeout(()=>{
+        $("html").addClass("overlay-popup")
+        $('#popup-tooltip').addClass('is-show')
+    },100)
 }
 
 document.getElementById('tippy-optional-info-mobile').onclick = () => {
-    $("html").addClass("overlay-popup")
-    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+    let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Nội dung kiểm tra</span>
                 <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
@@ -4057,11 +4066,14 @@ document.getElementById('tippy-optional-info-mobile').onclick = () => {
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
+    setTimeout(()=>{
+        $("html").addClass("overlay-popup")
+        $('#popup-tooltip').addClass('is-show')
+    },100)
 }
 
 document.getElementById('tippy-large-image-mobile').onclick = () => {
-    $("html").addClass("overlay-popup")
-    let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+    let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Hình ảnh quảng cáo</span>
                 <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
@@ -4072,9 +4084,13 @@ document.getElementById('tippy-large-image-mobile').onclick = () => {
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
+    setTimeout(()=>{
+        $("html").addClass("overlay-popup")
+        $('#popup-tooltip').addClass('is-show')
+    },100)
 }
 
-//click blur of popup
+//click blur of popup to close
 $('.bl-popup').on("click", function (event) {
     var $trigger = $("#popup-tooltip");
     if ($trigger !== event.target && !$trigger.has(event.target).length) {
@@ -4135,6 +4151,17 @@ ErrorClickTooltip = (id, title) => {
         }
         // console.log(error_fix_content)
         if (error_fix_content === undefined || error_fix_content.charAt(0) == ' ' || error_fix_content == '') {
+            $("html").addClass("overlay-popup")
+            let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
+                                    <div class="bl-popup-heading">
+                                        <span>`+ title + `</span>
+                                        <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
+                                    </div>
+                                    <div class="bl-popup-context">
+                                        <p>Từ ngữ, nội dung gây giật gân, giật tít, gây phản cảm cho người đọc.</p>
+                                    </div>
+                                </div>`
+            $('.bl-popup').append(temp_html)
         } else {
             $("html").addClass("overlay-popup")
             let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
