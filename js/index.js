@@ -2594,7 +2594,7 @@ fourth_input.onblur = () => {
 
 //tooltip tippyjs
 tippy('#tippy-title-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Tên nhãn hàng sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt tên nhãn hàng</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Tên nhãn hàng hoặc OA sẽ hiển thị trong quảng cáo của bạn. Tên nhãn hàng không vượt quá 30 kí tự và phải tuân thủ qui định đặt tên nhãn hàng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt tên nhãn hàng</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2605,7 +2605,7 @@ tippy('#tippy-title-ad', {
 });
 
 tippy('#tippy-content-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt nội dung</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung quảng cáo sẽ hiển thị trong quảng cáo của bạn. Nội dung quảng cáo không vượt quá 90 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt nội dung</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2615,7 +2615,7 @@ tippy('#tippy-content-ad', {
 });
 
 tippy('#tippy-avatar-upload', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Ảnh đại diện sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về ảnh đại diện</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Ảnh đại diện có kích thước tối thiểu 150 x 150 pixel. Và phải tuân thủ qui định về hình ảnh quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về ảnh đại diện</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2625,7 +2625,7 @@ tippy('#tippy-avatar-upload', {
 });
 
 tippy('#tippy-optional-desc', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về mô tả thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung mô tả không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về mô tả thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2635,7 +2635,7 @@ tippy('#tippy-optional-desc', {
 });
 
 tippy('#tippy-optional-info', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về thông tin thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung thông tin thêm không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về thông tin thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2645,7 +2645,7 @@ tippy('#tippy-optional-info', {
 });
 
 tippy('#tippy-button-call-action', {
-    content: '<div class="tippy-block"><p style="margin-bottom:0px">Hiển thị nút trên quảng cáo bạn muốn mọi người thực hiện.</p></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:0px">Nút kêu gọi là nội dung kêu gọi hành động mà bạn muốn người xem thực hiện khi nhìn thấy quảng cáo của mình.</p></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2655,7 +2655,7 @@ tippy('#tippy-button-call-action', {
 });
 
 tippy('#tippy-large-image', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về hình ảnh quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Kích thước hình ảnh quảng cáo khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB.<br> Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh có chất lượng tốt và chứa ít hoặc không có văn bản.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về hình ảnh quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -4129,14 +4129,14 @@ ErrorClickTooltip = (id, title) => {
     let list = []
     let index
     let error_fix_content
-    let tempId = document.getElementById(id)
+    let has_spelling_error = false
     $('#' + id + ' span').click(value => {
         if (id.includes('banned')) {
             if (id.includes('6')) {
+                has_spelling_error = true
                 //check spelling laban api
                 for (let i = 0; i < fixed_list.length; i++) {
                     if (fixed_list[i].mistake_item == value.target.innerText) {
-                        $("html").addClass("overlay-popup")
                         let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
                                     <div class="bl-popup-heading">
                                         <span>`+ title + `</span>
@@ -4147,6 +4147,10 @@ ErrorClickTooltip = (id, title) => {
                                     </div>
                                 </div>`
                         $('.bl-popup').append(temp_html)
+                        setTimeout(()=>{
+                            $("html").addClass("overlay-popup")
+                            $('#popup-tooltip').addClass('is-show')
+                        },100)
                     }
                 }
             } else {
@@ -4168,8 +4172,8 @@ ErrorClickTooltip = (id, title) => {
             error_fix_content = list[index]
         }
         // console.log(error_fix_content)
-        if (error_fix_content === undefined || error_fix_content.charAt(0) == ' ' || error_fix_content == '') {
-            $("html").addClass("overlay-popup")
+        if ((error_fix_content === undefined || error_fix_content.charAt(0) == ' ' || error_fix_content == '' )&& has_spelling_error == false) {
+            
             let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
                                     <div class="bl-popup-heading">
                                         <span>`+ title + `</span>
@@ -4180,8 +4184,12 @@ ErrorClickTooltip = (id, title) => {
                                     </div>
                                 </div>`
             $('.bl-popup').append(temp_html)
-        } else {
-            $("html").addClass("overlay-popup")
+            setTimeout(()=>{
+                $("html").addClass("overlay-popup")
+                $('#popup-tooltip').addClass('is-show')
+            },100)
+        } else if(has_spelling_error == false){
+            
             let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
                                     <div class="bl-popup-heading">
                                         <span>`+ title + `</span>
@@ -4192,6 +4200,10 @@ ErrorClickTooltip = (id, title) => {
                                     </div>
                                 </div>`
             $('.bl-popup').append(temp_html)
+            setTimeout(()=>{
+                $("html").addClass("overlay-popup")
+                $('#popup-tooltip').addClass('is-show')
+            },100)
         }
 
     })
