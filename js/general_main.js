@@ -76,12 +76,18 @@ window.onload = () => {
             $('#block-noti').toggleClass('is-hidden')
         }
 
-        $('#dropdown-m2').removeAttr("data-toggle")
+        
     }
 }
-let close_tooltip = () => {
+
+//update dropdown
+if(screen.width <= 768){
+    $('#dropdown-m2').removeAttr("data-toggle")
+}
+
+let close_tooltip = (id) => {
     $("html").removeClass("overlay-popup");
-    $('.is-show').remove()
+    $('#'+ id).remove()
 }
 $("#dropdown-m2").click(function(){
     if(screen.width <= 768){
@@ -89,7 +95,7 @@ $("#dropdown-m2").click(function(){
         let temp_html = `<div class="popup-container is-show" id="popup-update">
                 <div class="bl-popup-heading">
                     <span>Lịch sử cập nhật</span>
-                    <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                    <a class="func-close-popup" onclick='close_tooltip("popup-update")'><i class="icz icz-close"></i></a>
                 </div>
                 <div class="bl-popup-context">
                 <div class="history-list">
@@ -196,6 +202,9 @@ document.getElementById('send-rating-feedback').onclick = () => {
 
     setTimeout(()=>{
         $('.rating-block').addClass('is-hidden')
+        if(screen.width < 768){
+            $("html").addClass("overlay-popup");
+        }
     },2000)
 }
 

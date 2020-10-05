@@ -102,7 +102,7 @@
 	}
 }
 .bl-popup{
-	.popup-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:$gutter;border-top-right-radius:$gutter;overflow:hidden;
+	.popup-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:16px;border-top-right-radius:16px;overflow:hidden;
 		@include from($tablet){left:50%;width:600px;margin-left:-300px}
 		.bl-popup-heading{display:flex;justify-content:center;align-items:center;@include position(absolute, 0 0 null 0);z-index:10;background-color:$white;height:50px;@include padding(null $gutter);border-bottom:1px solid $border;text-align:center;border-top-left-radius:$gutter;border-top-right-radius:$gutter;
 			&.is-show-back{

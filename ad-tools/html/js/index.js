@@ -538,6 +538,7 @@ var cropLargeImg = function (val) {
                 case 'getCroppedCanvas':
                     if (result) {
                         if (val == 'mobile') {
+                            console.log('check')
                             $(".large-image-preview-mobile").addClass('is-show')
                             $(".large-image-input-mobile").addClass('is-hidden')
                             $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
@@ -3004,7 +3005,7 @@ $('#change-large-img-input-mobile').click(() => {
 
 $(".func-close-popup").click(function () {
     $("html").removeClass("overlay-popup");
-    $(".popup-container").removeClass("is-show");
+    $("#popup-editImg").removeClass("is-show");
     $("div").remove(".cropper-container");
 });
 
@@ -4003,10 +4004,10 @@ document.getElementById('tippy-title-ad-mobile').onclick = () => {
     let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Nội dung kiểm tra</span>
-                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
             </div>
             <div class="bl-popup-context">
-                <p>Tên nhãn hàng sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
+                <p>Tên nhãn hàng hoặc OA sẽ hiển thị trong quảng cáo của bạn. Tên nhãn hàng không vượt quá 30 kí tự và phải tuân thủ qui định đặt tên nhãn hàng.</p>
                 <a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank">Xem quy định về đặt tên nhãn hàng</a>
              </div>
      </div>`
@@ -4018,10 +4019,10 @@ document.getElementById('tippy-title-ad-mobile').onclick = () => {
     let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Nội dung kiểm tra</span>
-                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
             </div>
             <div class="bl-popup-context">
-                <p>Nội dung quảng cáo sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
+                <p>Nội dung quảng cáo sẽ hiển thị trong quảng cáo của bạn. Nội dung quảng cáo không vượt quá 90 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p>
                 <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt nội dung</a>
              </div>
      </div>`
@@ -4033,10 +4034,10 @@ document.getElementById('tippy-optional-desc-mobile').onclick = () => {
     let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Nội dung kiểm tra</span>
-                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
             </div>
             <div class="bl-popup-context">
-                <p>Mô tả thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
+                <p>Nội dung mô tả không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p>
                 <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về mô tả thêm</a>
              </div>
      </div>`
@@ -4048,10 +4049,10 @@ document.getElementById('tippy-optional-info-mobile').onclick = () => {
     let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Nội dung kiểm tra</span>
-                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
             </div>
             <div class="bl-popup-context">
-                <p>Thông tin thêm sẽ xuất hiện trong bản hiển thị xem trước của bạn.</p>
+                <p>Nội dung thông tin thêm không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p>
                 <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về thông tin thêm</a>
              </div>
      </div>`
@@ -4063,24 +4064,30 @@ document.getElementById('tippy-large-image-mobile').onclick = () => {
     let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
             <div class="bl-popup-heading">
                 <span>Hình ảnh quảng cáo</span>
-                <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
             </div>
             <div class="bl-popup-context">
-                <p>Kích thước khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh chứa ít hoặc không có văn bản.</p>
+                <p>Kích thước hình ảnh quảng cáo khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB.<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh có chất lượng tốt và chứa ít hoặc không có văn bản.</p>
                 <a  href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về hình ảnh quảng cáo</a>
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
 }
 
+//click blur of popup
 $('.bl-popup').on("click", function (event) {
     var $trigger = $("#popup-tooltip");
     if ($trigger !== event.target && !$trigger.has(event.target).length) {
-        close_tooltip()
+        close_tooltip('popup-tooltip')
     }
     //rating block
     if($('.rating-block').hasClass('is-hidden') == false){
         $('.rating-block').addClass('is-hidden')
+        setCookie('has_rated', 'rated', 30)
+    }
+    //update block
+    if($('#popup-update').hasClass('is-show')){
+        close_tooltip('popup-update')
     }
 });
 
@@ -4099,7 +4106,7 @@ ErrorClickTooltip = (id, title) => {
                         let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
                                     <div class="bl-popup-heading">
                                         <span>`+ title + `</span>
-                                        <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                                        <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
                                     </div>
                                     <div class="bl-popup-context">
                                         <p>Từ gợi ý: `+ fixed_list[i].fixed_item + `</p>
@@ -4133,7 +4140,7 @@ ErrorClickTooltip = (id, title) => {
             let temp_html = `<div class="popup-container is-show" id="popup-tooltip">
                                     <div class="bl-popup-heading">
                                         <span>`+ title + `</span>
-                                        <a class="func-close-popup" onclick='close_tooltip()'><i class="icz icz-close"></i></a>
+                                        <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
                                     </div>
                                     <div class="bl-popup-context">
                                         <p>`+ error_fix_content + `</p>

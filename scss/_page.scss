@@ -403,9 +403,9 @@
 					white-space: nowrap;
 					font-weight: 500;
 				}
-				
 				a{
 					position: relative;
+					margin-right: -14px;
 				}
 			}
 			.bl-popup-context{
@@ -556,6 +556,9 @@
 						.text-input-item{
 							margin-bottom: 18px;
 							position: relative;
+							.title{
+								padding-bottom: 0 !important;
+							}
 							input, textarea{
 								-webkit-appearance: none;
 								-moz-appearance: none;
@@ -2335,6 +2338,10 @@
 		font-size: 14px;
 		margin-bottom: 24px;
 		overflow-y: hidden;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		box-shadow: none;
 		&:focus{
 			border-color: #1744CF;
 			outline:none;
