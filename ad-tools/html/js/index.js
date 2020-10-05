@@ -3049,8 +3049,12 @@ function checkAdsFunc_mobile() {
     setTimeout(() => {
         document.getElementById('check-form-ad-mobile').classList.remove('is-loading')
 
+        $("#first-error-list li").remove()
+        $("#second-error-list li").remove()
+        $("#third-error-list li").remove()
+        $("#fourth-error-list li").remove()
+
         if (value_1) {
-            $("#first-error-list li").remove()
             //case banned
             if (value_1.charAt(0) != value_1.charAt(0).toUpperCase()) {
                 if ($('#first-banned-0').text().indexOf(ban_mess_3) == 0) {
@@ -3202,7 +3206,7 @@ function checkAdsFunc_mobile() {
         }
 
         if (value_2) {
-            $("#second-error-list li").remove()
+            
             //case banned
             if (value_2.charAt(0) != value_2.charAt(0).toUpperCase()) {
                 if ($('#second-banned-0').text().indexOf(ban_mess_3) == 0) {
@@ -3544,7 +3548,7 @@ function checkAdsFunc_mobile() {
         }
 
         if (value_3) {
-            $("#third-error-list li").remove()
+            
             //case banned
             if (value_3.charAt(0) != value_3.charAt(0).toUpperCase()) {
                 if ($('#third-banned-0').text().indexOf(ban_mess_3) == 0) {
@@ -3757,7 +3761,7 @@ function checkAdsFunc_mobile() {
         if (tpcn_case_mobile) { }
         else {
             if (value_4) {
-                $("#fourth-error-list li").remove()
+                
                 //case banned
                 if (value_4.charAt(0) != value_4.charAt(0).toUpperCase()) {
 
