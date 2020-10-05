@@ -4143,7 +4143,7 @@ ErrorClickTooltip = (id, title) => {
                                         <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
                                     </div>
                                     <div class="bl-popup-context">
-                                        <p>Từ gợi ý: `+ fixed_list[i].fixed_item + `</p>
+                                        <p><span>Từ gợi ý:</span> `+ fixed_list[i].fixed_item + `</p>
                                     </div>
                                 </div>`
                         $('.bl-popup').append(temp_html)
