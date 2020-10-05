@@ -4003,7 +4003,7 @@ document.getElementById('tippy-title-ad-mobile').onclick = () => {
     
     let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
-                <span>Nội dung kiểm tra</span>
+                <span>Tên nhãn hàng hoặc OA</span>
                 <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
             </div>
             <div class="bl-popup-context">
@@ -4021,7 +4021,7 @@ document.getElementById('tippy-title-ad-mobile').onclick = () => {
 document.getElementById('tippy-content-ad-mobile').onclick = () => {
     let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
-                <span>Nội dung kiểm tra</span>
+                <span>Nội dung quảng cáo</span>
                 <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
             </div>
             <div class="bl-popup-context">
@@ -4039,7 +4039,7 @@ document.getElementById('tippy-content-ad-mobile').onclick = () => {
 document.getElementById('tippy-optional-desc-mobile').onclick = () => {
     let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
-                <span>Nội dung kiểm tra</span>
+                <span>Mô tả</span>
                 <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
             </div>
             <div class="bl-popup-context">
@@ -4057,12 +4057,30 @@ document.getElementById('tippy-optional-desc-mobile').onclick = () => {
 document.getElementById('tippy-optional-info-mobile').onclick = () => {
     let temp_html = `<div class="popup-container" id="popup-tooltip">
             <div class="bl-popup-heading">
-                <span>Nội dung kiểm tra</span>
+                <span>Thông tin thêm</span>
                 <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
             </div>
             <div class="bl-popup-context">
                 <p>Nội dung thông tin thêm không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p>
                 <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về thông tin thêm</a>
+             </div>
+     </div>`
+    $('.bl-popup').append(temp_html)
+    setTimeout(()=>{
+        $("html").addClass("overlay-popup")
+        $('#popup-tooltip').addClass('is-show')
+    },100)
+}
+
+document.getElementById('tippy-optional-info-mobile').onclick = () => {
+    let temp_html = `<div class="popup-container" id="popup-tooltip">
+            <div class="bl-popup-heading">
+                <span>Quảng cáo “Thực phẩm chức năng”</span>
+                <a class="func-close-popup" onclick='close_tooltip("popup-tooltip")'><i class="icz icz-close"></i></a>
+            </div>
+            <div class="bl-popup-context">
+                <p>Một số sản phẩm đặc biệt phải đi kèm với các loại giấy phép và nội dung theo qui định của Zalo Ads và cơ quan thẩm quyền.</p>
+                <a  href="https://ads.zalo.me/business/san-pham-can-giay-phep/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem các sản phẩm cần giấy phép</a>
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
