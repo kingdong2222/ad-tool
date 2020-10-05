@@ -182,10 +182,6 @@ document.getElementById('close-rating-block').onclick = () => {
 
 document.getElementById('send-rating-feedback').onclick = () => {
 
-    if(screen.width < 768){
-        $("html").addClass("overlay-popup");
-    }
-
     $('.first').addClass('is-hidden')
     $('.second').removeClass('is-hidden')
 
@@ -206,9 +202,9 @@ document.getElementById('send-rating-feedback').onclick = () => {
     setTimeout(()=>{
         $('.rating-block').addClass('is-hidden')
         if(screen.width < 768){
-            $("html").addClass("overlay-popup");
+            $("html").removeClass("overlay-popup");
         }
-    },2000)
+    },1000)
 }
 
 function getCookie(cname) {
