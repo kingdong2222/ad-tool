@@ -2901,7 +2901,7 @@ second_input_mobile.oninput = value => {
     // let clean_button = second_input_mobile.nextSibling 
     if (value.target.value) {
         // clean_button.style.opacity = '1'
-        second_max_letter_mobile.innerHTML = second_input_mobile.value.length + '/30'
+        second_max_letter_mobile.innerHTML = second_input_mobile.value.length + '/90'
         if (first_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         } else {
@@ -2909,7 +2909,7 @@ second_input_mobile.oninput = value => {
         }
     } else {
         // clean_button.style.opacity = '0'
-        second_max_letter_mobile.innerHTML = '0/30'
+        second_max_letter_mobile.innerHTML = '0/90'
         if (first_input_mobile.value || third_input_mobile.value || fourth_input_mobile.value) {
             //do nothing cause it's done already
         }
