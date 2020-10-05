@@ -1,4 +1,4 @@
-let version_update = '1.0.4'
+let version_update = '1.0.5'
 let ids = []
 let names = []
 let contents = []
@@ -98,10 +98,18 @@ $("#dropdown-m2").click(function(){
                 </div>
                 <div class="bl-popup-context">
                 <div class="history-list">
+                <div class="history-item">
+                    <ul>
+                        <li> 
+                        <p>Cập nhật phiên bản kiểm tra nội dung và hình ảnh quảng cáo trên điện thoại.</p>
+                        </li>
+                    </ul>
+                    <p>Phiên bản 1.0.5 - 05/10/2020</p>
+                    </div>
                     <div class="history-item">
                     <ul>
                         <li> 
-                        <p>Thêm tính năng kiểm tra chính tả và gợi ý chỉnh sửa</p>
+                        <p>Thêm tính năng kiểm tra chính tả và gợi ý chỉnh sửa.</p>
                         </li>
                     </ul>
                     <p>Phiên bản 1.0.4 - 17/08/2020</p>
@@ -109,13 +117,13 @@ $("#dropdown-m2").click(function(){
                     <div class="history-item">
                     <ul>
                         <li> 
-                        <p>Thêm tính năng Tra cứu giấy phép</p>
+                        <p>Thêm tính năng Tra cứu giấy phép.</p>
                         </li>
                         <li> 
-                        <p>Thêm tính năng gợi ý chỉnh sửa cho từ CẤM, từ phản cảm, thiếu kiểm chứng</p>
+                        <p>Thêm tính năng gợi ý chỉnh sửa cho từ CẤM, từ phản cảm, thiếu kiểm chứng.</p>
                         </li>
                         <li> 
-                        <p>Bổ sung điều kiện quảng cáo cho “Thực phẩm chức năng”</p>
+                        <p>Bổ sung điều kiện quảng cáo cho “Thực phẩm chức năng”.</p>
                         </li>
                     </ul>
                     <p>Phiên bản 1.0.3 - 17/08/2020</p>
@@ -123,16 +131,16 @@ $("#dropdown-m2").click(function(){
                     <div class="history-item">
                     <ul>
                         <li> 
-                        <p>Kiểm tra nội dung có chứa số điện thoại hoặc email</p>
+                        <p>Kiểm tra nội dung có chứa số điện thoại hoặc email.</p>
                         </li>
                         <li> 
-                        <p>Cập nhật lại Vị trí quảng cáo</p>
+                        <p>Cập nhật lại Vị trí quảng cáo.</p>
                         </li>
                         <li> 
-                        <p>Kiểm tra nội dung có chứa từ ngữ phản cảm, thiếu kiểm chứng</p>
+                        <p>Kiểm tra nội dung có chứa từ ngữ phản cảm, thiếu kiểm chứng.</p>
                         </li>
                         <li> 
-                        <p>Kiểm tra nội dung có chứa từ CẤM</p>
+                        <p>Kiểm tra nội dung có chứa từ CẤM.</p>
                         </li>
                     </ul>
                     <p>Phiên bản 1.0.2 - 10/08/2020</p>
@@ -140,16 +148,16 @@ $("#dropdown-m2").click(function(){
                     <div class="history-item">
                     <ul>
                         <li> 
-                        <p>Tự động kiểm tra chất lượng hình ảnh</p>
+                        <p>Tự động kiểm tra chất lượng hình ảnh.</p>
                         </li>
                         <li> 
-                        <p>Kiểm tra phần trăm ký tự trên ảnh</p>
+                        <p>Kiểm tra phần trăm ký tự trên ảnh.</p>
                         </li>
                         <li> 
-                        <p>Kiểm tra nội dung có chứa ký tự đặc biệt</p>
+                        <p>Kiểm tra nội dung có chứa ký tự đặc biệt.</p>
                         </li>
                         <li> 
-                        <p>Kiểm tra nội dung có chữ viết hoa</p>
+                        <p>Kiểm tra nội dung có chữ viết hoa.</p>
                         </li>
                     </ul>
                     <p>Phiên bản 1.0.1 - 27/07/2020</p>

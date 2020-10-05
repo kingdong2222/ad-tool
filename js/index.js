@@ -1330,7 +1330,7 @@ document.getElementById('check-form-ad').onclick = () => {
     document.getElementById('flying-button').classList.add('is-loading')
     checkAdsFunc()
     //google track
-    // dataLayer.push({ 'event': 'event_ValidateAd' })
+    dataLayer.push({ 'event': 'event_ValidateAd' })
 }
 document.getElementById('flying-button').onclick = () => {
     document.getElementById('flying-button').classList.add('is-loading')
@@ -4134,6 +4134,7 @@ $('.bl-popup').on("click", function (event) {
     if($('.rating-block').hasClass('is-hidden') == false){
         $('.rating-block').addClass('is-hidden')
         setCookie('has_rated', 'rated', 30)
+        $("html").removeClass("overlay-popup");
     }
     
     
