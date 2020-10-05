@@ -836,11 +836,11 @@ var cropLargeImgAgain = function (val) {
                                 var t = cv.Laplacian(src, dst, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
                                 console.log(t, cv.meanStdDev(dst, menO, men), menO.data64F[0], men.data64F[0]);
                                 if (men.data64F[0] > 10) {
-                                    document.getElementById('img-quality').innerHTML = 'Đạt tiêu chuẩn'
-                                    document.getElementById('img-quality').classList.add('is-ok')
+                                    document.getElementById('img-quality-mobile').innerHTML = 'Đạt tiêu chuẩn'
+                                    document.getElementById('img-quality-mobile').classList.add('is-ok')
                                 } else {
-                                    document.getElementById('img-quality').innerHTML = 'Bị mờ'
-                                    document.getElementById('img-quality').classList.remove('is-ok')
+                                    document.getElementById('img-quality-mobile').innerHTML = 'Bị mờ'
+                                    document.getElementById('img-quality-mobile').classList.remove('is-ok')
                                 }
                                 // cv.imshow('canvasOutput', dst);
                                 src.delete(); dst.delete();
