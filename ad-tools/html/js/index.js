@@ -3047,6 +3047,9 @@ function checkAdsFunc_mobile() {
     let ban_mess_6 = 'Có chứa từ sai chính tả:'
 
     setTimeout(() => {
+
+        let block_success = document.getElementById("block-success");
+        block_success.classList.add('is-hidden')
         document.getElementById('check-form-ad-mobile').classList.remove('is-loading')
 
         $("#first-error-list li").remove()
