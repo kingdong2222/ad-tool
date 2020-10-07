@@ -2537,8 +2537,8 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
         content_card_0.classList.add('is-hidden')
         content_card_1.classList.add('is-hidden')
 
-        let value_check_ad = true //banned
-        let value_check_3k_ad = true //warning
+        let value_check_ad = true //warning
+        let value_check_3k_ad = true //banned
 
         $('#alert-card-first .card-error-list ul li').remove()
         $('#alert-card-second .card-error-list ul li').remove()
