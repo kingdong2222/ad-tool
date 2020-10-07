@@ -2778,15 +2778,15 @@ function check3kAds(id, value_1, value_2, value_3, value_4) {
                     $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>Sử dụng dấu câu ở đầu</p></li>")
                 }
             }
-            if (value_2.charAt(0) == ' ') {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                value_check_3k_ad = false
-                listI[id] == '' ? listI[id] = 'x' : null
-                if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
-                }
-            }
+            // if (value_2.charAt(0) == ' ') {
+            //     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+            //     value_check_3k_ad = false
+            //     listI[id] == '' ? listI[id] = 'x' : null
+            //     if ($('#banned-2').text().indexOf('Sử dụng khoảng trắng đầu câu') == 0) {
+            //     } else {
+            //         $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>Sử dụng khoảng trắng đầu câu</p></li>")
+            //     }
+            // }
             if (checkPolicy(value_2).length > 0) {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_3k_ad = false

@@ -3406,7 +3406,7 @@ function checkAdsFunc_mobile() {
                         $("#second-error-list").append("<li class='warning' id='second-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
                     }
                 }
-                setTimeout(ErrorClickTooltip('first-warning-4', warn_mess_1.replace(':', '')), 500)
+                setTimeout(ErrorClickTooltip('second-warning-4', warn_mess_1.replace(':', '')), 500)
             }
             if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
                 if ($('#second-warning-5').text().indexOf(warn_mess_5) == 0) {
@@ -4224,3 +4224,11 @@ ErrorClickTooltip = (id, title) => {
 
     })
 }
+
+$("#check-grid-mobile").change(function () {
+    if (this.checked) {
+        $(".ads-img .squares").addClass("is-show");
+    } else {
+        $(".ads-img .squares").removeClass("is-show");
+    }
+});

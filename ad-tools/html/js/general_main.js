@@ -90,6 +90,12 @@ let close_tooltip = (id) => {
     $('#'+ id).remove()
 }
 $("#dropdown-m2").click(function(){
+    let cookie_update = getCookie('version_update')
+    if (cookie_update == version_update) {
+        $('#red_dot').css('opacity', '0')
+    } else {
+        $('#red_dot').css('opacity', '1')
+    }
     if(screen.width <= 768){
         let temp_html = `<div class="popup-container" id="popup-update">
                 <div class="bl-popup-heading">
