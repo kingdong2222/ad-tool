@@ -199,8 +199,14 @@ document.getElementById('send-rating-feedback').onclick = () => {
     $('.first').addClass('is-hidden')
     $('.second').removeClass('is-hidden')
 
-    let rate = $('.rating-button.selected').text()
-    let content = $('.rating-block textarea').val()
+    let rate = $('.rating-button.selected').text() 
+    let content 
+    if(screen.width <= 768){
+        content = 'Mobile: ' + $('.rating-block textarea').val()
+    } else {
+        content = $('.rating-block textarea').val()
+    }
+
 
     $.ajax({
         url: "https://docs.google.com/forms/d/e/1FAIpQLSfam7XB9lmQw0BsfdgDxNk9s_9FDI4YGGiODikeB53Fkf-9JQ/formResponse?",

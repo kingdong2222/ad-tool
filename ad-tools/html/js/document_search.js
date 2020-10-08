@@ -17,6 +17,13 @@ input_search_major.onfocus = () => {
     }
 }
 input_search_major.oninput = (value) => {
+    if(value.target.value){
+        $('#check-document').attr('disabled', false)
+        $('#refresh-searching').attr('disabled', false)
+    } else {
+        $('#check-document').attr('disabled', true)
+        $('#refresh-searching').attr('disabled', true)
+    }
     let input = value.target.value.toUpperCase()
     let ul = document_search.getElementsByTagName('UL')[0]
     let li = ul.getElementsByTagName("li");
@@ -188,13 +195,19 @@ $(document).on("click", function (event) {
         }
     }
 });
+
+//get index of majors list
 const getIndexList = (value) => {
     let index
     for (let i = 0; i < list_business_major.length; i++) {
-        if (value == list_business_major[i]) {
-            return index = i + 1
+        if (value.toUpperCase() == list_business_major[i].toUpperCase()) {
+            index = i + 1
+            break;
+        } else {
+            index = -1
         }
     }
+    return index
 }
 $('.name-item').click(value => {
     $('#first-select-preview').val(value.target.text)
@@ -214,7 +227,7 @@ $('.name-item').click(value => {
         $('#refresh-searching').attr('disabled', false)
     } else {
         $('#check-document').attr('disabled', true)
-        $('#refresh-searching').attr('disabled', false)
+        $('#refresh-searching').attr('disabled', true)
     }
     let tempIndex = getIndexList(value.target.text)
     //case khong co xuat xu hang hoa
@@ -268,7 +281,8 @@ document.getElementById('check-document').onclick = value => {
 
     let index = getIndexList(input_search_major.value)
 
-    let first_documents = list_nganh_hang[index]
+    let first_documents = []
+    first_documents = index > 0 ? list_nganh_hang[index] : []
 
     let checkbox_0 = $('#check0')[0].checked
     let checkbox_1 = $('#check1')[0].checked
@@ -276,7 +290,12 @@ document.getElementById('check-document').onclick = value => {
     let checkbox_4 = $('#check4')[0].checked
     let checkbox_5 = $('#check5')[0].checked
 
+    $('.text-input-item')[1].style.opacity = 1
+    $('.text-input-item')[2].style.opacity = 1
+
     let count = 0
+
+    let no_found = false
 
     setTimeout(() => {
         document.getElementById('check-document').classList.remove('is-loading')
@@ -286,25 +305,26 @@ document.getElementById('check-document').onclick = value => {
         $('#before-searching').addClass('is-hidden')
         $('#after-searching').removeClass('is-hidden')
 
-        for (let i = 0; i < first_documents.length; i++) {
-            
-            if (first_documents[i].includes('Hoặc')) {
-                $('#document-list .contain_or_job').append('<ul class="or-document"><li><p>' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li></ul>')
-            } else {
-                count += 1
-                if (first_documents[i + 1]) {
-                    if (first_documents[i + 1].includes('Hoặc')) {
-                        $('#document-list').append('<li class="contain_or_job has_contain"><p>'+ count + '. ' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li>')
+        if(first_documents.length > 0){
+            for (let i = 0; i < first_documents.length; i++) {
+                if (first_documents[i].includes('Hoặc')) {
+                    $('#document-list .contain_or_job').append('<ul class="or-document"><li><p>' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li></ul>')
+                } else {
+                    count += 1
+                    if (first_documents[i + 1]) {
+                        if (first_documents[i + 1].includes('Hoặc')) {
+                            $('#document-list').append('<li class="contain_or_job has_contain"><p>'+ count + '. ' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li>')
+                        } else {
+                            $('#document-list').append('<li><p>'+ count + '. ' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li>')
+                        }
                     } else {
                         $('#document-list').append('<li><p>'+ count + '. ' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li>')
                     }
-                } else {
-                    $('#document-list').append('<li><p>'+ count + '. ' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li>')
+    
                 }
-
             }
         }
-
+        
         if (checkbox_0 || checkbox_1 || checkbox_2) {
             if (index == 19 || index == 20 || index == 21 || index == 22 || index == 24 || index == 29 || index == 30 || index == 31) {
                 for (let i = 0; i < list_xuat_xu[1].length; i++) {
@@ -345,7 +365,7 @@ document.getElementById('check-document').onclick = value => {
                     }
                 }
             }
-        }
+        } 
 
         if (checkbox_4 || checkbox_5) {
             for (let i = 0; i < list_hinh_anh.length; i++) {
@@ -370,6 +390,18 @@ document.getElementById('check-document').onclick = value => {
         }
 
     }, 500);
+    setTimeout(()=>{
+        let list_doc_length = $('ul#document-list li').length
+        if(list_doc_length == 0){
+            //no found
+            
+            slide_body.style.display = 'flex'
+            $('#after-searching').addClass('is-hidden')
+            
+            $('#img-no-found').removeClass('is-hidden')
+            $('#no-found').removeClass('is-hidden')
+        }
+    },600)
 }
 
 //tooltip tippyjs

@@ -1488,106 +1488,106 @@ function checkAdsFunc() {
             })
 
             //case warning
-            if (value_1.match(InputFormatWithPuntuation)) {
-                let array_match = Array.from(value_1.matchAll(InputFormatWithPuntuation), m => m[0])
-                let string2array = value_1.split('')
-                let first_length = value_1.length
-                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
-                if (array_match.length < first_length) {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    //value_check_ad = false
-                    for (let i = 0; i < difference.length; i++) {
-                        if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
-                            if ($('#warning-1 span').text().includes(difference[i])) {
-                            } else {
-                                document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
-                            }
-                        } else {
-                            count_warning += 1
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
-                        }
-                    }
-                    setTimeout(FunctionHoverWord('warning-1'), 200)
-                }
+            // if (value_1.match(InputFormatWithPuntuation)) {
+            //     let array_match = Array.from(value_1.matchAll(InputFormatWithPuntuation), m => m[0])
+            //     let string2array = value_1.split('')
+            //     let first_length = value_1.length
+            //     let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+            //     if (array_match.length < first_length) {
+            //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            //         warning_card.classList.remove('is-hidden')
+            //         //value_check_ad = false
+            //         for (let i = 0; i < difference.length; i++) {
+            //             if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+            //                 if ($('#warning-1 span').text().includes(difference[i])) {
+            //                 } else {
+            //                     document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+            //                 }
+            //             } else {
+            //                 count_warning += 1
+            //                 $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
+            //             }
+            //         }
+            //         setTimeout(FunctionHoverWord('warning-1'), 200)
+            //     }
 
-            }
-            if (value_1.match(InputFormatFrom2Puntuation)) {
+            // }
+            // if (value_1.match(InputFormatFrom2Puntuation)) {
 
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                if (value_1.indexOf("...") > -1) {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
-                    } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
-                    }
-                } else {
-                    let matches = Array.from(value_1.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    for (let i = 0; i < matches.length; i++) {
-                        let item = matches[i]
-                        //show location in string
-                        // console.log(mini_array[i])
-                        if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
-                            first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
-                        } else {
-                            first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                            if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
-                                if ($('#warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
-                            } else {
-                                count_warning += 1
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
-                            }
-                        }
-                    }
-                    setTimeout(FunctionHoverWord('warning-3'), 200)
-                }
-            }
-            if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
-                if (value_1.match(InputSpacingPuntationError_4) == null) {
-                } else {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-6').text().indexOf(warn_mess_6) == 0) {
-                    } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>" + warn_mess_6 + "</p></li>")
-                    }
-                }
-            }
-            if (checkWarning(value_1).length > 0) {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                let list = checkWarning(value_1)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
-                        if ($('#warning-4 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
-                    }
-                }
-                setTimeout(FunctionHoverWord('warning-4'), 200)
-            }
-            if (value_1.match(/\s{2,}/g)) {
-                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
-                } else {
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
-                    count_warning += 1
-                }
-            }
+            //     //value_check_ad = false
+            //     warning_card.classList.remove('is-hidden')
+            //     if (value_1.indexOf("...") > -1) {
+            //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            //         if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
+            //         } else {
+            //             count_warning += 1
+            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
+            //         }
+            //     } else {
+            //         let matches = Array.from(value_1.matchAll(InputFormatFrom2Puntuation), m => m[0])
+            //         for (let i = 0; i < matches.length; i++) {
+            //             let item = matches[i]
+            //             //show location in string
+            //             // console.log(mini_array[i])
+            //             if (item == '%,' || item == '%.') {
+            //                 warning_card.classList.add('is-hidden')
+            //                 first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+            //             } else {
+            //                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            //                 if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+            //                     if ($('#warning-3').text().includes(item)) {
+            //                     } else {
+            //                         document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+            //                     }
+            //                 } else {
+            //                     count_warning += 1
+            //                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+            //                 }
+            //             }
+            //         }
+            //         setTimeout(FunctionHoverWord('warning-3'), 200)
+            //     }
+            // }
+            // if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
+            //     if (value_1.match(InputSpacingPuntationError_4) == null) {
+            //     } else {
+            //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            //         warning_card.classList.remove('is-hidden')
+            //         if ($('#warning-6').text().indexOf(warn_mess_6) == 0) {
+            //         } else {
+            //             count_warning += 1
+            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>" + warn_mess_6 + "</p></li>")
+            //         }
+            //     }
+            // }
+            // if (checkWarning(value_1).length > 0) {
+            //     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            //     //value_check_ad = false
+            //     warning_card.classList.remove('is-hidden')
+            //     let list = checkWarning(value_1)
+            //     for (let i = 0; i < list.length; i++) {
+            //         let item = list[i]
+            //         if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
+            //             if ($('#warning-4 span').text().includes(item)) {
+            //             } else {
+            //                 document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
+            //             }
+            //         } else {
+            //             count_warning += 1
+            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
+            //         }
+            //     }
+            //     setTimeout(FunctionHoverWord('warning-4'), 200)
+            // }
+            // if (value_1.match(/\s{2,}/g)) {
+            //     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+            //     warning_card.classList.remove('is-hidden')
+            //     if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
+            //     } else {
+            //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
+            //         count_warning += 1
+            //     }
+            // }
         }
 
         if (value_2) {
@@ -1661,15 +1661,15 @@ function checkAdsFunc() {
                             }
                         }
                         //warning
-                        if (checkFormat2(temp) == 1) {
-                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                            warning_card.classList.remove('is-hidden')
-                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                                count_warning += 1
-                            }
-                        }
+                        // if (checkFormat2(temp) == 1) {
+                        //     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                        //     warning_card.classList.remove('is-hidden')
+                        //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        //     } else {
+                        //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                        //         count_warning += 1
+                        //     }
+                        // }
                     }
                 } else {
                     if (isUpperCase(value_2) == true) {
@@ -1683,20 +1683,20 @@ function checkAdsFunc() {
                             }
                         }
                     }
-                    if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
-                    } else {
-                        if (value_2.match(InputSpacingPuntationError_1)) {
+                    // if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
+                    // } else {
+                    //     if (value_2.match(InputSpacingPuntationError_1)) {
 
-                        } else {
-                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                            warning_card.classList.remove('is-hidden')
-                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                                count_warning += 1
-                            }
-                        }
-                    }
+                    //     } else {
+                    //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    //         warning_card.classList.remove('is-hidden')
+                    //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                    //         } else {
+                    //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                    //             count_warning += 1
+                    //         }
+                    //     }
+                    // }
                 }
             }
 
@@ -1750,106 +1750,106 @@ function checkAdsFunc() {
 
 
             //case warning
-            if (value_2.match(InputFormatWithPuntuation)) {
-                let array_match = Array.from(value_2.matchAll(InputFormatWithPuntuation), m => m[0])
-                let string2array = value_2.split('')
-                let first_length = value_2.length
-                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
-                if (array_match.length < first_length) {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    //value_check_ad = false
-                    for (let i = 0; i < difference.length; i++) {
-                        if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
-                            if ($('#warning-1 span').text().includes(difference[i])) {
-                            } else {
-                                document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
-                            }
-                        } else {
-                            count_warning += 1
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
-                        }
-                    }
-                    setTimeout(FunctionHoverWord('warning-1'), 200)
-                }
-            }
-            if (value_2.match(InputFormatFrom2Puntuation)) {
+            // if (value_2.match(InputFormatWithPuntuation)) {
+            //     let array_match = Array.from(value_2.matchAll(InputFormatWithPuntuation), m => m[0])
+            //     let string2array = value_2.split('')
+            //     let first_length = value_2.length
+            //     let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+            //     if (array_match.length < first_length) {
+            //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+            //         warning_card.classList.remove('is-hidden')
+            //         //value_check_ad = false
+            //         for (let i = 0; i < difference.length; i++) {
+            //             if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+            //                 if ($('#warning-1 span').text().includes(difference[i])) {
+            //                 } else {
+            //                     document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+            //                 }
+            //             } else {
+            //                 count_warning += 1
+            //                 $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
+            //             }
+            //         }
+            //         setTimeout(FunctionHoverWord('warning-1'), 200)
+            //     }
+            // }
+            // if (value_2.match(InputFormatFrom2Puntuation)) {
 
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                if (value_2.indexOf("...") > -1) {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
-                    } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
-                    }
-                } else {
-                    let matches = Array.from(value_2.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    for (let i = 0; i < matches.length; i++) {
-                        let item = matches[i]
-                        //show location in string
-                        // console.log(mini_array[i])
+            //     //value_check_ad = false
+            //     warning_card.classList.remove('is-hidden')
+            //     if (value_2.indexOf("...") > -1) {
+            //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+            //         if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
+            //         } else {
+            //             count_warning += 1
+            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
+            //         }
+            //     } else {
+            //         let matches = Array.from(value_2.matchAll(InputFormatFrom2Puntuation), m => m[0])
+            //         for (let i = 0; i < matches.length; i++) {
+            //             let item = matches[i]
+            //             //show location in string
+            //             // console.log(mini_array[i])
 
-                        if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
-                            first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
-                        } else {
-                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                            if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
-                                if ($('#warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
-                            } else {
-                                count_warning += 1
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
-                            }
-                        }
-                    }
-                    setTimeout(FunctionHoverWord('warning-3'), 200)
-                }
-            }
-            if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
-                if (value_2.match(InputSpacingPuntationError_4) == null) {
-                } else {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-6').text().indexOf(warn_mess_6) == 0) {
-                    } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>" + warn_mess_6 + "</p></li>")
-                    }
-                }
-            }
-            if (checkWarning(value_2).length > 0) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                let list = checkWarning(value_2)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
-                        if ($('#warning-4 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
-                    }
-                }
-                setTimeout(FunctionHoverWord('warning-4'), 200)
-            }
-            if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
-                second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
-                } else {
-                    count_warning += 1
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
-                }
-            }
+            //             if (item == '%,' || item == '%.') {
+            //                 warning_card.classList.add('is-hidden')
+            //                 first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+            //             } else {
+            //                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+            //                 if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+            //                     if ($('#warning-3').text().includes(item)) {
+            //                     } else {
+            //                         document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+            //                     }
+            //                 } else {
+            //                     count_warning += 1
+            //                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+            //                 }
+            //             }
+            //         }
+            //         setTimeout(FunctionHoverWord('warning-3'), 200)
+            //     }
+            // }
+            // if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
+            //     if (value_2.match(InputSpacingPuntationError_4) == null) {
+            //     } else {
+            //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+            //         warning_card.classList.remove('is-hidden')
+            //         if ($('#warning-6').text().indexOf(warn_mess_6) == 0) {
+            //         } else {
+            //             count_warning += 1
+            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>" + warn_mess_6 + "</p></li>")
+            //         }
+            //     }
+            // }
+            // if (checkWarning(value_2).length > 0) {
+            //     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+            //     //value_check_ad = false
+            //     warning_card.classList.remove('is-hidden')
+            //     let list = checkWarning(value_2)
+            //     for (let i = 0; i < list.length; i++) {
+            //         let item = list[i]
+            //         if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
+            //             if ($('#warning-4 span').text().includes(item)) {
+            //             } else {
+            //                 document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
+            //             }
+            //         } else {
+            //             count_warning += 1
+            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
+            //         }
+            //     }
+            //     setTimeout(FunctionHoverWord('warning-4'), 200)
+            // }
+            // if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
+            //     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+            //     warning_card.classList.remove('is-hidden')
+            //     if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
+            //     } else {
+            //         count_warning += 1
+            //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
+            //     }
+            // }
 
             //case enters too much
             if (value_2.includes('\n')) {
@@ -1957,15 +1957,15 @@ function checkAdsFunc() {
                                     }
                                 }
                                 //warning
-                                if (checkFormat2(temp) == 1) {
-                                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                                    warning_card.classList.remove('is-hidden')
-                                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                                    } else {
-                                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                                        count_warning += 1
-                                    }
-                                }
+                                // if (checkFormat2(temp) == 1) {
+                                //     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                                //     warning_card.classList.remove('is-hidden')
+                                //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                                //     } else {
+                                //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                //         count_warning += 1
+                                //     }
+                                // }
                             }
                         } else {
                             if (isUpperCase(temp) == true) {
@@ -1979,21 +1979,21 @@ function checkAdsFunc() {
                                     }
                                 }
                             }
-                            if (checkSensitive(temp).length > 0) {
-                            } else {
-                                if (temp.match(InputSpacingPuntationError_1)) {
+                            // if (checkSensitive(temp).length > 0) {
+                            // } else {
+                            //     if (temp.match(InputSpacingPuntationError_1)) {
 
-                                } else {
-                                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                                    warning_card.classList.remove('is-hidden')
-                                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                                    } else {
-                                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                                        count_warning += 1
-                                    }
-                                }
+                            //     } else {
+                            //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            //         warning_card.classList.remove('is-hidden')
+                            //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            //         } else {
+                            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            //             count_warning += 1
+                            //         }
+                            //     }
 
-                            }
+                            // }
                         }
                     }
                 }
@@ -2073,15 +2073,15 @@ function checkAdsFunc() {
                             }
                         }
                         //warning
-                        if (checkFormat2(temp) == 1) {
-                            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                            warning_card.classList.remove('is-hidden')
-                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                            } else {
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                                count_warning += 1
-                            }
-                        }
+                        // if (checkFormat2(temp) == 1) {
+                        //     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                        //     warning_card.classList.remove('is-hidden')
+                        //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        //     } else {
+                        //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                        //         count_warning += 1
+                        //     }
+                        // }
                     }
                 } else {
                     if (isUpperCase(value_3) == true) {
@@ -2095,21 +2095,21 @@ function checkAdsFunc() {
                             }
                         }
                     }
-                    if (checkSensitive(value_3).length > 0) {
-                    } else {
-                        if (value_3.match(InputSpacingPuntationError_1)) {
+                    // if (checkSensitive(value_3).length > 0) {
+                    // } else {
+                    //     if (value_3.match(InputSpacingPuntationError_1)) {
 
-                        } else {
-                            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    //     } else {
+                    //         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 
-                            warning_card.classList.remove('is-hidden')
-                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                            } else {
-                                count_warning += 1
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                            }
-                        }
-                    }
+                    //         warning_card.classList.remove('is-hidden')
+                    //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                    //         } else {
+                    //             count_warning += 1
+                    //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                    //         }
+                    //     }
+                    // }
                 }
 
             }
@@ -2164,106 +2164,106 @@ function checkAdsFunc() {
 
 
             //case warning
-            if (value_3.match(InputFormatWithPuntuation)) {
+            // if (value_3.match(InputFormatWithPuntuation)) {
 
-                let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
-                let string2array = value_3.split('')
-                let first_length = value_3.length
-                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
-                if (array_match.length < first_length) {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    //value_check_ad = false
-                    for (let i = 0; i < difference.length; i++) {
-                        if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
-                            if ($('#warning-1 span').text().includes(difference[i])) {
-                            } else {
-                                document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
-                            }
-                        } else {
-                            count_warning += 1
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
-                        }
-                    }
-                    setTimeout(FunctionHoverWord('warning-1'), 200)
-                }
-            }
-            if (value_3.match(InputFormatFrom2Puntuation)) {
+            //     let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
+            //     let string2array = value_3.split('')
+            //     let first_length = value_3.length
+            //     let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+            //     if (array_match.length < first_length) {
+            //         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+            //         warning_card.classList.remove('is-hidden')
+            //         //value_check_ad = false
+            //         for (let i = 0; i < difference.length; i++) {
+            //             if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+            //                 if ($('#warning-1 span').text().includes(difference[i])) {
+            //                 } else {
+            //                     document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+            //                 }
+            //             } else {
+            //                 count_warning += 1
+            //                 $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
+            //             }
+            //         }
+            //         setTimeout(FunctionHoverWord('warning-1'), 200)
+            //     }
+            // }
+            // if (value_3.match(InputFormatFrom2Puntuation)) {
 
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                if (value_3.indexOf("...") > -1) {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
-                    } else {
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
-                    }
-                } else {
-                    let matches = Array.from(value_3.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    for (let i = 0; i < matches.length; i++) {
-                        let item = matches[i]
-                        //show location in string
-                        // console.log(mini_array[i])
-                        if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
-                            third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
-                        } else {
-                            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                            if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
-                                if ($('#warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
-                            } else {
-                                count_warning += 1
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
-                            }
-                        }
+            //     //value_check_ad = false
+            //     warning_card.classList.remove('is-hidden')
+            //     if (value_3.indexOf("...") > -1) {
+            //         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+            //         if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
+            //         } else {
+            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
+            //         }
+            //     } else {
+            //         let matches = Array.from(value_3.matchAll(InputFormatFrom2Puntuation), m => m[0])
+            //         for (let i = 0; i < matches.length; i++) {
+            //             let item = matches[i]
+            //             //show location in string
+            //             // console.log(mini_array[i])
+            //             if (item == '%,' || item == '%.') {
+            //                 warning_card.classList.add('is-hidden')
+            //                 third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
+            //             } else {
+            //                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+            //                 if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+            //                     if ($('#warning-3').text().includes(item)) {
+            //                     } else {
+            //                         document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+            //                     }
+            //                 } else {
+            //                     count_warning += 1
+            //                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+            //                 }
+            //             }
 
-                    }
-                    setTimeout(FunctionHoverWord('warning-3'), 200)
-                }
-            }
-            if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
-                if (value_3.match(InputSpacingPuntationError_4) == null) {
-                } else {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-6').text().indexOf(warn_mess_6) == 0) {
-                    } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>" + warn_mess_6 + "</p></li>")
-                    }
-                }
-            }
-            if (checkWarning(value_3).length > 0) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
-                let list = checkWarning(value_3)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
-                        if ($('#warning-4 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + "  <span>" + item + "</span></p></li>")
-                    }
-                }
-                setTimeout(FunctionHoverWord('warning-4'), 200)
-            }
-            if (value_3.match(/\s{2,}/g)) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
-                } else {
-                    count_warning += 1
-                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
-                }
-            }
+            //         }
+            //         setTimeout(FunctionHoverWord('warning-3'), 200)
+            //     }
+            // }
+            // if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
+            //     if (value_3.match(InputSpacingPuntationError_4) == null) {
+            //     } else {
+            //         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+            //         warning_card.classList.remove('is-hidden')
+            //         if ($('#warning-6').text().indexOf(warn_mess_6) == 0) {
+            //         } else {
+            //             count_warning += 1
+            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-6'>" + warn_mess_6 + "</p></li>")
+            //         }
+            //     }
+            // }
+            // if (checkWarning(value_3).length > 0) {
+            //     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+            //     //value_check_ad = false
+            //     warning_card.classList.remove('is-hidden')
+            //     let list = checkWarning(value_3)
+            //     for (let i = 0; i < list.length; i++) {
+            //         let item = list[i]
+            //         if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
+            //             if ($('#warning-4 span').text().includes(item)) {
+            //             } else {
+            //                 document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
+            //             }
+            //         } else {
+            //             count_warning += 1
+            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + "  <span>" + item + "</span></p></li>")
+            //         }
+            //     }
+            //     setTimeout(FunctionHoverWord('warning-4'), 200)
+            // }
+            // if (value_3.match(/\s{2,}/g)) {
+            //     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+            //     warning_card.classList.remove('is-hidden')
+            //     if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
+            //     } else {
+            //         count_warning += 1
+            //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
+            //     }
+            // }
         }
 
         if (tpcn_case) { }
@@ -2339,15 +2339,15 @@ function checkAdsFunc() {
                                 }
                             }
                             //warning
-                            if (checkFormat2(temp) == 1) {
-                                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                                warning_card.classList.remove('is-hidden')
-                                if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                                } else {
-                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                                    count_warning += 1
-                                }
-                            }
+                            // if (checkFormat2(temp) == 1) {
+                            //     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                            //     warning_card.classList.remove('is-hidden')
+                            //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            //     } else {
+                            //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            //         count_warning += 1
+                            //     }
+                            // }
                         }
                     } else {
                         if (isUpperCase(value_4) == true) {
@@ -2361,21 +2361,21 @@ function checkAdsFunc() {
                                 }
                             }
                         }
-                        if (checkSensitive(value_4).length > 0) {
-                        } else {
-                            if (value_4.match(InputSpacingPuntationError_1)) {
+                        // if (checkSensitive(value_4).length > 0) {
+                        // } else {
+                        //     if (value_4.match(InputSpacingPuntationError_1)) {
 
-                            } else {
-                                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                        //     } else {
+                        //         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 
-                                warning_card.classList.remove('is-hidden')
-                                if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                                } else {
-                                    count_warning += 1
-                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                                }
-                            }
-                        }
+                        //         warning_card.classList.remove('is-hidden')
+                        //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        //         } else {
+                        //             count_warning += 1
+                        //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                        //         }
+                        //     }
+                        // }
                     }
 
                 }
@@ -2430,95 +2430,95 @@ function checkAdsFunc() {
 
 
                 //case warning
-                if (value_4.match(InputFormatWithPuntuation)) {
+                // if (value_4.match(InputFormatWithPuntuation)) {
 
-                    let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
-                    let string2array = value_4.split('')
-                    let first_length = value_4.length
-                    let difference = string2array.filter(x => array_match.indexOf(x) === -1)
-                    if (array_match.length < first_length) {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        warning_card.classList.remove('is-hidden')
-                        //value_check_ad = false
-                        for (let i = 0; i < difference.length; i++) {
-                            if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
-                                if ($('#warning-1 span').text().includes(difference[i])) {
-                                } else {
-                                    document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
-                                }
-                            } else {
-                                count_warning += 1
-                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
-                            }
-                        }
-                        setTimeout(FunctionHoverWord('warning-1'), 200)
-                    }
-                }
-                if (value_4.match(InputFormatFrom2Puntuation)) {
+                //     let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
+                //     let string2array = value_4.split('')
+                //     let first_length = value_4.length
+                //     let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                //     if (array_match.length < first_length) {
+                //         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                //         warning_card.classList.remove('is-hidden')
+                //         //value_check_ad = false
+                //         for (let i = 0; i < difference.length; i++) {
+                //             if ($('#warning-1').text().indexOf(warn_mess_4) == 0) {
+                //                 if ($('#warning-1 span').text().includes(difference[i])) {
+                //                 } else {
+                //                     document.getElementById('warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                //                 }
+                //             } else {
+                //                 count_warning += 1
+                //                 $("#alert-card-second .card-error-list ul").append("<li><p id='warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
+                //             }
+                //         }
+                //         setTimeout(FunctionHoverWord('warning-1'), 200)
+                //     }
+                // }
+                // if (value_4.match(InputFormatFrom2Puntuation)) {
 
-                    //value_check_ad = false
-                    warning_card.classList.remove('is-hidden')
-                    if (value_4.indexOf("...") > -1) {
-                        fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                        if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
-                        } else {
-                            count_warning += 1
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
-                        }
-                    } else {
-                        let matches = Array.from(value_4.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                        for (let i = 0; i < matches.length; i++) {
-                            let item = matches[i]
-                            //show location in string
-                            // console.log(mini_array[i])
-                            if (item == '%,' || item == '%.') {
-                                warning_card.classList.add('is-hidden')
-                                first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
-                            } else {
-                                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                                if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
-                                    if ($('#warning-3').text().includes(item)) {
-                                    } else {
-                                        document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
-                                    }
-                                } else {
-                                    count_warning += 1
-                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
-                                }
-                            }
+                //     //value_check_ad = false
+                //     warning_card.classList.remove('is-hidden')
+                //     if (value_4.indexOf("...") > -1) {
+                //         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                //         if ($('#warning-2').text().indexOf(warn_mess_3) == 0) {
+                //         } else {
+                //             count_warning += 1
+                //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-2'>" + warn_mess_3 + "</p></li>")
+                //         }
+                //     } else {
+                //         let matches = Array.from(value_4.matchAll(InputFormatFrom2Puntuation), m => m[0])
+                //         for (let i = 0; i < matches.length; i++) {
+                //             let item = matches[i]
+                //             //show location in string
+                //             // console.log(mini_array[i])
+                //             if (item == '%,' || item == '%.') {
+                //                 warning_card.classList.add('is-hidden')
+                //                 first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+                //             } else {
+                //                 fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                //                 if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+                //                     if ($('#warning-3').text().includes(item)) {
+                //                     } else {
+                //                         document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                //                     }
+                //                 } else {
+                //                     count_warning += 1
+                //                     $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+                //                 }
+                //             }
 
-                        }
-                        setTimeout(FunctionHoverWord('warning-3'), 200)
-                    }
-                }
-                if (checkWarning(value_4).length > 0) {
-                    fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                    //value_check_ad = false
-                    warning_card.classList.remove('is-hidden')
-                    let list = checkWarning(value_4)
-                    for (let i = 0; i < list.length; i++) {
-                        let item = list[i]
-                        if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
-                            if ($('#warning-4 span').text().includes(item)) {
-                            } else {
-                                document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
-                            }
-                        } else {
-                            count_warning += 1
-                            $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
-                        }
-                    }
-                    setTimeout(FunctionHoverWord('warning-4'), 200)
-                }
-                if (value_4.match(/\s{2,}/g)) {
-                    fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
-                    if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
-                    } else {
-                        count_warning += 1
-                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
-                    }
-                }
+                //         }
+                //         setTimeout(FunctionHoverWord('warning-3'), 200)
+                //     }
+                // }
+                // if (checkWarning(value_4).length > 0) {
+                //     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                //     //value_check_ad = false
+                //     warning_card.classList.remove('is-hidden')
+                //     let list = checkWarning(value_4)
+                //     for (let i = 0; i < list.length; i++) {
+                //         let item = list[i]
+                //         if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
+                //             if ($('#warning-4 span').text().includes(item)) {
+                //             } else {
+                //                 document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
+                //             }
+                //         } else {
+                //             count_warning += 1
+                //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
+                //         }
+                //     }
+                //     setTimeout(FunctionHoverWord('warning-4'), 200)
+                // }
+                // if (value_4.match(/\s{2,}/g)) {
+                //     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                //     warning_card.classList.remove('is-hidden')
+                //     if ($('#warning-5').text().indexOf(warn_mess_5) == 0) {
+                //     } else {
+                //         count_warning += 1
+                //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-5'>" + warn_mess_5 + "</p></li>")
+                //     }
+                // }
             }
         }
         setTimeout(() => {
@@ -3137,75 +3137,75 @@ function checkAdsFunc_mobile() {
             })
 
             //case warning
-            if (value_1.match(InputFormatWithPuntuation)) {
-                let array_match = Array.from(value_1.matchAll(InputFormatWithPuntuation), m => m[0])
-                let string2array = value_1.split('')
-                let first_length = value_1.length
-                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
-                if (array_match.length < first_length) {
-                    for (let i = 0; i < difference.length; i++) {
-                        if ($('#first-warning-1').text().indexOf(warn_mess_4) == 0) {
-                            if ($('#first-warning-1 span').text().includes(difference[i])) {
-                            } else {
-                                document.getElementById('first-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
-                            }
-                        } else {
-                            $("#first-error-list").append("<li class='warning' id='first-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
-                        }
-                    }
-                }
-            }
-            if (value_1.match(InputFormatFrom2Puntuation)) {
-                if (value_1.indexOf("...") > -1) {
-                    $("#first-error-list").append("<li class='warning' id='first-warning-2'>" + warn_mess_3 + "</li>")
-                } else {
-                    let matches = Array.from(value_1.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    for (let i = 0; i < matches.length; i++) {
-                        let item = matches[i]
-                        if (item == '%,' || item == '%.') {
-                        } else {
-                            if ($('#first-warning-3').text().indexOf(warn_mess_2) == 0) {
-                                if ($('#first-warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('first-warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
-                            } else {
-                                $("#first-error-list").append("<li class='warning' id='first-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
-                            }
-                        }
-                    }
-                }
-            }
-            if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
-                if (value_1.match(InputSpacingPuntationError_4) == null) {
-                } else {
-                    if ($('#first-warning-6').text().indexOf(warn_mess_6) == 0) {
-                    } else {
-                        $("#first-error-list").append("<li class='warning' id='first-warning-6'>" + warn_mess_6 + "</li>")
-                    }
-                }
-            }
-            if (checkWarning(value_1).length > 0) {
-                let list = checkWarning(value_1)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if ($('#first-warning-4').text().indexOf(warn_mess_1) == 0) {
-                        if ($('#first-warning-4 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('first-warning-4').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        $("#first-error-list").append("<li class='warning' id='first-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
-                    }
-                }
-                setTimeout(ErrorClickTooltip('first-warning-4', warn_mess_1.replace(':', '')), 500)
-            }
-            if (value_1.match(/\s{2,}/g)) {
-                if ($('#first-warning-5').text().indexOf(warn_mess_5) == 0) {
-                } else {
-                    $("#first-error-list").append("<li class='warning' id='first-warning-5'>" + warn_mess_5 + "</li>")
-                }
-            }
+            // if (value_1.match(InputFormatWithPuntuation)) {
+            //     let array_match = Array.from(value_1.matchAll(InputFormatWithPuntuation), m => m[0])
+            //     let string2array = value_1.split('')
+            //     let first_length = value_1.length
+            //     let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+            //     if (array_match.length < first_length) {
+            //         for (let i = 0; i < difference.length; i++) {
+            //             if ($('#first-warning-1').text().indexOf(warn_mess_4) == 0) {
+            //                 if ($('#first-warning-1 span').text().includes(difference[i])) {
+            //                 } else {
+            //                     document.getElementById('first-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+            //                 }
+            //             } else {
+            //                 $("#first-error-list").append("<li class='warning' id='first-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
+            //             }
+            //         }
+            //     }
+            // }
+            // if (value_1.match(InputFormatFrom2Puntuation)) {
+            //     if (value_1.indexOf("...") > -1) {
+            //         $("#first-error-list").append("<li class='warning' id='first-warning-2'>" + warn_mess_3 + "</li>")
+            //     } else {
+            //         let matches = Array.from(value_1.matchAll(InputFormatFrom2Puntuation), m => m[0])
+            //         for (let i = 0; i < matches.length; i++) {
+            //             let item = matches[i]
+            //             if (item == '%,' || item == '%.') {
+            //             } else {
+            //                 if ($('#first-warning-3').text().indexOf(warn_mess_2) == 0) {
+            //                     if ($('#first-warning-3').text().includes(item)) {
+            //                     } else {
+            //                         document.getElementById('first-warning-3').innerHTML += ' <span>' + item + '</span>'
+            //                     }
+            //                 } else {
+            //                     $("#first-error-list").append("<li class='warning' id='first-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
+            //     if (value_1.match(InputSpacingPuntationError_4) == null) {
+            //     } else {
+            //         if ($('#first-warning-6').text().indexOf(warn_mess_6) == 0) {
+            //         } else {
+            //             $("#first-error-list").append("<li class='warning' id='first-warning-6'>" + warn_mess_6 + "</li>")
+            //         }
+            //     }
+            // }
+            // if (checkWarning(value_1).length > 0) {
+            //     let list = checkWarning(value_1)
+            //     for (let i = 0; i < list.length; i++) {
+            //         let item = list[i]
+            //         if ($('#first-warning-4').text().indexOf(warn_mess_1) == 0) {
+            //             if ($('#first-warning-4 span').text().includes(item)) {
+            //             } else {
+            //                 document.getElementById('first-warning-4').innerHTML += ', <span>' + item + '</span>'
+            //             }
+            //         } else {
+            //             $("#first-error-list").append("<li class='warning' id='first-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
+            //         }
+            //     }
+            //     setTimeout(ErrorClickTooltip('first-warning-4', warn_mess_1.replace(':', '')), 500)
+            // }
+            // if (value_1.match(/\s{2,}/g)) {
+            //     if ($('#first-warning-5').text().indexOf(warn_mess_5) == 0) {
+            //     } else {
+            //         $("#first-error-list").append("<li class='warning' id='first-warning-5'>" + warn_mess_5 + "</li>")
+            //     }
+            // }
         }
 
         if (value_2) {
@@ -3268,12 +3268,12 @@ function checkAdsFunc_mobile() {
                             }
                         }
                         //warning
-                        if (checkFormat2(temp) == 1) {
-                            if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
-                            } else {
-                                $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
-                            }
-                        }
+                        // if (checkFormat2(temp) == 1) {
+                        //     if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                        //     } else {
+                        //         $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                        //     }
+                        // }
                     }
                 } else {
                     if (isUpperCase(value_2) == true) {
@@ -3285,16 +3285,16 @@ function checkAdsFunc_mobile() {
                             }
                         }
                     }
-                    if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
-                    } else {
-                        if (value_2.match(InputSpacingPuntationError_1)) {
-                        } else {
-                            if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
-                            } else {
-                                $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
-                            }
-                        }
-                    }
+                    // if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
+                    // } else {
+                    //     if (value_2.match(InputSpacingPuntationError_1)) {
+                    //     } else {
+                    //         if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                    //         } else {
+                    //             $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                    //         }
+                    //     }
+                    // }
                 }
             }
 
@@ -3342,78 +3342,78 @@ function checkAdsFunc_mobile() {
 
 
             //case warning
-            if (value_2.match(InputFormatWithPuntuation)) {
-                let array_match = Array.from(value_2.matchAll(InputFormatWithPuntuation), m => m[0])
-                let string2array = value_2.split('')
-                let first_length = value_2.length
-                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
-                if (array_match.length < first_length) {
-                    //value_check_ad = false
-                    for (let i = 0; i < difference.length; i++) {
-                        if ($('#second-warning-1').text().indexOf(warn_mess_4) == 0) {
-                            if ($('#second-warning-1 span').text().includes(difference[i])) {
-                            } else {
-                                document.getElementById('second-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
-                            }
-                        } else {
-                            $("#second-error-list").append("<li class='banned' id='second-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
-                        }
-                    }
-                }
-            }
-            if (value_2.match(InputFormatFrom2Puntuation)) {
+            // if (value_2.match(InputFormatWithPuntuation)) {
+            //     let array_match = Array.from(value_2.matchAll(InputFormatWithPuntuation), m => m[0])
+            //     let string2array = value_2.split('')
+            //     let first_length = value_2.length
+            //     let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+            //     if (array_match.length < first_length) {
+            //         //value_check_ad = false
+            //         for (let i = 0; i < difference.length; i++) {
+            //             if ($('#second-warning-1').text().indexOf(warn_mess_4) == 0) {
+            //                 if ($('#second-warning-1 span').text().includes(difference[i])) {
+            //                 } else {
+            //                     document.getElementById('second-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+            //                 }
+            //             } else {
+            //                 $("#second-error-list").append("<li class='banned' id='second-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
+            //             }
+            //         }
+            //     }
+            // }
+            // if (value_2.match(InputFormatFrom2Puntuation)) {
 
-                if (value_2.indexOf("...") > -1) {
-                    $("#second-error-list").append("<li class='warning' id='second-warning-2'>" + warn_mess_3 + "</li>")
-                } else {
-                    let matches = Array.from(value_2.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    for (let i = 0; i < matches.length; i++) {
-                        let item = matches[i]
+            //     if (value_2.indexOf("...") > -1) {
+            //         $("#second-error-list").append("<li class='warning' id='second-warning-2'>" + warn_mess_3 + "</li>")
+            //     } else {
+            //         let matches = Array.from(value_2.matchAll(InputFormatFrom2Puntuation), m => m[0])
+            //         for (let i = 0; i < matches.length; i++) {
+            //             let item = matches[i]
 
-                        if (item == '%,' || item == '%.') {
-                        } else {
-                            if ($('#second-warning-3').text().indexOf(warn_mess_2) == 0) {
-                                if ($('#second-warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('second-warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
-                            } else {
-                                $("#second-error-list").append("<li class='warning' id='second-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
-                            }
-                        }
-                    }
-                }
-            }
-            if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
-                if (value_2.match(InputSpacingPuntationError_4) == null) {
-                } else {
-                    if ($('#second-warning-6').text().indexOf(warn_mess_6) == 0) {
-                    } else {
-                        $("#second-error-list").append("<li class='warning' id='second-warning-6'>" + warn_mess_6 + "</li>")
-                    }
-                }
-            }
-            if (checkWarning(value_2).length > 0) {
-                let list = checkWarning(value_2)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if ($('#second-warning-4').text().indexOf(warn_mess_1) == 0) {
-                        if ($('#second-warning-4 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('second-warning-4').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        $("#second-error-list").append("<li class='warning' id='second-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
-                    }
-                }
-                setTimeout(ErrorClickTooltip('second-warning-4', warn_mess_1.replace(':', '')), 500)
-            }
-            if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
-                if ($('#second-warning-5').text().indexOf(warn_mess_5) == 0) {
-                } else {
-                    $("#second-error-list").append("<li class='warning' id='second-warning-5'>" + warn_mess_5 + "</li>")
-                }
-            }
+            //             if (item == '%,' || item == '%.') {
+            //             } else {
+            //                 if ($('#second-warning-3').text().indexOf(warn_mess_2) == 0) {
+            //                     if ($('#second-warning-3').text().includes(item)) {
+            //                     } else {
+            //                         document.getElementById('second-warning-3').innerHTML += ' <span>' + item + '</span>'
+            //                     }
+            //                 } else {
+            //                     $("#second-error-list").append("<li class='warning' id='second-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
+            //     if (value_2.match(InputSpacingPuntationError_4) == null) {
+            //     } else {
+            //         if ($('#second-warning-6').text().indexOf(warn_mess_6) == 0) {
+            //         } else {
+            //             $("#second-error-list").append("<li class='warning' id='second-warning-6'>" + warn_mess_6 + "</li>")
+            //         }
+            //     }
+            // }
+            // if (checkWarning(value_2).length > 0) {
+            //     let list = checkWarning(value_2)
+            //     for (let i = 0; i < list.length; i++) {
+            //         let item = list[i]
+            //         if ($('#second-warning-4').text().indexOf(warn_mess_1) == 0) {
+            //             if ($('#second-warning-4 span').text().includes(item)) {
+            //             } else {
+            //                 document.getElementById('second-warning-4').innerHTML += ', <span>' + item + '</span>'
+            //             }
+            //         } else {
+            //             $("#second-error-list").append("<li class='warning' id='second-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
+            //         }
+            //     }
+            //     setTimeout(ErrorClickTooltip('second-warning-4', warn_mess_1.replace(':', '')), 500)
+            // }
+            // if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
+            //     if ($('#second-warning-5').text().indexOf(warn_mess_5) == 0) {
+            //     } else {
+            //         $("#second-error-list").append("<li class='warning' id='second-warning-5'>" + warn_mess_5 + "</li>")
+            //     }
+            // }
 
             //case enters too much
             if (value_2.includes('\n')) {
@@ -3513,12 +3513,12 @@ function checkAdsFunc_mobile() {
                                     }
                                 }
                                 //warning
-                                if (checkFormat2(temp) == 1) {
-                                    if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
-                                    } else {
-                                        $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
-                                    }
-                                }
+                                // if (checkFormat2(temp) == 1) {
+                                //     if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                //     } else {
+                                //         $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                                //     }
+                                // }
                             }
                         } else {
                             if (isUpperCase(temp) == true) {
@@ -3530,18 +3530,18 @@ function checkAdsFunc_mobile() {
                                     }
                                 }
                             }
-                            if (checkSensitive(temp).length > 0) {
-                            } else {
-                                if (temp.match(InputSpacingPuntationError_1)) {
+                            // if (checkSensitive(temp).length > 0) {
+                            // } else {
+                            //     if (temp.match(InputSpacingPuntationError_1)) {
 
-                                } else {
-                                    if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
-                                    } else {
-                                        $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
-                                    }
-                                }
+                            //     } else {
+                            //         if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            //         } else {
+                            //             $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                            //         }
+                            //     }
 
-                            }
+                            // }
                         }
                     }
                 }
@@ -3610,12 +3610,12 @@ function checkAdsFunc_mobile() {
                             }
                         }
                         //warning
-                        if (checkFormat2(temp) == 1) {
-                            if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
-                            } else {
-                                $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
-                            }
-                        }
+                        // if (checkFormat2(temp) == 1) {
+                        //     if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
+                        //     } else {
+                        //         $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
+                        //     }
+                        // }
                     }
                 } else {
                     if (isUpperCase(value_3) == true) {
@@ -3627,16 +3627,16 @@ function checkAdsFunc_mobile() {
                             }
                         }
                     }
-                    if (checkSensitive(value_3).length > 0) {
-                    } else {
-                        if (value_3.match(InputSpacingPuntationError_1)) {
-                        } else {
-                            if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
-                            } else {
-                                $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
-                            }
-                        }
-                    }
+                    // if (checkSensitive(value_3).length > 0) {
+                    // } else {
+                    //     if (value_3.match(InputSpacingPuntationError_1)) {
+                    //     } else {
+                    //         if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
+                    //         } else {
+                    //             $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
+                    //         }
+                    //     }
+                    // }
                 }
 
             }
@@ -3685,80 +3685,80 @@ function checkAdsFunc_mobile() {
             })
 
             //case warning
-            if (value_3.match(InputFormatWithPuntuation)) {
-                let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
-                let string2array = value_3.split('')
-                let first_length = value_3.length
-                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
-                if (array_match.length < first_length) {
-                    for (let i = 0; i < difference.length; i++) {
-                        if ($('#third-warning-1').text().indexOf(warn_mess_4) == 0) {
-                            if ($('#third-warning-1 span').text().includes(difference[i])) {
-                            } else {
-                                document.getElementById('third-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
-                            }
-                        } else {
-                            $("#third-error-list").append("<li class='banned' id='third-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
-                        }
-                    }
-                }
-            }
-            if (value_3.match(InputFormatFrom2Puntuation)) {
-                if (value_3.indexOf("...") > -1) {
-                    if ($('#third-warning-2').text().indexOf(warn_mess_3) == 0) {
-                    } else {
-                        $("#third-error-list").append("<li class='warning' id='third-warning-2'>" + warn_mess_3 + "</li>")
-                    }
-                } else {
-                    let matches = Array.from(value_3.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                    for (let i = 0; i < matches.length; i++) {
-                        let item = matches[i]
-                        if (item == '%,' || item == '%.') {
-                        } else {
-                            if ($('#third-warning-3').text().indexOf(warn_mess_2) == 0) {
-                                if ($('#third-warning-3').text().includes(item)) {
-                                } else {
-                                    document.getElementById('third-warning-3').innerHTML += ' <span>' + item + '</span>'
-                                }
-                            } else {
-                                $("#third-error-list").append("<li class='warning' id='third-warning-3'>" + warn_mess_2 + " <span>" + item + "</span</li>")
-                            }
-                        }
-                    }
-                }
-            }
-            if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
-                if (value_3.match(InputSpacingPuntationError_4) == null) {
-                } else {
-                    if ($('#third-warning-6').text().indexOf(warn_mess_6) == 0) {
-                    } else {
-                        $("#third-error-list").append("<li class='warning' id='third-warning-6'>" + warn_mess_6 + "</p></li>")
-                    }
-                }
-            }
-            if (checkWarning(value_3).length > 0) {
-                let list = checkWarning(value_3)
-                for (let i = 0; i < list.length; i++) {
-                    let item = list[i]
-                    if ($('#third-warning-4').text().indexOf(warn_mess_1) == 0) {
-                        if ($('#third-warning-4 span').text().includes(item)) {
-                        } else {
-                            document.getElementById('third-warning-4').innerHTML += ', <span>' + item + '</span>'
-                        }
-                    } else {
-                        $("#third-error-list").append("<li class='warning' id='third-warning-4'>" + warn_mess_1 + "  <span>" + item + "</span></li>")
-                    }
-                }
-                setTimeout(ErrorClickTooltip('third-warning-4', warn_mess_1.replace(':', '')), 500)
-            }
-            if (value_3.match(/\s{2,}/g)) {
-                third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
-                if ($('#third-warning-5').text().indexOf(warn_mess_5) == 0) {
-                } else {
-                    $("#third-error-list").append("<li class='warning' id='third-warning-5'>" + warn_mess_5 + "</li>")
-                }
-            }
+            // if (value_3.match(InputFormatWithPuntuation)) {
+            //     let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
+            //     let string2array = value_3.split('')
+            //     let first_length = value_3.length
+            //     let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+            //     if (array_match.length < first_length) {
+            //         for (let i = 0; i < difference.length; i++) {
+            //             if ($('#third-warning-1').text().indexOf(warn_mess_4) == 0) {
+            //                 if ($('#third-warning-1 span').text().includes(difference[i])) {
+            //                 } else {
+            //                     document.getElementById('third-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+            //                 }
+            //             } else {
+            //                 $("#third-error-list").append("<li class='banned' id='third-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
+            //             }
+            //         }
+            //     }
+            // }
+            // if (value_3.match(InputFormatFrom2Puntuation)) {
+            //     if (value_3.indexOf("...") > -1) {
+            //         if ($('#third-warning-2').text().indexOf(warn_mess_3) == 0) {
+            //         } else {
+            //             $("#third-error-list").append("<li class='warning' id='third-warning-2'>" + warn_mess_3 + "</li>")
+            //         }
+            //     } else {
+            //         let matches = Array.from(value_3.matchAll(InputFormatFrom2Puntuation), m => m[0])
+            //         for (let i = 0; i < matches.length; i++) {
+            //             let item = matches[i]
+            //             if (item == '%,' || item == '%.') {
+            //             } else {
+            //                 if ($('#third-warning-3').text().indexOf(warn_mess_2) == 0) {
+            //                     if ($('#third-warning-3').text().includes(item)) {
+            //                     } else {
+            //                         document.getElementById('third-warning-3').innerHTML += ' <span>' + item + '</span>'
+            //                     }
+            //                 } else {
+            //                     $("#third-error-list").append("<li class='warning' id='third-warning-3'>" + warn_mess_2 + " <span>" + item + "</span</li>")
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
+            //     if (value_3.match(InputSpacingPuntationError_4) == null) {
+            //     } else {
+            //         if ($('#third-warning-6').text().indexOf(warn_mess_6) == 0) {
+            //         } else {
+            //             $("#third-error-list").append("<li class='warning' id='third-warning-6'>" + warn_mess_6 + "</p></li>")
+            //         }
+            //     }
+            // }
+            // if (checkWarning(value_3).length > 0) {
+            //     let list = checkWarning(value_3)
+            //     for (let i = 0; i < list.length; i++) {
+            //         let item = list[i]
+            //         if ($('#third-warning-4').text().indexOf(warn_mess_1) == 0) {
+            //             if ($('#third-warning-4 span').text().includes(item)) {
+            //             } else {
+            //                 document.getElementById('third-warning-4').innerHTML += ', <span>' + item + '</span>'
+            //             }
+            //         } else {
+            //             $("#third-error-list").append("<li class='warning' id='third-warning-4'>" + warn_mess_1 + "  <span>" + item + "</span></li>")
+            //         }
+            //     }
+            //     setTimeout(ErrorClickTooltip('third-warning-4', warn_mess_1.replace(':', '')), 500)
+            // }
+            // if (value_3.match(/\s{2,}/g)) {
+            //     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+            //     warning_card.classList.remove('is-hidden')
+            //     if ($('#third-warning-5').text().indexOf(warn_mess_5) == 0) {
+            //     } else {
+            //         $("#third-error-list").append("<li class='warning' id='third-warning-5'>" + warn_mess_5 + "</li>")
+            //     }
+            // }
         }
 
         if (tpcn_case_mobile) { }
@@ -3825,12 +3825,12 @@ function checkAdsFunc_mobile() {
                                 }
                             }
                             //warning
-                            if (checkFormat2(temp) == 1) {
-                                if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
-                                } else {
-                                    $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
-                                }
-                            }
+                            // if (checkFormat2(temp) == 1) {
+                            //     if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            //     } else {
+                            //         $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
+                            //     }
+                            // }
                         }
                     } else {
                         if (isUpperCase(value_4) == true) {
@@ -3842,16 +3842,16 @@ function checkAdsFunc_mobile() {
                                 }
                             }
                         }
-                        if (checkSensitive(value_4).length > 0) {
-                        } else {
-                            if (value_4.match(InputSpacingPuntationError_1)) {
-                            } else {
-                                if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
-                                } else {
-                                    $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
-                                }
-                            }
-                        }
+                        // if (checkSensitive(value_4).length > 0) {
+                        // } else {
+                        //     if (value_4.match(InputSpacingPuntationError_1)) {
+                        //     } else {
+                        //         if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
+                        //         } else {
+                        //             $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
+                        //         }
+                        //     }
+                        // }
                     }
 
                 }
@@ -3901,73 +3901,73 @@ function checkAdsFunc_mobile() {
 
 
                 //case warning
-                if (value_4.match(InputFormatWithPuntuation)) {
+                // if (value_4.match(InputFormatWithPuntuation)) {
 
-                    let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
-                    let string2array = value_4.split('')
-                    let first_length = value_4.length
-                    let difference = string2array.filter(x => array_match.indexOf(x) === -1)
-                    if (array_match.length < first_length) {
-                        for (let i = 0; i < difference.length; i++) {
-                            if ($('#fourth-warning-1').text().indexOf(warn_mess_4) == 0) {
-                                if ($('#fourth-warning-1 span').text().includes(difference[i])) {
-                                } else {
-                                    document.getElementById('fourth-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
-                                }
-                            } else {
-                                count_warning += 1
-                                $("#fourth-error-list").append("<li class='warning' id='fourth-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
-                            }
-                        }
-                    }
-                }
-                if (value_4.match(InputFormatFrom2Puntuation)) {
+                //     let array_match = Array.from(value_4.matchAll(InputFormatWithPuntuation), m => m[0])
+                //     let string2array = value_4.split('')
+                //     let first_length = value_4.length
+                //     let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                //     if (array_match.length < first_length) {
+                //         for (let i = 0; i < difference.length; i++) {
+                //             if ($('#fourth-warning-1').text().indexOf(warn_mess_4) == 0) {
+                //                 if ($('#fourth-warning-1 span').text().includes(difference[i])) {
+                //                 } else {
+                //                     document.getElementById('fourth-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                //                 }
+                //             } else {
+                //                 count_warning += 1
+                //                 $("#fourth-error-list").append("<li class='warning' id='fourth-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></li>")
+                //             }
+                //         }
+                //     }
+                // }
+                // if (value_4.match(InputFormatFrom2Puntuation)) {
 
-                    if (value_4.indexOf("...") > -1) {
-                        if ($('#fourth-warning-2').text().indexOf(warn_mess_3) == 0) {
-                        } else {
-                            count_warning += 1
-                            $("#fourth-error-list").append("<li class='warning' id='fourth-warning-2'>" + warn_mess_3 + "</li>")
-                        }
-                    } else {
-                        let matches = Array.from(value_4.matchAll(InputFormatFrom2Puntuation), m => m[0])
-                        for (let i = 0; i < matches.length; i++) {
-                            let item = matches[i]
-                            if (item == '%,' || item == '%.') {
-                            } else {
-                                if ($('#fourth-warning-3').text().indexOf(warn_mess_2) == 0) {
-                                    if ($('#fourth-warning-3').text().includes(item)) {
-                                    } else {
-                                        document.getElementById('fourth-warning-3').innerHTML += ' <span>' + item + '</span>'
-                                    }
-                                } else {
-                                    $("#fourth-error-list").append("<li class='warning' id='fourth-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
-                                }
-                            }
-                        }
-                    }
-                }
-                if (checkWarning(value_4).length > 0) {
-                    let list = checkWarning(value_4)
-                    for (let i = 0; i < list.length; i++) {
-                        let item = list[i]
-                        if ($('#fourth-warning-4').text().indexOf(warn_mess_1) == 0) {
-                            if ($('#warning-4 span').text().includes(item)) {
-                            } else {
-                                document.getElementById('fourth-warning-4').innerHTML += ', <span>' + item + '</span>'
-                            }
-                        } else {
-                            $("#fourth-error-list").append("<li class='warning' id='fourth-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
-                        }
-                    }
-                    setTimeout(ErrorClickTooltip('fourth-warning-4', warn_mess_1.replace(':', '')), 500)
-                }
-                if (value_4.match(/\s{2,}/g)) {
-                    if ($('#fourth-warning-5').text().indexOf(warn_mess_5) == 0) {
-                    } else {
-                        $("#fourth-error-list").append("<li class='warning' id='fourth-warning-5'>" + warn_mess_5 + "</li>")
-                    }
-                }
+                //     if (value_4.indexOf("...") > -1) {
+                //         if ($('#fourth-warning-2').text().indexOf(warn_mess_3) == 0) {
+                //         } else {
+                //             count_warning += 1
+                //             $("#fourth-error-list").append("<li class='warning' id='fourth-warning-2'>" + warn_mess_3 + "</li>")
+                //         }
+                //     } else {
+                //         let matches = Array.from(value_4.matchAll(InputFormatFrom2Puntuation), m => m[0])
+                //         for (let i = 0; i < matches.length; i++) {
+                //             let item = matches[i]
+                //             if (item == '%,' || item == '%.') {
+                //             } else {
+                //                 if ($('#fourth-warning-3').text().indexOf(warn_mess_2) == 0) {
+                //                     if ($('#fourth-warning-3').text().includes(item)) {
+                //                     } else {
+                //                         document.getElementById('fourth-warning-3').innerHTML += ' <span>' + item + '</span>'
+                //                     }
+                //                 } else {
+                //                     $("#fourth-error-list").append("<li class='warning' id='fourth-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
+                // if (checkWarning(value_4).length > 0) {
+                //     let list = checkWarning(value_4)
+                //     for (let i = 0; i < list.length; i++) {
+                //         let item = list[i]
+                //         if ($('#fourth-warning-4').text().indexOf(warn_mess_1) == 0) {
+                //             if ($('#warning-4 span').text().includes(item)) {
+                //             } else {
+                //                 document.getElementById('fourth-warning-4').innerHTML += ', <span>' + item + '</span>'
+                //             }
+                //         } else {
+                //             $("#fourth-error-list").append("<li class='warning' id='fourth-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
+                //         }
+                //     }
+                //     setTimeout(ErrorClickTooltip('fourth-warning-4', warn_mess_1.replace(':', '')), 500)
+                // }
+                // if (value_4.match(/\s{2,}/g)) {
+                //     if ($('#fourth-warning-5').text().indexOf(warn_mess_5) == 0) {
+                //     } else {
+                //         $("#fourth-error-list").append("<li class='warning' id='fourth-warning-5'>" + warn_mess_5 + "</li>")
+                //     }
+                // }
             }
         }
 
