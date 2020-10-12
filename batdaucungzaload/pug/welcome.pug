@@ -1,0 +1,36 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var header = false
+	- var footer = false
+	- var modal = true
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("")
+	- layoutClasses.push("quiz-layout")
+	- headerClasses.push("")
+	- bodyClasses.push("page-content")
+	- footerClasses.push("")
+	
+//- Add Header
+block header
+	include page/header.pug
+
+//- Add Body
+block body
+	include page/_welcome.pug
+
+//- Add Footer
+block footer
+	include page/footer.pug
+
+//- Add Modal
+block modal
+
+block javaScripts extend
+	script.

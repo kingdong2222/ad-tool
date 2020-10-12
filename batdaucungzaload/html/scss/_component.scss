@@ -1,0 +1,31 @@
+// Core variables and mixins bourbon
+@import "bourbon";
+
+/*!
+* Layout
+* @author Lam Nguyen
+*/
+
+/* Avatar */
+.avatar{position:relative;display:flex;justify-content:center;align-items:center;@extend %borderRadius-circle;text-align:center}
+.avatar--s{@include size(30px);line-height:30px;
+	.num{background-color:$color-second;@include size(30px);color:#fff;font-size:0.688em;font-weight:700;@extend %borderRadius-circle;}
+}
+.avatar--m{@include size(48px);line-height:48px}
+.avatar--l{@include size(96px);line-height:96px}
+.avatar-img{@include position(absolute,0 null null 0);z-index:1;@include size(100%);@extend %backgroundCover--center;@extend %borderRadius-circle;}
+
+/* Button */
+.btn{display:inline-block;background-color:#fff;vertical-align:middle;cursor:pointer;white-space:nowrap;color:$color-base;font-weight:700;font-family:$primary-font;border:0 none;border-radius:30px;text-align:center;@extend %userSelect-none;box-shadow:inset 0 0 0 1px $color-border;
+	&:hover, &:focus{background-color:shade(#fff, 5%);color:$color-base}
+	&.disabled, &[disabled]{cursor:not-allowed;pointer-events:none;box-shadow:none;opacity:0.35;}
+	&.btn-outline-primary{color:$color-main;background-color:transparent;box-shadow:inset 0 0 0 1px $color-main;
+		&:hover, &:focus{background-color:transparent;opacity:0.85}
+	}
+	&.btn-primary{color:#fff;background-color:$color-main;box-shadow:0 2px 8px #2C217D;
+		&:hover, &:focus{background-color:shade($color-main, 5%);color:#fff}
+	}
+	&.btn--s{@include padding(7px 20px);font-size:0.938rem}
+	&.btn--m{@include padding(14px 30px);font-size:1.125rem}
+	&.btn--l{@include padding(18px 30px);font-size:1.125rem}
+}
