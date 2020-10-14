@@ -20,66 +20,97 @@
     <style></style>
   </head>
   <body>
-    <div class="quiz-layout">
-      <div class="page-content"><span class="logo logo--s is-absolute" style="background-image:url(images/logo.png)"></span>
-        <div class="bl-module module-question">
-          <div class="heading">
-            <div class="countdown">
-              <div id="countdowntimer">10</div>
-              <svg>
-                <circle r="26" cx="28" cy="28"></circle>
-              </svg>
+    <div class="form-layout">
+      <div class="page-content">
+        <div class="bl-cover-questions"><span class="img-cover" style="background-image:url(images/zad_game_header.jpg)"></span></div>
+        <div class="body-questions">
+          <div class="group-form">
+            <div class="bl-info-oa">
+              <div class="avatar avatar--s">
+                <div class="avatar-img" style="background-image:url(images/zad_OA_banner_avatar.png)"></div>
+              </div>
+              <h1>Zalo Ads</h1>
             </div>
-            <h2 class="title-heading ml-auto">Question 1 of 10</h2>
+            <div class="bl-form">
+              <h2 class="title has-text-centered">XÁC NHẬN THÔNG TIN LIÊN HỆ HỖ TRỢ</h2>
+              <div class="subtitle has-text-centered">
+                <p>Trước khi trả lời những câu hỏi thú vị và nhận những phần quà hấp dẫn, bạn vui lòng điền đầy đủ và chính xác thông tin sau để BQT Zalo Ads có thể liên hệ và hỗ trợ bạn khi cần thiết.</p>
+              </div>
+              <div class="field">
+                <label class="label">Họ và tên </label>
+                <div class="control has-icons-right">
+                  <input class="input" type="text" placeholder="Vd: Nguyễn Văn A" value="">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Số điện thoại</label>
+                <div class="control has-icons-right">
+                  <input class="input" type="text" placeholder="Vd: 098 9899 777" value="">
+                </div>
+                <p class="help has-text-danger">Đây là warning text</p>
+              </div>
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-right">
+                  <input class="input" type="text" placeholder="Vd: abc@gmail.com" value="">
+                </div>
+                <p class="help has-text-danger">Đây là warning text</p>
+              </div>
+              <div class="field">
+                <label class="label">Tên công ty/ doanh nghiệp/ cửa hàng</label>
+                <div class="control has-icons-right">
+                  <input class="input" type="text" placeholder="Vd: Công ty CP AbC" value="">
+                </div>
+                <p class="help has-text-danger">Đây là warning text</p>
+              </div>
+              <div class="field">
+                <label class="label">Ngành nghề kinh doanh</label>
+                <div class="control"><a class="func-popup-job-major" href="javascript:void(0)"></a><span class="select is-fullwidth">
+                    <select>
+                      <option selected disabled value="">Chọn ngành nghề</option>
+                    </select></span></div>
+              </div><a class="button is-primary is-large is-fullwidth" href="welcome.html">Gửi thông tin</a>
+              <p class="copyright">Powered by Zalo Ads</p>
+            </div>
           </div>
-          <div class="heading hidden">
-            <div class="role-heading"><i class="ic-playfun"></i><span>Playing for fun</span></div>
-            <div class="countdown">
-              <div id="countdowntimer">10</div>
-              <svg>
-                <circle r="23" cx="27" cy="27"></circle>
-              </svg>
-            </div>
-            <h2 class="title-heading ml-auto">Question 1 of 10</h2>
+        </div>
+      </div>
+    </div>
+    <div class="bl-popup">
+      <div class="popup-container" id="popup-job-major">
+        <div class="bl-popup-heading"><span>Chọn ngành nghề kinh doanh</span><a class="func-close-popup is-right" href="javascript:void(0)"><i class="icn icn-small-remove"></i></a></div>
+        <div class="bl-popup-context">
+          <div class="context-scroll">
+            <ul class="group-add-list">
+              <li> <a href="javascript:void(0)">Bất động sản</a></li>
+              <li><a href="javascript:void(0)">Giáo dục</a></li>
+              <li><a href="javascript:void(0)">Du lịch</a></li>
+              <li><a href="javascript:void(0)">Ngân hàng</a></li>
+              <li><a href="javascript:void(0)">Tài chính</a></li>
+              <li><a href="javascript:void(0)">Chứng khoán</a></li>
+              <li><a href="javascript:void(0)">Fitness</a></li>
+              <li><a href="javascript:void(0)">Thời trang</a></li>
+              <li><a href="javascript:void(0)">FMCG</a></li>
+              <li><a href="javascript:void(0)">Spa</a></li>
+              <li><a href="javascript:void(0)">Thẩm mỹ viện</a></li>
+              <li><a href="javascript:void(0)">F&B</a></li>
+              <li><a href="javascript:void(0)">Khác</a></li>
+            </ul>
           </div>
-          <form class="default-form" action="/" method="get">
-            <div class="group-question" id="question"><span class="label-question">Đồng tiền nào sau đây in hình Tổng thống Mỹ John F. Kenedy?</span>
-              <ul class="question-list">
-                <li><span>20 Đô-la đảo Cook</span></li>
-                <li><span>2 Đô-la Mỹ</span></li>
-                <li><span>500 Turik Mông Cổ</span></li>
-              </ul>
-            </div>
-          </form>
         </div>
       </div>
     </div>
     <!-- Include Plugin-->
     <script src="js/jquery.min.js"></script>
     <script>
-      $(document).ready(function(){    
-      	$('#question li').on('click', function(e) {
-      		$(this).parent().addClass('is-result')
-      		$(this).addClass('is-selected').siblings().removeClass('is-selected');
-      	});
+      $(".func-popup-job-major").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$("#popup-job-major").addClass("is-show");
       });
-      
-      $(window).on('load', function () {
-      	var timer;
-      	function countDown(i, callback) {
-      		$(".countdown").addClass("ani");
-      		timer = setInterval(function() {
-      			document.getElementById("countdowntimer").innerHTML = i;
-      			i-- || (clearInterval(timer), callback());
-      		}, 1000);
-      	}
-      	countDown(10, function(){
-      		//alert("Hết giờ")
-      	});
+      $(".func-close-popup").click(function(){
+      	$("html").removeClass("overlay-popup");
+      	$(".popup-container").removeClass("is-show");
       });
-      $('.play-audio .wrap ').click(function(){
-      	$(this).find('span').toggleClass('pause');
-      })
     </script>
   </body>
 </html>

@@ -1,25 +1,8 @@
 block home
-	
-- var friend = []
-- friend.push({"class":""})
-- friend.push({"class":""})
-- friend.push({"class":""})
 
 .bl-module.module-welcome
-	span.logo(style="background-image:url(images/logo.png)")
-	a.btn.btn-primary.btn--m.mt-3(href="index.html") Play Now
-
-	.invite-container.text-center
-		p 126 people are playing
-		ul.friend-list
-			each friendItem in friend
-				li
-					.avatar.avatar--s
-						.avatar-img(style="background-image:url(https://via.placeholder.com/100x100)")
-			li
-				.avatar.avatar--s
-					.num +23
-		a.func-invite(href="#!") Invite more friends
+	span.background-welcome(style="background-image:url(images/zad_game_quiz_welcome.png)")
+	a.btn.btn-primary.btn--m.mt-3(href="questions.html") Chơi ngay
 
 
 

@@ -1,42 +1,53 @@
-block home
+block Body
 
-- var friend = []
-- friend.push({"class":""})
-- friend.push({"class":""})
-- friend.push({"class":""})
-
-span.logo.logo--s.is-absolute(style="background-image:url(images/logo.png)")
-.bl-module.module-question
-	.heading
-		.countdown
-			#countdowntimer 10
-			svg
-				circle(r="26" cx="28" cy="28")
-		h2.title-heading.ml-auto Question 1 of 10
-	.heading.hidden
-		.role-heading
-			i.ic-playfun
-			span Playing for fun
-		.countdown
-			#countdowntimer 10
-			svg
-				circle(r="23" cx="27" cy="27")
-		h2.title-heading.ml-auto Question 1 of 10
-	form(action="/" method="get" class="default-form")
-		.group-question#question
-			span.label-question Đồng tiền nào sau đây in hình Tổng thống Mỹ John F. Kenedy?
-			ul.question-list
-				li
-					span 20 Đô-la đảo Cook
-				li
-					span 2 Đô-la Mỹ
-				li
-					span 500 Turik Mông Cổ
-
-
-
-
-
+.bl-cover-questions
+	span.img-cover(style="background-image:url(images/zad_game_header.jpg)")
+.body-questions
+	.group-form
+		.bl-info-oa
+			.avatar.avatar--s
+				.avatar-img(style="background-image:url(images/zad_OA_banner_avatar.png)")
+			h1 Zalo Ads
+		.bl-form
+			h2.title.has-text-centered XÁC NHẬN THÔNG TIN LIÊN HỆ HỖ TRỢ
+			.subtitle.has-text-centered
+				p Trước khi trả lời những câu hỏi thú vị và nhận những phần quà hấp dẫn, bạn vui lòng điền đầy đủ và chính xác thông tin sau để BQT Zalo Ads có thể liên hệ và hỗ trợ bạn khi cần thiết.
+			.field
+				label.label Họ và tên 
+				.control.has-icons-right
+					input.input(type="text" placeholder="Vd: Nguyễn Văn A" value="")
+					//- .icon.is-small.is-right
+					//- 	i.icn.icn-check-circle.has-text-success
+			.field
+				label.label Số điện thoại
+				.control.has-icons-right
+					input.input(type="text" placeholder="Vd: 098 9899 777" value="")
+					//- .icon.is-small.is-right
+					//- 	i.icn.icn-circle-remove.has-text-danger
+				p.help.has-text-danger Đây là warning text
+			.field
+				label.label Email
+				.control.has-icons-right
+					input.input(type="text" placeholder="Vd: abc@gmail.com" value="")
+					//- .icon.is-small.is-right
+					//- 	i.icn.icn-circle-remove.has-text-danger
+				p.help.has-text-danger Đây là warning text
+			.field
+				label.label Tên công ty/ doanh nghiệp/ cửa hàng
+				.control.has-icons-right
+					input.input(type="text" placeholder="Vd: Công ty CP AbC" value="")
+					//- .icon.is-small.is-right
+					//- 	i.icn.icn-circle-remove.has-text-danger
+				p.help.has-text-danger Đây là warning text
+			.field
+				label.label Ngành nghề kinh doanh
+				.control
+					a.func-popup-job-major(href="javascript:void(0)")
+					span.select.is-fullwidth
+						select
+							option(selected disabled value="") Chọn ngành nghề
+			a.button.is-primary.is-large.is-fullwidth(href="welcome.html") Gửi thông tin
+			p.copyright Powered by Zalo Ads
 
 
 

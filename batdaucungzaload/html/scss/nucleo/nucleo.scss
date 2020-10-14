@@ -5,12 +5,12 @@ Generated using nucleoapp.com
 
 @font-face{
 	font-family:'Nucleo';
-	src:url('../fonts/Nucleo/Nucleo.eot');
-	src:url('../fonts/Nucleo/Nucleo.eot') format('embedded-opentype'),
-	url('../fonts/Nucleo/Nucleo.woff2') format('woff2'),
-	url('../fonts/Nucleo/Nucleo.woff') format('woff'),
-	url('../fonts/Nucleo/Nucleo.ttf') format('truetype'),
-	url('../fonts/Nucleo/Nucleo.svg') format('svg');
+	src:url('../scss/fonts/Nucleo/Nucleo.eot');
+	src:url('../scss/fonts/Nucleo/Nucleo.eot') format('embedded-opentype'),
+	url('../scss/fonts/Nucleo/Nucleo.woff2') format('woff2'),
+	url('../scss/fonts/Nucleo/Nucleo.woff') format('woff'),
+	url('../scss/fonts/Nucleo/Nucleo.ttf') format('truetype'),
+	url('../scss/fonts/Nucleo/Nucleo.svg') format('svg');
 	font-weight:normal;
 	font-style:normal;
 }
@@ -26,6 +26,13 @@ Generated using nucleoapp.com
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
 }
-[class^=icn]{display:inline-block;@include size(24px);@include padding(4px);font-size:1rem;vertical-align:middle}
+[class^=icn]{
+	display:inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 4px;
+	font-size:1rem;
+	vertical-align:middle
+}
 
 @import "icons";

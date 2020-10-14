@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Adtima Quiz</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="css/layout.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body>
+    <div class="question-layout">
+      <div class="page-content"><span class="logo logo--s is-absolute" style="background-image:url(images/logo.png);background-size: contain;"></span>
+        <div class="bl-module module-question">
+          <div class="heading">
+            <div class="countdown">
+              <div id="countdowntimer">60</div>
+              <svg>
+                <circle r="26" cx="28" cy="28"></circle>
+              </svg>
+            </div>
+            <h2 class="title-heading ml-auto">Question 1 of 10</h2>
+          </div>
+          <form class="default-form" action="/" method="get">
+            <div class="group-question" id="question"><span class="label-question">Đồng tiền nào sau đây in hình Tổng thống Mỹ John F. Kenedy?</span>
+              <ul class="question-list">
+                <li><span>20 Đô-la đảo Cook</span></li>
+                <li><span>2 Đô-la Mỹ</span></li>
+              </ul>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){    
+      	$('#question li').on('click', function(e) {
+      		$(this).parent().addClass('is-result')
+      		$(this).addClass('is-selected').siblings().removeClass('is-selected');
+      	});
+      });
+      
+      $(window).on('load', function () {
+      	var timer;
+      	function countDown(i, callback) {
+      		$(".countdown").addClass("ani");
+      		timer = setInterval(function() {
+      			document.getElementById("countdowntimer").innerHTML = i;
+      			i-- || (clearInterval(timer), callback());
+      		}, 1000);
+      	}
+      	countDown(60, function(){
+      		//alert("Hết giờ")
+      	});
+      });
+      $('.play-audio .wrap ').click(function(){
+      	$(this).find('span').toggleClass('pause');
+      })
+    </script>
+  </body>
+</html>

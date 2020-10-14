@@ -6,13 +6,14 @@ block setting
 	- var header = false
 	- var footer = false
 	- var modal = false
+	- var popup = true
 
 block head
 	include head.pug
 
 block pages
 	- bodyC.push("")
-	- layoutClasses.push("quiz-layout")
+	- layoutClasses.push("form-layout")
 	- headerClasses.push("")
 	- bodyClasses.push("page-content")
 	- footerClasses.push("")
@@ -32,28 +33,17 @@ block footer
 //- Add Modal
 block modal
 
+//- Add Popup
+block popup
+	include page/popup_job_major.pug
+
 block javaScripts extend
 	script.
-		$(document).ready(function(){    
-			$('#question li').on('click', function(e) {
-				$(this).parent().addClass('is-result')
-				$(this).addClass('is-selected').siblings().removeClass('is-selected');
-			});
+		$(".func-popup-job-major").click(function(){
+			$("html").addClass("overlay-popup");
+			$("#popup-job-major").addClass("is-show");
 		});
-
-		$(window).on('load', function () {
-			var timer;
-			function countDown(i, callback) {
-				$(".countdown").addClass("ani");
-				timer = setInterval(function() {
-					document.getElementById("countdowntimer").innerHTML = i;
-					i-- || (clearInterval(timer), callback());
-				}, 1000);
-			}
-			countDown(10, function(){
-				//alert("Hết giờ")
-			});
+		$(".func-close-popup").click(function(){
+			$("html").removeClass("overlay-popup");
+			$(".popup-container").removeClass("is-show");
 		});
-		$('.play-audio .wrap ').click(function(){
-			$(this).find('span').toggleClass('pause');
-		})

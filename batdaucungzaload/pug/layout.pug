@@ -4,6 +4,7 @@ block setting
 	- var breadcrumb = false
 	- var footer = true
 	- var modal = true
+	- var popup = false
 
 doctype
 html(lang="en")
@@ -33,6 +34,9 @@ html(lang="en")
 
 		if modal
 			block modal
+		if popup
+			.bl-popup
+				block popup
 
 		// Include Plugin
 		block javaScripts
