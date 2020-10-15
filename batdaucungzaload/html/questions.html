@@ -21,54 +21,76 @@
   </head>
   <body>
     <div class="question-layout">
-      <div class="page-content"><span class="logo logo--s is-absolute" style="background-image:url(images/logo.png);background-size: contain;"></span>
+      <div class="page-content">
         <div class="bl-module module-question">
           <div class="heading">
-            <div class="countdown">
-              <div id="countdowntimer">60</div>
-              <svg>
-                <circle r="26" cx="28" cy="28"></circle>
-              </svg>
+            <div class="avatar">
+              <div class="avatar-img" style="background-image:url(images/zad_OA_banner_avatar.png)"></div>
             </div>
-            <h2 class="title-heading ml-auto">Question 1 of 10</h2>
+            <h2 class="title-heading ml-auto" id="count-question" style="opacity: 0">Question 1 of 8</h2>
           </div>
-          <form class="default-form" action="/" method="get">
-            <div class="group-question" id="question"><span class="label-question">Bạn đã từng biết đến Zalo Ads trước đó chưa?</span>
-              <ul class="question-list">
-                <li><span>Đã biết</span></li>
-                <li><span>Chưa từng nghe qua</span></li>
-              </ul>
-            </div>
-          </form>
+          <div class="group-question" id="question_0"><span class="label-question">Bạn đã từng biết đến Zalo Ads trước đó chưa?</span>
+            <ul class="question-list">
+              <li><span>Đã biết</span></li>
+              <li><span>Chưa từng nghe qua</span></li>
+            </ul>
+          </div>
+          <div class="group-question hidden" id="question_1"><span class="label-question">Bạn đã từng sử dụng Zalo Ads chưa?</span>
+            <ul class="question-list">
+              <li><span>Rồi</span></li>
+              <li><span>Chưa</span></li>
+            </ul>
+          </div>
+          <div class="group-question hidden" id="question_2"><span class="label-question">Website của Zalo Ads là gì?</span>
+            <ul class="question-list">
+              <li><span class="is-answer">ads.zalo.me</span></li>
+              <li><span>zaloads.com</span></li>
+            </ul>
+          </div>
+          <div class="group-question hidden" id="question_3"><span class="label-question">Zalo Ads là gì?</span>
+            <ul class="question-list">
+              <li><span class="is-answer">Hệ thống tự vận hành</span></li>
+              <li><span>Hệ thống booking</span></li>
+            </ul>
+          </div>
+          <div class="group-question hidden" id="question_4"><span class="label-question">Zalo Ads tính tiền theo?</span>
+            <ul class="question-list">
+              <li><span class="is-answer">Lượt tương tác</span></li>
+              <li><span>Lượt tiếp cận</span></li>
+            </ul>
+          </div>
+          <div class="group-question hidden" id="question_5"><span class="label-question">Zalo Ads phù hợp với doanh nghiệp thế nào?</span>
+            <ul class="question-list">
+              <li><span>Doanh nghiệp lớn và vừa</span></li>
+              <li><span class="is-answer">Tất cả doanh nghiệp/ chủ cửa hàng từ lớn đến bé</span></li>
+            </ul>
+          </div>
+          <div class="group-question hidden" id="question_6"><span class="label-question">Khi thực hiện quảng cáo trên Zalo Ads, bạn có cơ hội tối ưu chuyển đổi với bao nhiêu khách hàng tiềm năng?</span>
+            <ul class="question-list">
+              <li><span class="is-answer">Hơn 58 triệu </span></li>
+              <li><span>45 triệu</span></li>
+            </ul>
+          </div>
+          <div class="group-question hidden" id="question_7"><span class="label-question">Số hotline liên hệ Zalo Ads khi cần hỗ trợ là gì?</span>
+            <ul class="question-list">
+              <li><span class="is-answer">1900 988 912</span></li>
+              <li><span>1900 900 90</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
     <!-- Include Plugin-->
     <script src="js/jquery.min.js"></script>
+    <script src="js/questions.js"></script>
     <script>
-      $(document).ready(function(){    
-      	$('#question li').on('click', function(e) {
-      		$(this).parent().addClass('is-result')
-      		$(this).addClass('is-selected').siblings().removeClass('is-selected');
-      	});
-      });
-      
-      $(window).on('load', function () {
-      	var timer;
-      	function countDown(i, callback) {
-      		$(".countdown").addClass("ani");
-      		timer = setInterval(function() {
-      			document.getElementById("countdowntimer").innerHTML = i;
-      			i-- || (clearInterval(timer), callback());
-      		}, 1000);
-      	}
-      	countDown(60, function(){
-      		//alert("Hết giờ")
-      	});
-      });
-      $('.play-audio .wrap ').click(function(){
-      	$(this).find('span').toggleClass('pause');
-      })
+      //- $(document).ready(function(){    
+      //- 	$('.group-question li').on('click', function(e) {
+      //- 		console.log(e.target.innerText)
+      //- 		$(this).parent().addClass('is-result')
+      //- 		$(this).addClass('is-selected').siblings().removeClass('is-selected');
+      //- 	});
+      //- });
     </script>
   </body>
 </html>

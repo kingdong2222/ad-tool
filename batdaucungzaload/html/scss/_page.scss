@@ -74,6 +74,14 @@ header{@include position(absolute, 0 0 null 0);z-index:3;@include padding(15px 0
 			.ic-run + span{color:$color-third}
 			.ic-playfun{display:inline-block;background:url(../images/ic_playfun.png) 0 0 no-repeat;background-size:cover;@include size(21px);margin-right:$gutter/2;}
 		}
+		.avatar{
+			position: absolute;
+			top: -20px;
+			left: 50%;
+			margin-left: -27px;
+			width: 50px;
+			height: 50px;
+		}
 		h2.title-heading{display:block;color:$color-base;font-size:0.688em;font-weight:700;}
 		.countdown{@include position(absolute, -20px null null 50%);background-color:$color-second;width:54px;margin-left:-27px;text-align:center;line-height:54px;color:#fff;font-size:1.5em;font-weight:700;border-radius:100%;
 			&.ani{
@@ -88,7 +96,18 @@ header{@include position(absolute, 0 0 null 0);z-index:3;@include padding(15px 0
 		}
 	}
 	.group-question{background-color:#fff;@include padding(null 20px 20px);box-shadow:0 2px 4px rgba(#2C217D, 0.6);@extend %borderRadius-m;
-		.label-question{display:flex;justify-content:center;align-items:center;@include size(auto, 80px);@include padding(($gutter*2) null 0);color:$color-second;font-size:0.875em;font-weight:600;text-align:center}
+		.label-question{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			@include size(auto, 80px);
+			@include padding(($gutter*2) null 0);
+			color:$color-second;
+			font-size:0.875em;
+			font-weight:600;
+			text-align:center;
+			margin-bottom: 20px;
+		}
 		.play-audio{
 			margin-bottom: 20px;
 			display: flex;
@@ -485,6 +504,7 @@ header{@include position(absolute, 0 0 null 0);z-index:3;@include padding(15px 0
 		border-top-left-radius: 15px;
 		border-top-right-radius: 15px;
 		overflow: hidden;
+		transition: all 0.35s ease;
 		&.is-show{
 			z-index: 1;
 			bottom: 0;

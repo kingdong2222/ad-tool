@@ -6,6 +6,7 @@ block setting
 	- var header = false
 	- var footer = false
 	- var modal = false
+	- var questions_js = true
 
 block head
 	include head.pug
@@ -34,26 +35,12 @@ block modal
 
 block javaScripts extend
 	script.
-		$(document).ready(function(){    
-			$('#question li').on('click', function(e) {
-				$(this).parent().addClass('is-result')
-				$(this).addClass('is-selected').siblings().removeClass('is-selected');
-			});
-		});
+		//- $(document).ready(function(){    
+		//- 	$('.group-question li').on('click', function(e) {
+		//- 		console.log(e.target.innerText)
+		//- 		$(this).parent().addClass('is-result')
+		//- 		$(this).addClass('is-selected').siblings().removeClass('is-selected');
+		//- 	});
+		//- });
 
-		$(window).on('load', function () {
-			var timer;
-			function countDown(i, callback) {
-				$(".countdown").addClass("ani");
-				timer = setInterval(function() {
-					document.getElementById("countdowntimer").innerHTML = i;
-					i-- || (clearInterval(timer), callback());
-				}, 1000);
-			}
-			countDown(60, function(){
-				//alert("Hết giờ")
-			});
-		});
-		$('.play-audio .wrap ').click(function(){
-			$(this).find('span').toggleClass('pause');
-		})
+		
