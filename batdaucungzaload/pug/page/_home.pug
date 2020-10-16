@@ -15,42 +15,36 @@ block Body
 			.field
 				label.label Họ và tên 
 				.control.has-icons-right
-					input.input(type="text" placeholder="Vd: Nguyễn Văn A" value="")
+					input.input(type="text" id="name" placeholder="Vd: Nguyễn Văn A" value="")
 					//- .icon.is-small.is-right
 					//- 	i.icn.icn-check-circle.has-text-success
 			.field
 				label.label Số điện thoại
 				.control.has-icons-right
-					input.input(type="text" placeholder="Vd: 098 9899 777" value="")
+					input.input(type="text" id="mobile" placeholder="Vd: 098 9899 777" value="")
 					//- .icon.is-small.is-right
 					//- 	i.icn.icn-circle-remove.has-text-danger
-				p.help.has-text-danger Đây là warning text
+				//- p.help.has-text-danger Đây là warning text
 			.field
 				label.label Email
 				.control.has-icons-right
-					input.input(type="text" placeholder="Vd: abc@gmail.com" value="")
-					//- .icon.is-small.is-right
-					//- 	i.icn.icn-circle-remove.has-text-danger
-				p.help.has-text-danger Đây là warning text
+					input.input(type="text" id="email" placeholder="Vd: abc@gmail.com" value="")
 			.field
 				label.label Tên công ty/ doanh nghiệp/ cửa hàng
 				.control.has-icons-right
-					input.input(type="text" placeholder="Vd: Công ty CP AbC" value="")
-					//- .icon.is-small.is-right
-					//- 	i.icn.icn-circle-remove.has-text-danger
-				p.help.has-text-danger Đây là warning text
+					input.input(type="text" id="business" placeholder="Vd: Công ty CP AbC" value="")
 			.field
 				label.label Ngành nghề kinh doanh
 				.control
 					a.func-popup-job-major(href="javascript:void(0)")
 					span.select.is-fullwidth
 						select
-							option(selected disabled value="") Chọn ngành nghề
+							option(id='major' selected disabled value="") Chọn ngành nghề
 			.field.hidden#another-job-option
 				label.label Ngành nghề khác
 				.control.has-icons-right
-					input.input(type="text" placeholder="Tên ngành nghề khác" value="")
-			a.button.is-primary.is-large.is-fullwidth(href="welcome.html") Gửi thông tin
+					input.input(type="text" id='another_major' placeholder="Tên ngành nghề khác" value="")
+			a.button.is-primary.is-large.is-fullwidth#submit_form Gửi thông tin
 			p.copyright Powered by Zalo Ads
 
 

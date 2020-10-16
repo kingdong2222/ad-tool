@@ -7,6 +7,7 @@ block setting
 	- var footer = false
 	- var modal = false
 	- var popup = true
+	- var form_js = true
 
 block head
 	include head.pug
@@ -39,11 +40,4 @@ block popup
 
 block javaScripts extend
 	script.
-		$(".func-popup-job-major").click(function(){
-			$("html").addClass("overlay-popup");
-			$("#popup-job-major").addClass("is-show");
-		});
-		$(".func-close-popup").click(function(){
-			$("html").removeClass("overlay-popup");
-			$(".popup-container").removeClass("is-show");
-		});
+		

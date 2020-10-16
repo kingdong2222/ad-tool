@@ -39,43 +39,40 @@
               <div class="field">
                 <label class="label">Họ và tên </label>
                 <div class="control has-icons-right">
-                  <input class="input" type="text" placeholder="Vd: Nguyễn Văn A" value="">
+                  <input class="input" type="text" id="name" placeholder="Vd: Nguyễn Văn A" value="">
                 </div>
               </div>
               <div class="field">
                 <label class="label">Số điện thoại</label>
                 <div class="control has-icons-right">
-                  <input class="input" type="text" placeholder="Vd: 098 9899 777" value="">
+                  <input class="input" type="text" id="mobile" placeholder="Vd: 098 9899 777" value="">
                 </div>
-                <p class="help has-text-danger">Đây là warning text</p>
               </div>
               <div class="field">
                 <label class="label">Email</label>
                 <div class="control has-icons-right">
-                  <input class="input" type="text" placeholder="Vd: abc@gmail.com" value="">
+                  <input class="input" type="text" id="email" placeholder="Vd: abc@gmail.com" value="">
                 </div>
-                <p class="help has-text-danger">Đây là warning text</p>
               </div>
               <div class="field">
                 <label class="label">Tên công ty/ doanh nghiệp/ cửa hàng</label>
                 <div class="control has-icons-right">
-                  <input class="input" type="text" placeholder="Vd: Công ty CP AbC" value="">
+                  <input class="input" type="text" id="business" placeholder="Vd: Công ty CP AbC" value="">
                 </div>
-                <p class="help has-text-danger">Đây là warning text</p>
               </div>
               <div class="field">
                 <label class="label">Ngành nghề kinh doanh</label>
                 <div class="control"><a class="func-popup-job-major" href="javascript:void(0)"></a><span class="select is-fullwidth">
                     <select>
-                      <option selected disabled value="">Chọn ngành nghề</option>
+                      <option id="major" selected disabled value="">Chọn ngành nghề</option>
                     </select></span></div>
               </div>
               <div class="field hidden" id="another-job-option">
                 <label class="label">Ngành nghề khác</label>
                 <div class="control has-icons-right">
-                  <input class="input" type="text" placeholder="Tên ngành nghề khác" value="">
+                  <input class="input" type="text" id="another_major" placeholder="Tên ngành nghề khác" value="">
                 </div>
-              </div><a class="button is-primary is-large is-fullwidth" href="welcome.html">Gửi thông tin</a>
+              </div><a class="button is-primary is-large is-fullwidth" id="submit_form">Gửi thông tin</a>
               <p class="copyright">Powered by Zalo Ads</p>
             </div>
           </div>
@@ -87,7 +84,7 @@
         <div class="bl-popup-heading"><span>Chọn ngành nghề kinh doanh</span><a class="func-close-popup is-right" href="javascript:void(0)"><i class="icn icn-small-remove"></i></a></div>
         <div class="bl-popup-context">
           <div class="context-scroll">
-            <ul class="group-add-list">
+            <ul class="group-add-list" id="choose_major">
               <li> <a href="javascript:void(0)">Bất động sản</a></li>
               <li><a href="javascript:void(0)">Giáo dục</a></li>
               <li><a href="javascript:void(0)">Du lịch</a></li>
@@ -108,15 +105,7 @@
     </div>
     <!-- Include Plugin-->
     <script src="js/jquery.min.js"></script>
-    <script>
-      $(".func-popup-job-major").click(function(){
-      	$("html").addClass("overlay-popup");
-      	$("#popup-job-major").addClass("is-show");
-      });
-      $(".func-close-popup").click(function(){
-      	$("html").removeClass("overlay-popup");
-      	$(".popup-container").removeClass("is-show");
-      });
-    </script>
+    <script src="js/form.js"></script>
+    <script></script>
   </body>
 </html>
