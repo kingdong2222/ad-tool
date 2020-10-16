@@ -5674,9 +5674,16 @@ header {
 }
 .body-questions .group-form .bl-form .select select {
   cursor: pointer;
+  -webkit-appearance: none;
 }
 .body-questions .group-form .bl-form .select select:not([multiple]) {
   padding-right: 2.5em;
+}
+.body-questions .group-form .bl-form .select .icn {
+  position: absolute;
+  color: #000;
+  font-size: 1.5rem;
+  right: 4px;
 }
 .body-questions .group-form .bl-form .input, .body-questions .group-form .bl-form .select select, .body-questions .group-form .bl-form .textarea {
   font-family: "Muli";
@@ -5941,4 +5948,63 @@ header {
   -webkit-transition: all 0.35s ease;
   -o-transition: all 0.35s ease;
   transition: all 0.35s ease;
+}
+
+.module-gift {
+  padding: 40px;
+  padding-top: 75px;
+  position: relative;
+}
+.module-gift .block-gift {
+  padding: 45px 5px;
+  padding-top: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  opacity: 0;
+  -webkit-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.module-gift .block-gift img {
+  margin-bottom: 10px;
+}
+.module-gift .block-gift p {
+  color: #000;
+  text-align: center;
+  max-width: 150px;
+  margin: 0 auto;
+}
+.module-gift .block-gift p span {
+  font-weight: 700;
+}
+.module-gift .block-gift p span.code {
+  font-size: 1.5rem;
+  color: red;
+}
+.module-gift .block-gift p.blue-large {
+  padding-top: 10px;
+  color: #005ce2;
+  font-weight: 700;
+  font-size: 2.5rem;
+  max-width: unset;
+  line-height: 30px;
+}
+.module-gift .block-gift:after {
+  content: "";
+  z-index: 10;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 2px solid #00ffff;
+}
+.module-gift .block-gift.is-opacity {
+  opacity: 1;
+}
+.module-gift #note-content {
+  position: absolute;
+  bottom: -50px;
 }

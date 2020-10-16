@@ -21,7 +21,7 @@ block Body
 			.field
 				label.label Số điện thoại
 				.control.has-icons-right
-					input.input(type="text" id="mobile" placeholder="Vd: 098 9899 777" value="")
+					input.input(type="tel" id="mobile" placeholder="Vd: 098 9899 777" value="")
 					//- .icon.is-small.is-right
 					//- 	i.icn.icn-circle-remove.has-text-danger
 				//- p.help.has-text-danger Đây là warning text
@@ -39,7 +39,8 @@ block Body
 					a.func-popup-job-major(href="javascript:void(0)")
 					span.select.is-fullwidth
 						select
-							option(id='major' selected disabled value="") Chọn ngành nghề
+							option(id='major' selected disabled value="Chọn ngành nghề") Chọn ngành nghề
+						i.icn.icn-small-down
 			.field.hidden#another-job-option
 				label.label Ngành nghề khác
 				.control.has-icons-right
