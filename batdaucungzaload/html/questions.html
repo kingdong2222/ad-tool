@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Adtima Quiz</title>
+    <title>Bắt đầu cùng Zalo Ads</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="description" content="description here">
+    <meta name="description" content="Trả lời nhanh cùng với Zalo Ads">
     <meta name="format-detection" content="telephone=no">
-    <meta name="author" content="Lam Nguyen">
-    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="author" content="Zalo Ads">
+    <meta name="copyright" content="2020 Zalo Ads">
     <meta name="robots" content="index, follow">
     <meta name="revisit-after" content="7 days">
-    <meta property="og:url" content="">
-    <meta property="og:title" content="">
-    <meta property="og:image" content="">
-    <link rel="icon" type="image/ico" href="favicon.ico">
+    <meta property="og:url" content="https://ads.zalo.me/business/bat-dau-cung-zalo-ads/">
+    <meta property="og:title" content="Trả lời nhanh cùng với Zalo Ads">
+    <meta property="og:image" content="images/zad_game_header.jpg">
+    <link rel="icon" type="image/ico" href="images/zalo_ads.ico">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="css/layout.css" rel="stylesheet" type="text/css">
     <style></style>
@@ -25,57 +25,69 @@
         <div class="bl-module module-question">
           <div class="heading">
             <div class="avatar">
-              <div class="avatar-img" style="background-image:url(images/zad_OA_banner_avatar.png)"></div>
+              <div class="avatar-img" style="background-image:url(images/zad_game_questions.png); border-radius: unset;"></div>
             </div>
-            <h2 class="title-heading ml-auto" id="count-question" style="opacity: 0">Question 1 of 8</h2>
           </div>
-          <div class="group-question" id="question_0"><span class="label-question">Bạn đã từng biết đến Zalo Ads trước đó chưa?</span>
-            <ul class="question-list">
-              <li><span>Đã biết</span></li>
-              <li><span>Chưa từng nghe qua</span></li>
-            </ul>
+          <div id="progress-bar">
+            <div id="green-bar"></div>
           </div>
-          <div class="group-question hidden" id="question_1"><span class="label-question">Bạn đã từng sử dụng Zalo Ads chưa?</span>
-            <ul class="question-list">
-              <li><span>Rồi</span></li>
-              <li><span>Chưa</span></li>
-            </ul>
-          </div>
-          <div class="group-question hidden" id="question_2"><span class="label-question">Website của Zalo Ads là gì?</span>
-            <ul class="question-list">
-              <li><span class="is-answer">ads.zalo.me</span></li>
-              <li><span>zaloads.com</span></li>
-            </ul>
-          </div>
-          <div class="group-question hidden" id="question_3"><span class="label-question">Zalo Ads là gì?</span>
-            <ul class="question-list">
-              <li><span class="is-answer">Hệ thống tự vận hành</span></li>
-              <li><span>Hệ thống booking</span></li>
-            </ul>
-          </div>
-          <div class="group-question hidden" id="question_4"><span class="label-question">Zalo Ads tính tiền theo?</span>
-            <ul class="question-list">
-              <li><span class="is-answer">Lượt tương tác</span></li>
-              <li><span>Lượt tiếp cận</span></li>
-            </ul>
-          </div>
-          <div class="group-question hidden" id="question_5"><span class="label-question">Zalo Ads phù hợp với doanh nghiệp thế nào?</span>
-            <ul class="question-list">
-              <li><span>Doanh nghiệp lớn và vừa</span></li>
-              <li><span class="is-answer">Tất cả doanh nghiệp/ chủ cửa hàng từ lớn đến bé</span></li>
-            </ul>
-          </div>
-          <div class="group-question hidden" id="question_6"><span class="label-question">Khi thực hiện quảng cáo trên Zalo Ads, bạn có cơ hội tối ưu chuyển đổi với bao nhiêu khách hàng tiềm năng?</span>
-            <ul class="question-list">
-              <li><span class="is-answer">Hơn 58 triệu </span></li>
-              <li><span>45 triệu</span></li>
-            </ul>
-          </div>
-          <div class="group-question hidden" id="question_7"><span class="label-question">Số hotline liên hệ Zalo Ads khi cần hỗ trợ là gì?</span>
-            <ul class="question-list">
-              <li><span class="is-answer">1900 988 912</span></li>
-              <li><span>1900 900 90</span></li>
-            </ul>
+          <div class="wrapper-question">
+            <div class="group-question" id="question_0">
+              <p class="label-question"> <span>01</span>Bạn đã từng biết đến Zalo Ads trước đó chưa?</p>
+              <ul class="question-list">
+                <li><span>Đã biết</span></li>
+                <li><span>Chưa từng nghe qua</span></li>
+              </ul>
+            </div>
+            <div class="group-question hidden" id="question_1">
+              <p class="label-question"> <span>02</span>Bạn đã từng sử dụng Zalo Ads chưa?</p>
+              <ul class="question-list">
+                <li><span>Rồi</span></li>
+                <li><span>Chưa</span></li>
+              </ul>
+            </div>
+            <div class="group-question hidden" id="question_2">
+              <p class="label-question"> <span>03</span>Website của Zalo Ads là gì?</p>
+              <ul class="question-list">
+                <li><span class="is-answer">ads.zalo.me</span></li>
+                <li><span>zaloads.com</span></li>
+              </ul>
+            </div>
+            <div class="group-question hidden" id="question_3">
+              <p class="label-question"> <span>04</span>Zalo Ads là gì?</p>
+              <ul class="question-list">
+                <li><span class="is-answer">Hệ thống tự vận hành</span></li>
+                <li><span>Hệ thống booking</span></li>
+              </ul>
+            </div>
+            <div class="group-question hidden" id="question_4">
+              <p class="label-question"> <span>05</span>Zalo Ads tính tiền theo?</p>
+              <ul class="question-list">
+                <li><span class="is-answer">Lượt tương tác</span></li>
+                <li><span>Lượt tiếp cận</span></li>
+              </ul>
+            </div>
+            <div class="group-question hidden" id="question_5">
+              <p class="label-question"> <span>06</span>Zalo Ads phù hợp với doanh nghiệp thế nào?</p>
+              <ul class="question-list">
+                <li><span>Doanh nghiệp lớn và vừa</span></li>
+                <li><span class="is-answer">Tất cả doanh nghiệp/ chủ cửa hàng từ lớn đến bé</span></li>
+              </ul>
+            </div>
+            <div class="group-question hidden" id="question_6">
+              <p class="label-question"> <span>07</span>Bạn có cơ hội tối ưu chuyển đổi với bao nhiêu KH tiềm năng?</p>
+              <ul class="question-list">
+                <li><span class="is-answer">Hơn 58 triệu </span></li>
+                <li><span>45 triệu</span></li>
+              </ul>
+            </div>
+            <div class="group-question hidden" id="question_7">
+              <p class="label-question"> <span>08</span>Số hotline liên hệ Zalo Ads khi cần hỗ trợ là gì?</p>
+              <ul class="question-list">
+                <li><span class="is-answer">1900 988 912</span></li>
+                <li><span>1900 900 900</span></li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="bl-module module-gift">

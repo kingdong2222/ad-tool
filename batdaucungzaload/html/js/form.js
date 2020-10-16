@@ -18,7 +18,6 @@ let used_mobile = 'Số điện thoại này đã sử dụng'
 let wrong_mobile = 'Số điện thoại không hợp lệ'
 let wrong_email = 'Email không hợp lệ'
 let no_choose_major = 'Vui lòng chọn ngành nghề'
-let full_name_err = "Vui lòng nhập đủ Họ và tên"
 
 
 //email regex
@@ -63,35 +62,37 @@ $('#submit_form').click(() => {
     validateFunc()
 })
 
+let checkDuplicateMobile = (mobile) => {
+    for (let i = 0; i < list_mobile.length; i++) {
+        if (list_mobile[i] === mobile) {
+            return 0;
+        }
+    }
+}
+
 let validateFunc = () => {
     if (name.value) {
-        if(name.value.length >= 5){
-            if (mobile.value) {
-                for (let i = 0; i < list_mobile.length; i++) {
-                    if (list_mobile[i] === mobile.value) {
-                        alert(used_mobile) 
-                        break
-                    }
-                }
+        if (mobile.value) {
+            if (checkDuplicateMobile(mobile.value) == 0) {
+                alert(used_mobile)
+            } else {
                 if (mobile.value.length >= 9) {
                     if (email.value) {
                         if (email.value.match(email_regex)) {
                             if (business.value) {
-                                if(major.value == 'Chọn ngành nghề'){
+                                if (major.innerHTML == 'Chọn ngành nghề') {
                                     alert(no_choose_major)
                                 } else {
-                                    if (major.value == 'Khác') {
+                                    if (major.innerHTML == 'Khác') {
                                         if (another_major.value) {
                                             //go to next page
-                                            window.location = 'welcome.html'
-                                            // postToGG(name.value, mobile.value, email.value, business.value, another_major.value)
+                                            postToGG(name.value, mobile.value, email.value, business.value, another_major.value)
                                         } else {
                                             alert(empty_another_option)
                                         }
                                     } else {
                                         //go to next page
-                                        window.location = 'welcome.html'
-                                        // postToGG(name.value, mobile.value, email.value, business.value, major.value)
+                                        postToGG(name.value, mobile.value, email.value, business.value, major.innerHTML)
                                     }
                                 }
                             } else {
@@ -106,13 +107,10 @@ let validateFunc = () => {
                 } else {
                     alert(wrong_mobile)
                 }
-            } else {
-                alert(empty_mobile)
             }
         } else {
-            alert(full_name_err)
+            alert(empty_mobile)
         }
-        
     } else {
         alert(empty_name)
     }
@@ -124,7 +122,11 @@ let postToGG = (name, mobile, email, business, major) => {
         data: { "entry.1353488337": name, "entry.1020220624": mobile, "entry.675973294": email, "entry.197280914": business, "entry.1048902569": major },
         type: "POST",
         dataType: "jsonp",
-        success: function (d) { },
-        error: function (x, y, z) { }
+        success: function (d) { 
+            window.location = 'welcome.html'
+        },
+        error: function (x, y, z) {
+            window.location = 'welcome.html'
+        }
     });
 }

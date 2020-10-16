@@ -13,22 +13,45 @@
 //     });
 // });
 
+//if user reload page question will go back to home
+// if(performance.navigation.type == 1){
+//     console.log('reload')
+//     window.location = 'index.html'
+// }
+
 let count_right = 0
-let time = 400
+let time = 300
+let percent = 100 / 8
+let green_bar = document.getElementById('green-bar')
+// green_bar.style.width = percent + '%'
 
 //question 1
 $('#question_0 li').on('click', function (e) {
     let answer = e.target.innerText
+    console.log(answer)
+    console.log(answer == 'Đã biết')
     if (answer == 'Đã biết') {
         setTimeout(() => {
-            $('#question_0').addClass('hidden')
+            $('#question_0').addClass('answered')
             $('#question_1').removeClass('hidden')
         }, time)
+        green_bar.style.width = percent + '%'
     } else {
         setTimeout(() => {
-            $('#question_0').addClass('hidden')
+            $('#question_0').addClass('answered')
             $('#question_2').removeClass('hidden')
         }, time)
+
+        percent = 100 / 7 
+        green_bar.style.width = percent + '%'
+
+        //change number of question
+        document.getElementById('question_2').getElementsByTagName('SPAN')[0].innerHTML = '02'
+        document.getElementById('question_3').getElementsByTagName('SPAN')[0].innerHTML = '03'
+        document.getElementById('question_4').getElementsByTagName('SPAN')[0].innerHTML = '04'
+        document.getElementById('question_5').getElementsByTagName('SPAN')[0].innerHTML = '05'
+        document.getElementById('question_6').getElementsByTagName('SPAN')[0].innerHTML = '06'
+        document.getElementById('question_7').getElementsByTagName('SPAN')[0].innerHTML = '07'
     }
     $(this).parent().addClass('is-result')
     $(this).addClass('is-selected').siblings().removeClass('is-selected');
@@ -38,27 +61,41 @@ $('#question_0 li').on('click', function (e) {
 $('#question_1 li').on('click', function (e) {
     // let answer = e.target.innerText
     setTimeout(() => {
-        $('#question_1').addClass('hidden')
+        $('#question_1').addClass('answered')
         $('#question_2').removeClass('hidden')
     }, time)
+
+    // cut '%' from width
+    let cut = green_bar.style.width.split('%')[0]
+    
+    let temp = Number(cut) + percent
+    green_bar.style.width = temp + '%'
+
     $(this).parent().addClass('is-result')
     $(this).addClass('is-selected').siblings().removeClass('is-selected');
 });
 
 //question 2
 $('#question_2 li').on('click', function (e) {
-    // let answer = e.target.getElementsByTagName('SPAN')[0].classList.contains('is-answer')
-    // if(answer == true){
-    //     count_right += 1
-    // }
+    let answer0 = e.target.getElementsByTagName('SPAN')[0].classList.contains('is-0')
+    if(answer0 == true){
+        // count_right += 1
+    }
+
     let answer = e.target.innerText
     if (answer == 'ads.zalo.me') {
         count_right += 1
     }
     setTimeout(() => {
-        $('#question_2').addClass('hidden')
+        $('#question_2').addClass('answered')
         $('#question_3').removeClass('hidden')
     }, time)
+    // cut '%' from width
+    let cut = green_bar.style.width.split('%')[0]
+    
+    let temp = Number(cut) + percent
+    green_bar.style.width = temp + '%'
+
     $(this).parent().addClass('is-result')
     $(this).addClass('is-selected').siblings().removeClass('is-selected');
 });
@@ -74,9 +111,15 @@ $('#question_3 li').on('click', function (e) {
         count_right += 1
     }
     setTimeout(() => {
-        $('#question_3').addClass('hidden')
+        $('#question_3').addClass('answered')
         $('#question_4').removeClass('hidden')
     }, time)
+    // cut '%' from width
+    let cut = green_bar.style.width.split('%')[0]
+    
+    let temp = Number(cut) + percent
+    green_bar.style.width = temp + '%'
+
     $(this).parent().addClass('is-result')
     $(this).addClass('is-selected').siblings().removeClass('is-selected');
 });
@@ -92,9 +135,15 @@ $('#question_4 li').on('click', function (e) {
         count_right += 1
     }
     setTimeout(() => {
-        $('#question_4').addClass('hidden')
+        $('#question_4').addClass('answered')
         $('#question_5').removeClass('hidden')
     }, time)
+    // cut '%' from width
+    let cut = green_bar.style.width.split('%')[0]
+    
+    let temp = Number(cut) + percent
+    green_bar.style.width = temp + '%'
+
     $(this).parent().addClass('is-result')
     $(this).addClass('is-selected').siblings().removeClass('is-selected');
 });
@@ -110,9 +159,15 @@ $('#question_5 li').on('click', function (e) {
         count_right += 1
     }
     setTimeout(() => {
-        $('#question_5').addClass('hidden')
+        $('#question_5').addClass('answered')
         $('#question_6').removeClass('hidden')
     }, time)
+    // cut '%' from width
+    let cut = green_bar.style.width.split('%')[0]
+    
+    let temp = Number(cut) + percent
+    green_bar.style.width = temp + '%'
+
     $(this).parent().addClass('is-result')
     $(this).addClass('is-selected').siblings().removeClass('is-selected');
 });
@@ -128,9 +183,15 @@ $('#question_6 li').on('click', function (e) {
         count_right += 1
     }
     setTimeout(() => {
-        $('#question_6').addClass('hidden')
+        $('#question_6').addClass('answered')
         $('#question_7').removeClass('hidden')
     }, time)
+    // cut '%' from width
+    let cut = green_bar.style.width.split('%')[0]
+    
+    let temp = Number(cut) + percent
+    green_bar.style.width = temp + '%'
+
     $(this).parent().addClass('is-result')
     $(this).addClass('is-selected').siblings().removeClass('is-selected');
 });
@@ -147,11 +208,14 @@ $('#question_7 li').on('click', function (e) {
     }
     console.log(count_right)
     setTimeout(() => {
-        $('#question_7').addClass('hidden')
+        // $('#question_7').addClass('hidden')
+        $('.wrapper-question').addClass('hidden')
         // $('#question_6').toggleClass('hidden')
     }, time)
     $(this).parent().addClass('is-result')
     $(this).addClass('is-selected').siblings().removeClass('is-selected');
+
+    green_bar.style.width =  '100%'
 
     setTimeout(() => {
         $('.module-question').addClass('hidden')
@@ -200,3 +264,4 @@ $('#question_7 li').on('click', function (e) {
     }, time)
 
 });
+
