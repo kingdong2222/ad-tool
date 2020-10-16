@@ -6026,7 +6026,7 @@ header {
 
 .module-gift {
   padding: 60px;
-  padding-top: 90px;
+  padding-top: 80px;
   position: relative;
 }
 .module-gift .block-gift {
@@ -6080,7 +6080,7 @@ header {
 }
 .module-gift #note-content {
   position: absolute;
-  bottom: -35px;
+  bottom: -25px;
   padding-right: 60px;
 }
 
