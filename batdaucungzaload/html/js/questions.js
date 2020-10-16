@@ -28,7 +28,7 @@ let green_bar = document.getElementById('green-bar')
 //question 1
 $('#question_0 li').on('click', function (e) {
     let answer = e.target.innerText
-    console.log($(this).hasClass('is-answer-first'))
+    // console.log($(this).hasClass('is-answer-first'))
     if ($(this).hasClass('is-answer-first')) {
         setTimeout(() => {
             $('#question_0').addClass('answered')
@@ -85,7 +85,7 @@ $('#question_2 li').on('click', function (e) {
     
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
-            console.log('dung cau 2')
+            // console.log('dung cau 2')
             count_right += 1
         }
 
@@ -112,7 +112,7 @@ $('#question_3 li').on('click', function (e) {
     
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
-            console.log('dung cau 3')
+            // console.log('dung cau 3')
             count_right += 1
         }
 
@@ -139,7 +139,7 @@ $('#question_4 li').on('click', function (e) {
     
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
-            console.log('dung cau 4')
+            // console.log('dung cau 4')
             count_right += 1
         }
 
@@ -166,7 +166,7 @@ $('#question_5 li').on('click', function (e) {
     
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
-            console.log('dung cau 5')
+            // console.log('dung cau 5')
             count_right += 1
         }
 
@@ -193,7 +193,7 @@ $('#question_6 li').on('click', function (e) {
     
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
-            console.log('dung cau 6')
+            // console.log('dung cau 6')
             count_right += 1
         }
 
@@ -221,7 +221,7 @@ $('#question_7 li').on('click', function (e) {
     
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
-            console.log('dung cau 7')
+            // console.log('dung cau 7')
             count_right += 1
         }
 
@@ -236,7 +236,7 @@ $('#question_7 li').on('click', function (e) {
 
     setTimeout(() => {
         $('.module-question').addClass('hidden')
-        console.log(count_right)
+        // console.log(count_right)
         if (count_right >= 5) {
             //get voucher
             $('#voucher').removeClass('hidden')
