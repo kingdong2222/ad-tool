@@ -4,27 +4,35 @@ Generated using nucleoapp.com
 -------------------------------- */
 
 @font-face{
-	font-family:'zadicon';
-	src:url('../fonts/zadicon/zadicon.eot');
-	src:url('../fonts/zadicon/zadicon.eot') format('embedded-opentype'),
-	url('../fonts/zadicon/zadicon.woff2') format('woff2'),
-	url('../fonts/zadicon/zadicon.woff') format('woff'),
-	url('../fonts/zadicon/zadicon.ttf') format('truetype'),
-	url('../fonts/zadicon/zadicon.svg') format('svg');
+	font-family:'Nucleo';
+	src:url('../scss/fonts/Nucleo/Nucleo.eot');
+	src:url('../scss/fonts/Nucleo/Nucleo.eot') format('embedded-opentype'),
+	url('../scss/fonts/Nucleo/Nucleo.woff2') format('woff2'),
+	url('../scss/fonts/Nucleo/Nucleo.woff') format('woff'),
+	url('../scss/fonts/Nucleo/Nucleo.ttf') format('truetype'),
+	url('../scss/fonts/Nucleo/Nucleo.svg') format('svg');
 	font-weight:normal;
 	font-style:normal;
 }
 /*------------------------
 	base class definition
 -------------------------*/
-.icz{
+.icn{
 	display:inline-block;
-	font:normal normal normal 1em/1 'zadicon';
+	font:normal normal normal 1em/1 'Nucleo';
 	speak:none;
 	text-transform:none;
 	/* Better Font Rendering */
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
+}
+[class^=icn]{
+	display:inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 4px;
+	font-size:1rem;
+	vertical-align:middle
 }
 
 @import "icons";
