@@ -41,7 +41,7 @@ $('#question_0 li').on('click', function (e) {
             $('#question_2').removeClass('hidden')
         }, time)
 
-        percent = 100 / 7 
+        percent = 100 / 7
         green_bar.style.width = percent + '%'
 
         //change number of question
@@ -66,7 +66,7 @@ $('#question_1 li').on('click', function (e) {
 
     // cut '%' from width
     let cut = green_bar.style.width.split('%')[0]
-    
+
     let temp = Number(cut) + percent
     green_bar.style.width = temp + '%'
 
@@ -82,7 +82,7 @@ $('#question_2 li').on('click', function (e) {
     // }
 
     let answer = e.target.innerText
-    
+
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
             // console.log('dung cau 2')
@@ -94,7 +94,7 @@ $('#question_2 li').on('click', function (e) {
     }, time)
     // cut '%' from width
     let cut = green_bar.style.width.split('%')[0]
-    
+
     let temp = Number(cut) + percent
     green_bar.style.width = temp + '%'
 
@@ -109,7 +109,7 @@ $('#question_3 li').on('click', function (e) {
     //     count_right += 1
     // }
     let answer = e.target.innerText
-    
+
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
             // console.log('dung cau 3')
@@ -121,7 +121,7 @@ $('#question_3 li').on('click', function (e) {
     }, time)
     // cut '%' from width
     let cut = green_bar.style.width.split('%')[0]
-    
+
     let temp = Number(cut) + percent
     green_bar.style.width = temp + '%'
 
@@ -136,7 +136,7 @@ $('#question_4 li').on('click', function (e) {
     //     count_right += 1
     // }
     let answer = e.target.innerText
-    
+
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
             // console.log('dung cau 4')
@@ -148,7 +148,7 @@ $('#question_4 li').on('click', function (e) {
     }, time)
     // cut '%' from width
     let cut = green_bar.style.width.split('%')[0]
-    
+
     let temp = Number(cut) + percent
     green_bar.style.width = temp + '%'
 
@@ -163,7 +163,7 @@ $('#question_5 li').on('click', function (e) {
     //     count_right += 1
     // }
     let answer = e.target.innerText
-    
+
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
             // console.log('dung cau 5')
@@ -175,7 +175,7 @@ $('#question_5 li').on('click', function (e) {
     }, time)
     // cut '%' from width
     let cut = green_bar.style.width.split('%')[0]
-    
+
     let temp = Number(cut) + percent
     green_bar.style.width = temp + '%'
 
@@ -190,7 +190,7 @@ $('#question_6 li').on('click', function (e) {
     //     count_right += 1
     // }
     let answer = e.target.innerText
-    
+
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
             // console.log('dung cau 6')
@@ -202,7 +202,7 @@ $('#question_6 li').on('click', function (e) {
     }, time)
     // cut '%' from width
     let cut = green_bar.style.width.split('%')[0]
-    
+
     let temp = Number(cut) + percent
     green_bar.style.width = temp + '%'
 
@@ -217,8 +217,8 @@ $('#question_7 li').on('click', function (e) {
     //     count_right += 1
     // }
     let answer = e.target.innerText
-    
-    
+
+
     setTimeout(() => {
         if ($(this).hasClass('is-answer')) {
             // console.log('dung cau 7')
@@ -232,7 +232,7 @@ $('#question_7 li').on('click', function (e) {
     $(this).parent().addClass('is-result')
     $(this).addClass('is-selected').siblings().removeClass('is-selected');
 
-    green_bar.style.width =  '100%'
+    green_bar.style.width = '100%'
 
     setTimeout(() => {
         $('.module-question').addClass('hidden')
@@ -245,38 +245,11 @@ $('#question_7 li').on('click', function (e) {
                 $('#voucher').addClass('is-opacity')
             }, 100)
         } else {
-            //get random 4 gifts
-            let random = Math.floor(Math.random() * 3)
-            switch (random) {
-                case 0:
-                    $('#tshirt').removeClass('hidden')
-                    // $('#tshirt').addClass('is-opacity')
-                    setTimeout(() => {
-                        $('#tshirt').addClass('is-opacity')
-                    }, 100)
-                    break;
-                case 1:
-                    $('#pen').removeClass('hidden')
-                    // $('#pen').addClass('is-opacity')
-                    setTimeout(() => {
-                        $('#pen').addClass('is-opacity')
-                    }, 100)
-                    break;
-                case 2:
-                    $('#notebook').removeClass('hidden')
-                    // $('#notebook').addClass('is-opacity')
-                    setTimeout(() => {
-                        $('#notebook').addClass('is-opacity')
-                    }, 100)
-                    break;
-                case 3:
-                    $('#glasswater').removeClass('hidden')
-                    // $('#glasswater').addClass('is-opacity')
-                    setTimeout(() => {
-                        $('#glasswater').addClass('is-opacity')
-                    }, 100)
-                    break;
-            }
+            $('#normal-gift').removeClass('hidden')
+            // $('#tshirt').addClass('is-opacity')
+            setTimeout(() => {
+                $('#normal-gift').addClass('is-opacity')
+            }, 100)
         }
     }, time)
 
