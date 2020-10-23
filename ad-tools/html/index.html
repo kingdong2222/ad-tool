@@ -115,7 +115,11 @@
         <button class="button is-primary is-large" id="flying-button">Kiểm tra nội dung</button>
         <div class="main-body">
           <div id="button-toggle-slide-bar"><i class="icz icz-right"></i></div>
-          <div class="container_cols">
+          <div class="buttons" id="swipe_tabs">
+            <button class="button" id="normal-ads-button">Nội dung quảng cáo</button>
+            <button class="button is-primary" id="form-ads-button">Nội dung form</button>
+          </div>
+          <div class="container_cols is-hidden" id="checking-content-normal-ads">
             <div class="container_col content">
               <h2 class="title">Nội dung kiểm tra</h2>
               <div class="text-input-item">
@@ -141,7 +145,7 @@
                     <input id="avatar-image-input" type="file" accept=".png, .jpg, .jpeg" tabindex="-1">
                   </div><i class="icz icz-image-add-2">
                     <input id="avatar-image-input-0" type="file" accept=".png, .jpg, .jpeg" tabindex="-1"></i>
-                  <p class="img-desc">Kích thước 150 x 150 pixel <br> Tối đa 2Mb</p>
+                  <p class="img-desc form-img-desc">Kích thước 150 x 150 pixel <br> Tối đa 2Mb</p>
                 </div>
               </div>
               <div class="text-input-item">
@@ -278,7 +282,7 @@
               </div>
               <div class="text-input-item second-item">
                 <div class="label-title">
-                  <h3 class="title">Nội dung<i class="icz icz-support" id="tippy-notice-content"></i></h3>
+                  <h3 class="title">Nội dung kiểm tra<i class="icz icz-support" id="tippy-notice-content"></i></h3>
                 </div>
                 <div class="content-card" id="content-card-first">
                   <div class="card-desc"><i class="icz icz-fill-info"></i>
@@ -320,14 +324,124 @@
               </div>
             </div>
           </div>
+          <div class="container_cols" id="checking-content-form-ads">
+            <div class="container_col content">
+              <h2 class="title">Nội dung kiểm tra</h2>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Tiêu đề Form<i class="icz icz-support" id="form-tippy-title-ad"></i></h3>
+                  <p class="max-letter" id="form-max-letter-first">0/40</p>
+                </div>
+                <input id="form-first-input" type="text" placeholder="Nhập tiêu đề Form" maxlength="40">
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Nội dung Form<i class="icz icz-support" id="form-tippy-content-ad"></i></h3>
+                  <p class="max-letter" id="form-max-letter-second">0/180</p>
+                </div>
+                <textarea id="form-second-input" placeholder="Nhập nội dung form" maxlength="180"></textarea>
+              </div>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Ảnh OA<i class="icz icz-support" id="form-tippy-avatar-upload"></i></h3>
+                </div>
+                <div class="image-input">
+                  <div class="avatar-image-input form-avatar-image-input">
+                    <input id="form-avatar-image-input" type="file" accept=".png, .jpg, .jpeg" tabindex="-1">
+                  </div><i class="icz icz-image-add-2">
+                    <input id="form-avatar-image-input-0" type="file" accept=".png, .jpg, .jpeg" tabindex="-1"></i>
+                  <p class="img-desc form-img-desc">Kích thước 150 x 150 pixel <br> Tối đa 2Mb</p>
+                </div>
+              </div>
+              <button class="button is-primary is-large" id="form-check-form-ad" disabled>Kiểm tra nội dung</button>
+            </div>
+            <div class="container_col checking">
+              <h2 class="checking-title title">Kết quả kiểm tra</h2>
+              <div class="text-input-item first-item">
+                <div class="label-title">
+                  <h3 class="title">Ảnh bìa Form<i class="icz icz-support" id="form-tippy-large-image"></i></h3>
+                </div>
+                <div class="large-image-input form-large-image-input">
+                  <input id="form-large-image-input" type="file" accept=".png, .jpg, .jpeg">
+                  <p>Kéo thả ảnh vào hoặc <span>tải ảnh lên</span></p>
+                </div>
+                <div class="large-image-preview form-large-image-preview">
+                  <div class="image-preview-header">
+                    <p class="large-img-name form-large-img-name">Banner final <br><span>1024 x 533</span></p>
+                    <div class="field field-button is-grouped dropdown">
+                      <div class="control"><a class="button" id="form-change-large-img"><span class="name-item">Đổi ảnh khác</span>
+                          <input id="form-change-large-img-input" type="file" accept=".png, .jpg, .jpeg"></a></div>
+                      <div class="control dropdown-toggle" href="#" role="button" id="form-dropdown-m1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a class="button"><i class="icz icz-down"></i></a></div>
+                      <div class="dropdown-menu" aria-labelledby="dropdown-m1">
+                        <ul>
+                          <li><a id="form-download-large-image" onclick="dataLayer.push({'event': 'event_DownloadImg'});">Tải ảnh xuống</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="image-preview-body">
+                    <div class="ads-img">
+                      <div class="img-container-preview" id="form-output-large-preview" style="background-image:url(https://via.placeholder.com/1024x533)"><img id="form-imageSrc-preview" src="" alt="" style="display:none"></div>
+                    </div>
+                    <div class="ads-img-quality">
+                      <p>Chất lượng ảnh:</p>
+                      <p id="form-img-quality">Bị mờ</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-input-item second-item">
+                <div class="label-title">
+                  <h3 class="title">Nội dung kiểm tra<i class="icz icz-support" id="form-tippy-notice-content"></i></h3>
+                </div>
+                <div class="content-card" id="form-content-card-first">
+                  <div class="card-desc"><i class="icz icz-fill-info"></i>
+                    <p>Quảng cáo của bạn chưa có nội dung.<br><a onclick="focusFormFirstInput()">Nhập nội dung </a>để tiến hành kiểm tra.</p>
+                  </div>
+                  <div class="card-error-list">
+                    <p>Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây.</p>
+                  </div>
+                </div>
+                <div class="content-card is-hidden" id="form-content-card-second">
+                  <div class="card-desc"><i class="icz icz-fill-info"></i>
+                    <p>Nội dung của bạn chưa được kiểm tra, nhấn kiểm tra để xem kết quả</p>
+                  </div>
+                  <div class="card-error-list">
+                    <p>Các lỗi về từ ngữ hoặc không đúng định dạng sẽ được liệt kê ở đây.</p>
+                  </div>
+                </div>
+                <div class="content-card is-hidden" id="form-alert-card-first">
+                  <div class="card-desc">
+                    <p>Quảng cáo sẽ bị từ chối nếu xuất hiện những lỗi sau</p>
+                  </div>
+                  <div class="is-hidden" id="card-no-error-form">
+                    <ul>
+                      <li>Không có lỗi nào</li>
+                    </ul>
+                  </div>
+                  <div class="card-error-list">
+                    <ul></ul>
+                  </div>
+                </div>
+                <div class="content-card is-hidden" id="form-alert-card-second">
+                  <div class="card-desc">
+                    <p>Có <a id="form-">warning-tip <span>0 </span>gợi ý chỉnh sửa </a>trong quảng cáo của bạn</p>
+                  </div>
+                  <div class="card-error-list">
+                    <ul></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="policy-bottom-desc">
             <p>Đây là công cụ giúp bạn tối ưu hóa nội dung, hình ảnh quảng cáo. Đồng thời giúp kiểm tra các vi phạm có thể xảy ra trong nội dung. Công cụ không mặc định đảm bảo quảng cáo của bạn sẽ được duyệt. Xem thêm các <a href="https://ads.zalo.me/business/p/chinh-sach/" target="_blank">quy định quảng cáo </a>để tìm hiểu thêm về lĩnh vực kinh doanh của bạn.</p>
           </div>
         </div>
         <div class="slide-body">
           <div class="slide-body-container">
-            <h2 class="title">Xem trước</h2>
-            <div class="card-preview">
+            <h2 class="title">Xem trước hiển thị</h2>
+            <div class="card-preview is-hidden" id="normal-ad-preview">
               <div class="square-ads">
                 <div class="label-title">
                   <div class="avatar avatar--l"><span class="avatar-img" style="background-image:url(images/avatar.png)"></span></div>
@@ -344,12 +458,42 @@
                 </div>
               </div>
             </div>
+            <div id="form-ad-preview">
+              <div class="preview-sample form-ad-preview-sample"></div>
+              <div class="card-preview">
+                <div class="square-ads">
+                  <div class="label-title">
+                    <div class="avatar avatar--l"><span class="avatar-img form-avatar-img" style="background-image:url(images/avatar.png)"></span></div>
+                    <p>[Tên OA của bạn sẽ hiển thị ở đây]</p>
+                  </div>
+                  <h3 id="form-first-preview">Tiêu đề Form</h3>
+                  <p id="form-second-preview">Nội dung Form</p>
+                  <div class="form-block-preview">
+                    <div class="block">
+                      <label>Họ và tên</label>
+                      <div class="input-block">
+                        <p>Nguyễn Văn A</p><i class="icz icz-lock"></i>
+                      </div>
+                    </div>
+                    <div class="block">
+                      <label>Số điện thoại</label>
+                      <div class="input-block">
+                        <p>0909.xxx.xxxx</p><i class="icz icz-lock"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="button-preview">
+                  <p>Gửi thông tin</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
       <main class="is-hidden">
         <div class="ads-preview-list">
-          <h2 class="title preview-count" style="font-weight: 500;">8 vị trí quảng cáo</h2>
+          <h2 class="title preview-count" style="font-weight: 500;">7 vị trí quảng cáo</h2>
           <div class="preview-item-list">
             <div class="preview-item-container">
               <div class="preview-item">
@@ -578,7 +722,7 @@
                 </div>
               </div>
             </div>
-            <div class="preview-item-container" id="zalo-form">
+            <div class="preview-item-container is-hidden" id="zalo-form">
               <div class="preview-item">
                 <p class="name-position">Zalo Form</p>
                 <div class="card-preview">
@@ -682,7 +826,7 @@
                   <h3 class="title">Hình ảnh quảng cáo<i class="icz icz-support" id="tippy-large-image-mobile"></i></h3>
                 </div>
                 <div class="large-image-input-mobile">
-                  <input id="large-image-input-mobile" type="file" accept=".png, .jpg, .jpeg" capture="false">
+                  <input id="large-image-input-mobile" type="file" accept=".png, .jpg, .jpeg">
                   <p> <span>Tải ảnh lên</span></p>
                 </div>
                 <div class="large-image-preview-mobile">
@@ -690,7 +834,7 @@
                     <p class="large-img-name">Banner final <br><span>1024 x 533</span></p>
                     <div class="field field-button is-grouped dropdown">
                       <div class="control"><a class="button" id="change-large-img-mobile"><span class="name-item">Đổi ảnh khác</span>
-                          <input id="change-large-img-input-mobile" type="file" accept=".png, .jpg, .jpeg" capture="false"></a></div>
+                          <input id="change-large-img-input-mobile" type="file" accept=".png, .jpg, .jpeg"></a></div>
                     </div>
                   </div>
                   <div class="image-preview-body">

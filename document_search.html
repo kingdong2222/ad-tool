@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads - Công cụ tối ưu hoá hình ảnh nội dung quảng cáo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0,user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+    <meta name="description" content="Kiểm tra trước hình ảnh, nội dung quảng cáo. Tối ưu hiển thị để mang lại hiệu quả cao hơn.">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index, follow">
+    <meta property="og:url" content="https://ads.zalo.me/business/creative/adchecker/">
+    <meta property="og:title" content="Zalo Ads - Công cụ tối ưu hoá hình ảnh nội dung quảng cáo">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ads.zalo.me/business/wp-content/uploads/2020/07/share_fb.png">
+    <meta property="og:description" content="Kiểm tra trước hình ảnh, nội dung quảng cáo. Tối ưu hiển thị để mang lại hiệu quả cao hơn.">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fengyuanchen.github.io/cropperjs/css/cropper.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.js"></script>
+<script async src="https://ads.zalo.me/business/wp-content/themes/html5blank-stable/js/opencv.js" type="text/javascript"></script>
+<script src="https://apis.google.com/js/api.js"></script><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5W5QTD2');
+</script>
+<!-- End Google Tag Manager -->
+    <style></style>
+  </head>
+  <body>
+    <div class="header"><a class="logo" href="https://ads.zalo.me/business/creative/adchecker/"><i class="ico-logo"></i></a>
+      <div class="navbar-main">
+        <ul>
+          <li><a class="navbar-item" href="index.html">Công cụ kiểm tra quảng cáo</a></li>
+          <li><a class="navbar-item" href="index.html#position_preview">Vị trí hiển thị quảng cáo</a></li>
+          <li><a class="navbar-item">Tra cứu giấy phép</a></li>
+        </ul>
+      </div>
+      <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="OpenUpdateHistory()">
+           <i class="icz icz-fill-bell"></i>
+          <div class="red-dot" id="red_dot"></div><span>Lịch sử cập nhật</span></a>
+        <div class="dropdown-menu" aria-labelledby="dropdown-m2">
+          <p class="history-update-title">Chi tiết phiên bản</p>
+          <div class="history-list">
+            <div class="history-item">
+              <ul>
+                <li> 
+                  <p>Cập nhật phiên bản kiểm tra nội dung và hình ảnh quảng cáo trên điện thoại</p>
+                </li>
+              </ul>
+              <p>Phiên bản 1.0.5 - 05/10/2020</p>
+            </div>
+            <div class="history-item">
+              <ul>
+                <li> 
+                  <p>Thêm tính năng kiểm tra chính tả và gợi ý chỉnh sửa</p>
+                </li>
+              </ul>
+              <p>Phiên bản 1.0.4 - 17/08/2020</p>
+            </div>
+            <div class="history-item">
+              <ul>
+                <li> 
+                  <p>Thêm tính năng Tra cứu giấy phép</p>
+                </li>
+                <li> 
+                  <p>Thêm tính năng gợi ý chỉnh sửa cho từ CẤM, từ phản cảm, thiếu kiểm chứng</p>
+                </li>
+                <li> 
+                  <p>Bổ sung điều kiện quảng cáo cho “Thực phẩm chức năng”</p>
+                </li>
+              </ul>
+              <p>Phiên bản 1.0.3 - 17/08/2020</p>
+            </div>
+            <div class="history-item">
+              <ul>
+                <li> 
+                  <p>Kiểm tra nội dung có chứa số điện thoại hoặc email</p>
+                </li>
+                <li> 
+                  <p>Cập nhật lại Vị trí quảng cáo</p>
+                </li>
+                <li> 
+                  <p>Kiểm tra nội dung có chứa từ ngữ phản cảm, thiếu kiểm chứng</p>
+                </li>
+                <li> 
+                  <p>Kiểm tra nội dung có chứa từ CẤM</p>
+                </li>
+              </ul>
+              <p>Phiên bản 1.0.2 - 10/08/2020</p>
+            </div>
+            <div class="history-item">
+              <ul>
+                <li> 
+                  <p>Tự động kiểm tra chất lượng hình ảnh</p>
+                </li>
+                <li> 
+                  <p>Kiểm tra phần trăm ký tự trên ảnh</p>
+                </li>
+                <li> 
+                  <p>Kiểm tra nội dung có chứa ký tự đặc biệt</p>
+                </li>
+                <li> 
+                  <p>Kiểm tra nội dung có chữ viết hoa</p>
+                </li>
+              </ul>
+              <p>Phiên bản 1.0.1 - 27/07/2020</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-content">
+      <main class="document_search">
+        <div class="main-body">
+          <div class="container_cols">
+            <div class="container_col content">
+              <h2 class="title">Nội dung tra cứu</h2>
+              <div class="text-input-item">
+                <div class="label-title">
+                  <h3 class="title">Ngành hàng chạy quảng cáo<i class="icz icz-support" id="tippy-business-major"></i></h3>
+                </div>
+                <div class="select dropdown dropdown-document-searching"><i class="icz icz-search"></i>
+                  <input id="first-select-preview" type="text" placeholder="Tìm kiếm ngành hàng chạy quảng cáo">
+                  <div id="icz-down"><i class="icz icz-down"></i></div>
+                  <div class="dropdown-menu show" aria-labelledby="dropdown-document-searching">
+                    <ul>
+                      <li><a class="name-item">Thực phẩm chức năng, thực phẩm bảo vệ sức khỏe, thực phẩm dinh dưỡng y học.</a></li>
+                      <li><a class="name-item">Sản phẩm dinh dưỡng cho trẻ đến 36 tháng tuổi, thực phẩm dùng cho chế độ ăn đặc biệt.</a></li>
+                      <li><a class="name-item">Sữa và sản phẩm dinh dưỡng cho trẻ trên 24 tháng tuổi</a></li>
+                      <li><a class="name-item">Thực phẩm đã qua chế biến, phụ gia thực phẩm, chất hỗ trợ chế biến thực phẩm</a></li>
+                      <li><a class="name-item">Thực phẩm tươi sống</a></li>
+                      <li><a class="name-item">Mỹ phẩm</a></li>
+                      <li><a class="name-item">Thuốc</a></li>
+                      <li><a class="name-item">Hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế</a></li>
+                      <li><a class="name-item">Thuốc bảo vệ thực vật, nguyên liệu thuốc bảo vệ thực vật. </a></li>
+                      <li><a class="name-item">Vật tư bảo vệ thực vật, sinh vật có ích dùng trong bảo vệ thực vật.</a></li>
+                      <li><a class="name-item">Phân bón</a></li>
+                      <li><a class="name-item">Thuốc và vật tư thú y</a></li>
+                      <li><a class="name-item">Rượu có độ cồn dưới 15 độ và bia</a></li>
+                      <li><a class="name-item">Dịch vụ khám bệnh, chữa bệnh (bao gồm phòng khám nha khoa)</a></li>
+                      <li><a class="name-item">Thẩm mỹ viện </a></li>
+                      <li><a class="name-item">Trang thiết bị y tế loại B,C,D</a></li>
+                      <li><a class="name-item">Trang thiết bị y tế loại A</a></li>
+                      <li><a class="name-item">Trò chơi điện tử</a></li>
+                      <li><a class="name-item">Dịch vụ vui chơi, giải trí cho đối tượng từ 16 tuổi trở lên</a></li>
+                      <li><a class="name-item">Dịch vụ về visa hộ chiếu</a></li>
+                      <li><a class="name-item">Sản phẩm dao kéo, dụng cụ nhà bếp</a></li>
+                      <li><a class="name-item">Tín dụng, tín chấp, dịch vụ tài chính cho vay, mượn tiền, đầu tư quỹ</a></li>
+                      <li><a class="name-item">Hẹn hò online</a></li>
+                      <li><a class="name-item">Dịch vụ cầm đồ</a></li>
+                      <li><a class="name-item">Xổ số</a></li>
+                      <li><a class="name-item">Dịch vụ xăm hình (xăm, phun, thêu trên da có sử dụng thuốc gây tê dạng tiêm)</a></li>
+                      <li><a class="name-item">Sách (1 hoặc nhiều quyển sách)</a></li>
+                      <li><a class="name-item">Sàn thương mại điện tử</a></li>
+                      <li><a class="name-item">Spa có bao gồm hoạt động massage (Sử dụng phương pháp vật lý trị liệu)</a></li>
+                      <li><a class="name-item">Spa không bao gồm hoạt động massage</a></li>
+                      <li><a class="name-item">Phòng khám thú y</a></li>
+                      <li><a class="name-item">Thiết bị, phần mềm ngụy trang dùng để ghi âm, ghi hình, định vị</a></li>
+                      <li><a class="name-item">Thức ăn chăn nuôi</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="text-input-item" style="opacity: 0">
+                <div class="label-title">
+                  <h3 class="title">Xuất xứ hàng hóa<span>&nbsp;(không bắt buộc)</span></h3>
+                </div>
+                <div class="controls">
+                  <div class="control">
+                    <input id="check0" type="checkbox">
+                    <label for="check0">Nhập khẩu theo đường chính ngạch</label>
+                  </div>
+                  <div class="control">
+                    <input id="check1" type="checkbox">
+                    <label for="check1">Trung Quốc, Lào, Campuchia, Thái Lan</label>
+                  </div>
+                  <div class="control">
+                    <input id="check2" type="checkbox">
+                    <label for="check2">Hàng có thương hiệu nổi tiếng</label>
+                  </div>
+                </div>
+              </div>
+              <div class="text-input-item" style="opacity: 0;margin-bottom: 72px;">
+                <div class="label-title">
+                  <h3 class="title">Hình ảnh quảng cáo<span>&nbsp;(không bắt buộc)</span></h3>
+                </div>
+                <div class="controls">
+                  <div class="control">
+                    <input id="check4" type="checkbox">
+                    <label for="check4">Có người nhìn rõ mặt trên banner</label>
+                  </div>
+                  <div class="control">
+                    <input id="check5" type="checkbox">
+                    <label for="check5">Có người nổi tiếng trong landing page</label>
+                  </div>
+                </div>
+              </div>
+              <button class="button is-primary is-large" id="check-document" disabled>Tra cứu</button>
+              <button class="button is-large" id="refresh-searching" disabled>Làm mới</button>
+            </div>
+          </div>
+        </div>
+        <div class="slide-body"><img class="is-hidden" id="img-no-found" src="./images/ZAD_Illus_NoResult.png">
+          <p class="is-hidden" id="no-found">Không tìm thấy giấy phép phù hợp</p><img id="img-empty" src="./images/zad_empty.png">
+          <p id="before-searching">Vui lòng chọn ngành hàng kinh doanh để tra cứu giấy phép</p>
+          <h2 class="title is-hidden" id="after-searching">Giấy phép yêu cầu</h2>
+          <ul id="document-list"></ul>
+        </div>
+      </main>
+      <main class="is-mobile-only">
+        <div class="is-mobile-container"><img src="./images/ZAD_Illus_maintenance.png">
+          <h2 class="title">Công cụ hiện chỉ hỗ trợ trên thiết bị máy vi tính.</h2>
+          <p>Phiên bản trên điện thoại sẽ được cập nhật vào thời gian sắp tới.</p><a class="button is-primary" href="https://ads.zalo.me/business/">Trang chủ Zalo Ads</a>
+        </div>
+      </main>
+    </div>
+    <div class="bl-popup">
+    </div>
+    <div class="bl-modal">
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/document_search.js"></script>
+    <script src="js/general_main.js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-75517706-1');
+    </script>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5W5QTD2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  </body>
+</html>
