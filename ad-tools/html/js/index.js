@@ -980,14 +980,6 @@ var cropLargeImgAgain = function (val) {
                                         src.delete(); dst.delete();
                                     };
 
-                                    let cookie_first_download = getCookie('first_user_download')
-                                    let tmp_cookie
-                                    if (cookie_first_download) {
-                                        tmp_cookie = false
-                                    } else {
-                                        setCookie('first_user_download', 'first_user_download', 30)
-                                        tmp_cookie = true
-                                    }
 
                                 } else {
                                     download.download = uploadedImageName;
@@ -4401,6 +4393,7 @@ $('#normal-ads-button').click(function () {
     form_ad_block.classList.add('is-hidden')
     normal_ad_preview.classList.remove('is-hidden')
     form_ad_preview.classList.add('is-hidden')
+    $('.policy-bottom-desc').removeClass('is-hidden')
 })
 
 $('#form-ads-button').click(function () {
@@ -4410,6 +4403,7 @@ $('#form-ads-button').click(function () {
     form_ad_block.classList.remove('is-hidden')
     normal_ad_preview.classList.add('is-hidden')
     form_ad_preview.classList.remove('is-hidden')
+    $('.policy-bottom-desc').addClass('is-hidden')
 })
 
 //check ads type form
@@ -4431,6 +4425,7 @@ const first_content_preview_form = document.getElementById('form-first-preview')
 const second_content_preview_form = document.getElementById('form-second-preview')
 
 function focusFormFirstInput() {
+    first_input_form.scrollIntoView({behavior: "smooth", block: "end", inline: "center"})
     first_input_form.focus()
 }
 first_input_form.oninput = value => {
@@ -4450,7 +4445,7 @@ first_input_form.oninput = value => {
         }
     } else {
         first_content_preview_form.innerHTML = 'Tiêu đề form'
-        first_max_letter.innerHTML = '0/40'
+        first_max_letter_form.innerHTML = '0/40'
         if (second_input_form.value) {
             //do nothing cause it's done already
         }
@@ -4483,6 +4478,11 @@ second_input_form.oninput = value => {
 
             banned_card_form.classList.add('is-hidden')
             warning_card_form.classList.add('is-hidden')
+        }
+        if(second_input_form.value.length >= 100){
+            second_input_form.style.overflowY = 'scroll'
+        } else {
+            second_input_form.style.overflowY = 'hidden'
         }
     } else {
         second_content_preview_form.innerHTML = 'Nội dung Form'
