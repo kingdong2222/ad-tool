@@ -667,15 +667,15 @@ var cropLargeImg = function (val) {
                                 } else {
                                     download.download = uploadedImageName;
                                     download.href = result.toDataURL(uploadedImageType);
-                                    $(".large-image-preview").addClass('is-show')
-                                    $(".large-image-input").addClass('is-hidden')
+                                    $(".normal-large-image-preview").addClass('is-show')
+                                    $(".normal-large-image-input").addClass('is-hidden')
 
-                                    $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
+                                    $(".normal-large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
 
                                     document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
 
-                                    $(".preview-sample").replaceWith("<img class='preview-sample' id='output-preview-large' style='background:none;'/>");
-                                    $(".preview-sample").attr("src", result.toDataURL(uploadedImageType))
+                                    $(".normal-preview-sample").replaceWith("<img class='preview-sample normal-preview-sample' id='output-preview-large' style='background:none;'/>");
+                                    $(".normal-preview-sample").attr("src", result.toDataURL(uploadedImageType))
                                     // $('.preview-parent').addClass('active')
 
                                     //check blur
@@ -985,11 +985,11 @@ var cropLargeImgAgain = function (val) {
                                     download.download = uploadedImageName;
                                     download.href = result.toDataURL(uploadedImageType);
 
-                                    $(".large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
+                                    $(".normal-large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
 
                                     document.getElementById('output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
 
-                                    $(".preview-sample").attr("src", result.toDataURL(uploadedImageType))
+                                    $(".normal-preview-sample").attr("src", result.toDataURL(uploadedImageType))
                                     // $('.preview-parent').addClass('active')
                                     //check blur
                                     let imgElement = document.getElementById('imageSrc-preview');
@@ -2830,6 +2830,16 @@ tippy('#tippy-tick-tpcn', {
     placement: 'right-start',
 });
 
+tippy('#form-tippy-notice-content', {
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về nội dung quảng cáo</a></div>',
+    allowHTML: true,
+    maxWidth: 270,
+    theme: 'zad',
+    interactive: true,
+    // delay: [300, null],
+    placement: 'right-start',
+});
+
 // hover error and warning words
 FunctionHoverWord = (id) => {
 
@@ -4394,6 +4404,11 @@ $('#normal-ads-button').click(function () {
     normal_ad_preview.classList.remove('is-hidden')
     form_ad_preview.classList.add('is-hidden')
     $('.policy-bottom-desc').removeClass('is-hidden')
+
+    let flying_button_check = document.getElementById('flying-button')
+    if(flying_button_check.style.bottom == '40px'){
+        flying_button_check.style.opacity  = 1
+    }
 })
 
 $('#form-ads-button').click(function () {
@@ -4404,6 +4419,11 @@ $('#form-ads-button').click(function () {
     normal_ad_preview.classList.add('is-hidden')
     form_ad_preview.classList.remove('is-hidden')
     $('.policy-bottom-desc').addClass('is-hidden')
+    
+    let flying_button_check = document.getElementById('flying-button')
+    if(flying_button_check.style.bottom == '40px'){
+        flying_button_check.style.opacity  = 0
+    }
 })
 
 //check ads type form
@@ -4480,14 +4500,16 @@ second_input_form.oninput = value => {
             warning_card_form.classList.add('is-hidden')
         }
         if(second_input_form.value.length >= 100){
-            second_input_form.style.overflowY = 'scroll'
+            second_input_form.style.height = '120px'
+            second_input_form.style.maxHeight = 'unset'
         } else {
-            second_input_form.style.overflowY = 'hidden'
+            second_input_form.style.height = '100px'
+            second_input_form.style.maxHeight = '100px'
         }
     } else {
         second_content_preview_form.innerHTML = 'Nội dung Form'
         second_max_letter_form.innerHTML = '0/180'
-        if (first_input.value || third_input.value || fourth_input.value) {
+        if (first_input_form.value) {
             //do nothing cause it's done already
         }
         else {
@@ -4590,9 +4612,14 @@ function checkAdsFunc_form() {
     content_card_0_form.classList.add('is-hidden')
     content_card_1_form.classList.add('is-hidden')
 
+    $('#form-alert-card-first .card-error-list ul li').remove()
+    $('#form-alert-card-second .card-error-list ul li').remove()
+    $('#form-alert-card-first .card-error-list p').remove()
+
     $('#card-no-error-form').hasClass('is-hidden') == false ? $('#card-no-error-form').addClass('is-hidden') : null
 
     let count_warning = 0
+    let value_check_ad = true
 
     //TODO
     setTimeout(() => {
@@ -4703,7 +4730,7 @@ function checkAdsFunc_form() {
                 let difference = string2array.filter(x => array_match.indexOf(x) === -1)
                 if (array_match.length < first_length) {
                     first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
+                    warning_card_form.classList.remove('is-hidden')
                     //value_check_ad = false
                     for (let i = 0; i < difference.length; i++) {
                         if ($('#form-warning-1').text().indexOf(warn_mess_4) == 0) {
@@ -4730,14 +4757,14 @@ function checkAdsFunc_form() {
                     //     $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-2'>" + warn_mess_3 + "</p></li>")
                     // }
                 } else {
-                    warning_card.classList.remove('is-hidden')
+                    warning_card_form.classList.remove('is-hidden')
                     let matches = Array.from(value_1.matchAll(InputFormatFrom2Puntuation), m => m[0])
                     for (let i = 0; i < matches.length; i++) {
                         let item = matches[i]
                         //show location in string
                         // console.log(mini_array[i])
                         if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
+                            warning_card_form.classList.add('is-hidden')
                             first_content_preview_form.classList.contains('get-error') == true ? first_content_preview_form.classList.remove('get-error') : null
                         } else {
                             first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
@@ -4759,7 +4786,7 @@ function checkAdsFunc_form() {
             //     if (value_1.match(InputSpacingPuntationError_4) == null) {
             //     } else {
             //         first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
-            //         warning_card.classList.remove('is-hidden')
+            //         warning_card_form.classList.remove('is-hidden')
             //         if ($('#form-warning-6').text().indexOf(warn_mess_6) == 0) {
             //         } else {
             //             count_warning += 1
@@ -4770,7 +4797,7 @@ function checkAdsFunc_form() {
             if (checkWarning(value_1).length > 0) {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
                 //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
+                warning_card_form.classList.remove('is-hidden')
                 let list = checkWarning(value_1)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
@@ -4788,7 +4815,7 @@ function checkAdsFunc_form() {
             }
             if (value_1.match(/\s{2,}/g)) {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
+                warning_card_form.classList.remove('is-hidden')
                 if ($('#form-warning-5').text().indexOf(warn_mess_5) == 0) {
                 } else {
                     $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-5'>" + warn_mess_5 + "</p></li>")
@@ -4870,7 +4897,7 @@ function checkAdsFunc_form() {
                         //warning
                         // if (checkFormat2(temp) == 1) {
                         //     second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                        //     warning_card.classList.remove('is-hidden')
+                        //     warning_card_form.classList.remove('is-hidden')
                         //     if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
                         //     } else {
                         //         $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
@@ -4896,7 +4923,7 @@ function checkAdsFunc_form() {
 
                     //     } else {
                     //         second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                    //         warning_card.classList.remove('is-hidden')
+                    //         warning_card_form.classList.remove('is-hidden')
                     //         if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
                     //         } else {
                     //             $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
@@ -4964,7 +4991,7 @@ function checkAdsFunc_form() {
                 let difference = string2array.filter(x => array_match.indexOf(x) === -1)
                 if (array_match.length < first_length) {
                     second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                    warning_card.classList.remove('is-hidden')
+                    warning_card_form.classList.remove('is-hidden')
                     //value_check_ad = false
                     for (let i = 0; i < difference.length; i++) {
                         if ($('#form-warning-1').text().indexOf(warn_mess_4) == 0) {
@@ -4992,7 +5019,7 @@ function checkAdsFunc_form() {
                     //     $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-2'>" + warn_mess_3 + "</p></li>")
                     // }
                 } else {
-                    warning_card.classList.remove('is-hidden')
+                    warning_card_form.classList.remove('is-hidden')
                     let matches = Array.from(value_2.matchAll(InputFormatFrom2Puntuation), m => m[0])
                     for (let i = 0; i < matches.length; i++) {
                         let item = matches[i]
@@ -5000,7 +5027,7 @@ function checkAdsFunc_form() {
                         // console.log(mini_array[i])
 
                         if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
+                            warning_card_form.classList.add('is-hidden')
                             first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
                         } else {
                             second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
@@ -5022,7 +5049,7 @@ function checkAdsFunc_form() {
             //     if (value_2.match(InputSpacingPuntationError_4) == null) {
             //     } else {
             //         second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-            //         warning_card.classList.remove('is-hidden')
+            //         warning_card_form.classList.remove('is-hidden')
             //         if ($('#form-warning-6').text().indexOf(warn_mess_6) == 0) {
             //         } else {
             //             count_warning += 1
@@ -5033,7 +5060,7 @@ function checkAdsFunc_form() {
             if (checkWarning(value_2).length > 0) {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                 //value_check_ad = false
-                warning_card.classList.remove('is-hidden')
+                warning_card_form.classList.remove('is-hidden')
                 let list = checkWarning(value_2)
                 for (let i = 0; i < list.length; i++) {
                     let item = list[i]
@@ -5051,7 +5078,7 @@ function checkAdsFunc_form() {
             }
             if (value_2.replace(/\n/g, " ").match(/\s{2,}/g)) {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                warning_card.classList.remove('is-hidden')
+                warning_card_form.classList.remove('is-hidden')
                 if ($('#form-warning-5').text().indexOf(warn_mess_5) == 0) {
                 } else {
                     count_warning += 1
@@ -5167,7 +5194,7 @@ function checkAdsFunc_form() {
                                 //warning
                                 // if (checkFormat2(temp) == 1) {
                                 //     second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                                //     warning_card.classList.remove('is-hidden')
+                                //     warning_card_form.classList.remove('is-hidden')
                                 //     if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
                                 //     } else {
                                 //         $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
@@ -5193,7 +5220,7 @@ function checkAdsFunc_form() {
 
                             //     } else {
                             //         second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                            //         warning_card.classList.remove('is-hidden')
+                            //         warning_card_form.classList.remove('is-hidden')
                             //         if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
                             //         } else {
                             //             $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
@@ -5218,6 +5245,7 @@ function checkAdsFunc_form() {
             }
         }, 500)
         if (count_warning > 0) {
+            console.log(count_warning)
             $('#form-warning-tip span').html(count_warning + ' ')
             tippy('#form-warning-tip', {
                 content: '<div class="tippy-block"><p style="font-weight: normal; margin-bottom: 0;"><b>Gợi ý chỉnh sửa</b> là những nội dung nghi ngờ vi phạm qui định quảng cáo. Bỏ qua nếu bạn chắc rằng những gợi ý này không chính xác</p></div>',

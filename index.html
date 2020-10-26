@@ -45,6 +45,14 @@
             <div class="history-item">
               <ul>
                 <li> 
+                  <p>Thêm tính năng kiểm tra Quảng cáo Form trên Zalo Ads</p>
+                </li>
+              </ul>
+              <p>Phiên bản 1.0.6 - 27/10/2020</p>
+            </div>
+            <div class="history-item">
+              <ul>
+                <li> 
                   <p>Cập nhật phiên bản kiểm tra nội dung và hình ảnh quảng cáo trên điện thoại</p>
                 </li>
               </ul>
@@ -117,7 +125,7 @@
           <div id="button-toggle-slide-bar"><i class="icz icz-right"></i></div>
           <div class="buttons" id="swipe_tabs">
             <button class="button" id="normal-ads-button">Nội dung quảng cáo</button>
-            <button class="button is-primary" id="form-ads-button">Nội dung form</button>
+            <button class="button is-primary" id="form-ads-button">Nội dung Form</button>
           </div>
           <div class="container_cols is-hidden" id="checking-content-normal-ads">
             <div class="container_col content">
@@ -199,13 +207,13 @@
                 <div class="label-title">
                   <h3 class="title">Hình ảnh quảng cáo<i class="icz icz-support" id="tippy-large-image"></i></h3>
                 </div>
-                <div class="large-image-input">
+                <div class="large-image-input normal-large-image-input">
                   <input id="large-image-input" type="file" accept=".png, .jpg, .jpeg">
                   <p>Kéo thả ảnh vào hoặc <span>tải ảnh lên</span></p>
                 </div>
-                <div class="large-image-preview">
+                <div class="large-image-preview normal-large-image-preview">
                   <div class="image-preview-header">
-                    <p class="large-img-name">Banner final <br><span>1024 x 533</span></p>
+                    <p class="large-img-name normal-large-img-name">Banner final <br><span>1024 x 533</span></p>
                     <div class="field field-button is-grouped dropdown">
                       <div class="control"><a class="button" id="change-large-img"><span class="name-item">Đổi ảnh khác</span>
                           <input id="change-large-img-input" type="file" accept=".png, .jpg, .jpeg"></a></div>
@@ -392,7 +400,7 @@
               </div>
               <div class="text-input-item second-item">
                 <div class="label-title">
-                  <h3 class="title">Nội dung kiểm tra</h3>
+                  <h3 class="title">Nội dung kiểm tra<i class="icz icz-support" id="form-tippy-notice-content"></i></h3>
                 </div>
                 <div class="content-card" id="form-content-card-first">
                   <div class="card-desc"><i class="icz icz-fill-info"></i>
@@ -434,7 +442,7 @@
               </div>
             </div>
           </div>
-          <div class="policy-bottom-desc">
+          <div class="policy-bottom-desc is-hidden">
             <p>Đây là công cụ giúp bạn tối ưu hóa nội dung, hình ảnh quảng cáo. Đồng thời giúp kiểm tra các vi phạm có thể xảy ra trong nội dung. Công cụ không mặc định đảm bảo quảng cáo của bạn sẽ được duyệt. Xem thêm các <a href="https://ads.zalo.me/business/p/chinh-sach/" target="_blank">quy định quảng cáo </a>để tìm hiểu thêm về lĩnh vực kinh doanh của bạn.</p>
           </div>
         </div>
@@ -448,7 +456,7 @@
                   <h3 class="title" id="first-preview">Tên nhãn hàng</h3>
                 </div>
                 <h3 class="title" id="second-preview">Nội dung quảng cáo</h3>
-                <div class="preview-sample"></div>
+                <div class="preview-sample normal-preview-sample"></div>
                 <div class="ad-desc">
                   <div class="optional">
                     <p class="optional-desc" id="third-preview">Mô tả</p>
