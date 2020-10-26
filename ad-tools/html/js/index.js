@@ -2903,54 +2903,54 @@ FunctionHoverWord = (id) => {
                 }
             });
         }
-        if ($('#first-preview').hasClass('get-error')) {
+        // if ($('#first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 document.getElementById('first-preview').innerHTML = temp
             }
-        }
-        if ($('#second-preview').hasClass('get-error')) {
+        // }
+        // if ($('#second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 document.getElementById('second-preview').innerHTML = temp
             }
-        }
-        if ($('#third-preview').hasClass('get-error')) {
+        // }
+        // if ($('#third-preview').hasClass('get-error')) {
             if (third_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 document.getElementById('third-preview').innerHTML = temp
             }
-        }
-        if ($('#fourth-preview').hasClass('get-error')) {
+        // }
+        // if ($('#fourth-preview').hasClass('get-error')) {
             if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = fourth_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 document.getElementById('fourth-preview').innerHTML = temp
             }
-        }
+        // }
 
     }, value => {
 
         // $("body [data-tippy-root]").remove()
-        if ($('#first-preview').hasClass('get-error')) {
+        // if ($('#first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('first-preview').innerHTML = first_preview_OG
             }
-        }
-        if ($('#second-preview').hasClass('get-error')) {
+        // }
+        // if ($('#second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('second-preview').innerHTML = second_preview_OG
             }
-        }
-        if ($('#third-preview').hasClass('get-error')) {
+        // }
+        // if ($('#third-preview').hasClass('get-error')) {
             if (third_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('third-preview').innerHTML = third_preview_OG
             }
-        }
-        if ($('#fourth-preview').hasClass('get-error')) {
+        // }
+        // if ($('#fourth-preview').hasClass('get-error')) {
             if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('fourth-preview').innerHTML = fourth_preview_OG
             }
-        }
+        // }
     })
 }
 
@@ -4445,6 +4445,9 @@ const warning_card_form = document.getElementById('form-alert-card-second')
 const first_content_preview_form = document.getElementById('form-first-preview')
 const second_content_preview_form = document.getElementById('form-second-preview')
 
+//height of form preview without input
+const form_preview_height = document.getElementById('form-ad-preview').clientHeight
+
 function focusFormFirstInput() {
     first_input_form.scrollIntoView({behavior: "smooth", block: "end", inline: "center"})
     first_input_form.focus()
@@ -4506,6 +4509,12 @@ second_input_form.oninput = value => {
         } else {
             second_input_form.style.height = '100px'
             second_input_form.style.maxHeight = '100px'
+        }
+
+        let form_preview_height_input = document.getElementById('form-ad-preview').clientHeight
+        if(form_preview_height_input >= form_preview_height){
+            let minus_height = form_preview_height_input - form_preview_height
+            console.log(minus_height)
         }
     } else {
         second_content_preview_form.innerHTML = 'Nội dung Form'
@@ -5392,32 +5401,32 @@ FunctionHoverWord_form = (id) => {
                 }
             });
         }
-        if ($('#form-first-preview').hasClass('get-error')) {
+        // if ($('#form-first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 document.getElementById('form-first-preview').innerHTML = temp
             }
-        }
-        if ($('#form-second-preview').hasClass('get-error')) {
+        // }
+        // if ($('#form-second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 document.getElementById('form-second-preview').innerHTML = temp
             }
-        }
+        // }
 
     }, value => {
 
         // $("body [data-tippy-root]").remove()
-        if ($('#form-first-preview').hasClass('get-error')) {
+        // if ($('#form-first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('form-first-preview').innerHTML = first_preview_OG
             }
-        }
-        if ($('#form-second-preview').hasClass('get-error')) {
+        // }
+        // if ($('#form-second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('form-second-preview').innerHTML = second_preview_OG
             }
-        }
+        // }
         
     })
 }
