@@ -450,6 +450,7 @@
 	main{
 		font-family: Muli;
 		position: relative;
+		min-height: 850px !important;
 		p{margin-bottom: 0;}
 		#flying-button{
 			opacity: 0;
@@ -943,18 +944,22 @@
 				width: fit-content;
 				margin: 0 auto;
 				margin-bottom: 2rem;
+				height: 40px;
 				.button{
 					margin-bottom: 0;
 					width: 170px;
+					height: 32px;
 					background-color: transparent;
 					border: none;
 					transition: all 0.15s;
 					outline: none;
 					box-shadow: none;
+					color: #989EA5;
 				}
 				.is-primary{
 					background-color: #1745cf;
 					border-radius: 4px;
+					color: #fff
 				}
 			}
 		}
@@ -1079,16 +1084,17 @@
 				font-size: 12px;
 				color: #E62100;
 			}
-			textarea#second-input{
+			textarea#second-input, textarea#form-second-input{
 				min-height: 100px;
 				max-height: 100px;
 				display: block;
 				resize: none;
 			}
-			textarea#form-second-input{
-				min-height: 120px;
-				max-height: 120px;
-			}
+			// textarea#form-second-input{
+			// 	overflow-y: scroll;
+			// 	// min-height: 120px;
+			// 	// max-height: 120px;
+			// }
 			.select{
 				width: 100%;
 				select{
@@ -1138,7 +1144,7 @@
 						}
 					}
 				}
-				#change-large-img{
+				#change-large-img, #form-change-large-img{
 					border-bottom-right-radius: unset;
 					border-top-right-radius: unset;
 				}
@@ -1340,7 +1346,7 @@
 						}
 					}
 				}
-				.card-error-list, #card-no-error{
+				.card-error-list, #card-no-error, #card-no-error-form{
 					p{
 						color: #A3A8AF;
 						font-size: 14px;
@@ -1373,7 +1379,7 @@
 						}
 					}
 				}
-				&#alert-card-first{
+				&#alert-card-first, &#form-alert-card-first{
 					.card-desc{font-weight: 600;}
 					.card-error-list{
 						ul{
@@ -1393,7 +1399,7 @@
 						}
 					}
 				}
-				#card-no-error{
+				#card-no-error, #card-no-error-form{
 					ul{
 						li{
 							display: flex;
@@ -1409,7 +1415,7 @@
 						}
 					}
 				}
-				&#alert-card-second{
+				&#alert-card-second, &#form-alert-card-second{
 					.card-desc{font-weight: 600;}
 					ul{
 						li{
@@ -1581,7 +1587,7 @@
 						}
 					}
 				}
-				#first-preview,#second-preview,#third-preview,#fourth-preview{
+				#first-preview,#second-preview,#third-preview,#fourth-preview,#form-first-preview,#form-second-preview{
 					span{
 						background-color: rgba(248,184,0,0.3);
 						// padding: 0 4px;
@@ -1643,6 +1649,11 @@
 						padding-top: 3px;
 						padding-bottom: 3px;
 						margin-bottom: 0;
+						&.get-error{
+							&:before{
+								left: -20px
+							}
+						}
 					}
 					#form-second-preview {
 						margin-top: 2px;
