@@ -1600,10 +1600,10 @@
 		}
 		#form-ad-preview{
 			position: relative;
-			margin-bottom: 400px;
+			// margin-bottom: 400px;
 			.preview-sample{
 				background:url(../images/preview_sample.png) center center no-repeat;
-				background-size: cover;
+				background-size: 100% !important;
 				width: 100%;
 				margin-top: 0;
 				position: absolute;
@@ -1614,7 +1614,7 @@
 				&:before{
 					content: "";
 					width: 100%;
-					height: 520px;
+					height: 450px;
 					margin-top: 180px;
 					display: block;
 					background-color: #fff;
@@ -1668,11 +1668,14 @@
 						margin-bottom: 37px;
 						text-align: center;
 						transition: all 0.2s ease;
-						padding-top: 3px;
-						padding-bottom: 3px;
+						padding: 3px 5px;
 					}
 					.form-block-preview{
 						.block{
+							margin-bottom: 24px;
+							&:last-child{
+								margin-bottom: 0;
+							}
 							label{
 								font-size: 0.75rem;
 								color: #989EA5;
@@ -1688,6 +1691,7 @@
 								padding-bottom: 4px;
 								p{
 									font-size: 1rem;
+									font-weight: 600;
 								}
 								i{
 									font-size: 20px;

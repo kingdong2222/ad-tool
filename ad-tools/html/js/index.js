@@ -247,7 +247,7 @@ var crop = function (val) {
 
                 setTimeout(() => {
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme: 'zad',
@@ -435,7 +435,7 @@ var cropAvatarAgain = function (val) {
 
                 // setTimeout(()=>{
                 tippy('#tippy-crop-img', {
-                    content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#2997FF; ">Đã hiểu</a></div>',
+                    content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a style="color:#1745cf; ">Đã hiểu</a></div>',
                     allowHTML: true,
                     maxWidth: 270,
                     theme: 'zad',
@@ -613,8 +613,9 @@ var cropLargeImg = function (val) {
 
                                     document.getElementById('form-output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
 
-                                    $(".form-ad-preview-sample").replaceWith("<img class='preview-sample form-ad-preview-sample' id='form-output-preview-large' style='background:none;'/>");
-                                    $("#form-output-preview-large").attr("src", result.toDataURL(uploadedImageType))
+                                    $(".form-ad-preview-sample").replaceWith("<div class='preview-sample form-ad-preview-sample' id='form-output-preview-large' style='background:none;'/>");
+                                    document.getElementById('form-output-preview-large').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+                                    // $("#form-output-preview-large").attr("src", result.toDataURL(uploadedImageType))
                                     // $('.preview-parent').addClass('active')
 
                                     //check blur
@@ -650,7 +651,7 @@ var cropLargeImg = function (val) {
                                     }
 
                                     tippy('#form-dropdown-m1', {
-                                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+                                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
                                         allowHTML: true,
                                         maxWidth: 270,
                                         theme: 'zad',
@@ -713,7 +714,7 @@ var cropLargeImg = function (val) {
                                     }
 
                                     tippy('#dropdown-m1', {
-                                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+                                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
                                         allowHTML: true,
                                         maxWidth: 270,
                                         theme: 'zad',
@@ -770,7 +771,7 @@ var cropLargeImg = function (val) {
 
                     setTimeout(() => {
                         tippy('#tippy-crop-img', {
-                            content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+                            content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
                             allowHTML: true,
                             maxWidth: 270,
                             theme: 'zad',
@@ -954,8 +955,8 @@ var cropLargeImgAgain = function (val) {
                                     $(".form-large-img-name").html(uploadedImageName + "<br><span>1024 x 533</span>")
 
                                     document.getElementById('form-output-large-preview').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
-
-                                    $("#form-output-preview-large").attr("src", result.toDataURL(uploadedImageType))
+                                    document.getElementById('form-output-preview-large').style.backgroundImage = 'url(' + result.toDataURL(uploadedImageType) + ')'
+                                    // $("#form-output-preview-large").attr("src", result.toDataURL(uploadedImageType))
 
                                     //check blur
                                     let imgElement = document.getElementById('form-imageSrc-preview');
@@ -1060,7 +1061,7 @@ var cropLargeImgAgain = function (val) {
                     $("#modalEditImg").addClass("show");
 
                     tippy('#tippy-crop-img', {
-                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+                        content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
                         allowHTML: true,
                         maxWidth: 270,
                         theme: 'zad',
@@ -2740,7 +2741,7 @@ fourth_input.onblur = () => {
 
 //tooltip tippyjs
 tippy('#tippy-title-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Tên nhãn hàng hoặc OA sẽ hiển thị trong quảng cáo của bạn. Tên nhãn hàng không vượt quá 30 kí tự và phải tuân thủ qui định đặt tên nhãn hàng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt tên nhãn hàng</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Tên nhãn hàng hoặc OA sẽ hiển thị trong quảng cáo của bạn. Tên nhãn hàng không vượt quá 30 kí tự và phải tuân thủ qui định đặt tên nhãn hàng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-tieu-de-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về đặt tên nhãn hàng</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2751,7 +2752,7 @@ tippy('#tippy-title-ad', {
 });
 
 tippy('#tippy-content-ad', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung quảng cáo sẽ hiển thị trong quảng cáo của bạn. Nội dung quảng cáo không vượt quá 90 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt nội dung</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung quảng cáo sẽ hiển thị trong quảng cáo của bạn. Nội dung quảng cáo không vượt quá 90 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về đặt nội dung</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2761,7 +2762,7 @@ tippy('#tippy-content-ad', {
 });
 
 tippy('#tippy-avatar-upload', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Ảnh đại diện có kích thước tối thiểu 150 x 150 pixel. Và phải tuân thủ qui định về hình ảnh quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về ảnh đại diện</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Ảnh đại diện có kích thước tối thiểu 150 x 150 pixel. Và phải tuân thủ qui định về hình ảnh quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về ảnh đại diện</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2771,7 +2772,7 @@ tippy('#tippy-avatar-upload', {
 });
 
 tippy('#tippy-optional-desc', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung mô tả không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về mô tả thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung mô tả không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về mô tả thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2781,7 +2782,7 @@ tippy('#tippy-optional-desc', {
 });
 
 tippy('#tippy-optional-info', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung thông tin thêm không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về thông tin thêm</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung thông tin thêm không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về thông tin thêm</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2801,7 +2802,7 @@ tippy('#tippy-button-call-action', {
 });
 
 tippy('#tippy-large-image', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Kích thước hình ảnh quảng cáo khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB.<br> Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh có chất lượng tốt và chứa ít hoặc không có văn bản.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về hình ảnh quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Kích thước hình ảnh quảng cáo khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB.<br> Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh có chất lượng tốt và chứa ít hoặc không có văn bản.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về hình ảnh quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2811,7 +2812,7 @@ tippy('#tippy-large-image', {
 });
 
 tippy('#tippy-notice-content', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về nội dung quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về nội dung quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2821,7 +2822,7 @@ tippy('#tippy-notice-content', {
 });
 
 tippy('#tippy-tick-tpcn', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Một số sản phẩm đặc biệt phải đi kèm với các loại giấy phép và nội dung theo qui định của Zalo Ads và cơ quan thẩm quyền.</p><a href="https://ads.zalo.me/business/san-pham-can-giay-phep/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem các sản phẩm cần giấy phép</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Một số sản phẩm đặc biệt phải đi kèm với các loại giấy phép và nội dung theo qui định của Zalo Ads và cơ quan thẩm quyền.</p><a href="https://ads.zalo.me/business/san-pham-can-giay-phep/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem các sản phẩm cần giấy phép</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -2831,7 +2832,7 @@ tippy('#tippy-tick-tpcn', {
 });
 
 tippy('#form-tippy-notice-content', {
-    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về nội dung quảng cáo</a></div>',
+    content: '<div class="tippy-block"><p style="margin-bottom:20px">Nội dung kiểm tra là danh sách các từ ngữ, kí tự hoặc định dạng văn bản không phù hợp với qui định quảng cáo và không khuyến khích sử dụng.</p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf;">Xem quy định về nội dung quảng cáo</a></div>',
     allowHTML: true,
     maxWidth: 270,
     theme: 'zad',
@@ -4189,7 +4190,7 @@ document.getElementById('tippy-content-ad-mobile').onclick = () => {
             </div>
             <div class="bl-popup-context">
                 <p>Nội dung quảng cáo sẽ hiển thị trong quảng cáo của bạn. Nội dung quảng cáo không vượt quá 90 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p>
-                <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về đặt nội dung</a>
+                <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về đặt nội dung</a>
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
@@ -4207,7 +4208,7 @@ document.getElementById('tippy-optional-desc-mobile').onclick = () => {
             </div>
             <div class="bl-popup-context">
                 <p>Nội dung mô tả không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p>
-                <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về mô tả thêm</a>
+                <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về mô tả thêm</a>
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
@@ -4225,7 +4226,7 @@ document.getElementById('tippy-optional-info-mobile').onclick = () => {
             </div>
             <div class="bl-popup-context">
                 <p>Nội dung thông tin thêm không vượt quá 60 kí tự và phải tuân thủ qui định về nội dung quảng cáo.</p>
-                <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về thông tin thêm</a>
+                <a  href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về thông tin thêm</a>
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
@@ -4243,7 +4244,7 @@ document.getElementById('tippy-tick-tpcn-mobile').onclick = () => {
             </div>
             <div class="bl-popup-context">
                 <p>Một số sản phẩm đặc biệt phải đi kèm với các loại giấy phép và nội dung theo qui định của Zalo Ads và cơ quan thẩm quyền.</p>
-                <a  href="https://ads.zalo.me/business/san-pham-can-giay-phep/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem các sản phẩm cần giấy phép</a>
+                <a  href="https://ads.zalo.me/business/san-pham-can-giay-phep/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem các sản phẩm cần giấy phép</a>
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
@@ -4261,7 +4262,7 @@ document.getElementById('tippy-large-image-mobile').onclick = () => {
             </div>
             <div class="bl-popup-context">
                 <p>Kích thước hình ảnh quảng cáo khuyên dùng: 1024 × 533 pixel. Dung lượng tối đa : 2MB.<br>Để tối đa hóa phân phối quảng cáo, hãy sử dụng hình ảnh có chất lượng tốt và chứa ít hoặc không có văn bản.</p>
-                <a  href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#2997FF; ">Xem quy định về hình ảnh quảng cáo</a>
+                <a  href="https://ads.zalo.me/business/quy-dinh-ve-hinh-anh-quang-cao/?utm_source=creative_tool" target="_blank" style="color:#1745cf; ">Xem quy định về hình ảnh quảng cáo</a>
              </div>
      </div>`
     $('.bl-popup').append(temp_html)
@@ -4672,6 +4673,73 @@ function checkAdsFunc_form() {
                     }
                 }
                 setTimeout(FunctionHoverWord_form('form-banned-3'), 520)
+            }
+            if (checkFormat2(value_1) == 1) {
+                if (value_1.match(InputFormatUpperAfterDot)) {
+                    list_after_dot = []
+                    for (let i = 0; i < value_1.length; i++) {
+                        if (value_1[i] == '.' || value_1[i] == '!' || value_1[i] == '?') {
+                            list_after_dot.push(i)
+                        }
+                    }
+                    let list_sentences = []
+                    list_sentences.push(value_1.substr(0, list_after_dot[0]))
+                    for (let i = 0; i < list_after_dot.length; i++) {
+                        list_sentences.push(value_1.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
+                    }
+                    //check sentence one by one
+                    for (let i = 0; i < list_sentences.length; i++) {
+                        let temp = list_sentences[i]
+                        //banned
+                        if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
+                            first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
+                            value_check_ad = false
+
+                            if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
+                            } else {
+                                $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-0'>" + ban_mess_3 + "</p></li>")
+                            }
+                        }
+                        //warning
+                        // if (checkFormat2(temp) == 1) {
+                        //     first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
+                        //     warning_card.classList.remove('is-hidden')
+                        //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                        //     } else {
+                        //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                        //         count_warning += 1
+                        //     }
+                        // }
+                    }
+                } else {
+                    if (isUpperCase(value_1) == true) {
+                        if (checkSensitive(value_1).length > 0) {
+                        } else {
+                            first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
+                            value_check_ad = false
+                            if ($('#form-banned-4').text().indexOf(ban_mess_1) == 0) {
+                            } else {
+                                $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-4'>" + ban_mess_1 + "</p></li>")
+                            }
+                        }
+                    }
+                    // if (checkSensitive(value_1).length > 0) {
+                    // } else {
+                    //     if (value_1.match(InputSpacingPuntationError_1)) {
+
+                    //     } else {
+                    //         first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
+
+                    //         warning_card.classList.remove('is-hidden')
+                    //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                    //         } else {
+                    //             count_warning += 1
+                    //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                    //         }
+                    //     }
+                    // }
+                }
+
             }
             if (value_1.match(InputSpacingPuntationError_0)
                 || value_1.match(InputSpacingPuntationError_1)
