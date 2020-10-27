@@ -187,6 +187,12 @@ main
                 h2.title Nội dung kiểm tra
                 .text-input-item
                     .label-title
+                        h3.title Tên OA
+                            //- i.icz.icz-support#tippy-title-ad
+                        p.max-letter#form-max-letter-oa 0/40
+                    input#form-oa-input(type='text' placeholder='Nhập tên OA' maxlength=40)
+                .text-input-item
+                    .label-title
                         h3.title Tiêu đề Form
                             //- i.icz.icz-support#form-tippy-title-ad
                         p.max-letter#form-max-letter-first 0/40
@@ -304,7 +310,7 @@ main
                             .label-title
                                 .avatar.avatar--l
                                     span.avatar-img.form-avatar-img(style="background-image:url(images/avatar.png)")
-                                p [Tên OA của bạn sẽ hiển thị ở đây]
+                                p#form-oa-preview Tên OA
                             h3#form-first-preview Tiêu đề Form
                             p#form-second-preview Nội dung Form
                             .form-block-preview

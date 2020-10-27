@@ -908,6 +908,7 @@
 			border-right: 1px solid #DCE1E7;
 			position: relative;
 			@extend %tr-all;
+			max-width: 1350px !important;
 			@include until(1295px){
 				padding-left: 3rem;
 			}
@@ -990,6 +991,10 @@
 				min-width: unset;
 				.title{
 					white-space: nowrap;
+				}
+				@include from(1920px){
+					width: 33.33%;
+					padding-left: 2rem;
 				}
 			}
 			@include until(1280px){
@@ -1616,28 +1621,18 @@
 				width: 100%;
 				margin-top: 0;
 				position: absolute;
-				max-width: 385px;
-				height: 180px;
+				max-width: 337px;
+				height: 175px;
 				border-top-left-radius: 8px;
 				border-top-right-radius: 8px;
-				// &:before{
-				// 	content: "";
-				// 	width: 100%;
-				// 	height: 440px;
-				// 	margin-top: 180px;
-				// 	display: block;
-				// 	background-color: #fff;
-				// 	border-bottom-left-radius: 8px;
-				// 	border-bottom-right-radius: 8px;
-				// }
 			}
 			.card-preview{
 				position: relative;
 				min-height: unset;
 				padding-top: 0;
 				top: 150px;
-				margin-right: 24px;
-				margin-left: 24px;
+				margin-right: 16px;
+				margin-left: 16px;
 				.card-preview-container{
 					box-shadow: 0 1px 2px 0 rgba(67,70,74,0), 0 2px 5px 0 rgba(67,86,100,0.12);
 					overflow: hidden;
@@ -1650,6 +1645,7 @@
 					position: relative;
 					z-index: 2;
 					border-radius: 8px;
+					padding: 24px 16px 32px;
 					.avatar{
 						margin-right: 0;
 					}
@@ -1662,6 +1658,9 @@
 							padding-top: 8px;
 							color: #989EA5;
 							font-size: .875rem;
+						}
+						#form-oa-preview{
+							color: #131820;
 						}
 					}
 					#form-first-preview{
@@ -1726,7 +1725,6 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					margin-top: 12px;
 					p{
 						color: #fff;
 						font-size: .875rem;
@@ -1740,9 +1738,9 @@
 					border-bottom-right-radius: 8px;
 					position: absolute;
 					z-index: 1;
-					width: 385px;
+					width: 337px;
 					height: 100%;
-					left: -24px;
+					left: -16px;
 					top: 27px
 				}
 			}
