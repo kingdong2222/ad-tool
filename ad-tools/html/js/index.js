@@ -4570,11 +4570,11 @@ $("#form-avatar-image-input-0").click(() => {
 })
 $("#form-large-image-input").click(() => {
     cropLargeImg('form')
-    // dataLayer.push({ 'event': 'event_UploadImg' })
+    dataLayer.push({ 'event': 'event_Form_UploadImg' })
 })
 $("#form-change-large-img").click(() => {
     document.getElementById("form-change-large-img-input").click()
-    // dataLayer.push({ 'event': 'event_UploadImg' })
+    dataLayer.push({ 'event': 'event_Form_UploadImg' })
 })
 $('#form-change-large-img-input').click(() => {
     cropLargeImgAgain('form')
@@ -4584,6 +4584,7 @@ $('#form-change-large-img-input').click(() => {
 check_form_ad_form.onclick = () => {
     check_form_ad_form.classList.add('is-loading')
     checkAdsFunc_form()
+    dataLayer.push({ 'event': 'event_ValidateForm' })
 }
 
 function checkAdsFunc_form() {
