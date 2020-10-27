@@ -175,7 +175,7 @@ var crop = function (val) {
                 case 'getCroppedCanvas':
                     if (result) {
                         if (!download.disabled) {
-                            if (val = 'form') {
+                            if (val == 'form') {
                                 download.download = uploadedImageName;
                                 download.href = result.toDataURL(uploadedImageType);
 
@@ -192,14 +192,14 @@ var crop = function (val) {
                                 download.download = uploadedImageName;
                                 download.href = result.toDataURL(uploadedImageType);
 
-                                $("p.img-desc").html(uploadedImageName + "<span><br>150x150</span>");
-                                $("p.img-desc").addClass('avatar-name')
-                                $("div.avatar-image-input").replaceWith("<img class='avatar-image-input' id='output' />");
+                                $("p.normal-ads-img-desc").html(uploadedImageName + "<span><br>150x150</span>");
+                                $("p.normal-ads-img-desc").addClass('avatar-name')
+                                $("div.normal-ads-avatar-image-input").replaceWith("<img class='avatar-image-input normal-ads-avatar-image-input' id='output' />");
                                 var output = document.getElementById('output');
                                 output.src = result.toDataURL(uploadedImageType)
 
-                                $("span.avatar-img").replaceWith("<img class='avatar-img' id='output-preview' />");
-                                $("#output-preview").attr("src", result.toDataURL(uploadedImageType))
+                                $("span.normal-ads-avatar-img").replaceWith("<img class='avatar-img normal-ad-avatar-img' id='output-preview' />");
+                                $(".normal-ad-avatar-img").attr("src", result.toDataURL(uploadedImageType))
                             }
                         }
                     }
@@ -392,11 +392,11 @@ var cropAvatarAgain = function (val) {
                                 download.download = uploadedImageName;
                                 download.href = result.toDataURL(uploadedImageType);
 
-                                $("p.img-desc").html(uploadedImageName + "<span><br>150x150</span>");
-                                $("p.img-desc").addClass('avatar-name')
+                                $("p.normal-ads-img-desc").html(uploadedImageName + "<span><br>150x150</span>");
+                                $("p.normal-ads-img-desc").addClass('avatar-name')
 
-                                $(".avatar-image-input").attr("src", result.toDataURL(uploadedImageType))
-                                $("#output-preview").attr("src", result.toDataURL(uploadedImageType))
+                                $(".normal-ads-avatar-image-input").attr("src", result.toDataURL(uploadedImageType))
+                                $(".normal-ad-avatar-img").attr("src", result.toDataURL(uploadedImageType))
                             }
                         }
                     }

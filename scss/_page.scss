@@ -1521,7 +1521,7 @@
 					margin-top: 8px;
 					height: 150px;
 					width: 100%;
-					border-radius: 8px;
+					// border-radius: 8px;
 				}
 				.ad-desc{
 					display: flex;
@@ -1771,7 +1771,7 @@
 		}
 		.large-image-preview{
 			.ads-img{
-				border-radius: 8px;
+				// border-radius: 8px;
 				overflow: hidden;
 			}
 			.ads-grid-switch{
@@ -1780,7 +1780,7 @@
 				justify-content: space-between;
 				align-items: center;
 				padding-bottom: 16px;
-				border-bottom: 1px solid #CDCFD5;
+				border-bottom: 1px solid #DCE1E7;
 				p{
 					color: #050F2C;
 					font-size:14px;
@@ -1887,7 +1887,6 @@
 				}
 			}
 		}
-		.ads-img-quality{padding-top: 20px;}
 		.switch{position:relative;display:inline-block;@include size(40px, 24px);margin-bottom: unset;
 			input{opacity:0;width:0;height:0}
 			.slider{position: absolute;;background-color:#989EA5;cursor:pointer;transition:.4s;top: 0;bottom:0;left:0;right:0;

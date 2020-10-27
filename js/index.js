@@ -175,7 +175,7 @@ var crop = function (val) {
                 case 'getCroppedCanvas':
                     if (result) {
                         if (!download.disabled) {
-                            if (val = 'form') {
+                            if (val == 'form') {
                                 download.download = uploadedImageName;
                                 download.href = result.toDataURL(uploadedImageType);
 
@@ -192,14 +192,14 @@ var crop = function (val) {
                                 download.download = uploadedImageName;
                                 download.href = result.toDataURL(uploadedImageType);
 
-                                $("p.img-desc").html(uploadedImageName + "<span><br>150x150</span>");
-                                $("p.img-desc").addClass('avatar-name')
-                                $("div.avatar-image-input").replaceWith("<img class='avatar-image-input' id='output' />");
+                                $("p.normal-ads-img-desc").html(uploadedImageName + "<span><br>150x150</span>");
+                                $("p.normal-ads-img-desc").addClass('avatar-name')
+                                $("div.normal-ads-avatar-image-input").replaceWith("<img class='avatar-image-input normal-ads-avatar-image-input' id='output' />");
                                 var output = document.getElementById('output');
                                 output.src = result.toDataURL(uploadedImageType)
 
-                                $("span.avatar-img").replaceWith("<img class='avatar-img' id='output-preview' />");
-                                $("#output-preview").attr("src", result.toDataURL(uploadedImageType))
+                                $("span.normal-ads-avatar-img").replaceWith("<img class='avatar-img normal-ad-avatar-img' id='output-preview' />");
+                                $(".normal-ad-avatar-img").attr("src", result.toDataURL(uploadedImageType))
                             }
                         }
                     }
@@ -392,11 +392,11 @@ var cropAvatarAgain = function (val) {
                                 download.download = uploadedImageName;
                                 download.href = result.toDataURL(uploadedImageType);
 
-                                $("p.img-desc").html(uploadedImageName + "<span><br>150x150</span>");
-                                $("p.img-desc").addClass('avatar-name')
+                                $("p.normal-ads-img-desc").html(uploadedImageName + "<span><br>150x150</span>");
+                                $("p.normal-ads-img-desc").addClass('avatar-name')
 
-                                $(".avatar-image-input").attr("src", result.toDataURL(uploadedImageType))
-                                $("#output-preview").attr("src", result.toDataURL(uploadedImageType))
+                                $(".normal-ads-avatar-image-input").attr("src", result.toDataURL(uploadedImageType))
+                                $(".normal-ad-avatar-img").attr("src", result.toDataURL(uploadedImageType))
                             }
                         }
                     }
@@ -1459,7 +1459,7 @@ const InputLinkWeb = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA
 const InputPhoneNumber = /(\d{3})(\d{3})(\d{4})/g
 
 //puntation input spacing warning error
-const InputSpacingPuntationError_0 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,} )([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
+const InputSpacingPuntationError_0 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,} )([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂ���ẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
 
 const InputSpacingPuntationError_1 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])([.,?!;:]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])/g
 
@@ -4445,8 +4445,6 @@ const warning_card_form = document.getElementById('form-alert-card-second')
 const first_content_preview_form = document.getElementById('form-first-preview')
 const second_content_preview_form = document.getElementById('form-second-preview')
 
-//height of form preview without input
-const form_preview_height = document.getElementById('form-ad-preview').clientHeight
 
 function focusFormFirstInput() {
     first_input_form.scrollIntoView({behavior: "smooth", block: "end", inline: "center"})
@@ -4510,8 +4508,6 @@ second_input_form.oninput = value => {
             second_input_form.style.height = '100px'
             second_input_form.style.maxHeight = '100px'
         }
-
-        
     } else {
         second_content_preview_form.innerHTML = 'Nội dung Form'
         second_max_letter_form.innerHTML = '0/180'
