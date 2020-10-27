@@ -504,7 +504,12 @@
 			color: #72809D;
 		}
 		background-color: #F0F4F8;
-		min-height: 100vh;
+		min-height: calc(100vh + 150px);
+		@include from(1440px){
+			min-height: 100vh;
+		}
+		
+
 		@include until(1280px){
 			width: fit-content;
 			display: none !important
@@ -1760,9 +1765,9 @@
 				text-align: center;
 				width: 100%;
 			}
-			@include from(1835px){
-				display: none;
-			}
+			// @include from(1835px){
+			// 	display: none;
+			// }
 		}
 		.form-large-image-preview{
 			.ads-img{
