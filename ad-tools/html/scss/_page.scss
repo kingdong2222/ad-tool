@@ -1633,6 +1633,9 @@
 				top: 150px;
 				margin-right: 16px;
 				margin-left: 16px;
+				background-color: unset;
+				box-shadow: unset;
+				max-width: 305px;
 				.card-preview-container{
 					box-shadow: 0 1px 2px 0 rgba(67,70,74,0), 0 2px 5px 0 rgba(67,86,100,0.12);
 					overflow: hidden;
@@ -1651,7 +1654,7 @@
 					}
 					.label-title{
 						padding-top: 12px;
-						margin-bottom: 29px;
+						margin-bottom: 24px;
 						flex-direction: column;
 						align-items: center;
 						p{
@@ -1661,6 +1664,9 @@
 						}
 						#form-oa-preview{
 							color: #131820;
+							font-weight: 700;
+							padding-bottom: 5px;
+							padding-top: 5px;
 						}
 					}
 					#form-first-preview{
@@ -1741,7 +1747,7 @@
 					width: 337px;
 					height: 100%;
 					left: -16px;
-					top: 27px
+					top: 14px
 				}
 			}
 		}
