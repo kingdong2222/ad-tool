@@ -1765,9 +1765,9 @@
 				text-align: center;
 				width: 100%;
 			}
-			// @include from(1835px){
-			// 	display: none;
-			// }
+			@include from(1835px){
+				display: none;
+			}
 		}
 		.form-large-image-preview{
 			.ads-img{
