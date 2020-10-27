@@ -4511,11 +4511,7 @@ second_input_form.oninput = value => {
             second_input_form.style.maxHeight = '100px'
         }
 
-        let form_preview_height_input = document.getElementById('form-ad-preview').clientHeight
-        if(form_preview_height_input >= form_preview_height){
-            let minus_height = form_preview_height_input - form_preview_height
-            console.log(minus_height)
-        }
+        
     } else {
         second_content_preview_form.innerHTML = 'Nội dung Form'
         second_max_letter_form.innerHTML = '0/180'
