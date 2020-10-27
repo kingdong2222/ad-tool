@@ -1521,6 +1521,7 @@
 					margin-top: 8px;
 					height: 150px;
 					width: 100%;
+					border-radius: 8px;
 				}
 				.ad-desc{
 					display: flex;
@@ -1630,7 +1631,6 @@
 				min-height: unset;
 				padding-top: 0;
 				top: 150px;
-				border-radius: 0;
 				margin-right: 24px;
 				margin-left: 24px;
 				.card-preview-container{
@@ -1844,7 +1844,7 @@
 			position:relative;
 			margin-bottom: 16px;
 			.img-container-preview{@extend %backgroundCover--center;
-				&:after{display:block;content:'';padding-top:50.2%}
+				&:after{display:block;content:'';padding-top:50.2%;border-radius: 8px;}
 				img{width: 100%}
 			}
 			.squares{@include position(absolute, 0);z-index:-1;opacity:0;visibility:hidden;@extend %tr-all;
