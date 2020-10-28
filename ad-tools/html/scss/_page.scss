@@ -1669,6 +1669,10 @@
 							font-weight: 700;
 							padding: 3px 5px;
 							transition: all 0.2s;
+							text-align: center;
+							span{
+								background-color: rgba(248,184,0,0.3);
+							}
 						}
 					}
 					#form-first-preview{
@@ -1682,7 +1686,8 @@
 						margin-bottom: 0;
 						&.get-error{
 							&:before{
-								left: -20px
+								left: -18px;
+								font-size: 14px;
 							}
 						}
 					}

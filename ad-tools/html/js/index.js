@@ -2906,24 +2906,36 @@ FunctionHoverWord = (id) => {
         // if ($('#first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if(temp.includes('amp;')){
+                    temp = temp.replace('amp;','')
+                }
                 document.getElementById('first-preview').innerHTML = temp
             }
         // }
         // if ($('#second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if(temp.includes('amp;')){
+                    temp = temp.replace('amp;','')
+                }
                 document.getElementById('second-preview').innerHTML = temp
             }
         // }
         // if ($('#third-preview').hasClass('get-error')) {
             if (third_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if(temp.includes('amp;')){
+                    temp = temp.replace('amp;','')
+                }
                 document.getElementById('third-preview').innerHTML = temp
             }
         // }
         // if ($('#fourth-preview').hasClass('get-error')) {
             if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = fourth_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if(temp.includes('amp;')){
+                    temp = temp.replace('amp;','')
+                }
                 document.getElementById('fourth-preview').innerHTML = temp
             }
         // }
@@ -5525,6 +5537,7 @@ FunctionHoverWord_form = (id) => {
     let error_fix_content
     let tempId = document.getElementById(id)
     $('#' + id + ' span').hover(value => {
+        console.log(value.target.innerText)
         if (id.includes('banned')) {
             if (id.includes('6')) {
                 for (let i = 0; i < fixed_list.length; i++) {
@@ -5578,17 +5591,26 @@ FunctionHoverWord_form = (id) => {
         // if ($('#form-first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if(temp.includes('amp;')){
+                    temp = temp.replace('amp;','')
+                }
                 document.getElementById('form-first-preview').innerHTML = temp
             }
         // }
         // if ($('#form-second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if(temp.includes('amp;')){
+                    temp = temp.replace('amp;','')
+                }
                 document.getElementById('form-second-preview').innerHTML = temp
             }
         // }
-        if (thid_preview_OG.indexOf(value.target.innerText) > -1) {
-            let temp = thid_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+        if (third_preview_OG.indexOf(value.target.innerText) > -1) {
+            let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+            if(temp.includes('amp;')){
+                temp = temp.replace('amp;','')
+            }
             document.getElementById('form-oa-preview').innerHTML = temp
         }
 
