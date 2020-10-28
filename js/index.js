@@ -4404,7 +4404,7 @@ $('#normal-ads-button').click(function () {
     form_ad_block.classList.add('is-hidden')
     normal_ad_preview.classList.remove('is-hidden')
     form_ad_preview.classList.add('is-hidden')
-    $('.policy-bottom-desc').removeClass('is-hidden')
+    // $('.policy-bottom-desc').removeClass('is-hidden')
 
     let flying_button_check = document.getElementById('flying-button')
     if(flying_button_check.style.bottom == '40px'){
@@ -4419,7 +4419,7 @@ $('#form-ads-button').click(function () {
     form_ad_block.classList.remove('is-hidden')
     normal_ad_preview.classList.add('is-hidden')
     form_ad_preview.classList.remove('is-hidden')
-    $('.policy-bottom-desc').addClass('is-hidden')
+    // $('.policy-bottom-desc').addClass('is-hidden')
     
     let flying_button_check = document.getElementById('flying-button')
     if(flying_button_check.style.bottom == '40px'){
@@ -4451,8 +4451,8 @@ const third_content_preview_form = document.getElementById('form-oa-preview')
 
 
 function focusFormFirstInput() {
-    first_input_form.scrollIntoView({behavior: "smooth", block: "end", inline: "center"})
-    first_input_form.focus()
+    third_input_form.scrollIntoView({behavior: "smooth", block: "end", inline: "center"})
+    third_input_form.focus()
 }
 first_input_form.oninput = value => {
     first_content_preview_form.classList.contains('get-error') == true ? first_content_preview_form.classList.remove('get-error') : null
