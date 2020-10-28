@@ -124,10 +124,10 @@
         <div class="main-body">
           <div id="button-toggle-slide-bar"><i class="icz icz-right"></i></div>
           <div class="buttons" id="swipe_tabs">
-            <button class="button" id="normal-ads-button">Nội dung quảng cáo</button>
-            <button class="button is-primary" id="form-ads-button">Nội dung Form</button>
+            <button class="button is-primary" id="normal-ads-button">Nội dung quảng cáo</button>
+            <button class="button" id="form-ads-button">Nội dung Form</button>
           </div>
-          <div class="container_cols is-hidden" id="checking-content-normal-ads">
+          <div class="container_cols" id="checking-content-normal-ads">
             <div class="container_col content">
               <h2 class="title">Nội dung kiểm tra</h2>
               <div class="text-input-item">
@@ -332,7 +332,7 @@
               </div>
             </div>
           </div>
-          <div class="container_cols" id="checking-content-form-ads">
+          <div class="container_cols is-hidden" id="checking-content-form-ads">
             <div class="container_col content">
               <h2 class="title">Nội dung kiểm tra</h2>
               <div class="text-input-item">
@@ -449,14 +449,14 @@
               </div>
             </div>
           </div>
-          <div class="policy-bottom-desc is-hidden">
+          <div class="policy-bottom-desc">
             <p>Đây là công cụ giúp bạn tối ưu hóa nội dung, hình ảnh quảng cáo. Đồng thời giúp kiểm tra các vi phạm có thể xảy ra trong nội dung. Công cụ không mặc định đảm bảo quảng cáo của bạn sẽ được duyệt. Xem thêm các <a href="https://ads.zalo.me/business/p/chinh-sach/" target="_blank">quy định quảng cáo </a>để tìm hiểu thêm về lĩnh vực kinh doanh của bạn.</p>
           </div>
         </div>
         <div class="slide-body">
           <div class="slide-body-container">
             <h2 class="title">Xem trước hiển thị</h2>
-            <div class="card-preview is-hidden" id="normal-ad-preview">
+            <div class="card-preview" id="normal-ad-preview">
               <div class="square-ads">
                 <div class="label-title">
                   <div class="avatar avatar--l"><span class="avatar-img normal-ads-avatar-img" style="background-image:url(images/avatar.png)"></span></div>
@@ -473,7 +473,7 @@
                 </div>
               </div>
             </div>
-            <div id="form-ad-preview">
+            <div class="is-hidden" id="form-ad-preview">
               <div class="preview-sample form-ad-preview-sample"></div>
               <div class="card-preview">
                 <div class="card-preview-container">

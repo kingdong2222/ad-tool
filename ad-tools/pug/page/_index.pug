@@ -5,9 +5,9 @@ main
         #button-toggle-slide-bar
             i.icz.icz-right
         .buttons#swipe_tabs
-            button.button#normal-ads-button Nội dung quảng cáo
-            button.button.is-primary#form-ads-button Nội dung Form
-        .container_cols#checking-content-normal-ads.is-hidden
+            button.button#normal-ads-button.is-primary Nội dung quảng cáo
+            button.button#form-ads-button Nội dung Form
+        .container_cols#checking-content-normal-ads
             .container_col.content
                 h2.title Nội dung kiểm tra
                 .text-input-item
@@ -182,7 +182,7 @@ main
                                 |trong quảng cáo của bạn
                         .card-error-list
                             ul
-        .container_cols#checking-content-form-ads
+        .container_cols#checking-content-form-ads.is-hidden
             .container_col.content
                 h2.title Nội dung kiểm tra
                 .text-input-item
@@ -282,14 +282,14 @@ main
                                 |trong quảng cáo của bạn
                         .card-error-list
                             ul
-        .policy-bottom-desc.is-hidden
+        .policy-bottom-desc
             p Đây là công cụ giúp bạn tối ưu hóa nội dung, hình ảnh quảng cáo. Đồng thời giúp kiểm tra các vi phạm có thể xảy ra trong nội dung. Công cụ không mặc định đảm bảo quảng cáo của bạn sẽ được duyệt. Xem thêm các 
                 a(href='https://ads.zalo.me/business/p/chinh-sach/' target="_blank") quy định quảng cáo 
                 |để tìm hiểu thêm về lĩnh vực kinh doanh của bạn.
     .slide-body
         .slide-body-container
             h2.title Xem trước hiển thị
-            .card-preview#normal-ad-preview.is-hidden
+            .card-preview#normal-ad-preview
                 .square-ads
                     .label-title
                         .avatar.avatar--l
@@ -302,7 +302,7 @@ main
                             p.optional-desc#third-preview Mô tả
                             p.optional-info#fourth-preview Thông tin thêm
                         .button-buy-now#fifth-preview Mua ngay
-            #form-ad-preview
+            #form-ad-preview.is-hidden
                 .preview-sample.form-ad-preview-sample
                 .card-preview
                     .card-preview-container
