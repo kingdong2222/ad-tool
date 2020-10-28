@@ -4725,73 +4725,7 @@ function checkAdsFunc_form() {
                 }
                 setTimeout(FunctionHoverWord_form('form-banned-3'), 520)
             }
-            if (checkFormat2(value_1) == 1) {
-                if (value_1.match(InputFormatUpperAfterDot)) {
-                    list_after_dot = []
-                    for (let i = 0; i < value_1.length; i++) {
-                        if (value_1[i] == '.' || value_1[i] == '!' || value_1[i] == '?') {
-                            list_after_dot.push(i)
-                        }
-                    }
-                    let list_sentences = []
-                    list_sentences.push(value_1.substr(0, list_after_dot[0]))
-                    for (let i = 0; i < list_after_dot.length; i++) {
-                        list_sentences.push(value_1.substring(list_after_dot[i] + 1, list_after_dot[i + 1]))
-                    }
-                    //check sentence one by one
-                    for (let i = 0; i < list_sentences.length; i++) {
-                        let temp = list_sentences[i]
-                        //banned
-                        if (temp.charAt(0) != temp.charAt(0).toUpperCase()) {
-                            first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
-                            value_check_ad = false
-
-                            if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
-                            } else {
-                                $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-0'>" + ban_mess_3 + "</p></li>")
-                            }
-                        }
-                        //warning
-                        // if (checkFormat2(temp) == 1) {
-                        //     first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
-                        //     warning_card.classList.remove('is-hidden')
-                        //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                        //     } else {
-                        //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                        //         count_warning += 1
-                        //     }
-                        // }
-                    }
-                } else {
-                    if (isUpperCase(value_1) == true) {
-                        if (checkSensitive(value_1).length > 0) {
-                        } else {
-                            first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
-                            value_check_ad = false
-                            if ($('#form-banned-4').text().indexOf(ban_mess_1) == 0) {
-                            } else {
-                                $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-4'>" + ban_mess_1 + "</p></li>")
-                            }
-                        }
-                    }
-                    // if (checkSensitive(value_1).length > 0) {
-                    // } else {
-                    //     if (value_1.match(InputSpacingPuntationError_1)) {
-
-                    //     } else {
-                    //         first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
-
-                    //         warning_card.classList.remove('is-hidden')
-                    //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                    //         } else {
-                    //             count_warning += 1
-                    //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                    //         }
-                    //     }
-                    // }
-                }
-
-            }
+            
             if (value_1.match(InputSpacingPuntationError_0)
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
