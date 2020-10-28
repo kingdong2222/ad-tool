@@ -1654,7 +1654,7 @@
 					}
 					.label-title{
 						padding-top: 12px;
-						margin-bottom: 24px;
+						margin-bottom: 26px;
 						flex-direction: column;
 						align-items: center;
 						p{
@@ -1663,10 +1663,11 @@
 							font-size: .875rem;
 						}
 						#form-oa-preview{
+							margin-top: 5px;
 							color: #131820;
 							font-weight: 700;
-							padding-bottom: 5px;
-							padding-top: 5px;
+							padding: 3px 5px;
+							transition: all 0.2s;
 						}
 					}
 					#form-first-preview{
@@ -1687,7 +1688,7 @@
 					#form-second-preview {
 						margin-top: 2px;
 						font-size: .875rem;
-						margin-bottom: 37px;
+						margin-bottom: 29px;
 						text-align: center;
 						transition: all 0.2s ease;
 						padding: 3px 5px;
@@ -1700,16 +1701,18 @@
 							}
 							label{
 								font-size: 0.75rem;
-								color: #989EA5;
+								color: #131820;
 								margin-bottom: 4px;
+								opacity: 0.5;
 							}
 							.input-block{
 								display: flex;
 								flex-direction: row;
 								justify-content: space-between;
 								align-items: center;
-								color: #989EA5;
-								border-bottom: 1px solid rgba(#DEDEDE,0.5);
+								color: #131820;
+								opacity: 0.5;
+								border-bottom: 1px solid rgba(#DEDEDE,1);
 								padding-bottom: 4px;
 								p{
 									font-size: 1rem;

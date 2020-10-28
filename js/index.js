@@ -4430,9 +4430,12 @@ $('#form-ads-button').click(function () {
 //check ads type form
 const first_input_form = document.getElementById('form-first-input')
 const second_input_form = document.getElementById('form-second-input')
+//oa field
+const third_input_form = document.getElementById('form-oa-input')
 
 const first_max_letter_form = document.getElementById('form-max-letter-first')
 const second_max_letter_form = document.getElementById('form-max-letter-second')
+const third_max_letter_form = document.getElementById('form-max-letter-oa')
 
 const content_card_0_form = document.getElementById('form-content-card-first')
 const content_card_1_form = document.getElementById('form-content-card-second')
@@ -4444,6 +4447,7 @@ const warning_card_form = document.getElementById('form-alert-card-second')
 
 const first_content_preview_form = document.getElementById('form-first-preview')
 const second_content_preview_form = document.getElementById('form-second-preview')
+const third_content_preview_form = document.getElementById('form-oa-preview')
 
 
 function focusFormFirstInput() {
@@ -4455,7 +4459,7 @@ first_input_form.oninput = value => {
     if (value.target.value) {
         first_content_preview_form.innerHTML = value.target.value
         first_max_letter_form.innerHTML = first_input_form.value.length + '/40'
-        if (second_input_form.value) {
+        if (second_input_form.value || third_input_form.value) {
             //do nothing cause it's done already
         } else {
             content_card_0_form.classList.add('is-hidden')
@@ -4468,7 +4472,7 @@ first_input_form.oninput = value => {
     } else {
         first_content_preview_form.innerHTML = 'Tiêu đề form'
         first_max_letter_form.innerHTML = '0/40'
-        if (second_input_form.value) {
+        if (second_input_form.value || third_input_form.value) {
             //do nothing cause it's done already
         }
         else {
@@ -4490,7 +4494,7 @@ second_input_form.oninput = value => {
         second_content_preview_form.innerHTML = temp
         // $('.second-preview-position').html(temp)
         second_max_letter_form.innerHTML = second_input_form.value.length + '/180'
-        if (first_input_form.value) {
+        if (first_input_form.value || third_input_form.value) {
             //do nothing cause it's done already
         }
         else {
@@ -4511,7 +4515,40 @@ second_input_form.oninput = value => {
     } else {
         second_content_preview_form.innerHTML = 'Nội dung Form'
         second_max_letter_form.innerHTML = '0/180'
-        if (first_input_form.value) {
+        if (first_input_form.value || third_input_form.value) {
+            //do nothing cause it's done already
+        }
+        else {
+            content_card_0_form.classList.remove('is-hidden')
+            content_card_1_form.classList.add('is-hidden')
+            check_form_ad_form.setAttribute("disabled", "disabled");
+
+            banned_card_form.classList.add('is-hidden')
+            warning_card_form.classList.add('is-hidden')
+        }
+    }
+}
+
+//oa input in form
+third_input_form.oninput = value => {
+    third_content_preview_form.classList.contains('get-error') == true ? third_content_preview_form.classList.remove('get-error') : null
+    if (value.target.value) {
+        third_content_preview_form.innerHTML = value.target.value
+        third_max_letter_form.innerHTML = third_input_form.value.length + '/40'
+        if (second_input_form.value || first_input_form.value) {
+            //do nothing cause it's done already
+        } else {
+            content_card_0_form.classList.add('is-hidden')
+            content_card_1_form.classList.remove('is-hidden')
+            check_form_ad_form.removeAttribute('disabled')
+
+            banned_card_form.classList.add('is-hidden')
+            warning_card_form.classList.add('is-hidden')
+        }
+    } else {
+        third_content_preview_form.innerHTML = 'Tiêu đề form'
+        third_max_letter_form.innerHTML = '0/40'
+        if (second_input_form.value || first_input_form.value) {
             //do nothing cause it's done already
         }
         else {
@@ -4529,6 +4566,7 @@ first_input_form.onfocus = () => {
     first_content_preview_form.classList.contains('get-error') == true ? first_content_preview_form.classList.remove('get-error') : null
     first_content_preview_form.classList.add('preview-focus')
     second_content_preview_form.classList.remove('preview-focus')
+    third_content_preview_form.classList.remove('preview-focus')
 }
 first_input_form.onblur = () => {
     first_content_preview_form.classList.toggle('preview-focus')
@@ -4537,9 +4575,19 @@ second_input_form.onfocus = () => {
     second_content_preview_form.classList.contains('get-error') == true ? second_content_preview_form.classList.remove('get-error') : null
     second_content_preview_form.classList.add('preview-focus')
     first_content_preview_form.classList.remove('preview-focus')
+    third_content_preview_form.classList.remove('preview-focus')
 }
 second_input_form.onblur = () => {
     second_content_preview_form.classList.toggle('preview-focus')
+}
+third_input_form.onfocus = () => {
+    third_content_preview_form.classList.contains('get-error') == true ? third_content_preview_form.classList.remove('get-error') : null
+    third_content_preview_form.classList.add('preview-focus')
+    second_content_preview_form.classList.remove('preview-focus')
+    first_content_preview_form.classList.remove('preview-focus')
+}
+third_input_form.onblur = () => {
+    third_content_preview_form.classList.toggle('preview-focus')
 }
 
 if (document.getElementById('form-avatar-image-input')) {
@@ -4591,6 +4639,7 @@ function checkAdsFunc_form() {
     //get value input
     let value_1 = first_input_form.value.trimEnd()
     let value_2 = second_input_form.value.trimEnd()
+    let value_3 = third_input_form.value.trimEnd()
 
     //warning mess
     let warn_mess_0 = 'Có viết hoa nhiều chữ cái (ngoại trừ tên riêng và danh từ riêng)'
@@ -5307,6 +5356,203 @@ function checkAdsFunc_form() {
 
         }
 
+        if (value_3) {
+            //case banned
+            if (value_3.charAt(0) != value_3.charAt(0).toUpperCase()) {
+                third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                value_check_ad = false
+
+                if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
+                } else {
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-0'>" + ban_mess_3 + "</p></li>")
+                }
+            }
+            if (value_3.charAt(0).match(InputFormatNoPuntuation) == null && value_3.charAt(0) != ' ') {
+                third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                value_check_ad = false
+                if ($('#form-banned-1').text().indexOf(ban_mess_5) == 0) {
+                } else {
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-1'>" + ban_mess_5 + "</p></li>")
+                }
+            }
+            if (value_3.charAt(0) == ' ') {
+                third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                value_check_ad = false
+                if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
+                } else {
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'>" + ban_mess_2 + "</p></li>")
+                }
+            }
+            if (checkPolicy(value_3).length > 0) {
+                third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                value_check_ad = false
+                let list = checkPolicy(value_3)
+                // console.log(list[0])
+                for (let i = 0; i < list.length; i++) {
+                    let item = list[i]
+                    if ($('#form-banned-3').text().indexOf(ban_mess_0) == 0) {
+                        if ($('#form-banned-3 span').text().includes(item)) {
+                        } else {
+                            document.getElementById('form-banned-3').innerHTML += ', <span>' + item + '</span>'
+                        }
+                    } else {
+                        $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
+                    }
+                }
+                setTimeout(FunctionHoverWord_form('form-banned-3'), 520)
+            }
+
+            if (value_3.match(InputSpacingPuntationError_0)
+                || value_3.match(InputSpacingPuntationError_1)
+                || value_3.match(InputSpacingPuntationError_2)
+                || value_3.match(InputSpacingPuntationError_3)) {
+                if (value_3.match(InputSpacingPuntationError_4) == null) {
+                    // value_check_ad = true
+                } else {
+                    third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                    value_check_ad = false
+                    if ($('#form-banned-5').text().indexOf(ban_mess_4) == 0) {
+                    } else {
+                        $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + "</p></li>")
+                    }
+                }
+
+            }
+
+            //test spelling aka kiem tra chinh ta
+            $.post('https://nlp.laban.vn/wiki/spelling_checker_api/', {
+                text: value_3,
+                app_type: "zad"
+            }, function (resp) {
+                list_mistakes = resp.result[0].mistakes.reverse()
+                let mistake_item
+                let fixed_item
+                if (list_mistakes.length > 0) {
+                    third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                    value_check_ad = false
+                    $('#form-alert-card-first .card-error-list #no-error-mess').remove()
+                    for (let i = 0; i < list_mistakes.length; i++) {
+                        mistake_item = list_mistakes[i].text
+                        fixed_item = list_mistakes[i].suggest[0][0]
+                        fixed_list.push({
+                            mistake_item: mistake_item,
+                            fixed_item: fixed_item
+                        })
+                        if ($('#form-banned-6').text().indexOf(ban_mess_6) == 0) {
+                            if ($('#form-banned-6 span').text().includes(mistake_item)) {
+                            } else {
+                                document.getElementById('form-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                            }
+                        } else {
+                            $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
+                        }
+                    }
+                }
+                setTimeout(FunctionHoverWord_form('form-banned-6'), 520)
+            })
+
+            //case warning
+            if (value_3.match(InputFormatWithPuntuation)) {
+                let array_match = Array.from(value_3.matchAll(InputFormatWithPuntuation), m => m[0])
+                let string2array = value_3.split('')
+                let first_length = value_3.length
+                let difference = string2array.filter(x => array_match.indexOf(x) === -1)
+                if (array_match.length < first_length) {
+                    third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                    warning_card_form.classList.remove('is-hidden')
+                    //value_check_ad = false
+                    for (let i = 0; i < difference.length; i++) {
+                        if ($('#form-warning-1').text().indexOf(warn_mess_4) == 0) {
+                            if ($('#form-warning-1 span').text().includes(difference[i])) {
+                            } else {
+                                document.getElementById('form-warning-1').innerHTML += ' <span>' + difference[i] + '</span>'
+                            }
+                        } else {
+                            count_warning += 1
+                            $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-1'>" + warn_mess_4 + " <span>" + difference[i] + "</span></p></li>")
+                        }
+                    }
+                    setTimeout(FunctionHoverWord_form('form-warning-1'), 200)
+                }
+            }
+            if (value_3.match(InputFormatFrom2Puntuation)) {
+                //value_check_ad = false
+
+                if (value_3.indexOf("...") > -1) {
+                    // third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                    // if ($('#form-warning-2').text().indexOf(warn_mess_3) == 0) {
+                    // } else {
+                    //     count_warning += 1
+                    //     $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-2'>" + warn_mess_3 + "</p></li>")
+                    // }
+                } else {
+                    warning_card_form.classList.remove('is-hidden')
+                    let matches = Array.from(value_3.matchAll(InputFormatFrom2Puntuation), m => m[0])
+                    for (let i = 0; i < matches.length; i++) {
+                        let item = matches[i]
+                        //show location in string
+                        // console.log(mini_array[i])
+                        if (item == '%,' || item == '%.') {
+                            warning_card_form.classList.add('is-hidden')
+                            third_content_preview_form.classList.contains('get-error') == true ? third_content_preview_form.classList.remove('get-error') : null
+                        } else {
+                            third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                            if ($('#form-warning-3').text().indexOf(warn_mess_2) == 0) {
+                                if ($('#form-warning-3').text().includes(item)) {
+                                } else {
+                                    document.getElementById('form-warning-3').innerHTML += ' <span>' + item + '</span>'
+                                }
+                            } else {
+                                count_warning += 1
+                                $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+                            }
+                        }
+                    }
+                    setTimeout(FunctionHoverWord_form('form-warning-3'), 200)
+                }
+            }
+            // if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
+            //     if (value_3.match(InputSpacingPuntationError_4) == null) {
+            //     } else {
+            //         third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+            //         warning_card_form.classList.remove('is-hidden')
+            //         if ($('#form-warning-6').text().indexOf(warn_mess_6) == 0) {
+            //         } else {
+            //             count_warning += 1
+            //             $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-6'>" + warn_mess_6 + "</p></li>")
+            //         }
+            //     }
+            // }
+            if (checkWarning(value_3).length > 0) {
+                third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                //value_check_ad = false
+                warning_card_form.classList.remove('is-hidden')
+                let list = checkWarning(value_3)
+                for (let i = 0; i < list.length; i++) {
+                    let item = list[i]
+                    if ($('#form-warning-4').text().indexOf(warn_mess_1) == 0) {
+                        if ($('#form-warning-4 span').text().includes(item)) {
+                        } else {
+                            document.getElementById('form-warning-4').innerHTML += ', <span>' + item + '</span>'
+                        }
+                    } else {
+                        count_warning += 1
+                        $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></p></li>")
+                    }
+                }
+                setTimeout(FunctionHoverWord_form('form-warning-4'), 200)
+            }
+            if (value_3.match(/\s{2,}/g)) {
+                third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
+                warning_card_form.classList.remove('is-hidden')
+                if ($('#form-warning-5').text().indexOf(warn_mess_5) == 0) {
+                } else {
+                    $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-5'>" + warn_mess_5 + "</p></li>")
+                    count_warning += 1
+                }
+            }
+        }
+
         setTimeout(() => {
             if (value_check_ad == true) {
                 content_card_1_form.classList.add('is-hidden')
@@ -5339,6 +5585,7 @@ function checkAdsFunc_form() {
 FunctionHoverWord_form = (id) => {
     let first_preview_OG = document.getElementById('form-first-preview').innerHTML;
     let second_preview_OG = document.getElementById('form-second-preview').innerHTML;
+    let third_preview_OG = document.getElementById('form-oa-preview').innerHTML;
     let list = []
     let index
     let error_fix_content
@@ -5406,6 +5653,10 @@ FunctionHoverWord_form = (id) => {
                 document.getElementById('form-second-preview').innerHTML = temp
             }
         // }
+        if (thid_preview_OG.indexOf(value.target.innerText) > -1) {
+            let temp = thid_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+            document.getElementById('form-oa-preview').innerHTML = temp
+        }
 
     }, value => {
 
@@ -5420,6 +5671,9 @@ FunctionHoverWord_form = (id) => {
                 document.getElementById('form-second-preview').innerHTML = second_preview_OG
             }
         // }
+        if (third_preview_OG.indexOf(value.target.innerText) > -1) {
+            document.getElementById('form-oa-preview').innerHTML = third_preview_OG
+        }
         
     })
 }
