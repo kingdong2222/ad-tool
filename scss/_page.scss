@@ -979,7 +979,7 @@
 			flex-direction: column;
 			// align-items: center;
 			@extend %tr-all;
-			padding-left: 2rem;
+			padding-left: 44px;
 			@include from(1920px){
 				// width: 30%;
 			}
