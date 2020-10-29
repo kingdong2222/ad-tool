@@ -2698,7 +2698,7 @@ function checkAdsFunc() {
 
 //focus preview side when input
 first_input.onfocus = () => {
-    first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+    // first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
     first_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
@@ -2708,7 +2708,7 @@ first_input.onblur = () => {
     first_content_preview.classList.toggle('preview-focus')
 }
 second_input.onfocus = () => {
-    second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
+    // second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
     second_content_preview.classList.add('preview-focus')
     first_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
@@ -2718,7 +2718,7 @@ second_input.onblur = () => {
     second_content_preview.classList.toggle('preview-focus')
 }
 third_input.onfocus = () => {
-    third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
+    // third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
     third_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     first_content_preview.classList.remove('preview-focus')
@@ -2728,7 +2728,7 @@ third_input.onblur = () => {
     third_content_preview.classList.toggle('preview-focus')
 }
 fourth_input.onfocus = () => {
-    fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
+    // fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
     fourth_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
@@ -2903,7 +2903,7 @@ FunctionHoverWord = (id) => {
                 }
             });
         }
-        // if ($('#first-preview').hasClass('get-error')) {
+        if ($('#first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 if(temp.includes('amp;')){
@@ -2911,8 +2911,8 @@ FunctionHoverWord = (id) => {
                 }
                 document.getElementById('first-preview').innerHTML = temp
             }
-        // }
-        // if ($('#second-preview').hasClass('get-error')) {
+        }
+        if ($('#second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 if(temp.includes('amp;')){
@@ -2920,8 +2920,8 @@ FunctionHoverWord = (id) => {
                 }
                 document.getElementById('second-preview').innerHTML = temp
             }
-        // }
-        // if ($('#third-preview').hasClass('get-error')) {
+        }
+        if ($('#third-preview').hasClass('get-error')) {
             if (third_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 if(temp.includes('amp;')){
@@ -2929,8 +2929,8 @@ FunctionHoverWord = (id) => {
                 }
                 document.getElementById('third-preview').innerHTML = temp
             }
-        // }
-        // if ($('#fourth-preview').hasClass('get-error')) {
+        }
+        if ($('#fourth-preview').hasClass('get-error')) {
             if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = fourth_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 if(temp.includes('amp;')){
@@ -2938,31 +2938,31 @@ FunctionHoverWord = (id) => {
                 }
                 document.getElementById('fourth-preview').innerHTML = temp
             }
-        // }
+        }
 
     }, value => {
 
         // $("body [data-tippy-root]").remove()
-        // if ($('#first-preview').hasClass('get-error')) {
+        if ($('#first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('first-preview').innerHTML = first_preview_OG
             }
-        // }
-        // if ($('#second-preview').hasClass('get-error')) {
+        }
+        if ($('#second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('second-preview').innerHTML = second_preview_OG
             }
-        // }
-        // if ($('#third-preview').hasClass('get-error')) {
+        }
+        if ($('#third-preview').hasClass('get-error')) {
             if (third_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('third-preview').innerHTML = third_preview_OG
             }
-        // }
-        // if ($('#fourth-preview').hasClass('get-error')) {
+        }
+        if ($('#fourth-preview').hasClass('get-error')) {
             if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('fourth-preview').innerHTML = fourth_preview_OG
             }
-        // }
+        }
     })
 }
 
@@ -4575,7 +4575,7 @@ third_input_form.oninput = value => {
 }
 
 first_input_form.onfocus = () => {
-    first_content_preview_form.classList.contains('get-error') == true ? first_content_preview_form.classList.remove('get-error') : null
+    // first_content_preview_form.classList.contains('get-error') == true ? first_content_preview_form.classList.remove('get-error') : null
     first_content_preview_form.classList.add('preview-focus')
     second_content_preview_form.classList.remove('preview-focus')
     third_content_preview_form.classList.remove('preview-focus')
@@ -4584,7 +4584,7 @@ first_input_form.onblur = () => {
     first_content_preview_form.classList.toggle('preview-focus')
 }
 second_input_form.onfocus = () => {
-    second_content_preview_form.classList.contains('get-error') == true ? second_content_preview_form.classList.remove('get-error') : null
+    // second_content_preview_form.classList.contains('get-error') == true ? second_content_preview_form.classList.remove('get-error') : null
     second_content_preview_form.classList.add('preview-focus')
     first_content_preview_form.classList.remove('preview-focus')
     third_content_preview_form.classList.remove('preview-focus')
@@ -4593,7 +4593,7 @@ second_input_form.onblur = () => {
     second_content_preview_form.classList.toggle('preview-focus')
 }
 third_input_form.onfocus = () => {
-    third_content_preview_form.classList.contains('get-error') == true ? third_content_preview_form.classList.remove('get-error') : null
+    // third_content_preview_form.classList.contains('get-error') == true ? third_content_preview_form.classList.remove('get-error') : null
     third_content_preview_form.classList.add('preview-focus')
     second_content_preview_form.classList.remove('preview-focus')
     first_content_preview_form.classList.remove('preview-focus')
@@ -5588,7 +5588,7 @@ FunctionHoverWord_form = (id) => {
                 }
             });
         }
-        // if ($('#form-first-preview').hasClass('get-error')) {
+        if ($('#form-first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 if(temp.includes('amp;')){
@@ -5596,8 +5596,8 @@ FunctionHoverWord_form = (id) => {
                 }
                 document.getElementById('form-first-preview').innerHTML = temp
             }
-        // }
-        // if ($('#form-second-preview').hasClass('get-error')) {
+        }
+        if ($('#form-second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 if(temp.includes('amp;')){
@@ -5605,13 +5605,15 @@ FunctionHoverWord_form = (id) => {
                 }
                 document.getElementById('form-second-preview').innerHTML = temp
             }
-        // }
-        if (third_preview_OG.indexOf(value.target.innerText) > -1) {
-            let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-            if(temp.includes('amp;')){
-                temp = temp.replace('amp;','')
+        }
+        if ($('#form-oa-preview').hasClass('get-error')) {
+            if (third_preview_OG.indexOf(value.target.innerText) > -1) {
+                let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if(temp.includes('amp;')){
+                    temp = temp.replace('amp;','')
+                }
+                document.getElementById('form-oa-preview').innerHTML = temp
             }
-            document.getElementById('form-oa-preview').innerHTML = temp
         }
 
     }, value => {

@@ -1578,10 +1578,14 @@
 				}
 				.preview-focus{
 					// border: 1px solid #F0F4F8;
-					box-shadow: 0 0 0px 2px #1744cf4f;;
+					box-shadow: 0 0 0px 2px #1744cf4f;
 					border-radius: 4px;
 					padding: 3px 5px;
+					border-color: #fff !important;
 					// width: fit-content;
+					&:before{
+						opacity: 0;
+					}
 				}
 				.get-error{
 					width: auto;
@@ -1592,7 +1596,7 @@
 					top: 0 !important;
 					&:before{
 						content:"\ea30";
-						font: normal normal normal 16px "zadicon";
+						font: normal normal normal 14px "zadicon";
 						color: #FFD422;
 						position: absolute;
 						left: -22px;
@@ -1681,13 +1685,11 @@
 						font-size: 1rem;
 						margin-left: 0;
 						transition: all 0.2s ease;
-						padding-top: 3px;
-						padding-bottom: 3px;
+						padding: 3px 5px;
 						margin-bottom: 0;
 						&.get-error{
 							&:before{
 								left: -18px;
-								font-size: 14px;
 							}
 						}
 					}
