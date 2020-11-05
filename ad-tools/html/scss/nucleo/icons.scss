@@ -73,7 +73,6 @@ $icz-focus: unicode(ea45);
 $icz-oa: unicode(ea46);
 $icz-signature: unicode(ea47);
 $icz-log-out: unicode(ea49);
-$icz-call-center: unicode(ea4a);
 $icz-help: unicode(ea4b);
 $icz-pr: unicode(ea4c);
 $icz-article: unicode(ea4d);
@@ -123,9 +122,8 @@ $icz-non-preview: unicode(ea7a);
 $icz-filled-image-add: unicode(ea7b);
 $icz-chat: unicode(ea7c);
 $icz-fill-cheque: unicode(ea7d);
-$icz-fill-target: unicode(ea7e);
 $icz-fill-conference-room: unicode(ea7f);
-$icz-support: unicode(ea80);
+$icz-question-2: unicode(ea80);
 $icz-cheque: unicode(ea81);
 $icz-style: unicode(ea82);
 $icz-fill-chat: unicode(ea83);
@@ -138,6 +136,48 @@ $icz-fill-triangle-down: unicode(ea8a);
 $icz-fill-triangle-left: unicode(ea8b);
 $icz-fill-triangle-right: unicode(ea8c);
 $icz-fill-triangle-up: unicode(ea8d);
+$icz-basket: unicode(ea8e);
+$icz-shape-star: unicode(ea8f);
+$icz-favorite: unicode(ea90);
+$icz-survey: unicode(ea92);
+$icz-send: unicode(ea93);
+$icz-android: unicode(ea94);
+$icz-apple: unicode(ea95);
+$icz-c-info: unicode(ea96);
+$icz-fill-badge: unicode(ea97);
+$icz-badge: unicode(ea98);
+$icz-fill-error-hex: unicode(ea99);
+$icz-fill-bookmark: unicode(ea9a);
+$icz-preview: unicode(ea9b);
+$icz-coupon: unicode(ea9c);
+$icz-fill-star: unicode(ea9d);
+$icz-receipt: unicode(ea9e);
+$icz-fill-move: unicode(ea9f);
+$icz-unlink: unicode(eaa0);
+$icz-support: unicode(eaa1);
+$icz-shop: unicode(eaa2);
+$icz-reload: unicode(eaa4);
+$icz-package: unicode(eaa5);
+$icz-fill-positive: unicode(eaa6);
+$icz-positive: unicode(eaa7);
+$icz-neutral: unicode(eaa8);
+$icz-fill-negative: unicode(eaa9);
+$icz-negative: unicode(eaaa);
+$icz-fill-neutral: unicode(eaab);
+$icz-double-arrow-left: unicode(eaac);
+$icz-double-arrow-right: unicode(eaad);
+$icz-save: unicode(eaae);
+$icz-respond-arrow: unicode(eaaf);
+$icz-fill-wand: unicode(eab0);
+$icz-sticker: unicode(eab1);
+$icz-fill-home: unicode(eab2);
+$icz-grid: unicode(eab3);
+$icz-fill-basket: unicode(eab4);
+$icz-fill-grid: unicode(eab5);
+$icz-fill-send: unicode(eab6);
+$icz-loudspeaker: unicode(eab7);
+$icz-fill-loudspeaker: unicode(eab8);
+$icz-patch: unicode(eab9);
 
 .icz-account::before {
   content: $icz-account;
@@ -411,10 +451,6 @@ $icz-fill-triangle-up: unicode(ea8d);
   content: $icz-log-out;
 }
 
-.icz-call-center::before {
-  content: $icz-call-center;
-}
-
 .icz-help::before {
   content: $icz-help;
 }
@@ -611,16 +647,12 @@ $icz-fill-triangle-up: unicode(ea8d);
   content: $icz-fill-cheque;
 }
 
-.icz-fill-target::before {
-  content: $icz-fill-target;
-}
-
 .icz-fill-conference-room::before {
   content: $icz-fill-conference-room;
 }
 
-.icz-support::before {
-  content: $icz-support;
+.icz-question-2::before {
+  content: $icz-question-2;
 }
 
 .icz-cheque::before {
@@ -669,5 +701,173 @@ $icz-fill-triangle-up: unicode(ea8d);
 
 .icz-fill-triangle-up::before {
   content: $icz-fill-triangle-up;
+}
+
+.icz-basket::before {
+  content: $icz-basket;
+}
+
+.icz-shape-star::before {
+  content: $icz-shape-star;
+}
+
+.icz-favorite::before {
+  content: $icz-favorite;
+}
+
+.icz-survey::before {
+  content: $icz-survey;
+}
+
+.icz-send::before {
+  content: $icz-send;
+}
+
+.icz-android::before {
+  content: $icz-android;
+}
+
+.icz-apple::before {
+  content: $icz-apple;
+}
+
+.icz-c-info::before {
+  content: $icz-c-info;
+}
+
+.icz-fill-badge::before {
+  content: $icz-fill-badge;
+}
+
+.icz-badge::before {
+  content: $icz-badge;
+}
+
+.icz-fill-error-hex::before {
+  content: $icz-fill-error-hex;
+}
+
+.icz-fill-bookmark::before {
+  content: $icz-fill-bookmark;
+}
+
+.icz-preview::before {
+  content: $icz-preview;
+}
+
+.icz-coupon::before {
+  content: $icz-coupon;
+}
+
+.icz-fill-star::before {
+  content: $icz-fill-star;
+}
+
+.icz-receipt::before {
+  content: $icz-receipt;
+}
+
+.icz-fill-move::before {
+  content: $icz-fill-move;
+}
+
+.icz-unlink::before {
+  content: $icz-unlink;
+}
+
+.icz-support::before {
+  content: $icz-support;
+}
+
+.icz-shop::before {
+  content: $icz-shop;
+}
+
+.icz-reload::before {
+  content: $icz-reload;
+}
+
+.icz-package::before {
+  content: $icz-package;
+}
+
+.icz-fill-positive::before {
+  content: $icz-fill-positive;
+}
+
+.icz-positive::before {
+  content: $icz-positive;
+}
+
+.icz-neutral::before {
+  content: $icz-neutral;
+}
+
+.icz-fill-negative::before {
+  content: $icz-fill-negative;
+}
+
+.icz-negative::before {
+  content: $icz-negative;
+}
+
+.icz-fill-neutral::before {
+  content: $icz-fill-neutral;
+}
+
+.icz-double-arrow-left::before {
+  content: $icz-double-arrow-left;
+}
+
+.icz-double-arrow-right::before {
+  content: $icz-double-arrow-right;
+}
+
+.icz-save::before {
+  content: $icz-save;
+}
+
+.icz-respond-arrow::before {
+  content: $icz-respond-arrow;
+}
+
+.icz-fill-wand::before {
+  content: $icz-fill-wand;
+}
+
+.icz-sticker::before {
+  content: $icz-sticker;
+}
+
+.icz-fill-home::before {
+  content: $icz-fill-home;
+}
+
+.icz-grid::before {
+  content: $icz-grid;
+}
+
+.icz-fill-basket::before {
+  content: $icz-fill-basket;
+}
+
+.icz-fill-grid::before {
+  content: $icz-fill-grid;
+}
+
+.icz-fill-send::before {
+  content: $icz-fill-send;
+}
+
+.icz-loudspeaker::before {
+  content: $icz-loudspeaker;
+}
+
+.icz-fill-loudspeaker::before {
+  content: $icz-fill-loudspeaker;
+}
+
+.icz-patch::before {
+  content: $icz-patch;
 }
 
