@@ -48,6 +48,21 @@ window.onload = () => {
                 case_sensitive_words = out.valueRanges[4].values
             })
             .catch(err => { throw err });
+
+        //introduce button
+        if(getCookie('check_form_used') != 'form used'){
+            $("html").addClass("overlay-modal")
+            $('#form-ads-button').addClass('introduce-button')
+            $('.overlay-modal').click(()=>{
+                if($("html").hasClass("overlay-modal")){
+                    $("html").removeClass("overlay-modal");
+                }
+                if($('#form-ads-button').hasClass("introduce-button")){
+                    $('#form-ads-button').removeClass("introduce-button");
+                }
+                setCookie('check_form_used', 'form used', 365)
+            })
+        }
     }
 
     //check user rated or not

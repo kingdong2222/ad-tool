@@ -1468,7 +1468,10 @@ const InputSpacingPuntationError_2 = /([àáãạảăắằẳẵặâấầẩ
 const InputSpacingPuntationError_3 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.,?!;:]{1,})/g
 
 //case sensitive for numbers
-const InputSpacingPuntationError_4 = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])([.,]{1,})([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝa-zA-Z])/g
+const InputSpacingPuntationError_4 = /([0-9])([.,]{1,})([0-9])/g
+
+//check righ format, uppercase after dot,...
+const InputUpperCaseAfterDot = /([àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ\w])( [.?!]{1})/g
 
 document.getElementById('check-form-ad').onclick = () => {
     document.getElementById('check-form-ad').classList.add('is-loading')
@@ -1504,7 +1507,7 @@ function checkAdsFunc() {
     //warning mess
     let warn_mess_0 = 'Có viết hoa nhiều chữ cái (ngoại trừ tên riêng và danh từ riêng)'
     let warn_mess_1 = 'Sử dụng từ phản cảm, thiếu kiểm chứng:'
-    let warn_mess_2 = 'Sử dụng dấu câu sai qui cách:'
+    let warn_mess_2 = 'Sử dụng 2 dấu câu liên tiếp:'
     let warn_mess_3 = 'Sử dụng dấu ba chấm'
     let warn_mess_4 = 'Sử dụng kí tự đặc biệt:'
     let warn_mess_5 = 'Có 2 khoảng trắng liên tiếp'
@@ -1514,9 +1517,9 @@ function checkAdsFunc() {
     let ban_mess_0 = 'Sử dụng từ ngữ bị hạn chế:'
     let ban_mess_1 = 'Viết hoa toàn bộ'
     let ban_mess_2 = 'Sử dụng khoảng trắng đầu câu'
-    let ban_mess_3 = 'Không viết hoa chữ cái đầu câu'
-    let ban_mess_4 = 'Sử dụng dấu câu sai quy cách'
-    let ban_mess_5 = 'Sử dụng dấu câu ở đầu'
+    let ban_mess_3 = 'Không viết hoa chữ cái đầu câu:'
+    let ban_mess_4 = 'Sử dụng dấu câu sai quy cách:'
+    let ban_mess_5 = 'Sử dụng dấu câu ở đầu:'
     let ban_mess_6 = 'Có chứa từ sai chính tả:'
 
 
@@ -1544,26 +1547,51 @@ function checkAdsFunc() {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
 
-                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-0'>" + ban_mess_3 + "</p></li>")
+                let first_word_list = []
+                let first_word_wrap
+
+                for (let i = 0; i <= value_1.length; i++) {
+                    if (value_1[i] == ' ') {
+                        break;
+                    } else {
+                        first_word_list.push(value_1[i])
+                    }
                 }
+                first_word_wrap = first_word_list.toString()
+                let tmp = first_word_wrap.replaceAll(',', '')
+
+                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                    if ($('#banned-0 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('banned-0').innerHTML += ' <span>' + tmp + '</span>'
+                    }
+                } else {
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
+                }
+                setTimeout(FunctionHoverWord('banned-0', 'UppercaseFirst'), 520)
             }
             if (value_1.charAt(0).match(InputFormatNoPuntuation) == null && value_1.charAt(0) != ' ') {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
+
                 if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
+                    if ($('#banned-1 span').text().includes(value_1.charAt(0))) {
+                    } else {
+                        document.getElementById('banned-1').innerHTML += ' <span>' + value_1.charAt(0) + '</span>'
+                    }
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + value_1.charAt(0) + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
             }
             if (value_1.charAt(0) == ' ') {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
             }
             if (checkPolicy(value_1).length > 0) {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
@@ -1575,27 +1603,100 @@ function checkAdsFunc() {
                     if ($('#banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#banned-3 span').text().includes(item)) {
                         } else {
-                            document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('banned-3').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord('banned-3'), 520)
+                setTimeout(FunctionHoverWord('banned-3', 'BanWord'), 520)
             }
             if (value_1.match(InputSpacingPuntationError_0)
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
                 || value_1.match(InputSpacingPuntationError_3)) {
-                if (value_1.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_ad = true
-                } else {
+
+                //error mini
+                let list_error = []
+                //error for preview
+                let list_error_full = []
+
+                //check case by case
+                if (value_1.match(InputSpacingPuntationError_0)) {
+                    let tmp = value_1.match(InputSpacingPuntationError_0)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_1.match(InputSpacingPuntationError_1)) {
+                    let tmp = value_1.match(InputSpacingPuntationError_1)
+                    for (let i = 0; i < tmp.length; i++) {
+                        // console.log(tmp[i])
+                        if (tmp[i].match(InputSpacingPuntationError_4)) {
+                        } else {
+                            list_error.push(tmp[i])
+                        }
+
+                    }
+                }
+                if (value_1.match(InputSpacingPuntationError_2)) {
+                    let tmp = value_1.match(InputSpacingPuntationError_2)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_1.match(InputSpacingPuntationError_3)) {
+                    let tmp = value_1.match(InputSpacingPuntationError_3)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+
+                //check list error and wrap word before/after for previewing
+                for (let i = 0; i < list_error.length; i++) {
+
+                    let tmp_err = list_error[i]
+                    let tmp_length = tmp_err.length
+                    let tmp_index = value_1.indexOf(tmp_err)
+                    let word_before = []
+                    let word_after = []
+
+                    //words before
+                    for (let j = tmp_index - 1; j >= 0; j--) {
+                        if (value_1[j] == ' ') { break; }
+                        else {
+                            word_before.push(value_1[j])
+                        }
+                    }
+
+                    //words after
+                    for (let j = tmp_index + tmp_length; j < value_1.length; j++) {
+                        if (value_1[j] == ' ') { break; }
+                        else {
+                            word_after.push(value_1[j])
+                        }
+                    }
+                    let before = word_before.reverse().toString()
+                    let after = word_after.toString()
+                    let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                    list_error_full.push(full_err)
+                }
+
+                if (list_error_full.length > 0) {
                     first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                     value_check_ad = false
-                    if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
+
+                    for (let i = 0; i < list_error_full.length; i++) {
+                        if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
+                            if ($('#banned-5 span').text().includes(list_error_full[i])) {
+                            } else {
+                                document.getElementById('banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                            }
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                        }
                     }
+                    setTimeout(FunctionHoverWord('banned-5', 'PunctuationError'), 520)
                 }
 
             }
@@ -1622,7 +1723,7 @@ function checkAdsFunc() {
                         if ($('#banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#banned-6 span').text().includes(mistake_item)) {
                             } else {
-                                document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                document.getElementById('banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                             }
                         } else {
                             $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
@@ -1674,8 +1775,22 @@ function checkAdsFunc() {
                         //show location in string
                         // console.log(mini_array[i])
                         if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
-                            first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+                            let index = value_1.indexOf(item)
+                            if (value_1[index - 1] == ' ') {
+                                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                                if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+                                    if ($('#warning-3').text().includes(item)) {
+                                    } else {
+                                        document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                    }
+                                } else {
+                                    count_warning += 1
+                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+                                }
+                            } else {
+                                warning_card.classList.add('is-hidden')
+                                first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+                            }
                         } else {
                             first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                             if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
@@ -1693,7 +1808,7 @@ function checkAdsFunc() {
                 }
             }
             // if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
-            //     if (value_1.match(InputSpacingPuntationError_4) == null) {
+            //     if (value_1.match(InputSpacingPuntationError_4)) {
             //     } else {
             //         first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
             //         warning_card.classList.remove('is-hidden')
@@ -1714,7 +1829,7 @@ function checkAdsFunc() {
                     if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#warning-4 span').text().includes(item)) {
                         } else {
-                            document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('warning-4').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         count_warning += 1
@@ -1740,26 +1855,50 @@ function checkAdsFunc() {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
 
-                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                let first_word_list = []
+                let first_word_wrap
+
+                for (let i = 0; i <= value_2.length; i++) {
+                    if (value_2[i] == ' ') {
+                        break;
+                    } else {
+                        first_word_list.push(value_2[i])
+                    }
                 }
+                first_word_wrap = first_word_list.toString()
+                let tmp = first_word_wrap.replaceAll(',', '')
+
+                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                    if ($('#banned-0 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('banned-0').innerHTML += ' <span>' + tmp + '</span>'
+                    }
+                } else {
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
+                }
+                setTimeout(FunctionHoverWord('banned-0', 'UppercaseFirst'), 520)
             }
             if (value_2.charAt(0).match(InputFormatNoPuntuation) == null && value_2.charAt(0) != ' ') {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
+                    if ($('#banned-1 span').text().includes(value_2.charAt(0))) {
+                    } else {
+                        document.getElementById('banned-1').innerHTML += ' <span>' + value_2.charAt(0) + '</span>'
+                    }
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + value_2.charAt(0) + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
             }
             if (value_2.charAt(0) == ' ') {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
             }
             if (checkPolicy(value_2).length > 0) {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -1770,7 +1909,7 @@ function checkAdsFunc() {
                     if ($('#banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#banned-3 span').text().includes(item)) {
                         } else {
-                            document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('banned-3').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
@@ -1805,15 +1944,15 @@ function checkAdsFunc() {
                             }
                         }
                         //warning
-                        // if (checkFormat2(temp) == 1) {
-                        //     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                        //     warning_card.classList.remove('is-hidden')
-                        //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                        //     } else {
-                        //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                        //         count_warning += 1
-                        //     }
-                        // }
+                        if (checkFormat2(temp) == 1) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                count_warning += 1
+                            }
+                        }
                     }
                 } else {
                     if (isUpperCase(value_2) == true) {
@@ -1827,20 +1966,20 @@ function checkAdsFunc() {
                             }
                         }
                     }
-                    // if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
-                    // } else {
-                    //     if (value_2.match(InputSpacingPuntationError_1)) {
+                    if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
+                    } else {
+                        if (value_2.match(InputSpacingPuntationError_1)) {
 
-                    //     } else {
-                    //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                    //         warning_card.classList.remove('is-hidden')
-                    //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                    //         } else {
-                    //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                    //             count_warning += 1
-                    //         }
-                    //     }
-                    // }
+                        } else {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                count_warning += 1
+                            }
+                        }
+                    }
                 }
             }
 
@@ -1848,15 +1987,88 @@ function checkAdsFunc() {
                 || value_2.match(InputSpacingPuntationError_1)
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
-                if (value_2.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_ad = true
-                } else {
+
+                //error mini
+                let list_error = []
+                //error for preview
+                let list_error_full = []
+
+                //check case by case
+                if (value_2.match(InputSpacingPuntationError_0)) {
+                    let tmp = value_2.match(InputSpacingPuntationError_0)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_2.match(InputSpacingPuntationError_1)) {
+                    let tmp = value_2.match(InputSpacingPuntationError_1)
+                    for (let i = 0; i < tmp.length; i++) {
+                        // console.log(tmp[i])
+                        if (tmp[i].match(InputSpacingPuntationError_4)) {
+                        } else {
+                            list_error.push(tmp[i])
+                        }
+
+                    }
+                }
+                if (value_2.match(InputSpacingPuntationError_2)) {
+                    let tmp = value_2.match(InputSpacingPuntationError_2)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_2.match(InputSpacingPuntationError_3)) {
+                    let tmp = value_2.match(InputSpacingPuntationError_3)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+
+                //check list error and wrap word before/after for previewing
+                for (let i = 0; i < list_error.length; i++) {
+
+                    let tmp_err = list_error[i]
+                    let tmp_length = tmp_err.length
+                    let tmp_index = value_2.indexOf(tmp_err)
+                    let word_before = []
+                    let word_after = []
+
+                    //words before
+                    for (let j = tmp_index - 1; j >= 0; j--) {
+                        if (value_2[j] == ' ') { break; }
+                        else {
+                            word_before.push(value_2[j])
+                        }
+                    }
+
+                    //words after
+                    for (let j = tmp_index + tmp_length; j < value_2.length; j++) {
+                        if (value_2[j] == ' ') { break; }
+                        else {
+                            word_after.push(value_2[j])
+                        }
+                    }
+                    let before = word_before.reverse().toString()
+                    let after = word_after.toString()
+                    let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                    list_error_full.push(full_err)
+                }
+
+                if (list_error_full.length > 0) {
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     value_check_ad = false
-                    if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
+
+                    for (let i = 0; i < list_error_full.length; i++) {
+                        if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
+                            if ($('#banned-5 span').text().includes(list_error_full[i])) {
+                            } else {
+                                document.getElementById('banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                            }
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                        }
                     }
+                    setTimeout(FunctionHoverWord('banned-5', 'PunctuationError'), 520)
                 }
             }
 
@@ -1882,7 +2094,7 @@ function checkAdsFunc() {
                         if ($('#banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#banned-6 span').text().includes(mistake_item)) {
                             } else {
-                                document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                document.getElementById('banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                             }
                         } else {
                             $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
@@ -1937,8 +2149,22 @@ function checkAdsFunc() {
                         // console.log(mini_array[i])
 
                         if (item == '%,' || item == '%.') {
-                            warning_card.classList.add('is-hidden')
-                            first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+                            let index = value_1.indexOf(item)
+                            if (value_1[index - 1] == ' ') {
+                                first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                                if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
+                                    if ($('#warning-3').text().includes(item)) {
+                                    } else {
+                                        document.getElementById('warning-3').innerHTML += ' <span>' + item + '</span>'
+                                    }
+                                } else {
+                                    count_warning += 1
+                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-3'>" + warn_mess_2 + " <span>" + item + "</span></p></li>")
+                                }
+                            } else {
+                                warning_card.classList.add('is-hidden')
+                                first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+                            }
                         } else {
                             second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                             if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
@@ -1956,7 +2182,7 @@ function checkAdsFunc() {
                 }
             }
             // if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
-            //     if (value_2.match(InputSpacingPuntationError_4) == null) {
+            //     if (value_2.match(InputSpacingPuntationError_4)) {
             //     } else {
             //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
             //         warning_card.classList.remove('is-hidden')
@@ -1977,7 +2203,7 @@ function checkAdsFunc() {
                     if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#warning-4 span').text().includes(item)) {
                         } else {
-                            document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('warning-4').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         count_warning += 1
@@ -2030,10 +2256,28 @@ function checkAdsFunc() {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                         value_check_ad = false
 
-                        if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                        let first_word_list = []
+                        let first_word_wrap
+
+                        for (let i = 0; i <= temp.length; i++) {
+                            if (temp[i] == ' ') {
+                                break;
+                            } else {
+                                first_word_list.push(temp[i])
+                            }
                         }
+                        first_word_wrap = first_word_list.toString()
+                        let tmp = first_word_wrap.replaceAll(',', '')
+
+                        if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                            if ($('#banned-0 span').text().includes(tmp)) {
+                            } else {
+                                document.getElementById('banned-0').innerHTML += ' <span>' + tmp + '</span>'
+                            }
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
+                        }
+                        setTimeout(FunctionHoverWord('banned-0', 'UppercaseFirst'), 520)
                     }
                     if (temp.charAt(0).match(InputFormatNoPuntuation) == null && temp.charAt(0) != ' ') {
                         if (temp.length <= 1) {
@@ -2041,9 +2285,14 @@ function checkAdsFunc() {
                             second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                             value_check_ad = false
                             if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
+                                if ($('#banned-1 span').text().includes(temp.charAt(0))) {
+                                } else {
+                                    document.getElementById('banned-1').innerHTML += ' <span>' + temp.charAt(0) + '</span>'
+                                }
                             } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
+                                $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + temp.charAt(0) + "</span></p></li>")
                             }
+                            setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
                         }
                     }
                     if (temp.charAt(0) == ' ') {
@@ -2054,23 +2303,96 @@ function checkAdsFunc() {
                             value_check_ad = false
                             if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                             } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
+                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
                             }
+                            setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
                         }
                     }
                     if (temp.match(InputSpacingPuntationError_0)
                         || temp.match(InputSpacingPuntationError_1)
                         || temp.match(InputSpacingPuntationError_2)
                         || temp.match(InputSpacingPuntationError_3)) {
-                        if (temp.match(InputSpacingPuntationError_4) == null) {
-                            // value_check_ad = true
-                        } else {
-                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                            value_check_ad = false
-                            if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
-                            } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
+                        //error mini
+                        let list_error = []
+                        //error for preview
+                        let list_error_full = []
+
+                        //check case by case
+                        if (temp.match(InputSpacingPuntationError_0)) {
+                            let tmp = temp.match(InputSpacingPuntationError_0)
+                            for (let i = 0; i < tmp.length; i++) {
+                                list_error.push(tmp[i])
                             }
+                        }
+                        if (temp.match(InputSpacingPuntationError_1)) {
+                            let tmp = temp.match(InputSpacingPuntationError_1)
+                            for (let i = 0; i < tmp.length; i++) {
+                                // console.log(tmp[i])
+                                if (tmp[i].match(InputSpacingPuntationError_4)) {
+                                } else {
+                                    list_error.push(tmp[i])
+                                }
+
+                            }
+                        }
+                        if (temp.match(InputSpacingPuntationError_2)) {
+                            let tmp = temp.match(InputSpacingPuntationError_2)
+                            for (let i = 0; i < tmp.length; i++) {
+                                list_error.push(tmp[i])
+                            }
+                        }
+                        if (temp.match(InputSpacingPuntationError_3)) {
+                            let tmp = temp.match(InputSpacingPuntationError_3)
+                            for (let i = 0; i < tmp.length; i++) {
+                                list_error.push(tmp[i])
+                            }
+                        }
+
+                        //check list error and wrap word before/after for previewing
+                        for (let i = 0; i < list_error.length; i++) {
+
+                            let tmp_err = list_error[i]
+                            let tmp_length = tmp_err.length
+                            let tmp_index = temp.indexOf(tmp_err)
+                            let word_before = []
+                            let word_after = []
+
+                            //words before
+                            for (let j = tmp_index - 1; j >= 0; j--) {
+                                if (temp[j] == ' ') { break; }
+                                else {
+                                    word_before.push(temp[j])
+                                }
+                            }
+
+                            //words after
+                            for (let j = tmp_index + tmp_length; j < temp.length; j++) {
+                                if (temp[j] == ' ') { break; }
+                                else {
+                                    word_after.push(temp[j])
+                                }
+                            }
+                            let before = word_before.reverse().toString()
+                            let after = word_after.toString()
+                            let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                            list_error_full.push(full_err)
+                        }
+
+                        if (list_error_full.length > 0) {
+                            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                            value_check_ad = false
+
+                            for (let i = 0; i < list_error_full.length; i++) {
+                                if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
+                                    if ($('#banned-5 span').text().includes(list_error_full[i])) {
+                                    } else {
+                                        document.getElementById('banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                                    }
+                                } else {
+                                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                                }
+                            }
+                            setTimeout(FunctionHoverWord('banned-5', 'PunctuationError'), 520)
                         }
                     }
 
@@ -2102,43 +2424,43 @@ function checkAdsFunc() {
                                     }
                                 }
                                 //warning
-                                // if (checkFormat2(temp) == 1) {
-                                //     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                                //     warning_card.classList.remove('is-hidden')
-                                //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                                //     } else {
-                                //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                                //         count_warning += 1
-                                //     }
-                                // }
+                                if (checkFormat2(temp) == 1) {
+                                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                                    warning_card.classList.remove('is-hidden')
+                                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                                    } else {
+                                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                        count_warning += 1
+                                    }
+                                }
                             }
                         } else {
-                            // if (isUpperCase(temp) == true) {
-                            //     if (checkSensitive(temp).length > 0) {
-                            //     } else {
-                            //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                            //         value_check_ad = false
-                            //         if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
-                            //         } else {
-                            //             $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
-                            //         }
-                            //     }
-                            // }
-                            // if (checkSensitive(temp).length > 0) {
-                            // } else {
-                            //     if (temp.match(InputSpacingPuntationError_1)) {
+                            if (isUpperCase(temp) == true) {
+                                if (checkSensitive(temp).length > 0) {
+                                } else {
+                                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                                    value_check_ad = false
+                                    if ($('#banned-4').text().indexOf(ban_mess_1) == 0) {
+                                    } else {
+                                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-4'>" + ban_mess_1 + "</p></li>")
+                                    }
+                                }
+                            }
+                            if (checkSensitive(temp).length > 0) {
+                            } else {
+                                if (temp.match(InputSpacingPuntationError_1)) {
 
-                            //     } else {
-                            //         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                            //         warning_card.classList.remove('is-hidden')
-                            //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                            //         } else {
-                            //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                            //             count_warning += 1
-                            //         }
-                            //     }
+                                } else {
+                                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                                    warning_card.classList.remove('is-hidden')
+                                    if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                                    } else {
+                                        $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                        count_warning += 1
+                                    }
+                                }
 
-                            // }
+                            }
                         }
                     }
                 }
@@ -2153,26 +2475,50 @@ function checkAdsFunc() {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
 
-                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
-                } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                let first_word_list = []
+                let first_word_wrap
+
+                for (let i = 0; i <= value_3.length; i++) {
+                    if (value_3[i] == ' ') {
+                        break;
+                    } else {
+                        first_word_list.push(value_3[i])
+                    }
                 }
+                first_word_wrap = first_word_list.toString()
+                let tmp = first_word_wrap.replaceAll(',', '')
+
+                if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                    if ($('#banned-0 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('banned-0').innerHTML += ' <span>' + tmp + '</span>'
+                    }
+                } else {
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
+                }
+                setTimeout(FunctionHoverWord('banned-0', 'UppercaseFirst'), 520)
             }
             if (value_3.charAt(0).match(InputFormatNoPuntuation) == null && value_3.charAt(0) != ' ') {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
+                    if ($('#banned-1 span').text().includes(value_3.charAt(0))) {
+                    } else {
+                        document.getElementById('banned-1').innerHTML += ' <span>' + value_3.charAt(0) + '</span>'
+                    }
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + value_3.charAt(0) + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
             }
             if (value_3.charAt(0) == ' ') {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
                 if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
             }
             if (checkPolicy(value_3).length > 0) {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -2183,7 +2529,7 @@ function checkAdsFunc() {
                     if ($('#banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#banned-3 span').text().includes(item)) {
                         } else {
-                            document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('banned-3').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
@@ -2218,15 +2564,15 @@ function checkAdsFunc() {
                             }
                         }
                         //warning
-                        // if (checkFormat2(temp) == 1) {
-                        //     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
-                        //     warning_card.classList.remove('is-hidden')
-                        //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                        //     } else {
-                        //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                        //         count_warning += 1
-                        //     }
-                        // }
+                        if (checkFormat2(temp) == 1) {
+                            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                count_warning += 1
+                            }
+                        }
                     }
                 } else {
                     if (isUpperCase(value_3) == true) {
@@ -2240,21 +2586,21 @@ function checkAdsFunc() {
                             }
                         }
                     }
-                    // if (checkSensitive(value_3).length > 0) {
-                    // } else {
-                    //     if (value_3.match(InputSpacingPuntationError_1)) {
+                    if (checkSensitive(value_3).length > 0) {
+                    } else {
+                        if (value_3.match(InputSpacingPuntationError_1)) {
 
-                    //     } else {
-                    //         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                        } else {
+                            third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
 
-                    //         warning_card.classList.remove('is-hidden')
-                    //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                    //         } else {
-                    //             count_warning += 1
-                    //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                    //         }
-                    //     }
-                    // }
+                            warning_card.classList.remove('is-hidden')
+                            if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                count_warning += 1
+                                $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                            }
+                        }
+                    }
                 }
 
             }
@@ -2262,15 +2608,88 @@ function checkAdsFunc() {
                 || value_3.match(InputSpacingPuntationError_1)
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
-                if (value_3.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_ad = true
-                } else {
+
+                //error mini
+                let list_error = []
+                //error for preview
+                let list_error_full = []
+
+                //check case by case
+                if (value_3.match(InputSpacingPuntationError_0)) {
+                    let tmp = value_3.match(InputSpacingPuntationError_0)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_3.match(InputSpacingPuntationError_1)) {
+                    let tmp = value_3.match(InputSpacingPuntationError_1)
+                    for (let i = 0; i < tmp.length; i++) {
+                        // console.log(tmp[i])
+                        if (tmp[i].match(InputSpacingPuntationError_4)) {
+                        } else {
+                            list_error.push(tmp[i])
+                        }
+
+                    }
+                }
+                if (value_3.match(InputSpacingPuntationError_2)) {
+                    let tmp = value_3.match(InputSpacingPuntationError_2)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_3.match(InputSpacingPuntationError_3)) {
+                    let tmp = value_3.match(InputSpacingPuntationError_3)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+
+                //check list error and wrap word before/after for previewing
+                for (let i = 0; i < list_error.length; i++) {
+
+                    let tmp_err = list_error[i]
+                    let tmp_length = tmp_err.length
+                    let tmp_index = value_3.indexOf(tmp_err)
+                    let word_before = []
+                    let word_after = []
+
+                    //words before
+                    for (let j = tmp_index - 1; j >= 0; j--) {
+                        if (value_3[j] == ' ') { break; }
+                        else {
+                            word_before.push(value_3[j])
+                        }
+                    }
+
+                    //words after
+                    for (let j = tmp_index + tmp_length; j < value_3.length; j++) {
+                        if (value_3[j] == ' ') { break; }
+                        else {
+                            word_after.push(value_3[j])
+                        }
+                    }
+                    let before = word_before.reverse().toString()
+                    let after = word_after.toString()
+                    let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                    list_error_full.push(full_err)
+                }
+
+                if (list_error_full.length > 0) {
                     third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                     value_check_ad = false
-                    if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
+
+                    for (let i = 0; i < list_error_full.length; i++) {
+                        if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
+                            if ($('#banned-5 span').text().includes(list_error_full[i])) {
+                            } else {
+                                document.getElementById('banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                            }
+                        } else {
+                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                        }
                     }
+                    setTimeout(FunctionHoverWord('banned-5', 'PunctuationError'), 520)
                 }
             }
 
@@ -2297,7 +2716,7 @@ function checkAdsFunc() {
                         if ($('#banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#banned-6 span').text().includes(mistake_item)) {
                             } else {
-                                document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                document.getElementById('banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                             }
                         } else {
                             $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
@@ -2371,7 +2790,7 @@ function checkAdsFunc() {
                 }
             }
             // if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
-            //     if (value_3.match(InputSpacingPuntationError_4) == null) {
+            //     if (value_3.match(InputSpacingPuntationError_4)) {
             //     } else {
             //         third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
             //         warning_card.classList.remove('is-hidden')
@@ -2392,7 +2811,7 @@ function checkAdsFunc() {
                     if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#warning-4 span').text().includes(item)) {
                         } else {
-                            document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('warning-4').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         count_warning += 1
@@ -2420,26 +2839,50 @@ function checkAdsFunc() {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     value_check_ad = false
 
-                    if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
-                    } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-0'>" + ban_mess_3 + "</p></li>")
+                    let first_word_list = []
+                    let first_word_wrap
+
+                    for (let i = 0; i <= value_4.length; i++) {
+                        if (value_4[i] == ' ') {
+                            break;
+                        } else {
+                            first_word_list.push(value_4[i])
+                        }
                     }
+                    first_word_wrap = first_word_list.toString()
+                    let tmp = first_word_wrap.replaceAll(',', '')
+
+                    if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
+                        if ($('#banned-0 span').text().includes(tmp)) {
+                        } else {
+                            document.getElementById('banned-0').innerHTML += ' <span>' + tmp + '</span>'
+                        }
+                    } else {
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
+                    }
+                    setTimeout(FunctionHoverWord('banned-0', 'UppercaseFirst'), 520)
                 }
                 if (value_4.charAt(0).match(InputFormatNoPuntuation) == null && value_4.charAt(0) != ' ') {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     value_check_ad = false
                     if ($('#banned-1').text().indexOf(ban_mess_5) == 0) {
+                        if ($('#banned-1 span').text().includes(value_4.charAt(0))) {
+                        } else {
+                            document.getElementById('banned-1').innerHTML += ' <span>' + value_4.charAt(0) + '</span>'
+                        }
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-1'>" + ban_mess_5 + "</p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + value_4.charAt(0) + "</span></p></li>")
                     }
+                    setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
                 }
                 if (value_4.charAt(0) == ' ') {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     value_check_ad = false
                     if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'>" + ban_mess_2 + "</p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
                     }
+                    setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
                 }
                 if (checkPolicy(value_4).length > 0) {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
@@ -2450,7 +2893,7 @@ function checkAdsFunc() {
                         if ($('#banned-3').text().indexOf(ban_mess_0) == 0) {
                             if ($('#banned-3 span').text().includes(item)) {
                             } else {
-                                document.getElementById('banned-3').innerHTML += ', <span>' + item + '</span>'
+                                document.getElementById('banned-3').innerHTML += ' <span>' + item + '</span>'
                             }
                         } else {
                             $("#alert-card-first .card-error-list ul").append("<li><p id='banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
@@ -2485,15 +2928,15 @@ function checkAdsFunc() {
                                 }
                             }
                             //warning
-                            // if (checkFormat2(temp) == 1) {
-                            //     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
-                            //     warning_card.classList.remove('is-hidden')
-                            //     if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                            //     } else {
-                            //         $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                            //         count_warning += 1
-                            //     }
-                            // }
+                            if (checkFormat2(temp) == 1) {
+                                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                                warning_card.classList.remove('is-hidden')
+                                if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                                } else {
+                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                    count_warning += 1
+                                }
+                            }
                         }
                     } else {
                         if (isUpperCase(value_4) == true) {
@@ -2507,21 +2950,21 @@ function checkAdsFunc() {
                                 }
                             }
                         }
-                        // if (checkSensitive(value_4).length > 0) {
-                        // } else {
-                        //     if (value_4.match(InputSpacingPuntationError_1)) {
+                        if (checkSensitive(value_4).length > 0) {
+                        } else {
+                            if (value_4.match(InputSpacingPuntationError_1)) {
 
-                        //     } else {
-                        //         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
+                            } else {
+                                fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
 
-                        //         warning_card.classList.remove('is-hidden')
-                        //         if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
-                        //         } else {
-                        //             count_warning += 1
-                        //             $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
-                        //         }
-                        //     }
-                        // }
+                                warning_card.classList.remove('is-hidden')
+                                if ($('#warning-0').text().indexOf(warn_mess_0) == 0) {
+                                } else {
+                                    count_warning += 1
+                                    $("#alert-card-second .card-error-list ul").append("<li><p id='warning-0'>" + warn_mess_0 + "</p></li>")
+                                }
+                            }
+                        }
                     }
 
                 }
@@ -2529,15 +2972,88 @@ function checkAdsFunc() {
                     || value_4.match(InputSpacingPuntationError_1)
                     || value_4.match(InputSpacingPuntationError_2)
                     || value_4.match(InputSpacingPuntationError_3)) {
-                    if (value_4.match(InputSpacingPuntationError_4) == null) {
-                        // value_check_ad = true
-                    } else {
+
+                    //error mini
+                    let list_error = []
+                    //error for preview
+                    let list_error_full = []
+
+                    //check case by case
+                    if (value_4.match(InputSpacingPuntationError_0)) {
+                        let tmp = value_4.match(InputSpacingPuntationError_0)
+                        for (let i = 0; i < tmp.length; i++) {
+                            list_error.push(tmp[i])
+                        }
+                    }
+                    if (value_4.match(InputSpacingPuntationError_1)) {
+                        let tmp = value_4.match(InputSpacingPuntationError_1)
+                        for (let i = 0; i < tmp.length; i++) {
+                            // console.log(tmp[i])
+                            if (tmp[i].match(InputSpacingPuntationError_4)) {
+                            } else {
+                                list_error.push(tmp[i])
+                            }
+
+                        }
+                    }
+                    if (value_4.match(InputSpacingPuntationError_2)) {
+                        let tmp = value_4.match(InputSpacingPuntationError_2)
+                        for (let i = 0; i < tmp.length; i++) {
+                            list_error.push(tmp[i])
+                        }
+                    }
+                    if (value_4.match(InputSpacingPuntationError_3)) {
+                        let tmp = value_4.match(InputSpacingPuntationError_3)
+                        for (let i = 0; i < tmp.length; i++) {
+                            list_error.push(tmp[i])
+                        }
+                    }
+
+                    //check list error and wrap word before/after for previewing
+                    for (let i = 0; i < list_error.length; i++) {
+
+                        let tmp_err = list_error[i]
+                        let tmp_length = tmp_err.length
+                        let tmp_index = value_4.indexOf(tmp_err)
+                        let word_before = []
+                        let word_after = []
+
+                        //words before
+                        for (let j = tmp_index - 1; j >= 0; j--) {
+                            if (value_4[j] == ' ') { break; }
+                            else {
+                                word_before.push(value_4[j])
+                            }
+                        }
+
+                        //words after
+                        for (let j = tmp_index + tmp_length; j < value_4.length; j++) {
+                            if (value_4[j] == ' ') { break; }
+                            else {
+                                word_after.push(value_4[j])
+                            }
+                        }
+                        let before = word_before.reverse().toString()
+                        let after = word_after.toString()
+                        let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                        list_error_full.push(full_err)
+                    }
+
+                    if (list_error_full.length > 0) {
                         fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                         value_check_ad = false
-                        if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
-                        } else {
-                            $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + "</p></li>")
+
+                        for (let i = 0; i < list_error_full.length; i++) {
+                            if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
+                                if ($('#banned-5 span').text().includes(list_error_full[i])) {
+                                } else {
+                                    document.getElementById('banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                                }
+                            } else {
+                                $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                            }
                         }
+                        setTimeout(FunctionHoverWord('banned-5', 'PunctuationError'), 520)
                     }
                 }
 
@@ -2564,7 +3080,7 @@ function checkAdsFunc() {
                             if ($('#banned-6').text().indexOf(ban_mess_6) == 0) {
                                 if ($('#banned-6 span').text().includes(mistake_item)) {
                                 } else {
-                                    document.getElementById('banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                    document.getElementById('banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                                 }
                             } else {
                                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
@@ -2648,7 +3164,7 @@ function checkAdsFunc() {
                         if ($('#warning-4').text().indexOf(warn_mess_1) == 0) {
                             if ($('#warning-4 span').text().includes(item)) {
                             } else {
-                                document.getElementById('warning-4').innerHTML += ', <span>' + item + '</span>'
+                                document.getElementById('warning-4').innerHTML += ' <span>' + item + '</span>'
                             }
                         } else {
                             count_warning += 1
@@ -2675,15 +3191,7 @@ function checkAdsFunc() {
                 // $('#alert-card-first .card-error-list').append('<p id="no-error-mess">Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
             }
         }, 500)
-        if (count_warning > 0) {
-            $('#warning-tip span').html(count_warning + ' ')
-            tippy('#warning-tip', {
-                content: '<div class="tippy-block"><p style="font-weight: normal; margin-bottom: 0;"><b>Gợi ý chỉnh sửa</b> là những nội dung nghi ngờ vi phạm qui định quảng cáo. Bỏ qua nếu bạn chắc rằng những gợi ý này không chính xác</p></div>',
-                allowHTML: true,
-                maxWidth: 250,
-                theme: 'zad1',
-            });
-        }
+
 
         //check user rated or not
         let had_rated = getCookie('has_rated')
@@ -2694,11 +3202,22 @@ function checkAdsFunc() {
         }
 
     }, 500);
+    setTimeout(() => {
+        if (count_warning > 0) {
+            $('#warning-tip span').html(count_warning + ' ')
+            tippy('#warning-tip', {
+                content: '<div class="tippy-block"><p style="font-weight: normal; margin-bottom: 0;"><b>Gợi ý chỉnh sửa</b> là những nội dung nghi ngờ vi phạm qui định quảng cáo. Bỏ qua nếu bạn chắc rằng những gợi ý này không chính xác</p></div>',
+                allowHTML: true,
+                maxWidth: 250,
+                theme: 'zad1',
+            });
+        }
+    }, 550)
 }
 
 //focus preview side when input
 first_input.onfocus = () => {
-    first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
+    // first_content_preview.classList.contains('get-error') == true ? first_content_preview.classList.remove('get-error') : null
     first_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
@@ -2708,7 +3227,7 @@ first_input.onblur = () => {
     first_content_preview.classList.toggle('preview-focus')
 }
 second_input.onfocus = () => {
-    second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
+    // second_content_preview.classList.contains('get-error') == true ? second_content_preview.classList.remove('get-error') : null
     second_content_preview.classList.add('preview-focus')
     first_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
@@ -2718,7 +3237,7 @@ second_input.onblur = () => {
     second_content_preview.classList.toggle('preview-focus')
 }
 third_input.onfocus = () => {
-    third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
+    // third_content_preview.classList.contains('get-error') == true ? third_content_preview.classList.remove('get-error') : null
     third_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     first_content_preview.classList.remove('preview-focus')
@@ -2728,7 +3247,7 @@ third_input.onblur = () => {
     third_content_preview.classList.toggle('preview-focus')
 }
 fourth_input.onfocus = () => {
-    fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
+    // fourth_content_preview.classList.contains('get-error') == true ? fourth_content_preview.classList.remove('get-error') : null
     fourth_content_preview.classList.add('preview-focus')
     second_content_preview.classList.remove('preview-focus')
     third_content_preview.classList.remove('preview-focus')
@@ -2842,7 +3361,7 @@ tippy('#form-tippy-notice-content', {
 });
 
 // hover error and warning words
-FunctionHoverWord = (id) => {
+FunctionHoverWord = (id, fixedType) => {
 
     let first_preview_OG = document.getElementById('first-preview').innerHTML;
     let second_preview_OG = document.getElementById('second-preview').innerHTML;
@@ -2852,7 +3371,194 @@ FunctionHoverWord = (id) => {
     let index
     let error_fix_content
     let tempId = document.getElementById(id)
+    let tmp
+
     $('#' + id + ' span').hover(value => {
+        input_list = []
+        switch (fixedType) {
+            case 'UppercaseFirst':
+                let words = value.target.innerText.split('')
+                let fixed = []
+                for (let i = 0; i < words.length; i++) {
+                    if (i == 0) {
+                        words[i] = words[i].toUpperCase()
+                    }
+                    fixed.push(words[i])
+                }
+                tmp = fixed.toString()
+                // tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+                //     content: '<div class="tippy-block fix-block">'
+                //         + '<p class="titleFix">Viết hoa chữ cái đầu câu</p>'
+                //         + '<div class="blockError"><p class="errorFix">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                //         + '<i class="icz icz-arrow-right"></i>'
+                //         + '<button class="button is-primary is-light light-blue">' + tmp.replaceAll(',', '') + '</button></div>'
+                //         + '<p class="grey">Nội dung quảng cáo yêu cầu viết hoa chữ cái đầu mỗi câu.</p>'
+                //         + '</div>',
+                //     allowHTML: true,
+                //     maxWidth: 270,
+                //     theme: 'zad1',
+                //     interactive: true,
+                //     // placement: 'right-start',
+                //     // trigger: 'click',
+                //     onUntrigger(instance) {
+                //         instance.destroy()
+                //     }
+                // });
+                break;
+            case 'PuntuationFirst':
+                tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+                    content: '<div class="tippy-block fix-block">'
+                        + '<p class="titleFix">Xóa dấu ở đầu câu</p>'
+                        + '<div class="blockError"><p class="errorFix" id="PuntuationFirst">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                        + '<i class="icz icz-arrow-right"></i>'
+                        + '<button class="button is-primary is-light red" onclick="DeletePunctuationFirst()">Xóa</button></div>'
+                        + '<p class="grey">Không được phép sử dụng dấu ở đầu câu trong nội dung quảng cáo.</p>'
+                        + '</div>',
+                    allowHTML: true,
+                    maxWidth: 270,
+                    theme: 'zad1',
+                    // interactive: true,
+                    // placement: 'right-start',
+                    onShow(instance) {
+                        instance.setProps({ trigger: 'click' })
+                    },
+                    onHide(instance) {
+                        instance.setProps({ trigger: 'mouseenter focus' })
+                    },
+                });
+                break;
+            case 'SpaceFirst':
+                tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+                    content: '<div class="tippy-block fix-block">'
+                        + '<p class="titleFix">Chỉ viết hoa chữ cái đầu câu</p>'
+                        + '<div class="blockError"><button class="button is-primary is-light light-blue" onclick="DeleteFirstSpacing()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</button></div>'
+                        + '<p class="grey">Không được phép sử dụng khoảng trắng ở đầu câu trong nội dung quảng cáo.</p>'
+                        + '</div>',
+                    allowHTML: true,
+                    maxWidth: 270,
+                    theme: 'zad1',
+                    // interactive: true,
+                    // placement: 'right-start',
+                    // trigger: 'click',
+                    onShow(instance) {
+                        instance.setProps({ trigger: 'click' })
+                    },
+                    onHide(instance) {
+                        instance.setProps({ trigger: 'mouseenter focus' })
+                    },
+                });
+                break;
+            // case 'BanWord':
+            //     list = banned_words_fixed[0]
+            //     for (let i = 0; i < warning_words[0].length; i++) {
+            //         if (warning_words[0][i].toLowerCase() == value.target.innerText.toLowerCase()) {
+            //             index = i
+            //         }
+            //     }
+            //     if(list[index]){
+            //         error_fix_content = list[index]
+            //     } else {
+            //         error_fix_content = 'Bạn đang sử dụng từ ngữ không hợp lệ. Vui lòng thay thế'
+            //     }
+
+            //     tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+            //         content: '<div class="tippy-block fix-block">'
+            //             + '<p class="titleFix">Thay thế từ khác</p>'
+            //             + '<div class="blockError"><p class="errorFix">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+            //             + '<i class="icz icz-arrow-right"></i>'
+            //             + '<button class="button is-primary is-light">Nhấp chỉnh sửa</button></div>'
+            //             + '<p class="grey">' + error_fix_content + '</p>'
+            //             + '</div>',
+            //         allowHTML: true,
+            //         maxWidth: 270,
+            //         theme: 'zad1',
+            //         interactive: true,
+            //         // placement: 'right-start',
+            //         // trigger: 'click',
+            //         onUntrigger(instance) {
+            //             instance.destroy()
+            //         }
+            //     });
+            //     break;
+            case 'PunctuationError':
+                let hoverWord = value.target.innerText
+                let full_array = hoverWord.split('')
+                let only_letter = Array.from(hoverWord.matchAll(InputFormatNoPuntuation), m => m[0])
+                let punctuation = full_array.filter(x => only_letter.indexOf(x) === -1)
+
+                let punc_value
+                let punc_index
+
+                // console.log('check 1', hoverWord.slice(0, punc_index-1))
+                // console.log('check 2', punctuation)
+                // console.log('check 3', punctuation.length)
+                if (punctuation.length > 1) {
+                    punc_value = punctuation[1]
+                    punc_index = hoverWord.indexOf(punc_value)
+                    if (punc_value == '.' || punc_value == '?' || punc_value == '!') {
+                        if (hoverWord[punc_index + punctuation.length - 1]) {
+                            //case uppercase after punctuation
+                            tmp = hoverWord.slice(0, punc_index - 1) + punc_value + ' ' + hoverWord[punc_index + punctuation.length - 1].toUpperCase() + hoverWord.slice(punc_index + punctuation.length)
+                        } else {
+                            tmp = hoverWord.slice(0, punc_index - 1) + punc_value
+                        }
+                    } else {
+                        if (hoverWord.slice(punc_index + punctuation.length - 1)) {
+                            tmp = hoverWord.slice(0, punc_index - 1) + punc_value + ' ' + hoverWord.slice(punc_index + punctuation.length - 1)
+                        } else {
+                            tmp = hoverWord.slice(0, punc_index - 1) + punc_value
+                        }
+
+                    }
+                } else {
+                    punc_value = punctuation[0]
+                    punc_index = hoverWord.indexOf(punc_value)
+                    if (punc_value == '.' || punc_value == '?' || punc_value == '!') {
+                        if (hoverWord[punc_index + 1]) {
+                            //case uppercase after punctuation
+                            tmp = hoverWord.slice(0, punc_index) + punc_value + ' ' + hoverWord[punc_index + 1].toUpperCase() + hoverWord.slice(punc_index + 2)
+                        } else {
+                            tmp = hoverWord.slice(0, punc_index) + punc_value
+                        }
+
+                    } else {
+                        if (hoverWord.slice(punc_index + 1)) {
+                            tmp = hoverWord.slice(0, punc_index) + punc_value + ' ' + hoverWord.slice(punc_index + 1)
+                        } else {
+                            tmp = hoverWord.slice(0, punc_index) + punc_value
+                        }
+
+                    }
+                }
+
+                tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === hoverWord), {
+                    content: '<div class="tippy-block fix-block">'
+                        + '<p class="titleFix">Thêm khoảng trắng</p>'
+                        + '<div class="blockError"><p class="errorFix">&nbsp;' + hoverWord + '&nbsp;</p>'
+                        + '<i class="icz icz-arrow-right"></i>'
+                        + '<button class="button is-primary is-light light-blue" onclick="ReplacePunctuationError()">' + tmp + '</button></div>'
+                        + '<p class="grey">Có vẻ như bạn đã viết một số dấu câu không đúng cách.</p>'
+                        + '</div>',
+                    allowHTML: true,
+                    maxWidth: 270,
+                    theme: 'zad1',
+                    // interactive: true,
+                    // placement: 'right-start',
+                    // trigger: 'click',
+                    onShow(instance) {
+                        instance.setProps({ trigger: 'click' })
+                    },
+                    onHide(instance) {
+                        instance.setProps({ trigger: 'mouseenter focus' })
+                    },
+                });
+
+                errorInput = hoverWord
+                fixInput = tmp
+
+                break;
+        }
+
         if (id.includes('banned')) {
             if (id.includes('6')) {
                 for (let i = 0; i < fixed_list.length; i++) {
@@ -2903,68 +3609,195 @@ FunctionHoverWord = (id) => {
                 }
             });
         }
-        // if ($('#first-preview').hasClass('get-error')) {
+
+        if ($('#first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
-                let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-                if(temp.includes('amp;')){
-                    temp = temp.replace('amp;','')
+                let temp = first_preview_OG.replaceAll(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if (temp.includes('amp;')) {
+                    temp = temp.replaceAll('amp;', '')
                 }
                 document.getElementById('first-preview').innerHTML = temp
+
             }
-        // }
-        // if ($('#second-preview').hasClass('get-error')) {
+            input_list.push('first-input')
+        }
+        if ($('#second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
-                let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-                if(temp.includes('amp;')){
-                    temp = temp.replace('amp;','')
+                let temp = second_preview_OG.replaceAll(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if (temp.includes('amp;')) {
+                    temp = temp.replaceAll('amp;', '')
                 }
                 document.getElementById('second-preview').innerHTML = temp
+
             }
-        // }
-        // if ($('#third-preview').hasClass('get-error')) {
+            input_list.push('second-input')
+        }
+        if ($('#third-preview').hasClass('get-error')) {
             if (third_preview_OG.indexOf(value.target.innerText) > -1) {
-                let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-                if(temp.includes('amp;')){
-                    temp = temp.replace('amp;','')
+                let temp = third_preview_OG.replaceAll(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if (temp.includes('amp;')) {
+                    temp = temp.replaceAll('amp;', '')
                 }
                 document.getElementById('third-preview').innerHTML = temp
+
             }
-        // }
-        // if ($('#fourth-preview').hasClass('get-error')) {
+            input_list.push('third-input')
+        }
+        if ($('#fourth-preview').hasClass('get-error')) {
             if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
-                let temp = fourth_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-                if(temp.includes('amp;')){
-                    temp = temp.replace('amp;','')
+                let temp = fourth_preview_OG.replaceAll(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if (temp.includes('amp;')) {
+                    temp = temp.replaceAll('amp;', '')
                 }
                 document.getElementById('fourth-preview').innerHTML = temp
+
             }
-        // }
+            input_list.push('fourth-input')
+        }
 
     }, value => {
 
         // $("body [data-tippy-root]").remove()
-        // if ($('#first-preview').hasClass('get-error')) {
+        if ($('#first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('first-preview').innerHTML = first_preview_OG
             }
-        // }
-        // if ($('#second-preview').hasClass('get-error')) {
+        }
+        if ($('#second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('second-preview').innerHTML = second_preview_OG
             }
-        // }
-        // if ($('#third-preview').hasClass('get-error')) {
+        }
+        if ($('#third-preview').hasClass('get-error')) {
             if (third_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('third-preview').innerHTML = third_preview_OG
             }
-        // }
-        // if ($('#fourth-preview').hasClass('get-error')) {
+        }
+        if ($('#fourth-preview').hasClass('get-error')) {
             if (fourth_preview_OG.indexOf(value.target.innerText) > -1) {
                 document.getElementById('fourth-preview').innerHTML = fourth_preview_OG
             }
-        // }
+        }
     })
 }
+//list position preview to fix input
+let input_list = []
+
+//for only tooltip and hover error
+let errorInput
+let fixInput
+
+
+//fuction fix error input
+DeleteFirstSpacing = () => {
+    let firstLetterPosition
+    let firstSpacingError = document.getElementById('banned-2')
+    //banned
+    let errorList = banned_card.getElementsByClassName('card-error-list')[0]
+    let li = errorList.getElementsByTagName('LI')
+
+    for (let i = 0; i < li.length; i++) {
+        let item = li[i].lastChild
+        if (item == firstSpacingError) {
+            li[i].remove()
+        }
+    }
+    for (let i = 0; i < input_list.length; i++) {
+        let tmp_input = document.getElementById(input_list[i]).value
+        for (let j = 0; j < tmp_input.length; j++) {
+            if (tmp_input[j] != ' ') {
+                firstLetterPosition = j
+                break;
+            }
+        }
+        document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
+    }
+    setTimeout(() => {
+        if (li.length == 0) {
+            $('#card-no-error').removeClass('is-hidden')
+        }
+    }, 500)
+}
+
+DeletePunctuationFirst = () => {
+    let PuntuationFirst = document.getElementById('PuntuationFirst').innerHTML.replaceAll('&nbsp;', '')
+    let firstLetterPosition
+    let firstSpacingError = document.getElementById('banned-1')
+    //banned
+    let errorList = banned_card.getElementsByClassName('card-error-list')[0]
+    let li = errorList.getElementsByTagName('LI')
+    for (let i = 0; i < li.length; i++) {
+        let item = li[i].lastChild
+        if (item == firstSpacingError) {
+            let spans = li[i].getElementsByTagName('SPAN')
+            if (spans.length == 1) {
+                li[i].remove()
+            } else {
+                for (let j = 0; j < spans.length; j++) {
+                    if (spans[j].innerHTML == PuntuationFirst) {
+                        spans[j].remove()
+                    }
+                }
+            }
+        }
+    }
+
+    for (let i = 0; i < input_list.length; i++) {
+        let tmp_input = document.getElementById(input_list[i]).value
+        if (tmp_input.includes(PuntuationFirst)) {
+            for (let j = 1; j < tmp_input.length; j++) {
+                if (tmp_input[j] != ' ') {
+                    firstLetterPosition = j
+                    break;
+                }
+            }
+            document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
+        }
+    }
+    setTimeout(() => {
+        if (li.length == 0) {
+            $('#card-no-error').removeClass('is-hidden')
+        }
+    }, 500)
+}
+
+ReplacePunctuationError = () => {
+    let firstSpacingError = document.getElementById('banned-5')
+    //banned
+    let errorList = banned_card.getElementsByClassName('card-error-list')[0]
+    let li = errorList.getElementsByTagName('LI')
+    for (let i = 0; i < li.length; i++) {
+        let item = li[i].lastChild
+        if (item == firstSpacingError) {
+            let spans = li[i].getElementsByTagName('SPAN')
+            if (spans.length == 1) {
+                li[i].remove()
+            } else {
+                for (let j = 0; j < spans.length; j++) {
+                    if (spans[j].innerHTML == errorInput) {
+                        spans[j].remove()
+                    }
+                }
+            }
+        }
+    }
+
+    for (let i = 0; i < input_list.length; i++) {
+        let tmp_input = document.getElementById(input_list[i]).value
+        if (tmp_input.includes(errorInput)) {
+            tmp_input = tmp_input.replaceAll(errorInput, fixInput)
+            // let fix_index = tmp_input.indexOf(fixInput)
+            document.getElementById(input_list[i]).value = tmp_input
+        }
+    }
+    setTimeout(() => {
+        if (li.length == 0) {
+            $('#card-no-error').removeClass('is-hidden')
+        }
+    }, 500)
+}
+
+
 
 //checkbox for case TPCN
 let tpcn_case = false
@@ -3200,7 +4033,7 @@ function checkAdsFunc_mobile() {
     //warning mess
     let warn_mess_0 = 'Có viết hoa nhiều chữ cái (ngoại trừ tên riêng và danh từ riêng)'
     let warn_mess_1 = 'Sử dụng từ phản cảm, thiếu kiểm chứng:'
-    let warn_mess_2 = 'Sử dụng dấu câu sai qui cách:'
+    let warn_mess_2 = 'Sử dụng 2 dấu câu liên tiếp:'
     let warn_mess_3 = 'Sử dụng dấu ba chấm'
     let warn_mess_4 = 'Sử dụng kí tự đặc biệt:'
     let warn_mess_5 = 'Có 2 khoảng trắng liên tiếp'
@@ -3253,7 +4086,7 @@ function checkAdsFunc_mobile() {
                     if ($('#first-banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#first-banned-3 span').text().includes(item)) {
                         } else {
-                            document.getElementById('first-banned-3').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('first-banned-3').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#first-error-list").append("<li class='banned' id='first-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
@@ -3265,7 +4098,7 @@ function checkAdsFunc_mobile() {
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
                 || value_1.match(InputSpacingPuntationError_3)) {
-                if (value_1.match(InputSpacingPuntationError_4) == null) {
+                if (value_1.match(InputSpacingPuntationError_4)) {
                     // value_check_ad = true
                 } else {
                     if ($('#first-banned-5').text().indexOf(ban_mess_4) == 0) {
@@ -3295,7 +4128,7 @@ function checkAdsFunc_mobile() {
                         if ($('#first-banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#first-banned-6 span').text().includes(mistake_item)) {
                             } else {
-                                document.getElementById('first-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                document.getElementById('first-banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                             }
                         } else {
                             $("#first-error-list").append("<li class='banned' id='first-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
@@ -3332,6 +4165,18 @@ function checkAdsFunc_mobile() {
                     for (let i = 0; i < matches.length; i++) {
                         let item = matches[i]
                         if (item == '%,' || item == '%.') {
+                            let index = value_1.indexOf(item)
+                            if (value_1[index - 1] == ' ') {
+                                if ($('#first-warning-3').text().indexOf(warn_mess_2) == 0) {
+                                    if ($('#first-warning-3').text().includes(item)) {
+                                    } else {
+                                        document.getElementById('first-warning-3').innerHTML += ' <span>' + item + '</span>'
+                                    }
+                                } else {
+                                    $("#first-error-list").append("<li class='warning' id='first-warning-3'>" + warn_mess_2 + " <span>" + item + "</span></li>")
+                                }
+                            } else {
+                            }
                         } else {
                             if ($('#first-warning-3').text().indexOf(warn_mess_2) == 0) {
                                 if ($('#first-warning-3').text().includes(item)) {
@@ -3346,7 +4191,7 @@ function checkAdsFunc_mobile() {
                 }
             }
             // if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
-            //     if (value_1.match(InputSpacingPuntationError_4) == null) {
+            //     if (value_1.match(InputSpacingPuntationError_4)) {
             //     } else {
             //         if ($('#first-warning-6').text().indexOf(warn_mess_6) == 0) {
             //         } else {
@@ -3361,7 +4206,7 @@ function checkAdsFunc_mobile() {
                     if ($('#first-warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#first-warning-4 span').text().includes(item)) {
                         } else {
-                            document.getElementById('first-warning-4').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('first-warning-4').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#first-error-list").append("<li class='warning' id='first-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
@@ -3405,7 +4250,7 @@ function checkAdsFunc_mobile() {
                     if ($('#second-banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#second-banned-3 span').text().includes(item)) {
                         } else {
-                            document.getElementById('second-banned-3').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('second-banned-3').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#second-error-list").append("<li class='banned' id='second-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
@@ -3437,12 +4282,12 @@ function checkAdsFunc_mobile() {
                             }
                         }
                         //warning
-                        // if (checkFormat2(temp) == 1) {
-                        //     if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
-                        //     } else {
-                        //         $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
-                        //     }
-                        // }
+                        if (checkFormat2(temp) == 1) {
+                            if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                            }
+                        }
                     }
                 } else {
                     if (isUpperCase(value_2) == true) {
@@ -3454,16 +4299,16 @@ function checkAdsFunc_mobile() {
                             }
                         }
                     }
-                    // if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
-                    // } else {
-                    //     if (value_2.match(InputSpacingPuntationError_1)) {
-                    //     } else {
-                    //         if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
-                    //         } else {
-                    //             $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
-                    //         }
-                    //     }
-                    // }
+                    if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
+                    } else {
+                        if (value_2.match(InputSpacingPuntationError_1)) {
+                        } else {
+                            if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                            }
+                        }
+                    }
                 }
             }
 
@@ -3471,7 +4316,7 @@ function checkAdsFunc_mobile() {
                 || value_2.match(InputSpacingPuntationError_1)
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
-                if (value_2.match(InputSpacingPuntationError_4) == null) {
+                if (value_2.match(InputSpacingPuntationError_4)) {
                 } else {
                     if ($('#second-banned-5').text().indexOf(ban_mess_4) == 0) {
                     } else {
@@ -3499,7 +4344,7 @@ function checkAdsFunc_mobile() {
                         if ($('#second-banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#second-banned-6 span').text().includes(mistake_item)) {
                             } else {
-                                document.getElementById('second-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                document.getElementById('second-banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                             }
                         } else {
                             $("#second-error-list").append("<li class='banned' id='second-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
@@ -3554,7 +4399,7 @@ function checkAdsFunc_mobile() {
                 }
             }
             // if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
-            //     if (value_2.match(InputSpacingPuntationError_4) == null) {
+            //     if (value_2.match(InputSpacingPuntationError_4)) {
             //     } else {
             //         if ($('#second-warning-6').text().indexOf(warn_mess_6) == 0) {
             //         } else {
@@ -3569,7 +4414,7 @@ function checkAdsFunc_mobile() {
             //         if ($('#second-warning-4').text().indexOf(warn_mess_1) == 0) {
             //             if ($('#second-warning-4 span').text().includes(item)) {
             //             } else {
-            //                 document.getElementById('second-warning-4').innerHTML += ', <span>' + item + '</span>'
+            //                 document.getElementById('second-warning-4').innerHTML += ' <span>' + item + '</span>'
             //             }
             //         } else {
             //             $("#second-error-list").append("<li class='warning' id='second-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
@@ -3647,12 +4492,87 @@ function checkAdsFunc_mobile() {
                         || temp.match(InputSpacingPuntationError_1)
                         || temp.match(InputSpacingPuntationError_2)
                         || temp.match(InputSpacingPuntationError_3)) {
-                        if (temp.match(InputSpacingPuntationError_4) == null) {
-                        } else {
-                            if ($('#second-banned-5').text().indexOf(ban_mess_4) == 0) {
-                            } else {
-                                $("#second-error-list").append("<li class='banned' id='second-banned-5'>" + ban_mess_4 + "</li>")
+                        //error mini
+                        let list_error = []
+                        //error for preview
+                        let list_error_full = []
+
+                        //check case by case
+                        if (temp.match(InputSpacingPuntationError_0)) {
+                            let tmp = temp.match(InputSpacingPuntationError_0)
+                            for (let i = 0; i < tmp.length; i++) {
+                                list_error.push(tmp[i])
                             }
+                        }
+                        if (temp.match(InputSpacingPuntationError_1)) {
+                            let tmp = temp.match(InputSpacingPuntationError_1)
+                            for (let i = 0; i < tmp.length; i++) {
+                                // console.log(tmp[i])
+                                if (tmp[i].match(InputSpacingPuntationError_4)) {
+                                } else {
+                                    list_error.push(tmp[i])
+                                }
+
+                            }
+                        }
+                        if (temp.match(InputSpacingPuntationError_2)) {
+                            let tmp = temp.match(InputSpacingPuntationError_2)
+                            for (let i = 0; i < tmp.length; i++) {
+                                list_error.push(tmp[i])
+                            }
+                        }
+                        if (temp.match(InputSpacingPuntationError_3)) {
+                            let tmp = temp.match(InputSpacingPuntationError_3)
+                            for (let i = 0; i < tmp.length; i++) {
+                                list_error.push(tmp[i])
+                            }
+                        }
+
+                        //check list error and wrap word before/after for previewing
+                        for (let i = 0; i < list_error.length; i++) {
+
+                            let tmp_err = list_error[i]
+                            let tmp_length = tmp_err.length
+                            let tmp_index = temp.indexOf(tmp_err)
+                            let word_before = []
+                            let word_after = []
+
+                            //words before
+                            for (let j = tmp_index - 1; j >= 0; j--) {
+                                if (temp[j] == ' ') { break; }
+                                else {
+                                    word_before.push(temp[j])
+                                }
+                            }
+
+                            //words after
+                            for (let j = tmp_index + tmp_length; j < temp.length; j++) {
+                                if (temp[j] == ' ') { break; }
+                                else {
+                                    word_after.push(temp[j])
+                                }
+                            }
+                            let before = word_before.reverse().toString()
+                            let after = word_after.toString()
+                            let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                            list_error_full.push(full_err)
+                        }
+
+                        if (list_error_full.length > 0) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
+
+                            for (let i = 0; i < list_error_full.length; i++) {
+                                if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
+                                    if ($('#banned-5 span').text().includes(list_error_full[i])) {
+                                    } else {
+                                        document.getElementById('banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                                    }
+                                } else {
+                                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                                }
+                            }
+                            setTimeout(FunctionHoverWord('banned-5'), 520)
                         }
                     }
 
@@ -3682,35 +4602,35 @@ function checkAdsFunc_mobile() {
                                     }
                                 }
                                 //warning
-                                // if (checkFormat2(temp) == 1) {
-                                //     if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
-                                //     } else {
-                                //         $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
-                                //     }
-                                // }
+                                if (checkFormat2(temp) == 1) {
+                                    if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                    } else {
+                                        $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                                    }
+                                }
                             }
                         } else {
-                            // if (isUpperCase(temp) == true) {
-                            //     if (checkSensitive(temp).length > 0) {
-                            //     } else {
-                            //         if ($('#second-banned-4').text().indexOf(ban_mess_1) == 0) {
-                            //         } else {
-                            //             $("#second-error-list").append("<li class='banned' id='second-banned-4'>" + ban_mess_1 + "</li>")
-                            //         }
-                            //     }
-                            // }
-                            // if (checkSensitive(temp).length > 0) {
-                            // } else {
-                            //     if (temp.match(InputSpacingPuntationError_1)) {
+                            if (isUpperCase(temp) == true) {
+                                if (checkSensitive(temp).length > 0) {
+                                } else {
+                                    if ($('#second-banned-4').text().indexOf(ban_mess_1) == 0) {
+                                    } else {
+                                        $("#second-error-list").append("<li class='banned' id='second-banned-4'>" + ban_mess_1 + "</li>")
+                                    }
+                                }
+                            }
+                            if (checkSensitive(temp).length > 0) {
+                            } else {
+                                if (temp.match(InputSpacingPuntationError_1)) {
 
-                            //     } else {
-                            //         if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
-                            //         } else {
-                            //             $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
-                            //         }
-                            //     }
+                                } else {
+                                    if ($('#second-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                    } else {
+                                        $("#second-error-list").append("<li class='warning' id='second-warning-0'>" + warn_mess_0 + "</li>")
+                                    }
+                                }
 
-                            // }
+                            }
                         }
                     }
                 }
@@ -3747,7 +4667,7 @@ function checkAdsFunc_mobile() {
                     if ($('#third-banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#third-banned-3 span').text().includes(item)) {
                         } else {
-                            document.getElementById('third-banned-3').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('third-banned-3').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#third-error-list").append("<li class='banned' id='third-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
@@ -3779,12 +4699,12 @@ function checkAdsFunc_mobile() {
                             }
                         }
                         //warning
-                        // if (checkFormat2(temp) == 1) {
-                        //     if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
-                        //     } else {
-                        //         $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
-                        //     }
-                        // }
+                        if (checkFormat2(temp) == 1) {
+                            if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
+                            }
+                        }
                     }
                 } else {
                     if (isUpperCase(value_3) == true) {
@@ -3796,16 +4716,16 @@ function checkAdsFunc_mobile() {
                             }
                         }
                     }
-                    // if (checkSensitive(value_3).length > 0) {
-                    // } else {
-                    //     if (value_3.match(InputSpacingPuntationError_1)) {
-                    //     } else {
-                    //         if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
-                    //         } else {
-                    //             $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
-                    //         }
-                    //     }
-                    // }
+                    if (checkSensitive(value_3).length > 0) {
+                    } else {
+                        if (value_3.match(InputSpacingPuntationError_1)) {
+                        } else {
+                            if ($('#third-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#third-error-list").append("<li class='warning' id='third-warning-0'>" + warn_mess_0 + "</li>")
+                            }
+                        }
+                    }
                 }
 
             }
@@ -3813,7 +4733,7 @@ function checkAdsFunc_mobile() {
                 || value_3.match(InputSpacingPuntationError_1)
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
-                if (value_3.match(InputSpacingPuntationError_4) == null) {
+                if (value_3.match(InputSpacingPuntationError_4)) {
                     // value_check_ad = true
                 } else {
                     if ($('#third-banned-5').text().indexOf(ban_mess_4) == 0) {
@@ -3843,7 +4763,7 @@ function checkAdsFunc_mobile() {
                         if ($('#third-banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#third-banned-6 span').text().includes(mistake_item)) {
                             } else {
-                                document.getElementById('third-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                document.getElementById('third-banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                             }
                         } else {
                             $("#third-error-list").append("<li class='banned' id='third-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
@@ -3897,7 +4817,7 @@ function checkAdsFunc_mobile() {
                 }
             }
             // if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
-            //     if (value_3.match(InputSpacingPuntationError_4) == null) {
+            //     if (value_3.match(InputSpacingPuntationError_4)) {
             //     } else {
             //         if ($('#third-warning-6').text().indexOf(warn_mess_6) == 0) {
             //         } else {
@@ -3912,7 +4832,7 @@ function checkAdsFunc_mobile() {
                     if ($('#third-warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#third-warning-4 span').text().includes(item)) {
                         } else {
-                            document.getElementById('third-warning-4').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('third-warning-4').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#third-error-list").append("<li class='warning' id='third-warning-4'>" + warn_mess_1 + "  <span>" + item + "</span></li>")
@@ -3961,7 +4881,7 @@ function checkAdsFunc_mobile() {
                         if ($('#fourth-banned-3').text().indexOf(ban_mess_0) == 0) {
                             if ($('#fourth-banned-3 span').text().includes(item)) {
                             } else {
-                                document.getElementById('fourth-banned-3').innerHTML += ', <span>' + item + '</span>'
+                                document.getElementById('fourth-banned-3').innerHTML += ' <span>' + item + '</span>'
                             }
                         } else {
                             $("#fourth-error-list").append("<li class='banned'id='fourth-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></li>")
@@ -3994,12 +4914,12 @@ function checkAdsFunc_mobile() {
                                 }
                             }
                             //warning
-                            // if (checkFormat2(temp) == 1) {
-                            //     if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
-                            //     } else {
-                            //         $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
-                            //     }
-                            // }
+                            if (checkFormat2(temp) == 1) {
+                                if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                } else {
+                                    $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
+                                }
+                            }
                         }
                     } else {
                         if (isUpperCase(value_4) == true) {
@@ -4011,16 +4931,16 @@ function checkAdsFunc_mobile() {
                                 }
                             }
                         }
-                        // if (checkSensitive(value_4).length > 0) {
-                        // } else {
-                        //     if (value_4.match(InputSpacingPuntationError_1)) {
-                        //     } else {
-                        //         if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
-                        //         } else {
-                        //             $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
-                        //         }
-                        //     }
-                        // }
+                        if (checkSensitive(value_4).length > 0) {
+                        } else {
+                            if (value_4.match(InputSpacingPuntationError_1)) {
+                            } else {
+                                if ($('#fourth-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                } else {
+                                    $("#fourth-error-list").append("<li class='warning' id='fourth-warning-0'>" + warn_mess_0 + "</li>")
+                                }
+                            }
+                        }
                     }
 
                 }
@@ -4028,7 +4948,7 @@ function checkAdsFunc_mobile() {
                     || value_4.match(InputSpacingPuntationError_1)
                     || value_4.match(InputSpacingPuntationError_2)
                     || value_4.match(InputSpacingPuntationError_3)) {
-                    if (value_4.match(InputSpacingPuntationError_4) == null) {
+                    if (value_4.match(InputSpacingPuntationError_4)) {
                         // value_check_ad = true
                     } else {
                         if ($('#fourth-banned-5').text().indexOf(ban_mess_4) == 0) {
@@ -4058,7 +4978,7 @@ function checkAdsFunc_mobile() {
                             if ($('#fourth-banned-6').text().indexOf(ban_mess_6) == 0) {
                                 if ($('#fourth-banned-6 span').text().includes(mistake_item)) {
                                 } else {
-                                    document.getElementById('fourth-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                    document.getElementById('fourth-banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                                 }
                             } else {
                                 $("#fourth-error-list").append("<li class='banned' id='fourth-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></li>")
@@ -4123,7 +5043,7 @@ function checkAdsFunc_mobile() {
                         if ($('#fourth-warning-4').text().indexOf(warn_mess_1) == 0) {
                             if ($('#warning-4 span').text().includes(item)) {
                             } else {
-                                document.getElementById('fourth-warning-4').innerHTML += ', <span>' + item + '</span>'
+                                document.getElementById('fourth-warning-4').innerHTML += ' <span>' + item + '</span>'
                             }
                         } else {
                             $("#fourth-error-list").append("<li class='warning' id='fourth-warning-4'>" + warn_mess_1 + " <span>" + item + "</span></li>")
@@ -4419,8 +5339,8 @@ $('#normal-ads-button').click(function () {
     // $('.policy-bottom-desc').removeClass('is-hidden')
 
     let flying_button_check = document.getElementById('flying-button')
-    if(flying_button_check.style.bottom == '40px'){
-        flying_button_check.style.opacity  = 1
+    if (flying_button_check.style.bottom == '40px') {
+        flying_button_check.style.opacity = 1
     }
 })
 
@@ -4432,10 +5352,17 @@ $('#form-ads-button').click(function () {
     normal_ad_preview.classList.add('is-hidden')
     form_ad_preview.classList.remove('is-hidden')
     // $('.policy-bottom-desc').addClass('is-hidden')
-    
+
     let flying_button_check = document.getElementById('flying-button')
-    if(flying_button_check.style.bottom == '40px'){
-        flying_button_check.style.opacity  = 0
+    if (flying_button_check.style.bottom == '40px') {
+        flying_button_check.style.opacity = 0
+    }
+    if ($("html").hasClass("overlay-modal")) {
+        $("html").removeClass("overlay-modal");
+    }
+    if ($(this).hasClass("introduce-button")) {
+        $(this).removeClass("introduce-button");
+        setCookie('check_form_used', 'form used', 365)
     }
 })
 
@@ -4463,7 +5390,7 @@ const third_content_preview_form = document.getElementById('form-oa-preview')
 
 
 function focusFormFirstInput() {
-    third_input_form.scrollIntoView({behavior: "smooth", block: "end", inline: "center"})
+    third_input_form.scrollIntoView({ behavior: "smooth", block: "end", inline: "center" })
     third_input_form.focus()
 }
 first_input_form.oninput = value => {
@@ -4517,7 +5444,7 @@ second_input_form.oninput = value => {
             banned_card_form.classList.add('is-hidden')
             warning_card_form.classList.add('is-hidden')
         }
-        if(second_input_form.value.length >= 100){
+        if (second_input_form.value.length >= 100) {
             second_input_form.style.height = '120px'
             second_input_form.style.maxHeight = 'unset'
         } else {
@@ -4575,7 +5502,7 @@ third_input_form.oninput = value => {
 }
 
 first_input_form.onfocus = () => {
-    first_content_preview_form.classList.contains('get-error') == true ? first_content_preview_form.classList.remove('get-error') : null
+    // first_content_preview_form.classList.contains('get-error') == true ? first_content_preview_form.classList.remove('get-error') : null
     first_content_preview_form.classList.add('preview-focus')
     second_content_preview_form.classList.remove('preview-focus')
     third_content_preview_form.classList.remove('preview-focus')
@@ -4584,7 +5511,7 @@ first_input_form.onblur = () => {
     first_content_preview_form.classList.toggle('preview-focus')
 }
 second_input_form.onfocus = () => {
-    second_content_preview_form.classList.contains('get-error') == true ? second_content_preview_form.classList.remove('get-error') : null
+    // second_content_preview_form.classList.contains('get-error') == true ? second_content_preview_form.classList.remove('get-error') : null
     second_content_preview_form.classList.add('preview-focus')
     first_content_preview_form.classList.remove('preview-focus')
     third_content_preview_form.classList.remove('preview-focus')
@@ -4593,7 +5520,7 @@ second_input_form.onblur = () => {
     second_content_preview_form.classList.toggle('preview-focus')
 }
 third_input_form.onfocus = () => {
-    third_content_preview_form.classList.contains('get-error') == true ? third_content_preview_form.classList.remove('get-error') : null
+    // third_content_preview_form.classList.contains('get-error') == true ? third_content_preview_form.classList.remove('get-error') : null
     third_content_preview_form.classList.add('preview-focus')
     second_content_preview_form.classList.remove('preview-focus')
     first_content_preview_form.classList.remove('preview-focus')
@@ -4656,7 +5583,7 @@ function checkAdsFunc_form() {
     //warning mess
     let warn_mess_0 = 'Có viết hoa nhiều chữ cái (ngoại trừ tên riêng và danh từ riêng)'
     let warn_mess_1 = 'Sử dụng từ phản cảm, thiếu kiểm chứng:'
-    let warn_mess_2 = 'Sử dụng dấu câu sai qui cách:'
+    let warn_mess_2 = 'Sử dụng 2 dấu câu liên tiếp:'
     let warn_mess_3 = 'Sử dụng dấu ba chấm'
     let warn_mess_4 = 'Sử dụng kí tự đặc biệt:'
     let warn_mess_5 = 'Có 2 khoảng trắng liên tiếp'
@@ -4698,26 +5625,51 @@ function checkAdsFunc_form() {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
                 value_check_ad = false
 
-                if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
-                } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-0'>" + ban_mess_3 + "</p></li>")
+                let first_word_list = []
+                let first_word_wrap
+
+                for (let i = 0; i <= value_1.length; i++) {
+                    if (value_1[i] == ' ') {
+                        break;
+                    } else {
+                        first_word_list.push(value_1[i])
+                    }
                 }
+                first_word_wrap = first_word_list.toString()
+                let tmp = first_word_wrap.replaceAll(',', '')
+
+                if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
+                    if ($('#form-banned-0 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('form-banned-0').innerHTML += ' <span>' + tmp + '</span>'
+                    }
+                } else {
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
+                }
+                setTimeout(FunctionHoverWord_form('form-banned-0', 'UppercaseFirst'), 520)
             }
             if (value_1.charAt(0).match(InputFormatNoPuntuation) == null && value_1.charAt(0) != ' ') {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
                 value_check_ad = false
                 if ($('#form-banned-1').text().indexOf(ban_mess_5) == 0) {
+                    if ($('#form-banned-1 span').text().includes(value_1.charAt(0))) {
+                    } else {
+                        document.getElementById('form-banned-1').innerHTML += ' <span>' + value_1.charAt(0) + '</span>'
+                    }
                 } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-1'>" + ban_mess_5 + "</p></li>")
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + value_1.charAt(0) + "</span></p></li>")
                 }
+
+                setTimeout(FunctionHoverWord_form('banned-1', 'PuntuationFirst'), 520)
             }
             if (value_1.charAt(0) == ' ') {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
                 value_check_ad = false
                 if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
                 } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'>" + ban_mess_2 + "</p></li>")
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'><span>" + ban_mess_2 + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord_form('banned-1', 'PuntuationFirst'), 520)
             }
             if (checkPolicy(value_1).length > 0) {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
@@ -4729,28 +5681,100 @@ function checkAdsFunc_form() {
                     if ($('#form-banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#form-banned-3 span').text().includes(item)) {
                         } else {
-                            document.getElementById('form-banned-3').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('form-banned-3').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
                     }
                 }
-                setTimeout(FunctionHoverWord_form('form-banned-3'), 520)
+                setTimeout(FunctionHoverWord_form('form-banned-3', 'BanWord'), 520)
             }
-            
+
             if (value_1.match(InputSpacingPuntationError_0)
                 || value_1.match(InputSpacingPuntationError_1)
                 || value_1.match(InputSpacingPuntationError_2)
                 || value_1.match(InputSpacingPuntationError_3)) {
-                if (value_1.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_ad = true
-                } else {
-                    first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#form-banned-5').text().indexOf(ban_mess_4) == 0) {
-                    } else {
-                        $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + "</p></li>")
+                //error mini
+                let list_error = []
+                //error for preview
+                let list_error_full = []
+
+                //check case by case
+                if (value_1.match(InputSpacingPuntationError_0)) {
+                    let tmp = value_1.match(InputSpacingPuntationError_0)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
                     }
+                }
+                if (value_1.match(InputSpacingPuntationError_1)) {
+                    let tmp = value_1.match(InputSpacingPuntationError_1)
+                    for (let i = 0; i < tmp.length; i++) {
+                        // console.log(tmp[i])
+                        if (tmp[i].match(InputSpacingPuntationError_4)) {
+                        } else {
+                            list_error.push(tmp[i])
+                        }
+
+                    }
+                }
+                if (value_1.match(InputSpacingPuntationError_2)) {
+                    let tmp = value_1.match(InputSpacingPuntationError_2)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_1.match(InputSpacingPuntationError_3)) {
+                    let tmp = value_1.match(InputSpacingPuntationError_3)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+
+                //check list error and wrap word before/after for previewing
+                for (let i = 0; i < list_error.length; i++) {
+
+                    let tmp_err = list_error[i]
+                    let tmp_length = tmp_err.length
+                    let tmp_index = value_1.indexOf(tmp_err)
+                    let word_before = []
+                    let word_after = []
+
+                    //words before
+                    for (let j = tmp_index - 1; j >= 0; j--) {
+                        if (value_1[j] == ' ') { break; }
+                        else {
+                            word_before.push(value_1[j])
+                        }
+                    }
+
+                    //words after
+                    for (let j = tmp_index + tmp_length; j < value_1.length; j++) {
+                        if (value_1[j] == ' ') { break; }
+                        else {
+                            word_after.push(value_1[j])
+                        }
+                    }
+                    let before = word_before.reverse().toString()
+                    let after = word_after.toString()
+                    let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                    list_error_full.push(full_err)
+                }
+
+                if (list_error_full.length > 0) {
+                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    value_check_ad = false
+
+                    for (let i = 0; i < list_error_full.length; i++) {
+                        if ($('#form-banned-5').text().indexOf(ban_mess_4) == 0) {
+                            if ($('#form-banned-5 span').text().includes(list_error_full[i])) {
+                            } else {
+                                document.getElementById('form-banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                            }
+                        } else {
+                            $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                        }
+                    }
+                    setTimeout(FunctionHoverWord_form('form-banned-5', 'PunctuationError'), 520)
                 }
 
             }
@@ -4763,6 +5787,7 @@ function checkAdsFunc_form() {
                 list_mistakes = resp.result[0].mistakes.reverse()
                 let mistake_item
                 let fixed_item
+                let start_offset
                 if (list_mistakes.length > 0) {
                     first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
                     value_check_ad = false
@@ -4770,14 +5795,16 @@ function checkAdsFunc_form() {
                     for (let i = 0; i < list_mistakes.length; i++) {
                         mistake_item = list_mistakes[i].text
                         fixed_item = list_mistakes[i].suggest[0][0]
+                        start_offset = list_mistakes[i].start_offset
                         fixed_list.push({
-                            mistake_item: mistake_item,
-                            fixed_item: fixed_item
+                            mistake_item,
+                            fixed_item,
+                            start_offset,
                         })
                         if ($('#form-banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#form-banned-6 span').text().includes(mistake_item)) {
                             } else {
-                                document.getElementById('form-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                document.getElementById('form-banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                             }
                         } else {
                             $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
@@ -4848,7 +5875,7 @@ function checkAdsFunc_form() {
                 }
             }
             // if (value_1.match(InputLinkWeb) || value_1.match(InputPhoneNumber)) {
-            //     if (value_1.match(InputSpacingPuntationError_4) == null) {
+            //     if (value_1.match(InputSpacingPuntationError_4)) {
             //     } else {
             //         first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
             //         warning_card_form.classList.remove('is-hidden')
@@ -4869,7 +5896,7 @@ function checkAdsFunc_form() {
                     if ($('#form-warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#form-warning-4 span').text().includes(item)) {
                         } else {
-                            document.getElementById('form-warning-4').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('form-warning-4').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         count_warning += 1
@@ -4895,26 +5922,50 @@ function checkAdsFunc_form() {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                 value_check_ad = false
 
-                if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
-                } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-0'>" + ban_mess_3 + "</p></li>")
+                let first_word_list = []
+                let first_word_wrap
+
+                for (let i = 0; i <= value_2.length; i++) {
+                    if (value_2[i] == ' ') {
+                        break;
+                    } else {
+                        first_word_list.push(value_2[i])
+                    }
                 }
+                first_word_wrap = first_word_list.toString()
+                let tmp = first_word_wrap.replaceAll(',', '')
+
+                if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
+                    if ($('#form-banned-0 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('form-banned-0').innerHTML += ' <span>' + tmp + '</span>'
+                    }
+                } else {
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
+                }
+                setTimeout(FunctionHoverWord_form('form-banned-0', 'UppercaseFirst'), 520)
             }
             if (value_2.charAt(0).match(InputFormatNoPuntuation) == null && value_2.charAt(0) != ' ') {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                 value_check_ad = false
                 if ($('#form-banned-1').text().indexOf(ban_mess_5) == 0) {
+                    if ($('#form-banned-1 span').text().includes(value_2.charAt(0))) {
+                    } else {
+                        document.getElementById('form-banned-1').innerHTML += ' <span>' + value_2.charAt(0) + '</span>'
+                    }
                 } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-1'>" + ban_mess_5 + "</p></li>")
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + value_2.charAt(0) + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord_form('form-banned-1', 'PuntuationFirst'), 520)
             }
             if (value_2.charAt(0) == ' ') {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                 value_check_ad = false
                 if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
                 } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'>" + ban_mess_2 + "</p></li>")
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'><span>" + ban_mess_2 + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord_form('form-banned-2', 'SpaceFirst'), 520)
             }
             if (checkPolicy(value_2).length > 0) {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
@@ -4925,7 +5976,7 @@ function checkAdsFunc_form() {
                     if ($('#form-banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#form-banned-3 span').text().includes(item)) {
                         } else {
-                            document.getElementById('form-banned-3').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('form-banned-3').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
@@ -4960,15 +6011,15 @@ function checkAdsFunc_form() {
                             }
                         }
                         //warning
-                        // if (checkFormat2(temp) == 1) {
-                        //     second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                        //     warning_card_form.classList.remove('is-hidden')
-                        //     if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
-                        //     } else {
-                        //         $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
-                        //         count_warning += 1
-                        //     }
-                        // }
+                        if (checkFormat2(temp) == 1) {
+                            second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
+                            warning_card_form.classList.remove('is-hidden')
+                            if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
+                                count_warning += 1
+                            }
+                        }
                     }
                 } else {
                     if (isUpperCase(value_2) == true) {
@@ -4982,20 +6033,20 @@ function checkAdsFunc_form() {
                             }
                         }
                     }
-                    // if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
-                    // } else {
-                    //     if (value_2.match(InputSpacingPuntationError_1)) {
+                    if (checkSensitive(value_2).length > 0 || value_2.includes('\n')) {
+                    } else {
+                        if (value_2.match(InputSpacingPuntationError_1)) {
 
-                    //     } else {
-                    //         second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                    //         warning_card_form.classList.remove('is-hidden')
-                    //         if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
-                    //         } else {
-                    //             $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
-                    //             count_warning += 1
-                    //         }
-                    //     }
-                    // }
+                        } else {
+                            second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
+                            warning_card_form.classList.remove('is-hidden')
+                            if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
+                            } else {
+                                $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
+                                count_warning += 1
+                            }
+                        }
+                    }
                 }
             }
 
@@ -5003,15 +6054,87 @@ function checkAdsFunc_form() {
                 || value_2.match(InputSpacingPuntationError_1)
                 || value_2.match(InputSpacingPuntationError_2)
                 || value_2.match(InputSpacingPuntationError_3)) {
-                if (value_2.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_ad = true
-                } else {
-                    second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#form-banned-5').text().indexOf(ban_mess_4) == 0) {
-                    } else {
-                        $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + "</p></li>")
+                //error mini
+                let list_error = []
+                //error for preview
+                let list_error_full = []
+
+                //check case by case
+                if (value_2.match(InputSpacingPuntationError_0)) {
+                    let tmp = value_2.match(InputSpacingPuntationError_0)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
                     }
+                }
+                if (value_2.match(InputSpacingPuntationError_1)) {
+                    let tmp = value_2.match(InputSpacingPuntationError_1)
+                    for (let i = 0; i < tmp.length; i++) {
+                        // console.log(tmp[i])
+                        if (tmp[i].match(InputSpacingPuntationError_4)) {
+                        } else {
+                            list_error.push(tmp[i])
+                        }
+
+                    }
+                }
+                if (value_2.match(InputSpacingPuntationError_2)) {
+                    let tmp = value_2.match(InputSpacingPuntationError_2)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_2.match(InputSpacingPuntationError_3)) {
+                    let tmp = value_2.match(InputSpacingPuntationError_3)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+
+                //check list error and wrap word before/after for previewing
+                for (let i = 0; i < list_error.length; i++) {
+
+                    let tmp_err = list_error[i]
+                    let tmp_length = tmp_err.length
+                    let tmp_index = value_2.indexOf(tmp_err)
+                    let word_before = []
+                    let word_after = []
+
+                    //words before
+                    for (let j = tmp_index - 1; j >= 0; j--) {
+                        if (value_2[j] == ' ') { break; }
+                        else {
+                            word_before.push(value_2[j])
+                        }
+                    }
+
+                    //words after
+                    for (let j = tmp_index + tmp_length; j < value_2.length; j++) {
+                        if (value_2[j] == ' ') { break; }
+                        else {
+                            word_after.push(value_2[j])
+                        }
+                    }
+                    let before = word_before.reverse().toString()
+                    let after = word_after.toString()
+                    let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                    list_error_full.push(full_err)
+                }
+
+                if (list_error_full.length > 0) {
+                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    value_check_ad = false
+
+                    for (let i = 0; i < list_error_full.length; i++) {
+                        if ($('#form-banned-5').text().indexOf(ban_mess_4) == 0) {
+                            if ($('#form-banned-5 span').text().includes(list_error_full[i])) {
+                            } else {
+                                document.getElementById('form-banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                            }
+                        } else {
+                            $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                        }
+                    }
+                    setTimeout(FunctionHoverWord_form('form-banned-5', PunctuationError), 520)
                 }
             }
 
@@ -5037,7 +6160,7 @@ function checkAdsFunc_form() {
                         if ($('#form-banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#form-banned-6 span').text().includes(mistake_item)) {
                             } else {
-                                document.getElementById('form-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                document.getElementById('form-banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                             }
                         } else {
                             $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
@@ -5111,7 +6234,7 @@ function checkAdsFunc_form() {
                 }
             }
             // if (value_2.match(InputLinkWeb) || value_2.match(InputPhoneNumber)) {
-            //     if (value_2.match(InputSpacingPuntationError_4) == null) {
+            //     if (value_2.match(InputSpacingPuntationError_4)) {
             //     } else {
             //         second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
             //         warning_card_form.classList.remove('is-hidden')
@@ -5132,7 +6255,7 @@ function checkAdsFunc_form() {
                     if ($('#form-warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#form-warning-4 span').text().includes(item)) {
                         } else {
-                            document.getElementById('form-warning-4').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('form-warning-4').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         count_warning += 1
@@ -5185,10 +6308,29 @@ function checkAdsFunc_form() {
                         second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                         value_check_ad = false
 
-                        if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
-                        } else {
-                            $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-0'>" + ban_mess_3 + "</p></li>")
+                        let first_word_list = []
+                        let first_word_wrap
+
+                        for (let i = 0; i <= temp.length; i++) {
+                            if (temp[i] == ' ') {
+                                break;
+                            } else {
+                                first_word_list.push(temp[i])
+                            }
                         }
+                        first_word_wrap = first_word_list.toString()
+                        let tmp = first_word_wrap.replaceAll(',', '')
+
+                        if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
+                            if ($('#form-banned-0 span').text().includes(tmp)) {
+                            } else {
+                                document.getElementById('form-banned-0').innerHTML += ' <span>' + tmp + '</span>'
+                            }
+                        } else {
+                            $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
+                        }
+                        setTimeout(FunctionHoverWord('form-banned-0', 'UppercaseFirst'), 520)
+
                     }
                     if (temp.charAt(0).match(InputFormatNoPuntuation) == null && temp.charAt(0) != ' ') {
                         if (temp.length <= 1) {
@@ -5196,9 +6338,14 @@ function checkAdsFunc_form() {
                             second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                             value_check_ad = false
                             if ($('#form-banned-1').text().indexOf(ban_mess_5) == 0) {
+                                if ($('#form-banned-1 span').text().includes(temp.charAt(0))) {
+                                } else {
+                                    document.getElementById('form-banned-1').innerHTML += ' <span>' + temp.charAt(0) + '</span>'
+                                }
                             } else {
-                                $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-1'>" + ban_mess_5 + "</p></li>")
+                                $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + temp.charAt(0) + "</span></p></li>")
                             }
+                            setTimeout(FunctionHoverWord('form-banned-1', 'PuntuationFirst'), 520)
                         }
                     }
                     if (temp.charAt(0) == ' ') {
@@ -5209,23 +6356,96 @@ function checkAdsFunc_form() {
                             value_check_ad = false
                             if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
                             } else {
-                                $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'>" + ban_mess_2 + "</p></li>")
+                                $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'><span>" + ban_mess_2 + "</span></p></li>")
                             }
+                            setTimeout(FunctionHoverWord('form-banned-2', 'SpaceFirst'), 520)
                         }
                     }
                     if (temp.match(InputSpacingPuntationError_0)
                         || temp.match(InputSpacingPuntationError_1)
                         || temp.match(InputSpacingPuntationError_2)
                         || temp.match(InputSpacingPuntationError_3)) {
-                        if (temp.match(InputSpacingPuntationError_4) == null) {
-                            // value_check_ad = true
-                        } else {
-                            second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                            value_check_ad = false
-                            if ($('#form-banned-5').text().indexOf(ban_mess_4) == 0) {
-                            } else {
-                                $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + "</p></li>")
+                        //error mini
+                        let list_error = []
+                        //error for preview
+                        let list_error_full = []
+
+                        //check case by case
+                        if (temp.match(InputSpacingPuntationError_0)) {
+                            let tmp = temp.match(InputSpacingPuntationError_0)
+                            for (let i = 0; i < tmp.length; i++) {
+                                list_error.push(tmp[i])
                             }
+                        }
+                        if (temp.match(InputSpacingPuntationError_1)) {
+                            let tmp = temp.match(InputSpacingPuntationError_1)
+                            for (let i = 0; i < tmp.length; i++) {
+                                // console.log(tmp[i])
+                                if (tmp[i].match(InputSpacingPuntationError_4)) {
+                                } else {
+                                    list_error.push(tmp[i])
+                                }
+
+                            }
+                        }
+                        if (temp.match(InputSpacingPuntationError_2)) {
+                            let tmp = temp.match(InputSpacingPuntationError_2)
+                            for (let i = 0; i < tmp.length; i++) {
+                                list_error.push(tmp[i])
+                            }
+                        }
+                        if (temp.match(InputSpacingPuntationError_3)) {
+                            let tmp = temp.match(InputSpacingPuntationError_3)
+                            for (let i = 0; i < tmp.length; i++) {
+                                list_error.push(tmp[i])
+                            }
+                        }
+
+                        //check list error and wrap word before/after for previewing
+                        for (let i = 0; i < list_error.length; i++) {
+
+                            let tmp_err = list_error[i]
+                            let tmp_length = tmp_err.length
+                            let tmp_index = temp.indexOf(tmp_err)
+                            let word_before = []
+                            let word_after = []
+
+                            //words before
+                            for (let j = tmp_index - 1; j >= 0; j--) {
+                                if (temp[j] == ' ') { break; }
+                                else {
+                                    word_before.push(temp[j])
+                                }
+                            }
+
+                            //words after
+                            for (let j = tmp_index + tmp_length; j < temp.length; j++) {
+                                if (temp[j] == ' ') { break; }
+                                else {
+                                    word_after.push(temp[j])
+                                }
+                            }
+                            let before = word_before.reverse().toString()
+                            let after = word_after.toString()
+                            let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                            list_error_full.push(full_err)
+                        }
+
+                        if (list_error_full.length > 0) {
+                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            value_check_ad = false
+
+                            for (let i = 0; i < list_error_full.length; i++) {
+                                if ($('#form-banned-5').text().indexOf(ban_mess_4) == 0) {
+                                    if ($('#form-banned-5 span').text().includes(list_error_full[i])) {
+                                    } else {
+                                        document.getElementById('form-banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                                    }
+                                } else {
+                                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                                }
+                            }
+                            setTimeout(FunctionHoverWord_form('form-banned-5', 'PunctuationError'), 520)
                         }
                     }
 
@@ -5257,43 +6477,43 @@ function checkAdsFunc_form() {
                                     }
                                 }
                                 //warning
-                                // if (checkFormat2(temp) == 1) {
-                                //     second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                                //     warning_card_form.classList.remove('is-hidden')
-                                //     if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
-                                //     } else {
-                                //         $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
-                                //         count_warning += 1
-                                //     }
-                                // }
+                                if (checkFormat2(temp) == 1) {
+                                    second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
+                                    warning_card_form.classList.remove('is-hidden')
+                                    if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                    } else {
+                                        $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
+                                        count_warning += 1
+                                    }
+                                }
                             }
                         } else {
-                            // if (isUpperCase(temp) == true) {
-                            //     if (checkSensitive(temp).length > 0) {
-                            //     } else {
-                            //         second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                            //         value_check_ad = false
-                            //         if ($('#form-banned-4').text().indexOf(ban_mess_1) == 0) {
-                            //         } else {
-                            //             $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-4'>" + ban_mess_1 + "</p></li>")
-                            //         }
-                            //     }
-                            // }
-                            // if (checkSensitive(temp).length > 0) {
-                            // } else {
-                            //     if (temp.match(InputSpacingPuntationError_1)) {
+                            if (isUpperCase(temp) == true) {
+                                if (checkSensitive(temp).length > 0) {
+                                } else {
+                                    second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
+                                    value_check_ad = false
+                                    if ($('#form-banned-4').text().indexOf(ban_mess_1) == 0) {
+                                    } else {
+                                        $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-4'>" + ban_mess_1 + "</p></li>")
+                                    }
+                                }
+                            }
+                            if (checkSensitive(temp).length > 0) {
+                            } else {
+                                if (temp.match(InputSpacingPuntationError_1)) {
 
-                            //     } else {
-                            //         second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
-                            //         warning_card_form.classList.remove('is-hidden')
-                            //         if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
-                            //         } else {
-                            //             $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
-                            //             count_warning += 1
-                            //         }
-                            //     }
+                                } else {
+                                    second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
+                                    warning_card_form.classList.remove('is-hidden')
+                                    if ($('#form-warning-0').text().indexOf(warn_mess_0) == 0) {
+                                    } else {
+                                        $("#form-alert-card-second .card-error-list ul").append("<li><p id='form-warning-0'>" + warn_mess_0 + "</p></li>")
+                                        count_warning += 1
+                                    }
+                                }
 
-                            // }
+                            }
                         }
                     }
                 }
@@ -5308,26 +6528,50 @@ function checkAdsFunc_form() {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
                 value_check_ad = false
 
-                if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
-                } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-0'>" + ban_mess_3 + "</p></li>")
+                let first_word_list = []
+                let first_word_wrap
+
+                for (let i = 0; i <= value_3.length; i++) {
+                    if (value_3[i] == ' ') {
+                        break;
+                    } else {
+                        first_word_list.push(value_3[i])
+                    }
                 }
+                first_word_wrap = first_word_list.toString()
+                let tmp = first_word_wrap.replaceAll(',', '')
+
+                if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
+                    if ($('#form-banned-0 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('form-banned-0').innerHTML += ' <span>' + tmp + '</span>'
+                    }
+                } else {
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
+                }
+                setTimeout(FunctionHoverWord('form-banned-0', 'UppercaseFirst'), 520)
             }
             if (value_3.charAt(0).match(InputFormatNoPuntuation) == null && value_3.charAt(0) != ' ') {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
                 value_check_ad = false
                 if ($('#form-banned-1').text().indexOf(ban_mess_5) == 0) {
+                    if ($('#form-banned-1 span').text().includes(value_3.charAt(0))) {
+                    } else {
+                        document.getElementById('form-banned-1').innerHTML += ' <span>' + value_3.charAt(0) + '</span>'
+                    }
                 } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-1'>" + ban_mess_5 + "</p></li>")
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + value_3.charAt(0) + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord('form-banned-1', 'PuntuationFirst'), 520)
             }
             if (value_3.charAt(0) == ' ') {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
                 value_check_ad = false
                 if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
                 } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'>" + ban_mess_2 + "</p></li>")
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'><span>" + ban_mess_2 + "</span></p></li>")
                 }
+                setTimeout(FunctionHoverWord('form-banned-2', 'SpaceFirst'), 520)
             }
             if (checkPolicy(value_3).length > 0) {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
@@ -5339,7 +6583,7 @@ function checkAdsFunc_form() {
                     if ($('#form-banned-3').text().indexOf(ban_mess_0) == 0) {
                         if ($('#form-banned-3 span').text().includes(item)) {
                         } else {
-                            document.getElementById('form-banned-3').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('form-banned-3').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-3'>" + ban_mess_0 + " <span>" + item + "</span></p></li>")
@@ -5352,17 +6596,89 @@ function checkAdsFunc_form() {
                 || value_3.match(InputSpacingPuntationError_1)
                 || value_3.match(InputSpacingPuntationError_2)
                 || value_3.match(InputSpacingPuntationError_3)) {
-                if (value_3.match(InputSpacingPuntationError_4) == null) {
-                    // value_check_ad = true
-                } else {
-                    third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
-                    value_check_ad = false
-                    if ($('#form-banned-5').text().indexOf(ban_mess_4) == 0) {
-                    } else {
-                        $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + "</p></li>")
+
+                //error mini
+                let list_error = []
+                //error for preview
+                let list_error_full = []
+
+                //check case by case
+                if (value_3.match(InputSpacingPuntationError_0)) {
+                    let tmp = value_3.match(InputSpacingPuntationError_0)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_3.match(InputSpacingPuntationError_1)) {
+                    let tmp = value_3.match(InputSpacingPuntationError_1)
+                    for (let i = 0; i < tmp.length; i++) {
+                        // console.log(tmp[i])
+                        if (tmp[i].match(InputSpacingPuntationError_4)) {
+                        } else {
+                            list_error.push(tmp[i])
+                        }
+
+                    }
+                }
+                if (value_3.match(InputSpacingPuntationError_2)) {
+                    let tmp = value_3.match(InputSpacingPuntationError_2)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
+                    }
+                }
+                if (value_3.match(InputSpacingPuntationError_3)) {
+                    let tmp = value_3.match(InputSpacingPuntationError_3)
+                    for (let i = 0; i < tmp.length; i++) {
+                        list_error.push(tmp[i])
                     }
                 }
 
+                //check list error and wrap word before/after for previewing
+                for (let i = 0; i < list_error.length; i++) {
+
+                    let tmp_err = list_error[i]
+                    let tmp_length = tmp_err.length
+                    let tmp_index = value_3.indexOf(tmp_err)
+                    let word_before = []
+                    let word_after = []
+
+                    //words before
+                    for (let j = tmp_index - 1; j >= 0; j--) {
+                        if (value_3[j] == ' ') { break; }
+                        else {
+                            word_before.push(value_3[j])
+                        }
+                    }
+
+                    //words after
+                    for (let j = tmp_index + tmp_length; j < value_3.length; j++) {
+                        if (value_3[j] == ' ') { break; }
+                        else {
+                            word_after.push(value_3[j])
+                        }
+                    }
+                    let before = word_before.reverse().toString()
+                    let after = word_after.toString()
+                    let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
+                    list_error_full.push(full_err)
+                }
+
+                if (list_error_full.length > 0) {
+                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    value_check_ad = false
+
+                    for (let i = 0; i < list_error_full.length; i++) {
+                        if ($('#form-banned-5').text().indexOf(ban_mess_4) == 0) {
+                            if ($('#form-banned-5 span').text().includes(list_error_full[i])) {
+                            } else {
+                                document.getElementById('form-banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
+                            }
+                        } else {
+                            $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
+                        }
+                    }
+                    setTimeout(FunctionHoverWord_form('form-banned-5','PunctuationError'), 520)
+                }
             }
 
             //test spelling aka kiem tra chinh ta
@@ -5387,7 +6703,7 @@ function checkAdsFunc_form() {
                         if ($('#form-banned-6').text().indexOf(ban_mess_6) == 0) {
                             if ($('#form-banned-6 span').text().includes(mistake_item)) {
                             } else {
-                                document.getElementById('form-banned-6').innerHTML += ', <span>' + mistake_item + '</span>'
+                                document.getElementById('form-banned-6').innerHTML += ' <span>' + mistake_item + '</span>'
                             }
                         } else {
                             $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-6'>" + ban_mess_6 + " <span>" + mistake_item + "</span></p></li>")
@@ -5458,7 +6774,7 @@ function checkAdsFunc_form() {
                 }
             }
             // if (value_3.match(InputLinkWeb) || value_3.match(InputPhoneNumber)) {
-            //     if (value_3.match(InputSpacingPuntationError_4) == null) {
+            //     if (value_3.match(InputSpacingPuntationError_4)) {
             //     } else {
             //         third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
             //         warning_card_form.classList.remove('is-hidden')
@@ -5479,7 +6795,7 @@ function checkAdsFunc_form() {
                     if ($('#form-warning-4').text().indexOf(warn_mess_1) == 0) {
                         if ($('#form-warning-4 span').text().includes(item)) {
                         } else {
-                            document.getElementById('form-warning-4').innerHTML += ', <span>' + item + '</span>'
+                            document.getElementById('form-warning-4').innerHTML += ' <span>' + item + '</span>'
                         }
                     } else {
                         count_warning += 1
@@ -5506,16 +6822,6 @@ function checkAdsFunc_form() {
                 // $('#form-alert-card-first .card-error-list').append('<p id="no-error-mess">Không phát hiện lỗi nào trong nội dung quảng cáo của bạn.</p>')
             }
         }, 500)
-        if (count_warning > 0) {
-            console.log(count_warning)
-            $('#form-warning-tip span').html(count_warning + ' ')
-            tippy('#form-warning-tip', {
-                content: '<div class="tippy-block"><p style="font-weight: normal; margin-bottom: 0;"><b>Gợi ý chỉnh sửa</b> là những nội dung nghi ngờ vi phạm qui định quảng cáo. Bỏ qua nếu bạn chắc rằng những gợi ý này không chính xác</p></div>',
-                allowHTML: true,
-                maxWidth: 250,
-                theme: 'zad1',
-            });
-        }
 
         //check user rated or not
         let had_rated = getCookie('has_rated')
@@ -5524,11 +6830,22 @@ function checkAdsFunc_form() {
             // set cookie for showing rating block
             setCookie('has_validated', 'validated', 30)
         }
-
     }, 500);
+    setTimeout(() => {
+        if (count_warning > 0) {
+            // console.log(count_warning)
+            $('#form-warning-tip span').html(count_warning + ' ')
+            tippy('#form-warning-tip', {
+                content: '<div class="tippy-block"><p style="font-weight: normal; margin-bottom: 0;"><b>Gợi ý chỉnh sửa</b> là những nội dung nghi ngờ vi phạm qui định quảng cáo. Bỏ qua nếu bạn chắc rằng những gợi ý này không chính xác</p></div>',
+                allowHTML: true,
+                maxWidth: 250,
+                theme: 'zad1',
+            });
+        }
+    }, 550)
 }
 
-FunctionHoverWord_form = (id) => {
+FunctionHoverWord_form = (id, fixedType) => {
     let first_preview_OG = document.getElementById('form-first-preview').innerHTML;
     let second_preview_OG = document.getElementById('form-second-preview').innerHTML;
     let third_preview_OG = document.getElementById('form-oa-preview').innerHTML;
@@ -5536,12 +6853,201 @@ FunctionHoverWord_form = (id) => {
     let index
     let error_fix_content
     let tempId = document.getElementById(id)
+    let tmp
+    //offset of spelling check
+    let offset = null
+
     $('#' + id + ' span').hover(value => {
-        console.log(value.target.innerText)
+        form_input_list = []
+        switch (fixedType) {
+            case 'UppercaseFirst':
+                let words = value.target.innerText.split('')
+                let fixed = []
+                for (let i = 0; i < words.length; i++) {
+                    if (i == 0) {
+                        words[i] = words[i].toUpperCase()
+                    }
+                    fixed.push(words[i])
+                }
+                tmp = fixed.toString()
+                // tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+                //     content: '<div class="tippy-block fix-block">'
+                //         + '<p class="titleFix">Viết hoa chữ cái đầu câu</p>'
+                //         + '<div class="blockError"><p class="errorFix">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                //         + '<i class="icz icz-arrow-right"></i>'
+                //         + '<button class="button is-primary is-light light-blue">' + tmp.replaceAll(',', '') + '</button></div>'
+                //         + '<p class="grey">Nội dung quảng cáo yêu cầu viết hoa chữ cái đầu mỗi câu.</p>'
+                //         + '</div>',
+                //     allowHTML: true,
+                //     maxWidth: 270,
+                //     theme: 'zad1',
+                //     interactive: true,
+                //     // placement: 'right-start',
+                //     // trigger: 'click',
+                //     onUntrigger(instance) {
+                //         instance.destroy()
+                //     }
+                // });
+                break;
+            case 'PuntuationFirst':
+                tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+                    content: '<div class="tippy-block fix-block">'
+                        + '<p class="titleFix">Xóa dấu ở đầu câu</p>'
+                        + '<div class="blockError"><p class="errorFix" id="form-PuntuationFirst">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                        + '<i class="icz icz-arrow-right"></i>'
+                        + '<button class="button is-primary is-light red" onclick="form_DeletePunctuationFirst()">Xóa</button></div>'
+                        + '<p class="grey">Không được phép sử dụng dấu ở đầu câu trong nội dung quảng cáo.</p>'
+                        + '</div>',
+                    allowHTML: true,
+                    maxWidth: 270,
+                    theme: 'zad1',
+                    // interactive: true,
+                    // placement: 'right-start',
+                    onShow(instance) {
+                        instance.setProps({ trigger: 'click' })
+                    },
+                    onHide(instance) {
+                        instance.setProps({ trigger: 'mouseenter focus' })
+                    },
+                });
+                break;
+            case 'SpaceFirst':
+                tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+                    content: '<div class="tippy-block fix-block">'
+                        + '<p class="titleFix">Chỉ viết hoa chữ cái đầu câu</p>'
+                        + '<div class="blockError"><button class="button is-primary is-light light-blue" onclick="form_DeleteFirstSpacing()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</button></div>'
+                        + '<p class="grey">Không được phép sử dụng khoảng trắng ở đầu câu trong nội dung quảng cáo.</p>'
+                        + '</div>',
+                    allowHTML: true,
+                    maxWidth: 270,
+                    theme: 'zad1',
+                    // interactive: true,
+                    // placement: 'right-start',
+                    // trigger: 'click',
+                    onShow(instance) {
+                        instance.setProps({ trigger: 'click' })
+                    },
+                    onHide(instance) {
+                        instance.setProps({ trigger: 'mouseenter focus' })
+                    },
+                });
+                break;
+            // case 'BanWord':
+            //     list = banned_words_fixed[0]
+            //     for (let i = 0; i < warning_words[0].length; i++) {
+            //         if (warning_words[0][i].toLowerCase() == value.target.innerText.toLowerCase()) {
+            //             index = i
+            //         }
+            //     }
+            //     if(list[index]){
+            //         error_fix_content = list[index]
+            //     } else {
+            //         error_fix_content = 'Bạn đang sử dụng từ ngữ không hợp lệ. Vui lòng thay thế'
+            //     }
+
+            //     tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+            //         content: '<div class="tippy-block fix-block">'
+            //             + '<p class="titleFix">Thay thế từ khác</p>'
+            //             + '<div class="blockError"><p class="errorFix">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+            //             + '<i class="icz icz-arrow-right"></i>'
+            //             + '<button class="button is-primary is-light">Nhấp chỉnh sửa</button></div>'
+            //             + '<p class="grey">' + error_fix_content + '</p>'
+            //             + '</div>',
+            //         allowHTML: true,
+            //         maxWidth: 270,
+            //         theme: 'zad1',
+            //         interactive: true,
+            //         // placement: 'right-start',
+            //         // trigger: 'click',
+            //         onUntrigger(instance) {
+            //             instance.destroy()
+            //         }
+            //     });
+            //     break;
+            case 'PunctuationError':
+                let hoverWord = value.target.innerText
+                let full_array = hoverWord.split('')
+                let only_letter = Array.from(hoverWord.matchAll(InputFormatNoPuntuation), m => m[0])
+                let punctuation = full_array.filter(x => only_letter.indexOf(x) === -1)
+
+                let punc_value
+                let punc_index
+
+                // console.log('check 1', hoverWord.slice(0, punc_index-1))
+                // console.log('check 2', punctuation)
+                // console.log('check 3', punctuation.length)
+                if (punctuation.length > 1) {
+                    punc_value = punctuation[1]
+                    punc_index = hoverWord.indexOf(punc_value)
+                    if (punc_value == '.' || punc_value == '?' || punc_value == '!') {
+                        if (hoverWord[punc_index + punctuation.length - 1]) {
+                            //case uppercase after punctuation
+                            tmp = hoverWord.slice(0, punc_index - 1) + punc_value + ' ' + hoverWord[punc_index + punctuation.length - 1].toUpperCase() + hoverWord.slice(punc_index + punctuation.length)
+                        } else {
+                            tmp = hoverWord.slice(0, punc_index - 1) + punc_value
+                        }
+                    } else {
+                        if (hoverWord.slice(punc_index + punctuation.length - 1)) {
+                            tmp = hoverWord.slice(0, punc_index - 1) + punc_value + ' ' + hoverWord.slice(punc_index + punctuation.length - 1)
+                        } else {
+                            tmp = hoverWord.slice(0, punc_index - 1) + punc_value
+                        }
+
+                    }
+                } else {
+                    punc_value = punctuation[0]
+                    punc_index = hoverWord.indexOf(punc_value)
+                    if (punc_value == '.' || punc_value == '?' || punc_value == '!') {
+                        if (hoverWord[punc_index + 1]) {
+                            //case uppercase after punctuation
+                            tmp = hoverWord.slice(0, punc_index) + punc_value + ' ' + hoverWord[punc_index + 1].toUpperCase() + hoverWord.slice(punc_index + 2)
+                        } else {
+                            tmp = hoverWord.slice(0, punc_index) + punc_value
+                        }
+
+                    } else {
+                        if (hoverWord.slice(punc_index + 1)) {
+                            tmp = hoverWord.slice(0, punc_index) + punc_value + ' ' + hoverWord.slice(punc_index + 1)
+                        } else {
+                            tmp = hoverWord.slice(0, punc_index) + punc_value
+                        }
+
+                    }
+                }
+
+                tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === hoverWord), {
+                    content: '<div class="tippy-block fix-block">'
+                        + '<p class="titleFix">Thêm khoảng trắng</p>'
+                        + '<div class="blockError"><p class="errorFix">&nbsp;' + hoverWord + '&nbsp;</p>'
+                        + '<i class="icz icz-arrow-right"></i>'
+                        + '<button class="button is-primary is-light light-blue" onclick="form_ReplacePunctuationError()">' + tmp + '</button></div>'
+                        + '<p class="grey">Có vẻ như bạn đã viết một số dấu câu không đúng cách.</p>'
+                        + '</div>',
+                    allowHTML: true,
+                    maxWidth: 270,
+                    theme: 'zad1',
+                    // interactive: true,
+                    // placement: 'right-start',
+                    // trigger: 'click',
+                    onShow(instance) {
+                        instance.setProps({ trigger: 'click' })
+                    },
+                    onHide(instance) {
+                        instance.setProps({ trigger: 'mouseenter focus' })
+                    },
+                });
+
+                errorInput = hoverWord
+                fixInput = tmp
+
+                break;
+        }
         if (id.includes('banned')) {
             if (id.includes('6')) {
                 for (let i = 0; i < fixed_list.length; i++) {
                     if (fixed_list[i].mistake_item == value.target.innerText) {
+                        offset = fixed_list[i].start_offset
+                        console.log(offset)
                         tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                             content: '<div class="tippy-block"><p><span>Từ gợi ý:</span> ' + fixed_list[i].fixed_item + '</p></div>',
                             allowHTML: true,
@@ -5588,48 +7094,172 @@ FunctionHoverWord_form = (id) => {
                 }
             });
         }
-        // if ($('#form-first-preview').hasClass('get-error')) {
+        if ($('#form-first-preview').hasClass('get-error')) {
             if (first_preview_OG.indexOf(value.target.innerText) > -1) {
-                let temp = first_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-                if(temp.includes('amp;')){
-                    temp = temp.replace('amp;','')
+                let temp
+                // if (start_offset > -1) {
+                //     temp = first_preview_OG.substring(0,start_offset-1) + value.target.innerText + first_preview_OG.substring()
+                // } else {
+                temp = first_preview_OG.replaceAll(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                // }
+                if (temp.includes('amp;')) {
+                    temp = temp.replaceAll('amp;', '')
                 }
                 document.getElementById('form-first-preview').innerHTML = temp
             }
-        // }
-        // if ($('#form-second-preview').hasClass('get-error')) {
+        }
+        if ($('#form-second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
-                let temp = second_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-                if(temp.includes('amp;')){
-                    temp = temp.replace('amp;','')
+                let temp = second_preview_OG.replaceAll(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if (temp.includes('amp;')) {
+                    temp = temp.replaceAll('amp;', '')
                 }
                 document.getElementById('form-second-preview').innerHTML = temp
             }
-        // }
-        if (third_preview_OG.indexOf(value.target.innerText) > -1) {
-            let temp = third_preview_OG.replace(value.target.innerText, '<span>' + value.target.innerText + "</span>")
-            if(temp.includes('amp;')){
-                temp = temp.replace('amp;','')
+        }
+        if ($('#form-oa-preview').hasClass('get-error')) {
+            if (third_preview_OG.indexOf(value.target.innerText) > -1) {
+                let temp = third_preview_OG.replaceAll(value.target.innerText, '<span>' + value.target.innerText + "</span>")
+                if (temp.includes('amp;')) {
+                    temp = temp.replaceAll('amp;', '')
+                }
+                document.getElementById('form-oa-preview').innerHTML = temp
             }
-            document.getElementById('form-oa-preview').innerHTML = temp
         }
 
     }, value => {
 
         // $("body [data-tippy-root]").remove()
         // if ($('#form-first-preview').hasClass('get-error')) {
-            if (first_preview_OG.indexOf(value.target.innerText) > -1) {
-                document.getElementById('form-first-preview').innerHTML = first_preview_OG
-            }
+        if (first_preview_OG.indexOf(value.target.innerText) > -1) {
+            document.getElementById('form-first-preview').innerHTML = first_preview_OG
+        }
         // }
         // if ($('#form-second-preview').hasClass('get-error')) {
-            if (second_preview_OG.indexOf(value.target.innerText) > -1) {
-                document.getElementById('form-second-preview').innerHTML = second_preview_OG
-            }
+        if (second_preview_OG.indexOf(value.target.innerText) > -1) {
+            document.getElementById('form-second-preview').innerHTML = second_preview_OG
+        }
         // }
         if (third_preview_OG.indexOf(value.target.innerText) > -1) {
             document.getElementById('form-oa-preview').innerHTML = third_preview_OG
         }
-        
+
     })
+}
+
+//list position preview to fix input
+let form_input_list = []
+
+//for only tooltip and hover error
+let form_errorInput
+let form_fixInput
+
+
+//fuction fix error input
+form_DeleteFirstSpacing = () => {
+    let firstLetterPosition
+    let firstSpacingError = document.getElementById('form-banned-2')
+    //banned
+    let errorList = banned_card_form.getElementsByClassName('card-error-list')[0]
+    let li = errorList.getElementsByTagName('LI')
+
+    for (let i = 0; i < li.length; i++) {
+        let item = li[i].lastChild
+        if (item == firstSpacingError) {
+            li[i].remove()
+        }
+    }
+    for (let i = 0; i < input_list.length; i++) {
+        let tmp_input = document.getElementById(input_list[i]).value
+        for (let j = 0; j < tmp_input.length; j++) {
+            if (tmp_input[j] != ' ') {
+                firstLetterPosition = j
+                break;
+            }
+        }
+        document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
+    }
+    setTimeout(() => {
+        if (li.length == 0) {
+            $('#card-no-error-form').removeClass('is-hidden')
+        }
+    }, 500)
+}
+
+form_DeletePunctuationFirst = () => {
+    let PuntuationFirst = document.getElementById('form-PuntuationFirst').innerHTML.replaceAll('&nbsp;', '')
+    let firstLetterPosition
+    let firstSpacingError = document.getElementById('form-banned-1')
+    //banned
+    let errorList = banned_card_form.getElementsByClassName('card-error-list')[0]
+    let li = errorList.getElementsByTagName('LI')
+    for (let i = 0; i < li.length; i++) {
+        let item = li[i].lastChild
+        if (item == firstSpacingError) {
+            let spans = li[i].getElementsByTagName('SPAN')
+            if (spans.length == 1) {
+                li[i].remove()
+            } else {
+                for (let j = 0; j < spans.length; j++) {
+                    if (spans[j].innerHTML == PuntuationFirst) {
+                        spans[j].remove()
+                    }
+                }
+            }
+        }
+    }
+
+    for (let i = 0; i < input_list.length; i++) {
+        let tmp_input = document.getElementById(input_list[i]).value
+        if (tmp_input.includes(PuntuationFirst)) {
+            for (let j = 1; j < tmp_input.length; j++) {
+                if (tmp_input[j] != ' ') {
+                    firstLetterPosition = j
+                    break;
+                }
+            }
+            document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
+        }
+    }
+    setTimeout(() => {
+        if (li.length == 0) {
+            $('#card-no-error-form').removeClass('is-hidden')
+        }
+    }, 500)
+}
+
+form_ReplacePunctuationError = () => {
+    let firstSpacingError = document.getElementById('form-banned-5')
+    //banned
+    let errorList = banned_card_form.getElementsByClassName('card-error-list')[0]
+    let li = errorList.getElementsByTagName('LI')
+    for (let i = 0; i < li.length; i++) {
+        let item = li[i].lastChild
+        if (item == firstSpacingError) {
+            let spans = li[i].getElementsByTagName('SPAN')
+            if (spans.length == 1) {
+                li[i].remove()
+            } else {
+                for (let j = 0; j < spans.length; j++) {
+                    if (spans[j].innerHTML == errorInput) {
+                        spans[j].remove()
+                    }
+                }
+            }
+        }
+    }
+
+    for (let i = 0; i < input_list.length; i++) {
+        let tmp_input = document.getElementById(input_list[i]).value
+        if (tmp_input.includes(errorInput)) {
+            tmp_input = tmp_input.replaceAll(errorInput, fixInput)
+            // let fix_index = tmp_input.indexOf(fixInput)
+            document.getElementById(input_list[i]).value = tmp_input
+        }
+    }
+    setTimeout(() => {
+        if (li.length == 0) {
+            $('#card-no-error-form').removeClass('is-hidden')
+        }
+    }, 500)
 }
