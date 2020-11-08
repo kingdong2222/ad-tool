@@ -3417,13 +3417,20 @@ FunctionHoverWord = (id, fixedType) => {
                     allowHTML: true,
                     maxWidth: 270,
                     theme: 'zad1',
-                    // interactive: true,
+                    // trigger: 'click',
+                    interactive: true,
                     // placement: 'right-start',
-                    onShow(instance) {
-                        instance.setProps({ trigger: 'click' })
-                    },
-                    onHide(instance) {
-                        instance.setProps({ trigger: 'mouseenter focus' })
+                    // onShow(instance) {
+                    //     instance.setProps({ trigger: 'click' })
+                    // },
+                    // onTrigger(instance) {
+                    //     instance.setProps({ trigger: 'click' })
+                    // },
+                    // onHide(instance) {
+                    //     instance.setProps({ trigger: 'mouseenter' })
+                    // },
+                    onUntrigger(instance) {
+                        instance.destroy()
                     },
                 });
                 break;
@@ -3437,14 +3444,17 @@ FunctionHoverWord = (id, fixedType) => {
                     allowHTML: true,
                     maxWidth: 270,
                     theme: 'zad1',
-                    // interactive: true,
+                    interactive: true,
                     // placement: 'right-start',
                     // trigger: 'click',
-                    onShow(instance) {
-                        instance.setProps({ trigger: 'click' })
-                    },
-                    onHide(instance) {
-                        instance.setProps({ trigger: 'mouseenter focus' })
+                    // onShow(instance) {
+                    //     instance.setProps({ trigger: 'click' })
+                    // },
+                    // onHide(instance) {
+                    //     instance.setProps({ trigger: 'mouseenter' })
+                    // },
+                    onUntrigger(instance) {
+                        instance.destroy()
                     },
                 });
                 break;
@@ -3542,14 +3552,17 @@ FunctionHoverWord = (id, fixedType) => {
                     allowHTML: true,
                     maxWidth: 270,
                     theme: 'zad1',
-                    // interactive: true,
+                    interactive: true,
                     // placement: 'right-start',
                     // trigger: 'click',
-                    onShow(instance) {
-                        instance.setProps({ trigger: 'click' })
-                    },
-                    onHide(instance) {
-                        instance.setProps({ trigger: 'mouseenter focus' })
+                    // onShow(instance) {
+                    //     instance.setProps({ trigger: 'click' })
+                    // },
+                    // onHide(instance) {
+                    //     instance.setProps({ trigger: 'mouseenter focus' })
+                    // },
+                    onUntrigger(instance) {
+                        instance.destroy()
                     },
                 });
 
@@ -6677,7 +6690,7 @@ function checkAdsFunc_form() {
                             $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
                         }
                     }
-                    setTimeout(FunctionHoverWord_form('form-banned-5','PunctuationError'), 520)
+                    setTimeout(FunctionHoverWord_form('form-banned-5', 'PunctuationError'), 520)
                 }
             }
 
