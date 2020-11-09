@@ -1586,24 +1586,24 @@ function checkAdsFunc() {
                 value_check_ad = false
 
                 let space_index
-
+                let fix_first_space
+                let tmp
                 for (let i = 0; i < value_1.length; i++) {
                     if (value_1[i] != ' ') {
-                        space_index = i
+                        fix_first_space = value_1.slice(i)
                         break;
                     }
                 }
-                let fix_first_space = value_1.slice(space_index)
                 for (let i = 0; i < fix_first_space.length; i++) {
                     if (fix_first_space[i] == ' ') {
                         space_index = i
+                        tmp = fix_first_space.slice(0, space_index)
                         break;
                     } else {
                         space_index = fix_first_space.length
-                        break;
+                        tmp = fix_first_space.slice(0, space_index)
                     }
                 }
-                let tmp = fix_first_space.slice(0, space_index)
 
                 if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                     if ($('#banned-2 span').text().includes(tmp)) {
@@ -1914,24 +1914,24 @@ function checkAdsFunc() {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
                 let space_index
-
+                let fix_first_space
+                let tmp
                 for (let i = 0; i < value_2.length; i++) {
                     if (value_2[i] != ' ') {
-                        space_index = i
+                        fix_first_space = value_2.slice(i)
                         break;
                     }
                 }
-                let fix_first_space = value_2.slice(space_index)
                 for (let i = 0; i < fix_first_space.length; i++) {
                     if (fix_first_space[i] == ' ') {
                         space_index = i
+                        tmp = fix_first_space.slice(0, space_index)
                         break;
                     } else {
                         space_index = fix_first_space.length
-                        break;
+                        tmp = fix_first_space.slice(0, space_index)
                     }
                 }
-                let tmp = fix_first_space.slice(0, space_index)
 
                 if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                     if ($('#banned-2 span').text().includes(tmp)) {
@@ -2342,25 +2342,24 @@ function checkAdsFunc() {
                             second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                             value_check_ad = false
                             let space_index
-
+                            let fix_first_space
+                            let tmp
                             for (let i = 0; i < temp.length; i++) {
                                 if (temp[i] != ' ') {
-                                    space_index = i
+                                    fix_first_space = temp.slice(i)
                                     break;
                                 }
                             }
-                            let fix_first_space = temp.slice(space_index)
                             for (let i = 0; i < fix_first_space.length; i++) {
                                 if (fix_first_space[i] == ' ') {
                                     space_index = i
+                                    tmp = fix_first_space.slice(0, space_index)
                                     break;
-                                }
-                                else {
+                                } else {
                                     space_index = fix_first_space.length
-                                    break;
+                                    tmp = fix_first_space.slice(0, space_index)
                                 }
                             }
-                            let tmp = fix_first_space.slice(0, space_index)
 
                             if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                                 if ($('#banned-2 span').text().includes(tmp)) {
@@ -2577,24 +2576,24 @@ function checkAdsFunc() {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
                 let space_index
-
+                let fix_first_space
+                let tmp
                 for (let i = 0; i < value_3.length; i++) {
                     if (value_3[i] != ' ') {
-                        space_index = i
+                        fix_first_space = value_3.slice(i)
                         break;
                     }
                 }
-                let fix_first_space = value_3.slice(space_index)
                 for (let i = 0; i < fix_first_space.length; i++) {
                     if (fix_first_space[i] == ' ') {
                         space_index = i
+                        tmp = fix_first_space.slice(0, space_index)
                         break;
                     } else {
                         space_index = fix_first_space.length
-                        break;
+                        tmp = fix_first_space.slice(0, space_index)
                     }
                 }
-                let tmp = fix_first_space.slice(0, space_index)
 
                 if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                     if ($('#banned-2 span').text().includes(tmp)) {
@@ -2962,24 +2961,24 @@ function checkAdsFunc() {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     value_check_ad = false
                     let space_index
-
+                    let fix_first_space
+                    let tmp
                     for (let i = 0; i < value_4.length; i++) {
                         if (value_4[i] != ' ') {
-                            space_index = i
+                            fix_first_space = value_4.slice(i)
                             break;
                         }
                     }
-                    let fix_first_space = value_4.slice(space_index)
                     for (let i = 0; i < fix_first_space.length; i++) {
                         if (fix_first_space[i] == ' ') {
                             space_index = i
+                            tmp = fix_first_space.slice(0, space_index)
                             break;
                         } else {
                             space_index = fix_first_space.length
-                            break;
+                            tmp = fix_first_space.slice(0, space_index)
                         }
                     }
-                    let tmp = fix_first_space.slice(0, space_index)
 
                     if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
                         if ($('#banned-2 span').text().includes(tmp)) {
@@ -3616,10 +3615,12 @@ FunctionHoverWord = (id, fixedType) => {
 
                 let punc_value
                 let punc_index
+                let titlePunctuation
 
                 if (punctuation.length > 1) {
                     punc_value = punctuation[1]
                     punc_index = hoverWord.indexOf(punc_value)
+                    titlePunctuation = 'Xóa khoảng trắng'
                     if (punc_value == '.' || punc_value == '?' || punc_value == '!') {
                         if (hoverWord[punc_index + punctuation.length - 1]) {
                             //case uppercase after punctuation
@@ -3638,6 +3639,7 @@ FunctionHoverWord = (id, fixedType) => {
                 } else {
                     punc_value = punctuation[0]
                     punc_index = hoverWord.indexOf(punc_value)
+                    titlePunctuation = 'Thêm khoảng trắng'
                     if (punc_value == '.' || punc_value == '?' || punc_value == '!') {
                         if (hoverWord[punc_index + 1]) {
                             //case uppercase after punctuation
@@ -3658,7 +3660,7 @@ FunctionHoverWord = (id, fixedType) => {
 
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === hoverWord), {
                     content: '<div class="tippy-block fix-block">'
-                        + '<p class="titleFix">Thêm khoảng trắng</p>'
+                        + '<p class="titleFix">' + titlePunctuation + '</p>'
                         + '<div class="blockError"><p class="errorFix">&nbsp;' + hoverWord + '&nbsp;</p>'
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light light-blue" onclick="ReplacePunctuationError()">' + tmp + '</button></div>'
@@ -3843,10 +3845,15 @@ DeleteFirstSpacing = () => {
 
     for (let i = 0; i < input_list.length; i++) {
         let tmp_input = document.getElementById(input_list[i]).value
+        let tmp_index
         if (tmp_input.includes(errorInput)) {
-            tmp_input = fixInput
-            // let fix_index = tmp_input.indexOf(fixInput)
-            document.getElementById(input_list[i]).value = tmp_input
+            for (let i = 0; i < tmp_input.length; i++) {
+                if (tmp_input[i] != ' ') {
+                    tmp_index = i
+                    break;
+                }
+            }
+            document.getElementById(input_list[i]).value = tmp_input.slice(tmp_index)
 
             switch (input_list[i]) {
                 case 'first-input': preview_id = 'first-preview'; break;
@@ -5827,7 +5834,10 @@ function checkAdsFunc_form() {
     let count_warning = 0
     let value_check_ad = true
 
-    //TODO
+    first_content_preview_form.classList.contains('get-error') == true ? first_content_preview_form.classList.remove('get-error') : null
+    second_content_preview_form.classList.contains('get-error') == true ? second_content_preview_form.classList.remove('get-error') : null
+    third_content_preview_form.classList.contains('get-error') == true ? third_content_preview_form.classList.remove('get-error') : null
+
     setTimeout(() => {
 
         check_form_ad_form.classList.remove('is-loading')
@@ -5881,24 +5891,24 @@ function checkAdsFunc_form() {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
                 value_check_ad = false
                 let space_index
-
+                let fix_first_space
+                let tmp
                 for (let i = 0; i < value_1.length; i++) {
                     if (value_1[i] != ' ') {
-                        space_index = i
+                        fix_first_space = value_1.slice(i)
                         break;
                     }
                 }
-                let fix_first_space = value_1.slice(space_index)
                 for (let i = 0; i < fix_first_space.length; i++) {
                     if (fix_first_space[i] == ' ') {
                         space_index = i
+                        tmp = fix_first_space.slice(0, space_index)
                         break;
                     } else {
                         space_index = fix_first_space.length
-                        break;
+                        tmp = fix_first_space.slice(0, space_index)
                     }
                 }
-                let tmp = fix_first_space.slice(0, space_index)
 
                 if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
                     if ($('#form-banned-2 span').text().includes(tmp)) {
@@ -6201,24 +6211,24 @@ function checkAdsFunc_form() {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                 value_check_ad = false
                 let space_index
-
+                let fix_first_space
+                let tmp
                 for (let i = 0; i < value_2.length; i++) {
                     if (value_2[i] != ' ') {
-                        space_index = i
+                        fix_first_space = value_2.slice(i)
                         break;
                     }
                 }
-                let fix_first_space = value_2.slice(space_index)
                 for (let i = 0; i < fix_first_space.length; i++) {
                     if (fix_first_space[i] == ' ') {
                         space_index = i
+                        tmp = fix_first_space.slice(0, space_index)
                         break;
                     } else {
                         space_index = fix_first_space.length
-                        break;
+                        tmp = fix_first_space.slice(0, space_index)
                     }
                 }
-                let tmp = fix_first_space.slice(0, space_index)
 
                 if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
                     if ($('#form-banned-2 span').text().includes(tmp)) {
@@ -6618,24 +6628,24 @@ function checkAdsFunc_form() {
                             second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                             value_check_ad = false
                             let space_index
-
+                            let fix_first_space
+                            let tmp
                             for (let i = 0; i < temp.length; i++) {
                                 if (temp[i] != ' ') {
-                                    space_index = i
+                                    fix_first_space = temp.slice(i)
                                     break;
                                 }
                             }
-                            let fix_first_space = temp.slice(space_index)
                             for (let i = 0; i < fix_first_space.length; i++) {
                                 if (fix_first_space[i] == ' ') {
                                     space_index = i
+                                    tmp = fix_first_space.slice(0, space_index)
                                     break;
                                 } else {
                                     space_index = fix_first_space.length
-                                    break;
+                                    tmp = fix_first_space.slice(0, space_index)
                                 }
                             }
-                            let tmp = fix_first_space.slice(0, space_index)
 
                             if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
                                 if ($('#form-banned-2 span').text().includes(tmp)) {
@@ -6855,24 +6865,24 @@ function checkAdsFunc_form() {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
                 value_check_ad = false
                 let space_index
-
+                let fix_first_space
+                let tmp
                 for (let i = 0; i < value_3.length; i++) {
                     if (value_3[i] != ' ') {
-                        space_index = i
+                        fix_first_space = value_3.slice(i)
                         break;
                     }
                 }
-                let fix_first_space = value_3.slice(space_index)
                 for (let i = 0; i < fix_first_space.length; i++) {
                     if (fix_first_space[i] == ' ') {
                         space_index = i
+                        tmp = fix_first_space.slice(0, space_index)
                         break;
                     } else {
                         space_index = fix_first_space.length
-                        break;
+                        tmp = fix_first_space.slice(0, space_index)
                     }
                 }
-                let tmp = fix_first_space.slice(0, space_index)
 
                 if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
                     if ($('#form-banned-2 span').text().includes(tmp)) {
@@ -7301,6 +7311,7 @@ FunctionHoverWord_form = (id, fixedType) => {
 
                 let punc_value
                 let punc_index
+                let titlePunctuation
 
                 // console.log('check 1', hoverWord.slice(0, punc_index-1))
                 // console.log('check 2', punctuation)
@@ -7308,6 +7319,7 @@ FunctionHoverWord_form = (id, fixedType) => {
                 if (punctuation.length > 1) {
                     punc_value = punctuation[1]
                     punc_index = hoverWord.indexOf(punc_value)
+                    titlePunctuation = 'Xóa khoảng trắng'
                     if (punc_value == '.' || punc_value == '?' || punc_value == '!') {
                         if (hoverWord[punc_index + punctuation.length - 1]) {
                             //case uppercase after punctuation
@@ -7326,6 +7338,7 @@ FunctionHoverWord_form = (id, fixedType) => {
                 } else {
                     punc_value = punctuation[0]
                     punc_index = hoverWord.indexOf(punc_value)
+                    titlePunctuation = 'Thêm khoảng trắng'
                     if (punc_value == '.' || punc_value == '?' || punc_value == '!') {
                         if (hoverWord[punc_index + 1]) {
                             //case uppercase after punctuation
@@ -7346,7 +7359,7 @@ FunctionHoverWord_form = (id, fixedType) => {
 
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === hoverWord), {
                     content: '<div class="tippy-block fix-block">'
-                        + '<p class="titleFix">Thêm khoảng trắng</p>'
+                        + '<p class="titleFix">' + titlePunctuation + '</p>'
                         + '<div class="blockError"><p class="errorFix">&nbsp;' + hoverWord + '&nbsp;</p>'
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light light-blue" onclick="form_ReplacePunctuationError()">' + tmp + '</button></div>'
@@ -7357,7 +7370,7 @@ FunctionHoverWord_form = (id, fixedType) => {
                     theme: 'zad1',
                     interactive: true,
                     // placement: 'right-start',
-                    // trigger: 'click',
+                    trigger: 'click',
                     // onShow(instance) {
                     //     instance.setProps({ trigger: 'click' })
                     // },
@@ -7556,10 +7569,15 @@ form_DeleteFirstSpacing = () => {
 
     for (let i = 0; i < form_input_list.length; i++) {
         let tmp_input = document.getElementById(form_input_list[i]).value
+        let tmp_index
         if (tmp_input.includes(form_errorInput)) {
-            tmp_input = form_fixInput
-            // let fix_index = tmp_input.indexOf(fixInput)
-            document.getElementById(form_input_list[i]).value = tmp_input
+            for (let i = 0; i < tmp_input.length; i++) {
+                if (tmp_input[i] != ' ') {
+                    tmp_index = i
+                    break;
+                }
+            }
+            document.getElementById(form_input_list[i]).value = tmp_input.slice(tmp_index)
 
             switch (form_input_list[i]) {
                 case 'form-first-input': form_preview_id = 'form-first-preview'; break;

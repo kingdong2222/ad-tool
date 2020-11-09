@@ -38,14 +38,15 @@
 		&.fix-block{
 			p{font-weight: normal;}
 			.titleFix{
-				font-size: 12px;
+				font-size: 12px !important;
+				line-height: normal !important;
 				color: #131820;
 			}
 			.blockError{
 				display: flex;
 				align-items: center;
 				margin-top: 12px;
-				margin-bottom: 24px;
+				margin-bottom: 20px;
 				.errorFix{
 					font-size: 14px;
 					color: #131820;
@@ -64,6 +65,7 @@
 					border: none;
 					outline: none;
 					box-shadow: none;
+					max-height: 28px;
 					&:focus{
 						border: none;
 						outline: none;
@@ -92,7 +94,8 @@
 				}
 			}
 			.grey{
-				font-size: 12px;
+				font-size: 12px !important;
+				line-height: normal !important;
 				color: #131820;
 				opacity: 0.5;
 			}
