@@ -7189,9 +7189,9 @@ FunctionHoverWord_form = (id, fixedType) => {
                     interactive: true,
                     // placement: 'right-start',
                     // trigger: 'click',
-                    // onUntrigger(instance) {
-                    //     instance.destroy()
-                    // }
+                    onUntrigger(instance) {
+                        instance.destroy()
+                    }
                 });
 
                 form_errorInput = value.target.innerText
@@ -7217,6 +7217,9 @@ FunctionHoverWord_form = (id, fixedType) => {
                     // onHide(instance) {
                     //     instance.setProps({ trigger: 'mouseenter focus' })
                     // },
+                    onUntrigger(instance) {
+                        instance.destroy()
+                    },
                 });
                 break;
             case 'SpaceFirst':
@@ -7250,6 +7253,9 @@ FunctionHoverWord_form = (id, fixedType) => {
                     // onHide(instance) {
                     //     instance.setProps({ trigger: 'mouseenter focus' })
                     // },
+                    onUntrigger(instance) {
+                        instance.destroy()
+                    },
                 });
 
                 form_errorInput = space_error
@@ -7361,6 +7367,9 @@ FunctionHoverWord_form = (id, fixedType) => {
                     // onHide(instance) {
                     //     instance.setProps({ trigger: 'mouseenter focus' })
                     // },
+                    onUntrigger(instance) {
+                        instance.destroy()
+                    },
                 });
 
                 form_errorInput = hoverWord
