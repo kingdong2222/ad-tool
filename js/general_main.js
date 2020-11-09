@@ -7,7 +7,7 @@ let infos = []
 
 window.onload = () => {
 
-    
+
     //check cookie about new update
     let cookie_update = getCookie('version_update')
     if (cookie_update == version_update) {
@@ -50,14 +50,14 @@ window.onload = () => {
             .catch(err => { throw err });
 
         //introduce button
-        if(getCookie('check_form_used') != 'form used'){
+        if (getCookie('check_form_used') != 'form used') {
             $("html").addClass("overlay-modal")
             $('#form-ads-button').addClass('introduce-button')
-            $('.overlay-modal').click(()=>{
-                if($("html").hasClass("overlay-modal")){
+            $('.overlay-modal').click(() => {
+                if ($("html").hasClass("overlay-modal")) {
                     $("html").removeClass("overlay-modal");
                 }
-                if($('#form-ads-button').hasClass("introduce-button")){
+                if ($('#form-ads-button').hasClass("introduce-button")) {
                     $('#form-ads-button').removeClass("introduce-button");
                 }
                 setCookie('check_form_used', 'form used', 365)
@@ -77,41 +77,41 @@ window.onload = () => {
         if (had_validated == 'validated') {
             if (rating_block_hide) {
                 $('.rating-block').removeClass('is-hidden')
-                if(screen.width < 768){
+                if (screen.width < 768) {
                     $("html").addClass("overlay-popup");
                 }
             }
         }
     }
     //mobile
-    if(screen.width <= 768){
+    if (screen.width <= 768) {
         let close_noti_block = getCookie('close-noti-block')
-        if(close_noti_block == 'closed'){
+        if (close_noti_block == 'closed') {
         } else {
             $('#block-noti').toggleClass('is-hidden')
         }
 
-        
+
     }
 }
 
 //update dropdown
-if(screen.width <= 768){
+if (screen.width <= 768) {
     $('#dropdown-m2').removeAttr("data-toggle")
 }
 
 let close_tooltip = (id) => {
     $("html").removeClass("overlay-popup");
-    $('#'+ id).remove()
+    $('#' + id).remove()
 }
-$("#dropdown-m2").click(function(){
+$("#dropdown-m2").click(function () {
     let cookie_update = getCookie('version_update')
     if (cookie_update == version_update) {
         $('#red_dot').css('opacity', '0')
     } else {
         $('#red_dot').css('opacity', '1')
     }
-    if(screen.width <= 768){
+    if (screen.width <= 768) {
         let temp_html = `<div class="popup-container" id="popup-update">
                 <div class="bl-popup-heading">
                     <span>Lịch sử cập nhật</span>
@@ -187,10 +187,10 @@ $("#dropdown-m2").click(function(){
                 </div>
          </div>`
         $('.bl-popup').append(temp_html)
-        setTimeout(()=>{
+        setTimeout(() => {
             $("html").addClass("overlay-popup")
             $('#popup-update').addClass('is-show')
-        },100)
+        }, 100)
     }
 })
 
@@ -203,10 +203,10 @@ $('.rating-button').click(function () {
 document.getElementById('close-rating-block').onclick = () => {
     $('.rating-block').addClass('is-hidden')
     setCookie('has_rated', 'rated', 30)
-    if($("html").hasClass("overlay-popup")){
+    if ($("html").hasClass("overlay-popup")) {
         $("html").removeClass("overlay-popup");
     }
-    
+
 }
 
 document.getElementById('send-rating-feedback').onclick = () => {
@@ -214,9 +214,9 @@ document.getElementById('send-rating-feedback').onclick = () => {
     $('.first').addClass('is-hidden')
     $('.second').removeClass('is-hidden')
 
-    let rate = $('.rating-button.selected').text() 
-    let content 
-    if(screen.width <= 768){
+    let rate = $('.rating-button.selected').text()
+    let content
+    if (screen.width <= 768) {
         content = 'Mobile: ' + $('.rating-block textarea').val()
     } else {
         content = $('.rating-block textarea').val()
@@ -234,12 +234,12 @@ document.getElementById('send-rating-feedback').onclick = () => {
 
     setCookie('has_rated', 'rated', 30)
 
-    setTimeout(()=>{
+    setTimeout(() => {
         $('.rating-block').addClass('is-hidden')
-        if(screen.width < 768){
+        if (screen.width < 768) {
             $("html").removeClass("overlay-popup");
         }
-    },1000)
+    }, 1000)
 }
 
 function getCookie(cname) {
@@ -278,16 +278,20 @@ var OpenUpdateHistory = () => {
 //case sensity for closing fixing error tooltip
 window.onclick = value => {
     let temp_path = value.path
-    if(temp_path){
+    if (temp_path) {
         temp_path.forEach(element => {
-            if(element.id){
+            if (element.id) {
                 let temp_id = element.id
-                if(temp_id.includes('tippy')){
-                    document.getElementById(temp_id).remove()
+                if (temp_id.includes('tippy')) {
+                    setTimeout(() => {
+                        if (document.getElementById(temp_id)) {
+                            document.getElementById(temp_id).remove()
+                        }
+                    }, 600)
                 }
             }
         });
     }
-    
-    
+
+
 }

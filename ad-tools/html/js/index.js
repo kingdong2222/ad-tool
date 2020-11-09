@@ -1547,18 +1547,15 @@ function checkAdsFunc() {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
 
-                let first_word_list = []
-                let first_word_wrap
+                let first_word_index
 
-                for (let i = 0; i <= value_1.length; i++) {
+                for (let i = 0; i < value_1.length; i++) {
                     if (value_1[i] == ' ') {
+                        first_word_index = i
                         break;
-                    } else {
-                        first_word_list.push(value_1[i])
                     }
                 }
-                first_word_wrap = first_word_list.toString()
-                let tmp = first_word_wrap.replaceAll(',', '')
+                let tmp = value_1.slice(0, first_word_index)
 
                 if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                     if ($('#banned-0 span').text().includes(tmp)) {
@@ -1587,9 +1584,34 @@ function checkAdsFunc() {
             if (value_1.charAt(0) == ' ') {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                 value_check_ad = false
+
+                let space_index
+
+                for (let i = 0; i < value_1.length; i++) {
+                    if (value_1[i] != ' ') {
+                        space_index = i
+                        break;
+                    }
+                }
+                let fix_first_space = value_1.slice(space_index)
+                for (let i = 0; i < fix_first_space.length; i++) {
+                    if (fix_first_space[i] == ' ') {
+                        space_index = i
+                        break;
+                    } else {
+                        space_index = fix_first_space.length
+                        break;
+                    }
+                }
+                let tmp = fix_first_space.slice(0, space_index)
+
                 if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
+                    if ($('#banned-2 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('banned-2').innerHTML += ' <span>' + tmp + '</span>'
+                    }
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-2'>" + ban_mess_2 + " <span>" + tmp + "</span></p></li>")
                 }
                 setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
             }
@@ -1855,18 +1877,15 @@ function checkAdsFunc() {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
 
-                let first_word_list = []
-                let first_word_wrap
+                let first_word_index
 
-                for (let i = 0; i <= value_2.length; i++) {
+                for (let i = 0; i < value_2.length; i++) {
                     if (value_2[i] == ' ') {
+                        first_word_index = i
                         break;
-                    } else {
-                        first_word_list.push(value_2[i])
                     }
                 }
-                first_word_wrap = first_word_list.toString()
-                let tmp = first_word_wrap.replaceAll(',', '')
+                let tmp = value_2.slice(0, first_word_index)
 
                 if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                     if ($('#banned-0 span').text().includes(tmp)) {
@@ -1894,9 +1913,33 @@ function checkAdsFunc() {
             if (value_2.charAt(0) == ' ') {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                 value_check_ad = false
+                let space_index
+
+                for (let i = 0; i < value_2.length; i++) {
+                    if (value_2[i] != ' ') {
+                        space_index = i
+                        break;
+                    }
+                }
+                let fix_first_space = value_2.slice(space_index)
+                for (let i = 0; i < fix_first_space.length; i++) {
+                    if (fix_first_space[i] == ' ') {
+                        space_index = i
+                        break;
+                    } else {
+                        space_index = fix_first_space.length
+                        break;
+                    }
+                }
+                let tmp = fix_first_space.slice(0, space_index)
+
                 if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
+                    if ($('#banned-2 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('banned-2').innerHTML += ' <span>' + tmp + '</span>'
+                    }
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-2'>" + ban_mess_2 + " <span>" + tmp + "</span></p></li>")
                 }
                 setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
             }
@@ -2149,8 +2192,8 @@ function checkAdsFunc() {
                         // console.log(mini_array[i])
 
                         if (item == '%,' || item == '%.') {
-                            let index = value_1.indexOf(item)
-                            if (value_1[index - 1] == ' ') {
+                            let index = value_2.indexOf(item)
+                            if (value_2[index - 1] == ' ') {
                                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
                                 if ($('#warning-3').text().indexOf(warn_mess_2) == 0) {
                                     if ($('#warning-3').text().includes(item)) {
@@ -2256,18 +2299,15 @@ function checkAdsFunc() {
                         second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                         value_check_ad = false
 
-                        let first_word_list = []
-                        let first_word_wrap
+                        let first_word_index
 
-                        for (let i = 0; i <= temp.length; i++) {
-                            if (temp[i] == ' ') {
+                        for (let i = 0; i < value_2.length; i++) {
+                            if (value_2[i] == ' ') {
+                                first_word_index = i
                                 break;
-                            } else {
-                                first_word_list.push(temp[i])
                             }
                         }
-                        first_word_wrap = first_word_list.toString()
-                        let tmp = first_word_wrap.replaceAll(',', '')
+                        let tmp = value_2.slice(0, first_word_index)
 
                         if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                             if ($('#banned-0 span').text().includes(tmp)) {
@@ -2301,9 +2341,34 @@ function checkAdsFunc() {
                         } else {
                             second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                             value_check_ad = false
+                            let space_index
+
+                            for (let i = 0; i < temp.length; i++) {
+                                if (temp[i] != ' ') {
+                                    space_index = i
+                                    break;
+                                }
+                            }
+                            let fix_first_space = temp.slice(space_index)
+                            for (let i = 0; i < fix_first_space.length; i++) {
+                                if (fix_first_space[i] == ' ') {
+                                    space_index = i
+                                    break;
+                                }
+                                else {
+                                    space_index = fix_first_space.length
+                                    break;
+                                }
+                            }
+                            let tmp = fix_first_space.slice(0, space_index)
+
                             if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
+                                if ($('#banned-2 span').text().includes(tmp)) {
+                                } else {
+                                    document.getElementById('banned-2').innerHTML += ' <span>' + tmp + '</span>'
+                                }
                             } else {
-                                $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
+                                $("#alert-card-first .card-error-list ul").append("<li><p id='banned-2'>" + ban_mess_2 + " <span>" + tmp + "</span></p></li>")
                             }
                             setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
                         }
@@ -2475,18 +2540,15 @@ function checkAdsFunc() {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
 
-                let first_word_list = []
-                let first_word_wrap
+                let first_word_index
 
-                for (let i = 0; i <= value_3.length; i++) {
+                for (let i = 0; i < value_3.length; i++) {
                     if (value_3[i] == ' ') {
+                        first_word_index = i
                         break;
-                    } else {
-                        first_word_list.push(value_3[i])
                     }
                 }
-                first_word_wrap = first_word_list.toString()
-                let tmp = first_word_wrap.replaceAll(',', '')
+                let tmp = value_3.slice(0, first_word_index)
 
                 if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                     if ($('#banned-0 span').text().includes(tmp)) {
@@ -2514,9 +2576,33 @@ function checkAdsFunc() {
             if (value_3.charAt(0) == ' ') {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                 value_check_ad = false
+                let space_index
+
+                for (let i = 0; i < value_3.length; i++) {
+                    if (value_3[i] != ' ') {
+                        space_index = i
+                        break;
+                    }
+                }
+                let fix_first_space = value_3.slice(space_index)
+                for (let i = 0; i < fix_first_space.length; i++) {
+                    if (fix_first_space[i] == ' ') {
+                        space_index = i
+                        break;
+                    } else {
+                        space_index = fix_first_space.length
+                        break;
+                    }
+                }
+                let tmp = fix_first_space.slice(0, space_index)
+
                 if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
+                    if ($('#banned-2 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('banned-2').innerHTML += ' <span>' + tmp + '</span>'
+                    }
                 } else {
-                    $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
+                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-2'>" + ban_mess_2 + " <span>" + tmp + "</span></p></li>")
                 }
                 setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
             }
@@ -2839,18 +2925,15 @@ function checkAdsFunc() {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     value_check_ad = false
 
-                    let first_word_list = []
-                    let first_word_wrap
+                    let first_word_index
 
-                    for (let i = 0; i <= value_4.length; i++) {
+                    for (let i = 0; i < value_4.length; i++) {
                         if (value_4[i] == ' ') {
+                            first_word_index = i
                             break;
-                        } else {
-                            first_word_list.push(value_4[i])
                         }
                     }
-                    first_word_wrap = first_word_list.toString()
-                    let tmp = first_word_wrap.replaceAll(',', '')
+                    let tmp = value_4.slice(0, first_word_index)
 
                     if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                         if ($('#banned-0 span').text().includes(tmp)) {
@@ -2878,9 +2961,33 @@ function checkAdsFunc() {
                 if (value_4.charAt(0) == ' ') {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
                     value_check_ad = false
+                    let space_index
+
+                    for (let i = 0; i < value_4.length; i++) {
+                        if (value_4[i] != ' ') {
+                            space_index = i
+                            break;
+                        }
+                    }
+                    let fix_first_space = value_4.slice(space_index)
+                    for (let i = 0; i < fix_first_space.length; i++) {
+                        if (fix_first_space[i] == ' ') {
+                            space_index = i
+                            break;
+                        } else {
+                            space_index = fix_first_space.length
+                            break;
+                        }
+                    }
+                    let tmp = fix_first_space.slice(0, space_index)
+
                     if ($('#banned-2').text().indexOf(ban_mess_2) == 0) {
+                        if ($('#banned-2 span').text().includes(tmp)) {
+                        } else {
+                            document.getElementById('banned-2').innerHTML += ' <span>' + tmp + '</span>'
+                        }
                     } else {
-                        $("#alert-card-first .card-error-list ul").append("<li><p  id='banned-2'><span>" + ban_mess_2 + "</span></p></li>")
+                        $("#alert-card-first .card-error-list ul").append("<li><p id='banned-2'>" + ban_mess_2 + " <span>" + tmp + "</span></p></li>")
                     }
                     setTimeout(FunctionHoverWord('banned-2', 'SpaceFirst'), 520)
                 }
@@ -3377,33 +3484,28 @@ FunctionHoverWord = (id, fixedType) => {
         input_list = []
         switch (fixedType) {
             case 'UppercaseFirst':
-                let words = value.target.innerText.split('')
-                let fixed = []
-                for (let i = 0; i < words.length; i++) {
-                    if (i == 0) {
-                        words[i] = words[i].toUpperCase()
+                tmp = value.target.innerText
+                tmp = tmp[0].toUpperCase() + tmp.slice(1)
+                tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+                    content: '<div class="tippy-block fix-block">'
+                        + '<p class="titleFix">Viết hoa chữ cái đầu câu</p>'
+                        + '<div class="blockError"><p class="errorFix">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                        + '<i class="icz icz-arrow-right"></i>'
+                        + '<button class="button is-primary is-light light-blue" onclick="UppercaseFirst()">' + tmp + '</button></div>'
+                        + '<p class="grey">Nội dung quảng cáo yêu cầu viết hoa chữ cái đầu mỗi câu.</p>'
+                        + '</div>',
+                    allowHTML: true,
+                    maxWidth: 270,
+                    theme: 'zad1',
+                    interactive: true,
+                    // placement: 'right-start',
+                    // trigger: 'click',
+                    onUntrigger(instance) {
+                        instance.destroy()
                     }
-                    fixed.push(words[i])
-                }
-                tmp = fixed.toString()
-                // tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
-                //     content: '<div class="tippy-block fix-block">'
-                //         + '<p class="titleFix">Viết hoa chữ cái đầu câu</p>'
-                //         + '<div class="blockError"><p class="errorFix">&nbsp;' + value.target.innerText + '&nbsp;</p>'
-                //         + '<i class="icz icz-arrow-right"></i>'
-                //         + '<button class="button is-primary is-light light-blue">' + tmp.replaceAll(',', '') + '</button></div>'
-                //         + '<p class="grey">Nội dung quảng cáo yêu cầu viết hoa chữ cái đầu mỗi câu.</p>'
-                //         + '</div>',
-                //     allowHTML: true,
-                //     maxWidth: 270,
-                //     theme: 'zad1',
-                //     interactive: true,
-                //     // placement: 'right-start',
-                //     // trigger: 'click',
-                //     onUntrigger(instance) {
-                //         instance.destroy()
-                //     }
-                // });
+                });
+                errorInput = value.target.innerText
+                fixInput = tmp
                 break;
             case 'PuntuationFirst':
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
@@ -3435,10 +3537,22 @@ FunctionHoverWord = (id, fixedType) => {
                 });
                 break;
             case 'SpaceFirst':
+                let space_error = value.target.innerText
+                let space_err_index
+                for (let i = 0; i < space_error.length; i++) {
+                    if (space_error[i] != ' ') {
+                        space_err_index = i
+                        break;
+                    }
+                }
+                tmp = space_error.slice(space_err_index)
+                tmp = tmp[0].toUpperCase() + tmp.slice(1)
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                     content: '<div class="tippy-block fix-block">'
-                        + '<p class="titleFix">Chỉ viết hoa chữ cái đầu câu</p>'
-                        + '<div class="blockError"><button class="button is-primary is-light light-blue" onclick="DeleteFirstSpacing()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</button></div>'
+                        + '<p class="titleFix">Xóa khoảng trắng</p>'
+                        + '<div class="blockError"><p class="errorFix" id="SpaceFirstText">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                        + '<i class="icz icz-arrow-right"></i>'
+                        + '<button class="button is-primary is-light light-blue" onclick="DeleteFirstSpacing()">' + tmp.replaceAll(',', '') + '</button></div>'
                         + '<p class="grey">Không được phép sử dụng khoảng trắng ở đầu câu trong nội dung quảng cáo.</p>'
                         + '</div>',
                     allowHTML: true,
@@ -3457,6 +3571,10 @@ FunctionHoverWord = (id, fixedType) => {
                         instance.destroy()
                     },
                 });
+
+                errorInput = space_error
+                fixInput = tmp
+
                 break;
             // case 'BanWord':
             //     list = banned_words_fixed[0]
@@ -3499,9 +3617,6 @@ FunctionHoverWord = (id, fixedType) => {
                 let punc_value
                 let punc_index
 
-                // console.log('check 1', hoverWord.slice(0, punc_index-1))
-                // console.log('check 2', punctuation)
-                // console.log('check 3', punctuation.length)
                 if (punctuation.length > 1) {
                     punc_value = punctuation[1]
                     punc_index = hoverWord.indexOf(punc_value)
@@ -3699,12 +3814,13 @@ let input_list = []
 //for only tooltip and hover error
 let errorInput
 let fixInput
+let preview_id
 
 
 //fuction fix error input
 DeleteFirstSpacing = () => {
-    let firstLetterPosition
     let firstSpacingError = document.getElementById('banned-2')
+    let PuntuationFirst = document.getElementById('SpaceFirstText').innerHTML.replaceAll('&nbsp;', '')
     //banned
     let errorList = banned_card.getElementsByClassName('card-error-list')[0]
     let li = errorList.getElementsByTagName('LI')
@@ -3712,24 +3828,42 @@ DeleteFirstSpacing = () => {
     for (let i = 0; i < li.length; i++) {
         let item = li[i].lastChild
         if (item == firstSpacingError) {
-            li[i].remove()
-        }
-    }
-    for (let i = 0; i < input_list.length; i++) {
-        let tmp_input = document.getElementById(input_list[i]).value
-        for (let j = 0; j < tmp_input.length; j++) {
-            if (tmp_input[j] != ' ') {
-                firstLetterPosition = j
-                break;
+            let spans = li[i].getElementsByTagName('SPAN')
+            if (spans.length == 1) {
+                li[i].remove()
+            } else {
+                for (let j = 0; j < spans.length; j++) {
+                    if (spans[j].innerHTML == PuntuationFirst) {
+                        spans[j].remove()
+                    }
+                }
             }
         }
-        document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
     }
-    setTimeout(() => {
-        if (li.length == 0) {
-            $('#card-no-error').removeClass('is-hidden')
+
+    for (let i = 0; i < input_list.length; i++) {
+        let tmp_input = document.getElementById(input_list[i]).value
+        if (tmp_input.includes(errorInput)) {
+            tmp_input = fixInput
+            // let fix_index = tmp_input.indexOf(fixInput)
+            document.getElementById(input_list[i]).value = tmp_input
+
+            switch (input_list[i]) {
+                case 'first-input': preview_id = 'first-preview'; break;
+                case 'second-input': preview_id = 'second-preview'; break;
+                case 'third-input': preview_id = 'third-preview'; break;
+                case 'fourth-input': preview_id = 'fourth-preview'; break;
+            }
+            document.getElementById(preview_id).innerHTML = tmp_input
         }
-    }, 500)
+    }
+    // setTimeout(() => {
+    //     if (li.length == 0) {
+    //         $('#card-no-error').removeClass('is-hidden')
+    //     }
+    // }, 500)
+
+    checkAdsFunc()
 }
 
 DeletePunctuationFirst = () => {
@@ -3765,13 +3899,23 @@ DeletePunctuationFirst = () => {
                 }
             }
             document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
+
+            switch (input_list[i]) {
+                case 'first-input': preview_id = 'first-preview'; break;
+                case 'second-input': preview_id = 'second-preview'; break;
+                case 'third-input': preview_id = 'third-preview'; break;
+                case 'fourth-input': preview_id = 'fourth-preview'; break;
+            }
+            document.getElementById(preview_id).innerHTML = tmp_input.slice(firstLetterPosition)
         }
     }
-    setTimeout(() => {
-        if (li.length == 0) {
-            $('#card-no-error').removeClass('is-hidden')
-        }
-    }, 500)
+    // setTimeout(() => {
+    //     if (li.length == 0) {
+    //         $('#card-no-error').removeClass('is-hidden')
+    //     }
+    // }, 500)
+
+    checkAdsFunc()
 }
 
 ReplacePunctuationError = () => {
@@ -3801,15 +3945,73 @@ ReplacePunctuationError = () => {
             tmp_input = tmp_input.replaceAll(errorInput, fixInput)
             // let fix_index = tmp_input.indexOf(fixInput)
             document.getElementById(input_list[i]).value = tmp_input
+
+            switch (input_list[i]) {
+                case 'first-input': preview_id = 'first-preview'; break;
+                case 'second-input': preview_id = 'second-preview'; break;
+                case 'third-input': preview_id = 'third-preview'; break;
+                case 'fourth-input': preview_id = 'fourth-preview'; break;
+            }
+            document.getElementById(preview_id).innerHTML = tmp_input
         }
     }
-    setTimeout(() => {
-        if (li.length == 0) {
-            $('#card-no-error').removeClass('is-hidden')
-        }
-    }, 500)
+    // setTimeout(() => {
+    //     if (li.length == 0) {
+    //         $('#card-no-error').removeClass('is-hidden')
+    //     }
+    // }, 500)
+
+    checkAdsFunc()
 }
 
+UppercaseFirst = () => {
+    let firstSpacingError = document.getElementById('banned-0')
+    //banned
+    let errorList = banned_card.getElementsByClassName('card-error-list')[0]
+    let li = errorList.getElementsByTagName('LI')
+    for (let i = 0; i < li.length; i++) {
+        let item = li[i].lastChild
+        if (item == firstSpacingError) {
+            let spans = li[i].getElementsByTagName('SPAN')
+            if (spans.length == 1) {
+                li[i].remove()
+            } else {
+                for (let j = 0; j < spans.length; j++) {
+                    if (spans[j].innerHTML == errorInput) {
+                        spans[j].remove()
+                    }
+                }
+            }
+        }
+    }
+
+    for (let i = 0; i < input_list.length; i++) {
+        let tmp_input = document.getElementById(input_list[i]).value
+
+        if (tmp_input.includes(errorInput)) {
+            tmp_input = tmp_input.replaceAll(errorInput, fixInput)
+            // let fix_index = tmp_input.indexOf(fixInput)
+            document.getElementById(input_list[i]).value = tmp_input
+
+            switch (input_list[i]) {
+                case 'first-input': preview_id = 'first-preview'; break;
+                case 'second-input': preview_id = 'second-preview'; break;
+                case 'third-input': preview_id = 'third-preview'; break;
+                case 'fourth-input': preview_id = 'fourth-preview'; break;
+            }
+            document.getElementById(preview_id).innerHTML = tmp_input
+        }
+
+
+    }
+    // setTimeout(() => {
+    //     if (li.length == 0) {
+    //         $('#card-no-error').removeClass('is-hidden')
+    //     }
+    // }, 500)
+
+    checkAdsFunc()
+}
 
 
 //checkbox for case TPCN
@@ -5641,7 +5843,7 @@ function checkAdsFunc_form() {
                 let first_word_list = []
                 let first_word_wrap
 
-                for (let i = 0; i <= value_1.length; i++) {
+                for (let i = 0; i < value_1.length; i++) {
                     if (value_1[i] == ' ') {
                         break;
                     } else {
@@ -5673,16 +5875,40 @@ function checkAdsFunc_form() {
                     $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + value_1.charAt(0) + "</span></p></li>")
                 }
 
-                setTimeout(FunctionHoverWord_form('banned-1', 'PuntuationFirst'), 520)
+                setTimeout(FunctionHoverWord_form('form-banned-1', 'PuntuationFirst'), 520)
             }
             if (value_1.charAt(0) == ' ') {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
                 value_check_ad = false
-                if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
-                } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'><span>" + ban_mess_2 + "</span></p></li>")
+                let space_index
+
+                for (let i = 0; i < value_1.length; i++) {
+                    if (value_1[i] != ' ') {
+                        space_index = i
+                        break;
+                    }
                 }
-                setTimeout(FunctionHoverWord_form('banned-1', 'PuntuationFirst'), 520)
+                let fix_first_space = value_1.slice(space_index)
+                for (let i = 0; i < fix_first_space.length; i++) {
+                    if (fix_first_space[i] == ' ') {
+                        space_index = i
+                        break;
+                    } else {
+                        space_index = fix_first_space.length
+                        break;
+                    }
+                }
+                let tmp = fix_first_space.slice(0, space_index)
+
+                if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
+                    if ($('#form-banned-2 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('form-banned-2').innerHTML += ' <span>' + tmp + '</span>'
+                    }
+                } else {
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-2'>" + ban_mess_2 + " <span>" + tmp + "</span></p></li>")
+                }
+                setTimeout(FunctionHoverWord_form('form-banned-2', 'SpaceFirst'), 520)
             }
             if (checkPolicy(value_1).length > 0) {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
@@ -5938,7 +6164,7 @@ function checkAdsFunc_form() {
                 let first_word_list = []
                 let first_word_wrap
 
-                for (let i = 0; i <= value_2.length; i++) {
+                for (let i = 0; i < value_2.length; i++) {
                     if (value_2[i] == ' ') {
                         break;
                     } else {
@@ -5974,9 +6200,33 @@ function checkAdsFunc_form() {
             if (value_2.charAt(0) == ' ') {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                 value_check_ad = false
+                let space_index
+
+                for (let i = 0; i < value_2.length; i++) {
+                    if (value_2[i] != ' ') {
+                        space_index = i
+                        break;
+                    }
+                }
+                let fix_first_space = value_2.slice(space_index)
+                for (let i = 0; i < fix_first_space.length; i++) {
+                    if (fix_first_space[i] == ' ') {
+                        space_index = i
+                        break;
+                    } else {
+                        space_index = fix_first_space.length
+                        break;
+                    }
+                }
+                let tmp = fix_first_space.slice(0, space_index)
+
                 if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
+                    if ($('#form-banned-2 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('form-banned-2').innerHTML += ' <span>' + tmp + '</span>'
+                    }
                 } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'><span>" + ban_mess_2 + "</span></p></li>")
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-2'>" + ban_mess_2 + " <span>" + tmp + "</span></p></li>")
                 }
                 setTimeout(FunctionHoverWord_form('form-banned-2', 'SpaceFirst'), 520)
             }
@@ -6324,7 +6574,7 @@ function checkAdsFunc_form() {
                         let first_word_list = []
                         let first_word_wrap
 
-                        for (let i = 0; i <= temp.length; i++) {
+                        for (let i = 0; i < temp.length; i++) {
                             if (temp[i] == ' ') {
                                 break;
                             } else {
@@ -6342,7 +6592,7 @@ function checkAdsFunc_form() {
                         } else {
                             $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
                         }
-                        setTimeout(FunctionHoverWord('form-banned-0', 'UppercaseFirst'), 520)
+                        setTimeout(FunctionHoverWord_form('form-banned-0', 'UppercaseFirst'), 520)
 
                     }
                     if (temp.charAt(0).match(InputFormatNoPuntuation) == null && temp.charAt(0) != ' ') {
@@ -6358,7 +6608,7 @@ function checkAdsFunc_form() {
                             } else {
                                 $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + temp.charAt(0) + "</span></p></li>")
                             }
-                            setTimeout(FunctionHoverWord('form-banned-1', 'PuntuationFirst'), 520)
+                            setTimeout(FunctionHoverWord_form('form-banned-1', 'PuntuationFirst'), 520)
                         }
                     }
                     if (temp.charAt(0) == ' ') {
@@ -6367,11 +6617,35 @@ function checkAdsFunc_form() {
                         } else {
                             second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                             value_check_ad = false
-                            if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
-                            } else {
-                                $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'><span>" + ban_mess_2 + "</span></p></li>")
+                            let space_index
+
+                            for (let i = 0; i < temp.length; i++) {
+                                if (temp[i] != ' ') {
+                                    space_index = i
+                                    break;
+                                }
                             }
-                            setTimeout(FunctionHoverWord('form-banned-2', 'SpaceFirst'), 520)
+                            let fix_first_space = temp.slice(space_index)
+                            for (let i = 0; i < fix_first_space.length; i++) {
+                                if (fix_first_space[i] == ' ') {
+                                    space_index = i
+                                    break;
+                                } else {
+                                    space_index = fix_first_space.length
+                                    break;
+                                }
+                            }
+                            let tmp = fix_first_space.slice(0, space_index)
+
+                            if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
+                                if ($('#form-banned-2 span').text().includes(tmp)) {
+                                } else {
+                                    document.getElementById('form-banned-2').innerHTML += ' <span>' + tmp + '</span>'
+                                }
+                            } else {
+                                $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-2'>" + ban_mess_2 + " <span>" + tmp + "</span></p></li>")
+                            }
+                            setTimeout(FunctionHoverWord_form('form-banned-2', 'SpaceFirst'), 520)
                         }
                     }
                     if (temp.match(InputSpacingPuntationError_0)
@@ -6544,7 +6818,7 @@ function checkAdsFunc_form() {
                 let first_word_list = []
                 let first_word_wrap
 
-                for (let i = 0; i <= value_3.length; i++) {
+                for (let i = 0; i < value_3.length; i++) {
                     if (value_3[i] == ' ') {
                         break;
                     } else {
@@ -6562,7 +6836,7 @@ function checkAdsFunc_form() {
                 } else {
                     $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-0'>" + ban_mess_3 + " <span>" + tmp + "</span></p></li>")
                 }
-                setTimeout(FunctionHoverWord('form-banned-0', 'UppercaseFirst'), 520)
+                setTimeout(FunctionHoverWord_form('form-banned-0', 'UppercaseFirst'), 520)
             }
             if (value_3.charAt(0).match(InputFormatNoPuntuation) == null && value_3.charAt(0) != ' ') {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
@@ -6575,16 +6849,40 @@ function checkAdsFunc_form() {
                 } else {
                     $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + value_3.charAt(0) + "</span></p></li>")
                 }
-                setTimeout(FunctionHoverWord('form-banned-1', 'PuntuationFirst'), 520)
+                setTimeout(FunctionHoverWord_form('form-banned-1', 'PuntuationFirst'), 520)
             }
             if (value_3.charAt(0) == ' ') {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
                 value_check_ad = false
-                if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
-                } else {
-                    $("#form-alert-card-first .card-error-list ul").append("<li><p  id='form-banned-2'><span>" + ban_mess_2 + "</span></p></li>")
+                let space_index
+
+                for (let i = 0; i < value_3.length; i++) {
+                    if (value_3[i] != ' ') {
+                        space_index = i
+                        break;
+                    }
                 }
-                setTimeout(FunctionHoverWord('form-banned-2', 'SpaceFirst'), 520)
+                let fix_first_space = value_3.slice(space_index)
+                for (let i = 0; i < fix_first_space.length; i++) {
+                    if (fix_first_space[i] == ' ') {
+                        space_index = i
+                        break;
+                    } else {
+                        space_index = fix_first_space.length
+                        break;
+                    }
+                }
+                let tmp = fix_first_space.slice(0, space_index)
+
+                if ($('#form-banned-2').text().indexOf(ban_mess_2) == 0) {
+                    if ($('#form-banned-2 span').text().includes(tmp)) {
+                    } else {
+                        document.getElementById('form-banned-2').innerHTML += ' <span>' + tmp + '</span>'
+                    }
+                } else {
+                    $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-2'>" + ban_mess_2 + " <span>" + tmp + "</span></p></li>")
+                }
+                setTimeout(FunctionHoverWord_form('form-banned-2', 'SpaceFirst'), 520)
             }
             if (checkPolicy(value_3).length > 0) {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
@@ -6883,24 +7181,27 @@ FunctionHoverWord_form = (id, fixedType) => {
                     fixed.push(words[i])
                 }
                 tmp = fixed.toString()
-                // tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
-                //     content: '<div class="tippy-block fix-block">'
-                //         + '<p class="titleFix">Viết hoa chữ cái đầu câu</p>'
-                //         + '<div class="blockError"><p class="errorFix">&nbsp;' + value.target.innerText + '&nbsp;</p>'
-                //         + '<i class="icz icz-arrow-right"></i>'
-                //         + '<button class="button is-primary is-light light-blue">' + tmp.replaceAll(',', '') + '</button></div>'
-                //         + '<p class="grey">Nội dung quảng cáo yêu cầu viết hoa chữ cái đầu mỗi câu.</p>'
-                //         + '</div>',
-                //     allowHTML: true,
-                //     maxWidth: 270,
-                //     theme: 'zad1',
-                //     interactive: true,
-                //     // placement: 'right-start',
-                //     // trigger: 'click',
-                //     onUntrigger(instance) {
-                //         instance.destroy()
-                //     }
-                // });
+                tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
+                    content: '<div class="tippy-block fix-block">'
+                        + '<p class="titleFix">Viết hoa chữ cái đầu câu</p>'
+                        + '<div class="blockError"><p class="errorFix" id="form-UppercaseFirst">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                        + '<i class="icz icz-arrow-right"></i>'
+                        + '<button class="button is-primary is-light light-blue" onclick="form_UppercaseFirst()">' + tmp.replaceAll(',', '') + '</button></div>'
+                        + '<p class="grey">Nội dung quảng cáo yêu cầu viết hoa chữ cái đầu mỗi câu.</p>'
+                        + '</div>',
+                    allowHTML: true,
+                    maxWidth: 270,
+                    theme: 'zad1',
+                    interactive: true,
+                    // placement: 'right-start',
+                    // trigger: 'click',
+                    // onUntrigger(instance) {
+                    //     instance.destroy()
+                    // }
+                });
+
+                form_errorInput = value.target.innerText
+                form_fixInput = tmp.replaceAll(',', '')
                 break;
             case 'PuntuationFirst':
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
@@ -6925,10 +7226,22 @@ FunctionHoverWord_form = (id, fixedType) => {
                 });
                 break;
             case 'SpaceFirst':
+                let space_error = value.target.innerText
+                let space_err_index
+                for (let i = 0; i < space_error.length; i++) {
+                    if (space_error[i] != ' ') {
+                        space_err_index = i
+                        break;
+                    }
+                }
+                tmp = space_error.slice(space_err_index)
+                tmp = tmp[0].toUpperCase() + tmp.slice(1)
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                     content: '<div class="tippy-block fix-block">'
-                        + '<p class="titleFix">Chỉ viết hoa chữ cái đầu câu</p>'
-                        + '<div class="blockError"><button class="button is-primary is-light light-blue" onclick="form_DeleteFirstSpacing()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</button></div>'
+                        + '<p class="titleFix">Xóa khoảng trắng</p>'
+                        + '<div class="blockError"><p class="errorFix" id="SpaceFirstText">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                        + '<i class="icz icz-arrow-right"></i>'
+                        + '<button class="button is-primary is-light light-blue" onclick="form_DeleteFirstSpacing()">' + tmp.replaceAll(',', '') + '</button></div>'
                         + '<p class="grey">Không được phép sử dụng khoảng trắng ở đầu câu trong nội dung quảng cáo.</p>'
                         + '</div>',
                     allowHTML: true,
@@ -6944,6 +7257,9 @@ FunctionHoverWord_form = (id, fixedType) => {
                     //     instance.setProps({ trigger: 'mouseenter focus' })
                     // },
                 });
+
+                form_errorInput = space_error
+                form_fixInput = tmp
                 break;
             // case 'BanWord':
             //     list = banned_words_fixed[0]
@@ -7050,8 +7366,8 @@ FunctionHoverWord_form = (id, fixedType) => {
                     // },
                 });
 
-                errorInput = hoverWord
-                fixInput = tmp
+                form_errorInput = hoverWord
+                form_fixInput = tmp
 
                 break;
         }
@@ -7120,6 +7436,7 @@ FunctionHoverWord_form = (id, fixedType) => {
                 }
                 document.getElementById('form-first-preview').innerHTML = temp
             }
+            form_input_list.push('form-first-input')
         }
         if ($('#form-second-preview').hasClass('get-error')) {
             if (second_preview_OG.indexOf(value.target.innerText) > -1) {
@@ -7129,8 +7446,10 @@ FunctionHoverWord_form = (id, fixedType) => {
                 }
                 document.getElementById('form-second-preview').innerHTML = temp
             }
+            form_input_list.push('form-second-input')
         }
         if ($('#form-oa-preview').hasClass('get-error')) {
+            // console.log('check')
             if (third_preview_OG.indexOf(value.target.innerText) > -1) {
                 let temp = third_preview_OG.replaceAll(value.target.innerText, '<span>' + value.target.innerText + "</span>")
                 if (temp.includes('amp;')) {
@@ -7138,6 +7457,7 @@ FunctionHoverWord_form = (id, fixedType) => {
                 }
                 document.getElementById('form-oa-preview').innerHTML = temp
             }
+            form_input_list.push('form-oa-input')
         }
 
     }, value => {
@@ -7166,12 +7486,54 @@ let form_input_list = []
 //for only tooltip and hover error
 let form_errorInput
 let form_fixInput
+let form_preview_id
 
 
 //fuction fix error input
+form_UppercaseFirst = () => {
+    let firstSpacingError = document.getElementById('form-banned-0')
+    //banned
+    let errorList = banned_card_form.getElementsByClassName('card-error-list')[0]
+    let li = errorList.getElementsByTagName('LI')
+    for (let i = 0; i < li.length; i++) {
+        let item = li[i].lastChild
+        if (item == firstSpacingError) {
+            // console.log(item)
+            let spans = li[i].getElementsByTagName('SPAN')
+            // console.log('span',spans)
+            if (spans.length == 1) {
+                li[i].remove()
+            } else {
+                for (let j = 0; j < spans.length; j++) {
+                    if (spans[j].innerHTML == form_errorInput) {
+                        spans[j].remove()
+                    }
+                }
+            }
+        }
+    }
+
+    for (let i = 0; i < form_input_list.length; i++) {
+        let tmp_input = document.getElementById(form_input_list[i]).value
+        if (tmp_input.includes(form_errorInput)) {
+            tmp_input = tmp_input.replaceAll(form_errorInput, form_fixInput)
+            // let fix_index = tmp_input.indexOf(fixInput)
+            document.getElementById(form_input_list[i]).value = tmp_input
+
+            switch (form_input_list[i]) {
+                case 'form-first-input': form_preview_id = 'form-first-preview'; break;
+                case 'form-second-input': form_preview_id = 'form-second-preview'; break;
+                case 'form-oa-input': form_preview_id = 'form-oa-preview'; break;
+            }
+            document.getElementById(form_preview_id).innerHTML = tmp_input
+        }
+    }
+    checkAdsFunc_form()
+}
+
 form_DeleteFirstSpacing = () => {
-    let firstLetterPosition
     let firstSpacingError = document.getElementById('form-banned-2')
+    let PuntuationFirst = document.getElementById('SpaceFirstText').innerHTML
     //banned
     let errorList = banned_card_form.getElementsByClassName('card-error-list')[0]
     let li = errorList.getElementsByTagName('LI')
@@ -7179,24 +7541,35 @@ form_DeleteFirstSpacing = () => {
     for (let i = 0; i < li.length; i++) {
         let item = li[i].lastChild
         if (item == firstSpacingError) {
-            li[i].remove()
-        }
-    }
-    for (let i = 0; i < input_list.length; i++) {
-        let tmp_input = document.getElementById(input_list[i]).value
-        for (let j = 0; j < tmp_input.length; j++) {
-            if (tmp_input[j] != ' ') {
-                firstLetterPosition = j
-                break;
+            let spans = li[i].getElementsByTagName('SPAN')
+            if (spans.length == 1) {
+                li[i].remove()
+            } else {
+                for (let j = 0; j < spans.length; j++) {
+                    if (spans[j].innerHTML == PuntuationFirst) {
+                        spans[j].remove()
+                    }
+                }
             }
         }
-        document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
     }
-    setTimeout(() => {
-        if (li.length == 0) {
-            $('#card-no-error-form').removeClass('is-hidden')
+
+    for (let i = 0; i < form_input_list.length; i++) {
+        let tmp_input = document.getElementById(form_input_list[i]).value
+        if (tmp_input.includes(form_errorInput)) {
+            tmp_input = form_fixInput
+            // let fix_index = tmp_input.indexOf(fixInput)
+            document.getElementById(form_input_list[i]).value = tmp_input
+
+            switch (form_input_list[i]) {
+                case 'form-first-input': form_preview_id = 'form-first-preview'; break;
+                case 'form-second-input': form_preview_id = 'form-second-preview'; break;
+                case 'form-oa-input': form_preview_id = 'form-oa-preview'; break;
+            }
+            document.getElementById(form_preview_id).innerHTML = tmp_input
         }
-    }, 500)
+    }
+    checkAdsFunc_form()
 }
 
 form_DeletePunctuationFirst = () => {
@@ -7222,8 +7595,8 @@ form_DeletePunctuationFirst = () => {
         }
     }
 
-    for (let i = 0; i < input_list.length; i++) {
-        let tmp_input = document.getElementById(input_list[i]).value
+    for (let i = 0; i < form_input_list.length; i++) {
+        let tmp_input = document.getElementById(form_input_list[i]).value
         if (tmp_input.includes(PuntuationFirst)) {
             for (let j = 1; j < tmp_input.length; j++) {
                 if (tmp_input[j] != ' ') {
@@ -7231,14 +7604,17 @@ form_DeletePunctuationFirst = () => {
                     break;
                 }
             }
-            document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
+            document.getElementById(form_input_list[i]).value = tmp_input.slice(firstLetterPosition)
+
+            switch (form_input_list[i]) {
+                case 'form-first-input': form_preview_id = 'form-first-preview'; break;
+                case 'form-second-input': form_preview_id = 'form-second-preview'; break;
+                case 'form-oa-input': form_preview_id = 'form-oa-preview'; break;
+            }
+            document.getElementById(form_preview_id).innerHTML = tmp_input.slice(firstLetterPosition)
         }
     }
-    setTimeout(() => {
-        if (li.length == 0) {
-            $('#card-no-error-form').removeClass('is-hidden')
-        }
-    }, 500)
+    checkAdsFunc_form()
 }
 
 form_ReplacePunctuationError = () => {
@@ -7254,25 +7630,27 @@ form_ReplacePunctuationError = () => {
                 li[i].remove()
             } else {
                 for (let j = 0; j < spans.length; j++) {
-                    if (spans[j].innerHTML == errorInput) {
+                    if (spans[j].innerHTML == form_errorInput) {
                         spans[j].remove()
                     }
                 }
             }
         }
     }
+    for (let i = 0; i < form_input_list.length; i++) {
+        let tmp_input = document.getElementById(form_input_list[i]).value
+        if (tmp_input.includes(form_errorInput)) {
+            tmp_input = tmp_input.replaceAll(form_errorInput, form_fixInput)
+            // let fix_index = tmp_input.indexOf(form_fixInput)
+            document.getElementById(form_input_list[i]).value = tmp_input
 
-    for (let i = 0; i < input_list.length; i++) {
-        let tmp_input = document.getElementById(input_list[i]).value
-        if (tmp_input.includes(errorInput)) {
-            tmp_input = tmp_input.replaceAll(errorInput, fixInput)
-            // let fix_index = tmp_input.indexOf(fixInput)
-            document.getElementById(input_list[i]).value = tmp_input
+            switch (form_input_list[i]) {
+                case 'form-first-input': form_preview_id = 'form-first-preview'; break;
+                case 'form-second-input': form_preview_id = 'form-second-preview'; break;
+                case 'form-oa-input': form_preview_id = 'form-oa-preview'; break;
+            }
+            document.getElementById(form_preview_id).innerHTML = tmp_input
         }
     }
-    setTimeout(() => {
-        if (li.length == 0) {
-            $('#card-no-error-form').removeClass('is-hidden')
-        }
-    }, 500)
+    checkAdsFunc_form()
 }
