@@ -7173,15 +7173,8 @@ FunctionHoverWord_form = (id, fixedType) => {
         form_input_list = []
         switch (fixedType) {
             case 'UppercaseFirst':
-                let words = value.target.innerText.split('')
-                let fixed = []
-                for (let i = 0; i < words.length; i++) {
-                    if (i == 0) {
-                        words[i] = words[i].toUpperCase()
-                    }
-                    fixed.push(words[i])
-                }
-                tmp = fixed.toString()
+                tmp = value.target.innerText
+                tmp = tmp[0].toUpperCase() + tmp.slice(1)
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                     content: '<div class="tippy-block fix-block">'
                         + '<p class="titleFix">Viết hoa chữ cái đầu câu</p>'
