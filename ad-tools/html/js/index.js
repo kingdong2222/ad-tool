@@ -6914,14 +6914,14 @@ FunctionHoverWord_form = (id, fixedType) => {
                     allowHTML: true,
                     maxWidth: 270,
                     theme: 'zad1',
-                    // interactive: true,
+                    interactive: true,
                     // placement: 'right-start',
-                    onShow(instance) {
-                        instance.setProps({ trigger: 'click' })
-                    },
-                    onHide(instance) {
-                        instance.setProps({ trigger: 'mouseenter focus' })
-                    },
+                    // onShow(instance) {
+                    //     instance.setProps({ trigger: 'click' })
+                    // },
+                    // onHide(instance) {
+                    //     instance.setProps({ trigger: 'mouseenter focus' })
+                    // },
                 });
                 break;
             case 'SpaceFirst':
@@ -6934,15 +6934,15 @@ FunctionHoverWord_form = (id, fixedType) => {
                     allowHTML: true,
                     maxWidth: 270,
                     theme: 'zad1',
-                    // interactive: true,
+                    interactive: true,
                     // placement: 'right-start',
                     // trigger: 'click',
-                    onShow(instance) {
-                        instance.setProps({ trigger: 'click' })
-                    },
-                    onHide(instance) {
-                        instance.setProps({ trigger: 'mouseenter focus' })
-                    },
+                    // onShow(instance) {
+                    //     instance.setProps({ trigger: 'click' })
+                    // },
+                    // onHide(instance) {
+                    //     instance.setProps({ trigger: 'mouseenter focus' })
+                    // },
                 });
                 break;
             // case 'BanWord':
@@ -7039,15 +7039,15 @@ FunctionHoverWord_form = (id, fixedType) => {
                     allowHTML: true,
                     maxWidth: 270,
                     theme: 'zad1',
-                    // interactive: true,
+                    interactive: true,
                     // placement: 'right-start',
                     // trigger: 'click',
-                    onShow(instance) {
-                        instance.setProps({ trigger: 'click' })
-                    },
-                    onHide(instance) {
-                        instance.setProps({ trigger: 'mouseenter focus' })
-                    },
+                    // onShow(instance) {
+                    //     instance.setProps({ trigger: 'click' })
+                    // },
+                    // onHide(instance) {
+                    //     instance.setProps({ trigger: 'mouseenter focus' })
+                    // },
                 });
 
                 errorInput = hoverWord
