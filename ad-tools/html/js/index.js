@@ -5850,18 +5850,15 @@ function checkAdsFunc_form() {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
                 value_check_ad = false
 
-                let first_word_list = []
-                let first_word_wrap
+                let first_word_index
 
                 for (let i = 0; i < value_1.length; i++) {
                     if (value_1[i] == ' ') {
+                        first_word_index = i
                         break;
-                    } else {
-                        first_word_list.push(value_1[i])
                     }
                 }
-                first_word_wrap = first_word_list.toString()
-                let tmp = first_word_wrap.replaceAll(',', '')
+                let tmp = value_1.slice(0, first_word_index)
 
                 if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
                     if ($('#form-banned-0 span').text().includes(tmp)) {
@@ -6171,18 +6168,15 @@ function checkAdsFunc_form() {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                 value_check_ad = false
 
-                let first_word_list = []
-                let first_word_wrap
+                let first_word_index
 
                 for (let i = 0; i < value_2.length; i++) {
                     if (value_2[i] == ' ') {
+                        first_word_index = i
                         break;
-                    } else {
-                        first_word_list.push(value_2[i])
                     }
                 }
-                first_word_wrap = first_word_list.toString()
-                let tmp = first_word_wrap.replaceAll(',', '')
+                let tmp = value_2.slice(0, first_word_index)
 
                 if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
                     if ($('#form-banned-0 span').text().includes(tmp)) {
@@ -6407,7 +6401,7 @@ function checkAdsFunc_form() {
                             $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
                         }
                     }
-                    setTimeout(FunctionHoverWord_form('form-banned-5', PunctuationError), 520)
+                    setTimeout(FunctionHoverWord_form('form-banned-5', 'PunctuationError'), 520)
                 }
             }
 
@@ -6825,18 +6819,15 @@ function checkAdsFunc_form() {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
                 value_check_ad = false
 
-                let first_word_list = []
-                let first_word_wrap
+                let first_word_index
 
                 for (let i = 0; i < value_3.length; i++) {
                     if (value_3[i] == ' ') {
+                        first_word_index = i
                         break;
-                    } else {
-                        first_word_list.push(value_3[i])
                     }
                 }
-                first_word_wrap = first_word_list.toString()
-                let tmp = first_word_wrap.replaceAll(',', '')
+                let tmp = value_3.slice(0, first_word_index)
 
                 if ($('#form-banned-0').text().indexOf(ban_mess_3) == 0) {
                     if ($('#form-banned-0 span').text().includes(tmp)) {
