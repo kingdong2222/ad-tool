@@ -273,3 +273,21 @@ var OpenUpdateHistory = () => {
         setCookie('version_update', version_update, 365)
     }, 100)
 }
+
+
+//case sensity for closing fixing error tooltip
+window.onclick = value => {
+    let temp_path = value.path
+    if(temp_path){
+        temp_path.forEach(element => {
+            if(element.id){
+                let temp_id = element.id
+                if(temp_id.includes('tippy')){
+                    document.getElementById(temp_id).remove()
+                }
+            }
+        });
+    }
+    
+    
+}
