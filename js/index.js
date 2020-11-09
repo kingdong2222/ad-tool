@@ -7370,7 +7370,7 @@ FunctionHoverWord_form = (id, fixedType) => {
                     theme: 'zad1',
                     interactive: true,
                     // placement: 'right-start',
-                    trigger: 'click',
+                    // trigger: 'click',
                     // onShow(instance) {
                     //     instance.setProps({ trigger: 'click' })
                     // },
