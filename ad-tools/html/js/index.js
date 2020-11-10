@@ -3900,7 +3900,7 @@ DeletePunctuationFirst = () => {
     for (let i = 0; i < input_list.length; i++) {
         let tmp_input = document.getElementById(input_list[i]).value
         if (tmp_input.includes(PuntuationFirst)) {
-            for (let j = 1; j < tmp_input.length; j++) {
+            for (let j = 0; j < tmp_input.length; j++) {
                 if (tmp_input[j] == PuntuationFirst) {
                     firstLetterPosition = j
                     break;
@@ -3914,9 +3914,10 @@ DeletePunctuationFirst = () => {
                 case 'fourth-input': preview_id = 'fourth-preview'; break;
             }
 
+            
             if (firstLetterPosition == 0) {
-                document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
-                document.getElementById(preview_id).innerHTML = tmp_input.slice(firstLetterPosition)
+                document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition+1)
+                document.getElementById(preview_id).innerHTML = tmp_input.slice(firstLetterPosition+1)
             } else if (firstLetterPosition > 0) {
                 if (tmp_input[firstLetterPosition + 1] != ' ') {
                     document.getElementById(input_list[i]).value = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 1)
@@ -7622,7 +7623,7 @@ form_DeletePunctuationFirst = () => {
     for (let i = 0; i < form_input_list.length; i++) {
         let tmp_input = document.getElementById(form_input_list[i]).value
         if (tmp_input.includes(PuntuationFirst)) {
-            for (let j = 1; j < tmp_input.length; j++) {
+            for (let j = 0; j < tmp_input.length; j++) {
                 if (tmp_input[j] == PuntuationFirst) {
                     firstLetterPosition = j
                     break;
@@ -7636,8 +7637,8 @@ form_DeletePunctuationFirst = () => {
             }
 
             if (firstLetterPosition == 0) {
-                document.getElementById(form_input_list[i]).value = tmp_input.slice(firstLetterPosition)
-                document.getElementById(form_preview_id).innerHTML = tmp_input.slice(firstLetterPosition)
+                document.getElementById(form_input_list[i]).value = tmp_input.slice(firstLetterPosition+1)
+                document.getElementById(form_preview_id).innerHTML = tmp_input.slice(firstLetterPosition+1)
             } else if (firstLetterPosition > 0) {
                 if (tmp_input[firstLetterPosition + 1] != ' ') {
                     document.getElementById(form_input_list[i]).value = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 1)
