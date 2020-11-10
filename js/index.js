@@ -1516,7 +1516,7 @@ function checkAdsFunc() {
     //banned mess
     let ban_mess_0 = 'Sử dụng từ ngữ bị hạn chế:'
     let ban_mess_1 = 'Viết hoa toàn bộ'
-    let ban_mess_2 = 'Sử dụng khoảng trắng đầu câu'
+    let ban_mess_2 = 'Sử dụng khoảng trắng đầu câu:'
     let ban_mess_3 = 'Không viết hoa chữ cái đầu câu:'
     let ban_mess_4 = 'Sử dụng dấu câu sai quy cách:'
     let ban_mess_5 = 'Sử dụng dấu câu ở đầu:'
@@ -1647,16 +1647,20 @@ function checkAdsFunc() {
                 if (value_1.match(InputSpacingPuntationError_0)) {
                     let tmp = value_1.match(InputSpacingPuntationError_0)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_1.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_1.match(InputSpacingPuntationError_1)) {
                     let tmp = value_1.match(InputSpacingPuntationError_1)
                     for (let i = 0; i < tmp.length; i++) {
-                        // console.log(tmp[i])
+                        console.log(tmp[i])
                         if (tmp[i].match(InputSpacingPuntationError_4)) {
                         } else {
-                            list_error.push(tmp[i])
+                            if (value_1.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
                         }
 
                     }
@@ -1664,16 +1668,20 @@ function checkAdsFunc() {
                 if (value_1.match(InputSpacingPuntationError_2)) {
                     let tmp = value_1.match(InputSpacingPuntationError_2)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_1.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_1.match(InputSpacingPuntationError_3)) {
                     let tmp = value_1.match(InputSpacingPuntationError_3)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_1.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
-
+                console.log(list_error)
                 //check list error and wrap word before/after for previewing
                 for (let i = 0; i < list_error.length; i++) {
 
@@ -2040,7 +2048,9 @@ function checkAdsFunc() {
                 if (value_2.match(InputSpacingPuntationError_0)) {
                     let tmp = value_2.match(InputSpacingPuntationError_0)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_2.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_2.match(InputSpacingPuntationError_1)) {
@@ -2049,7 +2059,9 @@ function checkAdsFunc() {
                         // console.log(tmp[i])
                         if (tmp[i].match(InputSpacingPuntationError_4)) {
                         } else {
-                            list_error.push(tmp[i])
+                            if (value_2.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
                         }
 
                     }
@@ -2057,13 +2069,17 @@ function checkAdsFunc() {
                 if (value_2.match(InputSpacingPuntationError_2)) {
                     let tmp = value_2.match(InputSpacingPuntationError_2)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_2.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_2.match(InputSpacingPuntationError_3)) {
                     let tmp = value_2.match(InputSpacingPuntationError_3)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_2.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
 
@@ -2390,16 +2406,19 @@ function checkAdsFunc() {
                         if (temp.match(InputSpacingPuntationError_0)) {
                             let tmp = temp.match(InputSpacingPuntationError_0)
                             for (let i = 0; i < tmp.length; i++) {
-                                list_error.push(tmp[i])
+                                if (temp.includes(tmp[i])) {
+                                    list_error.push(tmp[i])
+                                }
                             }
                         }
                         if (temp.match(InputSpacingPuntationError_1)) {
                             let tmp = temp.match(InputSpacingPuntationError_1)
                             for (let i = 0; i < tmp.length; i++) {
-                                // console.log(tmp[i])
                                 if (tmp[i].match(InputSpacingPuntationError_4)) {
                                 } else {
-                                    list_error.push(tmp[i])
+                                    if (temp.includes(tmp[i])) {
+                                        list_error.push(tmp[i])
+                                    }
                                 }
 
                             }
@@ -2407,13 +2426,17 @@ function checkAdsFunc() {
                         if (temp.match(InputSpacingPuntationError_2)) {
                             let tmp = temp.match(InputSpacingPuntationError_2)
                             for (let i = 0; i < tmp.length; i++) {
-                                list_error.push(tmp[i])
+                                if (temp.includes(tmp[i])) {
+                                    list_error.push(tmp[i])
+                                }
                             }
                         }
                         if (temp.match(InputSpacingPuntationError_3)) {
                             let tmp = temp.match(InputSpacingPuntationError_3)
                             for (let i = 0; i < tmp.length; i++) {
-                                list_error.push(tmp[i])
+                                if (temp.includes(tmp[i])) {
+                                    list_error.push(tmp[i])
+                                }
                             }
                         }
 
@@ -2709,7 +2732,9 @@ function checkAdsFunc() {
                 if (value_3.match(InputSpacingPuntationError_0)) {
                     let tmp = value_3.match(InputSpacingPuntationError_0)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_3.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_3.match(InputSpacingPuntationError_1)) {
@@ -2718,7 +2743,9 @@ function checkAdsFunc() {
                         // console.log(tmp[i])
                         if (tmp[i].match(InputSpacingPuntationError_4)) {
                         } else {
-                            list_error.push(tmp[i])
+                            if (value_3.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
                         }
 
                     }
@@ -2726,13 +2753,17 @@ function checkAdsFunc() {
                 if (value_3.match(InputSpacingPuntationError_2)) {
                     let tmp = value_3.match(InputSpacingPuntationError_2)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_3.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_3.match(InputSpacingPuntationError_3)) {
                     let tmp = value_3.match(InputSpacingPuntationError_3)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_3.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
 
@@ -3094,7 +3125,9 @@ function checkAdsFunc() {
                     if (value_4.match(InputSpacingPuntationError_0)) {
                         let tmp = value_4.match(InputSpacingPuntationError_0)
                         for (let i = 0; i < tmp.length; i++) {
-                            list_error.push(tmp[i])
+                            if (value_4.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
                         }
                     }
                     if (value_4.match(InputSpacingPuntationError_1)) {
@@ -3103,7 +3136,9 @@ function checkAdsFunc() {
                             // console.log(tmp[i])
                             if (tmp[i].match(InputSpacingPuntationError_4)) {
                             } else {
-                                list_error.push(tmp[i])
+                                if (value_4.includes(tmp[i])) {
+                                    list_error.push(tmp[i])
+                                }
                             }
 
                         }
@@ -3111,13 +3146,17 @@ function checkAdsFunc() {
                     if (value_4.match(InputSpacingPuntationError_2)) {
                         let tmp = value_4.match(InputSpacingPuntationError_2)
                         for (let i = 0; i < tmp.length; i++) {
-                            list_error.push(tmp[i])
+                            if (value_4.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
                         }
                     }
                     if (value_4.match(InputSpacingPuntationError_3)) {
                         let tmp = value_4.match(InputSpacingPuntationError_3)
                         for (let i = 0; i < tmp.length; i++) {
-                            list_error.push(tmp[i])
+                            if (value_4.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
                         }
                     }
 
@@ -3377,7 +3416,7 @@ tippy('#tippy-title-ad', {
     maxWidth: 270,
     theme: 'zad',
     interactive: true,
-    // delay: [300, null],
+    delay: [200, null],
     placement: 'right-start',
     // trigger: 'click',
 });
@@ -5758,9 +5797,9 @@ function checkAdsFunc_form() {
     //banned mess
     let ban_mess_0 = 'Sử dụng từ ngữ bị hạn chế:'
     let ban_mess_1 = 'Viết hoa toàn bộ'
-    let ban_mess_2 = 'Sử dụng khoảng trắng đầu câu'
+    let ban_mess_2 = 'Sử dụng khoảng trắng đầu câu:'
     let ban_mess_3 = 'Không viết hoa chữ cái đầu câu'
-    let ban_mess_4 = 'Sử dụng dấu câu sai quy cách'
+    let ban_mess_4 = 'Sử dụng dấu câu sai quy cách:'
     let ban_mess_5 = 'Sử dụng dấu câu ở đầu'
     let ban_mess_6 = 'Có chứa từ sai chính tả:'
 
@@ -5893,7 +5932,11 @@ function checkAdsFunc_form() {
                 if (value_1.match(InputSpacingPuntationError_0)) {
                     let tmp = value_1.match(InputSpacingPuntationError_0)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_1.includes(tmp[i])) {
+                            if (value_1.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
+                        }
                     }
                 }
                 if (value_1.match(InputSpacingPuntationError_1)) {
@@ -5902,7 +5945,11 @@ function checkAdsFunc_form() {
                         // console.log(tmp[i])
                         if (tmp[i].match(InputSpacingPuntationError_4)) {
                         } else {
-                            list_error.push(tmp[i])
+                            if (value_1.includes(tmp[i])) {
+                                if (value_1.includes(tmp[i])) {
+                                    list_error.push(tmp[i])
+                                }
+                            }
                         }
 
                     }
@@ -5910,13 +5957,21 @@ function checkAdsFunc_form() {
                 if (value_1.match(InputSpacingPuntationError_2)) {
                     let tmp = value_1.match(InputSpacingPuntationError_2)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_1.includes(tmp[i])) {
+                            if (value_1.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
+                        }
                     }
                 }
                 if (value_1.match(InputSpacingPuntationError_3)) {
                     let tmp = value_1.match(InputSpacingPuntationError_3)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_1.includes(tmp[i])) {
+                            if (value_1.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
+                        }
                     }
                 }
 
@@ -5951,7 +6006,7 @@ function checkAdsFunc_form() {
                 }
 
                 if (list_error_full.length > 0) {
-                    first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
+                    first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
                     value_check_ad = false
 
                     for (let i = 0; i < list_error_full.length; i++) {
@@ -6274,7 +6329,9 @@ function checkAdsFunc_form() {
                 if (value_2.match(InputSpacingPuntationError_0)) {
                     let tmp = value_2.match(InputSpacingPuntationError_0)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_2.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_2.match(InputSpacingPuntationError_1)) {
@@ -6283,7 +6340,9 @@ function checkAdsFunc_form() {
                         // console.log(tmp[i])
                         if (tmp[i].match(InputSpacingPuntationError_4)) {
                         } else {
-                            list_error.push(tmp[i])
+                            if (value_2.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
                         }
 
                     }
@@ -6291,13 +6350,17 @@ function checkAdsFunc_form() {
                 if (value_2.match(InputSpacingPuntationError_2)) {
                     let tmp = value_2.match(InputSpacingPuntationError_2)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_2.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_2.match(InputSpacingPuntationError_3)) {
                     let tmp = value_2.match(InputSpacingPuntationError_3)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_2.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
 
@@ -6335,7 +6398,7 @@ function checkAdsFunc_form() {
                 }
 
                 if (list_error_full.length > 0) {
-                    second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                    second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                     value_check_ad = false
 
                     for (let i = 0; i < list_error_full.length; i++) {
@@ -6612,7 +6675,9 @@ function checkAdsFunc_form() {
                         if (temp.match(InputSpacingPuntationError_0)) {
                             let tmp = temp.match(InputSpacingPuntationError_0)
                             for (let i = 0; i < tmp.length; i++) {
-                                list_error.push(tmp[i])
+                                if (temp.includes(tmp[i])) {
+                                    list_error.push(tmp[i])
+                                }
                             }
                         }
                         if (temp.match(InputSpacingPuntationError_1)) {
@@ -6621,7 +6686,9 @@ function checkAdsFunc_form() {
                                 // console.log(tmp[i])
                                 if (tmp[i].match(InputSpacingPuntationError_4)) {
                                 } else {
-                                    list_error.push(tmp[i])
+                                    if (temp.includes(tmp[i])) {
+                                        list_error.push(tmp[i])
+                                    }
                                 }
 
                             }
@@ -6629,13 +6696,17 @@ function checkAdsFunc_form() {
                         if (temp.match(InputSpacingPuntationError_2)) {
                             let tmp = temp.match(InputSpacingPuntationError_2)
                             for (let i = 0; i < tmp.length; i++) {
-                                list_error.push(tmp[i])
+                                if (temp.includes(tmp[i])) {
+                                    list_error.push(tmp[i])
+                                }
                             }
                         }
                         if (temp.match(InputSpacingPuntationError_3)) {
                             let tmp = temp.match(InputSpacingPuntationError_3)
                             for (let i = 0; i < tmp.length; i++) {
-                                list_error.push(tmp[i])
+                                if (temp.includes(tmp[i])) {
+                                    list_error.push(tmp[i])
+                                }
                             }
                         }
 
@@ -6670,7 +6741,7 @@ function checkAdsFunc_form() {
                         }
 
                         if (list_error_full.length > 0) {
-                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
+                            second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
                             value_check_ad = false
 
                             for (let i = 0; i < list_error_full.length; i++) {
@@ -6865,7 +6936,9 @@ function checkAdsFunc_form() {
                 if (value_3.match(InputSpacingPuntationError_0)) {
                     let tmp = value_3.match(InputSpacingPuntationError_0)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_3.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_3.match(InputSpacingPuntationError_1)) {
@@ -6874,7 +6947,9 @@ function checkAdsFunc_form() {
                         // console.log(tmp[i])
                         if (tmp[i].match(InputSpacingPuntationError_4)) {
                         } else {
-                            list_error.push(tmp[i])
+                            if (value_3.includes(tmp[i])) {
+                                list_error.push(tmp[i])
+                            }
                         }
 
                     }
@@ -6882,13 +6957,17 @@ function checkAdsFunc_form() {
                 if (value_3.match(InputSpacingPuntationError_2)) {
                     let tmp = value_3.match(InputSpacingPuntationError_2)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_3.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
                 if (value_3.match(InputSpacingPuntationError_3)) {
                     let tmp = value_3.match(InputSpacingPuntationError_3)
                     for (let i = 0; i < tmp.length; i++) {
-                        list_error.push(tmp[i])
+                        if (value_3.includes(tmp[i])) {
+                            list_error.push(tmp[i])
+                        }
                     }
                 }
 
@@ -6923,7 +7002,7 @@ function checkAdsFunc_form() {
                 }
 
                 if (list_error_full.length > 0) {
-                    third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
+                    third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
                     value_check_ad = false
 
                     for (let i = 0; i < list_error_full.length; i++) {
@@ -7606,13 +7685,19 @@ form_ReplacePunctuationError = () => {
             }
         }
     }
+
+    console.log(form_input_list)
+    console.log(form_errorInput)
+    console.log(form_fixInput)
+
     for (let i = 0; i < form_input_list.length; i++) {
         let tmp_input = document.getElementById(form_input_list[i]).value
+        
         if (tmp_input.includes(form_errorInput)) {
             tmp_input = tmp_input.replaceAll(form_errorInput, form_fixInput)
             // let fix_index = tmp_input.indexOf(form_fixInput)
             document.getElementById(form_input_list[i]).value = tmp_input
-
+            
             switch (form_input_list[i]) {
                 case 'form-first-input': form_preview_id = 'form-first-preview'; break;
                 case 'form-second-input': form_preview_id = 'form-second-preview'; break;
