@@ -2094,10 +2094,13 @@ function checkAdsFunc() {
                     let before = word_before.reverse().toString()
                     let after = word_after.toString()
                     let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
-                    list_error_full.push(full_err)
+                    if(full_err.includes('&#13;')){
+                        list_error_full.push(full_err)
+                    }
                 }
 
                 if (list_error_full.length > 0) {
+                    console.log('0',list_error_full)
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     value_check_ad = false
 
@@ -2301,13 +2304,13 @@ function checkAdsFunc() {
 
                         let first_word_index
 
-                        for (let i = 0; i < value_2.length; i++) {
-                            if (value_2[i] == ' ') {
+                        for (let i = 0; i < temp.length; i++) {
+                            if (temp[i] == ' ') {
                                 first_word_index = i
                                 break;
                             }
                         }
-                        let tmp = value_2.slice(0, first_word_index)
+                        let tmp = temp.slice(0, first_word_index)
 
                         if ($('#banned-0').text().indexOf(ban_mess_3) == 0) {
                             if ($('#banned-0 span').text().includes(tmp)) {
@@ -2443,6 +2446,7 @@ function checkAdsFunc() {
                         }
 
                         if (list_error_full.length > 0) {
+                            console.log(list_error_full)
                             third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
                             value_check_ad = false
 
@@ -3485,7 +3489,6 @@ FunctionHoverWord = (id, fixedType) => {
             case 'UppercaseFirst':
                 tmp = value.target.innerText
                 tmp = tmp[0].toUpperCase() + tmp.slice(1)
-                console.log(typeof (Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText)))
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                     content: '<div class="tippy-block fix-block">'
                         + '<p class="titleFix">Viết hoa chữ cái đầu câu</p>'
@@ -3854,7 +3857,7 @@ DeleteFirstSpacing = () => {
                     break;
                 }
             }
-            document.getElementById(input_list[i]).value = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index+1)
+            document.getElementById(input_list[i]).value = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index + 1)
 
             switch (input_list[i]) {
                 case 'first-input': preview_id = 'first-preview'; break;
@@ -3862,7 +3865,7 @@ DeleteFirstSpacing = () => {
                 case 'third-input': preview_id = 'third-preview'; break;
                 case 'fourth-input': preview_id = 'fourth-preview'; break;
             }
-            document.getElementById(preview_id).innerHTML = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index+1)
+            document.getElementById(preview_id).innerHTML = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index + 1)
         }
     }
     // setTimeout(() => {
@@ -3914,10 +3917,10 @@ DeletePunctuationFirst = () => {
                 case 'fourth-input': preview_id = 'fourth-preview'; break;
             }
 
-            
+
             if (firstLetterPosition == 0) {
-                document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition+1)
-                document.getElementById(preview_id).innerHTML = tmp_input.slice(firstLetterPosition+1)
+                document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition + 1)
+                document.getElementById(preview_id).innerHTML = tmp_input.slice(firstLetterPosition + 1)
             } else if (firstLetterPosition > 0) {
                 if (tmp_input[firstLetterPosition + 1] != ' ') {
                     document.getElementById(input_list[i]).value = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 1)
@@ -4728,87 +4731,12 @@ function checkAdsFunc_mobile() {
                         || temp.match(InputSpacingPuntationError_1)
                         || temp.match(InputSpacingPuntationError_2)
                         || temp.match(InputSpacingPuntationError_3)) {
-                        //error mini
-                        let list_error = []
-                        //error for preview
-                        let list_error_full = []
-
-                        //check case by case
-                        if (temp.match(InputSpacingPuntationError_0)) {
-                            let tmp = temp.match(InputSpacingPuntationError_0)
-                            for (let i = 0; i < tmp.length; i++) {
-                                list_error.push(tmp[i])
+                        if (temp.match(InputSpacingPuntationError_4)) {
+                        } else {
+                            if ($('#second-banned-5').text().indexOf(ban_mess_4) == 0) {
+                            } else {
+                                $("#second-error-list").append("<li class='banned' id='second-banned-5'>" + ban_mess_4 + "</li>")
                             }
-                        }
-                        if (temp.match(InputSpacingPuntationError_1)) {
-                            let tmp = temp.match(InputSpacingPuntationError_1)
-                            for (let i = 0; i < tmp.length; i++) {
-                                // console.log(tmp[i])
-                                if (tmp[i].match(InputSpacingPuntationError_4)) {
-                                } else {
-                                    list_error.push(tmp[i])
-                                }
-
-                            }
-                        }
-                        if (temp.match(InputSpacingPuntationError_2)) {
-                            let tmp = temp.match(InputSpacingPuntationError_2)
-                            for (let i = 0; i < tmp.length; i++) {
-                                list_error.push(tmp[i])
-                            }
-                        }
-                        if (temp.match(InputSpacingPuntationError_3)) {
-                            let tmp = temp.match(InputSpacingPuntationError_3)
-                            for (let i = 0; i < tmp.length; i++) {
-                                list_error.push(tmp[i])
-                            }
-                        }
-
-                        //check list error and wrap word before/after for previewing
-                        for (let i = 0; i < list_error.length; i++) {
-
-                            let tmp_err = list_error[i]
-                            let tmp_length = tmp_err.length
-                            let tmp_index = temp.indexOf(tmp_err)
-                            let word_before = []
-                            let word_after = []
-
-                            //words before
-                            for (let j = tmp_index - 1; j >= 0; j--) {
-                                if (temp[j] == ' ') { break; }
-                                else {
-                                    word_before.push(temp[j])
-                                }
-                            }
-
-                            //words after
-                            for (let j = tmp_index + tmp_length; j < temp.length; j++) {
-                                if (temp[j] == ' ') { break; }
-                                else {
-                                    word_after.push(temp[j])
-                                }
-                            }
-                            let before = word_before.reverse().toString()
-                            let after = word_after.toString()
-                            let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
-                            list_error_full.push(full_err)
-                        }
-
-                        if (list_error_full.length > 0) {
-                            second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
-                            value_check_ad = false
-
-                            for (let i = 0; i < list_error_full.length; i++) {
-                                if ($('#banned-5').text().indexOf(ban_mess_4) == 0) {
-                                    if ($('#banned-5 span').text().includes(list_error_full[i])) {
-                                    } else {
-                                        document.getElementById('banned-5').innerHTML += ' <span>' + list_error_full[i] + '</span>'
-                                    }
-                                } else {
-                                    $("#alert-card-first .card-error-list ul").append("<li><p id='banned-5'>" + ban_mess_4 + " <span>" + list_error_full[i] + "</span></p></li>")
-                                }
-                            }
-                            setTimeout(FunctionHoverWord('banned-5'), 520)
                         }
                     }
 
@@ -6398,7 +6326,9 @@ function checkAdsFunc_form() {
                     let before = word_before.reverse().toString()
                     let after = word_after.toString()
                     let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
-                    list_error_full.push(full_err)
+                    if(full_err.includes('&#13;')){
+                        list_error_full.push(full_err)
+                    }
                 }
 
                 if (list_error_full.length > 0) {
@@ -7584,14 +7514,14 @@ form_DeleteFirstSpacing = () => {
                     break;
                 }
             }
-            document.getElementById(form_input_list[i]).value = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index+1)
+            document.getElementById(form_input_list[i]).value = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index + 1)
 
             switch (form_input_list[i]) {
                 case 'form-first-input': form_preview_id = 'form-first-preview'; break;
                 case 'form-second-input': form_preview_id = 'form-second-preview'; break;
                 case 'form-oa-input': form_preview_id = 'form-oa-preview'; break;
             }
-            document.getElementById(form_preview_id).innerHTML = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index+1)
+            document.getElementById(form_preview_id).innerHTML = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index + 1)
         }
     }
     checkAdsFunc_form()
@@ -7637,8 +7567,8 @@ form_DeletePunctuationFirst = () => {
             }
 
             if (firstLetterPosition == 0) {
-                document.getElementById(form_input_list[i]).value = tmp_input.slice(firstLetterPosition+1)
-                document.getElementById(form_preview_id).innerHTML = tmp_input.slice(firstLetterPosition+1)
+                document.getElementById(form_input_list[i]).value = tmp_input.slice(firstLetterPosition + 1)
+                document.getElementById(form_preview_id).innerHTML = tmp_input.slice(firstLetterPosition + 1)
             } else if (firstLetterPosition > 0) {
                 if (tmp_input[firstLetterPosition + 1] != ' ') {
                     document.getElementById(form_input_list[i]).value = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 1)
