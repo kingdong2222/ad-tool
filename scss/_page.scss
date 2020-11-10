@@ -129,6 +129,11 @@
 		}
 		.tippy-block{p{margin-bottom: 0;}}
 	}
+	[data-tippy-root] + [data-tippy-root] {
+		.tippy-box[data-theme~='zad1']{
+			box-shadow: none;
+		}
+	}
 	.tippy-box[data-placement^=right]>.tippy-arrow:before{
 		top: 12px
 	}

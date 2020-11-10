@@ -3485,6 +3485,7 @@ FunctionHoverWord = (id, fixedType) => {
             case 'UppercaseFirst':
                 tmp = value.target.innerText
                 tmp = tmp[0].toUpperCase() + tmp.slice(1)
+                console.log(typeof (Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText)))
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                     content: '<div class="tippy-block fix-block">'
                         + '<p class="titleFix">Viết hoa chữ cái đầu câu</p>'
@@ -3501,7 +3502,7 @@ FunctionHoverWord = (id, fixedType) => {
                     // trigger: 'click',
                     onUntrigger(instance) {
                         instance.destroy()
-                    }
+                    },
                 });
                 errorInput = value.target.innerText
                 fixInput = tmp
@@ -3900,12 +3901,11 @@ DeletePunctuationFirst = () => {
         let tmp_input = document.getElementById(input_list[i]).value
         if (tmp_input.includes(PuntuationFirst)) {
             for (let j = 1; j < tmp_input.length; j++) {
-                if (tmp_input[j] != ' ') {
+                if (tmp_input[j] == PuntuationFirst) {
                     firstLetterPosition = j
                     break;
                 }
             }
-            document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
 
             switch (input_list[i]) {
                 case 'first-input': preview_id = 'first-preview'; break;
@@ -3913,7 +3913,20 @@ DeletePunctuationFirst = () => {
                 case 'third-input': preview_id = 'third-preview'; break;
                 case 'fourth-input': preview_id = 'fourth-preview'; break;
             }
-            document.getElementById(preview_id).innerHTML = tmp_input.slice(firstLetterPosition)
+
+            if (firstLetterPosition == 0) {
+                document.getElementById(input_list[i]).value = tmp_input.slice(firstLetterPosition)
+                document.getElementById(preview_id).innerHTML = tmp_input.slice(firstLetterPosition)
+            } else if (firstLetterPosition > 0) {
+                if (tmp_input[firstLetterPosition + 1] != ' ') {
+                    document.getElementById(input_list[i]).value = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 1)
+                    document.getElementById(preview_id).innerHTML = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 1)
+                } else {
+                    document.getElementById(input_list[i]).value = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 2)
+                    document.getElementById(preview_id).innerHTML = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 2)
+                }
+            }
+
         }
     }
     // setTimeout(() => {
@@ -7610,19 +7623,30 @@ form_DeletePunctuationFirst = () => {
         let tmp_input = document.getElementById(form_input_list[i]).value
         if (tmp_input.includes(PuntuationFirst)) {
             for (let j = 1; j < tmp_input.length; j++) {
-                if (tmp_input[j] != ' ') {
+                if (tmp_input[j] == PuntuationFirst) {
                     firstLetterPosition = j
                     break;
                 }
             }
-            document.getElementById(form_input_list[i]).value = tmp_input.slice(firstLetterPosition)
 
             switch (form_input_list[i]) {
                 case 'form-first-input': form_preview_id = 'form-first-preview'; break;
                 case 'form-second-input': form_preview_id = 'form-second-preview'; break;
                 case 'form-oa-input': form_preview_id = 'form-oa-preview'; break;
             }
-            document.getElementById(form_preview_id).innerHTML = tmp_input.slice(firstLetterPosition)
+
+            if (firstLetterPosition == 0) {
+                document.getElementById(form_input_list[i]).value = tmp_input.slice(firstLetterPosition)
+                document.getElementById(form_preview_id).innerHTML = tmp_input.slice(firstLetterPosition)
+            } else if (firstLetterPosition > 0) {
+                if (tmp_input[firstLetterPosition + 1] != ' ') {
+                    document.getElementById(form_input_list[i]).value = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 1)
+                    document.getElementById(form_preview_id).innerHTML = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 1)
+                } else {
+                    document.getElementById(form_input_list[i]).value = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 2)
+                    document.getElementById(form_preview_id).innerHTML = tmp_input.slice(0, firstLetterPosition) + tmp_input.slice(firstLetterPosition + 2)
+                }
+            }
         }
     }
     checkAdsFunc_form()
