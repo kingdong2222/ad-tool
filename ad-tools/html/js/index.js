@@ -3854,7 +3854,7 @@ DeleteFirstSpacing = () => {
                     break;
                 }
             }
-            document.getElementById(input_list[i]).value = tmp_input.slice(tmp_index)
+            document.getElementById(input_list[i]).value = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index+1)
 
             switch (input_list[i]) {
                 case 'first-input': preview_id = 'first-preview'; break;
@@ -3862,7 +3862,7 @@ DeleteFirstSpacing = () => {
                 case 'third-input': preview_id = 'third-preview'; break;
                 case 'fourth-input': preview_id = 'fourth-preview'; break;
             }
-            document.getElementById(preview_id).innerHTML = tmp_input
+            document.getElementById(preview_id).innerHTML = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index+1)
         }
     }
     // setTimeout(() => {
@@ -7584,14 +7584,14 @@ form_DeleteFirstSpacing = () => {
                     break;
                 }
             }
-            document.getElementById(form_input_list[i]).value = tmp_input.slice(tmp_index)
+            document.getElementById(form_input_list[i]).value = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index+1)
 
             switch (form_input_list[i]) {
                 case 'form-first-input': form_preview_id = 'form-first-preview'; break;
                 case 'form-second-input': form_preview_id = 'form-second-preview'; break;
                 case 'form-oa-input': form_preview_id = 'form-oa-preview'; break;
             }
-            document.getElementById(form_preview_id).innerHTML = tmp_input
+            document.getElementById(form_preview_id).innerHTML = tmp_input[tmp_index].toUpperCase() + tmp_input.slice(tmp_index+1)
         }
     }
     checkAdsFunc_form()
