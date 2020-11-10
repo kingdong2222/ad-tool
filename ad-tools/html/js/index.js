@@ -2094,13 +2094,15 @@ function checkAdsFunc() {
                     let before = word_before.reverse().toString()
                     let after = word_after.toString()
                     let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
-                    if(full_err.includes('&#13;')){
+                    if (full_err.includes('\n')) {
+
+                    } else {
                         list_error_full.push(full_err)
                     }
                 }
 
                 if (list_error_full.length > 0) {
-                    console.log('0',list_error_full)
+                    console.log('0', list_error_full)
                     second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
                     value_check_ad = false
 
@@ -6326,7 +6328,8 @@ function checkAdsFunc_form() {
                     let before = word_before.reverse().toString()
                     let after = word_after.toString()
                     let full_err = before.replaceAll(',', '') + tmp_err + after.replaceAll(',', '')
-                    if(full_err.includes('&#13;')){
+                    if (full_err.includes('\n') == true) {
+                    } else {
                         list_error_full.push(full_err)
                     }
                 }
