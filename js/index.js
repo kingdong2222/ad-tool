@@ -1425,17 +1425,17 @@ function checkWarning(val) {
 }
 //check multi uppercase
 function checkFormat2(val) {
-    if (val.charAt(0) == ' ') {
+    if (val.charAt(0) == ' ' || val.charAt(0).match(InputFormatNoPuntuation) == null) {
         for (let i = 2; i < val.length; i++) {
             if (val[i] != val[i].toLowerCase()) {
-                return 1; break;
+                return 1;
             }
         }
     } else {
         //i = 1 because of the first uppercase letter of sentence
         for (let i = 1; i < val.length; i++) {
             if (val[i] != val[i].toLowerCase()) {
-                return 1; break;
+                return 1;
             }
         }
     }
@@ -6251,6 +6251,7 @@ function checkAdsFunc_form() {
                 setTimeout(FunctionHoverWord_form('form-banned-3'), 520)
             }
             if (checkFormat2(value_2) == 1) {
+                console.log(checkFormat2(value_2))
                 if (value_2.match(InputFormatUpperAfterDot) && !value_2.includes('\n')) {
                     list_after_dot = []
                     for (let i = 0; i < value_2.length; i++) {
