@@ -14,16 +14,39 @@
 // });
 
 //if user reload page question will go back to home
-// if(performance.navigation.type == 1){
-//     console.log('reload')
-//     window.location = 'index.html'
-// }
+if (performance.navigation.type == 1) {
+    // console.log('reload')
+    window.location = 'index.html'
+}
 
 let count_right = 1
 let time = 300
 let percent = 100 / 8
 let green_bar = document.getElementById('green-bar')
+let name
+let mobile
+let email
+let business
+let major
+let voucher_list
+
 // green_bar.style.width = percent + '%'
+
+window.onload = () => {
+
+    //get info client from localStorage
+    name = localStorage.getItem('NameClient')
+    mobile = localStorage.getItem('MobileClient')
+    email = localStorage.getItem('EmailClient')
+    business = localStorage.getItem('BusinessClient')
+    major = localStorage.getItem('MajorClient')
+    if (localStorage.getItem('voucherList') == '') {
+        voucher_list = []
+    } else {
+        voucher_list = localStorage.getItem('voucherList').split(',')
+    }
+
+}
 
 //question 1
 $('#question_0 li').on('click', function (e) {
@@ -216,7 +239,7 @@ $('#question_7 li').on('click', function (e) {
     // if(answer == true){
     //     count_right += 1
     // }
-    let answer = e.target.innerText
+    // let answer = e.target.innerText
 
 
     setTimeout(() => {
@@ -237,21 +260,80 @@ $('#question_7 li').on('click', function (e) {
     setTimeout(() => {
         $('.module-question').addClass('hidden')
         // console.log(count_right)
-        if (count_right >= 5) {
-            //get voucher
+        // if (count_right >= 4) {
+        //     //get voucher
+        //     if(count_right >= 6){
+        //         //voucher còn
+        //         // if(voucher_list.length){
+        //         //     //voucher 200k
+        //         //     document.getElementById('codevoucher200k').innerHTML = voucher_list[0]
+        //         //     $('#voucher200k').removeClass('hidden')
+        //         //     postToGG(name,mobile,email,business,major,count_right,voucher_list[0])
+        //         //     setTimeout(() => {
+        //         //         $('#voucher200k').addClass('is-opacity')
+        //         //     }, 100)
+        //         // } else {
+        //             //hết voucher 200k
+        //             //voucher 20%
+        //             $('#voucher').removeClass('hidden')
+        //             postToGG(name,mobile,email,business,major,count_right,'ZaloAdsVOMF2020')
+        //             setTimeout(() => {
+        //                 $('#voucher').addClass('is-opacity')
+        //             }, 100)
+        //         // }
+        //     } else {
+        //         $('#normal-gift').removeClass('hidden')
+        //         setTimeout(() => {
+        //             $('#normal-gift').addClass('is-opacity')
+        //         }, 100)
+        //         postToGG(name,mobile,email,business,major,count_right,'quà tặng')
+        //     }
+
+        //     $('#note-content').removeClass('hidden')
+
+        // } else {
+        // $('#normal-gift').removeClass('hidden')
+        // setTimeout(() => {
+        //     $('#normal-gift').addClass('is-opacity')
+        // }, 100)
+        // postToGG(name,mobile,email,business,major,count_right,'quà tặng')
+        // }
+        let random = Math.floor(Math.random() * 4);
+        if (random >= 1) {
+            //voucher 20%
             $('#voucher').removeClass('hidden')
-            $('#note-content').removeClass('hidden')
+            postToGG(name, mobile, email, business, major, count_right, 'ZaloAdsVOMF2020')
             setTimeout(() => {
                 $('#voucher').addClass('is-opacity')
             }, 100)
         } else {
             $('#normal-gift').removeClass('hidden')
-            // $('#tshirt').addClass('is-opacity')
             setTimeout(() => {
                 $('#normal-gift').addClass('is-opacity')
             }, 100)
+            postToGG(name, mobile, email, business, major, count_right, 'quà tặng')
         }
+
     }, time)
 
 });
+
+let postToGG = (name, mobile, email, business, major, count_right, voucher) => {
+    $.ajax({
+        url: "https://docs.google.com/forms/d/e/1FAIpQLSdJa39bCIvLuslxcT9D7258-MnCo6zg_C_L0zCoNZPPM3O8-g/formResponse?",
+        data: {
+            "entry.1353488337": name,
+            "entry.1020220624": mobile,
+            "entry.675973294": email,
+            "entry.197280914": business,
+            "entry.1048902569": major,
+            "entry.507905019": count_right,
+            "entry.410568440": voucher,
+        },
+        type: "POST",
+        dataType: "jsonp",
+        success: function (d) { },
+        error: function (x, y, z) { }
+    });
+}
 

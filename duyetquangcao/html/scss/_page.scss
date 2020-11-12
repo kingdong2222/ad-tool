@@ -513,6 +513,7 @@ header{@include position(absolute, 0 0 null 0);z-index:3;@include padding(15px 0
 				border-radius: 5px;
 				margin-top: 19.875px;
 				transition: all 0.35s ease;
+				position: relative;
 				&.is-fullwidth{
 					display: flex;
     				width: 100%;
@@ -525,6 +526,36 @@ header{@include position(absolute, 0 0 null 0);z-index:3;@include padding(15px 0
 					background-color: #1745cf;
 					border-color: transparent;
 					color: #fff;
+				}
+				&.loading{
+					color: transparent!important;
+					pointer-events: none;
+					@keyframes spinAround {
+						from {transform:rotate(0deg);}
+						to {transform: rotate(359deg);}
+					}
+					&:after{
+						border-color: transparent transparent #fff #fff!important;
+						left: calc(50% - (1em / 2));
+						top: calc(49% - (1em / 2));
+						position: absolute!important;
+						border: 2px solid #f1f5f8;
+						border-radius: 290486px;
+						border-right-color: transparent;
+						border-top-color: transparent;
+						content: "";
+						display: block;
+						height: 1em;
+						width: 1em;
+						animation-duration: 500ms;
+						animation-timing-function: linear;
+						animation-delay: 0s;
+						animation-iteration-count: infinite;
+						animation-direction: normal;
+						animation-fill-mode: none;
+						animation-play-state: running;
+						animation-name: spinAround;
+					}
 				}
 			}
 			.copyright{
@@ -700,6 +731,7 @@ header{@include position(absolute, 0 0 null 0);z-index:3;@include padding(15px 0
 .module-gift{
 	padding: 60px;
 	padding-top: 80px;
+	margin-bottom: 50px;
 	position: relative;
 	.block-gift{
 		padding: 45px 5px;
@@ -715,7 +747,7 @@ header{@include position(absolute, 0 0 null 0);z-index:3;@include padding(15px 0
 		p{
 			color: #000;
 			text-align: center;
-			max-width: 180px;
+			max-width: 200px;
 			margin: 0 auto;
 			span{
 				font-weight: 700;
@@ -723,12 +755,16 @@ header{@include position(absolute, 0 0 null 0);z-index:3;@include padding(15px 0
 					font-size: 1.375rem;
 					color: red;
 				}
+				&.italic{
+					font-style: italic;
+					font-weight: unset;
+				}
 			}
 			&.blue-large{
-				padding-top: 10px;
+				padding-top: 6px;
 				color: #005ce2;
 				font-weight: 700;
-				font-size: 2.25rem;
+				font-size: 1.5rem;
 				max-width: unset;
 				line-height: 30px;
 			}
@@ -750,7 +786,7 @@ header{@include position(absolute, 0 0 null 0);z-index:3;@include padding(15px 0
 	}
 	#note-content{
 		position: absolute;
-		bottom: -30px;
+		bottom: -10px;
 		padding-right: 60px;
 	}
 }

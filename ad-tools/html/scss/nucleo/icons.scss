@@ -95,7 +95,7 @@ $icz-fill-arrow-left: unicode(ea5e);
 $icz-fill-arrow-right: unicode(ea5f);
 $icz-fill-arrow-up: unicode(ea60);
 $icz-phone: unicode(ea61);
-$icz-fill-error: unicode(ea62);
+$icz-fill-phone: unicode(ea62);
 $icz-woman-man: unicode(ea63);
 $icz-mail: unicode(ea64);
 $icz-text: unicode(ea65);
@@ -107,7 +107,7 @@ $icz-fill-layer-left: unicode(ea6a);
 $icz-fill-more: unicode(ea6b);
 $icz-fill-grid-view: unicode(ea6c);
 $icz-check-double: unicode(ea6d);
-$icz-fill-minus: unicode(ea6e);
+$icz-fill-error: unicode(ea6e);
 $icz-pc: unicode(ea70);
 $icz-mobile: unicode(ea71);
 $icz-fill-goal: unicode(ea72);
@@ -123,7 +123,6 @@ $icz-filled-image-add: unicode(ea7b);
 $icz-chat: unicode(ea7c);
 $icz-fill-cheque: unicode(ea7d);
 $icz-fill-conference-room: unicode(ea7f);
-$icz-question-2: unicode(ea80);
 $icz-cheque: unicode(ea81);
 $icz-style: unicode(ea82);
 $icz-fill-chat: unicode(ea83);
@@ -178,6 +177,11 @@ $icz-fill-send: unicode(eab6);
 $icz-loudspeaker: unicode(eab7);
 $icz-fill-loudspeaker: unicode(eab8);
 $icz-patch: unicode(eab9);
+$icz-online-payment: unicode(eaba);
+$icz-atm-card: unicode(eabd);
+$icz-visa: unicode(eabe);
+$icz-copy: unicode(eabf);
+$icz-scan: unicode(eac0);
 
 .icz-account::before {
   content: $icz-account;
@@ -539,8 +543,8 @@ $icz-patch: unicode(eab9);
   content: $icz-phone;
 }
 
-.icz-fill-error::before {
-  content: $icz-fill-error;
+.icz-fill-phone::before {
+  content: $icz-fill-phone;
 }
 
 .icz-woman-man::before {
@@ -587,8 +591,8 @@ $icz-patch: unicode(eab9);
   content: $icz-check-double;
 }
 
-.icz-fill-minus::before {
-  content: $icz-fill-minus;
+.icz-fill-error::before {
+  content: $icz-fill-error;
 }
 
 .icz-pc::before {
@@ -649,10 +653,6 @@ $icz-patch: unicode(eab9);
 
 .icz-fill-conference-room::before {
   content: $icz-fill-conference-room;
-}
-
-.icz-question-2::before {
-  content: $icz-question-2;
 }
 
 .icz-cheque::before {
@@ -869,5 +869,25 @@ $icz-patch: unicode(eab9);
 
 .icz-patch::before {
   content: $icz-patch;
+}
+
+.icz-online-payment::before {
+  content: $icz-online-payment;
+}
+
+.icz-atm-card::before {
+  content: $icz-atm-card;
+}
+
+.icz-visa::before {
+  content: $icz-visa;
+}
+
+.icz-copy::before {
+  content: $icz-copy;
+}
+
+.icz-scan::before {
+  content: $icz-scan;
 }
 

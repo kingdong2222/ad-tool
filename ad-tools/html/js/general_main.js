@@ -1,4 +1,4 @@
-let version_update = '1.0.6'
+let version_update = '1.0.7'
 let ids = []
 let names = []
 let contents = []

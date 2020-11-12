@@ -1579,7 +1579,7 @@ function checkAdsFunc() {
                 } else {
                     $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + value_1.charAt(0) + "</span></p></li>")
                 }
-                setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
+                setTimeout(FunctionHoverWord('banned-1', 'PunctuationFirst'), 520)
             }
             if (value_1.charAt(0) == ' ') {
                 first_content_preview.classList.contains('get-error') == true ? null : first_content_preview.classList.add('get-error')
@@ -1916,7 +1916,7 @@ function checkAdsFunc() {
                 } else {
                     $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + value_2.charAt(0) + "</span></p></li>")
                 }
-                setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
+                setTimeout(FunctionHoverWord('banned-1', 'PunctuationFirst'), 520)
             }
             if (value_2.charAt(0) == ' ') {
                 second_content_preview.classList.contains('get-error') == true ? null : second_content_preview.classList.add('get-error')
@@ -2353,7 +2353,7 @@ function checkAdsFunc() {
                             } else {
                                 $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + temp.charAt(0) + "</span></p></li>")
                             }
-                            setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
+                            setTimeout(FunctionHoverWord('banned-1', 'PunctuationFirst'), 520)
                         }
                     }
                     if (temp.charAt(0) == ' ') {
@@ -2599,7 +2599,7 @@ function checkAdsFunc() {
                 } else {
                     $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + value_3.charAt(0) + "</span></p></li>")
                 }
-                setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
+                setTimeout(FunctionHoverWord('banned-1', 'PunctuationFirst'), 520)
             }
             if (value_3.charAt(0) == ' ') {
                 third_content_preview.classList.contains('get-error') == true ? null : third_content_preview.classList.add('get-error')
@@ -2992,7 +2992,7 @@ function checkAdsFunc() {
                     } else {
                         $("#alert-card-first .card-error-list ul").append("<li><p id='banned-1'>" + ban_mess_5 + " <span>" + value_4.charAt(0) + "</span></p></li>")
                     }
-                    setTimeout(FunctionHoverWord('banned-1', 'PuntuationFirst'), 520)
+                    setTimeout(FunctionHoverWord('banned-1', 'PunctuationFirst'), 520)
                 }
                 if (value_4.charAt(0) == ' ') {
                     fourth_content_preview.classList.contains('get-error') == true ? null : fourth_content_preview.classList.add('get-error')
@@ -3537,6 +3537,7 @@ FunctionHoverWord = (id, fixedType) => {
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light light-blue" onclick="UppercaseFirst()">' + tmp + '</button></div>'
                         + '<p class="grey">Nội dung quảng cáo yêu cầu viết hoa chữ cái đầu mỗi câu.</p>'
+                        + '<a class="fix-right-now" onclick="UppercaseFirst()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</a>'
                         + '</div>',
                     allowHTML: true,
                     maxWidth: 270,
@@ -3551,14 +3552,15 @@ FunctionHoverWord = (id, fixedType) => {
                 errorInput = value.target.innerText
                 fixInput = tmp
                 break;
-            case 'PuntuationFirst':
+            case 'PunctuationFirst':
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                     content: '<div class="tippy-block fix-block">'
                         + '<p class="titleFix">Xóa dấu ở đầu câu</p>'
-                        + '<div class="blockError"><p class="errorFix" id="PuntuationFirst">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                        + '<div class="blockError"><p class="errorFix" id="PunctuationFirst">&nbsp;' + value.target.innerText + '&nbsp;</p>'
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light red" onclick="DeletePunctuationFirst()">Xóa</button></div>'
                         + '<p class="grey">Không được phép sử dụng dấu ở đầu câu trong nội dung quảng cáo.</p>'
+                        + '<a class="fix-right-now" onclick="DeletePunctuationFirst()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</a>'
                         + '</div>',
                     allowHTML: true,
                     maxWidth: 270,
@@ -3598,6 +3600,7 @@ FunctionHoverWord = (id, fixedType) => {
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light light-blue" onclick="DeleteFirstSpacing()">' + tmp.replaceAll(',', '') + '</button></div>'
                         + '<p class="grey">Không được phép sử dụng khoảng trắng ở đầu câu trong nội dung quảng cáo.</p>'
+                        + '<a class="fix-right-now" onclick="DeleteFirstSpacing()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</a>'
                         + '</div>',
                     allowHTML: true,
                     maxWidth: 270,
@@ -3710,6 +3713,7 @@ FunctionHoverWord = (id, fixedType) => {
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light light-blue" onclick="ReplacePunctuationError()">' + tmp + '</button></div>'
                         + '<p class="grey">Có vẻ như bạn đã viết một số dấu câu không đúng cách.</p>'
+                        + '<a class="fix-right-now" onclick="ReplacePunctuationError()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</a>'
                         + '</div>',
                     allowHTML: true,
                     maxWidth: 270,
@@ -3866,8 +3870,12 @@ let preview_id
 
 //fuction fix error input
 DeleteFirstSpacing = () => {
+
+    //google track
+    dataLayer.push({ 'event': 'eventFixSpaceFirst' })
+
     let firstSpacingError = document.getElementById('banned-2')
-    let PuntuationFirst = document.getElementById('SpaceFirstText').innerHTML.replaceAll('&nbsp;', '')
+    let PunctuationFirst = document.getElementById('SpaceFirstText').innerHTML.replaceAll('&nbsp;', '')
     //banned
     let errorList = banned_card.getElementsByClassName('card-error-list')[0]
     let li = errorList.getElementsByTagName('LI')
@@ -3880,7 +3888,7 @@ DeleteFirstSpacing = () => {
                 li[i].remove()
             } else {
                 for (let j = 0; j < spans.length; j++) {
-                    if (spans[j].innerHTML == PuntuationFirst) {
+                    if (spans[j].innerHTML == PunctuationFirst) {
                         spans[j].remove()
                     }
                 }
@@ -3919,7 +3927,11 @@ DeleteFirstSpacing = () => {
 }
 
 DeletePunctuationFirst = () => {
-    let PuntuationFirst = document.getElementById('PuntuationFirst').innerHTML.replaceAll('&nbsp;', '')
+
+    //google track
+    dataLayer.push({ 'event': 'eventFixPunctuationFirst' })
+
+    let PunctuationFirst = document.getElementById('PunctuationFirst').innerHTML.replaceAll('&nbsp;', '')
     let firstLetterPosition
     let firstSpacingError = document.getElementById('banned-1')
     //banned
@@ -3933,7 +3945,7 @@ DeletePunctuationFirst = () => {
                 li[i].remove()
             } else {
                 for (let j = 0; j < spans.length; j++) {
-                    if (spans[j].innerHTML == PuntuationFirst) {
+                    if (spans[j].innerHTML == PunctuationFirst) {
                         spans[j].remove()
                     }
                 }
@@ -3943,9 +3955,9 @@ DeletePunctuationFirst = () => {
 
     for (let i = 0; i < input_list.length; i++) {
         let tmp_input = document.getElementById(input_list[i]).value
-        if (tmp_input.includes(PuntuationFirst)) {
+        if (tmp_input.includes(PunctuationFirst)) {
             for (let j = 0; j < tmp_input.length; j++) {
-                if (tmp_input[j] == PuntuationFirst) {
+                if (tmp_input[j] == PunctuationFirst) {
                     firstLetterPosition = j
                     break;
                 }
@@ -3984,6 +3996,10 @@ DeletePunctuationFirst = () => {
 }
 
 ReplacePunctuationError = () => {
+
+    //google track
+    dataLayer.push({ 'event': 'eventFixPunctuationError' })
+
     let firstSpacingError = document.getElementById('banned-5')
     //banned
     let errorList = banned_card.getElementsByClassName('card-error-list')[0]
@@ -4030,6 +4046,10 @@ ReplacePunctuationError = () => {
 }
 
 UppercaseFirst = () => {
+
+    //google track
+    dataLayer.push({ 'event': 'eventFixUppercaseFirst' })
+
     let firstSpacingError = document.getElementById('banned-0')
     //banned
     let errorList = banned_card.getElementsByClassName('card-error-list')[0]
@@ -4078,7 +4098,9 @@ UppercaseFirst = () => {
     checkAdsFunc()
 }
 
-
+$('.fix-right-now').click(()=> {
+    console.log('check')
+})
 //checkbox for case TPCN
 let tpcn_case = false
 
@@ -5865,7 +5887,7 @@ function checkAdsFunc_form() {
                     $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + value_1.charAt(0) + "</span></p></li>")
                 }
 
-                setTimeout(FunctionHoverWord_form('form-banned-1', 'PuntuationFirst'), 520)
+                setTimeout(FunctionHoverWord_form('form-banned-1', 'PunctuationFirst'), 520)
             }
             if (value_1.charAt(0) == ' ') {
                 first_content_preview_form.classList.contains('get-error') == true ? null : first_content_preview_form.classList.add('get-error')
@@ -6198,7 +6220,7 @@ function checkAdsFunc_form() {
                 } else {
                     $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + value_2.charAt(0) + "</span></p></li>")
                 }
-                setTimeout(FunctionHoverWord_form('form-banned-1', 'PuntuationFirst'), 520)
+                setTimeout(FunctionHoverWord_form('form-banned-1', 'PunctuationFirst'), 520)
             }
             if (value_2.charAt(0) == ' ') {
                 second_content_preview_form.classList.contains('get-error') == true ? null : second_content_preview_form.classList.add('get-error')
@@ -6623,7 +6645,7 @@ function checkAdsFunc_form() {
                             } else {
                                 $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + temp.charAt(0) + "</span></p></li>")
                             }
-                            setTimeout(FunctionHoverWord_form('form-banned-1', 'PuntuationFirst'), 520)
+                            setTimeout(FunctionHoverWord_form('form-banned-1', 'PunctuationFirst'), 520)
                         }
                     }
                     if (temp.charAt(0) == ' ') {
@@ -6869,7 +6891,7 @@ function checkAdsFunc_form() {
                 } else {
                     $("#form-alert-card-first .card-error-list ul").append("<li><p id='form-banned-1'>" + ban_mess_5 + " <span>" + value_3.charAt(0) + "</span></p></li>")
                 }
-                setTimeout(FunctionHoverWord_form('form-banned-1', 'PuntuationFirst'), 520)
+                setTimeout(FunctionHoverWord_form('form-banned-1', 'PunctuationFirst'), 520)
             }
             if (value_3.charAt(0) == ' ') {
                 third_content_preview_form.classList.contains('get-error') == true ? null : third_content_preview_form.classList.add('get-error')
@@ -7209,6 +7231,7 @@ FunctionHoverWord_form = (id, fixedType) => {
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light light-blue" onclick="form_UppercaseFirst()">' + tmp.replaceAll(',', '') + '</button></div>'
                         + '<p class="grey">Nội dung quảng cáo yêu cầu viết hoa chữ cái đầu mỗi câu.</p>'
+                        + '<a class="fix-right-now" onclick="form_UppercaseFirst()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</a>'
                         + '</div>',
                     allowHTML: true,
                     maxWidth: 270,
@@ -7224,14 +7247,15 @@ FunctionHoverWord_form = (id, fixedType) => {
                 form_errorInput = value.target.innerText
                 form_fixInput = tmp.replaceAll(',', '')
                 break;
-            case 'PuntuationFirst':
+            case 'PunctuationFirst':
                 tippy(Array.from(tempId.querySelectorAll('span')).find(el => el.textContent === value.target.innerText), {
                     content: '<div class="tippy-block fix-block">'
                         + '<p class="titleFix">Xóa dấu ở đầu câu</p>'
-                        + '<div class="blockError"><p class="errorFix" id="form-PuntuationFirst">&nbsp;' + value.target.innerText + '&nbsp;</p>'
+                        + '<div class="blockError"><p class="errorFix" id="form-PunctuationFirst">&nbsp;' + value.target.innerText + '&nbsp;</p>'
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light red" onclick="form_DeletePunctuationFirst()">Xóa</button></div>'
                         + '<p class="grey">Không được phép sử dụng dấu ở đầu câu trong nội dung quảng cáo.</p>'
+                        + '<a class="fix-right-now" onclick="form_DeletePunctuationFirst()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</a>'
                         + '</div>',
                     allowHTML: true,
                     maxWidth: 270,
@@ -7267,6 +7291,7 @@ FunctionHoverWord_form = (id, fixedType) => {
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light light-blue" onclick="form_DeleteFirstSpacing()">' + tmp.replaceAll(',', '') + '</button></div>'
                         + '<p class="grey">Không được phép sử dụng khoảng trắng ở đầu câu trong nội dung quảng cáo.</p>'
+                        + '<a class="fix-right-now" onclick="form_DeleteFirstSpacing()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</a>'
                         + '</div>',
                     allowHTML: true,
                     maxWidth: 270,
@@ -7381,6 +7406,7 @@ FunctionHoverWord_form = (id, fixedType) => {
                         + '<i class="icz icz-arrow-right"></i>'
                         + '<button class="button is-primary is-light light-blue" onclick="form_ReplacePunctuationError()">' + tmp + '</button></div>'
                         + '<p class="grey">Có vẻ như bạn đã viết một số dấu câu không đúng cách.</p>'
+                        + '<a class="fix-right-now" onclick="form_ReplacePunctuationError()"><i class="icz icz-patch"></i>Khắc phục giùm tôi</a>'
                         + '</div>',
                     allowHTML: true,
                     maxWidth: 270,
@@ -7524,6 +7550,10 @@ let form_preview_id
 
 //fuction fix error input
 form_UppercaseFirst = () => {
+
+    //google track
+    dataLayer.push({ 'event': 'eventFixUppercaseFirst' })
+
     let firstSpacingError = document.getElementById('form-banned-0')
     //banned
     let errorList = banned_card_form.getElementsByClassName('card-error-list')[0]
@@ -7565,8 +7595,12 @@ form_UppercaseFirst = () => {
 }
 
 form_DeleteFirstSpacing = () => {
+
+    //google track
+    dataLayer.push({ 'event': 'eventFixSpaceFirst' })
+
     let firstSpacingError = document.getElementById('form-banned-2')
-    let PuntuationFirst = document.getElementById('SpaceFirstText').innerHTML
+    let PunctuationFirst = document.getElementById('SpaceFirstText').innerHTML
     //banned
     let errorList = banned_card_form.getElementsByClassName('card-error-list')[0]
     let li = errorList.getElementsByTagName('LI')
@@ -7579,7 +7613,7 @@ form_DeleteFirstSpacing = () => {
                 li[i].remove()
             } else {
                 for (let j = 0; j < spans.length; j++) {
-                    if (spans[j].innerHTML == PuntuationFirst) {
+                    if (spans[j].innerHTML == PunctuationFirst) {
                         spans[j].remove()
                     }
                 }
@@ -7611,7 +7645,11 @@ form_DeleteFirstSpacing = () => {
 }
 
 form_DeletePunctuationFirst = () => {
-    let PuntuationFirst = document.getElementById('form-PuntuationFirst').innerHTML.replaceAll('&nbsp;', '')
+
+    //google track
+    dataLayer.push({ 'event': 'eventFixPunctuationFirst' })
+
+    let PunctuationFirst = document.getElementById('form-PunctuationFirst').innerHTML.replaceAll('&nbsp;', '')
     let firstLetterPosition
     let firstSpacingError = document.getElementById('form-banned-1')
     //banned
@@ -7625,7 +7663,7 @@ form_DeletePunctuationFirst = () => {
                 li[i].remove()
             } else {
                 for (let j = 0; j < spans.length; j++) {
-                    if (spans[j].innerHTML == PuntuationFirst) {
+                    if (spans[j].innerHTML == PunctuationFirst) {
                         spans[j].remove()
                     }
                 }
@@ -7635,9 +7673,9 @@ form_DeletePunctuationFirst = () => {
 
     for (let i = 0; i < form_input_list.length; i++) {
         let tmp_input = document.getElementById(form_input_list[i]).value
-        if (tmp_input.includes(PuntuationFirst)) {
+        if (tmp_input.includes(PunctuationFirst)) {
             for (let j = 0; j < tmp_input.length; j++) {
-                if (tmp_input[j] == PuntuationFirst) {
+                if (tmp_input[j] == PunctuationFirst) {
                     firstLetterPosition = j
                     break;
                 }
@@ -7667,6 +7705,10 @@ form_DeletePunctuationFirst = () => {
 }
 
 form_ReplacePunctuationError = () => {
+
+    //google track
+    dataLayer.push({ 'event': 'eventFixPunctuationError' })
+
     let firstSpacingError = document.getElementById('form-banned-5')
     //banned
     let errorList = banned_card_form.getElementsByClassName('card-error-list')[0]
