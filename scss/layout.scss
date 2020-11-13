@@ -7,12 +7,13 @@
 @import "bulma/grid/columns";
 @import "bulma/form/_all";
 @import "bulma/elements/button";
-@import "bulma/elements/container";
+//@import "bulma/elements/container";
 @import "bulma/elements/icon";
-@import "bulma/elements/tag";
-@import "bulma/elements/notification";
-@import "bulma/elements/other";
-@import "bulma/components/_all";
+//@import "bulma/elements/tag";
+//@import "bulma/elements/notification";
+//@import "bulma/elements/other";
+//@import "bulma/components/navbar";
+//@import "bulma/components/modal";
 
 // Fonts
 @import "font";
@@ -24,15 +25,8 @@
 
 // Component
 @import "component";
+@import "picker";
 
 // Page
 @import "page";
-@import "module";
 @import "modal";
-
-// daterangepicker
-@import "plugins/daterangepicker";
-
-// ngx-datatable
-@import "ngx_datatable/ngx-datatable";
-@import "ngx_datatable/custom";

@@ -1,51 +1,43 @@
 block Body
 
-.bl-cover-questions
+.bl-cover
 	span.img-cover(style="background-image:url(images/zad_game_header.jpg)")
-.body-questions
+.body
 	.group-form
 		.bl-info-oa
 			.avatar.avatar--s
 				.avatar-img(style="background-image:url(images/zad_OA_banner_avatar.png)")
 			h1 Zalo Ads
 		.bl-form
-			h2.title.has-text-centered XÁC NHẬN THÔNG TIN LIÊN HỆ HỖ TRỢ
+			h2.title.has-text-centered Hỗ trợ duyệt quảng cáo
 			.subtitle.has-text-centered
-				p Trước khi trả lời những câu hỏi thú vị và nhận những phần quà hấp dẫn, bạn vui lòng điền đầy đủ và chính xác thông tin sau để BQT Zalo Ads có thể liên hệ và hỗ trợ bạn khi cần thiết.
+				.js-read-more(data-rm-words="47")
+					span Kính gửi Quý đối tác,<br>Nếu quảng cáo của Quý đối tác đang được xử lý lâu hơn thời gian cam kết của Zalo Ads (trong vòng 60 phút), Quý đối tác vui lòng nhập thông tin theo yêu cầu bên dưới để được xử lý nhanh hơn.
+						|<br>Quảng cáo sẽ được xử lý trong vòng 10 phút, kết quả trả về sẽ là được Duyệt hoặc Bị từ chối. Nếu Quý đối tác cần tư vấn để quảng cáo được Duyệt ngay từ lần xử lý đầu tiên, vui lòng liên hệ  trực tiếp với nhân viên hỗ trợ Quý đối tác tại Zalo Ads. 
+						|<br>Zalo Ads sẽ xử lý quảng cáo đúng cơ chế như sau:
+						|<br>+ Bắt buộc là ID quảng cáo, không được dùng ID chiến dịch.
+						|<br>+ Số điên thoại đăng ký tài khoản quảng cáo phải sở hữu ID quảng cáo được đề cập.
+						|<br>+ Quảng cáo chưa Chờ duyệt đủ 60 phút thì vẫn sẽ chờ đủ 60 phút mới được xử lý (nếu vẫn trong trạng thái Chờ duyệt).
+						|<br>+ Tài khoản quảng cáo chưa vi phạm chính sách Cộng đồng trước đó.
+						|<br>Mọi khi tiết thắc mắc, Quý đối tác vui lòng liên hệ trực tiếp nhân sự Zalo Ads đang hỗ trợ Quý đối tác.
+						|<br>Thân mến.
 			.field
-				label.label Họ và tên 
+				label.label ID quảng cáo cần hỗ trợ duyệt<a class="func-tooltip func-tooltip-1" href="javascript:void(0);"><i class="icz icz-fill-info"></i></a>
 				.control.has-icons-right
-					input.input(type="text" id="name" placeholder="Vd: Nguyễn Văn A" value="")
-					//- .icon.is-small.is-right
-					//- 	i.icn.icn-check-circle.has-text-success
+					input.input#id-ad(type="tel" placeholder="VD: 13958140" value="" maxlength='10')
 			.field
-				label.label Số điện thoại
+				label.label Số điện thoại tài khoản quảng cáo<span class="fs--s color-grey-light ml-1">(10 số)</span><a class="func-tooltip func-tooltip-2" href="javascript:void(0);"><i class="icz icz-fill-info"></i></a>
 				.control.has-icons-right
-					input.input(type="tel" id="mobile" placeholder="Vd: 098 9899 777" value="")
-					//- .icon.is-small.is-right
-					//- 	i.icn.icn-circle-remove.has-text-danger
-				//- p.help.has-text-danger Đây là warning text
+					input.input#mobile(type="tel" placeholder="VD: 0901239876" value="" maxlength='10')
 			.field
-				label.label Email
+				label.label Thời gian gửi duyệt quảng cáo
 				.control.has-icons-right
-					input.input(type="text" id="email" placeholder="Vd: abc@gmail.com" value="")
-			.field
-				label.label Tên công ty/ doanh nghiệp/ cửa hàng
-				.control.has-icons-right
-					input.input(type="text" id="business" placeholder="Vd: Công ty CP AbC" value="")
-			.field
-				label.label Ngành nghề kinh doanh
-				.control
-					a.func-popup-job-major(href="javascript:void(0)")
-					span.select.is-fullwidth
-						select
-							option(id='major' selected disabled value="") Chọn ngành nghề
-						i.icn.icn-small-down
-			.field.hidden#another-job-option
-				label.label Ngành nghề khác
-				.control.has-icons-right
-					input.input(type="text" id='another_major' placeholder="Tên ngành nghề khác" value="")
-			button.button.is-primary.is-large.is-fullwidth#submit_form Gửi thông tin
+					input.input.js-date-picker#datetime_ad(type="text" placeholder="Chọn thời gian gửi duyệt" value="")
+					.icon.is-small.is-right
+						i.icz.icz-fill-calendar
+			
+			//- p.is-policy Bằng việc bấm nút <strong>Gửi thông tin</strong>, bạn đồng ý gửi các thông tin này tới <strong>BĐS Hưng Thịnh Prop</strong>. Xem các quy định về <a href="https://ads.zalo.me/business/p/chinh-sach/?utm_source=Zalo_Form_Ad&utm_campaign=Zalo_Form" target="_blank">chính sách quảng cáo</a> của Zalo
+			button.button.is-primary.is-large.is-fullwidth#submit-form Gửi thông tin
 			p.copyright Powered by Zalo Ads
 
 

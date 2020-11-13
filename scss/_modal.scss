@@ -1,49 +1,6 @@
 // Core variables and mixins bourbon
 @import "bourbon";
 
-
-	// Modal
-	.bl-modal{display:block;z-index:-1;opacity:0;visibility:hidden;@include position(fixed, 0);@extend %tr-all;background-color:rgba(#242E42, 0.85);overflow:hidden;
-		&.is-hidden{z-index:-1!important;opacity:0!important;visibility:hidden!important;}
-	}
-
-.overlay-modal{overflow:hidden;
-	body{overflow-y:scroll}
-}
-.overlay-modal{
-	
-		.bl-modal{z-index:1002;opacity:1;visibility:visible;@extend %tr-all;
-			.modal-container{
-				&.is-show{top:64px;transition:all 0.35s ease;}
-			}
-		}
-	
-}
-
-	.bl-modal{
-		.modal-container{@include position(absolute, null $gutter);top:-100%;background-color:#fff;@extend %is-radius;overflow:hidden;
-			@include from($tablet){left:50%;width:590px;margin-left:-295px}
-			.bl-modal-heading{display:flex;justify-content:space-between;align-items:center;height:50px;@include padding(null $gutter);border-bottom:1px solid $border;
-				span{color:$text;font-size:$size-large;font-weight:$weight-semibold}
-				.func-close-modal{flex-shrink:0;@include size(50px);margin-right:-$gutter;color:$grey-light;
-					[class^=icz]{display:inline-block;@include size(50px);@include padding(15px);font-size:1.25rem;vertical-align:middle}
-					&:hover{color:$grey}
-				}
-			}
-			.bl-modal-context{min-height:70px;@include padding($gutter);
-				p{margin-bottom:$gutter/1.5;color:$text;font-size:$size-normal}
-			}
-			.bl-modal-footer{margin-top:-$gutter;@include padding($gutter);
-				.buttons{margin-bottom:0;
-					&.is-left{
-						.button{margin-bottom:0}
-					}
-				}
-			}
-		}
-	}
-
-
 // Tooltip
 .bl-tooltip{display:block;z-index:-1;opacity:0;visibility:hidden;@include position(fixed, 0);@extend %tr-all;background-color:rgba(#35425B, 0.85);overflow:hidden;
 	&.is-hidden{z-index:-1!important;opacity:0!important;visibility:hidden!important;}
@@ -65,24 +22,55 @@
 				[class^=icz]{display:inline-block;@include size(50px);@include padding(15px);font-size:1.25rem;vertical-align:middle}
 			}
 		}
-		.bl-tooltip-context{max-height:440px;@include padding($gutter);font-size:$size-normal;overflow-y:scroll;-webkit-overflow-scrolling:touch;
-			p{margin-bottom:$gutter}
-			ul{
-				li{position:relative;margin-bottom:$gutter;padding-left:20px;
-					&:before{@include position(absolute, 8px null null 4px);content:"";background-color:$text;@include size(4px);border-radius:100%}
-					&.has-icon{
-						&:before{display:none}
-						[class^=icz]{@include position(absolute, 2px null null 0);@include size(16px);@include padding(2px);color:$primary;font-size:0.75rem;vertical-align:middle}
-					}
+		.bl-tooltip-context{max-height:400px;@include padding($gutter);font-size:$size-normal;overflow-y:scroll;-webkit-overflow-scrolling:touch;
+			p{
+				margin-bottom:$gutter/2;
+				span{
+					color: $primary
 				}
 			}
-			@media only screen and (max-height:600px){max-height:320px}
+			ul{margin-bottom:$gutter;margin-top:$gutter;
+				li{position:relative;margin-bottom:$gutter/2;padding-left:20px;
+					&:before{@include position(absolute, 7px null null 7px);content:"";background-color:$text;@include size(4px);border-radius:100%}
+					&:last-child{margin-bottom:0}
+				}
+			}
+			@media only screen and (max-height:600px){max-height:280px}
+		}
+	}
+}
+
+// Modal
+.bl-modal{display:block;z-index:-1;opacity:0;visibility:hidden;@include position(fixed, 0);@extend %tr-all;background-color:rgba(#35425B, 0.85);overflow:hidden;
+	&.is-hidden{z-index:-1!important;opacity:0!important;visibility:hidden!important;}
+}
+.overlay-modal{overflow:hidden;}
+.overlay-modal{
+	.bl-modal{z-index:1002;opacity:1;visibility:visible;@extend %tr-all;
+		.modal-container{
+			&.is-show{top:64px;transition:all 0.35s ease;}
+		}
+	}
+}
+.bl-modal{
+	.modal-container{@include position(absolute, null $gutter);top:-100%;background-color:#fff;@extend %is-radius;overflow:hidden;
+		@include from($tablet){left:50%;width:600px;margin-left:-300px}
+		.bl-modal-heading{display:flex;justify-content:space-between;align-items:center;height:50px;@include padding(null $gutter);border-bottom:1px solid $border;
+			span{color:$text;font-size:$size-medium;font-weight:$weight-semibold}
+			.func-close-modal{flex-shrink:0;@include size(50px);margin-right:-$gutter;color:inherit;
+				[class^=icz]{display:inline-block;@include size(50px);@include padding(15px);font-size:1.25rem;vertical-align:middle}
+			}
+		}
+		.bl-modal-context{@include padding($gutter);
+			p{margin-bottom:$gutter}
+			.buttons.is-2b{@include margin(null (-$gutter/2));
+				.button{flex-shrink:0;width:calc(50% - 16px);@include margin(null ($gutter/2))}
+			}
 		}
 	}
 }
 
 // Popup
-
 .bl-popup{display:block;z-index:-1;opacity:0;visibility:hidden;@include position(fixed, 0);@extend %tr-all;background-color:rgba(36, 46, 66, 0.85);overflow:hidden;
 	&.is-hidden{z-index:-1!important;opacity:0!important;visibility:hidden!important;}
 }
@@ -92,6 +80,8 @@
 	.bl-popup{z-index:102;opacity:1;visibility:visible;@extend %tr-all;
 		.popup-container{height:0;
 			&.is-show{z-index:1;bottom:0;height:96.5%;@extend %tr-all;
+				&#popup-daterangepicker{height:auto;}
+				
 				.bl-popup-context{
 					&.has-fixed{
 						.bottom{opacity:1;visibility:visible;}
@@ -102,32 +92,31 @@
 	}
 }
 .bl-popup{
-	.popup-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:16px;border-top-right-radius:16px;overflow:hidden;
+	.popup-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:$gutter;border-top-right-radius:$gutter;overflow:hidden;
 		@include from($tablet){left:50%;width:600px;margin-left:-300px}
-		.bl-popup-heading{display:flex;justify-content:center;align-items:center;@include position(absolute, 0 0 null 0);z-index:10;background-color:$white;height:50px;@include padding(null $gutter);border-bottom:1px solid $border;text-align:center;border-top-left-radius:$gutter;border-top-right-radius:$gutter;
+		.bl-popup-heading{display:flex;align-items:center;@include position(absolute, 0 0 null 0);z-index:10;background-color:$white;height:50px;@include padding(null $gutter);border-bottom:1px solid $border;border-top-left-radius:$gutter;border-top-right-radius:$gutter;
 			&.is-show-back{
 				.func-close-popup{display:none}
 				.func-back-popup{display:block}
 			}
-			span{color:$text;font-size:$size-large;font-weight:$weight-semibold}
+			span{color:$text;font-size:$size-medium;font-weight:$weight-semibold}
 			[class^=func-]{@include position(absolute, 0 null null 0);@include size(50px);color:inherit;
 				[class^=icz]{display:inline-block;@include size(50px);@include padding(14px);font-size:1.325rem;vertical-align:middle}
 				&.is-right{right:0;left:initial}
 			}
 			.func-back-popup{display:none;}
-			.func-next{@include position(absolute, 0 0 null initial);width:auto;@include padding($gutter*0.75);color:$link}
-			.control{
-				&.is-search{width:calc(100% - 30px);margin-left:30px}
-			}
 		}
-		.bl-popup-heading + .bl-popup-context{padding-top:50px}
-		.bl-popup-context{position:relative;height:100%;overflow-y:scroll;-webkit-overflow-scrolling:touch;
-			&.is-grey{background-color:$grey-light}
-			&.is-crop{background-color:$text}
-			&.is-less{padding-top:49px}
-			&.has-fixed{padding-bottom:76px;
-				.bottom{@include position(fixed, null 0 0 0);z-index:1;background-color:$white;@include padding($gutter);opacity:0;visibility:hidden;
-					@include from($desktop){max-width:600px;@include margin(null auto)}
+		.bl-popup-search{@include position(absolute, 50px 0 null 0);z-index:10;background-color:$white;height:40px;@include padding(4px $gutter null);
+			.input{height:40px;padding-left:1.5rem;border-bottom-color:#eee}
+			.icon{left:-4px;top:6px}
+		}
+		.bl-popup-heading + .bl-popup-context{padding-top:64px}
+		.bl-popup-search + .bl-popup-context{padding-top:96px}
+		.bl-popup-context{position:relative;height:100%;@include padding($gutter $gutter 30px);overflow-y:scroll;-webkit-overflow-scrolling:touch;
+			.group-add-list{
+				li{border-bottom:1px solid #eee;
+					&:last-child{border-bottom:none}
+					a{display:block;@include padding(8px null);color:$text;font-size:$size-medium}
 				}
 			}
 		}
@@ -137,64 +126,3 @@
 	50%{transform:scale(0.92, 1);transform-origin:center top;}
 	100%{transform:scale(0.88, 0.99);transform-origin:center top;}
 }
-
-
-
-	/* Section Setup Form */
-	.section-setup-form{display:flex;
-		.bl-setup{flex-grow:1;min-width:0;
-			.heading-setup{@include padding(4px $gutter);border-bottom:1px solid $border;
-				.name{display:flex;align-items:flex-start;
-					span{display:block;@include padding(8px null);color:$text;font-size:$size-normal;font-weight:$weight-normal}
-					a.func-edit{flex-shrink:0;@include size(32px);@include padding(8px);color:$grey;font-size:1em;}
-					&.is-done{
-						span{@include padding(0 null);border-bottom:none}
-					}
-				}
-				input{display:block;width:100%;@include padding(9px null 10px);color:$text;font-size:$size-normal;font-weight:$weight-normal;border:0;box-shadow:none;outline:0}
-			}
-			.group-form{border-bottom:1px solid $border;
-				&.is-expanded{
-					.heading-gf{
-						i{
-							&.is-arr{transform:rotate(180deg);}
-						}
-					}
-					.body-gf{display:block}
-				}
-				.heading-gf{display:block;position:relative;height:56px;@include padding(null $gutter);padding-left:52px;cursor:pointer;
-					span{display:block;height:56px;line-height:56px;color:$text;font-size:$size-medium;font-weight:$weight-semibold;}
-					i{
-						&.is-check{@include position(absolute, 50% null null $gutter);@include size(20px);margin-top:-10px;@include padding(0);color:$grey;font-size:1.25rem}
-						&.is-arr{@include position(absolute, 50% 12px null null);@include size(24px);margin-top:-12px;@include padding(0);color:$text;font-size:1.5rem}
-					}
-				}
-				.body-gf{display:none;@include padding(6px $gutter ($gutter*1.5) 52px);
-					.cover-ad-form{position:relative;flex-shrink:0;display:flex;justify-content:center;align-items:center;background-color:$grey-lightest;width:190px;border:1px dashed $border;@extend %is-radius-small;
-						&:before{@extend %ratio;}
-						&:hover{background-color:$grey-lighter;
-							.ico-edit{background-color:rgba(255,255,255,0.25);border-radius:100%}
-						}
-						&.is-upload{
-							&:after{@include position(absolute, 50% null null 50%);content:"\ea12";display:flex;justify-content:center;align-items:center;@include size(24px);margin-top:-24px;margin-left:-12px;@include padding(0);color:$text;font-size:1.5rem;font-family:$font-icon;}
-							.text-form{margin-top:36px;color:$link;font-size:$size-small;}
-						}
-						.src{@include position(absolute, -1px);z-index:1;@extend %backgroundCover--center;@extend %is-radius-small;
-							&:before{@include position(absolute, 0);content:"";background-color:rgba($text, 0.5);@extend %is-radius-small;}
-						}
-						.ico-edit{@include position(absolute, 50% null null 50%);z-index:2;display:flex;justify-content:center;align-items:center;@include size(24px);margin-top:-12px;margin-left:-12px;@extend %is-radius-rounded;
-							[class^=icz]{color:$white!important;font-size:0.75rem!important}
-						}
-					}
-					.add-gf-wrap{position:relative;
-						.dropdown-menu{transform:none!important;top:-190px!important;left:200px!important;width:400px}
-					}
-				}
-			}
-			.button-wrap{display:flex;justify-content:center;@include padding($gutter null);
-				.button{min-width:380px}
-			}
-		}
-		.bl-preview-form{flex-shrink:0;background-color:$grey-light;@include padding(44px 48px)}
-	}
-

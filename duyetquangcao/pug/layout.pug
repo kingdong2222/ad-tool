@@ -1,9 +1,8 @@
 include config.pug
 block setting
-	- var header = true
-	- var breadcrumb = false
-	- var footer = true
-	- var modal = true
+	- var loading = false
+	- var tooltip = false
+	- var modal = false
 	- var popup = false
 
 doctype
@@ -14,28 +13,29 @@ html(lang="en")
 	//- add class for wrapper
 	- var bodyC = [];
 	- var layoutClasses= [];
-	- var headerClasses = [];
 	- var bodyClasses = [];
-	- var footerClasses = [];
 	block pages
-    
+
 	body(class=`${bodyC}`)
+		if loading
+			.layer-loading
+				.lds-ring
+					div
+					div
+					div
+					div
 		if layout
-			div(class=`${layoutClasses}`)
-				block layout
-				if header
-					header(class=`${headerClasses}`)
-						block header
+			block layout
 				div(class=`${bodyClasses}`)
 					block body
-				if footer
-					footer(class=`${footerClasses}`)
-						block footer
-
-		if modal
-			block modal
-		if popup
-			.bl-popup
+		.bl-tooltip
+			if tooltip
+				block tooltip
+		.bl-modal
+			if modal
+				block modal
+		.bl-popup
+			if popup
 				block popup
 
 		// Include Plugin

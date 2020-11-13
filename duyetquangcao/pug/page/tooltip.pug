@@ -1,0 +1,54 @@
+block Tooltip
+
+.tooltip-container#tooltip-1
+	.bl-tooltip-heading
+		span Giới thiệu về Thông tin điền trước
+		a.func-close-tooltip(href="javascript:void(0)")
+			i.icz.icz-close
+	.bl-tooltip-context
+		p Thông tin được điền trước trong mẫu giúp bạn dễ dàng kết nối hơn với nhà quảng cáo, có thể lấy từ:
+		ul
+			li Thông tin tài khoản Zalo của bạn.
+			li Mẫu đã hoàn tất trước đó của bạn.
+		p Nhà quảng cáo chỉ biết thông tin liên hệ của bạn sau khi bạn hoàn tất việc gửi mẫu.
+
+.tooltip-container#tooltip-id-ad
+	.bl-tooltip-heading
+		span ID quảng cáo cần hỗ trợ duyệt
+		a.func-close-tooltip(href="javascript:void(0)")
+			i.icz.icz-close
+	.bl-tooltip-context
+		p Link quảng cáo có dạng <span>https://ads.zalo.me/client/ads/detail/13958140</span>. 
+		p ID quảng cáo là: <span><strong>13958140</strong></span>.
+		p Quý đối tác lưu ý link quảng cáo có chữ <i>campaign</i> là ID của chiến dịch <span>https://ads.zalo.me/client/campaigns/detail/3469651</span>.
+		p KHÔNG SUBMIT ID 3469651. 
+		p Chỉ điền <strong>SỐ</strong>, <strong>KHÔNG</strong> điền link.
+
+.tooltip-container#tooltip-phone
+	.bl-tooltip-heading
+		span Số điện thoại tài khoản quảng cáo
+		a.func-close-tooltip(href="javascript:void(0)")
+			i.icz.icz-close
+	.bl-tooltip-context
+		p Số điện thoại (gồm 10 số) đang thực hiện chiến dịch quảng cáo được submit ID quảng cáo tương ứng.
+		p Không khoảng cách, số 0 đứng đầu tiên.
+
+.tooltip-container#tooltip-2
+	.bl-tooltip-heading
+		span Về dịch vụ này
+		a.func-close-tooltip(href="javascript:void(0)")
+			i.icz.icz-close
+	.bl-tooltip-context
+		p Nhà quảng cáo có thể liên hệ với bạn thông qua cuộc gọi thoại trên Zalo. Điều này chỉ diễn ra nếu bạn cho phép bằng việc nhấn nút Đồng ý.
+		p Diễn giải thêm về policy tại đây. Lợi thế so với phone là không bị leak số phone
+		p Xem thêm <a href="#!" target="_blank">quy định về quảng cáo</a> của Zalo Form
+
+.tooltip-container#tooltip-close
+	.bl-tooltip-heading
+		span Bạn muốn rời Zalo Form?
+		a.func-close-tooltip(href="javascript:void(0)")
+			i.icz.icz-close
+	.bl-tooltip-context
+		p.mb-3 Các thông tin đã điền sẽ bị xoá nếu bạn rời Zalo Form mà chưa Gửi thông tin.
+		a.button.is-primary.is-light.is-large.is-fullwidth.mb-2(href="#!") Rời Zalo Form
+		a.button.is-primary.is-outlined.is-large.is-fullwidth(href="#!") Ở lại Zalo Form
