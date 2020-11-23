@@ -274,7 +274,7 @@
       		if($('#chatbox-has-popup').hasClass('scroll-to-bottom')){
       
       		} else {
-      			document.getElementById('input-message').focus()
+      			$('#input-message').trigger('focus')
       			$('#chatbox-has-popup').addClass('scroll-to-bottom')
       		}
       	}
