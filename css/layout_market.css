@@ -3856,7 +3856,7 @@ body.overlay-open-new .bl-popup .popup-container.is-show#popup-suggest-message .
   font-weight: 700;
 }
 .module-buyer-detail .desc-buyer .info-user {
-  margin: null(-16px);
+  margin: 0 -16px;
   padding-top: 16px;
   padding-bottom: 16px;
   border-bottom: 5px solid #DCE1E7;
@@ -3950,6 +3950,7 @@ body.overlay-open-new .bl-popup .popup-container.is-show#popup-suggest-message .
   font-size: 0.75rem;
   color: #778699;
   line-height: 18px;
+  padding-right: 16px;
 }
 .module-buyer-detail .desc-buyer .desc.for-listing .content .content-col .content-item .val {
   font-size: 1rem;
@@ -4082,6 +4083,7 @@ body.overlay-open-new .bl-popup .popup-container.is-show#popup-suggest-message .
 }
 .module-buyer-detail .desc-buyer .chatbox.chatbox-new .button-send-mess {
   color: #1744cf;
+  margin-top: -1px;
 }
 .module-buyer-detail .desc-buyer .chatbox.chatbox-new .button-send-mess i {
   font-size: 1.25rem;

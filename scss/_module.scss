@@ -2508,7 +2508,7 @@ body.overlay-open-new .bl-popup {
       }
     }
     .info-user {
-      @include margin(null(-$gutter));
+      margin: 0 -16px;
       @include padding(16px null);
       border-bottom: 5px solid $color-border;
       border-top: 5px solid $color-border;
@@ -2583,6 +2583,7 @@ body.overlay-open-new .bl-popup {
                 font-size: 0.75rem;
                 color: #778699;
                 line-height: 18px;
+                padding-right: 16px;
               }
               .val {
                 font-size: 1rem;
@@ -2693,6 +2694,7 @@ body.overlay-open-new .bl-popup {
         }
         .button-send-mess {
           color: #1744cf;
+          margin-top: -1px;
           i {
             font-size: 1.25rem;
             width: unset;
