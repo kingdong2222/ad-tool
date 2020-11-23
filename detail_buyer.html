@@ -147,10 +147,19 @@
                 <input id="input-message" type="text" value="Nhà này còn cho thuê không bạn ơi" placeholder="Gửi tin nhắn..."><a class="func-reset" href="#func-reset"><i class="icn icn-circle-remove"></i></a>
               </div><a class="button-send-mess"><i class="icn icn-bold-send"></i></a>
             </div>
+            <div class="chatbox is-fixed contact-seller chatbox-new">
+              <div class="contact-seller-container"><i class="icn icn-check-circle"></i>
+                <p>Đã liên hệ người bán</p>
+              </div>
+              <button class="btn btn--s btn-primary">Xem tin nhắn</button>
+            </div>
+            <div class="chatbox is-fixed chatbox-new button-contact-seller">
+              <button class="btn btn--s btn-primary w-100">Liên hệ người bán</button>
+            </div>
           </div>
         </div>
         <div class="bl-popup">
-          <div class="popup-container has-radius" id="popup-suggest-message"><a class="btn-close" id="close-suggest-message"><i class="icn icn-add"></i></a>
+          <div class="popup-container has-radius" id="popup-suggest-message">
             <p>Chọn câu hỏi có sẵn hoặc tự nhập vào ô bên dưới</p>
             <div class="list-suggestion"><a class="item">Bao nhiêu phòng ngủ, nhà vệ sinh?</a><a class="item">Tình trạng nội thất như thế nào?</a><a class="item">Tình trạng nội thất như thế nào?</a><a class="item">Phí quản lý bao nhiêu?</a>
               <div class="item trick-spacing-right"></div>
@@ -236,7 +245,7 @@
       	//- if($('#chatbox-has-popup').hasClass('show-in-fancy')){
       
       	//- } else {
-      		$("body").addClass("overlay-open-new");
+      		$("body").addClass("overlay-open");
       		$("#chatbox-has-popup").addClass("has-popup-chat")
       		$("#popup-suggest-message").addClass("is-show");
       	//- }
@@ -246,22 +255,28 @@
       	//- if($('#chatbox-has-popup').hasClass('show-in-fancy')){
       
       	//- } else {
-      		$("body").removeClass("overlay-open-new");
+      		$("body").removeClass("overlay-open");
       		$("#chatbox-has-popup").removeClass("has-popup-chat")
       		$(".popup-container").removeClass("is-show");
       	//- }
       	
       }
-      document.getElementById('close-suggest-message').onclick = () => {
-      	$("body").removeClass("overlay-open-new");
-      	$("#chatbox-has-popup").removeClass("has-popup-chat")
-      	$(".popup-container").removeClass("is-show");
-      }
+      //- document.getElementById('close-suggest-message').onclick = () => {
+      //- 	$("body").removeClass("overlay-ope");
+      //- 	$("#chatbox-has-popup").removeClass("has-popup-chat")
+      //- 	$(".popup-container").removeClass("is-show");
+      //- }
       $(window).scroll(function() {
       	if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-      		$("body").addClass("overlay-open-new");
-      		$("#chatbox-has-popup").addClass("has-popup-chat")
-      		$("#popup-suggest-message").addClass("is-show");
+      		//- $("body").addClass("overlay-open");
+      		//- $("#chatbox-has-popup").addClass("has-popup-chat")
+      		//- $("#popup-suggest-message").addClass("is-show");
+      		if($('#chatbox-has-popup').hasClass('scroll-to-bottom')){
+      
+      		} else {
+      			document.getElementById('input-message').focus()
+      			$('#chatbox-has-popup').addClass('scroll-to-bottom')
+      		}
       	}
       });
       $('[data-fancybox="gallery"]').fancybox({
