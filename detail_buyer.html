@@ -282,6 +282,7 @@
       $('[data-fancybox="gallery"]').fancybox({
       	beforeShow : function( instance, current ) {
       		//- $('#chatbox-has-popup').addClass('show-in-fancy')
+      		document.getElementsByTagName('BODY')[0].classList.add('large-zindex')
       		document.getElementsByClassName('bl-popup')[0].style.zIndex = 99995;
       		//- let length = instance.group.length
       		//- let index = instance.currIndex
@@ -296,6 +297,7 @@
       	afterClose : function( instance, current ) {
       		//- $('#chatbox-has-popup').removeClass('show-in-fancy')
       		$('#chatbox-has-popup').removeClass('is-opacity')
+      		document.getElementsByTagName('BODY')[0].classList.remove('large-zindex')
       		document.getElementsByClassName('bl-popup')[0].style.zIndex = 1050;
       		//- $('#see-more-fancy').addClass('is-hidden')
       		//- $('#see-more-fancy').removeClass('is-show')

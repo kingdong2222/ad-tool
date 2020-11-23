@@ -77,9 +77,14 @@ body.overlay-open {
     @include position(fixed, 0 0 null 0);
     content: "";
     background-color: rgba(0, 0, 0, 0.75) !important;
-    z-index: 99995;
+    z-index: 10;
     opacity: 1;
     height: 100%;
+  }
+  &.large-zindex{
+    &:before {
+      z-index: 99995 !important;
+    }
   }
 }
 body.overlay-open .bl-popup {
