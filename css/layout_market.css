@@ -1145,7 +1145,7 @@ body.overlay-open:before {
   left: 0;
   content: "";
   background-color: rgba(0, 0, 0, 0.75) !important;
-  z-index: 10;
+  z-index: 99995;
   opacity: 1;
   height: 100%;
 }
