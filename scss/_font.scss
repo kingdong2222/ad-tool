@@ -1,37 +1,35 @@
-// Muli
-//@import url('https://fonts.googleapis.com/css?family=Muli:400,500,600,700,800&display=swap&subset=vietnamese');
 @font-face {
-	font-family: 'Muli';
-	src: url('../fonts/muli/Muli-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/muli/Muli-Regular.woff') format('woff'), url('../fonts/muli/Muli-Regular.ttf') format('truetype'), url('../fonts/muli/Muli-Regular.svg#Muli-Regular') format('svg');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+    font-family:'Gilroy';
+    src:url('../fonts/Gilroy/svn-gilroy_bold-webfont.woff2') format('woff2'),
+         url('../fonts/Gilroy/svn-gilroy_bold-webfont.woff') format('woff');
+    font-weight:700;
+    font-style:normal;
 }
 @font-face {
-	font-family: 'Muli';
-	src: url('../fonts/muli/Muli-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/muli/Muli-Medium.woff') format('woff'), url('../fonts/muli/Muli-Medium.ttf') format('truetype'), url('../fonts/muli/Muli-Medium.svg#Muli-Medium') format('svg');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
+    font-family:'Gilroy';
+    src:url('../fonts/Gilroy/svn-gilroy_medium-webfont.woff2') format('woff2'),
+         url('../fonts/Gilroy/svn-gilroy_medium-webfont.woff') format('woff');
+    font-weight:500;
+    font-style:normal;
 }
 @font-face {
-	font-family: 'Muli';
-	src: url('../fonts/muli/Muli-SemiBold.eot?#iefix') format('embedded-opentype'), url('../fonts/muli/Muli-SemiBold.woff') format('woff'), url('../fonts/muli/Muli-SemiBold.ttf') format('truetype'), url('../fonts/muli/Muli-SemiBold.svg#Muli-SemiBold') format('svg');
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face{
-	font-family: 'Muli';
-	src: url('../fonts/muli/Muli-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/muli/Muli-Bold.woff') format('woff'), url('../fonts/muli/Muli-Bold.ttf') format('truetype'), url('../fonts/muli/Muli-Bold.svg#Muli-Bold') format('svg');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+    font-family:'Gilroy';
+    src:url('../fonts/Gilroy/svn-gilroy_regular-webfont.woff2') format('woff2'),
+         url('../fonts/Gilroy/svn-gilroy_regular-webfont.woff') format('woff');
+    font-weight:400;
+    font-style:normal;
 }
 @font-face {
-	font-family: 'Muli';
-	src: url('../fonts/muli/Muli-ExtraBold.eot?#iefix') format('embedded-opentype'), url('../fonts/muli/Muli-ExtraBold.woff') format('woff'), url('../fonts/muli/Muli-ExtraBold.ttf') format('truetype'), url('../fonts/muli/Muli-ExtraBold.svg#Muli-ExtraBold') format('svg');
-	font-weight: 800;
-	font-style: normal;
-	font-display: swap;
+    font-family:'Gilroy';
+    src:url('../fonts/Gilroy/svn-gilroy_semibold-webfont.woff2') format('woff2'),
+         url('../fonts/Gilroy/svn-gilroy_semibold-webfont.woff') format('woff');
+    font-weight:600;
+    font-style:normal;
+}
+@font-face {
+    font-family:'Gilroy';
+    src:url('../fonts/Gilroy/svn-gilroy_xbold-webfont.woff2') format('woff2'),
+         url('../fonts/Gilroy/svn-gilroy_xbold-webfont.woff') format('woff');
+    font-weight:900;
+    font-style:normal;
 }

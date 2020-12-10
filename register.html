@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo AI 2019</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="https://zalo.ai/static/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body>
+    <div class="project-layout">
+      <div class="page-content"><a class="logo-register" href="index.html"></a>
+        <div class="module-register">
+          <div class="heading">
+            <h2 class="wow fadeIn">Registration</h2>
+            <p class="wow fadeIn">Registration form will be officially open from 8:00 AM 7<sup>th</sup> to 11:59 PM 09<sup>th</sup> December</p>
+            <p class="wow fadeIn">*Entrance QR code will be sent to your Zalo account</p>
+          </div>
+          <div class="default-form wow fadeIn">
+            <div class="form-group mb-3">
+              <label for="name">Your name</label>
+              <input class="form-control" type="text" id="name" placeholder="">
+            </div>
+            <div class="form-group mb-3">
+              <label for="tel">Zalo registered number *</label>
+              <input class="form-control" type="text" id="tel" placeholder="">
+            </div><em class="error">Lorem ipsum </em>
+            <div class="form-group mb-3">
+              <label for="email">Email</label>
+              <input class="form-control" type="text" id="email" placeholder="">
+            </div>
+            <div class="form-group mb-3">
+              <label for="company">Company Name</label>
+              <input class="form-control" type="text" id="company" placeholder="">
+            </div>
+            <div class="form-group mb-5">
+              <label for="job">Job Title</label>
+              <input class="form-control" type="text" id="job" placeholder="">
+            </div>
+            <div class="form-group is-otr mb-5">
+              <label for="more">How does your job relate to AI</label>
+              <textarea class="form-control" type="text" id="more" placeholder="" rows="5"></textarea>
+            </div>
+            <div class="form-group is-button"><a class="btn btn-primary btn--m" href="javascript:void(0);" data-toggle="modal" data-target="#modal-register-alert">Register Now</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="cd-nav"><a class="cd-nav-trigger"><span></span></a>
+      <div id="cd-main-nav">
+        <ul class="list-unstyled" id="navBar">
+          <li><a href="index.html#intro">Introduction</a></li>
+          <li><a href="index.html#speakers">Speakers</a></li>
+          <li><a href="index.html#agenda">Agenda	</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-register-alert" tabindex="-1" role="dialog">
+      <div class="modal-dialog is-medium" role="document">
+        <div class="modal-content">
+          <!--.modal-header
+          h5.modal-title Modal title
+          button.close(type="button" data-dismiss="modal" aria-label="Close")
+          	span(aria-hidden="true") ×
+          -->
+          <div class="modal-body text-center">
+            <div class="context-alert">
+              <h2>Thank you for your interest in Zalo AI Summit 2019</h2>
+              <p>As we have limited pass, we will process the information and summarize a shortlist of audiences. According to the list, an official invitation will be sent to you by email on December 11, 2019. Please follow this Official Account for more information.</p>
+              <p class="tips">(*): Please be noted that this submission does not guarantee your participation in Zalo AI summit 2019.</p>
+              <div class="text-center"><img src="images/qrcode.png" alt="Zalo AI 2019"></div>
+            </div>
+          </div>
+          <!--.modal-footer
+          button.btn.btn-primary(type="button") Save changes
+          button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+          --><a class="func-close-modal" type="button" data-dismiss="modal" aria-label="Close"><i class="icn icn-small-remove"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      var wow = new WOW(
+      {
+      	boxClass:     'wow',
+      	animateClass: 'animated',
+      	offset:       60,
+      	mobile:       true,
+      	live:         true,
+      	callback:     function(box) {
+      	},
+      	scrollContainer: true
+      	}
+      );
+      wow.init();
+    </script>
+  </body>
+</html>
