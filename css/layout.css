@@ -6565,8 +6565,8 @@ header .menu-wrap ul li a.active {
   bottom: -3px;
   left: 7.5px;
   content: "";
-  background: rgba(255, 255, 255, 0.7);
-  width: 0.7px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 1px;
 }
 .module-agenda .context-agenda .timeline > li:last-child:after {
   display: none;

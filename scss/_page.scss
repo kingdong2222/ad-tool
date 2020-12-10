@@ -203,7 +203,7 @@ header{@include position(relative, null);z-index:3;@include size(100%, auto);hei
 		margin-left: 15px;
 		.timeline{list-style:none; max-width: 900px; margin: 0 auto;}
 		.timeline > li{position:relative;padding-bottom:55px;font-size:0.938em;
-			&:after{position:absolute;top:3px;bottom:-3px;left:7.5px;content:'';background:rgba(#fff,0.7);width:0.7px;}
+			&:after{position:absolute;top:3px;bottom:-3px;left:7.5px;content:'';background:rgba(#fff,0.2);width:1px;}
 			&:last-child{
 				&:after{display:none;}
 			}
