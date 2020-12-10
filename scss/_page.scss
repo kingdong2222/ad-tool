@@ -199,11 +199,11 @@ header{@include position(relative, null);z-index:3;@include size(100%, auto);hei
 }
 
 .module-agenda{margin-bottom:25px;padding-top:75px;
-	.context-agenda{max-width:1200px;@include margin(0 auto);@include padding(null $gutter);background-color:#0A236B;border-radius: 25px;padding: 55px 32px 0;margin-right: 15px;
+	.context-agenda{max-width:1200px;@include margin(0 auto);@include padding(null $gutter);background-color:rgba(#0A236B,0.7);border-radius: 25px;padding: 55px 32px 0;margin-right: 15px;
 		margin-left: 15px;
 		.timeline{list-style:none; max-width: 900px; margin: 0 auto;}
 		.timeline > li{position:relative;padding-bottom:55px;font-size:0.938em;
-			&:after{position:absolute;top:3px;bottom:-3px;left:7.5px;content:'';background:#fff;width:1px;}
+			&:after{position:absolute;top:3px;bottom:-3px;left:7.5px;content:'';background:rgba(#fff,0.7);width:0.7px;}
 			&:last-child{
 				&:after{display:none;}
 			}
@@ -295,7 +295,7 @@ header{@include position(relative, null);z-index:3;@include size(100%, auto);hei
 /* Update 2019 */
 .container.max-width{max-width:1200px!important;@include padding(null $gutter)}
 .module-hero{
-	@include media-breakpoint-up(lg){display:flex;align-items:center;height:calc(100vh - 110px);}
+	@include media-breakpoint-up(lg){display:flex;align-items:flex-start;height:calc(100vh - 110px);}
 }
 .vide-kv-wrap{display:none;@include position(absolute, 0 0 null);z-index:1;height:100vh;
 	video{display:none!important}
@@ -320,8 +320,8 @@ header{@include position(relative, null);z-index:3;@include size(100%, auto);hei
 	.img-kv{@include margin(15px null 45px);}
 	p{margin-bottom:20px;color:#fff;font-size:1em;font-weight:300;}
 	@include media-breakpoint-up(lg){margin-bottom:0;padding-bottom:35px;display: flex; flex-direction: column; align-items: flex-end;
-		.logo-hero{@include size(250px, 125px);background-position-x: 18px;margin: unset;}
-		h1{max-width:100%;@include margin(30px null 30px);font-size:1rem;}
+		.logo-hero{@include size(220px, 110px);background-position-x: 15px;margin: unset;}
+		h1{max-width:100%;@include margin(30px null 30px);font-size:1.125rem;}
 		h1, p, .btn-wrap{text-align:right}
 		.btn-wrap{margin-top:0;
 		}

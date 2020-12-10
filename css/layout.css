@@ -6543,7 +6543,7 @@ header .menu-wrap ul li a.active {
   margin: 0 auto;
   padding-right: 15px;
   padding-left: 15px;
-  background-color: #0A236B;
+  background-color: rgba(10, 35, 107, 0.7);
   border-radius: 25px;
   padding: 55px 32px 0;
   margin-right: 15px;
@@ -6565,8 +6565,8 @@ header .menu-wrap ul li a.active {
   bottom: -3px;
   left: 7.5px;
   content: "";
-  background: #fff;
-  width: 1px;
+  background: rgba(255, 255, 255, 0.7);
+  width: 0.7px;
 }
 .module-agenda .context-agenda .timeline > li:last-child:after {
   display: none;
@@ -6816,9 +6816,9 @@ header .menu-wrap ul li a.active {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     height: calc(100vh - 110px);
   }
 }
@@ -6914,16 +6914,16 @@ header .menu-wrap ul li a.active {
             align-items: flex-end;
   }
   .hero-container .logo-hero {
-    height: 125px;
-    width: 250px;
-    background-position-x: 18px;
+    height: 110px;
+    width: 220px;
+    background-position-x: 15px;
     margin: unset;
   }
   .hero-container h1 {
     max-width: 100%;
     margin-top: 30px;
     margin-bottom: 30px;
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
   .hero-container h1, .hero-container p, .hero-container .btn-wrap {
     text-align: right;
