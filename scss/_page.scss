@@ -295,7 +295,12 @@ header{@include position(relative, null);z-index:3;@include size(100%, auto);hei
 /* Update 2019 */
 .container.max-width{max-width:1200px!important;@include padding(null $gutter)}
 .module-hero{
-	@include media-breakpoint-up(lg){display:flex;align-items:flex-start;height:calc(100vh - 110px);}
+	@include media-breakpoint-up(lg){
+		display:flex;align-items:flex-start;height:calc(100vh - 110px);
+		.row{
+			width: 1200px;
+		}
+	}
 }
 .vide-kv-wrap{display:none;@include position(absolute, 0 0 null);z-index:1;height:100vh;
 	video{display:none!important}

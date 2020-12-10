@@ -6821,6 +6821,9 @@ header .menu-wrap ul li a.active {
             align-items: flex-start;
     height: calc(100vh - 110px);
   }
+  .module-hero .row {
+    width: 1200px;
+  }
 }
 
 .vide-kv-wrap {
