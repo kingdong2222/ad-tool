@@ -296,7 +296,7 @@ header{@include position(relative, null);z-index:3;@include size(100%, auto);hei
 .container.max-width{max-width:1200px!important;@include padding(null $gutter)}
 .module-hero{
 	@include media-breakpoint-up(lg){
-		display:flex;align-items:flex-start;height:calc(100vh - 110px);
+		display:flex;align-items:flex-start;height:calc(100vh - 110px);padding-top: 150px;
 		.row{
 			width: 1200px;
 		}

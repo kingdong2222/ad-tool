@@ -6820,6 +6820,7 @@ header .menu-wrap ul li a.active {
         -ms-flex-align: start;
             align-items: flex-start;
     height: calc(100vh - 110px);
+    padding-top: 150px;
   }
   .module-hero .row {
     width: 1200px;
