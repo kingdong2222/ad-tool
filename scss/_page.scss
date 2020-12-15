@@ -296,15 +296,31 @@ header{@include position(relative, null);z-index:3;@include size(100%, auto);hei
 .container.max-width{max-width:1200px!important;@include padding(null $gutter)}
 .module-hero{
 	@include media-breakpoint-up(lg){
-		display:flex;align-items:flex-start;height:calc(100vh - 110px);padding-top: 120px;
+		min-height: 650px;
+		display:flex;align-items:flex-start;height:calc(100vh - 110px);padding-top: 100px;
 		.row{
 			width: 1200px;
+		}
+	}
+	@media only screen and (max-height: 700px) {
+		padding-top: 40px;
+	}
+	@media only screen and (max-width: 1050px) {
+		padding-top: 40px;
+		.col-lg-6{
+			padding-left: 0;
+			&:first-child{
+				width: 40%;
+			}
+			&:last-child{
+				width: 60%;
+			}
 		}
 	}
 }
 .vide-kv-wrap{display:none;@include position(absolute, 0 0 null);z-index:1;height:100vh;
 	video{display:none!important}
-	.vide-kv{height:100vh}
+	.vide-kv{height:100vh; min-height: 740px;}
 	@include media-breakpoint-up(lg){display:block;
 		video{display:block!important}
 	}
@@ -332,4 +348,5 @@ header{@include position(relative, null);z-index:3;@include size(100%, auto);hei
 		}
 		.img-kv{@include margin(0 null)}
 	}
+	
 }
