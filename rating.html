@@ -33,8 +33,15 @@
       max-width: 600px;
       margin: 0 auto;
       background-color: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       padding: 64px 24px 0;
       margin-bottom: 24px;
@@ -46,7 +53,12 @@
     }
 
     .five_stars {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
       flex-direction: row-reverse;
       height: 100%;
     }
@@ -57,6 +69,7 @@
       background-color: #D0D7DF;
       margin-top: 24px;
       margin-bottom: 24px;
+      opacity: 0.5;
     }
 
     .five_stars {
@@ -66,23 +79,29 @@
     .five_stars>input {
       display: none;
     }
-    .five_stars label{
+
+    .five_stars label {
       margin-right: 12px;
     }
-    .five_stars label svg path{
+
+    .five_stars label svg path {
       width: 32px;
       margin-right: 8px;
       fill: #E4E7EB;
       stroke: #E4E7EB;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
       transition: all 0.3s;
     }
 
-    .five_stars>input:checked~label svg path{
+    .five_stars>input:checked~label svg path {
       fill: #FFCC48;
       stroke: #FFCC48;
     }
 
     .five_stars>input:checked~label.focus {
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
       transform: scale(1.2);
     }
 
@@ -103,9 +122,17 @@
     .suggest {
       margin-top: 20px;
       margin-bottom: 16px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
       flex-direction: row;
+      -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
     }
 
@@ -147,6 +174,8 @@
       margin-bottom: 8px;
       margin-right: 8px;
       border: 1px solid #fff;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
       transition: all 0.3s;
     }
 
@@ -158,26 +187,39 @@
       background-color: #F1F3F5;
       resize: none;
       width: 100%;
-      height: 80px;
+      max-height: 80px;
       border-radius: 8px;
       border: 1px solid #fff;
       padding: 14px 16px;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
       transition: all 0.3s;
       font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
       font-size: 16px;
+      -webkit-appearance: none;
     }
 
     #another:focus {
       border: 1px solid #1744CF;
       outline: none;
+      -webkit-box-shadow: 0 0 0 0.125em rgba(23, 69, 207, 0.15);
       box-shadow: 0 0 0 0.125em rgba(23, 69, 207, 0.15);
     }
-    button.is-loading{
-      color: transparent!important;
+
+    .dockbar {
+      position: fixed;
+      bottom: 24px;
+      width: 100%;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    button.is-loading {
+      color: transparent !important;
       pointer-events: none;
       position: relative;
       height: 44px;
-      width: calc(100% - 48px);
+      width: 100%;
       background-color: #0068FF;
       color: #fff;
       border: none;
@@ -185,10 +227,10 @@
       font-size: 16px;
       font-weight: 500;
       outline: none;
-      position: absolute;
-      bottom: 48px;
     }
-    button.is-loading::after{
+
+    button.is-loading::after {
+      -webkit-animation: spinAround .5s infinite linear;
       animation: spinAround .5s infinite linear;
       border: 2px solid #dbdbdb;
       border-radius: 290486px;
@@ -200,18 +242,39 @@
       width: 1em;
       left: calc(50% - (1em / 2));
       top: calc(50% - (1em / 2));
-      position: absolute!important;
+      position: absolute !important;
     }
-    @keyframes spinAround{from{transform:rotate(0)}to{transform:rotate(359deg)}}
+
+    @-webkit-keyframes spinAround {
+      from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+      }
+
+      to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+      }
+    }
+
+    @keyframes spinAround {
+      from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+      }
+
+      to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+      }
+    }
 
     button#submit_rating,
     button#complete {
       height: 44px;
-      width: calc(100% - 48px);
+      width: 100%;
       background-color: #0068FF;
       color: #fff;
-      position: absolute;
-      bottom: 0;
       border: none;
       border-radius: 8px;
       font-size: 16px;
@@ -248,11 +311,11 @@
 
 <body>
   <div class="rating block ">
-    <p id='text'>Kém cần cải thiện</p>
+    <p id='text'>Kém, cần cải thiện!</p>
     <div class="five_stars">
 
       <input id="star5" type="radio" name="rating" value="5" />
-      <label id="star_checked5" for="star5" title="Tuyệt vời">
+      <label id="star_checked5" for="star5" title="Tuyệt vời!">
         <svg width="30" height="28">
           <defs>
             <filter id="a">
@@ -320,7 +383,7 @@
       </label>
 
       <input id="star1" type="radio" name="rating" value="1" checked />
-      <label id="star_checked1" class='focus' for="star1" title="Kém cần cải thiện">
+      <label id="star_checked1" class='focus' for="star1" title="Kém, cần cải thiện!">
         <svg width="30" height="28">
           <defs>
             <filter id="a">
@@ -344,25 +407,28 @@
     <div class='suggest'>
 
       <input id='check1' type='checkbox' />
-      <label id='checked1' for='check1'>Nhân viên nhiệt tình hơn</label>
+      <label id='checked1' for='check1'>Nhân viên không nhiệt tình</label>
 
       <input id='check2' type='checkbox' />
-      <label id='checked2' for='check2'>Thông tin rõ ràng hơn</label>
+      <label id='checked2' for='check2'>Thông tin không rõ ràng</label>
 
       <input id='check3' type='checkbox' />
-      <label id='checked3' for='check3'>Quy trình nhanh hơn</label>
+      <label id='checked3' for='check3'>Quy trình quá lâu</label>
 
       <input id='check4' type='checkbox' />
-      <label id='checked4' for='check4'>Phí dịch vụ hợp lý hơn</label>
+      <label id='checked4' for='check4'>Nhiều loại phí</label>
 
       <input id='check5' type='checkbox' />
-      <label id='checked5' for='check5'>Nhiều tiện ích hơn</label>
+      <label id='checked5' for='check5'>Ít tiện ích đi kèm</label>
 
     </div>
 
     <textarea id='another' placeholder="Hãy giúp chúng tôi hiểu hơn"></textarea>
-    <button class='is-loading'>Loading</button>
-    <button id='submit_rating'>Gửi đánh giá</button>
+    <div class="dockbar">
+      <button class='is-loading'>Loading</button>
+      <button id='submit_rating'>Gửi đánh giá</button>
+    </div>
+
   </div>
   <div class="thankyou block hidden">
     <div class="thankyou_img">
@@ -383,22 +449,27 @@
       </svg>
 
     </div>
-    <p>Cám ơn bạn</p>
-    <p class='thankyou_quote hidden' id='quote1'>Rất xin lỗi bạn vì trải nghiệm chưa tốt vừa qua.<br>Chúng tôi sẽ nghiêm
-      túc xem xét những góp ý của bạn để thay đổi và cải thiện dịch vụ.</p>
-    <p class='thankyou_quote hidden' id='quote2'>Rất xin lỗi bạn vì trải nghiệm chưa tốt vừa qua.<br>Chúng tôi sẽ nghiêm
-      túc xem xét những góp ý của bạn để thay đổi và cải thiện dịch vụ.</p>
-    <p class='thankyou_quote hidden' id='quote3'>Mọi góp ý của bạn đều rất giá trị. Chúng tôi sẽ tiếp tục nỗ lực để phục
-      vụ bạn tốt hơn nữa.</p>
-    <p class='thankyou_quote hidden' id='quote4'>Mọi góp ý của bạn đều rất giá trị. Chúng tôi sẽ tiếp tục nỗ lực để phục
-      vụ bạn tốt hơn nữa.</p>
-    <p class='thankyou_quote hidden' id='quote5'>Mọi góp ý của bạn đều rất giá trị. Chúng tôi sẽ tiếp tục nỗ lực để phục
-      vụ bạn tốt hơn nữa.</p>
-    <button id='complete'>Hoàn tất</button>
+    <p>Cảm ơn đánh giá của bạn!</p>
+    <p class='thankyou_quote hidden' id='quote1'>Xin lỗi bạn vì trải nghiệm không tốt vừa qua.<br>Chúng tôi xin tiếp thu
+      ý kiến đóng góp và sẽ cố gắng cải thiện chất lượng dịch vụ. </p>
+    <p class='thankyou_quote hidden' id='quote2'>Xin lỗi bạn vì trải nghiệm không tốt vừa qua.<br>Chúng tôi xin tiếp thu
+      ý kiến đóng góp và sẽ cố gắng cải thiện chất lượng dịch vụ. </p>
+    <p class='thankyou_quote hidden' id='quote3'>Chúng tôi sẽ cố gắng cải thiện chất lượng dịch vụ để có thể phục vụ bạn
+      tốt hơn.</p>
+    <p class='thankyou_quote hidden' id='quote4'>Chúng tôi sẽ cố gắng cải thiện chất lượng dịch vụ để có thể phục vụ bạn
+      tốt hơn.</p>
+    <p class='thankyou_quote hidden' id='quote5'>Chúng tôi rất vui vì nhận được sự hài lòng từ bạn và sẽ tiếp tục phát
+      huy để nâng cao chất lượng dịch vụ.</p>
+    <div class='dockbar'>
+      <button id='complete'>Hoàn tất</button>
+    </div>
+
   </div>
 </body>
 
 <script>
+
+  //stars
   let check1 = document.getElementById('star1')
   let check2 = document.getElementById('star2')
   let check3 = document.getElementById('star3')
@@ -417,6 +488,13 @@
 
   let star_value = 1
 
+  //suggest
+  let suggest1 = document.getElementById('checked1')
+  let suggest2 = document.getElementById('checked2')
+  let suggest3 = document.getElementById('checked3')
+  let suggest4 = document.getElementById('checked4')
+  let suggest5 = document.getElementById('checked5')
+
   let quote1 = document.getElementById('quote1')
   let quote2 = document.getElementById('quote2')
   let quote3 = document.getElementById('quote3')
@@ -424,7 +502,7 @@
   let quote5 = document.getElementById('quote5')
 
   check1.onchange = (value) => {
-    text.innerText = "Kém cần cải thiện"
+    text.innerText = "Kém, cần cải thiện!"
 
     star_checked1.classList.add('focus')
 
@@ -434,6 +512,12 @@
     star_checked5.classList.remove('focus')
 
     star_value = 1
+
+    suggest1.innerHTML = 'Nhân viên không nhiệt tình'
+    suggest2.innerHTML = 'Thông tin không rõ ràng'
+    suggest3.innerHTML = 'Quy trình quá lâu'
+    suggest4.innerHTML = 'Nhiều loại phí'
+    suggest5.innerHTML = 'Ít tiện ích đi kèm'
   }
   check2.onchange = (value) => {
     text.innerText = "Chưa tốt"
@@ -446,6 +530,12 @@
     star_checked5.classList.remove('focus')
 
     star_value = 2
+
+    suggest1.innerHTML = 'Nhân viên không nhiệt tình'
+    suggest2.innerHTML = 'Thông tin không rõ ràng'
+    suggest3.innerHTML = 'Quy trình quá lâu'
+    suggest4.innerHTML = 'Nhiều loại phí'
+    suggest5.innerHTML = 'Ít tiện ích đi kèm'
   }
   check3.onchange = (value) => {
     text.innerText = "Bình thường"
@@ -458,6 +548,12 @@
     star_checked5.classList.remove('focus')
 
     star_value = 3
+
+    suggest1.innerHTML = 'Nhân viên nhiệt tình hơn'
+    suggest2.innerHTML = 'Thông tin rõ ràng hơn'
+    suggest3.innerHTML = 'Quy trình nhanh hơn'
+    suggest4.innerHTML = 'Phí dịch vụ hợp lý hơn'
+    suggest5.innerHTML = 'Nhiều tiện ích hơn'
   }
   check4.onchange = (value) => {
     text.innerText = "Khá tốt"
@@ -470,9 +566,15 @@
     star_checked5.classList.remove('focus')
 
     star_value = 4
+
+    suggest1.innerHTML = 'Nhân viên nhiệt tình hơn'
+    suggest2.innerHTML = 'Thông tin rõ ràng hơn'
+    suggest3.innerHTML = 'Quy trình nhanh hơn'
+    suggest4.innerHTML = 'Phí dịch vụ hợp lý hơn'
+    suggest5.innerHTML = 'Nhiều tiện ích hơn'
   }
   check5.onchange = (value) => {
-    text.innerText = "Tuyệt vời"
+    text.innerText = "Tuyệt vời!"
 
     star_checked5.classList.add('focus')
 
@@ -482,6 +584,12 @@
     star_checked1.classList.remove('focus')
 
     star_value = 5
+
+    suggest1.innerHTML = 'Nhân viên nhiệt tình'
+    suggest2.innerHTML = 'Thông tin rõ ràng'
+    suggest3.innerHTML = 'Quy trình nhanh chóng'
+    suggest4.innerHTML = 'Phí dịch vụ hợp lý'
+    suggest5.innerHTML = 'Nhiều tiện ích'
   }
 
   submit_rating.onclick = () => {
