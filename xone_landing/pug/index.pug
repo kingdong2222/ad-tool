@@ -1,0 +1,70 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var header = true
+	- var footer = false
+	- var modal = true
+	- var wow = true
+	- var swiperjs = true
+	- var videjs = true
+	- var fancyboxjs = true
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("")
+	- layoutClasses.push("project-layout")
+	- headerClasses.push("")
+	- bodyClasses.push("page-content")
+	- footerClasses.push("")
+	
+//- Add Header
+block header
+	include page/header.pug
+
+//- Add Body
+block body
+	include page/_home.pug
+
+//- Add Footer
+block footer
+	include page/footer.pug
+
+//- Add Modal
+block modal
+	//- include page/modal_register.pug
+
+block javaScripts extend
+	script.
+		var swiper = new Swiper('.swiper-intro', {
+			slidesPerView: 'auto',
+			spaceBetween: 20,
+			loop: true,
+			autoplay: {
+				delay: 3000,
+			},
+			keyboard: {
+				enabled: true,
+				onlyInViewport: false,
+			},
+			navigation: {
+				nextEl: '#intro-next',
+				prevEl: '#intro-prev',
+			},
+			breakpoints: {
+				// when window width is <= 768px
+				768: {
+				slidesPerView: 1.1,
+				spaceBetween: 5,
+				},
+				// when window width is <= 1024px
+				1024: {
+				slidesPerView: 2.6,
+				spaceBetween: 20,
+				}
+			},
+		});
+		
