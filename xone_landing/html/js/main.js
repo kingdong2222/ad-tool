@@ -60,43 +60,13 @@ $(function($){
 	}
 });
 
-$(window).scroll(function(){
-    if ($(window).scrollTop() >= 256) {
-        $('header').addClass('fixed-header');
-    }
-    else {
-        $('header').removeClass('fixed-header');
+window.onscroll = function () {
+	if(screen.width >= 1024){
+		if ($(window).scrollTop() >= 10) {
+			$('header').addClass('fixed-header');
+		}
+		else {
+			$('header').removeClass('fixed-header');
+		}
 	}
-	
-});
-window.onscroll = () => {
-	let intro = document.getElementById('intro').getBoundingClientRect().top
-	let speaker = document.getElementById('speakers').getBoundingClientRect().top
-	let agenda = document.getElementById('agenda').getBoundingClientRect().top
-	let menu = document.getElementById('menu-wrap')
-	let list = menu.getElementsByTagName('LI')
-	if(intro >= -550){
-		let temp = list[0].getElementsByTagName('A')[0]
-		temp.classList.add('active')
-	} else {
-		let temp = list[0].getElementsByTagName('A')[0]
-		temp.classList.remove('active')
-	}
-
-	if(speaker >= -550 && speaker <= 480){
-		let temp = list[1].getElementsByTagName('A')[0]
-		temp.classList.add('active')
-	} else {
-		let temp = list[1].getElementsByTagName('A')[0]
-		temp.classList.remove('active')
-	}
-
-	if(agenda >= -800 && agenda <= 480){
-		let temp = list[2].getElementsByTagName('A')[0]
-		temp.classList.add('active')
-	} else {
-		let temp = list[2].getElementsByTagName('A')[0]
-		temp.classList.remove('active')
-	}
-	
 }

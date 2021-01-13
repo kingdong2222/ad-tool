@@ -1,35 +1,126 @@
 @font-face {
-    font-family:'Gilroy';
-    src:url('../fonts/Gilroy/svn-gilroy_bold-webfont.woff2') format('woff2'),
-         url('../fonts/Gilroy/svn-gilroy_bold-webfont.woff') format('woff');
-    font-weight:700;
-    font-style:normal;
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-Bold.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-    font-family:'Gilroy';
-    src:url('../fonts/Gilroy/svn-gilroy_medium-webfont.woff2') format('woff2'),
-         url('../fonts/Gilroy/svn-gilroy_medium-webfont.woff') format('woff');
-    font-weight:500;
-    font-style:normal;
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-ExtraBoldItalic.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
 }
+
 @font-face {
-    font-family:'Gilroy';
-    src:url('../fonts/Gilroy/svn-gilroy_regular-webfont.woff2') format('woff2'),
-         url('../fonts/Gilroy/svn-gilroy_regular-webfont.woff') format('woff');
-    font-weight:400;
-    font-style:normal;
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-BoldItalic.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
 }
+
 @font-face {
-    font-family:'Gilroy';
-    src:url('../fonts/Gilroy/svn-gilroy_semibold-webfont.woff2') format('woff2'),
-         url('../fonts/Gilroy/svn-gilroy_semibold-webfont.woff') format('woff');
-    font-weight:600;
-    font-style:normal;
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-    font-family:'Gilroy';
-    src:url('../fonts/Gilroy/svn-gilroy_xbold-webfont.woff2') format('woff2'),
-         url('../fonts/Gilroy/svn-gilroy_xbold-webfont.woff') format('woff');
-    font-weight:900;
-    font-style:normal;
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-LightItalic.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
 }
+
+@font-face {
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-Italic.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-MediumItalic.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-Light.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-Medium.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-ThinItalic.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-SemiBoldItalic.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-Regular.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-Thin.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Be Vietnam';
+    src: url('../fonts/Be_Vietnam/BeVietnam-SemiBold.woff2') format('woff2'),
+        url('../fonts/Be_Vietnam/BeVietnam-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+

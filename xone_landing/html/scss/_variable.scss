@@ -3,8 +3,8 @@ $background       : #000 !default;
 // Color Font
 $color-base       : #fff !default;
 $color-main       : #FBEC21 !default;
-$color-second     : #00FFFF !default;
-$color-third      : #545E67 !default;
+$color-second     : #666666 !default;
+$color-third      : #F4F4FB !default;
 $color-four       : #6C7C91 !default;
 $color-border     : #eaeaea !default;
 $color-link       : $color-main !default;
@@ -21,7 +21,7 @@ $base-font: $font-stack-system;
 $base-font-size: 16px;
 $base-font-weight: 400;
 
-$primary-font: 'Gilroy', sans-serif;
+$primary-font: 'Be Vietnam', sans-serif;
 
 $max-width: 1170px;
 $main_sprites: "../images/main_sprites.png";
