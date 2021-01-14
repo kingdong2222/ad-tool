@@ -70,3 +70,11 @@ window.onscroll = function () {
 		}
 	}
 }
+
+const introBtn = document.getElementById('introlink')
+const whyBtn = document.getElementById('whylink')
+const contactBtn = document.getElementById('contactlink')
+
+const intro = document.getElementById('intro')
+const why = document.getElementById('why')
+const contact = document.getElementById('contact')

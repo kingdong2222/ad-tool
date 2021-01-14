@@ -184,8 +184,9 @@ body {
                 text-transform: uppercase;
                 border-bottom: 4px solid transparent;
                 padding: 8px 12px 4px;
-                transition: all .2s;
-                &.active, &:hover{
+                transition: all 0.2s;
+                &.active,
+                &:hover {
                   border-bottom: 4px solid $color-main;
                 }
               }
@@ -195,24 +196,26 @@ body {
       }
     }
     &.fixed-header {
-      @include position(fixed, 0 0 null 0);
-      z-index: 99;
-      background-color: $color-main;
-      height: 96px;
-      .yellow-line {
-        background-color: #000;
-      }
-      .menu-wrap{
-        ul{
-          li{
-            a{
-              &.active, &:hover{
-                border-bottom: 4px solid #000 !important;
+      @include media-breakpoint-up(lg) {
+        @include position(fixed, 0 0 null 0);
+        z-index: 99;
+        background-color: $color-main;
+        height: 96px;
+        .yellow-line {
+          background-color: #000;
+        }
+        .menu-wrap {
+          ul {
+            li {
+              a {
+                &.active,
+                &:hover {
+                  border-bottom: 4px solid #fff !important;
+                }
               }
             }
           }
         }
-        
       }
     }
   }
@@ -236,15 +239,15 @@ body {
     font-weight: 700;
   }
   .desktop-only {
-    display: none;
+    display: none !important;
     @include media-breakpoint-up(lg) {
-      display: block;
+      display: block !important;
     }
   }
   .mobile-only {
-    display: block;
+    display: block !important;
     @include media-breakpoint-up(lg) {
-      display: none;
+      display: none !important;
     }
   }
 }
@@ -435,24 +438,24 @@ body {
       }
     }
   }
-  &#why{
+  &#why {
     border-bottom: unset;
     padding: 0;
     background-color: $color-third;
-    .intro-desc{
+    .intro-desc {
       padding: 45px 34px;
       @include media-breakpoint-up(lg) {
         padding: 120px 36px 140px;
       }
     }
   }
-  .bg-yellow-radio{
-    background: url('../images/radio_mobile.png') center center no-repeat;
+  .bg-yellow-radio {
+    background: url("../images/radio_mobile.png") center center no-repeat;
     width: 100%;
     padding-top: 48.8%;
     background-size: cover;
     @include media-breakpoint-up(lg) {
-      background: url('../images/radio_desktop.png') center center no-repeat;
+      background: url("../images/radio_desktop.png") center center no-repeat;
       width: 100%;
       padding-top: 28.3%;
       background-size: cover;
@@ -490,6 +493,7 @@ body {
     &.mobile-only {
       margin: 16px 0;
       .swiper-slide {
+        text-align: center;
         img {
           width: 300px;
           margin-bottom: 60px;
@@ -511,6 +515,7 @@ body {
         display: flex;
         justify-content: space-between;
         bottom: 125px;
+        max-width: 300px;
         .swiper-pagination-bullet {
           background-color: $color-four;
           border-radius: unset;
@@ -527,25 +532,30 @@ body {
           }
         }
       }
+      @media (min-width: 400px) {
+        .swiper-pagination {
+          left: 6%;
+        }
+      }
     }
-    &.desktop-only{
+    &.desktop-only {
       min-height: 600px;
       max-width: 500px;
       margin: unset;
       margin-right: 100px;
-      .swiper-slide{
-        img{
+      .swiper-slide {
+        img {
           width: 500px;
           margin-bottom: 40px;
         }
-        .content{
+        .content {
           text-align: left;
-          h4{
+          h4 {
             font-size: 30px;
             line-height: 44px;
             text-transform: uppercase;
           }
-          p{
+          p {
             font-size: 23px;
             line-height: 34px;
           }
@@ -577,10 +587,10 @@ body {
     padding-top: 145px;
     padding-bottom: 180px;
     position: relative;
-    &::after{
-      content: '';
+    &::after {
+      content: "";
       display: block;
-      background: url('../images/soundwave.png') center center no-repeat;
+      background: url("../images/soundwave.png") center center no-repeat;
       background-size: cover;
       width: 100%;
       padding-top: 20%;
@@ -618,7 +628,7 @@ body {
             line-height: 45px;
           }
         }
-        p{
+        p {
           font-size: 30px;
           line-height: 45px;
           margin-bottom: 72px;
@@ -628,7 +638,7 @@ body {
   }
 }
 
-.module-contact{
+.module-contact {
   padding: 0 36px 36px;
   max-width: 1440px;
   margin: 0 auto;
@@ -636,28 +646,30 @@ body {
     padding-top: 90px;
     padding-bottom: 120px;
   }
-  .first-content{
-    display: flex;
+  .first-content {
+    @include media-breakpoint-up(lg) {
+      display: flex !important;
+    }
     flex-direction: row;
     align-items: center;
     margin-bottom: 64px;
-    .logo-big{
+    .logo-big {
       width: 130px;
       margin-right: 80px;
     }
-    .yellow-line{
+    .yellow-line {
       height: 6px;
       width: 110px;
       background-color: $color-main;
       display: block;
       margin-right: 80px;
     }
-    h3{
+    h3 {
       font-size: 30px;
       text-transform: uppercase;
     }
   }
-  .intro-desc{
+  .intro-desc {
     h2 {
       font-size: 20px;
       line-height: 29px;
@@ -675,50 +687,50 @@ body {
       }
     }
   }
-  .second-content{
+  .second-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    li{
+    li {
       display: flex;
       flex-direction: row;
       align-items: center;
       margin-bottom: 32px;
       width: 230px;
-      img{
+      img {
         width: 40px;
         margin-right: 24px;
         padding-top: 8px;
       }
-      .content{
-        p{
+      .content {
+        p {
           font-size: 14px;
           line-height: 21px;
         }
-        .label{
+        .label {
           font-weight: 700;
         }
       }
     }
     @include media-breakpoint-up(lg) {
       justify-content: flex-start;
-      li{
+      li {
         width: unset;
         margin-bottom: 0;
         margin-right: 105px;
         margin-bottom: 64px;
-        &:first-child{
+        &:first-child {
           width: 300px;
         }
-        img{
+        img {
           width: 60px;
           margin-right: 32px;
           padding-top: 12px;
         }
-        .content{
-          p{
+        .content {
+          p {
             font-size: 23px;
             line-height: 34px;
           }
@@ -726,51 +738,56 @@ body {
       }
     }
   }
-  .third-content{
-    .list-icon{
+  .third-content {
+    .list-icon {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
       margin-top: 12px;
-      img{
+      img {
         width: 32px;
         height: 32px;
         margin-right: 24px;
         object-fit: contain;
-        &:last-child{
+        &:last-child {
           margin-right: 0;
         }
       }
     }
-    .grey{
+    .grey {
       font-size: 10px;
       font-weight: 300;
-      color: rgba(0,0,0,0.5);
+      color: rgba(0, 0, 0, 0.5);
       text-align: center;
-      margin-top: 16px; 
+      margin-top: 16px;
     }
-    .desktop-container{
+    .desktop-container {
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
-      p{
+      @include media-breakpoint-up(lg) {
+        justify-content: flex-start;
+      }
+      p {
         font-size: 23px;
         line-height: 34px;
         font-weight: 600;
         margin-right: 56px;
       }
-      .list-icon{
-        justify-content: flex-start;
-        margin-top: 0;
-        img{
-          width: 43px;
-          height: 43px;
-          margin-right: 32px;
-          object-fit: contain;
-          &:last-child{
-            margin-right: 0;
+      .list-icon {
+        @include media-breakpoint-up(lg) {
+          justify-content: flex-start;
+          margin-top: 0;
+          img {
+            width: 43px;
+            height: 43px;
+            margin-right: 32px;
+            object-fit: contain;
+            &:last-child {
+              margin-right: 0;
+            }
           }
         }
       }
