@@ -6150,6 +6150,14 @@ body {
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
+    border-bottom: 4px solid transparent;
+    padding: 8px 12px 4px;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  .project-layout header .container .menu-wrap ul li a.active, .project-layout header .container .menu-wrap ul li a:hover {
+    border-bottom: 4px solid #FBEC21;
   }
 }
 .project-layout header.fixed-header {
@@ -6163,6 +6171,9 @@ body {
 }
 .project-layout header.fixed-header .yellow-line {
   background-color: #000;
+}
+.project-layout header.fixed-header .menu-wrap ul li a.active, .project-layout header.fixed-header .menu-wrap ul li a:hover {
+  border-bottom: 4px solid #000 !important;
 }
 .project-layout .button {
   padding: 12px 36px;

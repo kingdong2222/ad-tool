@@ -182,6 +182,12 @@ body {
                 font-size: 20px;
                 font-weight: 700;
                 text-transform: uppercase;
+                border-bottom: 4px solid transparent;
+                padding: 8px 12px 4px;
+                transition: all .2s;
+                &.active, &:hover{
+                  border-bottom: 4px solid $color-main;
+                }
               }
             }
           }
@@ -195,6 +201,18 @@ body {
       height: 96px;
       .yellow-line {
         background-color: #000;
+      }
+      .menu-wrap{
+        ul{
+          li{
+            a{
+              &.active, &:hover{
+                border-bottom: 4px solid #000 !important;
+              }
+            }
+          }
+        }
+        
       }
     }
   }
