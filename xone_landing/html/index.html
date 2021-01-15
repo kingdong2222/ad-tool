@@ -42,7 +42,7 @@
               <p>
                 Đồng hành cùng XONE,<br>trở thành ngôi sao mới ngành Radio<br>
                 và truyền thông đa phương tiện
-              </p><a class="button">Ứng tuyển ngay</a>
+              </p><a class="button" href="javascript:void(0);" data-toggle="modal" data-target="#modal-register">Ứng tuyển ngay</a>
             </div>
           </div>
         </div>
@@ -206,17 +206,120 @@
       <div class="bg-yello-overlay"></div>
     </div>
     <div class="modal fade" id="modal-register" tabindex="-1" role="dialog">
-      <div class="modal-dialog is-medium" role="document">
+      <div class="modal-dialog is-large" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5><a class="func-close-modal" type="button" data-dismiss="modal" aria-label="Close"><i class="icn icn-small-remove"></i></a>
-          </div>
-          <div class="modal-body text-center">
-            <div class="context-alert">
-              <h2>Thank you for your interest in Zalo AI Summit 2019</h2>
-              <p>As we have limited pass, we will process the information and summarize a shortlist of audiences. According to the list, an official invitation will be sent to you by email on December 11, 2019. Please follow this Official Account for more information.</p>
-              <p class="tips">(*): Please be noted that this submission does not guarantee your participation in Zalo AI summit 2019.</p>
+          <div class="modal-header"><img src="images/logo_big.png"><a class="func-close-modal" type="button" data-dismiss="modal" aria-label="Close"><i class="icn icn-small-remove"></i></a></div>
+          <div class="modal-body custom-form">
+            <div class="header-form">
+              <h2 class="title">Đơn ứng tuyển</h2>
+              <div class="yellow-line"></div>
             </div>
+            <input type="text" placeholder="Họ và tên">
+            <div class="input-group">
+              <input type="email" placeholder="Email cá nhân">
+              <input type="number" placeholder="Số điện thoại">
+            </div>
+            <div class="input-group">
+              <div class="group-dropdown">
+                <label>Ngày sinh</label>
+                <div class="dropdown-group">
+                  <div class="dropdown">
+                    <div class="dropdown-toggle" id="dropdownDay" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="value">Ngày</span></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownDay"><a class="dropdown-item">1</a><a class="dropdown-item">2</a></div>
+                  </div>
+                  <div class="dropdown">
+                    <div class="dropdown-toggle" id="dropdownMonth" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Tháng</span></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMonth"><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a></div>
+                  </div>
+                  <div class="dropdown">
+                    <div class="dropdown-toggle" id="dropdownDay" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Năm</span></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownDay"><a class="dropdown-item">2020</a><a class="dropdown-item">2021</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-dropdown one-line">
+                <label>Giới tính</label>
+                <div class="dropdown">
+                  <div class="dropdown-toggle" id="dropdownSex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Nam</span></div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownSex"><a class="dropdown-item">Nam</a><a class="dropdown-item">Nữ</a></div>
+                </div>
+              </div>
+            </div>
+            <input type="text" placeholder="Trường Cao đẳng / Đại học">
+            <div class="input-group no-space-between-desktop">
+              <div class="group-radio one-line">
+                <label>Du học</label>
+                <div class="form-check">
+                  <input class="form-check-input" id="yes0" type="radio" name="du-hoc">
+                  <label class="form-check-label" for="yes0">Có</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" id="no0" type="radio" name="du-hoc">
+                  <label class="form-check-label" for="no0">Không</label>
+                </div>
+              </div>
+              <div class="group-dropdown one-line">
+                <label>Quốc gia</label>
+                <div class="dropdown full-width">
+                  <div class="dropdown-toggle" id="studyFrom" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Việt Nam</span></div>
+                  <div class="dropdown-menu" aria-labelledby="studyFrom"><a class="dropdown-item">Lào</a><a class="dropdown-item">Campuchia</a></div>
+                </div>
+              </div>
+            </div>
+            <input type="text" placeholder="Chuyên ngành">
+            <div class="group-dropdown">
+              <label>Thời gian tốt nghiệp (Dự kiến)</label>
+              <div class="dropdown-group">
+                <div class="dropdown full-width">
+                  <div class="dropdown-toggle" id="dropdownMonth_0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Tháng</span></div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMonth_0"><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a></div>
+                </div>
+                <div class="dropdown full-width">
+                  <div class="dropdown-toggle" id="dropdownDay_0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Năm</span></div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownDay_0"><a class="dropdown-item">2020</a><a class="dropdown-item">2021</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="group-radio">
+              <label>Bạn có thể làm việc toàn thời gian được không?</label>
+              <div class="group-radio-form">
+                <div class="form-check">
+                  <input class="form-check-input" id="yes1" type="radio" name="fill-time">
+                  <label class="form-check-label" for="yes1">Có</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" id="no1" type="radio" name="fill-time">
+                  <label class="form-check-label" for="no1">Không</label>
+                </div>
+              </div>
+            </div>
+            <div class="textarea-form">
+              <label>Lịch học trong 6 tháng tới</label>
+              <textarea></textarea>
+            </div>
+            <div class="group-dropdown dropdown-full">
+              <label>Thời gian tốt nghiệp (Dự kiến)</label>
+              <div class="dropdown full-width">
+                <div class="dropdown-toggle" id="sourceYouKnow" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Facebook</span></div>
+                <div class="dropdown-menu" aria-labelledby="sourceYouKnow"><a class="dropdown-item">Facebook</a><a class="dropdown-item">Twitter</a></div>
+              </div>
+            </div>
+            <input type="text" placeholder="Link Facebook">
+            <div class="upload-form">
+              <label>CV</label>
+              <input id="uploadCV" type="file" name="uploadCV">
+              <label for="uploadCV"><span>Upload</span></label>
+            </div>
+            <input type="text" placeholder="Link Portfolio (Nếu có)">
+            <div class="upload-form">
+              <label>File Test Voice</label>
+              <input id="uploadTestVoice" type="file" name="uploadTestVoice">
+              <label for="uploadTestVoice"><span>Upload</span></label>
+            </div>
+          </div>
+          <div class="button-container">
+            <div class="bg-wave"></div>
+            <button class="button" id="submitForm">Gửi ngay</button>
           </div>
           <!--.modal-footer
           button.btn.btn-primary(type="button") Save changes

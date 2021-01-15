@@ -1,17 +1,122 @@
 block Modal
 
 .modal.fade(id="modal-register" tabindex="-1" role="dialog")
-	.modal-dialog.is-medium(role="document")
+	.modal-dialog.is-large(role="document")
 		.modal-content
 			.modal-header
-				h5.modal-title Modal title
+				img(src="images/logo_big.png")
 				a.func-close-modal(type="button" data-dismiss="modal" aria-label="Close")
 					i.icn.icn-small-remove
-			.modal-body.text-center
-				.context-alert
-					h2 Thank you for your interest in Zalo AI Summit 2019
-					p As we have limited pass, we will process the information and summarize a shortlist of audiences. According to the list, an official invitation will be sent to you by email on December 11, 2019. Please follow this Official Account for more information.
-					p.tips (*): Please be noted that this submission does not guarantee your participation in Zalo AI summit 2019.
+			.modal-body.custom-form
+				.header-form
+					h2.title Đơn ứng tuyển
+					.yellow-line
+				input(type='text' placeholder='Họ và tên')
+				.input-group
+					input(type='email' placeholder='Email cá nhân')
+					input(type='number' placeholder='Số điện thoại')
+				.input-group
+					.group-dropdown
+						label Ngày sinh
+						.dropdown-group
+							.dropdown
+								.dropdown-toggle#dropdownDay(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+									span.value Ngày
+								.dropdown-menu(aria-labelledby="dropdownDay")
+									a.dropdown-item 1
+									a.dropdown-item 2
+							.dropdown
+								.dropdown-toggle#dropdownMonth(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+									span.value Tháng
+								.dropdown-menu(aria-labelledby="dropdownMonth")
+									a.dropdown-item Tháng 1
+									a.dropdown-item Tháng 2
+							.dropdown
+								.dropdown-toggle#dropdownDay(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+									span.value Năm
+								.dropdown-menu(aria-labelledby="dropdownDay")
+									a.dropdown-item 2020
+									a.dropdown-item 2021
+					.group-dropdown.one-line
+						label Giới tính
+						.dropdown
+							.dropdown-toggle#dropdownSex(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+								span.value Nam
+							.dropdown-menu(aria-labelledby="dropdownSex")
+								a.dropdown-item Nam
+								a.dropdown-item Nữ
+				input(type='text' placeholder='Trường Cao đẳng / Đại học')
+				.input-group.no-space-between-desktop
+					.group-radio.one-line
+						label Du học
+						.form-check
+							input.form-check-input#yes0(type='radio' name='du-hoc')
+							label.form-check-label(for='yes0') Có
+						.form-check
+							input.form-check-input#no0(type='radio' name='du-hoc')
+							label.form-check-label(for='no0') Không
+					.group-dropdown.one-line
+						label Quốc gia
+						.dropdown.full-width
+							.dropdown-toggle#studyFrom(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+								span.value Việt Nam
+							.dropdown-menu(aria-labelledby="studyFrom")
+								a.dropdown-item Lào
+								a.dropdown-item Campuchia
+				input(type='text' placeholder='Chuyên ngành')
+				.group-dropdown
+					label Thời gian tốt nghiệp (Dự kiến)
+					.dropdown-group
+						.dropdown.full-width
+							.dropdown-toggle#dropdownMonth_0(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+								span.value Tháng
+							.dropdown-menu(aria-labelledby="dropdownMonth_0")
+								a.dropdown-item Tháng 1
+								a.dropdown-item Tháng 2
+						.dropdown.full-width
+							.dropdown-toggle#dropdownDay_0(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+								span.value Năm
+							.dropdown-menu(aria-labelledby="dropdownDay_0")
+								a.dropdown-item 2020
+								a.dropdown-item 2021
+				.group-radio
+						label Bạn có thể làm việc toàn thời gian được không?
+						.group-radio-form
+							.form-check
+								input.form-check-input#yes1(type='radio' name='fill-time')
+								label.form-check-label(for='yes1') Có
+							.form-check
+								input.form-check-input#no1(type='radio' name='fill-time')
+								label.form-check-label(for='no1') Không
+				.textarea-form
+					label Lịch học trong 6 tháng tới
+					textarea
+				.group-dropdown.dropdown-full
+					label Thời gian tốt nghiệp (Dự kiến)
+					.dropdown.full-width
+						.dropdown-toggle#sourceYouKnow(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+							span.value Facebook
+						.dropdown-menu(aria-labelledby="sourceYouKnow")
+							a.dropdown-item Facebook
+							a.dropdown-item Twitter
+				input(type='text' placeholder='Link Facebook')
+				.upload-form
+					label CV
+					input#uploadCV(type="file" name="uploadCV")
+					label(for='uploadCV')
+						span Upload
+				input(type='text' placeholder='Link Portfolio (Nếu có)')
+				.upload-form
+					label File Test Voice
+					input#uploadTestVoice(type="file" name="uploadTestVoice")
+					label(for='uploadTestVoice')
+						span Upload
+			.button-container
+				.bg-wave
+				button.button#submitForm Gửi ngay
+
+
+
 
 
 			//.modal-footer
