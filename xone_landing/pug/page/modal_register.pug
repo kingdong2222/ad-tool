@@ -2,7 +2,7 @@ block Modal
 
 .modal.fade(id="modal-register" tabindex="-1" role="dialog")
 	.modal-dialog.is-large(role="document")
-		.modal-content
+		.modal-content#register
 			.modal-header
 				img(src="images/logo_big.png")
 				a.func-close-modal(type="button" data-dismiss="modal" aria-label="Close")
@@ -65,7 +65,7 @@ block Modal
 								a.dropdown-item Campuchia
 				input(type='text' placeholder='Chuyên ngành')
 				.group-dropdown
-					label Thời gian tốt nghiệp (Dự kiến)
+					label Thời gian tốt nghiệp <em>(Dự kiến)</em>
 					.dropdown-group
 						.dropdown.full-width
 							.dropdown-toggle#dropdownMonth_0(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
@@ -92,7 +92,7 @@ block Modal
 					label Lịch học trong 6 tháng tới
 					textarea
 				.group-dropdown.dropdown-full
-					label Thời gian tốt nghiệp (Dự kiến)
+					label Bạn biết đến chương trình tuyển dụng từ nguồn nào?
 					.dropdown.full-width
 						.dropdown-toggle#sourceYouKnow(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
 							span.value Facebook
@@ -114,13 +114,13 @@ block Modal
 			.button-container
 				.bg-wave
 				button.button#submitForm Gửi ngay
+		.modal-content#thankyou.is-hidden
+			.modal-header
+				img(src="images/logo_big.png")
+				a.func-close-modal(type="button" data-dismiss="modal" aria-label="Close")
+					i.icn.icn-small-remove
+			.modal-body.modal-thankyou
+				h1 Cảm ơn bạn đã quan tâm về<br><span>chương trình Xone Radio Star 2021</span>
+				h1.title-mb Cảm ơn bạn đã<br>quan tâm về chương trình<br><span>Xone Radio Star 2021</span>
+				p Đơn ứng tuyển của bạn đã ghi nhận thành công. Chúng tôi sẽ liên hệ với bạn nếu hồ sơ ứng tuyển của bạn phù hợp với tiêu chí của chương trình.
 
-
-
-
-
-			//.modal-footer
-				button.btn.btn-primary(type="button") Save changes
-				button.btn.btn-secondary(type="button" data-dismiss="modal") Close
-			//a.func-close-modal(type="button" data-dismiss="modal" aria-label="Close")
-				i.icn.icn-small-remove

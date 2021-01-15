@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Zalo AI 2019</title>
+    <title>XONE</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -88,7 +88,7 @@
                 <li>Máu lửa - Sáng tạo</li>
               </ul>
               <p>Tham gia ngay quy trình ứng tuyển</p>
-              <button class="button desktop-only">Ứng tuyển ngay</button>
+              <button class="button desktop-only" href="javascript:void(0);" data-toggle="modal" data-target="#modal-register">Ứng tuyển ngay</button>
             </div>
             <div class="swiper-container swiper-apply desktop-only">
               <div class="swiper-wrapper">
@@ -149,7 +149,7 @@
             </div>
             <div class="swiper-pagination"></div>
           </div>
-          <button class="button mobile-only">Ứng tuyển ngay</button>
+          <button class="button mobile-only" href="javascript:void(0);" data-toggle="modal" data-target="#modal-register">Ứng tuyển ngay</button>
         </div>
         <div class="module-content" id="why">
           <div class="bg-yellow-radio"></div>
@@ -207,7 +207,7 @@
     </div>
     <div class="modal fade" id="modal-register" tabindex="-1" role="dialog">
       <div class="modal-dialog is-large" role="document">
-        <div class="modal-content">
+        <div class="modal-content" id="register">
           <div class="modal-header"><img src="images/logo_big.png"><a class="func-close-modal" type="button" data-dismiss="modal" aria-label="Close"><i class="icn icn-small-remove"></i></a></div>
           <div class="modal-body custom-form">
             <div class="header-form">
@@ -268,7 +268,7 @@
             </div>
             <input type="text" placeholder="Chuyên ngành">
             <div class="group-dropdown">
-              <label>Thời gian tốt nghiệp (Dự kiến)</label>
+              <label>Thời gian tốt nghiệp <em>(Dự kiến)</em></label>
               <div class="dropdown-group">
                 <div class="dropdown full-width">
                   <div class="dropdown-toggle" id="dropdownMonth_0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Tháng</span></div>
@@ -298,7 +298,7 @@
               <textarea></textarea>
             </div>
             <div class="group-dropdown dropdown-full">
-              <label>Thời gian tốt nghiệp (Dự kiến)</label>
+              <label>Bạn biết đến chương trình tuyển dụng từ nguồn nào?</label>
               <div class="dropdown full-width">
                 <div class="dropdown-toggle" id="sourceYouKnow" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Facebook</span></div>
                 <div class="dropdown-menu" aria-labelledby="sourceYouKnow"><a class="dropdown-item">Facebook</a><a class="dropdown-item">Twitter</a></div>
@@ -321,12 +321,14 @@
             <div class="bg-wave"></div>
             <button class="button" id="submitForm">Gửi ngay</button>
           </div>
-          <!--.modal-footer
-          button.btn.btn-primary(type="button") Save changes
-          button.btn.btn-secondary(type="button" data-dismiss="modal") Close
-          -->
-          <!--a.func-close-modal(type="button" data-dismiss="modal" aria-label="Close")i.icn.icn-small-remove
-          -->
+        </div>
+        <div class="modal-content is-hidden" id="thankyou">
+          <div class="modal-header"><img src="images/logo_big.png"><a class="func-close-modal" type="button" data-dismiss="modal" aria-label="Close"><i class="icn icn-small-remove"></i></a></div>
+          <div class="modal-body modal-thankyou">
+            <h1>Cảm ơn bạn đã quan tâm về<br><span>chương trình Xone Radio Star 2021</span></h1>
+            <h1 class="title-mb">Cảm ơn bạn đã<br>quan tâm về chương trình<br><span>Xone Radio Star 2021</span></h1>
+            <p>Đơn ứng tuyển của bạn đã ghi nhận thành công. Chúng tôi sẽ liên hệ với bạn nếu hồ sơ ứng tuyển của bạn phù hợp với tiêu chí của chương trình.</p>
+          </div>
         </div>
       </div>
     </div>

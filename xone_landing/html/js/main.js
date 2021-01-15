@@ -2171,3 +2171,13 @@ contactBtn_mb.onclick = () => {
 $(document).on("click", ".dropdown-touch", function (e) {
   e.stopPropagation();
 });
+
+
+//button submit form register
+const submitRegister = document.getElementById('submitForm')
+const registerForm = document.getElementById('register')
+const thankyouForm = document.getElementById('thankyou')
+submitRegister.onclick = () => {
+  registerForm.classList.add('is-hidden')
+  thankyouForm.classList.remove('is-hidden')
+}

@@ -6380,6 +6380,8 @@ body {
   text-transform: uppercase;
   color: #000;
   border-radius: 99px;
+  position: relative;
+  z-index: 999;
 }
 @media (min-width: 992px) {
   .project-layout .button {
@@ -7268,6 +7270,9 @@ body {
   max-width: 1200px;
 }
 
+.modal-content.is-hidden {
+  display: none !important;
+}
 .modal-content .modal-header {
   background-color: #FBEC21;
   padding: 16px 32px;
@@ -7428,6 +7433,27 @@ body {
   width: 100%;
   margin-bottom: 24px;
 }
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .group-dropdown {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .modal-content .modal-body.custom-form .group-dropdown .dropdown-group {
+    margin-left: 40px;
+    width: unset !important;
+  }
+  .modal-content .modal-body.custom-form .group-dropdown .dropdown-group .dropdown.full-width {
+    width: unset;
+  }
+}
+.modal-content .modal-body.custom-form .group-dropdown.dropdown-full label {
+  white-space: nowrap;
+  margin-right: 72px;
+}
 .modal-content .modal-body.custom-form .group-dropdown.one-line {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -7475,6 +7501,9 @@ body {
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 8px;
+}
+.modal-content .modal-body.custom-form .group-dropdown label em {
+  font-style: italic;
 }
 @media (min-width: 992px) {
   .modal-content .modal-body.custom-form .group-dropdown label {
@@ -7550,6 +7579,13 @@ body {
   overflow-y: auto;
   border: none;
   padding: 0;
+  width: 100%;
+  top: 2px !important;
+}
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu {
+    top: 4px !important;
+  }
 }
 .modal-content .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu a {
   padding: 12px 20px;
@@ -7562,6 +7598,13 @@ body {
 }
 .modal-content .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu a:last-child {
   border-bottom: 0;
+}
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu a {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 16px 28px;
+  }
 }
 @media (min-width: 992px) {
   .modal-content .modal-body.custom-form .group-dropdown .dropdown {
@@ -7679,6 +7722,15 @@ body {
   width: 100%;
   margin-bottom: 24px;
 }
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .upload-form {
+    padding: 40px 50px;
+    background-color: #F4F4FB;
+  }
+  .modal-content .modal-body.custom-form .upload-form label {
+    font-size: 24px;
+  }
+}
 .modal-content .modal-body.custom-form .upload-form input {
   width: 0.1px;
   height: 0.1px;
@@ -7700,10 +7752,25 @@ body {
           justify-content: center;
   border-radius: 99px;
 }
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .upload-form input + label {
+    padding: 20px 24px;
+    min-width: 215px;
+    height: 60px;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+}
 .modal-content .modal-body.custom-form .upload-form input + label span {
   font-size: 12px;
   line-height: 17px;
   font-weight: 700;
+}
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .upload-form input + label span {
+    font-size: 24px;
+  }
 }
 
 .button-container {
@@ -7722,10 +7789,27 @@ body {
   bottom: 0;
   left: 0;
 }
+@media (min-width: 992px) {
+  .button-container .bg-wave {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .button-container {
+    background-color: transparent;
+  }
+}
 .button-container .button {
   width: 180px;
   margin: 0 auto;
   display: block;
+  position: relative;
+  z-index: 999;
+}
+@media (min-width: 992px) {
+  .button-container .button {
+    width: 400px !important;
+  }
 }
 
 .button {
@@ -7772,6 +7856,74 @@ body {
 @media (min-width: 992px) {
   .func-close-modal [class^=icn] {
     font-size: 2.75rem;
+  }
+}
+
+#thankyou .modal-thankyou {
+  text-align: center;
+  padding: 80px 32px;
+}
+@media (min-width: 992px) {
+  #thankyou .modal-thankyou {
+    padding: 100px 64px;
+  }
+}
+#thankyou .modal-thankyou h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 25px;
+  display: none;
+}
+@media (min-width: 992px) {
+  #thankyou .modal-thankyou h1 {
+    display: unset;
+    font-size: 40px;
+    line-height: 55px;
+  }
+}
+#thankyou .modal-thankyou h1 span {
+  max-width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  #thankyou .modal-thankyou h1 span {
+    max-width: 800px;
+  }
+}
+#thankyou .modal-thankyou h1 span::after {
+  content: "";
+  display: block;
+  height: 12px;
+  background-color: #FBEC21;
+  width: 100%;
+  margin-top: -10px;
+}
+@media (min-width: 992px) {
+  #thankyou .modal-thankyou h1 span::after {
+    height: 25px;
+    margin-top: -25px;
+  }
+}
+#thankyou .modal-thankyou h1.title-mb {
+  display: unset;
+}
+@media (min-width: 992px) {
+  #thankyou .modal-thankyou h1.title-mb {
+    display: none;
+  }
+}
+#thankyou .modal-thankyou p {
+  font-size: 16px;
+  line-height: 22px;
+  margin-top: 24px;
+}
+@media (min-width: 992px) {
+  #thankyou .modal-thankyou p {
+    font-size: 28px;
+    line-height: 40px;
+    margin-top: 36px;
   }
 }
 

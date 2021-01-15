@@ -8,6 +8,9 @@
 	&.is-large{max-width:1200px}
 }
 .modal-content{
+	&.is-hidden{
+		display: none !important;
+	}
 	.modal-header{
 		background-color: $color-main;
 		padding: 16px 32px;
@@ -105,6 +108,23 @@
 				flex-wrap: wrap;
 				width: 100%;
 				margin-bottom: 24px;
+				@include media-breakpoint-up(lg) {
+					flex-direction: row;
+					flex-wrap: nowrap;
+					.dropdown-group{
+						margin-left: 40px;
+						width: unset !important;
+						.dropdown.full-width{
+							width: unset;
+						}
+					}
+				}
+				&.dropdown-full{
+					label{
+						white-space: nowrap;
+						margin-right: 72px;
+					}
+				}
 				&.one-line{
 					flex-direction: row;
 					flex-wrap: nowrap;
@@ -140,6 +160,9 @@
 					font-size: 16px;
 					line-height: 22px;
 					margin-bottom: 8px;
+					em{
+						font-style: italic;
+					}
 					@include media-breakpoint-up(lg) {
 						font-size: 24px;
 						line-height: 36px;
@@ -194,6 +217,11 @@
 						overflow-y: auto;
 						border: none;
 						padding: 0;
+						width: 100%;
+						top: 2px !important;
+						@include media-breakpoint-up(lg) {
+							top: 4px !important;
+						}
 						a{
 							padding: 12px 20px;
 							line-height: 1.4;
@@ -204,6 +232,11 @@
 							border-bottom: 1px solid rgba(#808080,0.5);
 							&:last-child{
 								border-bottom: 0;
+							}
+							@include media-breakpoint-up(lg) {
+								font-size: 16px;
+								line-height: 20px;
+								padding: 16px 28px;
 							}
 						}
 					}
@@ -291,6 +324,13 @@
 				align-items: center;
 				width: 100%;
 				margin-bottom: 24px;
+				@include media-breakpoint-up(lg) {
+					padding: 40px 50px;
+					background-color: #F4F4FB;
+					label{
+						font-size: 24px;
+					}
+				}
 				input{
 					width: 0.1px;
 					height: 0.1px;
@@ -307,10 +347,19 @@
 					display: flex;
 					justify-content: center;
 					border-radius: 99px;
+					@include media-breakpoint-up(lg) {
+						padding: 20px 24px;
+						min-width: 215px;
+						height: 60px;
+						align-items: baseline;
+					}
 					span{
 						font-size: 12px;
 						line-height: 17px;
 						font-weight: 700;
+						@include media-breakpoint-up(lg) {
+							font-size: 24px;
+						}
 					}
 				}
 			}
@@ -331,11 +380,23 @@
 		position: absolute;
 		bottom: 0;
 		left: 0;
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+	}
+	@include media-breakpoint-up(lg) {
+		background-color: transparent;
 	}
 	.button{
 		width: 180px;
 		margin: 0 auto;
 		display: block;
+		position: relative;
+		z-index: 999;
+		@include media-breakpoint-up(lg) {
+			width: 400px !important;
+		}
+		
 	}
 }
 .button {
@@ -350,7 +411,7 @@
     @include media-breakpoint-up(lg) {
       font-size: 24px;
       line-height: 32px;
-      padding: 16px 40px;
+	  padding: 16px 40px;
     }
   }
 .func-close-modal{z-index:33;cursor:pointer;margin-right:-14px;color: #707070;
@@ -365,6 +426,63 @@
 		font-size:2.25rem;
 		@include media-breakpoint-up(lg) {
 			font-size:2.75rem;
+		}
+	}
+}
+#thankyou{
+	.modal-thankyou{
+		text-align: center;
+		padding: 80px 32px;
+		@include media-breakpoint-up(lg) {
+			padding: 100px 64px;
+		}
+		h1{
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 20px;
+			line-height: 25px;
+			display: none;
+			@include media-breakpoint-up(lg) {
+				display: unset;
+				font-size: 40px;
+				line-height: 55px;
+			}
+			span{
+				max-width: 250px;
+				display: block;
+				margin: 0 auto;
+				@include media-breakpoint-up(lg) {
+					max-width: 800px;
+				}
+				&::after{
+					content: "";
+					display: block;
+					height: 12px;
+					background-color: $color-main;
+					width: 100%;
+					margin-top: -10px;
+					@include media-breakpoint-up(lg) {
+						height: 25px;
+          				margin-top: -25px;
+					}
+				}
+			}
+			&.title-mb{
+				display: unset;
+				@include media-breakpoint-up(lg) {
+					display: none;
+				}
+			}
+		}
+		p{
+			font-size: 16px;
+			line-height: 22px;
+			margin-top: 24px;
+			@include media-breakpoint-up(lg) {
+				font-size: 28px;
+				line-height: 40px;
+				margin-top: 36px;
+			}
 		}
 	}
 }
