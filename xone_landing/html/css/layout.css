@@ -6220,7 +6220,8 @@ body {
 
 .module-first {
   background: url("../images/bg_mobile.png") center center no-repeat;
-  height: 90vh;
+  height: 100vh;
+  background-size: contain;
 }
 @media (min-width: 576px) {
   .module-first {
@@ -6290,6 +6291,20 @@ body {
     font-size: 20px;
     line-height: 32px;
     text-align: left;
+  }
+}
+@media only screen and (min-width: 991px) and (max-width: 1200px) {
+  .module-first .container-bg .content h1 {
+    font-size: 75px;
+    line-height: 75px;
+  }
+}
+@media only screen and (max-width: 1366px) and (min-width: 991px) {
+  .module-first .container-bg {
+    margin-top: -190px;
+  }
+  .module-first .container-bg .content {
+    padding-top: 300px;
   }
 }
 
@@ -6776,9 +6791,10 @@ body {
   margin-right: 24px;
   padding-top: 8px;
 }
-.module-contact .second-content li .content p {
+.module-contact .second-content li .content p, .module-contact .second-content li .content a {
   font-size: 14px;
   line-height: 21px;
+  color: #000;
 }
 .module-contact .second-content li .content .label {
   font-weight: 700;
@@ -6824,15 +6840,17 @@ body {
           align-items: center;
   margin-top: 12px;
 }
+.module-contact .third-content .list-icon a {
+  margin-right: 24px;
+}
+.module-contact .third-content .list-icon a:last-child {
+  margin-right: 0;
+}
 .module-contact .third-content .list-icon img {
   width: 32px;
   height: 32px;
-  margin-right: 24px;
   -o-object-fit: contain;
      object-fit: contain;
-}
-.module-contact .third-content .list-icon img:last-child {
-  margin-right: 0;
 }
 .module-contact .third-content .grey {
   font-size: 10px;
@@ -6876,15 +6894,17 @@ body {
             justify-content: flex-start;
     margin-top: 0;
   }
+  .module-contact .third-content .desktop-container .list-icon a {
+    margin-right: 32px;
+  }
+  .module-contact .third-content .desktop-container .list-icon a:last-child {
+    margin-right: 0;
+  }
   .module-contact .third-content .desktop-container .list-icon img {
     width: 36px;
     height: 36px;
-    margin-right: 32px;
     -o-object-fit: contain;
        object-fit: contain;
-  }
-  .module-contact .third-content .desktop-container .list-icon img:last-child {
-    margin-right: 0;
   }
 }
 @media (min-width: 992px) {

@@ -254,9 +254,11 @@ body {
 
 .module-first {
   background: url("../images/bg_mobile.png") center center no-repeat;
-  height: 90vh;
+  height: 100vh;
+  background-size: contain;
   @include media-breakpoint-up(sm) {
     background: url("../images/bg_ipad.png") center center no-repeat;
+    // background-size: contain;
   }
   .container-bg {
     max-width: 1440px;
@@ -307,6 +309,24 @@ body {
           line-height: 32px;
           text-align: left;
         }
+      }
+    }
+  }
+  @media only screen and (min-width: 991px) and (max-width: 1200px){
+    .container-bg {
+      .content {
+        h1 {
+          font-size: 75px;
+          line-height: 75px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 1366px) and (min-width: 991px){
+    .container-bg {
+      margin-top: -190px;
+      .content {
+        padding-top: 300px;
       }
     }
   }
@@ -727,9 +747,10 @@ body {
         padding-top: 8px;
       }
       .content {
-        p {
+        p,a {
           font-size: 14px;
           line-height: 21px;
+          color: #000;
         }
         .label {
           font-weight: 700;
@@ -767,14 +788,18 @@ body {
       justify-content: center;
       align-items: center;
       margin-top: 12px;
-      img {
-        width: 32px;
-        height: 32px;
+      a{
         margin-right: 24px;
-        object-fit: contain;
         &:last-child {
           margin-right: 0;
         }
+      }
+      img {
+        width: 32px;
+        height: 32px;
+        
+        object-fit: contain;
+        
       }
     }
     .grey {
@@ -802,14 +827,17 @@ body {
         @include media-breakpoint-up(lg) {
           justify-content: flex-start;
           margin-top: 0;
-          img {
-            width: 36px;
-            height: 36px;
+          a{
             margin-right: 32px;
-            object-fit: contain;
             &:last-child {
               margin-right: 0;
             }
+          }
+          img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            
           }
         }
       }
