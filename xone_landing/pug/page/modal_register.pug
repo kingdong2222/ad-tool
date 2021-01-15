@@ -1,31 +1,21 @@
-block home
+block Modal
 
-a.logo-register(href="index.html")
+.modal.fade(id="modal-register" tabindex="-1" role="dialog")
+	.modal-dialog.is-medium(role="document")
+		.modal-content
+			.modal-header
+				h5.modal-title Modal title
+				a.func-close-modal(type="button" data-dismiss="modal" aria-label="Close")
+					i.icn.icn-small-remove
+			.modal-body.text-center
+				.context-alert
+					h2 Thank you for your interest in Zalo AI Summit 2019
+					p As we have limited pass, we will process the information and summarize a shortlist of audiences. According to the list, an official invitation will be sent to you by email on December 11, 2019. Please follow this Official Account for more information.
+					p.tips (*): Please be noted that this submission does not guarantee your participation in Zalo AI summit 2019.
 
-.module-register
-	.heading
-		h2.wow.fadeIn Registration
-		p.wow.fadeIn Registration form will be officially open from 8:00 AM 7<sup>th</sup> to 11:59 PM 09<sup>th</sup> December
-		p.wow.fadeIn *Entrance QR code will be sent to your Zalo account
-	.default-form.wow.fadeIn
-		.form-group.mb-3
-			label(for="name") Your name
-			input.form-control(type="text" id="name" placeholder="")
-		.form-group.mb-3
-			label(for="tel") Zalo registered number *
-			input.form-control(type="text" id="tel" placeholder="")
-		em.error Lorem ipsum 
-		.form-group.mb-3
-			label(for="email") Email
-			input.form-control(type="text" id="email" placeholder="")
-		.form-group.mb-3
-			label(for="company") Company Name
-			input.form-control(type="text" id="company" placeholder="")
-		.form-group.mb-5
-			label(for="job") Job Title
-			input.form-control(type="text" id="job" placeholder="")
-		.form-group.is-otr.mb-5
-			label(for="more") How does your job relate to AI
-			textarea.form-control(type="text" id="more" placeholder="" rows="5")
-		.form-group.is-button
-			a.btn.btn-primary.btn--m(href="javascript:void(0);" data-toggle="modal" data-target="#modal-register-alert") Register Now
+
+			//.modal-footer
+				button.btn.btn-primary(type="button") Save changes
+				button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+			//a.func-close-modal(type="button" data-dismiss="modal" aria-label="Close")
+				i.icn.icn-small-remove

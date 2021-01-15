@@ -23,7 +23,7 @@
     <div class="project-layout">
       <header>
         <div class="container">
-          <div class="logo"><a href="#!">Xone</a></div>
+          <div class="logo"><a href="#">Xone</a></div>
           <div class="yellow-line"></div>
           <div class="menu-wrap" id="menu-wrap">
             <ul>
@@ -42,8 +42,7 @@
               <p>
                 Đồng hành cùng XONE,<br>trở thành ngôi sao mới ngành Radio<br>
                 và truyền thông đa phương tiện
-              </p>
-              <button class="button">Ứng tuyển ngay</button>
+              </p><a class="button" href="javascript:void(0);" data-toggle="modal" data-target="#modal-register">Ứng tuyển ngay</a>
             </div>
           </div>
         </div>
@@ -200,13 +199,35 @@
     <div id="cd-nav"><img src="images/logo_big.png"><a class="cd-nav-trigger"><span></span></a>
       <div id="cd-main-nav">
         <ul class="list-unstyled" id="navBar">
-          <li><a class="active" href="index.html#intro">Xone Radio Star</a></li>
-          <li><a href="index.html#why">Tại sao là Xone?</a></li>
-          <li><a href="index.html#contact">Kết nối</a></li>
+          <li><a id="introlink_mb">Xone Radio Star</a></li>
+          <li><a id="whylink_mb">Tại sao là Xone?</a></li>
+          <li><a id="contactlink_mb">Kết nối</a></li>
           <li><a href="#">Ứng tuyển ngay</a></li>
         </ul>
       </div>
       <div class="bg-yello-overlay"></div>
+    </div>
+    <div class="modal fade" id="modal-register" tabindex="-1" role="dialog">
+      <div class="modal-dialog is-medium" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5><a class="func-close-modal" type="button" data-dismiss="modal" aria-label="Close"><i class="icn icn-small-remove"></i></a>
+          </div>
+          <div class="modal-body text-center">
+            <div class="context-alert">
+              <h2>Thank you for your interest in Zalo AI Summit 2019</h2>
+              <p>As we have limited pass, we will process the information and summarize a shortlist of audiences. According to the list, an official invitation will be sent to you by email on December 11, 2019. Please follow this Official Account for more information.</p>
+              <p class="tips">(*): Please be noted that this submission does not guarantee your participation in Zalo AI summit 2019.</p>
+            </div>
+          </div>
+          <!--.modal-footer
+          button.btn.btn-primary(type="button") Save changes
+          button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+          -->
+          <!--a.func-close-modal(type="button" data-dismiss="modal" aria-label="Close")i.icn.icn-small-remove
+          -->
+        </div>
+      </div>
     </div>
     <!-- Include Plugin-->
     <script src="js/jquery.min.js"></script>

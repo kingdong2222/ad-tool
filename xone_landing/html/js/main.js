@@ -75,6 +75,31 @@ const introBtn = document.getElementById('introlink')
 const whyBtn = document.getElementById('whylink')
 const contactBtn = document.getElementById('contactlink')
 
+const introBtn_mb = document.getElementById('introlink_mb')
+const whyBtn_mb = document.getElementById('whylink_mb')
+const contactBtn_mb = document.getElementById('contactlink_mb')
+
 const intro = document.getElementById('intro')
 const why = document.getElementById('why')
 const contact = document.getElementById('contact')
+
+introBtn.onclick = () =>{
+	intro.scrollIntoView({behavior: "smooth", block: "start", inline: "end"})
+}
+introBtn_mb.onclick = () =>{
+	intro.scrollIntoView({behavior: "smooth", block: "start", inline: "end"})
+}
+
+whyBtn.onclick = () =>{
+	why.scrollIntoView({behavior: "smooth", block: "start", inline: "end"})
+}
+whyBtn_mb.onclick = () =>{
+	why.scrollIntoView({behavior: "smooth", block: "start", inline: "end"})
+}
+
+contactBtn.onclick = () =>{
+	contact.scrollIntoView({behavior: "smooth", block: "start", inline: "end"})
+}
+contactBtn_mb.onclick = () =>{
+	contact.scrollIntoView({behavior: "smooth", block: "start", inline: "end"})
+}
