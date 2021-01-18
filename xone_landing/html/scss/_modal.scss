@@ -8,6 +8,7 @@
 	&.is-large{max-width:1200px}
 }
 .modal-content{
+	font-family: "Be Vietnam";
 	&.is-hidden{
 		display: none !important;
 	}
@@ -64,6 +65,7 @@
 				font-size: 16px;
 				padding-bottom: 4px;
 				margin-bottom: 24px;
+				font-family: "Be Vietnam";
 				&::placeholder {
 					color: rgba(#000,0.5)
 				}
@@ -88,6 +90,7 @@
 					.group-dropdown{
 						flex-direction: row;
 						width: unset;
+						margin-bottom: 64px;
 						.dropdown-group{
 							width: unset;
 						}
@@ -111,6 +114,7 @@
 				@include media-breakpoint-up(lg) {
 					flex-direction: row;
 					flex-wrap: nowrap;
+					margin-bottom: 64px;
 					.dropdown-group{
 						margin-left: 40px;
 						width: unset !important;
@@ -120,10 +124,13 @@
 					}
 				}
 				&.dropdown-full{
-					label{
-						white-space: nowrap;
-						margin-right: 72px;
+					@include media-breakpoint-up(lg) {
+						label{
+							white-space: nowrap;
+							margin-right: 72px;
+						}
 					}
+					
 				}
 				&.one-line{
 					flex-direction: row;
@@ -281,6 +288,7 @@
 				}
 				@include media-breakpoint-up(lg) {
 					width: unset;
+					margin-bottom: 64px;
 					label{
 						font-size: 24px;
 						margin-right: 42px;
@@ -315,6 +323,18 @@
 					width: 100%;
 					height: 100px;
 					border-bottom: 1px solid rgba(#707070, 0.5);
+					font-family: "Be Vietnam";
+				}
+				@include media-breakpoint-up(lg) {
+					margin-bottom: 64px;
+					label{
+						font-size: 24px;
+						margin-bottom: 24px;
+					}
+					textarea{
+						font-size: 24px;
+						height: 180px;
+					}
 				}
 			}
 			.upload-form{
@@ -325,8 +345,12 @@
 				width: 100%;
 				margin-bottom: 24px;
 				@include media-breakpoint-up(lg) {
-					padding: 40px 50px;
+					padding: 32px 50px;
 					background-color: #F4F4FB;
+					margin-bottom: 64px;
+					&:last-child{
+						margin-bottom: 0;
+					}
 					label{
 						font-size: 24px;
 					}

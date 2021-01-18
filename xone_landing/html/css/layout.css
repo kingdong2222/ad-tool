@@ -6363,7 +6363,7 @@ body {
     top: 0;
     right: 0;
     left: 0;
-    z-index: 99;
+    z-index: 1000;
     background-color: #FBEC21;
     height: 70px;
   }
@@ -6532,6 +6532,18 @@ body {
 .module-content .intro-desc .desc strong {
   white-space: nowrap;
 }
+.module-content .intro-desc h4 {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: -16px;
+}
+@media (min-width: 992px) {
+  .module-content .intro-desc h4 {
+    font-size: 28px;
+    margin-top: 60px;
+    margin-bottom: -60px;
+  }
+}
 .module-content .list-elements {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6590,7 +6602,6 @@ body {
 .module-content .list-elements li.item .content h3 {
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 8px;
   padding-left: 25px;
 }
 @media (min-width: 992px) {
@@ -6598,7 +6609,6 @@ body {
     font-size: 24px;
     line-height: 40px;
     padding-left: 40px;
-    margin-bottom: 10px;
   }
 }
 .module-content .list-elements li.item .content p {
@@ -6611,6 +6621,22 @@ body {
     font-size: 16px;
     line-height: 22px;
     padding-left: 40px;
+  }
+}
+.module-content .list-elements li.item .content h4 {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 25px;
+  color: #666;
+}
+@media (min-width: 992px) {
+  .module-content .list-elements li.item .content h4 {
+    font-size: 18px;
+    line-height: 24px;
+    padding-left: 40px;
+    margin-bottom: 8px;
   }
 }
 @media only screen and (max-width: 1210px) {
@@ -6645,7 +6671,7 @@ body {
     line-height: 30px;
   }
   .module-content .list-elements {
-    max-width: 1440px;
+    max-width: 1200px;
     margin: 0 auto;
     margin-top: 120px;
     -webkit-box-pack: justify;
@@ -6703,6 +6729,9 @@ body {
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 4px;
+}
+.module-swiper .content-module ul li:last-child {
+  margin-bottom: 0;
 }
 .module-swiper .content-module p {
   font-size: 16px;
@@ -6847,7 +6876,7 @@ body {
     opacity: 0.5;
   }
   .module-swiper .desktop-container {
-    max-width: 1440px;
+    max-width: 1200px;
     margin: 0 auto;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -6866,6 +6895,9 @@ body {
   .module-swiper .desktop-container .content-module h1 {
     font-size: 36px;
     line-height: 81px;
+  }
+  .module-swiper .desktop-container .content-module ul {
+    margin-bottom: 72px;
   }
   .module-swiper .desktop-container .content-module ul li {
     font-size: 20px;
@@ -7011,7 +7043,7 @@ body {
     margin-right: 32px;
     padding-top: 12px;
   }
-  .module-contact .second-content li .content p {
+  .module-contact .second-content li .content p, .module-contact .second-content li .content a {
     font-size: 18px;
     line-height: 28px;
   }
@@ -7270,6 +7302,9 @@ body {
   max-width: 1200px;
 }
 
+.modal-content {
+  font-family: "Be Vietnam";
+}
 .modal-content.is-hidden {
   display: none !important;
 }
@@ -7349,6 +7384,7 @@ body {
   font-size: 16px;
   padding-bottom: 4px;
   margin-bottom: 24px;
+  font-family: "Be Vietnam";
 }
 .modal-content .modal-body.custom-form input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.5);
@@ -7401,6 +7437,7 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
     width: unset;
+    margin-bottom: 64px;
   }
   .modal-content .modal-body.custom-form .input-group .group-dropdown .dropdown-group {
     width: unset;
@@ -7441,6 +7478,7 @@ body {
             flex-direction: row;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+    margin-bottom: 64px;
   }
   .modal-content .modal-body.custom-form .group-dropdown .dropdown-group {
     margin-left: 40px;
@@ -7450,9 +7488,11 @@ body {
     width: unset;
   }
 }
-.modal-content .modal-body.custom-form .group-dropdown.dropdown-full label {
-  white-space: nowrap;
-  margin-right: 72px;
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .group-dropdown.dropdown-full label {
+    white-space: nowrap;
+    margin-right: 72px;
+  }
 }
 .modal-content .modal-body.custom-form .group-dropdown.one-line {
   -webkit-box-orient: horizontal;
@@ -7669,6 +7709,7 @@ body {
 @media (min-width: 992px) {
   .modal-content .modal-body.custom-form .group-radio {
     width: unset;
+    margin-bottom: 64px;
   }
   .modal-content .modal-body.custom-form .group-radio label {
     font-size: 24px;
@@ -7704,6 +7745,20 @@ body {
   width: 100%;
   height: 100px;
   border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+  font-family: "Be Vietnam";
+}
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .textarea-form {
+    margin-bottom: 64px;
+  }
+  .modal-content .modal-body.custom-form .textarea-form label {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  .modal-content .modal-body.custom-form .textarea-form textarea {
+    font-size: 24px;
+    height: 180px;
+  }
 }
 .modal-content .modal-body.custom-form .upload-form {
   display: -webkit-box;
@@ -7724,8 +7779,12 @@ body {
 }
 @media (min-width: 992px) {
   .modal-content .modal-body.custom-form .upload-form {
-    padding: 40px 50px;
+    padding: 32px 50px;
     background-color: #F4F4FB;
+    margin-bottom: 64px;
+  }
+  .modal-content .modal-body.custom-form .upload-form:last-child {
+    margin-bottom: 0;
   }
   .modal-content .modal-body.custom-form .upload-form label {
     font-size: 24px;
