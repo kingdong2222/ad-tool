@@ -366,12 +366,12 @@ body {
     }
     h4{
       text-align: center;
-      margin-top: 32px;
-      margin-bottom: -16px;
+      margin-top: 48px;
+      // margin-bottom: -16px;
       @include media-breakpoint-up(lg) {
         font-size: 28px;
         margin-top: 60px;
-        margin-bottom: -60px;
+        margin-bottom: -40px;
       }
     }
   }
@@ -407,7 +407,9 @@ body {
           position: absolute;
           top: -16%;
           z-index: -1;
+          min-height: 130px;
           @include media-breakpoint-up(lg) {
+            min-height: 180px;
             width: 80px;
           }
         }

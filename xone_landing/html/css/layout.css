@@ -6534,14 +6534,13 @@ body {
 }
 .module-content .intro-desc h4 {
   text-align: center;
-  margin-top: 32px;
-  margin-bottom: -16px;
+  margin-top: 48px;
 }
 @media (min-width: 992px) {
   .module-content .intro-desc h4 {
     font-size: 28px;
     margin-top: 60px;
-    margin-bottom: -60px;
+    margin-bottom: -40px;
   }
 }
 .module-content .list-elements {
@@ -6593,9 +6592,11 @@ body {
   position: absolute;
   top: -16%;
   z-index: -1;
+  min-height: 130px;
 }
 @media (min-width: 992px) {
   .module-content .list-elements li.item .content::before {
+    min-height: 180px;
     width: 80px;
   }
 }
