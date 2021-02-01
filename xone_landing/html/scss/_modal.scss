@@ -8,7 +8,7 @@
 	&.is-large{max-width:1200px}
 }
 .modal-content{
-	font-family: "Be Vietnam";
+	font-family: "Roboto";
 	&.is-hidden{
 		display: none !important;
 	}
@@ -57,6 +57,17 @@
 					}
 				}
 			}
+			.is-error + .error{
+				margin-top: -20px;
+				margin-bottom: 20px;
+				font-size: 10px;
+				color: #dc3535;
+				@include media-breakpoint-up(lg) {
+					margin-top: -60px;
+					margin-bottom: 60px;
+					font-size: 16px;
+				}
+			}
 			input{
 				border: none;
 				outline: none;
@@ -73,6 +84,9 @@
 					font-size: 24px;
 					padding-bottom: 8px;
 					margin-bottom: 64px;
+				}
+				&.is-error{
+					border-bottom: 1px solid #dc3535;
 				}
 			}
 			.input-group{
@@ -259,6 +273,26 @@
 						margin-right: 32px;
 					}
 				}
+				&.is-error{
+					position: relative;
+					.dropdown-group{
+						.dropdown-toggle.is-no-select{
+							border: 1px solid #dc3535;
+						}
+					}
+					p.error{
+						margin-top: 4px;
+						font-size: 10px;
+						color: #dc3535;
+						@include media-breakpoint-up(lg) {
+							font-size: 16px;
+							position: absolute;
+							left: 0;
+							top: 48px;
+						}
+					}
+					
+				}
 			}
 			.group-radio{
 				display: flex;
@@ -336,18 +370,24 @@
 						height: 180px;
 					}
 				}
+				&.is-error{
+					textarea{
+						border-bottom: 1px solid #dc3535;
+					}
+				}
 			}
 			.upload-form{
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
-				align-items: center;
+				align-items: baseline;
 				width: 100%;
 				margin-bottom: 24px;
 				@include media-breakpoint-up(lg) {
 					padding: 32px 50px;
 					background-color: #F4F4FB;
 					margin-bottom: 64px;
+					align-items: center;
 					&:last-child{
 						margin-bottom: 0;
 					}
@@ -363,14 +403,28 @@
 					position: absolute;
 					z-index: -1;
 				}
+				p.file-name{
+					// font-weight: 600;
+					max-width: 75px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					padding: 0 4px;
+					font-size: 12px;
+					@include media-breakpoint-up(lg) {
+						font-size: 18px;
+						max-width: 100%;
+					}
+				}
 				input + label{
 					color: #000;
 					background-color: $color-main;
 					padding: 9px 16px;
-					min-width: 170px;
+					min-width: 125px;
 					display: flex;
 					justify-content: center;
 					border-radius: 99px;
+					cursor: pointer;
 					@include media-breakpoint-up(lg) {
 						padding: 20px 24px;
 						min-width: 215px;

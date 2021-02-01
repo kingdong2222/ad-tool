@@ -11,16 +11,17 @@ block Modal
 				.header-form
 					h2.title Đơn ứng tuyển
 					.yellow-line
-				input(type='text' placeholder='Họ và tên')
+				input.is-error(type='text' placeholder='Họ và tên')
+				p.error Vui lòng nhập thông tin
 				.input-group
 					input(type='email' placeholder='Email cá nhân')
 					input(type='number' placeholder='Số điện thoại')
 				.input-group
-					.group-dropdown
+					.group-dropdown.is-error
 						label Ngày sinh
 						.dropdown-group
 							.dropdown
-								.dropdown-toggle#dropdownDay(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+								.dropdown-toggle.is-no-select#dropdownDay(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
 									span.value Ngày
 								.dropdown-menu(aria-labelledby="dropdownDay")
 									a.dropdown-item 1
@@ -37,6 +38,7 @@ block Modal
 								.dropdown-menu(aria-labelledby="dropdownDay")
 									a.dropdown-item 2020
 									a.dropdown-item 2021
+						p.error Vui lòng chọn
 					.group-dropdown.one-line
 						label Giới tính
 						.dropdown
@@ -88,9 +90,10 @@ block Modal
 							.form-check
 								input.form-check-input#no1(type='radio' name='fill-time')
 								label.form-check-label(for='no1') Không
-				.textarea-form
+				.textarea-form.is-error
 					label Lịch học trong 6 tháng tới
 					textarea
+				p.error Vui lòng nhập thông tin
 				.group-dropdown.dropdown-full
 					label Bạn biết đến chương trình tuyển dụng từ nguồn nào?
 					.dropdown.full-width
@@ -100,7 +103,7 @@ block Modal
 							a.dropdown-item Facebook
 							a.dropdown-item Twitter
 				input(type='text' placeholder='Link Facebook')
-				.upload-form
+				.upload-form.is-error
 					label CV
 					input#uploadCV(type="file" name="uploadCV")
 					label(for='uploadCV')

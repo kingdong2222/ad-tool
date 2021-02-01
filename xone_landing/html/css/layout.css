@@ -4838,31 +4838,87 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 @font-face {
-  font-family: "Be Vietnam";
-  src: url("../fonts/Be_Vietnam/BeVietnam-Bold.woff2") format("woff2"), url("../fonts/Be_Vietnam/BeVietnam-Bold.woff") format("woff");
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-BlackItalic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Be Vietnam";
-  src: url("../fonts/Be_Vietnam/BeVietnam-ExtraBoldItalic.woff2") format("woff2"), url("../fonts/Be_Vietnam/BeVietnam-ExtraBoldItalic.woff") format("woff");
-  font-weight: 800;
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Light.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Medium.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-LightItalic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-LightItalic.woff") format("woff");
+  font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: "Be Vietnam";
-  src: url("../fonts/Be_Vietnam/BeVietnam-BoldItalic.woff2") format("woff2"), url("../fonts/Be_Vietnam/BeVietnam-BoldItalic.woff") format("woff");
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-BoldItalic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-BoldItalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: "Be Vietnam";
-  src: url("../fonts/Be_Vietnam/BeVietnam-ExtraBold.woff2") format("woff2"), url("../fonts/Be_Vietnam/BeVietnam-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Italic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-ThinItalic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Regular.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Thin.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-MediumItalic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
   font-display: swap;
 }
 @font-face {
@@ -6113,7 +6169,7 @@ a, button, img {
 
 html,
 body {
-  font-family: "Be Vietnam";
+  font-family: "Roboto";
 }
 
 /* Menu */
@@ -6267,7 +6323,7 @@ body {
 
 .project-layout {
   padding-top: 50px;
-  font-family: "Be Vietnam";
+  font-family: "Roboto";
 }
 @media (min-width: 992px) {
   .project-layout {
@@ -7304,7 +7360,7 @@ body {
 }
 
 .modal-content {
-  font-family: "Be Vietnam";
+  font-family: "Roboto";
 }
 .modal-content.is-hidden {
   display: none !important;
@@ -7377,6 +7433,19 @@ body {
     display: block;
   }
 }
+.modal-content .modal-body.custom-form .is-error + .error {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  font-size: 10px;
+  color: #dc3535;
+}
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .is-error + .error {
+    margin-top: -60px;
+    margin-bottom: 60px;
+    font-size: 16px;
+  }
+}
 .modal-content .modal-body.custom-form input {
   border: none;
   outline: none;
@@ -7408,6 +7477,9 @@ body {
     padding-bottom: 8px;
     margin-bottom: 64px;
   }
+}
+.modal-content .modal-body.custom-form input.is-error {
+  border-bottom: 1px solid #dc3535;
 }
 .modal-content .modal-body.custom-form .input-group {
   display: -webkit-box;
@@ -7660,6 +7732,25 @@ body {
     margin-right: 32px;
   }
 }
+.modal-content .modal-body.custom-form .group-dropdown.is-error {
+  position: relative;
+}
+.modal-content .modal-body.custom-form .group-dropdown.is-error .dropdown-group .dropdown-toggle.is-no-select {
+  border: 1px solid #dc3535;
+}
+.modal-content .modal-body.custom-form .group-dropdown.is-error p.error {
+  margin-top: 4px;
+  font-size: 10px;
+  color: #dc3535;
+}
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .group-dropdown.is-error p.error {
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 48px;
+  }
+}
 .modal-content .modal-body.custom-form .group-radio {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7761,6 +7852,9 @@ body {
     height: 180px;
   }
 }
+.modal-content .modal-body.custom-form .textarea-form.is-error textarea {
+  border-bottom: 1px solid #dc3535;
+}
 .modal-content .modal-body.custom-form .upload-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7772,9 +7866,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   width: 100%;
   margin-bottom: 24px;
 }
@@ -7783,6 +7877,9 @@ body {
     padding: 32px 50px;
     background-color: #F4F4FB;
     margin-bottom: 64px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .modal-content .modal-body.custom-form .upload-form:last-child {
     margin-bottom: 0;
@@ -7799,11 +7896,26 @@ body {
   position: absolute;
   z-index: -1;
 }
+.modal-content .modal-body.custom-form .upload-form p.file-name {
+  max-width: 75px;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  padding: 0 4px;
+  font-size: 12px;
+}
+@media (min-width: 992px) {
+  .modal-content .modal-body.custom-form .upload-form p.file-name {
+    font-size: 18px;
+    max-width: 100%;
+  }
+}
 .modal-content .modal-body.custom-form .upload-form input + label {
   color: #000;
   background-color: #FBEC21;
   padding: 9px 16px;
-  min-width: 170px;
+  min-width: 125px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7811,6 +7923,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 99px;
+  cursor: pointer;
 }
 @media (min-width: 992px) {
   .modal-content .modal-body.custom-form .upload-form input + label {
