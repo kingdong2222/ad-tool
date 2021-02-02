@@ -615,11 +615,12 @@ window.onscroll = function () {
 };
 
 const introBtn = document.getElementById("introlink");
-const whyBtn = document.getElementById("whylink");
+const joiningBtn = document.getElementById("joininglink");
+const careerBtn = document.getElementById("careerlink");
+const aboutBtn = document.getElementById("aboutlink");
 const contactBtn = document.getElementById("contactlink");
 
-const introBtn_mb = document.getElementById("introlink_mb");
-const whyBtn_mb = document.getElementById("whylink_mb");
+const introBtn_mb = document.getElementById("introlink_mb")
 const contactBtn_mb = document.getElementById("contactlink_mb");
 
 const intro = document.getElementById("intro");
@@ -631,13 +632,6 @@ introBtn.onclick = () => {
 };
 introBtn_mb.onclick = () => {
   intro.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
-};
-
-whyBtn.onclick = () => {
-  why.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
-};
-whyBtn_mb.onclick = () => {
-  why.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
 };
 
 contactBtn.onclick = () => {
