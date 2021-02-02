@@ -855,6 +855,17 @@ body {
       align-items: center;
       margin-bottom: 32px;
       width: 300px;
+      @media (min-width: 650px) {
+        &:nth-child(odd){
+          padding-right: 32px;
+        }
+        &:nth-child(even){
+          padding-left: 32px;
+        }
+        &.list-icon{
+          justify-content: start;
+        }
+      }
       
       img {
         width: 40px;

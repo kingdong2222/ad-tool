@@ -621,10 +621,15 @@ const aboutBtn = document.getElementById("aboutlink");
 const contactBtn = document.getElementById("contactlink");
 
 const introBtn_mb = document.getElementById("introlink_mb")
+const joiningBtn_mb = document.getElementById("joining_mb");
+const careerBtn_mb = document.getElementById("career_mb");
+const aboutBtn_mb = document.getElementById("about_mb");
 const contactBtn_mb = document.getElementById("contactlink_mb");
 
 const intro = document.getElementById("intro");
-const why = document.getElementById("why");
+const joining = document.getElementById("joining");
+const career = document.getElementById("career");
+const about = document.getElementById("about");
 const contact = document.getElementById("contact");
 
 introBtn.onclick = () => {
@@ -634,6 +639,25 @@ introBtn_mb.onclick = () => {
   intro.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
 };
 
+joiningBtn.onclick = () => {
+  joining.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
+};
+joiningBtn_mb.onclick = () => {
+  joining.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
+};
+
+careerBtn.onclick = () => {
+  career.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
+};
+careerBtn_mb.onclick = () => {
+  career.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
+};
+aboutBtn.onclick = () => {
+  about.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
+};
+aboutBtn_mb.onclick = () => {
+  about.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
+};
 contactBtn.onclick = () => {
   contact.scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
 };

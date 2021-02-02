@@ -7221,6 +7221,19 @@ body {
   margin-bottom: 32px;
   width: 300px;
 }
+@media (min-width: 650px) {
+  .module-contact .second-content li:nth-child(odd) {
+    padding-right: 32px;
+  }
+  .module-contact .second-content li:nth-child(even) {
+    padding-left: 32px;
+  }
+  .module-contact .second-content li.list-icon {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+}
 .module-contact .second-content li img {
   width: 40px;
   margin-right: 24px;
