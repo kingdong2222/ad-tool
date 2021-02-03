@@ -611,6 +611,16 @@ window.onscroll = function () {
     } else {
       $("header").removeClass("fixed-header");
     }
+    if($(window).scrollTop() >= 380){
+      let temp = document.getElementById('menu-wrap')
+      let button = temp.getElementsByClassName('button')[0]
+      $('#menu-wrap .button').fadeIn('fast','linear')
+      
+    } else {
+      let temp = document.getElementById('menu-wrap')
+      let button = temp.getElementsByClassName('button')[0]
+      $('#menu-wrap .button').fadeOut('fast','linear')
+    }
   }
 };
 
