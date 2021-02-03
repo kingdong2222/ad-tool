@@ -466,13 +466,13 @@
 		background-color: transparent;
 	}
 	.button{
-		width: 180px;
+		// width: 180px;
 		margin: 0 auto;
 		display: block;
 		position: relative;
 		z-index: 999;
 		@include media-breakpoint-up(lg) {
-			width: 400px !important;
+			// width: 400px !important;
 		}
 		
 	}
@@ -485,11 +485,14 @@
     font-weight: 700;
     text-transform: uppercase;
     color: #000;
-    border-radius: 99px;
+	border-radius: 99px;
+	width: fit-content;
+	text-align: center;
     @include media-breakpoint-up(lg) {
       font-size: 24px;
       line-height: 32px;
 	  padding: 16px 40px;
+	  min-width: 300px;
     }
   }
 .func-close-modal{z-index:33;cursor:pointer;margin-right:-14px;color: #707070;
@@ -530,7 +533,7 @@
 				display: block;
 				margin: 0 auto;
 				@include media-breakpoint-up(lg) {
-					max-width: 800px;
+					max-width: 780px;
 				}
 				&::after{
 					content: "";
@@ -540,8 +543,8 @@
 					width: 100%;
 					margin-top: -10px;
 					@include media-breakpoint-up(lg) {
-						height: 25px;
-          				margin-top: -25px;
+						height: 18px;
+          				margin-top: -18px;
 					}
 				}
 			}

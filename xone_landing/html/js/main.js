@@ -623,7 +623,6 @@ window.onscroll = function () {
     }
   }
 };
-
 const introBtn = document.getElementById("introlink");
 const joiningBtn = document.getElementById("joininglink");
 const careerBtn = document.getElementById("careerlink");
@@ -2200,34 +2199,3 @@ $(document).on("click", ".dropdown-touch", function (e) {
   e.stopPropagation();
 });
 
-
-//button submit form register
-const submitRegister = document.getElementById('submitForm')
-const registerForm = document.getElementById('register')
-const thankyouForm = document.getElementById('thankyou')
-submitRegister.onclick = () => {
-  registerForm.classList.add('is-hidden')
-  thankyouForm.classList.remove('is-hidden')
-}
-
-const uploadCV = document.getElementById('uploadCV')
-
-uploadCV.onchange = value => {
-  let name = uploadCV.files[0].name
-  let temp =  document.createElement('p')
-  temp.classList.add('file-name')
-  temp.innerText = name
-  let target = document.querySelector('#uploadCV');
-  target.parentNode.insertBefore(temp, target);
-}
-
-const uploadTestVoice = document.getElementById('uploadTestVoice')
-
-uploadTestVoice.onchange = value => {
-  let name = uploadTestVoice.files[0].name
-  let temp =  document.createElement('p')
-  temp.classList.add('file-name')
-  temp.innerText = name
-  let target = document.querySelector('#uploadTestVoice');
-  target.parentNode.insertBefore(temp, target);
-}

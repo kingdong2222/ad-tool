@@ -20,45 +20,134 @@
     <style></style>
   </head>
   <body>
-    <div class="project-layout">
-      <div class="page-content"><a class="logo-register" href="index.html"></a>
-        <div class="module-register">
-          <div class="heading">
-            <h2 class="wow fadeIn">Registration</h2>
-            <p class="wow fadeIn">Registration form will be officially open from 8:00 AM 7<sup>th</sup> to 11:59 PM 09<sup>th</sup> December</p>
-            <p class="wow fadeIn">*Entrance QR code will be sent to your Zalo account</p>
+    <div class="project-layout register">
+      <div class="page-content">
+        <div class="modal-header register-header"><a href="index.html"><i class="icn icn-tail-left"></i>
+            <p>Trở về trang chủ</p></a></div>
+        <div id="register">
+          <div class="modal-body custom-form">
+            <div class="header-form">
+              <h2 class="title">Đơn ứng tuyển</h2>
+            </div>
+            <input class="is-error" type="text" placeholder="Họ và tên">
+            <p class="error">Vui lòng nhập thông tin</p>
+            <div class="input-group">
+              <input type="email" placeholder="Email cá nhân">
+              <input type="number" placeholder="Số điện thoại">
+            </div>
+            <div class="input-group">
+              <div class="group-dropdown is-error">
+                <label>Ngày sinh</label>
+                <div class="dropdown-group">
+                  <div class="dropdown">
+                    <div class="dropdown-toggle is-no-select" id="dropdownDay" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="value">Ngày</span></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownDay"><a class="dropdown-item">1</a><a class="dropdown-item">2</a></div>
+                  </div>
+                  <div class="dropdown">
+                    <div class="dropdown-toggle" id="dropdownMonth" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Tháng</span></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMonth"><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a></div>
+                  </div>
+                  <div class="dropdown">
+                    <div class="dropdown-toggle" id="dropdownDay" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Năm</span></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownDay"><a class="dropdown-item">2020</a><a class="dropdown-item">2021</a></div>
+                  </div>
+                </div>
+                <p class="error">Vui lòng chọn</p>
+              </div>
+              <div class="group-dropdown one-line">
+                <label>Giới tính</label>
+                <div class="dropdown">
+                  <div class="dropdown-toggle" id="dropdownSex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Nam</span></div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownSex"><a class="dropdown-item">Nam</a><a class="dropdown-item">Nữ</a></div>
+                </div>
+              </div>
+            </div>
+            <input type="text" placeholder="Trường Cao đẳng / Đại học">
+            <div class="input-group no-space-between-desktop">
+              <div class="group-radio one-line">
+                <label>Du học</label>
+                <div class="form-check">
+                  <input class="form-check-input" id="yes0" type="radio" name="du-hoc">
+                  <label class="form-check-label" for="yes0">Có</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" id="no0" type="radio" name="du-hoc">
+                  <label class="form-check-label" for="no0">Không</label>
+                </div>
+              </div>
+              <div class="group-dropdown one-line">
+                <label>Quốc gia</label>
+                <div class="dropdown full-width">
+                  <div class="dropdown-toggle" id="studyFrom" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Việt Nam</span></div>
+                  <div class="dropdown-menu" aria-labelledby="studyFrom"><a class="dropdown-item">Lào</a><a class="dropdown-item">Campuchia</a></div>
+                </div>
+              </div>
+            </div>
+            <input type="text" placeholder="Chuyên ngành">
+            <div class="group-dropdown">
+              <label>Thời gian tốt nghiệp <em>(Dự kiến)</em></label>
+              <div class="dropdown-group">
+                <div class="dropdown full-width">
+                  <div class="dropdown-toggle" id="dropdownMonth_0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Tháng</span></div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMonth_0"><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a></div>
+                </div>
+                <div class="dropdown full-width">
+                  <div class="dropdown-toggle" id="dropdownDay_0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Năm</span></div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownDay_0"><a class="dropdown-item">2020</a><a class="dropdown-item">2021</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="group-radio">
+              <label>Bạn có thể làm việc toàn thời gian được không?</label>
+              <div class="group-radio-form">
+                <div class="form-check">
+                  <input class="form-check-input" id="yes1" type="radio" name="fill-time">
+                  <label class="form-check-label" for="yes1">Có</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" id="no1" type="radio" name="fill-time">
+                  <label class="form-check-label" for="no1">Không</label>
+                </div>
+              </div>
+            </div>
+            <div class="group-dropdown dropdown-full">
+              <label>Bạn biết đến chương trình tuyển dụng từ nguồn nào?</label>
+              <div class="dropdown full-width">
+                <div class="dropdown-toggle" id="sourceYouKnow" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Facebook</span></div>
+                <div class="dropdown-menu" aria-labelledby="sourceYouKnow"><a class="dropdown-item">Facebook</a><a class="dropdown-item">Twitter</a></div>
+              </div>
+            </div>
+            <input type="text" placeholder="Link Facebook">
+            <div class="upload-form is-error">
+              <label>CV</label>
+              <input id="uploadCV" type="file" name="uploadCV">
+              <label for="uploadCV"><span>Upload</span></label>
+            </div>
+            <input type="text" placeholder="Link Portfolio (Nếu có)">
+            <div class="group-radio topic-choosing">
+              <label>Bạn đã chọn thu âm đề nào?</label>
+              <div class="group-radio-form">
+                <div class="form-check">
+                  <input class="form-check-input" id="topic1" type="radio" name="topic-record">
+                  <label class="form-check-label" for="topic1">Đề 1: Điều gì là cần thiết để radio hiện đại có thể cạnh tranh với các hình thức giải trí khác? Vì sao?</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" id="topic2" type="radio" name="topic-record">
+                  <label class="form-check-label" for="topic2">Đề 2: Ba tố chất quan trọng cần có của 1 Radio Host là gì? Vì sao?</label>
+                </div>
+              </div>
+            </div>
+            <div class="upload-form">
+              <label>File Test Voice</label>
+              <input id="uploadTestVoice" type="file" name="uploadTestVoice">
+              <label for="uploadTestVoice"><span>Upload</span></label>
+            </div>
           </div>
-          <div class="default-form wow fadeIn">
-            <div class="form-group mb-3">
-              <label for="name">Your name</label>
-              <input class="form-control" type="text" id="name" placeholder="">
-            </div>
-            <div class="form-group mb-3">
-              <label for="tel">Zalo registered number *</label>
-              <input class="form-control" type="text" id="tel" placeholder="">
-            </div><em class="error">Lorem ipsum </em>
-            <div class="form-group mb-3">
-              <label for="email">Email</label>
-              <input class="form-control" type="text" id="email" placeholder="">
-            </div>
-            <div class="form-group mb-3">
-              <label for="company">Company Name</label>
-              <input class="form-control" type="text" id="company" placeholder="">
-            </div>
-            <div class="form-group mb-5">
-              <label for="job">Job Title</label>
-              <input class="form-control" type="text" id="job" placeholder="">
-            </div>
-            <div class="form-group is-otr mb-5">
-              <label for="more">How does your job relate to AI</label>
-              <textarea class="form-control" type="text" id="more" placeholder="" rows="5"></textarea>
-            </div>
-            <div class="form-group is-button"><a class="btn btn-primary btn--m" href="javascript:void(0);" data-toggle="modal" data-target="#modal-register-alert">Register Now</a></div>
-          </div>
+          <div class="button-container"><a class="button" id="submitForm" href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou">Gửi ngay</a></div>
         </div>
       </div>
     </div>
-    <div id="cd-nav"><img src="images/xone-black.png"><a class="cd-nav-trigger"><span></span></a>
+    <div id="cd-nav"><a class="logo" href="index.html"><img src="images/xone-black.png"></a><a class="cd-nav-trigger"><span></span></a>
       <div id="cd-main-nav">
         <ul class="list-unstyled" id="navBar">
           <li><a id="introlink_mb">Xone Radio Star</a></li>
@@ -66,38 +155,26 @@
           <li><a id="career_mb">Quy trình tuyển dụng</a></li>
           <li><a id="about_mb">Nói về Xone</a></li>
           <li><a id="contactlink_mb">Kết nối</a></li>
-          <li><a href="#">Ứng tuyển ngay</a></li>
+          <li><a href="register.html">Ứng tuyển ngay</a></li>
         </ul>
       </div>
       <div class="bg-yello-overlay"></div>
     </div>
-    <div class="modal fade" id="modal-register-alert" tabindex="-1" role="dialog">
-      <div class="modal-dialog is-medium" role="document">
-        <div class="modal-content">
-          <!--.modal-header
-          h5.modal-title Modal title
-          button.close(type="button" data-dismiss="modal" aria-label="Close")
-          	span(aria-hidden="true") ×
-          -->
-          <div class="modal-body text-center">
-            <div class="context-alert">
-              <h2>Thank you for your interest in Zalo AI Summit 2019</h2>
-              <p>As we have limited pass, we will process the information and summarize a shortlist of audiences. According to the list, an official invitation will be sent to you by email on December 11, 2019. Please follow this Official Account for more information.</p>
-              <p class="tips">(*): Please be noted that this submission does not guarantee your participation in Zalo AI summit 2019.</p>
-              <div class="text-center"><img src="images/qrcode.png" alt="XONE"></div>
-            </div>
+    <div class="modal fade" id="modal-thankyou" tabindex="-1" role="dialog">
+      <div class="modal-dialog is-large" role="document">
+        <div class="modal-content" id="thankyou">
+          <div class="modal-header"><img src="images/logo_big.png"><a class="func-close-modal" type="button" data-dismiss="modal" aria-label="Close"><i class="icn icn-small-remove"></i></a></div>
+          <div class="modal-body modal-thankyou">
+            <h1>Cảm ơn bạn đã quan tâm về<br><span>chương trình Xone Radio Star 2021</span></h1>
+            <h1 class="title-mb">Cảm ơn bạn đã<br>quan tâm về chương trình<br><span>Xone Radio Star 2021</span></h1>
+            <p>Đơn ứng tuyển của bạn đã ghi nhận thành công. Chúng tôi sẽ liên hệ với bạn nếu hồ sơ ứng tuyển của bạn phù hợp với tiêu chí của chương trình.</p>
           </div>
-          <!--.modal-footer
-          button.btn.btn-primary(type="button") Save changes
-          button.btn.btn-secondary(type="button" data-dismiss="modal") Close
-          --><a class="func-close-modal" type="button" data-dismiss="modal" aria-label="Close"><i class="icn icn-small-remove"></i></a>
         </div>
       </div>
     </div>
     <!-- Include Plugin-->
     <script src="js/jquery.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/register.js"></script>
     <script></script>
   </body>
 </html>
