@@ -1175,7 +1175,7 @@ body {
       .input-group{
         display: flex;
         flex-direction: row;
-        // justify-content: space-between;
+        justify-content: space-between;
         align-items: baseline;
         flex-wrap: wrap;
         input{
@@ -1213,9 +1213,12 @@ body {
           flex-direction: row;
           flex-wrap: nowrap;
           margin-right: 80px;
+          &:last-child{
+            margin-right: 0;
+          }
           margin-bottom: 40px;
           .dropdown-group{
-            margin-left: 20px;
+            margin-left: 24px;
             width: unset !important;
             .dropdown.full-width{
               width: unset;
@@ -1226,7 +1229,7 @@ body {
           @include media-breakpoint-up(lg) {
             label{
               white-space: nowrap;
-              margin-right: 72px;
+              margin-right: 24px;
             }
           }
           
@@ -1356,7 +1359,7 @@ body {
             }
           }
           @include media-breakpoint-up(lg) {
-            margin-right: 8px;
+            margin-right: 16px;
             &:last-child{
               margin-right: 0;
             }
@@ -1429,10 +1432,10 @@ body {
                 font-weight: 600;
               }
               [type=radio]:checked + label:before, [type=radio]:not(:checked) + label:before{
-                top: 10px;
+                top: 14px;
               }
               [type=radio]:checked + label:after, [type=radio]:not(:checked) + label:after{
-                top: 0
+                top: 5px;
               }
               label{
                 line-height: 24px;

@@ -83,18 +83,8 @@
                 <div class="dropdown-menu" id="university-menu" aria-labelledby="university"><input type="text" placeholder="Tìm kiếm.." id="uniSearch" onkeyup="filterFunction()"><a class="dropdown-item">Trường abc Trường abc Trường abc</a><a class="dropdown-item">Trường cde Trường abc Trường abc</a></div>
               </div>
             </div>
-            <div class="input-group no-space-between-desktop">
-              <div class="group-radio one-line">
-                <label>Du học</label>
-                <div class="form-check">
-                  <input class="form-check-input" id="yes0" type="radio" name="du-hoc">
-                  <label class="form-check-label" for="yes0">Có</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" id="no0" type="radio" name="du-hoc">
-                  <label class="form-check-label" for="no0">Không</label>
-                </div>
-              </div>
+            <div class="input-group">
+              <input type="text" placeholder="Trường Cao đẳng / Đại học" style="max-width: 60%">
               <div class="group-dropdown one-line">
                 <label>Quốc gia</label>
                 <div class="dropdown full-width">
@@ -137,7 +127,7 @@
                 <div class="dropdown-menu" aria-labelledby="sourceYouKnow"><a class="dropdown-item">Facebook</a><a class="dropdown-item">Twitter</a></div>
               </div>
             </div>
-            <div class="upload-form is-error">
+            <div class="upload-form">
               <label>CV</label>
               <input id="uploadCV" type="file" name="uploadCV">
               <label for="uploadCV"><span>Tải lên</span></label>
@@ -156,17 +146,18 @@
                 </div>
               </div>
             </div>
-            <div class="upload-form">
+            <div class="upload-form is-error">
               <label>Bản thu âm (≤ 30MB, định dạng .mp3, .wav, .wma, .m4a)</label>
               <input id="uploadTestVoice" type="file" name="uploadTestVoice">
               <label for="uploadTestVoice"><span>Tải lên</span></label>
             </div>
+            <p class="error">Dung lượng file vượt giới hạn</p>
           </div>
           <div class="button-container"><a class="button" id="submitForm" href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou">Nộp đơn</a></div>
         </div>
       </div>
     </div>
-    <div id="cd-nav"><a class="cd-nav-trigger"><span></span></a><a class="logo" href="index.html"><img src="images/xone-black.png"></a><a class="button" href="register.html">Ứng tuyển</a>
+    <div id="cd-nav"><a class="cd-nav-trigger"><span></span></a><a class="logo" href="index.html"><img src="images/xone-black.png"></a><a class="button" id="mobileApply" href="register.html" style="display: none">Ứng tuyển</a>
       <div id="cd-main-nav">
         <ul class="list-unstyled" id="navBar">
           <li><a id="introlink_mb" href="index.html#intro">Xone Radio Star</a></li>

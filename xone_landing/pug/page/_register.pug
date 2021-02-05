@@ -50,16 +50,17 @@ block home
 					<input type="text" placeholder="Tìm kiếm.." id="uniSearch" onkeyup="filterFunction()">
 					a.dropdown-item Trường abc Trường abc Trường abc
 					a.dropdown-item Trường cde Trường abc Trường abc
-		//- input(type='text' placeholder='Trường Cao đẳng / Đại học')
-		.input-group.no-space-between-desktop
-			.group-radio.one-line
-				label Du học
-				.form-check
-					input.form-check-input#yes0(type='radio' name='du-hoc')
-					label.form-check-label(for='yes0') Có
-				.form-check
-					input.form-check-input#no0(type='radio' name='du-hoc')
-					label.form-check-label(for='no0') Không
+		
+		.input-group
+			input(type='text' placeholder='Trường Cao đẳng / Đại học' style="max-width: 60%")
+			//- .group-radio.one-line
+			//- 	label Du học
+			//- 	.form-check
+			//- 		input.form-check-input#yes0(type='radio' name='du-hoc')
+			//- 		label.form-check-label(for='yes0') Có
+			//- 	.form-check
+			//- 		input.form-check-input#no0(type='radio' name='du-hoc')
+			//- 		label.form-check-label(for='no0') Không
 			.group-dropdown.one-line
 				label Quốc gia
 				.dropdown.full-width
@@ -106,11 +107,12 @@ block home
 					a.dropdown-item Facebook
 					a.dropdown-item Twitter
 		
-		.upload-form.is-error
+		.upload-form
 			label CV
 			input#uploadCV(type="file" name="uploadCV")
 			label(for='uploadCV')
 				span Tải lên
+		
 		input(type='text' placeholder='Link Portfolio (Nếu có)')
 		.group-radio.topic-choosing
 			label Bạn đã chọn thu âm đề nào?
@@ -121,10 +123,11 @@ block home
 				.form-check
 					input.form-check-input#topic2(type='radio' name='topic-record')
 					label.form-check-label(for='topic2') Đề 2: Ba tố chất quan trọng cần có của 1 Radio Host là gì? Vì sao?
-		.upload-form
+		.upload-form.is-error
 			label Bản thu âm (≤ 30MB, định dạng .mp3, .wav, .wma, .m4a)
 			input#uploadTestVoice(type="file" name="uploadTestVoice")
 			label(for='uploadTestVoice')
 				span Tải lên
+		p.error Dung lượng file vượt giới hạn
 	.button-container
 		a.button#submitForm(href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou") Nộp đơn

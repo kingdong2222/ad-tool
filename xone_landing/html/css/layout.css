@@ -8188,6 +8188,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
@@ -8251,8 +8254,11 @@ body {
     margin-right: 80px;
     margin-bottom: 40px;
   }
+  #register .modal-body.custom-form .group-dropdown:last-child {
+    margin-right: 0;
+  }
   #register .modal-body.custom-form .group-dropdown .dropdown-group {
-    margin-left: 20px;
+    margin-left: 24px;
     width: unset !important;
   }
   #register .modal-body.custom-form .group-dropdown .dropdown-group .dropdown.full-width {
@@ -8262,7 +8268,7 @@ body {
 @media (min-width: 992px) {
   #register .modal-body.custom-form .group-dropdown.dropdown-full label {
     white-space: nowrap;
-    margin-right: 72px;
+    margin-right: 24px;
   }
 }
 #register .modal-body.custom-form .group-dropdown.one-line {
@@ -8422,7 +8428,7 @@ body {
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .group-dropdown .dropdown {
-    margin-right: 8px;
+    margin-right: 16px;
   }
   #register .modal-body.custom-form .group-dropdown .dropdown:last-child {
     margin-right: 0;
@@ -8518,10 +8524,10 @@ body {
   font-weight: 600;
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label:before, #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:not(:checked) + label:before {
-  top: 10px;
+  top: 14px;
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label:after, #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:not(:checked) + label:after {
-  top: 0;
+  top: 5px;
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check label {
   line-height: 24px;

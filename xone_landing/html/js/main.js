@@ -619,6 +619,12 @@ window.onscroll = function () {
       let temp = document.getElementById('menu-wrap')
       $('#menu-wrap .button').fadeOut('fast','linear')
     }
+  } else {
+    if($(window).scrollTop() >= 465){
+      $('#mobileApply').fadeIn('fast','linear')
+    } else {
+      $('#mobileApply').fadeOut('fast','linear')
+    }
   }
 };
 // const introBtn = document.getElementById("introlink");
