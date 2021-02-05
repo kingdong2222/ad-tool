@@ -6892,9 +6892,10 @@ body {
     margin: 0 16px;
   }
 }
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only screen and (min-width: 992px) and (max-width: 1280px) {
   .project-layout header .container .menu-wrap ul li {
     margin: 0 8px;
+    font-size: 16px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1100px) {
@@ -6907,7 +6908,7 @@ body {
     display: block;
     position: relative;
     color: #000;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     border-bottom: 2px solid transparent;
     padding: 8px 12px 2px;
@@ -7088,7 +7089,7 @@ body {
             align-items: start;
   }
   .module-first .container .right-content p {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 500;
     line-height: 48px;
     margin-bottom: 32px;
@@ -7125,6 +7126,9 @@ body {
 }
 .module-content .intro-desc .desc strong {
   white-space: nowrap;
+}
+.module-content .intro-desc .desc.bigger {
+  font-size: 16px;
 }
 .module-content .intro-desc h4 {
   text-align: center;
@@ -7209,12 +7213,12 @@ body {
   font-size: 12px;
   line-height: 16px;
   font-weight: 300;
-  color: #666;
+  color: #313131;
 }
 @media (min-width: 992px) {
   .module-content .list-elements li.item .content p {
     font-size: 16px;
-    line-height: 22px;
+    line-height: 24px;
   }
 }
 .module-content .list-elements li.item .content h4 {
@@ -7260,6 +7264,10 @@ body {
   .module-content .intro-desc .desc {
     font-size: 24px;
     line-height: 36px;
+  }
+  .module-content .intro-desc .desc.bigger {
+    font-size: 32px;
+    line-height: 40px;
   }
   .module-content .list-elements {
     max-width: 1440px;
@@ -7345,6 +7353,13 @@ body {
           align-items: center;
   padding-top: 64px;
 }
+@media (min-width: 768px) {
+  .module-content#joining ul {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
 .module-content#joining ul li {
   width: 100%;
   display: -webkit-box;
@@ -7370,7 +7385,9 @@ body {
 }
 @media (min-width: 992px) {
   .module-content#joining ul li {
-    max-width: 350px;
+    max-width: 420px;
+    padding-right: 64px;
+    padding-left: 64px;
   }
 }
 .module-content#joining ul li img {
@@ -7379,7 +7396,7 @@ body {
 }
 @media (min-width: 992px) {
   .module-content#joining ul li img {
-    width: 150px;
+    width: 120px;
   }
 }
 .module-content#joining ul li p {
@@ -7507,6 +7524,7 @@ body {
   margin-right: 16px;
   padding-bottom: 8px;
   border-bottom: 1px solid #000;
+  text-transform: uppercase;
 }
 .module-content#career ul .text-container .title-text p {
   font-size: 14px;
@@ -7628,13 +7646,13 @@ body {
     margin-right: -9999px;
   }
   .module-introduce .content-text ul li {
-    font-size: 24px;
-    margin-bottom: 16px;
+    font-size: 20px;
+    margin-bottom: 12px;
     max-width: 500px;
   }
   .module-introduce .content-text ul li::before {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     margin-right: 16px;
   }
 }
@@ -7642,13 +7660,12 @@ body {
   .module-introduce .content-text p.block-yellow {
     font-size: 32px;
     margin: -32px 0 0;
-    margin-right: -32px;
-    float: right;
-    padding-right: 32px;
-    padding-left: 32px;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    position: absolute;
+    width: 52%;
+    right: 0;
+    padding: 6px 32px;
+    text-align: left;
+    font-weight: 700;
   }
 }
 @media (min-width: 992px) and (min-width: 1100px) {
@@ -7861,7 +7878,7 @@ body {
   padding: 16px;
 }
 .module-about .bg-yello-container .right-container .text-contain p {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 36px;
 }
 .module-about .bg-yello-container .right-container .text-contain .block-icon {
@@ -7917,8 +7934,10 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
-  .module-about .bg-yello-container .right-container img {
+  .module-about .bg-yello-container .right-container img.logo-xone {
     width: 85%;
+    margin-top: -32px;
+    margin-left: -32px;
     padding: 32px;
   }
 }
@@ -8496,6 +8515,7 @@ body {
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label {
   opacity: 1;
+  font-weight: 600;
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label:before, #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:not(:checked) + label:before {
   top: 10px;
