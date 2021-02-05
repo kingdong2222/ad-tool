@@ -76,7 +76,13 @@
               <input type="number" placeholder="Số điện thoại">
             </div>
             <input type="text" placeholder="Link Facebook">
-            <input type="text" placeholder="Trường Cao đẳng / Đại học">
+            <div class="group-dropdown dropdown-full">
+              <label>Trường Cao đẳng / Đại học</label>
+              <div class="dropdown full-width no-full-desktop">
+                <div class="dropdown-toggle" id="university" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Chọn Trường</span></div>
+                <div class="dropdown-menu" id="university-menu" aria-labelledby="university"><input type="text" placeholder="Tìm kiếm.." id="uniSearch" onkeyup="filterFunction()"><a class="dropdown-item">Trường abc Trường abc Trường abc</a><a class="dropdown-item">Trường cde Trường abc Trường abc</a></div>
+              </div>
+            </div>
             <div class="input-group no-space-between-desktop">
               <div class="group-radio one-line">
                 <label>Du học</label>
