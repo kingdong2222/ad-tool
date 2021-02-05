@@ -2,9 +2,11 @@ block home
 #register
 	.modal-body.custom-form
 		.header-form
-			h2.title Đơn ứng tuyển
+			h2.title Thông Tin Ứng Tuyển
 			//- .yellow-line
-		input.is-error(type='text' placeholder='Họ và tên')
+		.input-has-label.is-error
+			input(type='text' placeholder=" ")
+			label Họ và tên
 		p.error Vui lòng nhập thông tin
 		.input-group
 			.group-dropdown.is-error
@@ -33,14 +35,27 @@ block home
 				label Giới tính
 				.dropdown
 					.dropdown-toggle#dropdownSex(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
-						span.value Nam
+						span.value Chọn
 					.dropdown-menu(aria-labelledby="dropdownSex")
 						a.dropdown-item Nam
 						a.dropdown-item Nữ
 		.input-group
-			input(type='email' placeholder='Email cá nhân')
-			input(type='number' placeholder='Số điện thoại')
-		input(type='text' placeholder='Link Facebook')
+			.input-has-label
+				input(type='email' placeholder=' ')
+				label Email
+			.mobile-number-label
+				input(type='text' placeholder=' ')
+				.placeholde-block
+					label Số điện thoại
+					.dropdown
+						.dropdown-toggle.is-no-select#dropdownMobileCountry(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+							span.value VN +84
+						.dropdown-menu(aria-labelledby="dropdownMobileCountry")
+							a.dropdown-item American Samoa
+							a.dropdown-item United State
+		.input-has-label
+			input(type='text' placeholder=' ')
+			label Link Facebook
 		.group-dropdown.dropdown-full
 			label Trường Cao đẳng / Đại học
 			.dropdown.full-width.no-full-desktop
@@ -52,7 +67,9 @@ block home
 					a.dropdown-item Trường cde Trường abc Trường abc
 		
 		.input-group
-			input(type='text' placeholder='Trường Cao đẳng / Đại học' style="max-width: 60%")
+			.input-has-label( style="max-width: 60%; width: 100%;")
+				input(type='text' placeholder=' ' style="width: 100%;")
+				label Trường Cao đẳng / Đại học
 			//- .group-radio.one-line
 			//- 	label Du học
 			//- 	.form-check
@@ -69,7 +86,9 @@ block home
 					.dropdown-menu(aria-labelledby="studyFrom")
 						a.dropdown-item Lào
 						a.dropdown-item Campuchia
-		input(type='text' placeholder='Chuyên ngành')
+		.input-has-label
+			input(type='text' placeholder=' ')
+			label Chuyên ngành
 		.group-dropdown
 			label Thời gian tốt nghiệp <em>(Dự kiến)</em>
 			.dropdown-group
@@ -86,14 +105,14 @@ block home
 						a.dropdown-item 2020
 						a.dropdown-item 2021
 		.group-radio
-				label Bạn có thể làm việc toàn thời gian được không?
-				.group-radio-form
-					.form-check
-						input.form-check-input#yes1(type='radio' name='fill-time')
-						label.form-check-label(for='yes1') Có
-					.form-check
-						input.form-check-input#no1(type='radio' name='fill-time')
-						label.form-check-label(for='no1') Không
+			label Bạn có thể làm việc toàn thời gian được không?
+			.group-radio-form
+				.form-check
+					input.form-check-input#yes1(type='radio' name='fill-time')
+					label.form-check-label(for='yes1') Có
+				.form-check
+					input.form-check-input#no1(type='radio' name='fill-time')
+					label.form-check-label(for='no1') Không
 		//- .textarea-form.is-error
 		//- 	label Lịch học trong 6 tháng tới
 		//- 	textarea
@@ -102,18 +121,20 @@ block home
 			label Bạn biết đến chương trình tuyển dụng từ nguồn nào?
 			.dropdown.full-width.no-full-desktop
 				.dropdown-toggle#sourceYouKnow(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
-					span.value Facebook
+					span.value Mạng xã hội (Facebook, Instagram,...)
 				.dropdown-menu(aria-labelledby="sourceYouKnow")
-					a.dropdown-item Facebook
-					a.dropdown-item Twitter
+					a.dropdown-item Mạng xã hội (Facebook, Instagram,...)
+					a.dropdown-item Tìm kiếm trang mạng
 		
 		.upload-form
-			label CV
-			input#uploadCV(type="file" name="uploadCV")
+			label CV 
+				p.sub Định dạng .PDF, .PPT, .PPTX, .DOC, .DOCX, .JPG, .PNG - Dung lượng ≤ 4MB
+			input#uploadCV(type="file" name="uploadCV" accept=".PDF, .PPT, .PPTX, .DOC, .DOCX, .JPG, .PNG")
 			label(for='uploadCV')
 				span Tải lên
-		
-		input(type='text' placeholder='Link Portfolio (Nếu có)')
+		.input-has-label
+			input(type='text' placeholder=' ')
+			label Online blog và các bài viết tham khảo
 		.group-radio.topic-choosing
 			label Bạn đã chọn thu âm đề nào?
 			.group-radio-form
@@ -124,8 +145,9 @@ block home
 					input.form-check-input#topic2(type='radio' name='topic-record')
 					label.form-check-label(for='topic2') Đề 2: Ba tố chất quan trọng cần có của 1 Radio Host là gì? Vì sao?
 		.upload-form.is-error
-			label Bản thu âm (≤ 30MB, định dạng .mp3, .wav, .wma, .m4a)
-			input#uploadTestVoice(type="file" name="uploadTestVoice")
+			label Bản thu âm 
+				p.sub Định dạng .mp3, .wav, .wma, .m4a - Dung lượng ≤ 30MB
+			input#uploadTestVoice(type="file" name="uploadTestVoice" accept=".mp3, .wav, .wma, .m4a")
 			label(for='uploadTestVoice')
 				span Tải lên
 		p.error Dung lượng file vượt giới hạn

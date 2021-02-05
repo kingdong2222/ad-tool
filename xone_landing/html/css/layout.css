@@ -6375,7 +6375,7 @@ button {
 
 /* Typography */
 .h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6 {
-  font-family: "Be Vietnam", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
 }
 
@@ -7094,6 +7094,9 @@ body {
     line-height: 48px;
     margin-bottom: 32px;
   }
+  .module-first .container .right-content .button:hover {
+    background-color: #efdf04;
+  }
 }
 
 .module-content {
@@ -7188,7 +7191,7 @@ body {
 @media (min-width: 992px) {
   .module-content .list-elements li.item {
     margin-bottom: 64px;
-    max-width: 500px;
+    max-width: 530px;
   }
 }
 .module-content .list-elements li.item .icon {
@@ -7281,9 +7284,15 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
   }
+  .module-content .list-elements .item {
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+  }
   .module-content .list-elements .item .icon {
-    width: 100px !important;
+    width: 80px !important;
     margin-right: 32px !important;
+    padding-top: 12px;
   }
 }
 .module-content#why {
@@ -7403,6 +7412,9 @@ body {
   font-size: 16px;
   text-align: center;
 }
+.module-content#joining ul li p span {
+  white-space: nowrap;
+}
 @media (min-width: 992px) {
   .module-content#joining ul li p {
     font-size: 18px;
@@ -7416,7 +7428,7 @@ body {
 }
 @media (min-width: 992px) {
   .module-content#career {
-    padding-top: 80px;
+    padding-top: 96px;
   }
 }
 .module-content#career .intro-desc h2 {
@@ -8084,9 +8096,13 @@ body {
   display: none;
 }
 
+.register header {
+  background-color: #FBEC21;
+}
+
 #register {
   font-family: "Roboto";
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
 }
 #register.is-hidden {
@@ -8108,9 +8124,10 @@ body {
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .header-form h2 {
-    font-size: 40;
+    font-size: 40px;
     text-align: center;
-    width: 250px;
+    width: 480px;
+    text-transform: uppercase;
   }
   #register .modal-body.custom-form .header-form h2::after {
     content: "";
@@ -8118,7 +8135,7 @@ body {
     height: 16px;
     background-color: #FBEC21;
     width: 100%;
-    margin-top: -16px;
+    margin-top: -20px;
   }
 }
 @media (min-width: 992px) {
@@ -8160,7 +8177,7 @@ body {
   font-size: 16px;
   padding-bottom: 8px;
   margin-bottom: 40px;
-  font-family: "Be Vietnam";
+  font-family: "Roboto";
 }
 #register .modal-body.custom-form input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.5);
@@ -8197,9 +8214,17 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+#register .modal-body.custom-form .input-group .input-has-label {
+  max-width: 48%;
+  width: 100%;
+}
+@media only screen and (min-width: 1160px) {
+  #register .modal-body.custom-form .input-group .input-has-label input {
+    width: 100%;
+  }
+}
 @media only screen and (min-width: 1160px) {
   #register .modal-body.custom-form .input-group input {
-    max-width: 48%;
     margin-right: 12px;
   }
 }
@@ -8362,6 +8387,11 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
 }
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle {
+    padding: 10px 32px;
+  }
+}
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle span {
   font-size: 16px;
   line-height: 18px;
@@ -8372,15 +8402,9 @@ body {
   border: none;
   background: url("../images/dropdown.png") center center no-repeat;
   background-size: contain;
-  width: 10px;
-  padding-top: 10px;
+  min-width: 10px;
+  height: 10px;
   margin-left: 16px;
-}
-@media (min-width: 992px) {
-  #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle::after {
-    width: 10px;
-    padding-top: 10px;
-  }
 }
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu {
   max-height: 300px;
@@ -8450,7 +8474,7 @@ body {
     font-size: 14px;
     position: absolute;
     left: 0;
-    top: 24px;
+    top: 28px;
   }
 }
 #register .modal-body.custom-form .group-radio {
@@ -8516,11 +8540,7 @@ body {
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check:last-child {
   margin-bottom: 0;
 }
-#register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:not(:checked) + label {
-  opacity: 0.5;
-}
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label {
-  opacity: 1;
   font-weight: 600;
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label:before, #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:not(:checked) + label:before {
@@ -8551,7 +8571,7 @@ body {
   width: 100%;
   height: 100px;
   border-bottom: 1px solid rgba(112, 112, 112, 0.5);
-  font-family: "Be Vietnam";
+  font-family: "Roboto";
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .textarea-form {
@@ -8580,26 +8600,37 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   margin-bottom: 24px;
+  padding: 12px 16px;
+  background-color: #F4F4FB;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .upload-form {
     padding: 16px 32px;
-    background-color: #F4F4FB;
     margin-bottom: 40px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
   #register .modal-body.custom-form .upload-form:last-child {
     margin-bottom: 0;
   }
   #register .modal-body.custom-form .upload-form label {
     font-size: 16px;
+  }
+}
+#register .modal-body.custom-form .upload-form label {
+  padding-right: 12px;
+}
+#register .modal-body.custom-form .upload-form label .sub {
+  font-size: 10px;
+  color: #666;
+  padding-top: 4px;
+}
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .upload-form label .sub {
+    font-size: 14px;
   }
 }
 #register .modal-body.custom-form .upload-form input {
@@ -8638,6 +8669,9 @@ body {
           justify-content: center;
   border-radius: 99px;
   cursor: pointer;
+  -webkit-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  transition: 0.4s all ease;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .upload-form input + label {
@@ -8646,11 +8680,151 @@ body {
         -ms-flex-align: baseline;
             align-items: baseline;
   }
+  #register .modal-body.custom-form .upload-form input + label:hover {
+    background-color: #f4e304;
+  }
 }
 #register .modal-body.custom-form .upload-form input + label span {
   font-size: 16px;
   line-height: 17px;
   font-weight: 700;
+}
+#register .modal-body.custom-form .upload-form + .error {
+  margin-top: -20px;
+}
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .upload-form + .error {
+    margin-top: -35px;
+  }
+}
+#register .modal-body.custom-form .input-has-label {
+  position: relative;
+}
+#register .modal-body.custom-form .input-has-label input {
+  padding-top: 24px;
+  -webkit-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  transition: 0.4s all ease;
+  border-width: 2px;
+  border-color: #dddddd;
+}
+#register .modal-body.custom-form .input-has-label input:focus {
+  border-color: #FBEC21;
+}
+#register .modal-body.custom-form .input-has-label input:not(:-moz-placeholder-shown) + label {
+  top: 0;
+  font-size: 14px;
+}
+#register .modal-body.custom-form .input-has-label input:not(:-ms-input-placeholder) + label {
+  top: 0;
+  font-size: 14px;
+}
+#register .modal-body.custom-form .input-has-label input:focus + label, #register .modal-body.custom-form .input-has-label input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 14px;
+}
+#register .modal-body.custom-form .input-has-label label {
+  position: absolute;
+  -webkit-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  transition: 0.4s all ease;
+  top: 24px;
+  left: 0;
+  color: #444;
+  font-size: 16px;
+}
+#register .modal-body.custom-form .input-has-label.is-error input {
+  border-color: red;
+}
+#register .modal-body.custom-form .mobile-number-label {
+  width: 100%;
+  max-width: 48%;
+  position: relative;
+}
+#register .modal-body.custom-form .mobile-number-label input {
+  padding-top: 24px;
+  -webkit-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  transition: 0.4s all ease;
+  border-width: 2px;
+  border-color: #dddddd;
+  padding-left: 174px;
+}
+#register .modal-body.custom-form .mobile-number-label input:focus {
+  border-color: #FBEC21;
+}
+#register .modal-body.custom-form .mobile-number-label .placeholde-block {
+  position: absolute;
+  top: 24px;
+  left: 0;
+}
+#register .modal-body.custom-form .mobile-number-label .placeholde-block label {
+  color: #444;
+  margin-right: 4px;
+}
+#register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown {
+  cursor: pointer;
+}
+#register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-toggle::after {
+  vertical-align: baseline;
+  border: none;
+  background: url("../images/dropdown.png") center center no-repeat;
+  background-size: contain;
+  min-width: 10px;
+  height: 10px;
+  margin-left: 4px;
+}
+#register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu {
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: none;
+  padding: 0;
+  width: 100%;
+  min-width: unset;
+  top: 2px !important;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  max-width: 100%;
+}
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu {
+    top: 4px !important;
+    max-width: 420px;
+  }
+}
+#register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu#university-menu input {
+  margin: 0;
+  padding: 12px 20px;
+  background-color: #f1f1f1;
+}
+#register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu a {
+  padding: 12px 20px;
+  line-height: 1.4;
+  font-size: 12px;
+  color: #707070;
+  display: block;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+#register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu a:last-child {
+  border-bottom: 0;
+}
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu a {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 16px 20px;
+  }
+}
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown {
+    margin-right: 16px;
+  }
+  #register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown:last-child {
+    margin-right: 0;
+  }
 }
 
 .modal-backdrop.show {
@@ -8762,7 +8936,7 @@ body {
   font-size: 16px;
   padding-bottom: 4px;
   margin-bottom: 24px;
-  font-family: "Be Vietnam";
+  font-family: "Roboto";
 }
 .modal-content .modal-body.custom-form input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.5);
@@ -9145,7 +9319,7 @@ body {
   width: 100%;
   height: 100px;
   border-bottom: 1px solid rgba(112, 112, 112, 0.5);
-  font-family: "Be Vietnam";
+  font-family: "Roboto";
 }
 @media (min-width: 992px) {
   .modal-content .modal-body.custom-form .textarea-form {
@@ -9288,10 +9462,16 @@ body {
 .button-container .button#submitForm {
   text-align: center;
   width: 150px;
+  -webkit-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  transition: 0.4s all ease;
 }
 @media (min-width: 992px) {
   .button-container .button#submitForm {
     width: 220px;
+  }
+  .button-container .button#submitForm:hover {
+    background-color: #f4e304;
   }
 }
 

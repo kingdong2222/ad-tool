@@ -3,6 +3,9 @@ const uploadCV = document.getElementById('uploadCV')
 uploadCV.onchange = value => {
   let name = uploadCV.files[0].name
   let temp =  document.createElement('p')
+  let form = document.getElementsByClassName('upload-form')[0]
+  let sub = form.getElementsByClassName('sub')[0]
+  sub.style.display = 'none'
   temp.classList.add('file-name')
   temp.innerText = name
   let target = document.querySelector('#uploadCV');
@@ -14,6 +17,9 @@ const uploadTestVoice = document.getElementById('uploadTestVoice')
 uploadTestVoice.onchange = value => {
   let name = uploadTestVoice.files[0].name
   let temp =  document.createElement('p')
+  let form = document.getElementsByClassName('upload-form')[1]
+  let sub = form.getElementsByClassName('sub')[0]
+  sub.style.display = 'none'
   temp.classList.add('file-name')
   temp.innerText = name
   let target = document.querySelector('#uploadTestVoice');
