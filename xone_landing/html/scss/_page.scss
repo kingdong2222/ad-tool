@@ -1606,7 +1606,8 @@ body {
           transition: 0.4s all ease;
           border-width: 2px;
           border-color: rgb(221, 221, 221);
-          -webkit-appearance: none;
+          appearance: none;
+          border-radius: 0;
         }
         input:focus{
           border-color: $color-main;

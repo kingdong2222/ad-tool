@@ -8728,6 +8728,9 @@ body {
   border-width: 2px;
   border-color: #dddddd;
   -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
 }
 #register .modal-body.custom-form .input-has-label input:focus {
   border-color: #FBEC21;
