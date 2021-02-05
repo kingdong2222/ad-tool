@@ -8319,6 +8319,9 @@ body {
           justify-content: space-between;
   width: 100%;
 }
+#register .modal-body.custom-form .group-dropdown .dropdown {
+  cursor: pointer;
+}
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle {
   padding: 6px 16px;
   background-color: #F4F4FB;
