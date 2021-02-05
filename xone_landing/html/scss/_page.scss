@@ -1604,11 +1604,9 @@ body {
         input{
           padding-top: 24px;
           transition: 0.4s all ease;
-          border-width: 1px;
+          border-width: 2px;
           border-color: rgb(221, 221, 221);
-          @include media-breakpoint-up(lg) {
-            border-width: 2px;
-          }
+          -webkit-appearance: none;
         }
         input:focus{
           border-color: $color-main;

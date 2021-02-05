@@ -8725,13 +8725,9 @@ body {
   -webkit-transition: 0.4s all ease;
   -o-transition: 0.4s all ease;
   transition: 0.4s all ease;
-  border-width: 1px;
+  border-width: 2px;
   border-color: #dddddd;
-}
-@media (min-width: 992px) {
-  #register .modal-body.custom-form .input-has-label input {
-    border-width: 2px;
-  }
+  -webkit-appearance: none;
 }
 #register .modal-body.custom-form .input-has-label input:focus {
   border-color: #FBEC21;
