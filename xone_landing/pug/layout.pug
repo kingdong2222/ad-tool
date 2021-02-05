@@ -31,16 +31,17 @@ html(lang="en")
 						block footer
 
 		#cd-nav
+			a.cd-nav-trigger: span
 			a.logo(href="index.html")
 				img(src='images/xone-black.png')
-			a.cd-nav-trigger: span
+			a.button(href="register.html") Ứng tuyển
 			#cd-main-nav: ul#navBar.list-unstyled
-				li: a#introlink_mb Xone Radio Star
-				li: a#joining_mb Đối tượng tham gia
-				li: a#career_mb Quy trình tuyển dụng
-				li: a#about_mb Nói về Xone
-				li: a#contactlink_mb Kết nối
-				li: a(href="register.html") Ứng tuyển ngay
+				li: a#introlink_mb(href="index.html#intro") Xone Radio Star
+				li: a#joining_mb(href="index.html#joining") Đối tượng tham gia
+				li: a#career_mb(href="index.html#career") Quy trình tuyển dụng
+				li: a#about_mb(href="index.html#about") Nói về Xone
+				li: a#contactlink_mb(href="index.html#contact") Kết nối
+				//- li: a(href="register.html") Ứng tuyển ngay
 			.bg-yello-overlay
 
 		if modal

@@ -20,6 +20,16 @@ uploadTestVoice.onchange = value => {
   target.parentNode.insertBefore(temp, target);
 }
 
+window.onscroll = function () {
+  if (screen.width >= 1024) {
+    if ($(window).scrollTop() >= 10) {
+      $("header").addClass("fixed-header");
+    } else {
+      $("header").removeClass("fixed-header");
+    }
+  }
+}
+
 // Util 4.1.3
 !(function (t, e) {
     "object" == typeof exports && "undefined" != typeof module

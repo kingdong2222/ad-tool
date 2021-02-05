@@ -1,8 +1,4 @@
 block home
-.modal-header.register-header
-	a(href="index.html")
-		i.icn.icn-tail-left
-		p Trở về trang chủ
 #register
 	.modal-body.custom-form
 		.header-form
@@ -10,9 +6,6 @@ block home
 			//- .yellow-line
 		input.is-error(type='text' placeholder='Họ và tên')
 		p.error Vui lòng nhập thông tin
-		.input-group
-			input(type='email' placeholder='Email cá nhân')
-			input(type='number' placeholder='Số điện thoại')
 		.input-group
 			.group-dropdown.is-error
 				label Ngày sinh
@@ -44,6 +37,10 @@ block home
 					.dropdown-menu(aria-labelledby="dropdownSex")
 						a.dropdown-item Nam
 						a.dropdown-item Nữ
+		.input-group
+			input(type='email' placeholder='Email cá nhân')
+			input(type='number' placeholder='Số điện thoại')
+		input(type='text' placeholder='Link Facebook')
 		input(type='text' placeholder='Trường Cao đẳng / Đại học')
 		.input-group.no-space-between-desktop
 			.group-radio.one-line
@@ -93,18 +90,18 @@ block home
 		//- p.error Vui lòng nhập thông tin
 		.group-dropdown.dropdown-full
 			label Bạn biết đến chương trình tuyển dụng từ nguồn nào?
-			.dropdown.full-width
+			.dropdown.full-width.no-full-desktop
 				.dropdown-toggle#sourceYouKnow(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
 					span.value Facebook
 				.dropdown-menu(aria-labelledby="sourceYouKnow")
 					a.dropdown-item Facebook
 					a.dropdown-item Twitter
-		input(type='text' placeholder='Link Facebook')
+		
 		.upload-form.is-error
 			label CV
 			input#uploadCV(type="file" name="uploadCV")
 			label(for='uploadCV')
-				span Upload
+				span Tải lên
 		input(type='text' placeholder='Link Portfolio (Nếu có)')
 		.group-radio.topic-choosing
 			label Bạn đã chọn thu âm đề nào?
@@ -116,9 +113,9 @@ block home
 					input.form-check-input#topic2(type='radio' name='topic-record')
 					label.form-check-label(for='topic2') Đề 2: Ba tố chất quan trọng cần có của 1 Radio Host là gì? Vì sao?
 		.upload-form
-			label File Test Voice
+			label Bản thu âm
 			input#uploadTestVoice(type="file" name="uploadTestVoice")
 			label(for='uploadTestVoice')
-				span Upload
+				span Tải lên
 	.button-container
-		a.button#submitForm(href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou") Gửi ngay
+		a.button#submitForm(href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou") Nộp đơn

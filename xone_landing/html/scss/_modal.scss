@@ -445,9 +445,9 @@
 	}
 }
 .button-container{
-	width: 100%;
-	padding-top: 45px;
-	padding-bottom: 45px;
+	// width: 100%;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	background-color: #000;
 	position: relative;
 	.bg-wave{
@@ -466,35 +466,41 @@
 		background-color: transparent;
 	}
 	.button{
-		// width: 180px;
+		
 		margin: 0 auto;
 		display: block;
 		position: relative;
 		z-index: 999;
-		@include media-breakpoint-up(lg) {
-			// width: 400px !important;
+		&#submitForm{
+			text-align: center;
+			width: 150px;
+			@include media-breakpoint-up(lg) {
+				width: 220px;
+			}
 		}
 		
+		
 	}
+	// .button {
+	// 	padding: 12px 36px;
+	// 	background-color: $color-main;
+	// 	font-size: 16px;
+	// 	line-height: 22px;
+	// 	font-weight: 700;
+	// 	text-transform: uppercase;
+	// 	color: #000;
+	// 	border-radius: 99px;
+	// 	width: fit-content;
+	// 	text-align: center;
+	// 	@include media-breakpoint-up(lg) {
+	// 	  font-size: 24px;
+	// 	  line-height: 32px;
+	// 	  padding: 16px 40px;
+	// 	  min-width: 300px;
+	// 	}
+	//   }
 }
-.button {
-    padding: 12px 36px;
-    background-color: $color-main;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #000;
-	border-radius: 99px;
-	width: fit-content;
-	text-align: center;
-    @include media-breakpoint-up(lg) {
-      font-size: 24px;
-      line-height: 32px;
-	  padding: 16px 40px;
-	  min-width: 300px;
-    }
-  }
+
 .func-close-modal{z-index:33;cursor:pointer;margin-right:-14px;color: #707070;
 	&:hover{
 		color: rgba(#000,0.8)

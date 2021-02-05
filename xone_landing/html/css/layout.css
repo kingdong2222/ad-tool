@@ -6665,9 +6665,23 @@ body {
 #cd-nav .logo {
   z-index: 1010;
   display: block;
+  position: relative;
+  left: 40%;
 }
 #cd-nav img {
-  width: 65px;
+  width: 60px;
+}
+#cd-nav .button {
+  z-index: 1010;
+  color: #FBEC21;
+  background-color: #000;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  right: 12px;
+  width: initial;
+  border-radius: 8px;
+  text-transform: uppercase;
 }
 #cd-nav .bg-yello-overlay {
   width: 100%;
@@ -6686,7 +6700,7 @@ body {
 
 .cd-nav-trigger {
   position: absolute;
-  right: 10px;
+  left: 10px;
   z-index: 1011;
   width: 35px;
   height: 29px;
@@ -6764,15 +6778,14 @@ body {
 
 #navBar {
   position: fixed;
-  top: -420px;
+  top: -350px;
   right: 0;
   bottom: 0;
   width: 100%;
-  max-height: 420px;
+  max-height: 350px;
   z-index: 0;
   background-color: #FBEC21;
-  padding: 36px;
-  padding-top: 48px;
+  padding: 32px;
   margin-top: 50px;
   z-index: 0;
 }
@@ -7293,7 +7306,6 @@ body {
   }
 }
 .module-content#joining {
-  padding-top: 0;
   max-width: 1440px;
 }
 @media (min-width: 992px) {
@@ -7544,7 +7556,7 @@ body {
   margin: 0 auto;
 }
 .module-introduce .content-text {
-  padding: 32px 16px 64px;
+  padding: 32px 16px 0;
 }
 .module-introduce .content-text h1 {
   text-transform: uppercase;
@@ -7863,11 +7875,12 @@ body {
 }
 .module-about .bg-yello-container .right-container .text-contain .block-icon img {
   width: 48px;
+  height: 48px;
   padding: 0;
   margin-right: 16px;
   margin-top: 16px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (min-width: 992px) {
   .module-about {
@@ -7939,7 +7952,6 @@ body {
   position: absolute;
   z-index: 1001;
   background-color: #fff;
-  min-width: 176px;
   max-height: 245px;
   margin-top: 4px;
   margin-bottom: 4px;
@@ -8049,61 +8061,24 @@ body {
   border-color: rgba(112, 112, 112, 0.5);
 }
 
-.register + #cd-nav {
+.register + #cd-nav .button {
   display: none;
-}
-
-.modal-header.register-header {
-  margin-top: -50px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: fixed;
-  width: 100%;
-  background-color: #fff;
-  z-index: 9999;
-}
-.modal-header.register-header a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 18px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #000;
-  width: 1200px;
-}
-@media (min-width: 992px) {
-  .modal-header.register-header a {
-    font-size: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-.modal-header.register-header a i {
-  margin-right: 16px;
-}
-@media (min-width: 992px) {
-  .modal-header.register-header {
-    margin-top: 0;
-  }
 }
 
 #register {
   font-family: "Roboto";
-  max-width: 1200px;
+  max-width: 860px;
   margin: 0 auto;
 }
 #register.is-hidden {
   display: none !important;
 }
 #register .modal-body.custom-form {
-  padding: 48px 16px 32px;
+  padding: 48px 16px 16px;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form {
-    padding: 128px 32px;
+    padding: 64px 32px 32px;
   }
 }
 #register .modal-body.custom-form .header-form {
@@ -8146,16 +8121,16 @@ body {
   }
 }
 #register .modal-body.custom-form .is-error + .error {
-  margin-top: -20px;
+  margin-top: -35px;
   margin-bottom: 20px;
-  font-size: 10px;
+  font-size: 12px;
   color: #dc3535;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .is-error + .error {
-    margin-top: -60px;
-    margin-bottom: 60px;
-    font-size: 16px;
+    margin-top: -32px;
+    margin-bottom: 32px;
+    font-size: 14px;
   }
 }
 #register .modal-body.custom-form input {
@@ -8164,8 +8139,8 @@ body {
   border-bottom: 1px solid rgba(112, 112, 112, 0.5);
   width: 100%;
   font-size: 16px;
-  padding-bottom: 4px;
-  margin-bottom: 24px;
+  padding-bottom: 8px;
+  margin-bottom: 40px;
   font-family: "Be Vietnam";
 }
 #register .modal-body.custom-form input::-webkit-input-placeholder {
@@ -8183,13 +8158,6 @@ body {
 #register .modal-body.custom-form input::placeholder {
   color: rgba(0, 0, 0, 0.5);
 }
-@media (min-width: 992px) {
-  #register .modal-body.custom-form input {
-    font-size: 24px;
-    padding-bottom: 8px;
-    margin-bottom: 64px;
-  }
-}
 #register .modal-body.custom-form input.is-error {
   border-bottom: 1px solid #dc3535;
 }
@@ -8201,9 +8169,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
@@ -8212,7 +8177,8 @@ body {
 }
 @media only screen and (min-width: 1160px) {
   #register .modal-body.custom-form .input-group input {
-    max-width: 500px;
+    max-width: 48%;
+    margin-right: 12px;
   }
 }
 @media (min-width: 992px) {
@@ -8222,7 +8188,7 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
     width: unset;
-    margin-bottom: 64px;
+    margin-bottom: 40px;
   }
   #register .modal-body.custom-form .input-group .group-dropdown .dropdown-group {
     width: unset;
@@ -8263,10 +8229,11 @@ body {
             flex-direction: row;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
-    margin-bottom: 64px;
+    margin-right: 80px;
+    margin-bottom: 40px;
   }
   #register .modal-body.custom-form .group-dropdown .dropdown-group {
-    margin-left: 40px;
+    margin-left: 20px;
     width: unset !important;
   }
   #register .modal-body.custom-form .group-dropdown .dropdown-group .dropdown.full-width {
@@ -8289,8 +8256,7 @@ body {
 }
 #register .modal-body.custom-form .group-dropdown.one-line label {
   margin-bottom: 0;
-  margin-right: 10px;
-  min-width: 90px;
+  margin-right: 20px;
   white-space: nowrap;
 }
 @media (min-width: 992px) {
@@ -8322,6 +8288,13 @@ body {
 #register .modal-body.custom-form .group-dropdown .full-width span {
   width: 100%;
 }
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .group-dropdown .full-width.no-full-desktop {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
 #register .modal-body.custom-form .group-dropdown label {
   font-size: 16px;
   line-height: 22px;
@@ -8329,12 +8302,6 @@ body {
 }
 #register .modal-body.custom-form .group-dropdown label em {
   font-style: italic;
-}
-@media (min-width: 992px) {
-  #register .modal-body.custom-form .group-dropdown label {
-    font-size: 24px;
-    line-height: 36px;
-  }
 }
 #register .modal-body.custom-form .group-dropdown .dropdown-group {
   display: -webkit-box;
@@ -8353,7 +8320,7 @@ body {
   width: 100%;
 }
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle {
-  padding: 8px 16px;
+  padding: 6px 16px;
   background-color: #F4F4FB;
   border-radius: 99px;
   min-width: 90px;
@@ -8367,21 +8334,10 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
 }
-@media (min-width: 992px) {
-  #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle {
-    padding: 12px 32px;
-  }
-}
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle span {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 18px;
   color: rgba(0, 0, 0, 0.5);
-}
-@media (min-width: 992px) {
-  #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle span {
-    font-size: 18px;
-    line-height: 36px;
-  }
 }
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle::after {
   vertical-align: baseline;
@@ -8405,6 +8361,7 @@ body {
   border: none;
   padding: 0;
   width: 100%;
+  min-width: unset;
   top: 2px !important;
 }
 @media (min-width: 992px) {
@@ -8439,11 +8396,6 @@ body {
     margin-right: 0;
   }
 }
-@media (min-width: 992px) {
-  #register .modal-body.custom-form .group-dropdown label {
-    margin-right: 32px;
-  }
-}
 #register .modal-body.custom-form .group-dropdown.is-error {
   position: relative;
 }
@@ -8452,15 +8404,15 @@ body {
 }
 #register .modal-body.custom-form .group-dropdown.is-error p.error {
   margin-top: 4px;
-  font-size: 10px;
+  font-size: 12px;
   color: #dc3535;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .group-dropdown.is-error p.error {
-    font-size: 16px;
+    font-size: 14px;
     position: absolute;
     left: 0;
-    top: 48px;
+    top: 24px;
   }
 }
 #register .modal-body.custom-form .group-radio {
@@ -8471,9 +8423,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   margin-bottom: 24px;
   width: 100%;
 }
@@ -8502,37 +8451,14 @@ body {
 #register .modal-body.custom-form .group-radio .group-radio-form .form-check {
   margin-right: 40px;
 }
-@media (min-width: 992px) {
-  #register .modal-body.custom-form .group-radio .group-radio-form .form-check {
-    margin-right: 42px;
-  }
-}
 #register .modal-body.custom-form .group-radio .group-radio-form .form-check:last-child {
   margin-right: 0;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .group-radio {
     width: unset;
-    margin-bottom: 64px;
-  }
-  #register .modal-body.custom-form .group-radio label {
-    font-size: 24px;
-    margin-right: 42px;
-    line-height: unset;
-  }
-  #register .modal-body.custom-form .group-radio label.form-check-label {
-    padding-left: 50px;
-  }
-  #register .modal-body.custom-form .group-radio label.form-check-label::before {
-    height: 24px;
-    width: 24px;
-    top: 40%;
-  }
-  #register .modal-body.custom-form .group-radio label.form-check-label::after {
-    height: 26px;
-    width: 26px;
-    top: 1px;
-    left: 6px;
+    margin-bottom: 40px;
+    margin-right: 80px;
   }
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form {
@@ -8547,10 +8473,16 @@ body {
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check {
   margin-right: 0;
   padding-left: 0;
-  margin-bottom: 40px;
+  margin-bottom: 16px;
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check:last-child {
   margin-bottom: 0;
+}
+#register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:not(:checked) + label {
+  opacity: 0.5;
+}
+#register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label {
+  opacity: 1;
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label:before, #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:not(:checked) + label:before {
   top: 10px;
@@ -8617,9 +8549,9 @@ body {
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .upload-form {
-    padding: 32px 50px;
+    padding: 16px 32px;
     background-color: #F4F4FB;
-    margin-bottom: 64px;
+    margin-bottom: 40px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -8628,7 +8560,7 @@ body {
     margin-bottom: 0;
   }
   #register .modal-body.custom-form .upload-form label {
-    font-size: 24px;
+    font-size: 16px;
   }
 }
 #register .modal-body.custom-form .upload-form input {
@@ -8650,7 +8582,7 @@ body {
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .upload-form p.file-name {
-    font-size: 18px;
+    font-size: 16px;
     max-width: 100%;
   }
 }
@@ -8670,23 +8602,16 @@ body {
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .upload-form input + label {
-    padding: 20px 24px;
-    min-width: 215px;
-    height: 60px;
+    padding: 12px 24px;
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
             align-items: baseline;
   }
 }
 #register .modal-body.custom-form .upload-form input + label span {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 17px;
   font-weight: 700;
-}
-@media (min-width: 992px) {
-  #register .modal-body.custom-form .upload-form input + label span {
-    font-size: 24px;
-  }
 }
 
 .modal-backdrop.show {
@@ -9291,9 +9216,8 @@ body {
 }
 
 .button-container {
-  width: 100%;
-  padding-top: 45px;
-  padding-bottom: 45px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   background-color: #000;
   position: relative;
 }
@@ -9322,26 +9246,13 @@ body {
   position: relative;
   z-index: 999;
 }
-.button {
-  padding: 12px 36px;
-  background-color: #FBEC21;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #000;
-  border-radius: 99px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+.button-container .button#submitForm {
   text-align: center;
+  width: 150px;
 }
 @media (min-width: 992px) {
-  .button {
-    font-size: 24px;
-    line-height: 32px;
-    padding: 16px 40px;
-    min-width: 300px;
+  .button-container .button#submitForm {
+    width: 220px;
   }
 }
 

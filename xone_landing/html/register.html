@@ -21,9 +21,22 @@
   </head>
   <body>
     <div class="project-layout register">
+      <header>
+        <div class="container">
+          <div class="logo"><a href="index.html">Xone</a></div>
+          <div class="menu-wrap" id="menu-wrap">
+            <ul>
+              <li><a id="introlink" href="index.html#intro">Xone Radio Star</a></li>
+              <li><a id="joininglink" href="index.html#joining"> Đối tượng tham gia</a></li>
+              <li><a id="careerlink" href="index.html#career"> Quy trình tuyển dụng</a></li>
+              <li><a id="aboutlink" href="index.html#about"> Nói về Xone</a></li>
+              <li><a id="contactlink" href="index.html#contact"> Kết nối</a></li>
+              <li><a class="button" href="register.html" style="display:none">Ứng tuyển ngay</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
       <div class="page-content">
-        <div class="modal-header register-header"><a href="index.html"><i class="icn icn-tail-left"></i>
-            <p>Trở về trang chủ</p></a></div>
         <div id="register">
           <div class="modal-body custom-form">
             <div class="header-form">
@@ -31,10 +44,6 @@
             </div>
             <input class="is-error" type="text" placeholder="Họ và tên">
             <p class="error">Vui lòng nhập thông tin</p>
-            <div class="input-group">
-              <input type="email" placeholder="Email cá nhân">
-              <input type="number" placeholder="Số điện thoại">
-            </div>
             <div class="input-group">
               <div class="group-dropdown is-error">
                 <label>Ngày sinh</label>
@@ -62,6 +71,11 @@
                 </div>
               </div>
             </div>
+            <div class="input-group">
+              <input type="email" placeholder="Email cá nhân">
+              <input type="number" placeholder="Số điện thoại">
+            </div>
+            <input type="text" placeholder="Link Facebook">
             <input type="text" placeholder="Trường Cao đẳng / Đại học">
             <div class="input-group no-space-between-desktop">
               <div class="group-radio one-line">
@@ -112,16 +126,15 @@
             </div>
             <div class="group-dropdown dropdown-full">
               <label>Bạn biết đến chương trình tuyển dụng từ nguồn nào?</label>
-              <div class="dropdown full-width">
+              <div class="dropdown full-width no-full-desktop">
                 <div class="dropdown-toggle" id="sourceYouKnow" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Facebook</span></div>
                 <div class="dropdown-menu" aria-labelledby="sourceYouKnow"><a class="dropdown-item">Facebook</a><a class="dropdown-item">Twitter</a></div>
               </div>
             </div>
-            <input type="text" placeholder="Link Facebook">
             <div class="upload-form is-error">
               <label>CV</label>
               <input id="uploadCV" type="file" name="uploadCV">
-              <label for="uploadCV"><span>Upload</span></label>
+              <label for="uploadCV"><span>Tải lên</span></label>
             </div>
             <input type="text" placeholder="Link Portfolio (Nếu có)">
             <div class="group-radio topic-choosing">
@@ -138,24 +151,23 @@
               </div>
             </div>
             <div class="upload-form">
-              <label>File Test Voice</label>
+              <label>Bản thu âm</label>
               <input id="uploadTestVoice" type="file" name="uploadTestVoice">
-              <label for="uploadTestVoice"><span>Upload</span></label>
+              <label for="uploadTestVoice"><span>Tải lên</span></label>
             </div>
           </div>
-          <div class="button-container"><a class="button" id="submitForm" href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou">Gửi ngay</a></div>
+          <div class="button-container"><a class="button" id="submitForm" href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou">Nộp đơn</a></div>
         </div>
       </div>
     </div>
-    <div id="cd-nav"><a class="logo" href="index.html"><img src="images/xone-black.png"></a><a class="cd-nav-trigger"><span></span></a>
+    <div id="cd-nav"><a class="cd-nav-trigger"><span></span></a><a class="logo" href="index.html"><img src="images/xone-black.png"></a><a class="button" href="register.html">Ứng tuyển</a>
       <div id="cd-main-nav">
         <ul class="list-unstyled" id="navBar">
-          <li><a id="introlink_mb">Xone Radio Star</a></li>
-          <li><a id="joining_mb">Đối tượng tham gia</a></li>
-          <li><a id="career_mb">Quy trình tuyển dụng</a></li>
-          <li><a id="about_mb">Nói về Xone</a></li>
-          <li><a id="contactlink_mb">Kết nối</a></li>
-          <li><a href="register.html">Ứng tuyển ngay</a></li>
+          <li><a id="introlink_mb" href="index.html#intro">Xone Radio Star</a></li>
+          <li><a id="joining_mb" href="index.html#joining">Đối tượng tham gia</a></li>
+          <li><a id="career_mb" href="index.html#career">Quy trình tuyển dụng</a></li>
+          <li><a id="about_mb" href="index.html#about">Nói về Xone</a></li>
+          <li><a id="contactlink_mb" href="index.html#contact">Kết nối</a></li>
         </ul>
       </div>
       <div class="bg-yello-overlay"></div>
