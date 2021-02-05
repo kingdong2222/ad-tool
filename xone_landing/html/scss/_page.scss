@@ -1194,6 +1194,14 @@ body {
         justify-content: space-between;
         align-items: baseline;
         flex-wrap: wrap;
+        &.column-mb{
+          flex-direction: column;
+          align-items: flex-start;
+          @media only screen and (min-width: 768px){
+            flex-direction: row;
+            align-items: baseline;
+          }
+        }
         .input-has-label{
           max-width: 48%;
           width: 100%;
@@ -1625,18 +1633,20 @@ body {
         max-width: 48%;
         position: relative;
         input{
-          padding-top: 24px;
+          
           transition: 0.4s all ease;
           border-width: 2px;
           border-color: rgb(221, 221, 221);
+          // padding-top: 24px;
           padding-left: 174px;
+          
         }
         input:focus{
           border-color: $color-main;
         }
         .placeholde-block{
           position: absolute;
-          top: 24px;
+          top: 0;
           left: 0;
           label{
             color: #444;
@@ -1705,6 +1715,14 @@ body {
                 margin-right: 0;
               }
             }
+          }
+        }
+      }
+      .column-mb{
+        .input-has-label,.mobile-number-label{
+          max-width: 100% !important;
+          @media only screen and (min-width: 768px){
+            max-width: 48% !important;
           }
         }
       }

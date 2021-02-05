@@ -8214,6 +8214,26 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+#register .modal-body.custom-form .input-group.column-mb {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+@media only screen and (min-width: 768px) {
+  #register .modal-body.custom-form .input-group.column-mb {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+}
 #register .modal-body.custom-form .input-group .input-has-label {
   max-width: 48%;
   width: 100%;
@@ -8742,7 +8762,6 @@ body {
   position: relative;
 }
 #register .modal-body.custom-form .mobile-number-label input {
-  padding-top: 24px;
   -webkit-transition: 0.4s all ease;
   -o-transition: 0.4s all ease;
   transition: 0.4s all ease;
@@ -8755,7 +8774,7 @@ body {
 }
 #register .modal-body.custom-form .mobile-number-label .placeholde-block {
   position: absolute;
-  top: 24px;
+  top: 0;
   left: 0;
 }
 #register .modal-body.custom-form .mobile-number-label .placeholde-block label {
@@ -8824,6 +8843,14 @@ body {
   }
   #register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown:last-child {
     margin-right: 0;
+  }
+}
+#register .modal-body.custom-form .column-mb .input-has-label, #register .modal-body.custom-form .column-mb .mobile-number-label {
+  max-width: 100% !important;
+}
+@media only screen and (min-width: 768px) {
+  #register .modal-body.custom-form .column-mb .input-has-label, #register .modal-body.custom-form .column-mb .mobile-number-label {
+    max-width: 48% !important;
   }
 }
 
