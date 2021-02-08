@@ -7426,7 +7426,7 @@ body {
   }
 }
 .module-content#joining .intro-desc h2 {
-  max-width: 220px;
+  max-width: 230px;
   margin-bottom: -32px;
 }
 @media (min-width: 992px) {
@@ -9029,7 +9029,7 @@ body {
 }
 .modal-content .modal-header {
   background-color: #FBEC21;
-  padding: 16px 32px;
+  padding: 16px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -9686,7 +9686,7 @@ body {
 
 #thankyou .modal-thankyou {
   text-align: center;
-  padding: 80px 32px;
+  padding: 80px 16px;
 }
 @media (min-width: 992px) {
   #thankyou .modal-thankyou {
@@ -9714,7 +9714,7 @@ body {
 }
 @media (min-width: 992px) {
   #thankyou .modal-thankyou h1 span {
-    max-width: 780px;
+    max-width: 820px;
   }
 }
 #thankyou .modal-thankyou h1 span::after {
