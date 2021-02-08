@@ -7,13 +7,13 @@ block home
 		.input-has-label.is-error
 			input(type='text' placeholder=" " id='name')
 			label(for="name") Họ và tên
-		p.error Vui lòng nhập thông tin
+			p.error Vui lòng nhập thông tin
 		.input-group
 			.group-dropdown.is-error
 				label Ngày sinh
 				.dropdown-group
 					.dropdown
-						.dropdown-toggle.is-no-select#dropdownDay(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+						.dropdown-toggle.is-error#dropdownDay(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
 							span.value Ngày
 						.dropdown-menu(aria-labelledby="dropdownDay")
 							a.dropdown-item 1
@@ -53,6 +53,7 @@ block home
 						.dropdown-menu(aria-labelledby="dropdownMobileCountry")
 							a.dropdown-item American Samoa
 							a.dropdown-item United State
+				p.error Vui lòng nhập thông tin
 		.input-has-label
 			input(type='text' placeholder=' ' id="facebook-link")
 			label(for="facebook-link") Link Facebook
@@ -65,19 +66,10 @@ block home
 					<input type="text" placeholder="Tìm kiếm.." id="uniSearch" onkeyup="filterFunction()">
 					a.dropdown-item Trường abc Trường abc Trường abc
 					a.dropdown-item Trường cde Trường abc Trường abc
-		
 		.input-group
 			.input-has-label( style="max-width: 60%; width: 100%;")
 				input(type='text' placeholder=' ' style="width: 100%;" id="school-name")
 				label(for="school-name") Trường Cao đẳng / Đại học
-			//- .group-radio.one-line
-			//- 	label Du học
-			//- 	.form-check
-			//- 		input.form-check-input#yes0(type='radio' name='du-hoc')
-			//- 		label.form-check-label(for='yes0') Có
-			//- 	.form-check
-			//- 		input.form-check-input#no0(type='radio' name='du-hoc')
-			//- 		label.form-check-label(for='no0') Không
 			.group-dropdown.one-line
 				label Quốc gia
 				.dropdown.full-width
@@ -113,19 +105,15 @@ block home
 				.form-check
 					input.form-check-input#no1(type='radio' name='fill-time')
 					label.form-check-label(for='no1') Không
-		//- .textarea-form.is-error
-		//- 	label Lịch học trong 6 tháng tới
-		//- 	textarea
-		//- p.error Vui lòng nhập thông tin
-		.group-dropdown.dropdown-full
+		.group-dropdown.dropdown-full.is-error
 			label Bạn biết đến chương trình tuyển dụng từ nguồn nào?
 			.dropdown.full-width.no-full-desktop
-				.dropdown-toggle#sourceYouKnow(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+				.dropdown-toggle.is-error#sourceYouKnow(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
 					span.value Mạng xã hội (Facebook, Instagram,...)
 				.dropdown-menu(aria-labelledby="sourceYouKnow")
 					a.dropdown-item Mạng xã hội (Facebook, Instagram,...)
 					a.dropdown-item Tìm kiếm trang mạng
-		
+			p.error Vui lòng chọn
 		.upload-form
 			label CV 
 				p.sub Định dạng .PDF, .PPT, .PPTX, .DOC, .DOCX, .JPG, .PNG - Dung lượng ≤ 4MB

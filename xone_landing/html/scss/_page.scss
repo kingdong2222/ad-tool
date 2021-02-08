@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto";
+  font-family: "Mulish",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
   overflow-x: hidden;
 }
 /* Menu */
@@ -150,7 +150,7 @@ body {
 
 .project-layout {
   padding-top: 50px;
-  font-family: "Roboto";
+  font-family: "Mulish",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
   @include media-breakpoint-up(lg) {
     padding-top: 0;
     overflow-x: hidden;
@@ -1121,7 +1121,7 @@ body {
   }
 }
 #register{
-  font-family: "Roboto";
+  font-family: "Mulish",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
   &.is-hidden{
     display: none !important;
   }
@@ -1180,7 +1180,7 @@ body {
         font-size: 16px;
         padding-bottom: 8px;
         margin-bottom: 40px;
-        font-family: "Roboto";
+        font-family: "Mulish",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
         &::placeholder {
           color: rgba(#000,0.5)
         }
@@ -1272,9 +1272,10 @@ body {
           flex-wrap: nowrap;
           label{
             margin-bottom: 0;
-            margin-right: 20px;
+            margin-right: 24px;
             // min-width: 90px;
             white-space:nowrap;
+            color: #444;
             @include media-breakpoint-up(lg) {
               min-width: fit-content;
             }
@@ -1285,6 +1286,13 @@ body {
             span{
               width: 100%;
             }
+          }
+          p.error{
+             @media (max-width: 768px){
+               position: absolute;
+               margin-top: 0;
+               top: 24px;
+             }
           }
         }
         .full-width{
@@ -1307,6 +1315,7 @@ body {
           font-size: 16px;
           line-height: 22px;
           margin-bottom: 8px;
+          color: #444;
           em{
             font-style: italic;
           }
@@ -1401,9 +1410,12 @@ body {
         &.is-error{
           position: relative;
           .dropdown-group{
-            .dropdown-toggle.is-no-select{
+            .dropdown-toggle.is-error{
               border: 1px solid #dc3535;
             }
+          }
+          .dropdown-toggle.is-error{
+            border: 1px solid #dc3535;
           }
           p.error{
             margin-top: 4px;
@@ -1425,6 +1437,9 @@ body {
         // align-items: center;
         margin-bottom: 24px;
         width: 100%;
+        label{
+          color: #444;
+        }
         &.one-line{
           flex-direction: row;
         }
@@ -1473,6 +1488,7 @@ body {
               }
               label{
                 line-height: 24px;
+                color: #444;
                 
                 @include media-breakpoint-up(lg) {
                   padding-top: 4px;
@@ -1480,6 +1496,14 @@ body {
                 
               }
             }
+          }
+        }
+        p.error{
+          font-size: 12px;
+          color: #dc3535;
+          margin-top: 12px;
+          @include media-breakpoint-up(lg) {
+            font-size: 14px;
           }
         }
       }
@@ -1496,7 +1520,7 @@ body {
           width: 100%;
           height: 100px;
           border-bottom: 1px solid rgba(#707070, 0.5);
-          font-family: "Roboto";
+          font-family: "Mulish",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
         }
         @include media-breakpoint-up(lg) {
           margin-bottom: 64px;
@@ -1628,6 +1652,16 @@ body {
           input{
             border-color: red;
           }
+          p.error{
+            position: absolute;
+            font-size: 12px;
+            color: #dc3535;
+            bottom: 20px;
+            @include media-breakpoint-up(lg) {
+              font-size: 14px;
+              bottom: 20px;
+            }
+          }
         }
       }
       .mobile-number-label{
@@ -1645,6 +1679,21 @@ body {
         }
         input:focus{
           border-color: $color-main;
+        }
+        &.is-error{
+          input{
+            border-color: red;
+          }
+          p.error{
+            font-size: 12px;
+            color: #dc3535;
+            position: absolute;
+            bottom: 20px;
+            @include media-breakpoint-up(lg) {
+              font-size: 14px;
+              bottom: 20px;
+            }
+          }
         }
         .placeholde-block{
           position: absolute;

@@ -5311,6 +5311,97 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 @font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-Bold.woff2") format("woff2"), url("../fonts/Muli/Muli-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-ExtraLightItalic.woff2") format("woff2"), url("../fonts/Muli/Muli-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-ExtraLight.woff2") format("woff2"), url("../fonts/Muli/Muli-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-ExtraBoldItalic.woff2") format("woff2"), url("../fonts/Muli/Muli-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-ExtraBold.woff2") format("woff2"), url("../fonts/Muli/Muli-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-BoldItalic.woff2") format("woff2"), url("../fonts/Muli/Muli-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-Italic.woff2") format("woff2"), url("../fonts/Muli/Muli-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-Medium.woff2") format("woff2"), url("../fonts/Muli/Muli-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-Light.woff2") format("woff2"), url("../fonts/Muli/Muli-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-Regular.woff2") format("woff2"), url("../fonts/Muli/Muli-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-MediumItalic.woff2") format("woff2"), url("../fonts/Muli/Muli-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-LightItalic.woff2") format("woff2"), url("../fonts/Muli/Muli-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("../fonts/Muli/Muli-SemiBold.woff2") format("woff2"), url("../fonts/Muli/Muli-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: "Roboto";
   src: url("../fonts/Roboto/Roboto-BlackItalic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-BlackItalic.woff") format("woff");
   font-weight: 900;
@@ -6375,7 +6466,7 @@ button {
 
 /* Typography */
 .h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Mulish", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 700;
 }
 
@@ -6642,7 +6733,7 @@ a, button, img {
 
 html,
 body {
-  font-family: "Roboto";
+  font-family: "Mulish", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   overflow-x: hidden;
 }
 
@@ -6813,7 +6904,7 @@ body {
 
 .project-layout {
   padding-top: 50px;
-  font-family: "Roboto";
+  font-family: "Mulish", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 @media (min-width: 992px) {
   .project-layout {
@@ -8101,7 +8192,7 @@ body {
 }
 
 #register {
-  font-family: "Roboto";
+  font-family: "Mulish", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -8177,7 +8268,7 @@ body {
   font-size: 16px;
   padding-bottom: 8px;
   margin-bottom: 40px;
-  font-family: "Roboto";
+  font-family: "Mulish", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 #register .modal-body.custom-form input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.5);
@@ -8326,8 +8417,9 @@ body {
 }
 #register .modal-body.custom-form .group-dropdown.one-line label {
   margin-bottom: 0;
-  margin-right: 20px;
+  margin-right: 24px;
   white-space: nowrap;
+  color: #444;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .group-dropdown.one-line label {
@@ -8344,6 +8436,13 @@ body {
 }
 #register .modal-body.custom-form .group-dropdown.one-line .full-width span {
   width: 100%;
+}
+@media (max-width: 768px) {
+  #register .modal-body.custom-form .group-dropdown.one-line p.error {
+    position: absolute;
+    margin-top: 0;
+    top: 24px;
+  }
 }
 #register .modal-body.custom-form .group-dropdown .full-width {
   width: 100%;
@@ -8369,6 +8468,7 @@ body {
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 8px;
+  color: #444;
 }
 #register .modal-body.custom-form .group-dropdown label em {
   font-style: italic;
@@ -8481,7 +8581,10 @@ body {
 #register .modal-body.custom-form .group-dropdown.is-error {
   position: relative;
 }
-#register .modal-body.custom-form .group-dropdown.is-error .dropdown-group .dropdown-toggle.is-no-select {
+#register .modal-body.custom-form .group-dropdown.is-error .dropdown-group .dropdown-toggle.is-error {
+  border: 1px solid #dc3535;
+}
+#register .modal-body.custom-form .group-dropdown.is-error .dropdown-toggle.is-error {
   border: 1px solid #dc3535;
 }
 #register .modal-body.custom-form .group-dropdown.is-error p.error {
@@ -8507,6 +8610,9 @@ body {
           flex-direction: column;
   margin-bottom: 24px;
   width: 100%;
+}
+#register .modal-body.custom-form .group-radio label {
+  color: #444;
 }
 #register .modal-body.custom-form .group-radio.one-line {
   -webkit-box-orient: horizontal;
@@ -8571,10 +8677,21 @@ body {
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check label {
   line-height: 24px;
+  color: #444;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check label {
     padding-top: 4px;
+  }
+}
+#register .modal-body.custom-form .group-radio p.error {
+  font-size: 12px;
+  color: #dc3535;
+  margin-top: 12px;
+}
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .group-radio p.error {
+    font-size: 14px;
   }
 }
 #register .modal-body.custom-form .textarea-form {
@@ -8591,7 +8708,7 @@ body {
   width: 100%;
   height: 100px;
   border-bottom: 1px solid rgba(112, 112, 112, 0.5);
-  font-family: "Roboto";
+  font-family: "Mulish", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .textarea-form {
@@ -8760,6 +8877,18 @@ body {
 #register .modal-body.custom-form .input-has-label.is-error input {
   border-color: red;
 }
+#register .modal-body.custom-form .input-has-label.is-error p.error {
+  position: absolute;
+  font-size: 12px;
+  color: #dc3535;
+  bottom: 20px;
+}
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .input-has-label.is-error p.error {
+    font-size: 14px;
+    bottom: 20px;
+  }
+}
 #register .modal-body.custom-form .mobile-number-label {
   width: 100%;
   max-width: 48%;
@@ -8775,6 +8904,21 @@ body {
 }
 #register .modal-body.custom-form .mobile-number-label input:focus {
   border-color: #FBEC21;
+}
+#register .modal-body.custom-form .mobile-number-label.is-error input {
+  border-color: red;
+}
+#register .modal-body.custom-form .mobile-number-label.is-error p.error {
+  font-size: 12px;
+  color: #dc3535;
+  position: absolute;
+  bottom: 20px;
+}
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .mobile-number-label.is-error p.error {
+    font-size: 14px;
+    bottom: 20px;
+  }
 }
 #register .modal-body.custom-form .mobile-number-label .placeholde-block {
   position: absolute;
@@ -8873,7 +9017,7 @@ body {
 }
 
 .modal-content {
-  font-family: "Roboto";
+  font-family: "Muli";
 }
 .modal-content.is-hidden {
   display: none !important;
@@ -8967,7 +9111,7 @@ body {
   font-size: 16px;
   padding-bottom: 4px;
   margin-bottom: 24px;
-  font-family: "Roboto";
+  font-family: "Muli";
 }
 .modal-content .modal-body.custom-form input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.5);
@@ -9350,7 +9494,7 @@ body {
   width: 100%;
   height: 100px;
   border-bottom: 1px solid rgba(112, 112, 112, 0.5);
-  font-family: "Roboto";
+  font-family: "Muli";
 }
 @media (min-width: 992px) {
   .modal-content .modal-body.custom-form .textarea-form {
