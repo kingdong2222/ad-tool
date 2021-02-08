@@ -7610,10 +7610,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -7621,16 +7621,17 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   margin-bottom: 16px;
+  padding: 8px 0;
 }
 .module-content#career ul .text-container .title-text h2 {
   font-size: 18px;
   margin-right: 16px;
-  padding-bottom: 8px;
   border-bottom: 1px solid #000;
   text-transform: uppercase;
 }
 .module-content#career ul .text-container .title-text p {
   font-size: 14px;
+  padding-top: 8px;
 }
 .module-content#career ul .text-container .normal-text {
   font-size: 14px;
@@ -7659,6 +7660,10 @@ body {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .module-content#career ul .text-container .title-text h2 {
     font-size: 32px;
