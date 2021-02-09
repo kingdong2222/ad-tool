@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -7901,7 +7902,6 @@ body {
 .module-contact .second-content li img {
   width: 40px;
   margin-right: 24px;
-  padding-top: 8px;
 }
 .module-contact .second-content li .content p, .module-contact .second-content li .content a {
   font-size: 14px;
@@ -7970,7 +7970,6 @@ body {
   .module-contact .second-content li img {
     width: 50px;
     margin-right: 32px;
-    padding-top: 12px;
   }
   .module-contact .second-content li .content p, .module-contact .second-content li .content a {
     font-size: 16px;
@@ -8004,8 +8003,8 @@ body {
   padding: 0;
   margin-right: 16px;
   margin-top: 16px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (min-width: 992px) {
   .module-about {
@@ -8384,7 +8383,7 @@ body {
   width: 100%;
   margin-bottom: 24px;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #register .modal-body.custom-form .group-dropdown {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -8393,10 +8392,16 @@ body {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     margin-right: 80px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     margin-bottom: 40px;
   }
   #register .modal-body.custom-form .group-dropdown:last-child {
     margin-right: 0;
+  }
+  #register .modal-body.custom-form .group-dropdown label {
+    width: fit-contentẻ;
   }
   #register .modal-body.custom-form .group-dropdown .dropdown-group {
     margin-left: 24px;
@@ -8404,6 +8409,20 @@ body {
   }
   #register .modal-body.custom-form .group-dropdown .dropdown-group .dropdown.full-width {
     width: unset;
+  }
+}
+@media (min-width: 768px) {
+  #register .modal-body.custom-form .group-dropdown.dropdown-full {
+    margin-right: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  #register .modal-body.custom-form .group-dropdown.dropdown-full.is-error p.error {
+    position: relative !important;
+    top: auto;
   }
 }
 @media (min-width: 992px) {
@@ -8563,7 +8582,7 @@ body {
   color: #707070;
   display: block;
   cursor: pointer;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  border-bottom: 1px solid #eee;
 }
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu a:last-child {
   border-bottom: 0;
@@ -8597,7 +8616,7 @@ body {
   font-size: 12px;
   color: #dc3535;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #register .modal-body.custom-form .group-dropdown.is-error p.error {
     font-size: 14px;
     position: absolute;

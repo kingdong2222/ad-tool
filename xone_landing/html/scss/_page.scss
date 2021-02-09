@@ -945,7 +945,7 @@ body {
       img {
         width: 40px;
         margin-right: 24px;
-        padding-top: 8px;
+        // padding-top: 8px;
       }
       .content {
         p,a {
@@ -998,7 +998,7 @@ body {
         img {
           width: 50px;
           margin-right: 32px;
-          padding-top: 12px;
+          // padding-top: 12px;
         }
         .content {
           p,a {
@@ -1033,7 +1033,7 @@ body {
             padding: 0;
             margin-right: 16px;
             margin-top: 16px;
-            object-fit: contain;
+            object-fit: cover;
           }
         }
       }
@@ -1244,12 +1244,16 @@ body {
         flex-wrap: wrap;
         width: 100%;
         margin-bottom: 24px;
-        @include media-breakpoint-up(lg) {
+        @media (min-width: 768px) {
           flex-direction: row;
           flex-wrap: nowrap;
           margin-right: 80px;
+          width: fit-content;
           &:last-child{
             margin-right: 0;
+          }
+          label{
+            width: fit-contentẻ;
           }
           margin-bottom: 40px;
           .dropdown-group{
@@ -1261,13 +1265,23 @@ body {
           }
         }
         &.dropdown-full{
+          @media (min-width: 768px) {
+            margin-right: 0;
+            flex-direction: column;
+            width: 100%;
+            &.is-error{
+              p.error{
+                position: relative !important;
+                top: auto;
+              }
+            }
+          }
           @include media-breakpoint-up(lg) {
             label{
               white-space: nowrap;
               margin-right: 24px;
             }
           }
-          
         }
         &.one-line{
           flex-direction: row;
@@ -1391,7 +1405,7 @@ body {
               color: #707070;
               display: block;
               cursor: pointer;
-              border-bottom: 1px solid rgba(#808080,0.5);
+              border-bottom: 1px solid #eee;
               &:last-child{
                 border-bottom: 0;
               }
@@ -1423,7 +1437,7 @@ body {
             margin-top: 4px;
             font-size: 12px;
             color: #dc3535;
-            @include media-breakpoint-up(lg) {
+            @media (min-width:768px){
               font-size: 14px;
               position: absolute;
               left: 0;
