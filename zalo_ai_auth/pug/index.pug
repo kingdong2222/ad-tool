@@ -1,0 +1,54 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var loading = false
+	- var dockbar = false
+	- var tooltip = true
+	- var popup = true
+	- var modal = false
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("")
+	- layoutClasses.push("ad-mobile")
+	- bodyClasses.push("page-content zalo-ai-auth")
+	- dockbarClasses.push("dockbar")
+
+//- Add Body
+block body
+	include page/_index.pug
+
+//- Add Dockbar
+block dockbar
+	//- include page/dockbar.pug
+
+//- Add Modal
+block modal
+	//- include page/modal_alert.pug
+	
+//- Add Popup
+block popup
+	include page/popup_avatar.pug
+	include page/popup_id.pug
+
+block javaScripts extend
+	script.
+		document.getElementById('start').onclick = () => {
+			let first = document.getElementById('first-screen')
+			let second = document.getElementById('second-screen')
+			first.classList.add('is-hidden')
+			second.classList.remove('is-hidden')
+		}
+
+		$(".func-popup-filterAd").click(function(){
+			$("html").addClass("overlay-popup");
+			$("#popup-filterAd").addClass("is-show");
+		});
+		$(".func-close-popup").click(function(){
+			$("html").removeClass("overlay-popup");
+			$(".popup-container").removeClass("is-show");
+		});
