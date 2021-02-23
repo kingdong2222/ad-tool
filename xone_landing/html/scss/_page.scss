@@ -157,7 +157,11 @@ body {
   }
   header {
     @extend %tr-all;
-    background-color: transparent;
+    background-color: #fff;
+    @include position(fixed, 0 0 null 0);
+    @include media-breakpoint-up(lg){
+      height: 70px;
+    }
     // .button{
     //   @extend %tr-all;
     // }
@@ -175,6 +179,7 @@ body {
         margin-left: auto;
         padding-left: 32px;
         padding-right: 32px;
+        
         .logo {
           @include size(80px, 70px);
           a {
@@ -231,8 +236,8 @@ body {
     }
     &.fixed-header {
       @include media-breakpoint-up(lg) {
-        @include position(fixed, 0 0 null 0);
-        z-index: 1000;
+        
+        z-index: 9999;
         background-color: $color-main;
         // height: 70px;
         .menu-wrap {
@@ -268,11 +273,18 @@ body {
     position: relative;
     z-index: 999;
     display: inline-block;
-    box-shadow: 13px 11px 30px 0px rgba(255, 249, 145, 0.59);;
+    box-shadow: 13px 11px 30px 0px rgba(255, 249, 145, 0.59);
     @include media-breakpoint-up(lg) {
       font-size: 24px;
       line-height: 32px;
       padding: 12px 36px;
+    }
+    &:disabled{
+      opacity: 0.5;
+      cursor: not-allowed;
+      &:hover{
+        background-color: $color-main;
+      }
     }
   }
   .title {
@@ -295,6 +307,9 @@ body {
 .module-first {
   max-width: 1440px;
   margin: 0 auto;
+  @include media-breakpoint-up(lg) {
+    margin-top: 70px;
+  }
   .container{
     display: flex;
     flex-direction: column;
@@ -400,6 +415,9 @@ body {
       }
     }
     .desc {
+      span{
+        white-space: nowrap;
+      }
       strong {
         white-space: nowrap;
       }
@@ -566,7 +584,7 @@ body {
       padding-top: 96px;
       padding-right: 32px;
       padding-left: 32px;
-      padding-bottom: 64px;
+      padding-bottom: 0px;
       margin: 0 auto;
     }
     .intro-desc{
@@ -1033,6 +1051,7 @@ body {
             padding: 0;
             margin-right: 16px;
             margin-top: 16px;
+            margin-bottom: 16px;
             object-fit: cover;
           }
         }
@@ -1139,19 +1158,30 @@ body {
       .header-form{
         margin-bottom: 32px;
         h2{
-          font-size: 32px;
+          font-size: 20px;
+          text-align: center;
+          width: 220px;
+          margin: 0 auto;
+          &::after {
+            content: "";
+            display: block;
+            height: 8px;
+            background-color: #fbec21;
+            width: 100%;
+            margin-top: -8px;
+          }
           @include media-breakpoint-up(lg) {
             font-size: 40px;
-            text-align: center;
             width: 480px;
             text-transform: uppercase;
+            line-height: 56px;
             &::after {
               content: "";
               display: block;
-              height: 16px;
+              height: 18px;
               background-color: $color-main;
               width: 100%;
-              margin-top: -20px;
+              margin-top: -18px;
             }
           }
         }
@@ -1247,7 +1277,7 @@ body {
         @media (min-width: 768px) {
           flex-direction: row;
           flex-wrap: nowrap;
-          margin-right: 80px;
+          // margin-right: 80px;
           width: fit-content;
           &:last-child{
             margin-right: 0;
@@ -1375,6 +1405,15 @@ body {
               // }
             }
             
+            &#university{
+              span{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: calc(100vw - 64px);
+              }
+              
+            }
           }
           .dropdown-menu{
             max-height: 300px;
@@ -1391,13 +1430,16 @@ body {
               top: 4px !important;
               max-width: 420px;
             }
-            &#university-menu{
+            &#university-menu, &#mobile-menu{
               input{
                 margin: 0;
                 padding: 12px 20px;
                 background-color: #f1f1f1;
+                border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+                min-width: 180px;
               }
             }
+            
             a{
               padding: 12px 20px;
               line-height: 1.4;
@@ -1406,6 +1448,9 @@ body {
               display: block;
               cursor: pointer;
               border-bottom: 1px solid #eee;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: calc(100vw - 32px);
               &:last-child{
                 border-bottom: 0;
               }
@@ -1475,7 +1520,7 @@ body {
         @include media-breakpoint-up(lg) {
           width: unset;
           margin-bottom: 40px;
-          margin-right: 80px;
+          // margin-right: 80px;
         }
         &.topic-choosing{
           .group-radio-form{
@@ -1641,6 +1686,12 @@ body {
       }
       .input-has-label{
         position: relative;
+        &.school-input{
+          max-width: 100%;
+          @media only screen and (min-width: 768px){
+            max-width: 60%;
+          }
+        }
         input{
           padding-top: 24px;
           transition: 0.4s all ease;
@@ -1690,7 +1741,7 @@ body {
           border-width: 2px;
           border-color: rgb(221, 221, 221);
           // padding-top: 24px;
-          padding-left: 174px;
+          padding-left: 180px;
           
         }
         input:focus{
@@ -1735,6 +1786,7 @@ body {
                 //   padding-top: 10px;
                 // }
               }
+              
             }
             .dropdown-menu{
               max-height: 300px;
@@ -1744,18 +1796,20 @@ body {
               padding: 0;
               width: 100%;
               min-width: unset;
-              top: 2px !important;
+              top: 4px !important;
               min-width: fit-content;
               max-width: 100%;
               @include media-breakpoint-up(lg) {
                 top: 4px !important;
                 max-width: 420px;
               }
-              &#university-menu{
+              &#university-menu, &#mobile-menu{
                 input{
                   margin: 0;
                   padding: 12px 20px;
                   background-color: #f1f1f1;
+                  border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+                  min-width: 180px;
                 }
               }
               a{
@@ -1766,6 +1820,15 @@ body {
                 display: block;
                 cursor: pointer;
                 border-bottom: 1px solid rgba(#808080,0.5);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: calc(100vw - 144px);
+                @media only screen and (min-width: 768px){
+                  max-width: 250px
+                }
+                @include media-breakpoint-up(lg) {
+                  max-width: 300px
+                }
                 &:last-child{
                   border-bottom: 0;
                 }
@@ -1792,6 +1855,14 @@ body {
             max-width: 48% !important;
           }
         }
+      }
+      .group-dropdown + .group-radio, 
+      .group-radio + .dropdown-full{
+        padding-top: 24px;
+      }
+      .group-dropdown + .upload-form,
+      .group-radio + .upload-form {
+        margin-top: 48px;
       }
     }
   }

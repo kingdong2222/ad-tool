@@ -606,7 +606,7 @@ $(function ($) {
 
 window.onscroll = function () {
   if (screen.width >= 1024) {
-    if ($(window).scrollTop() >= 10) {
+    if ($(window).scrollTop() >= 8) {
       $("header").addClass("fixed-header");
     } else {
       $("header").removeClass("fixed-header");

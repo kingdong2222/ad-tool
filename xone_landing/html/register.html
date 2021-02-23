@@ -57,7 +57,7 @@
                   </div>
                   <div class="dropdown">
                     <div class="dropdown-toggle" id="dropdownMonth" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Tháng</span></div>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMonth"><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMonth"><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a></div>
                   </div>
                   <div class="dropdown">
                     <div class="dropdown-toggle" id="dropdownDay" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Năm</span></div>
@@ -79,13 +79,13 @@
                 <input type="email" placeholder=" " id="email">
                 <label for="email">Email</label>
               </div>
-              <div class="mobile-number-label">
+              <div class="mobile-number-label is-error">
                 <input type="tel" id="tel" placeholder=" ">
                 <div class="placeholde-block">
                   <label for="tel">Số điện thoại</label>
                   <div class="dropdown">
-                    <div class="dropdown-toggle is-no-select" id="dropdownMobileCountry" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="value">VN +84</span></div>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMobileCountry"><a class="dropdown-item">American Samoa</a><a class="dropdown-item">United State</a></div>
+                    <div class="dropdown-toggle" id="dropdownMobileCountry" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="value">VN +84</span></div>
+                    <div class="dropdown-menu" id="mobile-menu" aria-labelledby="dropdownMobileCountry"><input type="text" placeholder="Tìm kiếm.." id="mobileSearch" onkeyup="MobilefilterFunction()"><a class="dropdown-item">American Samoa American Samoa American Samoa American Samoa American Samoa</a><a class="dropdown-item">United State</a></div>
                   </div>
                 </div>
                 <p class="error">Vui lòng nhập thông tin</p>
@@ -98,12 +98,12 @@
             <div class="group-dropdown dropdown-full">
               <label>Trường Cao đẳng / Đại học</label>
               <div class="dropdown full-width no-full-desktop">
-                <div class="dropdown-toggle" id="university" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Chọn Trường</span></div>
-                <div class="dropdown-menu" id="university-menu" aria-labelledby="university"><input type="text" placeholder="Tìm kiếm.." id="uniSearch" onkeyup="filterFunction()"><a class="dropdown-item">Trường abc Trường abc Trường abc</a><a class="dropdown-item">Trường cde Trường abc Trường abc</a></div>
+                <div class="dropdown-toggle" id="university" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc</span></div>
+                <div class="dropdown-menu" id="university-menu" aria-labelledby="university"><input type="text" placeholder="Tìm kiếm.." id="uniSearch" onkeyup="filterFunction()"><a class="dropdown-item">Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc</a><a class="dropdown-item">Trường cde Trường abc Trường abc</a></div>
               </div>
             </div>
             <div class="input-group">
-              <div class="input-has-label" style="max-width: 60%; width: 100%;">
+              <div class="input-has-label school-input" style="width: 100%;">
                 <input type="text" placeholder=" " style="width: 100%;" id="school-name">
                 <label for="school-name">Trường Cao đẳng / Đại học</label>
               </div>
@@ -148,7 +148,7 @@
             <div class="group-dropdown dropdown-full is-error">
               <label>Bạn biết đến chương trình tuyển dụng từ nguồn nào?</label>
               <div class="dropdown full-width no-full-desktop">
-                <div class="dropdown-toggle is-error" id="sourceYouKnow" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Mạng xã hội (Facebook, Instagram,...)</span></div>
+                <div class="dropdown-toggle is-error" id="sourceYouKnow" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Chọn</span></div>
                 <div class="dropdown-menu" aria-labelledby="sourceYouKnow"><a class="dropdown-item">Mạng xã hội (Facebook, Instagram,...)</a><a class="dropdown-item">Tìm kiếm trang mạng</a></div>
               </div>
               <p class="error">Vui lòng chọn</p>
@@ -181,12 +181,14 @@
               <label>Bản thu âm 
                 <p class="sub">Định dạng .mp3, .wav, .wma, .m4a - Dung lượng ≤ 30MB</p>
               </label>
-              <input id="uploadTestVoice" type="file" name="uploadTestVoice" accept=".mp3, .wav, .wma, .m4a">
+              <input id="uploadTestVoice" type="file" name="uploadTestVoice" accept="audio/*">
               <label for="uploadTestVoice"><span>Tải lên</span></label>
             </div>
             <p class="error">Dung lượng file vượt giới hạn</p>
           </div>
-          <div class="button-container"><a class="button" id="submitForm" href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou">Nộp đơn</a></div>
+          <div class="button-container">
+            <button class="button" id="submitForm" href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou">Nộp đơn</button>
+          </div>
         </div>
       </div>
     </div>

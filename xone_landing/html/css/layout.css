@@ -7236,6 +7236,9 @@ body {
   line-height: 20px;
   text-align: center;
 }
+.module-content .intro-desc .desc span {
+  white-space: nowrap;
+}
 .module-content .intro-desc .desc strong {
   white-space: nowrap;
 }
@@ -8233,12 +8236,22 @@ body {
   margin-bottom: 32px;
 }
 #register .modal-body.custom-form .header-form h2 {
-  font-size: 32px;
+  font-size: 20px;
+  text-align: center;
+  width: 220px;
+  margin: 0 auto;
+}
+#register .modal-body.custom-form .header-form h2::after {
+  content: "";
+  display: block;
+  height: 8px;
+  background-color: #fbec21;
+  width: 100%;
+  margin-top: -8px;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .header-form h2 {
     font-size: 40px;
-    text-align: center;
     width: 480px;
     text-transform: uppercase;
     line-height: 56px;
@@ -8568,6 +8581,13 @@ body {
   height: 10px;
   margin-left: 16px;
 }
+#register .modal-body.custom-form .group-dropdown .dropdown .dropdown-toggle#university span {
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  max-width: calc(100vw - 64px);
+}
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu {
   max-height: 300px;
   overflow-x: hidden;
@@ -8592,6 +8612,8 @@ body {
   margin: 0;
   padding: 12px 20px;
   background-color: #f1f1f1;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+  min-width: 180px;
 }
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu a {
   padding: 12px 20px;
@@ -8601,6 +8623,10 @@ body {
   display: block;
   cursor: pointer;
   border-bottom: 1px solid #eee;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  max-width: calc(100vw - 32px);
 }
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu a:last-child {
   border-bottom: 0;
@@ -8688,7 +8714,6 @@ body {
   #register .modal-body.custom-form .group-radio {
     width: unset;
     margin-bottom: 40px;
-    margin-right: 80px;
   }
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form {
@@ -8879,6 +8904,14 @@ body {
 #register .modal-body.custom-form .input-has-label {
   position: relative;
 }
+#register .modal-body.custom-form .input-has-label.school-input {
+  max-width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  #register .modal-body.custom-form .input-has-label.school-input {
+    max-width: 60%;
+  }
+}
 #register .modal-body.custom-form .input-has-label input {
   padding-top: 24px;
   -webkit-transition: 0.4s all ease;
@@ -8942,7 +8975,7 @@ body {
   transition: 0.4s all ease;
   border-width: 2px;
   border-color: #dddddd;
-  padding-left: 174px;
+  padding-left: 180px;
 }
 #register .modal-body.custom-form .mobile-number-label input:focus {
   border-color: #FBEC21;
@@ -8991,7 +9024,7 @@ body {
   padding: 0;
   width: 100%;
   min-width: unset;
-  top: 2px !important;
+  top: 4px !important;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -9007,6 +9040,8 @@ body {
   margin: 0;
   padding: 12px 20px;
   background-color: #f1f1f1;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+  min-width: 180px;
 }
 #register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu a {
   padding: 12px 20px;
@@ -9016,6 +9051,20 @@ body {
   display: block;
   cursor: pointer;
   border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  max-width: calc(100vw - 144px);
+}
+@media only screen and (min-width: 768px) {
+  #register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu a {
+    max-width: 250px;
+  }
+}
+@media (min-width: 992px) {
+  #register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu a {
+    max-width: 300px;
+  }
 }
 #register .modal-body.custom-form .mobile-number-label .placeholde-block .dropdown .dropdown-menu a:last-child {
   border-bottom: 0;
@@ -9042,6 +9091,14 @@ body {
   #register .modal-body.custom-form .column-mb .input-has-label, #register .modal-body.custom-form .column-mb .mobile-number-label {
     max-width: 48% !important;
   }
+}
+#register .modal-body.custom-form .group-dropdown + .group-radio,
+#register .modal-body.custom-form .group-radio + .dropdown-full {
+  padding-top: 24px;
+}
+#register .modal-body.custom-form .group-dropdown + .upload-form,
+#register .modal-body.custom-form .group-radio + .upload-form {
+  margin-top: 48px;
 }
 
 .modal-backdrop.show {
