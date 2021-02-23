@@ -24,6 +24,16 @@ block home
 						.dropdown-menu(aria-labelledby="dropdownMonth")
 							a.dropdown-item Tháng 1
 							a.dropdown-item Tháng 2
+							a.dropdown-item Tháng 1
+							a.dropdown-item Tháng 2
+							a.dropdown-item Tháng 1
+							a.dropdown-item Tháng 2
+							a.dropdown-item Tháng 1
+							a.dropdown-item Tháng 2
+							a.dropdown-item Tháng 1
+							a.dropdown-item Tháng 2
+							a.dropdown-item Tháng 1
+							a.dropdown-item Tháng 2
 					.dropdown
 						.dropdown-toggle#dropdownDay(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
 							span.value Năm
@@ -43,15 +53,16 @@ block home
 			.input-has-label
 				input(type='email' placeholder=' ' id="email")
 				label(for="email") Email
-			.mobile-number-label
+			.mobile-number-label.is-error
 				input(type='tel' id="tel" placeholder=' ')
 				.placeholde-block
 					label(for="tel") Số điện thoại
 					.dropdown
-						.dropdown-toggle.is-no-select#dropdownMobileCountry(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+						.dropdown-toggle#dropdownMobileCountry(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
 							span.value VN +84
-						.dropdown-menu(aria-labelledby="dropdownMobileCountry")
-							a.dropdown-item American Samoa
+						.dropdown-menu#mobile-menu(aria-labelledby="dropdownMobileCountry")
+							<input type="text" placeholder="Tìm kiếm.." id="mobileSearch" onkeyup="MobilefilterFunction()">
+							a.dropdown-item American Samoa American Samoa American Samoa American Samoa American Samoa
 							a.dropdown-item United State
 				p.error Vui lòng nhập thông tin
 		.input-has-label
@@ -61,13 +72,13 @@ block home
 			label Trường Cao đẳng / Đại học
 			.dropdown.full-width.no-full-desktop
 				.dropdown-toggle#university(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
-					span.value Chọn Trường
+					span.value Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc
 				.dropdown-menu#university-menu(aria-labelledby="university")
 					<input type="text" placeholder="Tìm kiếm.." id="uniSearch" onkeyup="filterFunction()">
-					a.dropdown-item Trường abc Trường abc Trường abc
+					a.dropdown-item Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc
 					a.dropdown-item Trường cde Trường abc Trường abc
 		.input-group
-			.input-has-label( style="max-width: 60%; width: 100%;")
+			.input-has-label.school-input( style="width: 100%;")
 				input(type='text' placeholder=' ' style="width: 100%;" id="school-name")
 				label(for="school-name") Trường Cao đẳng / Đại học
 			.group-dropdown.one-line
@@ -109,7 +120,7 @@ block home
 			label Bạn biết đến chương trình tuyển dụng từ nguồn nào?
 			.dropdown.full-width.no-full-desktop
 				.dropdown-toggle.is-error#sourceYouKnow(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
-					span.value Mạng xã hội (Facebook, Instagram,...)
+					span.value Chọn
 				.dropdown-menu(aria-labelledby="sourceYouKnow")
 					a.dropdown-item Mạng xã hội (Facebook, Instagram,...)
 					a.dropdown-item Tìm kiếm trang mạng
@@ -135,9 +146,9 @@ block home
 		.upload-form.is-error
 			label Bản thu âm 
 				p.sub Định dạng .mp3, .wav, .wma, .m4a - Dung lượng ≤ 30MB
-			input#uploadTestVoice(type="file" name="uploadTestVoice" accept=".mp3, .wav, .wma, .m4a")
+			input#uploadTestVoice(type="file" name="uploadTestVoice" accept="audio/*")
 			label(for='uploadTestVoice')
 				span Tải lên
 		p.error Dung lượng file vượt giới hạn
 	.button-container
-		a.button#submitForm(href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou") Nộp đơn
+		button.button#submitForm(href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou") Nộp đơn

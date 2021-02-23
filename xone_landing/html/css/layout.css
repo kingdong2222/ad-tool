@@ -6919,6 +6919,7 @@ body {
   top: 0;
   right: 0;
   left: 0;
+  z-index: 9999;
 }
 @media (min-width: 992px) {
   .project-layout header {
@@ -7023,7 +7024,6 @@ body {
 }
 @media (min-width: 992px) {
   .project-layout header.fixed-header {
-    z-index: 9999;
     background-color: #FBEC21;
   }
   .project-layout header.fixed-header .menu-wrap ul li a.active, .project-layout header.fixed-header .menu-wrap ul li a:hover {
@@ -8229,7 +8229,7 @@ body {
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form {
-    padding: 64px 32px 32px;
+    padding: 128px 32px 32px;
   }
 }
 #register .modal-body.custom-form .header-form {

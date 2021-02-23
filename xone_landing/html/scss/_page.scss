@@ -159,6 +159,7 @@ body {
     @extend %tr-all;
     background-color: #fff;
     @include position(fixed, 0 0 null 0);
+    z-index: 9999;
     @include media-breakpoint-up(lg){
       height: 70px;
     }
@@ -237,7 +238,7 @@ body {
     &.fixed-header {
       @include media-breakpoint-up(lg) {
         
-        z-index: 9999;
+        
         background-color: $color-main;
         // height: 70px;
         .menu-wrap {
@@ -1153,7 +1154,7 @@ body {
     &.custom-form{
       padding: 48px 16px 16px;
       @include media-breakpoint-up(lg) {
-        padding: 64px 32px 32px;
+        padding: 128px 32px 32px;
       }
       .header-form{
         margin-bottom: 32px;
