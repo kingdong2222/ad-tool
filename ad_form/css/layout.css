@@ -9943,6 +9943,10 @@ select:invalid {
   width: 100%;
 }
 
+.dockbar {
+  width: 600px;
+  margin: 0 auto;
+}
 .dockbar .context-dockbar {
   position: fixed;
   bottom: 0;
@@ -9958,6 +9962,7 @@ select:invalid {
 }
 .dockbar .context-dockbar .button {
   min-width: 100px;
+  max-width: 600px;
 }
 .dockbar .context-dockbar .button:not(:last-child) {
   margin-right: 14px;

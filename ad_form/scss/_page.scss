@@ -371,6 +371,8 @@ select:invalid{color:#ccc}
 	width: 100%;
 }
 .dockbar{
+	width: 600px;
+	margin: 0 auto;
 	.context-dockbar {
 		position: fixed;
 		bottom: 0;
@@ -381,6 +383,7 @@ select:invalid{color:#ccc}
 		border-top: 1px solid #f1f5f8;
 		display: flex;
 		z-index: 99;
+		
 		.button{
 			min-width: 100px;
 			&:not(:last-child){
