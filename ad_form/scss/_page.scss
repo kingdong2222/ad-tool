@@ -24,6 +24,11 @@ body{
 	}
 }
 /* General */
+.controls{
+	.control{
+		@include padding(5px null);
+	}
+}
 .func-back{@include position(absolute, 9px null null 9px);z-index:12;display:flex;justify-content:center;align-items:center;@include size(40px);@include padding(6px);opacity:1;transition:all 0.35s ease;
 	.ico-wrap{background-color:$white;@include size(24px);@include padding(4px);border-radius:100%;box-shadow:0 0 3px rgba(0,0,0,0.8);}
 	[class^=icz]{display:block;@include size(16px);@include padding(0);color:$text;font-size:1rem;}
@@ -268,7 +273,7 @@ select:invalid{color:#ccc}
 }
 
 /* Error */ 
-.bl-error{background-color:$white;@include margin($gutter);@include padding($gutter);@extend %is-radius;box-shadow: 0 -12px 24px 0 rgba(67,86,100,0.03), 0 12px 24px 0 rgba(67,86,100,0.12);
+.bl-error{background-color:$white;@include margin($gutter);@include padding($gutter);@extend %is-radius;@extend %is-shadow;
 	.img-noid{display:block;max-width:240px;@include margin(null auto ($gutter/2))}
 	.img-error{display:block;max-width:240px;@include margin(null auto)}
 	.subtitle{margin-bottom: 0}
@@ -364,10 +369,10 @@ select:invalid{color:#ccc}
 				background-color: white;
 				min-width: 100%;
 				margin: 0 auto;
-				border-radius: 10px;
+				border-radius: 12px;
 				padding: $gutter;
 				margin-bottom: $gutter;
-				box-shadow: 0 0 6px rgba(175, 175, 175, 0.5);
+				@extend %is-shadow;
 				.avatar{
 					margin-top: -4px;
 				}
@@ -383,7 +388,7 @@ select:invalid{color:#ccc}
 					padding: $gutter;
 					border-radius: 12px;
   					background-color: #FFFFFF;
-  					box-shadow: 0 -12px 24px 0 rgba(67,86,100,0.03), 0 12px 24px 0 rgba(67,86,100,0.12);
+  					@extend %is-shadow;
 					&:last-child{
 						margin-bottom: 0;
 					}
@@ -397,8 +402,6 @@ select:invalid{color:#ccc}
 	width: 100%;
 }
 .dockbar{
-	width: 600px;
-	margin: 0 auto;
 	.context-dockbar {
 		position: fixed;
 		bottom: 0;
@@ -422,6 +425,13 @@ select:invalid{color:#ccc}
 		}
 		.is-outline + .is-fullwidth {
 			width: 70%;
+		}
+	}
+	@media screen and (min-width: 1024px){
+		.context-dockbar {
+			width: 600px;
+			left: 50%;
+    		margin-left: -300px;
 		}
 	}
 }

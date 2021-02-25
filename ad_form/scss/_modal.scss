@@ -50,6 +50,7 @@
 		}
 		&#tooltip-close{
 			.bl-tooltip-context{
+				font-size: unset;
 				p{
 					margin-bottom: $gutter;
 				}
