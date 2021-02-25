@@ -9766,9 +9766,14 @@ select:invalid {
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: #fff;
-  padding: 6px;
-  width: 100%;
+}
+.func-test a {
+  background-color: #f1f5f8;
+  padding: 2px 6px;
+  color: #5F656D;
+  font-size: 16px;
+  border: 1px dashed #989EA5;
+  border-radius: 8px;
 }
 
 @-webkit-keyframes outline {
@@ -9962,7 +9967,6 @@ select:invalid {
 }
 .dockbar .context-dockbar .button {
   min-width: 100px;
-  max-width: 600px;
 }
 .dockbar .context-dockbar .button:not(:last-child) {
   margin-right: 14px;

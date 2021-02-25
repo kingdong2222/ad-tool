@@ -259,8 +259,11 @@ select:invalid{color:#ccc}
 
 /* Test */ 
 .func-test{
-	@include position(absolute, 0 null null 0);z-index:100;background-color:#fff;@include padding(6px);
-	width: 100%;
+	@include position(absolute, 0 null null 0);z-index:100;;
+	a{
+		background-color:$grey-lighter;@include padding(2px 6px);color:$grey;font-size:16px;border:1px dashed $grey-light;border-radius:8px
+	}
+	
 }
 
 // Animation
