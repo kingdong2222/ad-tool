@@ -9954,6 +9954,7 @@ select:invalid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 99;
 }
 .dockbar .context-dockbar .button {
   min-width: 100px;
