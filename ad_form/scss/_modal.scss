@@ -14,7 +14,7 @@
 	}
 }
 .bl-tooltip{
-	.tooltip-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:$gutter;border-top-right-radius:$gutter;overflow:hidden;
+	.tooltip-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:12px;border-top-right-radius:12px;overflow:hidden;
 		@include from($tablet){left:50%;width:600px;margin-left:-300px}
 		.bl-tooltip-heading{
 			z-index: 10;
