@@ -41,18 +41,18 @@ block Popup
 		span Ảnh CMND/CCCD mặt trước
 		a.func-close-popup(href="javascript:void(0)")
 			i.icz.icz-close
-	.bl-popup-context.capture
+	.bl-popup-context.capture.is-hidden
 		p Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình
 		.camera 
 		button.button.is-primary.is-rounded 
 			img(src='./images/ico_capture.png')
-	.bl-popup-context.check-again
-		p.title Kiểm tra hình chụp
+	.bl-popup-context.check-again.is-hidden
+		h4 Kiểm tra hình chụp
 		p Đảm bảo ảnh chụp rõ ràng, dễ đọc và là hình CMND/CCCD bản gốc (không phải bản sao)
 		.camera 
 			img(src='./images/img_cccd_demo.png')
 		.buttons 
-			button.button.is-normal.is-oulined.is-large#captureAgain Chụp lại
+			button.button.is-normal.is-outlined.is-large#captureAgain Chụp lại
 			button.button.is-primary.is-large#acceptId Dùng ảnh này
 	.bl-popup-context.upload-loading
 		i.icz.icz-arrow-up

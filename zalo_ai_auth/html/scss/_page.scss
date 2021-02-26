@@ -675,6 +675,91 @@ ul.is-default{
 					img.intruction{
 						margin-top: -32px;
 					}
+					&.third{
+						padding-top: 12px;
+						.result{
+							margin-bottom: $gutter;
+							.container-blk{
+								display: flex;
+								flex-direction: row;
+								align-items: center;
+								justify-content: center;
+								i.icz{
+									font-size: 1em;
+									padding: 4px;
+									color: #fff;
+									border-radius: 99%;
+									margin-right: $gutter/2;
+								}
+							}
+							.container-blk + p{
+								margin-top: 8px;
+							}
+							p{
+								font-size: 1em;
+								font-weight: 500;
+								letter-spacing: 0;
+								line-height: 24px;
+							}
+							&.success{
+								color: #0CB8AB;
+								i.icz{
+									background-color: #0CB8AB;
+								}
+							}
+							&.error{
+								color: #D61F00;
+								i.icz{
+									background-color: #D61F00;
+								}
+							}
+							
+						}
+						.img-preview{
+							display: flex;
+							flex-direction: row;
+							justify-content: center;
+							align-items: center;
+							margin-bottom: $gutter;
+							.avatar-preview{
+								max-width: 110px;
+								margin-right: 12px;
+							}
+							.id-preview{
+								max-width: 180px
+							}
+						}
+						.result-block-content{
+							padding: 16px;
+							border-radius: 8px;
+ 							background-color: #F5F7FC;
+							h4{
+								font-size: 16px;
+								font-weight: 600;
+								letter-spacing: 0;
+								line-height: 19px;
+								margin-bottom: 12px;
+							}
+							.info-block{
+								display: flex;
+								flex-direction: row;
+								align-items: baseline;
+								margin-bottom: 32px;
+								.block{
+									margin-right: 12px;
+									margin-bottom: 0;
+									p{
+										text-align: start;
+										font-size: 14px;
+										letter-spacing: 0;
+										line-height: 28px;
+										font-weight: 400;
+									}
+									
+								}
+							}
+						}
+					}
 				}
 			}
 			.footer-block {
@@ -709,6 +794,19 @@ ul.is-default{
 							line-height: 18px;
 							color: #131820;
 							padding: 16px 0 16px 12px;
+						}
+					}
+				}
+				.third{
+					button{
+						&.is-primary{
+							margin-bottom: 20px;
+						}
+						&.go-back{
+							border: none;
+							padding: 0;
+							height: fit-content;
+							margin-bottom: 0;
 						}
 					}
 				}

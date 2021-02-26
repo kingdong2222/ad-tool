@@ -192,6 +192,91 @@
 				}
 			}
 		}
+		&#popup-id{
+			.bl-popup-context{
+				p{
+					font-size: 1em;
+					line-height: 24px;
+					color: $text;
+				}
+				.camera{
+					border-radius: 8px;
+					width: calc(100vw - 24px);
+					padding-top: 220px;
+					height: 220px;
+				}
+				&.capture{
+					p{
+						margin-bottom: 2em;
+					}
+					button{
+						width: 72px;
+						height:72px;
+						position: fixed;
+						bottom: 40px;
+						img{
+							width: 27px
+						}
+						&:after{
+							content: '';
+							border: 1px solid #fff;
+							border-radius: 99%;
+							width: 63px;
+							height: 63px;
+							position: absolute;
+							top: 4.5px;
+							left: 4.5px;
+						}
+					}
+				}
+				&.check-again{
+					.camera{
+						padding-top: unset;
+						background-color: unset;
+					}
+					h4{
+						font-size: 1.125em;
+						color: $text;
+						line-height: 36px;
+						font-weight: 600;
+						margin-bottom: 6px;
+					}
+					p{
+						margin-bottom: $gutter;
+					}
+					.buttons{
+						width: calc(100% - 48px);
+						position: fixed;
+						bottom: $gutter;
+						.is-normal{
+							width: 48%;
+							color: $text;
+						}
+					}
+				}
+				&.upload-loading{
+					padding-top: 0;
+					justify-content: center;
+					i{
+						font-size: 1.5em;
+						color: #fff;
+						background-color: $primary;
+						padding: 12px;
+						border-radius: 99%;
+						margin-bottom: 20px;
+					}
+					p{
+						font-weight: 500;
+						line-height: 24px;
+						&.grey{
+							opacity: 0.5;
+							font-weight: normal;
+							margin-top: 6px;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 @keyframes rotateBox{

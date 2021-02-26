@@ -44,10 +44,10 @@
           <div class="block-content first is-hidden"> 
             <p>Vui lòng thực hiện các thao tác xác thực khuôn mặt theo hướng dẫn</p><img class="intruction" src="./images/img_step1.png">
           </div>
-          <div class="block-content second">
+          <div class="block-content second is-hidden"> 
             <p>Xác thực CMND/CCCD</p><img class="intruction" src="./images/img_step2.png">
           </div>
-          <div class="block-content third is-hidden"> 
+          <div class="block-content third">
             <div class="result success">
               <div class="container-blk"><i class="icz icz-check"></i>
                 <h3>Xác minh danh tính thành công</h3>
@@ -70,7 +70,7 @@
                   <p>Họ và tên:</p>
                   <p>Ngày sinh:</p>
                   <p>Số CMND/CCCD:</p>
-                  <p>	Nơi cấp:</p>
+                  <p>Nơi cấp:</p>
                   <p>Ngày cấp:</p>
                 </div>
                 <div class="block">
@@ -99,7 +99,7 @@
             </div>
             <button class="button is-primary is-large is-fullwidth func-popup-avatarPhoto">Bắt đầu chụp</button>
           </div>
-          <div class="block-content second">
+          <div class="block-content second is-hidden"> 
             <div class="list-instruction"> 
               <div class="item"><img src="./images/ico_cccd_1.png">
                 <p>Ảnh chụp không bị chói lóa, mờ hay quá tối khiến thông tin không rõ ràng</p>
@@ -113,9 +113,9 @@
             </div>
             <button class="button is-primary is-fullwidth func-popup-Id">Bắt đầu chụp</button>
           </div>
-          <div class="block-content third is-hidden"> 
-            <button class="button is-primary is-fullwidth">Xác thực bằng Zalo</button>
-            <button class="cancel"> Bỏ qua</button>
+          <div class="block-content third">
+            <button class="button is-primary is-large is-fullwidth">Xác thực bằng Zalo</button>
+            <button class="button is-primary is-outlined is-large is-fullwidth go-back"> Bỏ qua</button>
           </div>
         </div>
       </div>
@@ -162,17 +162,17 @@
       </div>
       <div class="popup-container" id="popup-id">
         <div class="bl-popup-heading"><span>Ảnh CMND/CCCD mặt trước</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
-        <div class="bl-popup-context capture">
+        <div class="bl-popup-context capture is-hidden">
           <p>Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình</p>
           <div class="camera"> </div>
           <button class="button is-primary is-rounded"> <img src="./images/ico_capture.png"></button>
         </div>
-        <div class="bl-popup-context check-again">
-          <p class="title">Kiểm tra hình chụp</p>
+        <div class="bl-popup-context check-again is-hidden">
+          <h4>Kiểm tra hình chụp</h4>
           <p>Đảm bảo ảnh chụp rõ ràng, dễ đọc và là hình CMND/CCCD bản gốc (không phải bản sao)</p>
           <div class="camera"> <img src="./images/img_cccd_demo.png"></div>
           <div class="buttons"> 
-            <button class="button is-normal is-oulined is-large" id="captureAgain">Chụp lại</button>
+            <button class="button is-normal is-outlined is-large" id="captureAgain">Chụp lại</button>
             <button class="button is-primary is-large" id="acceptId">Dùng ảnh này</button>
           </div>
         </div>

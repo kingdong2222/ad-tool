@@ -24,10 +24,10 @@ block Body
 		.block-content.first.is-hidden 
 			p Vui lòng thực hiện các thao tác xác thực khuôn mặt theo hướng dẫn
 			img.intruction(src='./images/img_step1.png')
-		.block-content.second
+		.block-content.second.is-hidden 
 			p Xác thực CMND/CCCD
 			img.intruction(src='./images/img_step2.png')
-		.block-content.third.is-hidden 
+		.block-content.third
 			.result.success
 				.container-blk
 					i.icz.icz-check
@@ -49,7 +49,7 @@ block Body
 						p Họ và tên:
 						p Ngày sinh:
 						p Số CMND/CCCD:
-						p 	Nơi cấp:
+						p Nơi cấp:
 						p Ngày cấp:
 					.block
 						p Nguyễn Văn A
@@ -70,7 +70,7 @@ block Body
 					img(src='./images/ico_face_3.png')
 					p Không đeo kính, khẩu trang, che mặt
 			button.button.is-primary.is-large.is-fullwidth.func-popup-avatarPhoto Bắt đầu chụp
-		.block-content.second
+		.block-content.second.is-hidden 
 			.list-instruction 
 				.item
 					img(src='./images/ico_cccd_1.png')
@@ -82,6 +82,6 @@ block Body
 					img(src='./images/ico_cccd_3.png')
 					p Không để ngón tay hay vật dụng đè vào giấy tờ khi chụp
 			button.button.is-primary.is-fullwidth.func-popup-Id Bắt đầu chụp
-		.block-content.third.is-hidden 
-			button.button.is-primary.is-fullwidth Xác thực bằng Zalo
-			button.cancel  Bỏ qua
+		.block-content.third
+			button.button.is-primary.is-large.is-fullwidth Xác thực bằng Zalo
+			button.button.is-primary.is-outlined.is-large.is-fullwidth.go-back  Bỏ qua
