@@ -77,7 +77,7 @@
 	//.page-content{height:100%;overflow:hidden;transform-style:preserve-3d;transform-origin:0% 50%;animation:rotateBox 0.5s forwards ease-in;transition:all 0.5s;}
 	.bl-popup{z-index:102;opacity:1;visibility:visible;@extend %tr-all;
 		.popup-container{height:0;
-			&.is-show{z-index:1;bottom:0;height:98.5%;@extend %tr-all;
+			&.is-show{z-index:1;bottom:0;height:100%;@extend %tr-all;
 				.bl-popup-context{
 					&.has-fixed{
 						.bottom{opacity:1;visibility:visible;}
@@ -88,7 +88,9 @@
 	}
 }
 .bl-popup{
-	.popup-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:$gutter;border-top-right-radius:$gutter;overflow:hidden;
+	.popup-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;
+		// border-top-left-radius:$gutter;border-top-right-radius:$gutter;
+		overflow:hidden;
 		@include from($tablet){left:50%;width:600px;margin-left:-300px}
 		&#popup-daterangepicker{height:auto;}
 		&.has-calendar-right{height:98.5% !important;
@@ -98,14 +100,21 @@
 			.drp-calendar.right{display:block;}
 			.drp-calendar.left{margin-bottom:30px;}
 		}
-		.bl-popup-heading{display:flex;justify-content:center;align-items:center;@include position(absolute, 0 0 null 0);z-index:102;background-color:$white;height:50px;@include padding(null $gutter);border-bottom:1px solid $border;text-align:center;border-top-left-radius:$gutter;border-top-right-radius:$gutter;
+		.bl-popup-heading{
+			display:flex;justify-content:center;align-items:center;
+			// @include position(absolute, 0 0 null 0);
+			z-index:102;background-color:$white;
+			// border-bottom:1px solid $border;
+			text-align:center;
+			padding-top: 48px;
+			// border-top-left-radius:$gutter;border-top-right-radius:$gutter;
 			&.is-show-back{
 				.func-close-popup{display:none}
 				.func-back-popup{display:block}
 			}
 			span{color:$text;font-size:$size-large;font-weight:$weight-semibold}
-			[class^=func-]{@include position(absolute, 0 null null 0);@include size(50px);color:inherit;
-				[class^=icz]{display:inline-block;@include size(50px);@include padding(14px);font-size:1.325rem;vertical-align:middle}
+			[class^=func-]{@include position(absolute, null null null 6px);@include size(40px);color:inherit;
+				[class^=icz]{display:inline-block;@include size(40px);@include padding(10px);font-size:1.25rem;vertical-align:middle}
 				&.is-right{right:0;left:initial}
 			}
 			.func-back-popup{display:none;}
@@ -114,8 +123,18 @@
 				&.is-search{width:calc(100% - 30px);margin-left:30px}
 			}
 		}
-		.bl-popup-heading + .bl-popup-context{padding-top:64px}
-		.bl-popup-context{position:relative;z-index:101;height:100%;@include padding($gutter);overflow-y:scroll;-webkit-overflow-scrolling:touch;
+		.bl-popup-context{
+			position:relative;
+			z-index:101;
+			height:100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			@include padding(null 24px);
+			text-align: center;
+			overflow-y:hidden;
+			-webkit-overflow-scrolling:touch;
+			padding-top:48px;
 			&.is-grey{background-color:$grey-light}
 			&.is-crop{background-color:$text}
 			&.is-less{padding-top:49px}
@@ -125,6 +144,51 @@
 				}
 				.bottom{@include position(fixed, null 0 0 0);z-index:1;background-color:$white;@include padding($gutter);opacity:0;visibility:hidden;
 					@include from($desktop){max-width:600px;@include margin(null auto)}
+				}
+			}
+			.camera{
+				border-radius: 99%;
+				margin-bottom: 2em;
+				width: 285px;
+				height: 285px;
+    			padding-top: 285px;
+				background-color:  $text;
+			}
+			.content{
+				max-width: 300px;
+				.step{
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					p{
+						color: $text;
+						font-size: 1em;
+						line-height: 24px;
+						font-weight: 500;
+					}
+					img{
+						width: 96px;
+						height: auto;
+						margin-top: 24px;
+					}
+				}
+			}
+			&.successful{
+				.camera{
+					padding-top: unset;
+					background-color: unset;
+				}
+				.content{
+					.step{
+						p{
+							color: #0CB8AB
+						}
+					}
+				}
+				.button{
+					position: fixed;
+					bottom: 24px;
+					width: calc(100% - 48px);
 				}
 			}
 		}

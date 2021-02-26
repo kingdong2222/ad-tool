@@ -33,7 +33,6 @@ block modal
 //- Add Popup
 block popup
 	include page/popup_avatar.pug
-	include page/popup_id.pug
 
 block javaScripts extend
 	script.
@@ -44,9 +43,13 @@ block javaScripts extend
 			second.classList.remove('is-hidden')
 		}
 
-		$(".func-popup-filterAd").click(function(){
+		$(".func-popup-avatarPhoto").click(function(){
 			$("html").addClass("overlay-popup");
-			$("#popup-filterAd").addClass("is-show");
+			$("#popup-avatar").addClass("is-show");
+		});
+		$(".func-popup-Id").click(function(){
+			$("html").addClass("overlay-popup");
+			$("#popup-id").addClass("is-show");
 		});
 		$(".func-close-popup").click(function(){
 			$("html").removeClass("overlay-popup");

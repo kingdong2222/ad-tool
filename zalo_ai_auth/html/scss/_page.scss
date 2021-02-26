@@ -555,9 +555,7 @@ ul.is-default{
 	.body{
 		padding-top: 54px;
 		padding-bottom: 24px;
-		@media screen and (min-height: 670px) {
-			height: 100vh;
-		}
+		position: relative;
 		height: 100%;
 		&#first-screen{
 			position: relative;
@@ -598,7 +596,7 @@ ul.is-default{
 			}
 			.bottom-block{
 				@media screen and (min-height: 670px) {
-					position: absolute;
+					position: fixed;
 					bottom: 20px;
 					left: 0;
 					width: 100%;
@@ -620,6 +618,7 @@ ul.is-default{
 		}
 		&#second-screen{
 			.header-block{
+				margin-bottom: 48px;
 				.logo-block{
 					position: relative;
 					display: flex;
@@ -646,6 +645,9 @@ ul.is-default{
 					}
 				}
 				.tab-step{
+					display: flex;
+					align-items: center;
+					justify-content: center;
 					.step{
 						width: 32px;
 						height: 4px;
@@ -653,9 +655,60 @@ ul.is-default{
 						background: #D0D7DF;
 						opacity: 0.5;
 						transition: all 0.3s;
+						margin: 0 4px;
 						&.active{
 							opacity: 1;
 							background: #1744CF;
+						}
+					}
+				}
+			}
+			.body-block{
+				.block-content{
+					p{
+						font-size: 1em;
+						font-weight: 500;
+						line-height: 24px;
+						text-align: center;
+						color: #131820;
+					}
+					img.intruction{
+						margin-top: -32px;
+					}
+				}
+			}
+			.footer-block {
+				@media screen and (min-height: 670px) {
+					position: fixed;
+					bottom: 24px;
+					left: 24px;
+					width: calc(100% - 48px);
+				}
+				button{
+					height: 48px;
+				}
+				background-color: #F5F6F7;
+				border-radius: 8px;
+				.list-instruction {
+					padding: 1em;
+					.item{
+						margin-bottom: 12px;
+						display: flex;
+						align-items: center;
+						&:last-child{
+							margin-bottom: 0;
+						}
+						img{
+							width: 48px;
+							height: 48px;
+							padding: 8px;
+							object-fit: contain;
+						}
+						p{
+							font-size: 0.75em;
+							line-height: 18px;
+							color: #131820;
+							padding: 16px 0 16px 12px;
 						}
 					}
 				}

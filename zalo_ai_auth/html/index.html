@@ -21,8 +21,8 @@
   </head>
   <body>
     <div class="page-content zalo-ai-auth">
-      <div class="body" id="first-screen"><img class="logo" src="./images/zalo_ai/logo_zaloai.png">
-        <div class="banner"><img src="https://via.placeholder.com/375x258"></div>
+      <div class="body" id="first-screen"><img class="logo" src="./images/logo_zaloai.png">
+        <div class="banner"><img src="./images/img_intro.png"></div>
         <h2>Xác thực giấy tờ online </h2>
         <p>Để xác thực thông tin của bạn, chúng tôi cần một ảnh chụp xác thực mới nhất</p>
         <button class="button is-primary is-large" id="start">Bắt đầu</button>
@@ -33,7 +33,7 @@
       </div>
       <div class="body is-hidden" id="second-screen"> 
         <div class="header-block"> 
-          <div class="logo-block"><a class="go-back"><i class="icz icz-arrow-left"> </i></a><img class="logo" src="./images/zalo_ai/logo_zaloai.png"></div>
+          <div class="logo-block"><a class="go-back"><i class="icz icz-arrow-left"> </i></a><img class="logo" src="./images/logo_zaloai.png"></div>
           <div class="tab-step">
             <div class="step active" id="s1"> </div>
             <div class="step" id="s2"></div>
@@ -41,11 +41,11 @@
           </div>
         </div>
         <div class="body-block">
-          <div class="block-content first"> 
-            <p>Vui lòng thực hiện các thao tác xác thực khuôn mặt theo hướng dẫn</p><img class="intruction" src="https://via.placeholder.com/327x200">
+          <div class="block-content first is-hidden"> 
+            <p>Vui lòng thực hiện các thao tác xác thực khuôn mặt theo hướng dẫn</p><img class="intruction" src="./images/img_step1.png">
           </div>
-          <div class="block-content second is-hidden"> 
-            <p>Xác thực CMND/CCCD</p><img class="intruction" src="https://via.placeholder.com/327x200">
+          <div class="block-content second">
+            <p>Xác thực CMND/CCCD</p><img class="intruction" src="./images/img_step2.png">
           </div>
           <div class="block-content third is-hidden"> 
             <div class="result success">
@@ -60,8 +60,8 @@
               <p>Hình ảnh selfie không khớp hình ảnh cmnd</p>
             </div>
             <div class="img-preview"> 
-              <div class="avatar-preview"><img src="./images/zalo_ai/img_demo_person.png"></div>
-              <div class="id-preview"><img src="./images/zalo_ai/img_cccd_demo.png"></div>
+              <div class="avatar-preview"><img src="./images/img_demo_person.png"></div>
+              <div class="id-preview"><img src="./images/img_cccd_demo.png"></div>
             </div>
             <div class="result-block-content">
               <h4>Kết quả scan thông tin</h4>
@@ -85,33 +85,33 @@
           </div>
         </div>
         <div class="footer-block"> 
-          <div class="block-content first">
-            <div class="list-instruction"> 
-              <div class="item"><img src="https://via.placeholder.com/48">
+          <div class="block-content first is-hidden"> 
+            <div class="list-instruction">
+              <div class="item"><img src="./images/ico_face_1.png">
                 <p>Ảnh chụp không bị chói lóa, mờ hay quá tối</p>
               </div>
-              <div class="item"><img src="https://via.placeholder.com/48">
+              <div class="item"><img src="./images/ico_face_2.png">
                 <p>Chụp toàn bộ khuôn mặt, nhìn thẳng</p>
               </div>
-              <div class="item"> <img src="https://via.placeholder.com/48">
+              <div class="item"> <img src="./images/ico_face_3.png">
                 <p>Không đeo kính, khẩu trang, che mặt</p>
               </div>
             </div>
-            <button class="button is-primary is-fullwidth func-popup-avatarPhoto">Bắt đầu chụp</button>
+            <button class="button is-primary is-large is-fullwidth func-popup-avatarPhoto">Bắt đầu chụp</button>
           </div>
-          <div class="block-content second is-hidden"> 
+          <div class="block-content second">
             <div class="list-instruction"> 
-              <div class="item"><img src="https://via.placeholder.com/48">
+              <div class="item"><img src="./images/ico_cccd_1.png">
                 <p>Ảnh chụp không bị chói lóa, mờ hay quá tối khiến thông tin không rõ ràng</p>
               </div>
-              <div class="item"><img src="https://via.placeholder.com/48">
+              <div class="item"><img src="./images/ico_cccd_2.png">
                 <p>Chụp rõ 4 cạnh của CMND/CCCD</p>
               </div>
-              <div class="item"> <img src="https://via.placeholder.com/48">
+              <div class="item"> <img src="./images/ico_cccd_3.png">
                 <p>Không để ngón tay hay vật dụng đè vào giấy tờ khi chụp</p>
               </div>
             </div>
-            <button class="button is-primary is-fullwidth func-popup-avatarId">Bắt đầu chụp</button>
+            <button class="button is-primary is-fullwidth func-popup-Id">Bắt đầu chụp</button>
           </div>
           <div class="block-content third is-hidden"> 
             <button class="button is-primary is-fullwidth">Xác thực bằng Zalo</button>
@@ -123,400 +123,62 @@
     <div class="bl-tooltip">
     </div>
     <div class="bl-popup">
-      <div class="popup-container" id="popup-filterCampaign">
-        <div class="bl-popup-heading"><span>Bộ lọc chiến dịch</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next" href="javascript:void(0)">Reset</a></div>
-        <div class="bl-popup-context has-fixed">
-          <div class="field mb-4">
-            <div class="control has-icons-right func-open-daterange">
-              <input class="input" type="text" placeholder="06/01/2020 - 13/01/2020"><span class="icon is-right"><i class="icz icz-fill-calendar"></i></span>
+      <div class="popup-container" id="popup-avatar">
+        <div class="bl-popup-heading"><span>Xác thực khuôn mặt</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context scanning">
+          <div class="camera"></div>
+          <div class="content">
+            <div class="step" id="ava-0"> 
+              <p>Đầu tiên, bạn phải đặt khuôn mặt mình trong hình tròn. Sau đó bạn bắt đầu di chuyển theo hướng dẫn</p>
+              <button class="feature-hidden" id="toStep1">nhấn để chuyển</button>
             </div>
-          </div>
-          <div class="checkbox-list">
-            <h4 class="is-size-7 has-text-primary has-text-weight-semibold">Trạng thái chiến dịch</h4>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttcd-1" name="option" type="radio">
-                <label class="label-custom" for="ttcd-1">Tạm dừng</label>
-              </div>
+            <div class="step" id="1">
+              <p>Vui lòng quay mặt từ từ sang trái</p><img src="./images/img_head_left.png">
+              <button class="feature-hidden" id="toStep2">nhấn để chuyển</button>
             </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttcd-2" name="option" type="radio">
-                <label class="label-custom" for="ttcd-2">Đang chạy</label>
-              </div>
+            <div class="step is-hidden" id="2"> 
+              <p>Vui lòng quay mặt từ từ sang phải</p><img src="./images/img_head_right.png">
+              <button class="feature-hidden" id="toStep3">nhấn để chuyển</button>
             </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttcd-3" name="option" type="radio">
-                <label class="label-custom" for="ttcd-3">Hoàn tất</label>
-              </div>
+            <div class="step is-hidden" id="3"> 
+              <p>Vui lòng ngước mặt lên từ từ</p><img src="./images/img_head_up.png">
+              <button class="feature-hidden" id="toStep4">nhấn để chuyển</button>
             </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttcd-4" name="option" type="radio">
-                <label class="label-custom" for="ttcd-4">Không chạy</label>
-              </div>
+            <div class="step is-hidden" id="4"> 
+              <p>Vui lòng cúi mặt xuống từ từ</p><img src="./images/img_head_down.png">
+              <button class="feature-hidden" id="toSuccess">nhấn để chuyển</button>
             </div>
-            <div class="mb-4"></div>
-            <h4 class="is-size-7 has-text-primary has-text-weight-semibold">Loại chiến dịch</h4>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-1" name="option" type="radio">
-                <label class="label-custom" for="lcd-1">QC Zalo Official Account</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-2" name="option" type="radio">
-                <label class="label-custom" for="lcd-2">QC Website</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-3" name="option" type="radio">
-                <label class="label-custom" for="lcd-3">QC Bài viết</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-4" name="option" type="radio">
-                <label class="label-custom" for="lcd-4">QC Album-Bài hát-Video Clip</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-5" name="option" type="radio">
-                <label class="label-custom" for="lcd-5">Tối ưu hóa hiển thị bài PR</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-6" name="option" type="radio">
-                <label class="label-custom" for="lcd-6">QC Video</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-7" name="option" type="radio">
-                <label class="label-custom" for="lcd-7">QC sản phẩm trên Zalo</label>
-              </div>
-            </div>
-          </div>
-          <div class="bottom">
-            <button class="button is-primary is-large is-fullwidth">Áp dụng bộ lọc</button>
           </div>
         </div>
-      </div>
-      <div class="popup-container" id="popup-filterAd">
-        <div class="bl-popup-heading"><span>Bộ lọc quảng cáo</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next" href="javascript:void(0)">Reset</a></div>
-        <div class="bl-popup-context has-fixed">
-          <div class="field mb-4">
-            <div class="control has-icons-right">
-              <input class="input" type="text" placeholder="06/01/2020 - 13/01/2020"><span class="icon is-right"><i class="icz icz-fill-calendar"></i></span>
+        <div class="bl-popup-context successful is-hidden">
+          <div class="camera"> <img src="./images/img_demo_person.png"></div>
+          <div class="content">
+            <div class="step">
+              <p>Xác thực khuôn mặt thành công</p>
             </div>
           </div>
-          <div class="checkbox-list">
-            <h4 class="is-size-7 has-text-primary has-text-weight-semibold">Trạng thái quảng cáo</h4>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-1" name="option" type="radio">
-                <label class="label-custom" for="ttqc-1">Tạo mới</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-2" name="option" type="radio">
-                <label class="label-custom" for="ttqc-2">Chờ duyệt</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-3" name="option" type="radio">
-                <label class="label-custom" for="ttqc-3">Bị từ chối</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-4" name="option" type="radio">
-                <label class="label-custom" for="ttqc-4">Đang chạy</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-5" name="option" type="radio">
-                <label class="label-custom" for="ttqc-5">Tạm dừng</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-6" name="option" type="radio">
-                <label class="label-custom" for="ttqc-6">Hoàn tất</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-7" name="option" type="radio">
-                <label class="label-custom" for="ttqc-7">Dừng hoạt động</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-8" name="option" type="radio">
-                <label class="label-custom" for="ttqc-8">Không chạy (chiến dịch đã tạm dừng)</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-9" name="option" type="radio">
-                <label class="label-custom" for="ttqc-9">Không chạy (chờ lịch chạy)</label>
-              </div>
-            </div>
-            <div class="mb-4"></div>
-            <h4 class="is-size-7 has-text-primary has-text-weight-semibold">Loại chiến dịch</h4>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-1" name="option" type="radio">
-                <label class="label-custom" for="lcd-1">QC Zalo Official Account</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-2" name="option" type="radio">
-                <label class="label-custom" for="lcd-2">QC Website</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-3" name="option" type="radio">
-                <label class="label-custom" for="lcd-3">QC Bài viết</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-4" name="option" type="radio">
-                <label class="label-custom" for="lcd-4">QC Album-Bài hát-Video Clip</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-5" name="option" type="radio">
-                <label class="label-custom" for="lcd-5">Tối ưu hóa hiển thị bài PR</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-6" name="option" type="radio">
-                <label class="label-custom" for="lcd-6">QC Video</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-7" name="option" type="radio">
-                <label class="label-custom" for="lcd-7">QC sản phẩm trên Zalo</label>
-              </div>
-            </div>
-          </div>
-          <div class="bottom">
-            <button class="button is-primary is-large is-fullwidth">Áp dụng bộ lọc</button>
-          </div>
+          <button class="button is-primary is-large is-fullwidth">Tiếp tục</button>
         </div>
       </div>
-      <div class="popup-container" id="popup-filterCampaign">
-        <div class="bl-popup-heading"><span>Bộ lọc chiến dịch</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next" href="javascript:void(0)">Reset</a></div>
-        <div class="bl-popup-context has-fixed">
-          <div class="field mb-4">
-            <div class="control has-icons-right func-open-daterange">
-              <input class="input" type="text" placeholder="06/01/2020 - 13/01/2020"><span class="icon is-right"><i class="icz icz-fill-calendar"></i></span>
-            </div>
-          </div>
-          <div class="checkbox-list">
-            <h4 class="is-size-7 has-text-primary has-text-weight-semibold">Trạng thái chiến dịch</h4>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttcd-1" name="option" type="radio">
-                <label class="label-custom" for="ttcd-1">Tạm dừng</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttcd-2" name="option" type="radio">
-                <label class="label-custom" for="ttcd-2">Đang chạy</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttcd-3" name="option" type="radio">
-                <label class="label-custom" for="ttcd-3">Hoàn tất</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttcd-4" name="option" type="radio">
-                <label class="label-custom" for="ttcd-4">Không chạy</label>
-              </div>
-            </div>
-            <div class="mb-4"></div>
-            <h4 class="is-size-7 has-text-primary has-text-weight-semibold">Loại chiến dịch</h4>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-1" name="option" type="radio">
-                <label class="label-custom" for="lcd-1">QC Zalo Official Account</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-2" name="option" type="radio">
-                <label class="label-custom" for="lcd-2">QC Website</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-3" name="option" type="radio">
-                <label class="label-custom" for="lcd-3">QC Bài viết</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-4" name="option" type="radio">
-                <label class="label-custom" for="lcd-4">QC Album-Bài hát-Video Clip</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-5" name="option" type="radio">
-                <label class="label-custom" for="lcd-5">Tối ưu hóa hiển thị bài PR</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-6" name="option" type="radio">
-                <label class="label-custom" for="lcd-6">QC Video</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-7" name="option" type="radio">
-                <label class="label-custom" for="lcd-7">QC sản phẩm trên Zalo</label>
-              </div>
-            </div>
-          </div>
-          <div class="bottom">
-            <button class="button is-primary is-large is-fullwidth">Áp dụng bộ lọc</button>
+      <div class="popup-container" id="popup-id">
+        <div class="bl-popup-heading"><span>Ảnh CMND/CCCD mặt trước</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context capture">
+          <p>Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình</p>
+          <div class="camera"> </div>
+          <button class="button is-primary is-rounded"> <img src="./images/ico_capture.png"></button>
+        </div>
+        <div class="bl-popup-context check-again">
+          <p class="title">Kiểm tra hình chụp</p>
+          <p>Đảm bảo ảnh chụp rõ ràng, dễ đọc và là hình CMND/CCCD bản gốc (không phải bản sao)</p>
+          <div class="camera"> <img src="./images/img_cccd_demo.png"></div>
+          <div class="buttons"> 
+            <button class="button is-normal is-oulined is-large" id="captureAgain">Chụp lại</button>
+            <button class="button is-primary is-large" id="acceptId">Dùng ảnh này</button>
           </div>
         </div>
-      </div>
-      <div class="popup-container" id="popup-filterAd">
-        <div class="bl-popup-heading"><span>Bộ lọc quảng cáo</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next" href="javascript:void(0)">Reset</a></div>
-        <div class="bl-popup-context has-fixed">
-          <div class="field mb-4">
-            <div class="control has-icons-right">
-              <input class="input" type="text" placeholder="06/01/2020 - 13/01/2020"><span class="icon is-right"><i class="icz icz-fill-calendar"></i></span>
-            </div>
-          </div>
-          <div class="checkbox-list">
-            <h4 class="is-size-7 has-text-primary has-text-weight-semibold">Trạng thái quảng cáo</h4>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-1" name="option" type="radio">
-                <label class="label-custom" for="ttqc-1">Tạo mới</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-2" name="option" type="radio">
-                <label class="label-custom" for="ttqc-2">Chờ duyệt</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-3" name="option" type="radio">
-                <label class="label-custom" for="ttqc-3">Bị từ chối</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-4" name="option" type="radio">
-                <label class="label-custom" for="ttqc-4">Đang chạy</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-5" name="option" type="radio">
-                <label class="label-custom" for="ttqc-5">Tạm dừng</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-6" name="option" type="radio">
-                <label class="label-custom" for="ttqc-6">Hoàn tất</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-7" name="option" type="radio">
-                <label class="label-custom" for="ttqc-7">Dừng hoạt động</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-8" name="option" type="radio">
-                <label class="label-custom" for="ttqc-8">Không chạy (chiến dịch đã tạm dừng)</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="ttqc-9" name="option" type="radio">
-                <label class="label-custom" for="ttqc-9">Không chạy (chờ lịch chạy)</label>
-              </div>
-            </div>
-            <div class="mb-4"></div>
-            <h4 class="is-size-7 has-text-primary has-text-weight-semibold">Loại chiến dịch</h4>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-1" name="option" type="radio">
-                <label class="label-custom" for="lcd-1">QC Zalo Official Account</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-2" name="option" type="radio">
-                <label class="label-custom" for="lcd-2">QC Website</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-3" name="option" type="radio">
-                <label class="label-custom" for="lcd-3">QC Bài viết</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-4" name="option" type="radio">
-                <label class="label-custom" for="lcd-4">QC Album-Bài hát-Video Clip</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-5" name="option" type="radio">
-                <label class="label-custom" for="lcd-5">Tối ưu hóa hiển thị bài PR</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-6" name="option" type="radio">
-                <label class="label-custom" for="lcd-6">QC Video</label>
-              </div>
-            </div>
-            <div class="item-checkbox">
-              <div class="input-group-checkbox is-sr">
-                <input id="lcd-7" name="option" type="radio">
-                <label class="label-custom" for="lcd-7">QC sản phẩm trên Zalo</label>
-              </div>
-            </div>
-          </div>
-          <div class="bottom">
-            <button class="button is-primary is-large is-fullwidth">Áp dụng bộ lọc</button>
-          </div>
+        <div class="bl-popup-context upload-loading"><i class="icz icz-arrow-up"></i>
+          <p>Đang tải ảnh…</p>
+          <p class="grey">Vui lòng chờ trong giây lát</p>
         </div>
       </div>
     </div>
@@ -534,9 +196,13 @@
       	second.classList.remove('is-hidden')
       }
       
-      $(".func-popup-filterAd").click(function(){
+      $(".func-popup-avatarPhoto").click(function(){
       	$("html").addClass("overlay-popup");
-      	$("#popup-filterAd").addClass("is-show");
+      	$("#popup-avatar").addClass("is-show");
+      });
+      $(".func-popup-Id").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$("#popup-id").addClass("is-show");
       });
       $(".func-close-popup").click(function(){
       	$("html").removeClass("overlay-popup");
