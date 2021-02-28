@@ -1,6 +1,6 @@
 block Body
 
-.body#first-screen
+.body#first-screen.is-hidden
 	img.logo(src='./images/logo_zaloai.png')
 	.banner
 		img(src='./images/img_intro.png')
@@ -21,13 +21,13 @@ block Body
 			.step#s2
 			.step#s3 
 	.body-block
-		.block-content.first.is-hidden 
+		.block-content.first
 			p Vui lòng thực hiện các thao tác xác thực khuôn mặt theo hướng dẫn
 			img.intruction(src='./images/img_step1.png')
 		.block-content.second.is-hidden 
 			p Xác thực CMND/CCCD
 			img.intruction(src='./images/img_step2.png')
-		.block-content.third
+		.block-content.third.is-hidden 
 			.result.success
 				.container-blk
 					i.icz.icz-check
@@ -58,7 +58,7 @@ block Body
 						p Tp.Hồ Chí Minh
 						p 02/02/2018
 	.footer-block 
-		.block-content.first.is-hidden 
+		.block-content.first 
 			.list-instruction
 				.item
 					img(src='./images/ico_face_1.png')
@@ -82,6 +82,17 @@ block Body
 					img(src='./images/ico_cccd_3.png')
 					p Không để ngón tay hay vật dụng đè vào giấy tờ khi chụp
 			button.button.is-primary.is-fullwidth.func-popup-Id Bắt đầu chụp
-		.block-content.third
-			button.button.is-primary.is-large.is-fullwidth Xác thực bằng Zalo
-			button.button.is-primary.is-outlined.is-large.is-fullwidth.go-back  Bỏ qua
+		.block-content.third.is-hidden
+			button.button.is-primary.is-large.is-fullwidth#verifyZalo Xác thực bằng Zalo
+			button.button.is-primary.is-outlined.is-large.is-fullwidth.go-back-home  Bỏ qua
+.body#verifyZaloScreen
+	.header-block 
+		.logo-block
+			a.go-back
+				i.icz.icz-arrow-left 
+			img.logo(src='./images/logo_zaloai.png')
+		
+	.footer-block 
+		p Vui lòng nhập số điện thoại đăng ký Zalo
+		input(type='tel' id="phoneInput")
+		button.button.is-primary.is-large.is-fullwidth.func-popup-verifyResult Kiểm tra

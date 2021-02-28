@@ -137,4 +137,4 @@
 }
 
 /* Hidden */ 
-.feature-hidden{position:relative;background-color:$grey-lighter;@include padding(2px 4px);color:$grey;font-size:62.5%;border:1px dashed $grey-light;border-radius:8px}
+.feature-hidden{margin: 2em 0; position:relative;background-color:$grey-lighter;@include padding(2px 4px);color:$grey;font-size:62.5%;border:1px dashed $grey-light;border-radius:8px}

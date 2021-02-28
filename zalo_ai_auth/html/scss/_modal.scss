@@ -255,6 +255,7 @@
 					}
 				}
 				&.upload-loading{
+					
 					padding-top: 0;
 					justify-content: center;
 					i{
@@ -264,6 +265,7 @@
 						padding: 12px;
 						border-radius: 99%;
 						margin-bottom: 20px;
+						animation: move 0.7s infinite alternate;
 					}
 					p{
 						font-weight: 500;
@@ -278,6 +280,10 @@
 			}
 		}
 	}
+}
+@keyframes move{
+	0% { transform: translateY(0); }
+    100% { transform: translateY(-12px); }
 }
 @keyframes rotateBox{
 	50%{transform:scale(0.92, 1);transform-origin:center top;}

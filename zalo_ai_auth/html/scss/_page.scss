@@ -744,7 +744,7 @@ ul.is-default{
 								display: flex;
 								flex-direction: row;
 								align-items: baseline;
-								margin-bottom: 32px;
+								// margin-bottom: 32px;
 								.block{
 									margin-right: 12px;
 									margin-bottom: 0;
@@ -798,16 +798,53 @@ ul.is-default{
 					}
 				}
 				.third{
+					padding-top: 32px;
+					background-color: #fff;
+					@media screen and (min-height: 670px) {
+						padding-top: 0;
+					}
 					button{
 						&.is-primary{
 							margin-bottom: 20px;
 						}
-						&.go-back{
+						&.go-back, &.go-back-home{
 							border: none;
 							padding: 0;
 							height: fit-content;
 							margin-bottom: 0;
 						}
+					}
+				}
+			}
+		}
+		&#verifyZaloScreen{
+			background: url('../images/bg_ai.png') center center no-repeat;
+			background-size: cover;
+			.header-block{
+				.logo-block{
+					position: relative;
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+					margin-bottom: 24px;
+					.go-back{
+						position: absolute;
+						left: 0;
+						padding: 6px;
+						border: 0;
+						background: #F0F2F6;
+						border-radius: 99px;
+						font-size: 18px;
+						width: 36px;
+						height: 36px;
+						text-align: center;
+						color: #131820;
+					}
+					.logo{
+						width: 126px;
+						display: block;
+						padding-top: 48px;
 					}
 				}
 			}

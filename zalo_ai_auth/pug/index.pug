@@ -36,9 +36,11 @@ block popup
 
 block javaScripts extend
 	script.
+
+		const first = document.getElementById('first-screen')
+		const second = document.getElementById('second-screen')
+
 		document.getElementById('start').onclick = () => {
-			let first = document.getElementById('first-screen')
-			let second = document.getElementById('second-screen')
 			first.classList.add('is-hidden')
 			second.classList.remove('is-hidden')
 		}
@@ -54,4 +56,112 @@ block javaScripts extend
 		$(".func-close-popup").click(function(){
 			$("html").removeClass("overlay-popup");
 			$(".popup-container").removeClass("is-show");
+		
+			//case reset page in popups
+			let popups = $('.popup-container')
+			for(let i = 0;i < popups.length; i++){
+				if(popups[i].id == 'popup-avatar'){
+					$('#ava-4').addClass('is-hidden')
+					$('#ava-3').addClass('is-hidden')
+					$('#ava-2').addClass('is-hidden')
+					$('#ava-1').addClass('is-hidden')
+					$('#ava-0').removeClass('is-hidden')
+					$('.successful').addClass('is-hidden')
+					$('.scanning').removeClass('is-hidden')
+				} else if(popups[i].id == 'popup-id'){
+					$('.capture').addClass('is-hidden')
+					$('.check-again').addClass('is-hidden')
+					$('.upload-loading').addClass('is-hidden')
+				}
+			}
 		});
+		$('.go-back-home').click(()=>{
+			first.classList.remove('is-hidden')
+			second.classList.add('is-hidden')
+
+			$('.first').removeClass('is-hidden')
+			$('.third').addClass('is-hidden')
+
+			$('#s3').removeClass('active')
+			$('#s1').addClass('active')
+		})
+		$('.go-back').click(()=>{
+			if($('#s1').hasClass('active')){
+				first.classList.remove('is-hidden')
+				second.classList.add('is-hidden')
+			} else if($('#s2').hasClass('active')){
+				$('.first').removeClass('is-hidden')
+				$('.second').addClass('is-hidden')
+				$('#s1').addClass('active')
+				$('#s2').removeClass('active')
+				$('.capture').addClass('is-hidden')
+			} else if($('#s3').hasClass('active')){
+				$('.second').removeClass('is-hidden')
+				$('.third').addClass('is-hidden')
+				$('#s3').removeClass('active')
+				$('#s2').addClass('active')
+			}
+		})
+
+		//button click function test
+
+		$('#toStep1').click(()=>{
+			$('#ava-0').addClass('is-hidden')
+			$('#ava-1').removeClass('is-hidden')
+		})
+
+		$('#toStep2').click(()=>{
+			$('#ava-1').addClass('is-hidden')
+			$('#ava-2').removeClass('is-hidden')
+		})
+
+		$('#toStep3').click(()=>{
+			$('#ava-2').addClass('is-hidden')
+			$('#ava-3').removeClass('is-hidden')
+		})
+
+		$('#toStep4').click(()=>{
+			$('#ava-3').addClass('is-hidden')
+			$('#ava-4').removeClass('is-hidden')
+		})
+
+		$('#toSuccess').click(()=>{
+			$('#ava-4').addClass('is-hidden')
+			$('#ava-0').removeClass('is-hidden')
+			$('.scanning').addClass('is-hidden')
+			$('.successful').removeClass('is-hidden')
+		})
+
+		$('#scanFaceDone').click(()=>{
+			$(".func-close-popup").click()
+			$('.first').addClass('is-hidden')
+			$('.second').removeClass('is-hidden')
+			$('#s1').removeClass('active')
+			$('#s2').addClass('active')
+			setTimeout(()=>{$('.capture').removeClass('is-hidden')},1000)
+		})
+
+		$('#captureId').click(()=>{
+			$('.capture').addClass('is-hidden')
+			$('.check-again').removeClass('is-hidden')
+			$('#popup-id .bl-popup-heading').css('opacity',0)
+		})
+
+		$('#captureAgain').click(()=>{
+			$('.capture').removeClass('is-hidden')
+			$('.check-again').addClass('is-hidden')
+			$('#popup-id .bl-popup-heading').css('opacity',1)
+		})
+
+		$('#acceptId').click(()=>{
+			$('.check-again').addClass('is-hidden')
+			$('.upload-loading').removeClass('is-hidden')
+		})
+
+		$('#toVerify').click(()=>{
+			$(".func-close-popup").click()
+			$('.second').addClass('is-hidden')
+			$('.third').removeClass('is-hidden')
+			$('#s2').removeClass('active')
+			$('#s3').addClass('active')
+		})

@@ -12,19 +12,19 @@ block Popup
 			.step#ava-0 
 				p Đầu tiên, bạn phải đặt khuôn mặt mình trong hình tròn. Sau đó bạn bắt đầu di chuyển theo hướng dẫn
 				button.feature-hidden#toStep1 nhấn để chuyển
-			.step#1
+			.step#ava-1.is-hidden
 				p Vui lòng quay mặt từ từ sang trái
 				img(src='./images/img_head_left.png')
 				button.feature-hidden#toStep2 nhấn để chuyển
-			.step#2.is-hidden 
+			.step#ava-2.is-hidden 
 				p Vui lòng quay mặt từ từ sang phải
 				img(src='./images/img_head_right.png')
 				button.feature-hidden#toStep3 nhấn để chuyển
-			.step#3.is-hidden 
+			.step#ava-3.is-hidden 
 				p Vui lòng ngước mặt lên từ từ
 				img(src='./images/img_head_up.png')
 				button.feature-hidden#toStep4 nhấn để chuyển
-			.step#4.is-hidden 
+			.step#ava-4.is-hidden 
 				p Vui lòng cúi mặt xuống từ từ
 				img(src='./images/img_head_down.png')
 				button.feature-hidden#toSuccess nhấn để chuyển
@@ -34,7 +34,7 @@ block Popup
 		.content
 			.step
 				p Xác thực khuôn mặt thành công
-		button.button.is-primary.is-large.is-fullwidth Tiếp tục
+		button.button.is-primary.is-large.is-fullwidth#scanFaceDone Tiếp tục
 
 .popup-container#popup-id
 	.bl-popup-heading
@@ -44,7 +44,7 @@ block Popup
 	.bl-popup-context.capture.is-hidden
 		p Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình
 		.camera 
-		button.button.is-primary.is-rounded 
+		button.button.is-primary.is-rounded#captureId 
 			img(src='./images/ico_capture.png')
 	.bl-popup-context.check-again.is-hidden
 		h4 Kiểm tra hình chụp
@@ -54,10 +54,11 @@ block Popup
 		.buttons 
 			button.button.is-normal.is-outlined.is-large#captureAgain Chụp lại
 			button.button.is-primary.is-large#acceptId Dùng ảnh này
-	.bl-popup-context.upload-loading
+	.bl-popup-context.upload-loading.is-hidden
 		i.icz.icz-arrow-up
 		p Đang tải ảnh…
 		p.grey Vui lòng chờ trong giây lát
+		button.feature-hidden#toVerify nhấn để chuyển
 
 
 

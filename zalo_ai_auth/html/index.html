@@ -21,7 +21,7 @@
   </head>
   <body>
     <div class="page-content zalo-ai-auth">
-      <div class="body" id="first-screen"><img class="logo" src="./images/logo_zaloai.png">
+      <div class="body is-hidden" id="first-screen"><img class="logo" src="./images/logo_zaloai.png">
         <div class="banner"><img src="./images/img_intro.png"></div>
         <h2>Xác thực giấy tờ online </h2>
         <p>Để xác thực thông tin của bạn, chúng tôi cần một ảnh chụp xác thực mới nhất</p>
@@ -41,13 +41,13 @@
           </div>
         </div>
         <div class="body-block">
-          <div class="block-content first is-hidden"> 
+          <div class="block-content first">
             <p>Vui lòng thực hiện các thao tác xác thực khuôn mặt theo hướng dẫn</p><img class="intruction" src="./images/img_step1.png">
           </div>
           <div class="block-content second is-hidden"> 
             <p>Xác thực CMND/CCCD</p><img class="intruction" src="./images/img_step2.png">
           </div>
-          <div class="block-content third">
+          <div class="block-content third is-hidden"> 
             <div class="result success">
               <div class="container-blk"><i class="icz icz-check"></i>
                 <h3>Xác minh danh tính thành công</h3>
@@ -85,7 +85,7 @@
           </div>
         </div>
         <div class="footer-block"> 
-          <div class="block-content first is-hidden"> 
+          <div class="block-content first"> 
             <div class="list-instruction">
               <div class="item"><img src="./images/ico_face_1.png">
                 <p>Ảnh chụp không bị chói lóa, mờ hay quá tối</p>
@@ -113,10 +113,20 @@
             </div>
             <button class="button is-primary is-fullwidth func-popup-Id">Bắt đầu chụp</button>
           </div>
-          <div class="block-content third">
-            <button class="button is-primary is-large is-fullwidth">Xác thực bằng Zalo</button>
-            <button class="button is-primary is-outlined is-large is-fullwidth go-back"> Bỏ qua</button>
+          <div class="block-content third is-hidden">
+            <button class="button is-primary is-large is-fullwidth" id="verifyZalo">Xác thực bằng Zalo</button>
+            <button class="button is-primary is-outlined is-large is-fullwidth go-back-home"> Bỏ qua</button>
           </div>
+        </div>
+      </div>
+      <div class="body" id="verifyZaloScreen">
+        <div class="header-block"> 
+          <div class="logo-block"><a class="go-back"><i class="icz icz-arrow-left"> </i></a><img class="logo" src="./images/logo_zaloai.png"></div>
+        </div>
+        <div class="footer-block"> 
+          <p>Vui lòng nhập số điện thoại đăng ký Zalo</p>
+          <input type="tel" id="phoneInput">
+          <button class="button is-primary is-large is-fullwidth func-popup-verifyResult">Kiểm tra</button>
         </div>
       </div>
     </div>
@@ -132,19 +142,19 @@
               <p>Đầu tiên, bạn phải đặt khuôn mặt mình trong hình tròn. Sau đó bạn bắt đầu di chuyển theo hướng dẫn</p>
               <button class="feature-hidden" id="toStep1">nhấn để chuyển</button>
             </div>
-            <div class="step" id="1">
+            <div class="step is-hidden" id="ava-1">
               <p>Vui lòng quay mặt từ từ sang trái</p><img src="./images/img_head_left.png">
               <button class="feature-hidden" id="toStep2">nhấn để chuyển</button>
             </div>
-            <div class="step is-hidden" id="2"> 
+            <div class="step is-hidden" id="ava-2"> 
               <p>Vui lòng quay mặt từ từ sang phải</p><img src="./images/img_head_right.png">
               <button class="feature-hidden" id="toStep3">nhấn để chuyển</button>
             </div>
-            <div class="step is-hidden" id="3"> 
+            <div class="step is-hidden" id="ava-3"> 
               <p>Vui lòng ngước mặt lên từ từ</p><img src="./images/img_head_up.png">
               <button class="feature-hidden" id="toStep4">nhấn để chuyển</button>
             </div>
-            <div class="step is-hidden" id="4"> 
+            <div class="step is-hidden" id="ava-4"> 
               <p>Vui lòng cúi mặt xuống từ từ</p><img src="./images/img_head_down.png">
               <button class="feature-hidden" id="toSuccess">nhấn để chuyển</button>
             </div>
@@ -157,7 +167,7 @@
               <p>Xác thực khuôn mặt thành công</p>
             </div>
           </div>
-          <button class="button is-primary is-large is-fullwidth">Tiếp tục</button>
+          <button class="button is-primary is-large is-fullwidth" id="scanFaceDone">Tiếp tục</button>
         </div>
       </div>
       <div class="popup-container" id="popup-id">
@@ -165,7 +175,7 @@
         <div class="bl-popup-context capture is-hidden">
           <p>Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình</p>
           <div class="camera"> </div>
-          <button class="button is-primary is-rounded"> <img src="./images/ico_capture.png"></button>
+          <button class="button is-primary is-rounded" id="captureId"> <img src="./images/ico_capture.png"></button>
         </div>
         <div class="bl-popup-context check-again is-hidden">
           <h4>Kiểm tra hình chụp</h4>
@@ -176,9 +186,10 @@
             <button class="button is-primary is-large" id="acceptId">Dùng ảnh này</button>
           </div>
         </div>
-        <div class="bl-popup-context upload-loading"><i class="icz icz-arrow-up"></i>
+        <div class="bl-popup-context upload-loading is-hidden"><i class="icz icz-arrow-up"></i>
           <p>Đang tải ảnh…</p>
           <p class="grey">Vui lòng chờ trong giây lát</p>
+          <button class="feature-hidden" id="toVerify">nhấn để chuyển</button>
         </div>
       </div>
     </div>
@@ -189,9 +200,10 @@
     <script src="js/popper.min.js"></script>
     <script src="js/tippy.min.js"></script>
     <script>
+      const first = document.getElementById('first-screen')
+      const second = document.getElementById('second-screen')
+      
       document.getElementById('start').onclick = () => {
-      	let first = document.getElementById('first-screen')
-      	let second = document.getElementById('second-screen')
       	first.classList.add('is-hidden')
       	second.classList.remove('is-hidden')
       }
@@ -207,7 +219,115 @@
       $(".func-close-popup").click(function(){
       	$("html").removeClass("overlay-popup");
       	$(".popup-container").removeClass("is-show");
+      
+      	//case reset page in popups
+      	let popups = $('.popup-container')
+      	for(let i = 0;i < popups.length; i++){
+      		if(popups[i].id == 'popup-avatar'){
+      			$('#ava-4').addClass('is-hidden')
+      			$('#ava-3').addClass('is-hidden')
+      			$('#ava-2').addClass('is-hidden')
+      			$('#ava-1').addClass('is-hidden')
+      			$('#ava-0').removeClass('is-hidden')
+      			$('.successful').addClass('is-hidden')
+      			$('.scanning').removeClass('is-hidden')
+      		} else if(popups[i].id == 'popup-id'){
+      			$('.capture').addClass('is-hidden')
+      			$('.check-again').addClass('is-hidden')
+      			$('.upload-loading').addClass('is-hidden')
+      		}
+      	}
       });
+      $('.go-back-home').click(()=>{
+      	first.classList.remove('is-hidden')
+      	second.classList.add('is-hidden')
+      
+      	$('.first').removeClass('is-hidden')
+      	$('.third').addClass('is-hidden')
+      
+      	$('#s3').removeClass('active')
+      	$('#s1').addClass('active')
+      })
+      $('.go-back').click(()=>{
+      	if($('#s1').hasClass('active')){
+      		first.classList.remove('is-hidden')
+      		second.classList.add('is-hidden')
+      	} else if($('#s2').hasClass('active')){
+      		$('.first').removeClass('is-hidden')
+      		$('.second').addClass('is-hidden')
+      		$('#s1').addClass('active')
+      		$('#s2').removeClass('active')
+      		$('.capture').addClass('is-hidden')
+      	} else if($('#s3').hasClass('active')){
+      		$('.second').removeClass('is-hidden')
+      		$('.third').addClass('is-hidden')
+      		$('#s3').removeClass('active')
+      		$('#s2').addClass('active')
+      	}
+      })
+      
+      //button click function test
+      
+      $('#toStep1').click(()=>{
+      	$('#ava-0').addClass('is-hidden')
+      	$('#ava-1').removeClass('is-hidden')
+      })
+      
+      $('#toStep2').click(()=>{
+      	$('#ava-1').addClass('is-hidden')
+      	$('#ava-2').removeClass('is-hidden')
+      })
+      
+      $('#toStep3').click(()=>{
+      	$('#ava-2').addClass('is-hidden')
+      	$('#ava-3').removeClass('is-hidden')
+      })
+      
+      $('#toStep4').click(()=>{
+      	$('#ava-3').addClass('is-hidden')
+      	$('#ava-4').removeClass('is-hidden')
+      })
+      
+      $('#toSuccess').click(()=>{
+      	$('#ava-4').addClass('is-hidden')
+      	$('#ava-0').removeClass('is-hidden')
+      	$('.scanning').addClass('is-hidden')
+      	$('.successful').removeClass('is-hidden')
+      })
+      
+      $('#scanFaceDone').click(()=>{
+      	$(".func-close-popup").click()
+      	$('.first').addClass('is-hidden')
+      	$('.second').removeClass('is-hidden')
+      	$('#s1').removeClass('active')
+      	$('#s2').addClass('active')
+      	setTimeout(()=>{$('.capture').removeClass('is-hidden')},1000)
+      })
+      
+      $('#captureId').click(()=>{
+      	$('.capture').addClass('is-hidden')
+      	$('.check-again').removeClass('is-hidden')
+      	$('#popup-id .bl-popup-heading').css('opacity',0)
+      })
+      
+      $('#captureAgain').click(()=>{
+      	$('.capture').removeClass('is-hidden')
+      	$('.check-again').addClass('is-hidden')
+      	$('#popup-id .bl-popup-heading').css('opacity',1)
+      })
+      
+      $('#acceptId').click(()=>{
+      	$('.check-again').addClass('is-hidden')
+      	$('.upload-loading').removeClass('is-hidden')
+      })
+      
+      $('#toVerify').click(()=>{
+      	$(".func-close-popup").click()
+      	$('.second').addClass('is-hidden')
+      	$('.third').removeClass('is-hidden')
+      	$('#s2').removeClass('active')
+      	$('#s3').addClass('active')
+      })
     </script>
   </body>
 </html>

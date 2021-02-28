@@ -11232,6 +11232,7 @@ Generated using nucleoapp.com
 
 /* Hidden */
 .feature-hidden {
+  margin: 2em 0;
   position: relative;
   background-color: #f1f5f8;
   padding: 2px 4px;
@@ -13409,7 +13410,6 @@ ul.is-default li:before {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  margin-bottom: 32px;
 }
 .zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block .block {
   margin-right: 12px;
@@ -13465,16 +13465,64 @@ ul.is-default li:before {
   color: #131820;
   padding: 16px 0 16px 12px;
 }
+.zalo-ai-auth .body#second-screen .footer-block .third {
+  padding-top: 32px;
+  background-color: #fff;
+}
+@media screen and (min-height: 670px) {
+  .zalo-ai-auth .body#second-screen .footer-block .third {
+    padding-top: 0;
+  }
+}
 .zalo-ai-auth .body#second-screen .footer-block .third button.is-primary {
   margin-bottom: 20px;
 }
-.zalo-ai-auth .body#second-screen .footer-block .third button.go-back {
+.zalo-ai-auth .body#second-screen .footer-block .third button.go-back, .zalo-ai-auth .body#second-screen .footer-block .third button.go-back-home {
   border: none;
   padding: 0;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin-bottom: 0;
+}
+.zalo-ai-auth .body#verifyZaloScreen {
+  background: url("../images/bg_ai.png") center center no-repeat;
+  background-size: cover;
+}
+.zalo-ai-auth .body#verifyZaloScreen .header-block .logo-block {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 24px;
+}
+.zalo-ai-auth .body#verifyZaloScreen .header-block .logo-block .go-back {
+  position: absolute;
+  left: 0;
+  padding: 6px;
+  border: 0;
+  background: #F0F2F6;
+  border-radius: 99px;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  color: #131820;
+}
+.zalo-ai-auth .body#verifyZaloScreen .header-block .logo-block .logo {
+  width: 126px;
+  display: block;
+  padding-top: 48px;
 }
 
 /* Header */
@@ -15658,6 +15706,8 @@ ul.is-default li:before {
   padding: 12px;
   border-radius: 99%;
   margin-bottom: 20px;
+  -webkit-animation: move 0.7s infinite alternate;
+          animation: move 0.7s infinite alternate;
 }
 .bl-popup .popup-container#popup-id .bl-popup-context.upload-loading p {
   font-weight: 500;
@@ -15669,6 +15719,27 @@ ul.is-default li:before {
   margin-top: 6px;
 }
 
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-12px);
+            transform: translateY(-12px);
+  }
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-12px);
+            transform: translateY(-12px);
+  }
+}
 @-webkit-keyframes rotateBox {
   50% {
     -webkit-transform: scale(0.92, 1);
@@ -15683,7 +15754,6 @@ ul.is-default li:before {
             transform-origin: center top;
   }
 }
-
 @keyframes rotateBox {
   50% {
     -webkit-transform: scale(0.92, 1);
