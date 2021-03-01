@@ -556,7 +556,9 @@ ul.is-default{
 		padding-top: 24px;
 		padding-bottom: 24px;
 		position: relative;
-		height: 100%;
+		overflow-y: hidden;
+		display: flex;
+		flex-direction: column;
 		&#first-screen{
 			position: relative;
 			.logo{
@@ -595,14 +597,18 @@ ul.is-default{
 				display: block;
 			}
 			.bottom-block{
-				@media screen and (min-height: 670px) {
-					position: fixed;
-					bottom: 20px;
-					left: 0;
-					width: 100%;
-					margin-top: 0;
-				}
-				margin-top: 48px;
+				// @media screen and (min-height: 670px) {
+				// 	position: fixed;
+				// 	bottom: 20px;
+				// 	left: 0;
+				// 	width: 100%;
+				// 	margin-top: 0;
+				// }
+				// margin-top: 48px;
+				position: absolute;
+				bottom: 20px;
+				left: 0;
+				width: 100%;
 				p{
 					margin: 0;
 					font-size: 12px;
@@ -619,6 +625,8 @@ ul.is-default{
 		&#second-screen{
 			.header-block{
 				margin-bottom: 48px;
+				flex-shrink: 0;
+				flex-grow: 2;
 				.logo-block{
 					position: relative;
 					display: flex;
@@ -664,6 +672,7 @@ ul.is-default{
 				}
 			}
 			.body-block{
+				flex-grow: 1;
 				.block-content{
 					p{
 						font-size: 1em;
@@ -769,6 +778,8 @@ ul.is-default{
 				// 	left: 24px;
 				// 	width: calc(100% - 48px);
 				// }
+				flex-shrink: 0;
+				flex-grow: 2;
 				button{
 					height: 48px;
 				}
