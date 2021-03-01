@@ -13426,14 +13426,6 @@ ul.is-default li:before {
   background-color: #F5F6F7;
   border-radius: 8px;
 }
-@media screen and (min-height: 670px) {
-  .zalo-ai-auth .body#second-screen .footer-block {
-    position: fixed;
-    bottom: 24px;
-    left: 24px;
-    width: calc(100% - 48px);
-  }
-}
 .zalo-ai-auth .body#second-screen .footer-block button {
   height: 48px;
 }
@@ -13469,11 +13461,6 @@ ul.is-default li:before {
   padding-top: 32px;
   background-color: #fff;
 }
-@media screen and (min-height: 670px) {
-  .zalo-ai-auth .body#second-screen .footer-block .third {
-    padding-top: 0;
-  }
-}
 .zalo-ai-auth .body#second-screen .footer-block .third button.is-primary {
   margin-bottom: 20px;
 }
@@ -13488,6 +13475,12 @@ ul.is-default li:before {
 .zalo-ai-auth .body#verifyZaloScreen {
   background: url("../images/bg_ai.png") center center no-repeat;
   background-size: cover;
+  min-height: unset;
+  overflow-y: hidden;
+  position: fixed;
+  bottom: 0;
+  height: 70%;
+  padding-bottom: 0;
 }
 .zalo-ai-auth .body#verifyZaloScreen .header-block .logo-block {
   position: relative;
@@ -13523,6 +13516,56 @@ ul.is-default li:before {
   width: 126px;
   display: block;
   padding-top: 48px;
+}
+.zalo-ai-auth .body#verifyZaloScreen .header-block p {
+  color: #FFFFFF;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.zalo-ai-auth .body#verifyZaloScreen .footer-block {
+  height: 265px;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 16px 16px 0 0;
+  position: relative;
+}
+.zalo-ai-auth .body#verifyZaloScreen .footer-block p {
+  margin-bottom: 12px;
+  color: #131820;
+}
+.zalo-ai-auth .body#verifyZaloScreen .footer-block input {
+  font-size: 1em;
+  line-height: 24px;
+  color: #131820;
+  border: none;
+  -webkit-appearance: none;
+  outline: none;
+  width: 100%;
+}
+.zalo-ai-auth .body#verifyZaloScreen .footer-block input::-webkit-input-placeholder {
+  color: #989EA5;
+}
+.zalo-ai-auth .body#verifyZaloScreen .footer-block input::-moz-placeholder {
+  color: #989EA5;
+}
+.zalo-ai-auth .body#verifyZaloScreen .footer-block input:-ms-input-placeholder {
+  color: #989EA5;
+}
+.zalo-ai-auth .body#verifyZaloScreen .footer-block input::-ms-input-placeholder {
+  color: #989EA5;
+}
+.zalo-ai-auth .body#verifyZaloScreen .footer-block input::placeholder {
+  color: #989EA5;
+}
+.zalo-ai-auth .body#verifyZaloScreen .footer-block button {
+  height: 48px;
+  position: absolute;
+  bottom: 24px;
+  width: calc(100% - 48px);
 }
 
 /* Header */
@@ -15717,6 +15760,63 @@ ul.is-default li:before {
   opacity: 0.5;
   font-weight: normal;
   margin-top: 6px;
+}
+.bl-popup .popup-container#popup-verifyResult {
+  height: 92%;
+  border-radius: 16px 16px 0 0;
+}
+.bl-popup .popup-container#popup-verifyResult .bl-popup-heading {
+  padding-top: 16px;
+}
+.bl-popup .popup-container#popup-verifyResult .bl-popup-context {
+  padding: 18px 40px 24px;
+}
+.bl-popup .popup-container#popup-verifyResult .bl-popup-context p {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.bl-popup .popup-container#popup-verifyResult .bl-popup-context .cheking-percent {
+  padding: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F5F7FC;
+  border-radius: 8px;
+}
+.bl-popup .popup-container#popup-verifyResult .bl-popup-context .cheking-percent img {
+  width: 48px;
+  height: 48px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-right: 1em;
+}
+.bl-popup .popup-container#popup-verifyResult .bl-popup-context .cheking-percent .num-percent .percent {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 48px;
+  margin-bottom: 0;
+}
+.bl-popup .popup-container#popup-verifyResult .bl-popup-context .cheking-percent .num-percent p {
+  margin-bottom: 0;
+  text-align: start;
+}
+.bl-popup .popup-container#popup-verifyResult .bl-popup-context button {
+  position: fixed;
+  width: calc(100% - 48px);
+  left: 24px;
+  bottom: 24px;
 }
 
 @-webkit-keyframes move {

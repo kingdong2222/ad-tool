@@ -763,12 +763,12 @@ ul.is-default{
 				}
 			}
 			.footer-block {
-				@media screen and (min-height: 670px) {
-					position: fixed;
-					bottom: 24px;
-					left: 24px;
-					width: calc(100% - 48px);
-				}
+				// @media screen and (min-height: 670px) {
+				// 	position: fixed;
+				// 	bottom: 24px;
+				// 	left: 24px;
+				// 	width: calc(100% - 48px);
+				// }
 				button{
 					height: 48px;
 				}
@@ -800,9 +800,9 @@ ul.is-default{
 				.third{
 					padding-top: 32px;
 					background-color: #fff;
-					@media screen and (min-height: 670px) {
-						padding-top: 0;
-					}
+					// @media screen and (min-height: 670px) {
+					// 	padding-top: 0;
+					// }
 					button{
 						&.is-primary{
 							margin-bottom: 20px;
@@ -820,6 +820,12 @@ ul.is-default{
 		&#verifyZaloScreen{
 			background: url('../images/bg_ai.png') center center no-repeat;
 			background-size: cover;
+			min-height: unset;
+			overflow-y: hidden;
+			position: fixed;
+			bottom: 0;
+			height: 70%;
+			padding-bottom: 0;
 			.header-block{
 				.logo-block{
 					position: relative;
@@ -846,6 +852,52 @@ ul.is-default{
 						display: block;
 						padding-top: 48px;
 					}
+				}
+				p{
+					color: #FFFFFF;
+					font-size: 1em;
+					font-weight: 500;
+					letter-spacing: 0;
+					line-height: 24px;
+					text-align: center;
+					margin-bottom: 60px;
+				}
+			}
+			.footer-block{
+				// @media screen and (min-height: 670px) {
+				// 	position: fixed;
+				// 	bottom: 24px;
+				// 	left: 24px;
+				// 	
+				// }
+				height: 265px;
+				padding: 24px;
+				background-color: #fff;
+				border-radius: 16px 16px 0 0;
+				position: relative;
+				// margin-right: -24px;
+				// margin-left: -24px;
+				p{
+					margin-bottom: 12px;
+					color: $text;
+				}
+				input{
+					font-size: 1em;
+					line-height: 24px;
+					color: $text;
+					border: none;
+					-webkit-appearance: none;
+					outline: none;
+					width: 100%;
+					&::placeholder{
+						color: #989EA5;
+					}
+				}
+				button{
+					height: 48px;
+					position: absolute;
+					bottom: 24px;
+					width: calc(100% - 48px);
 				}
 			}
 		}

@@ -39,10 +39,21 @@ block javaScripts extend
 
 		const first = document.getElementById('first-screen')
 		const second = document.getElementById('second-screen')
+		const third = document.getElementById('verifyZaloScreen')
 
 		document.getElementById('start').onclick = () => {
 			first.classList.add('is-hidden')
 			second.classList.remove('is-hidden')
+		}
+
+		document.getElementById('verifyZalo').onclick = () => {
+
+			document.getElementById('phoneInput').focus()
+
+			second.classList.add('is-hidden')
+			third.classList.remove('is-hidden')
+			
+			$('#s3').removeClass('active')
 		}
 
 		$(".func-popup-avatarPhoto").click(function(){
@@ -52,6 +63,11 @@ block javaScripts extend
 		$(".func-popup-Id").click(function(){
 			$("html").addClass("overlay-popup");
 			$("#popup-id").addClass("is-show");
+		});
+		$(".func-popup-verifyResult").click(function(){
+			$("html").addClass("overlay-popup");
+			$("#popup-verifyResult").addClass("is-show");
+			$("#popup-verifyResult .bl-popup-context").removeClass('is-hidden')
 		});
 		$(".func-close-popup").click(function(){
 			$("html").removeClass("overlay-popup");
@@ -85,6 +101,24 @@ block javaScripts extend
 			$('#s3').removeClass('active')
 			$('#s1').addClass('active')
 		})
+
+		$('.go-back-home-final').click(()=>{
+
+			$(".func-close-popup").click()
+
+			first.classList.remove('is-hidden')
+			second.classList.add('is-hidden')
+
+			$('.first').removeClass('is-hidden')
+			$('.third').addClass('is-hidden')
+
+			$('#s3').removeClass('active')
+			$('#s1').addClass('active')
+			$("#popup-verifyResult .bl-popup-context").addClass('is-hidden')
+			first.classList.remove('is-hidden')
+			third.classList.add('is-hidden')
+		})
+
 		$('.go-back').click(()=>{
 			if($('#s1').hasClass('active')){
 				first.classList.remove('is-hidden')
@@ -100,6 +134,10 @@ block javaScripts extend
 				$('.third').addClass('is-hidden')
 				$('#s3').removeClass('active')
 				$('#s2').addClass('active')
+			} else {
+				second.classList.remove('is-hidden')
+				third.classList.add('is-hidden')
+				$('#s3').addClass('active')
 			}
 		})
 

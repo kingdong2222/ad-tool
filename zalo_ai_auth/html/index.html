@@ -122,11 +122,12 @@
       <div class="body is-hidden" id="verifyZaloScreen">
         <div class="header-block"> 
           <div class="logo-block"><a class="go-back"><i class="icz icz-arrow-left"> </i></a><img class="logo" src="./images/logo_zaloai.png"></div>
-        </div>
-        <div class="footer-block"> 
-          <p>Vui lòng nhập số điện thoại đăng ký Zalo</p>
-          <input type="tel" id="phoneInput">
-          <button class="button is-primary is-large is-fullwidth func-popup-verifyResult">Kiểm tra</button>
+          <p>Kiểm tra thông tin bằng Zalo</p>
+          <div class="footer-block"> 
+            <p>Vui lòng nhập số điện thoại đăng ký Zalo</p>
+            <input type="tel" id="phoneInput" placeholder="Số điện thoại" maxlength="10" autofocus>
+            <button class="button is-primary is-large is-fullwidth func-popup-verifyResult">Kiểm tra</button>
+          </div>
         </div>
       </div>
     </div>
@@ -192,6 +193,19 @@
           <button class="feature-hidden" id="toVerify">nhấn để chuyển</button>
         </div>
       </div>
+      <div class="popup-container" id="popup-verifyResult">
+        <div class="bl-popup-heading"><span>Kết quả kiểm tra</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context is-hidden"> <img src="./images/img_success.png">
+          <p>Xác thực Zalo thành công</p>
+          <div class="cheking-percent"> <img src="./images/ico_check.png">
+            <div class="num-percent"> 
+              <p class="percent">95%</p>
+              <p>Độ tương đồng</p>
+            </div>
+          </div>
+          <button class="button is-primary is-large is-fullwidth go-back-home-final">Hoàn thành</button>
+        </div>
+      </div>
     </div>
     <div class="bl-modal">
     </div>
@@ -202,10 +216,21 @@
     <script>
       const first = document.getElementById('first-screen')
       const second = document.getElementById('second-screen')
+      const third = document.getElementById('verifyZaloScreen')
       
       document.getElementById('start').onclick = () => {
       	first.classList.add('is-hidden')
       	second.classList.remove('is-hidden')
+      }
+      
+      document.getElementById('verifyZalo').onclick = () => {
+      
+      	document.getElementById('phoneInput').focus()
+      
+      	second.classList.add('is-hidden')
+      	third.classList.remove('is-hidden')
+      	
+      	$('#s3').removeClass('active')
       }
       
       $(".func-popup-avatarPhoto").click(function(){
@@ -215,6 +240,11 @@
       $(".func-popup-Id").click(function(){
       	$("html").addClass("overlay-popup");
       	$("#popup-id").addClass("is-show");
+      });
+      $(".func-popup-verifyResult").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$("#popup-verifyResult").addClass("is-show");
+      	$("#popup-verifyResult .bl-popup-context").removeClass('is-hidden')
       });
       $(".func-close-popup").click(function(){
       	$("html").removeClass("overlay-popup");
@@ -248,6 +278,24 @@
       	$('#s3').removeClass('active')
       	$('#s1').addClass('active')
       })
+      
+      $('.go-back-home-final').click(()=>{
+      
+      	$(".func-close-popup").click()
+      
+      	first.classList.remove('is-hidden')
+      	second.classList.add('is-hidden')
+      
+      	$('.first').removeClass('is-hidden')
+      	$('.third').addClass('is-hidden')
+      
+      	$('#s3').removeClass('active')
+      	$('#s1').addClass('active')
+      	$("#popup-verifyResult .bl-popup-context").addClass('is-hidden')
+      	first.classList.remove('is-hidden')
+      	third.classList.add('is-hidden')
+      })
+      
       $('.go-back').click(()=>{
       	if($('#s1').hasClass('active')){
       		first.classList.remove('is-hidden')
@@ -263,6 +311,10 @@
       		$('.third').addClass('is-hidden')
       		$('#s3').removeClass('active')
       		$('#s2').addClass('active')
+      	} else {
+      		second.classList.remove('is-hidden')
+      		third.classList.add('is-hidden')
+      		$('#s3').addClass('active')
       	}
       })
       

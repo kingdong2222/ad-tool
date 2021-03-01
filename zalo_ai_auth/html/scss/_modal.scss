@@ -279,6 +279,57 @@
 				}
 			}
 		}
+		&#popup-verifyResult{
+			height: 92%;
+			border-radius: 16px 16px 0 0;
+			.bl-popup-heading{
+				padding-top: 16px;
+			}
+			.bl-popup-context{
+				padding:18px 40px 24px;
+				p{
+					font-size: 16px;
+					font-weight: 500;
+					letter-spacing: 0;
+					line-height: 24px;
+					text-align: center;
+					margin-bottom: 40px;
+				}
+				.cheking-percent {
+					padding: 24px;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					background-color: #F5F7FC;
+					border-radius: 8px;
+					img{
+						width: 48px;
+						height: 48px;
+						object-fit: contain;
+						margin-right: 1em;
+					}
+					.num-percent{
+						.percent{
+							font-size: 40px;
+							font-weight: 700;
+							letter-spacing: 0;
+							line-height: 48px;
+							margin-bottom: 0;
+						}
+						p{
+							margin-bottom: 0;
+							text-align: start;
+						}
+					}
+				}
+				button{
+					position: fixed;
+					width: calc(100% - 48px);
+					left: 24px;
+					bottom: 24px;
+				}
+			}
+		}
 	}
 }
 @keyframes move{

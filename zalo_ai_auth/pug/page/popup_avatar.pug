@@ -60,6 +60,21 @@ block Popup
 		p.grey Vui lòng chờ trong giây lát
 		button.feature-hidden#toVerify nhấn để chuyển
 
+.popup-container#popup-verifyResult
+	.bl-popup-heading
+		span Kết quả kiểm tra
+		a.func-close-popup(href="javascript:void(0)")
+			i.icz.icz-close
+	.bl-popup-context.is-hidden 
+		img(src='./images/img_success.png')
+		p Xác thực Zalo thành công
+		.cheking-percent 
+			img(src='./images/ico_check.png')
+			.num-percent 
+				p.percent 95%
+				p Độ tương đồng
+		button.button.is-primary.is-large.is-fullwidth.go-back-home-final Hoàn thành
+
 
 
 
