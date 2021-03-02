@@ -13179,7 +13179,7 @@ ul.is-default li:before {
   padding-top: 24px;
   padding-bottom: 24px;
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13187,6 +13187,11 @@ ul.is-default li:before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+@media screen and (min-height: 768px) {
+  .zalo-ai-auth .body {
+    height: 100vh;
+  }
 }
 .zalo-ai-auth .body#first-screen {
   position: relative;
@@ -13198,11 +13203,17 @@ ul.is-default li:before {
   margin-bottom: 14px;
 }
 .zalo-ai-auth .body#first-screen .banner {
-  margin: 0 -16px;
+  margin: 16px -16px 0;
 }
 .zalo-ai-auth .body#first-screen .banner img {
-  width: 100%;
+  width: 60%;
   display: block;
+  margin: 0 auto;
+}
+@media screen and (min-height: 670px) {
+  .zalo-ai-auth .body#first-screen .banner img {
+    width: 100%;
+  }
 }
 .zalo-ai-auth .body#first-screen h2 {
   margin-top: 32px;
@@ -13227,10 +13238,13 @@ ul.is-default li:before {
   display: block;
 }
 .zalo-ai-auth .body#first-screen .bottom-block {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
   width: 100%;
+  margin-top: 48px;
+}
+@media screen and (min-height: 768px) {
+  .zalo-ai-auth .body#first-screen .bottom-block {
+    margin-top: 96px;
+  }
 }
 .zalo-ai-auth .body#first-screen .bottom-block p {
   margin: 0;
@@ -13244,12 +13258,9 @@ ul.is-default li:before {
   font-weight: 400;
 }
 .zalo-ai-auth .body#second-screen .header-block {
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
 }
 .zalo-ai-auth .body#second-screen .header-block .logo-block {
   position: relative;
@@ -13324,7 +13335,15 @@ ul.is-default li:before {
   color: #131820;
 }
 .zalo-ai-auth .body#second-screen .body-block .block-content img.intruction {
-  margin-top: -32px;
+  margin: -16px auto 16px;
+  width: 65%;
+  display: block;
+}
+@media screen and (min-height: 670px) {
+  .zalo-ai-auth .body#second-screen .body-block .block-content img.intruction {
+    width: 80%;
+    margin: -32px auto 0px;
+  }
 }
 .zalo-ai-auth .body#second-screen .body-block .block-content.third {
   padding-top: 12px;
@@ -13398,6 +13417,14 @@ ul.is-default li:before {
 .zalo-ai-auth .body#second-screen .body-block .block-content.third .img-preview .id-preview {
   max-width: 180px;
 }
+@media screen and (min-height: 768px) {
+  .zalo-ai-auth .body#second-screen .body-block .block-content.third .img-preview .avatar-preview {
+    max-width: 40%;
+  }
+  .zalo-ai-auth .body#second-screen .body-block .block-content.third .img-preview .id-preview {
+    max-width: 60%;
+  }
+}
 .zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content {
   padding: 16px;
   border-radius: 8px;
@@ -13421,10 +13448,16 @@ ul.is-default li:before {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  max-width: 500px;
+  margin: 0 auto;
 }
 .zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block .block {
   margin-right: 12px;
   margin-bottom: 0;
+  width: 50%;
+}
+.zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block .block:last-child {
+  margin-right: 0;
 }
 .zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block .block p {
   text-align: start;
@@ -13436,9 +13469,6 @@ ul.is-default li:before {
 .zalo-ai-auth .body#second-screen .footer-block {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
   background-color: #F5F6F7;
   border-radius: 8px;
 }
@@ -13461,9 +13491,8 @@ ul.is-default li:before {
   margin-bottom: 0;
 }
 .zalo-ai-auth .body#second-screen .footer-block .list-instruction .item img {
-  width: 48px;
-  height: 48px;
-  padding: 8px;
+  width: 32px;
+  height: 32px;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -13491,12 +13520,8 @@ ul.is-default li:before {
 .zalo-ai-auth .body#verifyZaloScreen {
   background: url("../images/bg_ai.png") center center no-repeat;
   background-size: cover;
-  min-height: unset;
-  overflow-y: hidden;
-  position: fixed;
-  bottom: 0;
-  height: 70%;
-  padding-bottom: 0;
+  height: 100vh;
+  overflow: hidden;
 }
 .zalo-ai-auth .body#verifyZaloScreen .header-block .logo-block {
   position: relative;
@@ -13546,12 +13571,14 @@ ul.is-default li:before {
   height: 265px;
   padding: 24px;
   background-color: #fff;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
   position: relative;
 }
 .zalo-ai-auth .body#verifyZaloScreen .footer-block p {
   margin-bottom: 12px;
   color: #131820;
+  letter-spacing: -0.75;
+  text-align: start;
 }
 .zalo-ai-auth .body#verifyZaloScreen .footer-block input {
   font-size: 1em;
@@ -13561,6 +13588,7 @@ ul.is-default li:before {
   -webkit-appearance: none;
   outline: none;
   width: 100%;
+  padding-left: 0;
 }
 .zalo-ai-auth .body#verifyZaloScreen .footer-block input::-webkit-input-placeholder {
   color: #989EA5;
@@ -15696,6 +15724,11 @@ ul.is-default li:before {
   bottom: 24px;
   width: calc(100% - 48px);
 }
+@media screen and (min-height: 768px) {
+  .bl-popup .popup-container .bl-popup-context.successful .button {
+    width: calc(600px - 48px);
+  }
+}
 .bl-popup .popup-container#popup-id .bl-popup-context p {
   font-size: 1em;
   line-height: 24px;
@@ -15706,6 +15739,13 @@ ul.is-default li:before {
   width: calc(100vw - 24px);
   padding-top: 220px;
   height: 220px;
+  margin-bottom: 0;
+}
+@media screen and (min-height: 768px) {
+  .bl-popup .popup-container#popup-id .bl-popup-context .camera {
+    max-width: calc(600px - 24px);
+    height: calc(9 * calc(600px - 24px) / 16);
+  }
 }
 .bl-popup .popup-container#popup-id .bl-popup-context.capture p {
   margin-bottom: 2em;
@@ -15747,6 +15787,11 @@ ul.is-default li:before {
   width: calc(100% - 48px);
   position: fixed;
   bottom: 24px;
+}
+@media screen and (min-height: 768px) {
+  .bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons {
+    max-width: calc(600px - 48px);
+  }
 }
 .bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons .is-normal {
   width: 48%;
@@ -15831,8 +15876,13 @@ ul.is-default li:before {
 .bl-popup .popup-container#popup-verifyResult .bl-popup-context button {
   position: fixed;
   width: calc(100% - 48px);
-  left: 24px;
+  margin: 0 auto;
   bottom: 24px;
+}
+@media screen and (min-height: 768px) {
+  .bl-popup .popup-container#popup-verifyResult .bl-popup-context button {
+    width: calc(600px - 48px);
+  }
 }
 
 @-webkit-keyframes move {

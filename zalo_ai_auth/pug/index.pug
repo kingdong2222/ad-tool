@@ -63,6 +63,8 @@ block javaScripts extend
 		$(".func-popup-Id").click(function(){
 			$("html").addClass("overlay-popup");
 			$("#popup-id").addClass("is-show");
+
+			$('.capture').removeClass('is-hidden')
 		});
 		$(".func-popup-verifyResult").click(function(){
 			$("html").addClass("overlay-popup");
@@ -196,10 +198,20 @@ block javaScripts extend
 			$('.upload-loading').removeClass('is-hidden')
 		})
 
-		$('#toVerify').click(()=>{
+		$('#toVerifySuccess').click(()=>{
 			$(".func-close-popup").click()
 			$('.second').addClass('is-hidden')
 			$('.third').removeClass('is-hidden')
+			$('#s2').removeClass('active')
+			$('#s3').addClass('active')
+		})
+
+		$('#toVerifyFail').click(()=>{
+			$(".func-close-popup").click()
+			$('.second').addClass('is-hidden')
+			$('.third').removeClass('is-hidden')
+			$('.third .error').removeClass('is-hidden')
+			$('.third .success').addClass('is-hidden')
 			$('#s2').removeClass('active')
 			$('#s3').addClass('active')
 		})

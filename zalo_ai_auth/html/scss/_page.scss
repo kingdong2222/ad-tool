@@ -556,9 +556,12 @@ ul.is-default{
 		padding-top: 24px;
 		padding-bottom: 24px;
 		position: relative;
-		overflow-y: hidden;
+		overflow: hidden;
 		display: flex;
 		flex-direction: column;
+		@media screen and (min-height: 768px) {
+			height: 100vh;
+		}
 		&#first-screen{
 			position: relative;
 			.logo{
@@ -568,10 +571,14 @@ ul.is-default{
 				margin-bottom: 14px;
 			}
 			.banner{
-				margin: 0 -16px;
+				margin: 16px -16px 0;
 				img{
-					width: 100%;
+					width: 60%;
 					display: block;
+					margin: 0 auto;
+					@media screen and (min-height: 670px) {
+						width: 100%;
+					}
 				}
 			}
 			h2{
@@ -605,10 +612,14 @@ ul.is-default{
 				// 	margin-top: 0;
 				// }
 				// margin-top: 48px;
-				position: absolute;
-				bottom: 20px;
-				left: 0;
+				// position: absolute;
+				// bottom: 20px;
+				// left: 0;
 				width: 100%;
+				margin-top: 48px;
+				@media screen and (min-height: 768px) {
+					margin-top: 96px;
+				}
 				p{
 					margin: 0;
 					font-size: 12px;
@@ -624,9 +635,8 @@ ul.is-default{
 		}
 		&#second-screen{
 			.header-block{
-				margin-bottom: 48px;
+				margin-bottom: 32px;
 				flex-shrink: 0;
-				flex-grow: 2;
 				.logo-block{
 					position: relative;
 					display: flex;
@@ -682,7 +692,13 @@ ul.is-default{
 						color: #131820;
 					}
 					img.intruction{
-						margin-top: -32px;
+						margin: -16px auto 16px;
+						width: 65%;
+						display: block;
+						@media screen and (min-height: 670px) {
+							width: 80%;
+							margin: -32px auto 0px;
+						}
 					}
 					&.third{
 						padding-top: 12px;
@@ -730,12 +746,21 @@ ul.is-default{
 							justify-content: center;
 							align-items: center;
 							margin-bottom: $gutter;
+							
 							.avatar-preview{
 								max-width: 110px;
 								margin-right: 12px;
 							}
 							.id-preview{
 								max-width: 180px
+							}
+							@media screen and (min-height: 768px) {
+								.avatar-preview{
+									max-width: 40%;
+								}
+								.id-preview{
+									max-width: 60%;
+								}
 							}
 						}
 						.result-block-content{
@@ -754,9 +779,15 @@ ul.is-default{
 								flex-direction: row;
 								align-items: baseline;
 								// margin-bottom: 32px;
+								max-width: 500px;
+								margin: 0 auto;
 								.block{
 									margin-right: 12px;
 									margin-bottom: 0;
+									width: 50%;
+									&:last-child{
+										margin-right: 0;
+									}
 									p{
 										text-align: start;
 										font-size: 14px;
@@ -779,7 +810,6 @@ ul.is-default{
 				// 	width: calc(100% - 48px);
 				// }
 				flex-shrink: 0;
-				flex-grow: 2;
 				button{
 					height: 48px;
 				}
@@ -795,9 +825,9 @@ ul.is-default{
 							margin-bottom: 0;
 						}
 						img{
-							width: 48px;
-							height: 48px;
-							padding: 8px;
+							width: 32px;
+							height: 32px;
+							// padding: 8px;
 							object-fit: contain;
 						}
 						p{
@@ -831,12 +861,8 @@ ul.is-default{
 		&#verifyZaloScreen{
 			background: url('../images/bg_ai.png') center center no-repeat;
 			background-size: cover;
-			min-height: unset;
-			overflow-y: hidden;
-			position: fixed;
-			bottom: 0;
-			height: 70%;
-			padding-bottom: 0;
+			height: 100vh;
+			overflow: hidden ;
 			.header-block{
 				.logo-block{
 					position: relative;
@@ -875,22 +901,16 @@ ul.is-default{
 				}
 			}
 			.footer-block{
-				// @media screen and (min-height: 670px) {
-				// 	position: fixed;
-				// 	bottom: 24px;
-				// 	left: 24px;
-				// 	
-				// }
 				height: 265px;
 				padding: 24px;
 				background-color: #fff;
-				border-radius: 16px 16px 0 0;
+				border-radius: 16px;
 				position: relative;
-				// margin-right: -24px;
-				// margin-left: -24px;
 				p{
 					margin-bottom: 12px;
 					color: $text;
+					letter-spacing: -0.75;
+					text-align: start;
 				}
 				input{
 					font-size: 1em;
@@ -900,6 +920,7 @@ ul.is-default{
 					-webkit-appearance: none;
 					outline: none;
 					width: 100%;
+					padding-left: 0;
 					&::placeholder{
 						color: #989EA5;
 					}

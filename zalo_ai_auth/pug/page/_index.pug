@@ -32,7 +32,7 @@ block Body
 				.container-blk
 					i.icz.icz-check
 					h3 Xác minh danh tính thành công
-			.result.error 
+			.result.error.is-hidden 
 				.container-blk
 					i.icz.icz-close
 					h3 Xác minh danh tính thất bại
@@ -90,9 +90,9 @@ block Body
 		.logo-block
 			a.go-back
 				i.icz.icz-arrow-left 
-			img.logo(src='./images/logo_zaloai.png')
+			img.logo(src='./images/logo_zaloai_white.png')
 		p Kiểm tra thông tin bằng Zalo
 		.footer-block 
 			p Vui lòng nhập số điện thoại đăng ký Zalo
-			input(type='tel' id="phoneInput" placeholder="Số điện thoại" maxlength="10" autofocus)
+			input(type='tel' id="phoneInput" placeholder="Số điện thoại" maxlength="10")
 			button.button.is-primary.is-large.is-fullwidth.func-popup-verifyResult Kiểm tra

@@ -53,7 +53,7 @@
                 <h3>Xác minh danh tính thành công</h3>
               </div>
             </div>
-            <div class="result error"> 
+            <div class="result error is-hidden"> 
               <div class="container-blk"><i class="icz icz-close"></i>
                 <h3>Xác minh danh tính thất bại</h3>
               </div>
@@ -121,11 +121,11 @@
       </div>
       <div class="body is-hidden" id="verifyZaloScreen">
         <div class="header-block"> 
-          <div class="logo-block"><a class="go-back"><i class="icz icz-arrow-left"> </i></a><img class="logo" src="./images/logo_zaloai.png"></div>
+          <div class="logo-block"><a class="go-back"><i class="icz icz-arrow-left"> </i></a><img class="logo" src="./images/logo_zaloai_white.png"></div>
           <p>Kiểm tra thông tin bằng Zalo</p>
           <div class="footer-block"> 
             <p>Vui lòng nhập số điện thoại đăng ký Zalo</p>
-            <input type="tel" id="phoneInput" placeholder="Số điện thoại" maxlength="10" autofocus>
+            <input type="tel" id="phoneInput" placeholder="Số điện thoại" maxlength="10">
             <button class="button is-primary is-large is-fullwidth func-popup-verifyResult">Kiểm tra</button>
           </div>
         </div>
@@ -190,7 +190,8 @@
         <div class="bl-popup-context upload-loading is-hidden"><i class="icz icz-arrow-up"></i>
           <p>Đang tải ảnh…</p>
           <p class="grey">Vui lòng chờ trong giây lát</p>
-          <button class="feature-hidden" id="toVerify">nhấn để chuyển</button>
+          <button class="feature-hidden" id="toVerifySuccess">nhấn để chuyển kết quả thành công</button>
+          <button class="feature-hidden" id="toVerifyFail">nhấn để chuyển kết quả thất bại</button>
         </div>
       </div>
       <div class="popup-container" id="popup-verifyResult">
@@ -240,6 +241,8 @@
       $(".func-popup-Id").click(function(){
       	$("html").addClass("overlay-popup");
       	$("#popup-id").addClass("is-show");
+      
+      	$('.capture').removeClass('is-hidden')
       });
       $(".func-popup-verifyResult").click(function(){
       	$("html").addClass("overlay-popup");
@@ -373,10 +376,20 @@
       	$('.upload-loading').removeClass('is-hidden')
       })
       
-      $('#toVerify').click(()=>{
+      $('#toVerifySuccess').click(()=>{
       	$(".func-close-popup").click()
       	$('.second').addClass('is-hidden')
       	$('.third').removeClass('is-hidden')
+      	$('#s2').removeClass('active')
+      	$('#s3').addClass('active')
+      })
+      
+      $('#toVerifyFail').click(()=>{
+      	$(".func-close-popup").click()
+      	$('.second').addClass('is-hidden')
+      	$('.third').removeClass('is-hidden')
+      	$('.third .error').removeClass('is-hidden')
+      	$('.third .success').addClass('is-hidden')
       	$('#s2').removeClass('active')
       	$('#s3').addClass('active')
       })

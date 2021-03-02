@@ -189,6 +189,9 @@
 					position: fixed;
 					bottom: 24px;
 					width: calc(100% - 48px);
+					@media screen and (min-height: 768px) {
+						width: calc(600px - 48px)
+					}
 				}
 			}
 		}
@@ -204,6 +207,11 @@
 					width: calc(100vw - 24px);
 					padding-top: 220px;
 					height: 220px;
+					margin-bottom: 0;
+					@media screen and (min-height: 768px) {
+						max-width: calc(600px - 24px);
+						height: calc(9 * calc(600px - 24px) / 16);
+					}
 				}
 				&.capture{
 					p{
@@ -248,6 +256,9 @@
 						width: calc(100% - 48px);
 						position: fixed;
 						bottom: $gutter;
+						@media screen and (min-height: 768px) {
+							max-width: calc(600px - 48px);
+						}
 						.is-normal{
 							width: 48%;
 							color: $text;
@@ -325,8 +336,11 @@
 				button{
 					position: fixed;
 					width: calc(100% - 48px);
-					left: 24px;
+					margin: 0 auto;
 					bottom: 24px;
+					@media screen and (min-height: 768px) {
+						width: calc(600px - 48px);
+					}
 				}
 			}
 		}
