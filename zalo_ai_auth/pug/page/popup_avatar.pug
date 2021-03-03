@@ -8,6 +8,7 @@ block Popup
 			i.icz.icz-close
 	.bl-popup-context.scanning
 		.camera
+			video(src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')
 		.content
 			.step#ava-0 
 				p Đầu tiên, bạn phải đặt khuôn mặt mình trong hình tròn. Sau đó bạn bắt đầu di chuyển theo hướng dẫn
@@ -44,6 +45,7 @@ block Popup
 	.bl-popup-context.capture.is-hidden
 		p Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình
 		.camera 
+			video(src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')
 		button.button.is-primary.is-rounded#captureId 
 			img(src='./images/ico_capture.png')
 	.bl-popup-context.check-again.is-hidden
@@ -54,6 +56,20 @@ block Popup
 		.buttons 
 			button.button.is-normal.is-outlined.is-large#captureAgain Chụp lại
 			button.button.is-primary.is-large#acceptId Dùng ảnh này
+	.bl-popup-context.capture-behind.is-hidden
+		p Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt sau khớp với khung hình
+		.camera 
+			video(src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')
+		button.button.is-primary.is-rounded#captureIdBehind 
+			img(src='./images/ico_capture.png')
+	.bl-popup-context.check-again-behind.is-hidden
+		h4 Kiểm tra hình chụp
+		p Đảm bảo ảnh chụp rõ ràng, dễ đọc và là hình CMND/CCCD bản gốc (không phải bản sao)
+		.camera 
+			img(src='./images/img_cccd_demo_behind.png')
+		.buttons 
+			button.button.is-normal.is-outlined.is-large#captureAgainBehind Chụp lại
+			button.button.is-primary.is-large#acceptIdBehind Dùng ảnh này
 	.bl-popup-context.upload-loading.is-hidden
 		i.icz.icz-arrow-up
 		p Đang tải ảnh…

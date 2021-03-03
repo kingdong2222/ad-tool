@@ -137,7 +137,9 @@
       <div class="popup-container" id="popup-avatar">
         <div class="bl-popup-heading"><span>Xác thực khuôn mặt</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
         <div class="bl-popup-context scanning">
-          <div class="camera"></div>
+          <div class="camera">
+            <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
+          </div>
           <div class="content">
             <div class="step" id="ava-0"> 
               <p>Đầu tiên, bạn phải đặt khuôn mặt mình trong hình tròn. Sau đó bạn bắt đầu di chuyển theo hướng dẫn</p>
@@ -175,7 +177,9 @@
         <div class="bl-popup-heading"><span>Ảnh CMND/CCCD mặt trước</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
         <div class="bl-popup-context capture is-hidden">
           <p>Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình</p>
-          <div class="camera"> </div>
+          <div class="camera"> 
+            <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
+          </div>
           <button class="button is-primary is-rounded" id="captureId"> <img src="./images/ico_capture.png"></button>
         </div>
         <div class="bl-popup-context check-again is-hidden">
@@ -185,6 +189,22 @@
           <div class="buttons"> 
             <button class="button is-normal is-outlined is-large" id="captureAgain">Chụp lại</button>
             <button class="button is-primary is-large" id="acceptId">Dùng ảnh này</button>
+          </div>
+        </div>
+        <div class="bl-popup-context capture-behind is-hidden">
+          <p>Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt sau khớp với khung hình</p>
+          <div class="camera"> 
+            <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
+          </div>
+          <button class="button is-primary is-rounded" id="captureIdBehind"> <img src="./images/ico_capture.png"></button>
+        </div>
+        <div class="bl-popup-context check-again-behind is-hidden">
+          <h4>Kiểm tra hình chụp</h4>
+          <p>Đảm bảo ảnh chụp rõ ràng, dễ đọc và là hình CMND/CCCD bản gốc (không phải bản sao)</p>
+          <div class="camera"> <img src="./images/img_cccd_demo_behind.png"></div>
+          <div class="buttons"> 
+            <button class="button is-normal is-outlined is-large" id="captureAgainBehind">Chụp lại</button>
+            <button class="button is-primary is-large" id="acceptIdBehind">Dùng ảnh này</button>
           </div>
         </div>
         <div class="bl-popup-context upload-loading is-hidden"><i class="icz icz-arrow-up"></i>
@@ -268,6 +288,7 @@
       			$('.capture').addClass('is-hidden')
       			$('.check-again').addClass('is-hidden')
       			$('.upload-loading').addClass('is-hidden')
+      			$('#popup-id .bl-popup-heading').css('opacity',1)
       		}
       	}
       });
@@ -359,6 +380,9 @@
       	setTimeout(()=>{$('.capture').removeClass('is-hidden')},1000)
       })
       
+      
+      //capture ID 2 face
+      
       $('#captureId').click(()=>{
       	$('.capture').addClass('is-hidden')
       	$('.check-again').removeClass('is-hidden')
@@ -371,8 +395,29 @@
       	$('#popup-id .bl-popup-heading').css('opacity',1)
       })
       
+      //go capture behind
       $('#acceptId').click(()=>{
       	$('.check-again').addClass('is-hidden')
+      	//- $('.upload-loading').removeClass('is-hidden')
+      	$('.capture-behind').removeClass('is-hidden')
+      	$('#popup-id .bl-popup-heading').css('opacity',1)
+      	$('#popup-id .bl-popup-heading span').html('Ảnh CMND/CCCD mặt sau')
+      })
+      
+      $('#captureIdBehind').click(()=>{
+      	$('.capture-behind').addClass('is-hidden')
+      	$('.check-again-behind').removeClass('is-hidden')
+      	$('#popup-id .bl-popup-heading').css('opacity',0)
+      })
+      
+      $('#captureAgainBehind').click(()=>{
+      	$('.capture-behind').removeClass('is-hidden')
+      	$('.check-again-behind').addClass('is-hidden')
+      	$('#popup-id .bl-popup-heading').css('opacity',1)
+      })
+      
+      $('#acceptIdBehind').click(()=>{
+      	$('.check-again-behind').addClass('is-hidden')
       	$('.upload-loading').removeClass('is-hidden')
       })
       

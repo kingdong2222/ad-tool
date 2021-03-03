@@ -13577,7 +13577,7 @@ ul.is-default li:before {
 .zalo-ai-auth .body#verifyZaloScreen .footer-block p {
   margin-bottom: 12px;
   color: #131820;
-  letter-spacing: -0.75;
+  letter-spacing: -0.75px;
   text-align: start;
 }
 .zalo-ai-auth .body#verifyZaloScreen .footer-block input {
@@ -15683,8 +15683,13 @@ ul.is-default li:before {
   margin-bottom: 2em;
   width: 285px;
   height: 285px;
-  padding-top: 285px;
+  overflow: hidden;
   background-color: #131820;
+}
+.bl-popup .popup-container .bl-popup-context .camera video {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .bl-popup .popup-container .bl-popup-context .content {
   max-width: 300px;
@@ -15737,7 +15742,6 @@ ul.is-default li:before {
 .bl-popup .popup-container#popup-id .bl-popup-context .camera {
   border-radius: 8px;
   width: calc(100vw - 24px);
-  padding-top: 220px;
   height: 220px;
   margin-bottom: 0;
 }
@@ -15747,19 +15751,19 @@ ul.is-default li:before {
     height: calc(9 * calc(600px - 24px) / 16);
   }
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.capture p {
+.bl-popup .popup-container#popup-id .bl-popup-context.capture p, .bl-popup .popup-container#popup-id .bl-popup-context.capture-behind p {
   margin-bottom: 2em;
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.capture button {
+.bl-popup .popup-container#popup-id .bl-popup-context.capture button, .bl-popup .popup-container#popup-id .bl-popup-context.capture-behind button {
   width: 72px;
   height: 72px;
   position: fixed;
   bottom: 40px;
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.capture button img {
+.bl-popup .popup-container#popup-id .bl-popup-context.capture button img, .bl-popup .popup-container#popup-id .bl-popup-context.capture-behind button img {
   width: 27px;
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.capture button:after {
+.bl-popup .popup-container#popup-id .bl-popup-context.capture button:after, .bl-popup .popup-container#popup-id .bl-popup-context.capture-behind button:after {
   content: "";
   border: 1px solid #fff;
   border-radius: 99%;
@@ -15769,31 +15773,31 @@ ul.is-default li:before {
   top: 4.5px;
   left: 4.5px;
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.check-again .camera {
+.bl-popup .popup-container#popup-id .bl-popup-context.check-again .camera, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .camera {
   padding-top: unset;
   background-color: unset;
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.check-again h4 {
+.bl-popup .popup-container#popup-id .bl-popup-context.check-again h4, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind h4 {
   font-size: 1.125em;
   color: #131820;
   line-height: 36px;
   font-weight: 600;
   margin-bottom: 6px;
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.check-again p {
+.bl-popup .popup-container#popup-id .bl-popup-context.check-again p, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind p {
   margin-bottom: 24px;
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons {
+.bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .buttons {
   width: calc(100% - 48px);
   position: fixed;
   bottom: 24px;
 }
 @media screen and (min-height: 768px) {
-  .bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons {
+  .bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .buttons {
     max-width: calc(600px - 48px);
   }
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons .is-normal {
+.bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons .is-normal, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .buttons .is-normal {
   width: 48%;
   color: #131820;
 }

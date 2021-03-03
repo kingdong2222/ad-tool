@@ -90,6 +90,7 @@ block javaScripts extend
 					$('.capture').addClass('is-hidden')
 					$('.check-again').addClass('is-hidden')
 					$('.upload-loading').addClass('is-hidden')
+					$('#popup-id .bl-popup-heading').css('opacity',1)
 				}
 			}
 		});
@@ -181,6 +182,9 @@ block javaScripts extend
 			setTimeout(()=>{$('.capture').removeClass('is-hidden')},1000)
 		})
 
+
+		//capture ID 2 face
+
 		$('#captureId').click(()=>{
 			$('.capture').addClass('is-hidden')
 			$('.check-again').removeClass('is-hidden')
@@ -193,8 +197,29 @@ block javaScripts extend
 			$('#popup-id .bl-popup-heading').css('opacity',1)
 		})
 
+		//go capture behind
 		$('#acceptId').click(()=>{
 			$('.check-again').addClass('is-hidden')
+			//- $('.upload-loading').removeClass('is-hidden')
+			$('.capture-behind').removeClass('is-hidden')
+			$('#popup-id .bl-popup-heading').css('opacity',1)
+			$('#popup-id .bl-popup-heading span').html('Ảnh CMND/CCCD mặt sau')
+		})
+
+		$('#captureIdBehind').click(()=>{
+			$('.capture-behind').addClass('is-hidden')
+			$('.check-again-behind').removeClass('is-hidden')
+			$('#popup-id .bl-popup-heading').css('opacity',0)
+		})
+
+		$('#captureAgainBehind').click(()=>{
+			$('.capture-behind').removeClass('is-hidden')
+			$('.check-again-behind').addClass('is-hidden')
+			$('#popup-id .bl-popup-heading').css('opacity',1)
+		})
+
+		$('#acceptIdBehind').click(()=>{
+			$('.check-again-behind').addClass('is-hidden')
 			$('.upload-loading').removeClass('is-hidden')
 		})
 
