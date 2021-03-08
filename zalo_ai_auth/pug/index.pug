@@ -85,7 +85,10 @@ block javaScripts extend
 					$('#ava-1').addClass('is-hidden')
 					$('#ava-0').removeClass('is-hidden')
 					$('.successful').addClass('is-hidden')
-					$('.scanning').removeClass('is-hidden')
+					$('.scanning').addClass('is-hidden')
+					$('.choose-option').removeClass('is-hidden')
+					$('rect').removeClass('success')
+					$('rect').removeClass('fail')
 				} else if(popups[i].id == 'popup-id'){
 					$('.capture').addClass('is-hidden')
 					$('.check-again').addClass('is-hidden')
@@ -144,7 +147,27 @@ block javaScripts extend
 			}
 		})
 
+		$('.guiding-sound').click(()=>{
+			if($('.guiding-sound').hasClass('sound-on')){
+				$('.guiding-sound').removeClass('sound-on')
+				$('.guiding-sound').addClass('sound-off')
+			} else if($('.guiding-sound').hasClass('sound-off')){
+				$('.guiding-sound').addClass('sound-on')
+				$('.guiding-sound').removeClass('sound-off')
+			}
+		})
+
 		//button click function test
+
+		$('#optionScan1').click(()=>{
+			$('.choose-option').addClass('is-hidden')
+			$('.scanning').removeClass("is-hidden")
+		})
+
+		$('#optionScan2').click(()=>{
+			$('.choose-option').addClass('is-hidden')
+			$('.scanByImage').removeClass("is-hidden")
+		})
 
 		$('#toStep1').click(()=>{
 			$('#ava-0').addClass('is-hidden')
@@ -154,22 +177,38 @@ block javaScripts extend
 		$('#toStep2').click(()=>{
 			$('#ava-1').addClass('is-hidden')
 			$('#ava-2').removeClass('is-hidden')
+
+			$('.loading .loading-step-1').addClass('success')
 		})
 
 		$('#toStep3').click(()=>{
 			$('#ava-2').addClass('is-hidden')
 			$('#ava-3').removeClass('is-hidden')
+
+			$('.loading .loading-step-2').addClass('success')
 		})
 
 		$('#toStep4').click(()=>{
+			
+			//scan fail nên không chuyển
 			$('#ava-3').addClass('is-hidden')
 			$('#ava-4').removeClass('is-hidden')
+			$('.loading .loading-step-3').addClass('success')
+			
+			//scan fail
+			//- $('.loading .loading-step-3').addClass('fail')
 		})
 
 		$('#toSuccess').click(()=>{
 			$('#ava-4').addClass('is-hidden')
 			$('#ava-0').removeClass('is-hidden')
 			$('.scanning').addClass('is-hidden')
+			$('.successful').removeClass('is-hidden')
+
+			$('.loading .loading-step-4').addClass('success')
+		})
+		$('#toSuccess1').click(()=>{
+			$('.scanByImage').addClass('is-hidden')
 			$('.successful').removeClass('is-hidden')
 		})
 

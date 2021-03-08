@@ -121,7 +121,7 @@
       </div>
       <div class="body is-hidden" id="verifyZaloScreen">
         <div class="header-block"> 
-          <div class="logo-block"><a class="go-back"><i class="icz icz-arrow-left"> </i></a><img class="logo" src="./images/logo_zaloai_white.png"></div>
+          <div class="logo-block"><a class="go-back"><i class="icz icz-arrow-left"> </i></a><img class="logo" src="./images/logo_zaloai_white.png"><a class="guiding-sound sound-on"><img src="./images/ico_speaker.png"><img src="./images/ico_speaker_disable.png"></a></div>
           <p>Kiểm tra thông tin bằng Zalo</p>
           <div class="footer-block"> 
             <p>Vui lòng nhập số điện thoại đăng ký Zalo</p>
@@ -135,15 +135,67 @@
     </div>
     <div class="bl-popup">
       <div class="popup-container" id="popup-avatar">
-        <div class="bl-popup-heading"><span>Xác thực khuôn mặt</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
-        <div class="bl-popup-context scanning">
+        <div class="bl-popup-heading"><span>Xác thực khuôn mặt</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next guiding-sound sound-on"><img src="./images/ico_speaker.png"><img src="./images/ico_speaker_disable.png"></a></div>
+        <div class="bl-popup-context choose-option"> 
+          <p>Chọn 1 trong 2 phương thức xác thực</p>
+          <div class="options"> 
+            <div class="option"> 
+              <p>Xác thực qua hành động</p><img src="./images/img_scan_active.png">
+              <p class="small">Di chuyển khuôn mặt theo 4 hướng trên, dưới, trái, phải để xác thực </p>
+              <button class="button is-primary is-large" id="optionScan1">Bắt đầu</button>
+            </div>
+            <div class="option">
+              <p>Xác thực qua ảnh</p><img src="./images/img_scan_passive.png">
+              <p class="small">Nhìn thẳng khuôn mặt vào camera và nhấn nút chụp ảnh </p>
+              <button class="button is-primary is-large" id="optionScan2">Bắt đầu</button>
+            </div>
+          </div>
+        </div>
+        <div class="bl-popup-context scanning is-hidden">
           <div class="camera">
             <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
+            <svg class="loading" viewbox="0 0 126 126">
+              <g id="Layer_2" data-name="Layer 2">
+                <g id="Layer_1-2" data-name="Layer 1"></g>
+                <rect class="cls-1 loading-step-1" width="1.11" height="6.68" x="62.44" rx=".56"></rect>
+                <rect class="cls-1 loading-step-2" width="1.11" height="6.68" x="62.44" y="119.32" rx=".56"></rect>
+                <rect class="cls-1 loading-step-1" width="1.11" height="6.68" x="122.1" y="59.66" rx=".56" transform="rotate(90 122.66 63)"></rect>
+                <rect class="cls-1 loading-step-3" width="1.11" height="6.68" x="2.78" y="59.66" rx=".56" transform="rotate(90 3.34 63)"></rect>
+                <rect class="cls-1 loading-step-1" width="1.11" height="6.68" x="104.63" y="17.47" rx=".56" transform="rotate(45 105.18625 20.81957)"></rect>
+                <rect class="cls-1 loading-step-3" width="1.11" height="6.68" x="20.26" y="101.85" rx=".56" transform="rotate(45 20.81265 105.18088)"></rect>
+                <rect class="cls-1 loading-step-2" width="1.11" height="6.68" x="104.63" y="101.85" rx=".56" transform="rotate(135 105.18444 105.1877)"></rect>
+                <rect class="cls-1 loading-step-4" width="1.11" height="6.68" x="20.26" y="17.47" rx=".56" transform="rotate(135 20.8151 20.81212)"></rect>
+                <rect class="cls-1 loading-step-4" width="1.11" height="6.68" x="39.61" y="4.54" rx=".56" transform="rotate(-22.5 40.1633 7.88445)"></rect>
+                <rect class="cls-1 loading-step-2" width="1.11" height="6.68" x="85.27" y="114.78" rx=".56" transform="rotate(-22.5 85.83694 118.1236)"></rect>
+                <rect class="cls-1 loading-step-1" width="1.11" height="6.68" x="117.56" y="36.83" rx=".56" transform="rotate(67.5 118.11938 40.17077)"></rect>
+                <rect class="cls-1 loading-step-3" width="1.11" height="6.68" x="7.33" y="82.49" rx=".56" transform="rotate(67.5 7.88256 85.82717)"></rect>
+                <rect class="cls-1 loading-step-1" width="1.11" height="6.68" x="85.27" y="4.54" rx=".56" transform="rotate(22.5 85.84085 7.88055)"></rect>
+                <rect class="cls-1 loading-step-3" width="1.11" height="6.68" x="39.61" y="114.78" rx=".56" transform="rotate(22.5 40.16721 118.1197)"></rect>
+                <rect class="cls-1 loading-step-2" width="1.11" height="6.68" x="117.56" y="82.49" rx=".56" transform="rotate(112.5 118.11945 85.83175)"></rect>
+                <rect class="cls-1 loading-step-4" width="1.11" height="6.68" x="7.33" y="36.83" rx=".56" transform="rotate(112.5 7.88185 40.16963)"></rect>
+                <rect class="cls-1 loading-step-4" width="1.11" height="6.68" x="50.81" y="1.15" rx=".56" transform="rotate(-11.25 51.37928 4.49658)"></rect>
+                <rect class="cls-1 loading-step-2" width="1.11" height="6.68" x="74.08" y="118.17" rx=".56" transform="rotate(-11.25 74.65929 121.50555)"></rect>
+                <rect class="cls-1 loading-step-1" width="1.11" height="6.68" x="120.96" y="48.02" rx=".56" transform="rotate(78.75 121.51416 51.35893)"></rect>
+                <rect class="cls-1 loading-step-3" width="1.11" height="6.68" x="3.93" y="71.3" rx=".56" transform="rotate(78.75 4.48686 74.64272)"></rect>
+                <rect class="cls-1 loading-step-1" width="1.11" height="6.68" x="95.59" y="10.05" rx=".56" transform="rotate(33.9 95.38219 13.25898)"></rect>
+                <rect class="cls-1 loading-step-3" width="1.11" height="6.68" x="29.3" y="109.26" rx=".56" transform="rotate(33.75 29.85561 112.60218)"></rect>
+                <rect class="cls-1 loading-step-2" width="1.11" height="6.68" x="112.05" y="92.8" rx=".56" transform="rotate(123.75 112.6074 96.14457)"></rect>
+                <rect class="cls-1 loading-step-4" width="1.11" height="6.68" x="12.84" y="26.51" rx=".56" transform="rotate(123.75 13.39588 29.85289)"></rect>
+                <rect class="cls-1 loading-step-4" width="1.11" height="6.68" x="29.3" y="10.05" rx=".56" transform="rotate(-33.75 29.84858 13.39235)"></rect>
+                <rect class="cls-1 loading-step-2" width="1.11" height="6.68" x="95.59" y="109.26" rx=".56" transform="rotate(-33.75 96.13892 112.60922)"></rect>
+                <rect class="cls-1 loading-step-1" width="1.11" height="6.68" x="112.05" y="26.51" rx=".56" transform="rotate(56.25 112.6065 29.85596)"></rect>
+                <rect class="cls-1 loading-step-3" width="1.11" height="6.68" x="12.84" y="92.8" rx=".56" transform="rotate(56.25 13.39463 96.13944)"></rect>
+                <rect class="cls-1 loading-step-1" width="1.11" height="6.68" x="74.08" y="1.15" rx=".56" transform="rotate(11.25 74.61319 4.49191)"></rect>
+                <rect class="cls-1 loading-step-3" width="1.11" height="6.68" x="50.81" y="118.17" rx=".56" transform="rotate(11.25 51.38394 121.49589)"></rect>
+                <rect class="cls-1 loading-step-2" width="1.11" height="6.68" x="120.96" y="71.3" rx=".56" transform="rotate(101.25 121.51198 74.63633)"></rect>
+                <rect class="cls-1 loading-step-4" width="1.11" height="6.68" x="3.93" y="48.02" rx=".56" transform="rotate(101.25 4.48886 51.36232)"></rect>
+              </g>
+            </svg>
           </div>
           <div class="content">
             <div class="step" id="ava-0"> 
               <p>Đầu tiên, bạn phải đặt khuôn mặt mình trong hình tròn. Sau đó bạn bắt đầu di chuyển theo hướng dẫn</p>
-              <button class="feature-hidden" id="toStep1">nhấn để chuyển</button>
+              <button class="button is-primary is-large" id="toStep1">Bắt đầu</button>
             </div>
             <div class="step is-hidden" id="ava-1">
               <p>Vui lòng quay mặt từ từ sang trái</p><img src="./images/img_head_left.png">
@@ -155,11 +207,22 @@
             </div>
             <div class="step is-hidden" id="ava-3"> 
               <p>Vui lòng ngước mặt lên từ từ</p><img src="./images/img_head_up.png">
-              <button class="feature-hidden" id="toStep4">nhấn để chuyển</button>
+              <button class="feature-hidden" id="toStep4">nhấn để chuyển (case scan fail)</button>
             </div>
             <div class="step is-hidden" id="ava-4"> 
               <p>Vui lòng cúi mặt xuống từ từ</p><img src="./images/img_head_down.png">
               <button class="feature-hidden" id="toSuccess">nhấn để chuyển</button>
+            </div>
+          </div>
+        </div>
+        <div class="bl-popup-context scanByImage is-hidden"> 
+          <div class="camera">
+            <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
+          </div>
+          <div class="content">
+            <div class="step"> 
+              <p>Đăt toàn bộ khuôn mặt trong hình tròn và nhìn thẳng  rồi nhấn nút  "chụp ảnh" </p><img src="./images/img_head_directfront.png">
+              <button class="button is-primary is-rounded" id="toSuccess1"><img src="./images/ico_capture.png"></button>
             </div>
           </div>
         </div>
@@ -174,7 +237,7 @@
         </div>
       </div>
       <div class="popup-container" id="popup-id">
-        <div class="bl-popup-heading"><span>Ảnh CMND/CCCD mặt trước</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-heading"><span>Ảnh CMND/CCCD mặt trước</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next guiding-sound sound-on"><img src="./images/ico_speaker.png"><img src="./images/ico_speaker_disable.png"></a></div>
         <div class="bl-popup-context capture is-hidden">
           <p>Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình</p>
           <div class="camera"> 
@@ -283,7 +346,10 @@
       			$('#ava-1').addClass('is-hidden')
       			$('#ava-0').removeClass('is-hidden')
       			$('.successful').addClass('is-hidden')
-      			$('.scanning').removeClass('is-hidden')
+      			$('.scanning').addClass('is-hidden')
+      			$('.choose-option').removeClass('is-hidden')
+      			$('rect').removeClass('success')
+      			$('rect').removeClass('fail')
       		} else if(popups[i].id == 'popup-id'){
       			$('.capture').addClass('is-hidden')
       			$('.check-again').addClass('is-hidden')
@@ -342,7 +408,27 @@
       	}
       })
       
+      $('.guiding-sound').click(()=>{
+      	if($('.guiding-sound').hasClass('sound-on')){
+      		$('.guiding-sound').removeClass('sound-on')
+      		$('.guiding-sound').addClass('sound-off')
+      	} else if($('.guiding-sound').hasClass('sound-off')){
+      		$('.guiding-sound').addClass('sound-on')
+      		$('.guiding-sound').removeClass('sound-off')
+      	}
+      })
+      
       //button click function test
+      
+      $('#optionScan1').click(()=>{
+      	$('.choose-option').addClass('is-hidden')
+      	$('.scanning').removeClass("is-hidden")
+      })
+      
+      $('#optionScan2').click(()=>{
+      	$('.choose-option').addClass('is-hidden')
+      	$('.scanByImage').removeClass("is-hidden")
+      })
       
       $('#toStep1').click(()=>{
       	$('#ava-0').addClass('is-hidden')
@@ -352,22 +438,38 @@
       $('#toStep2').click(()=>{
       	$('#ava-1').addClass('is-hidden')
       	$('#ava-2').removeClass('is-hidden')
+      
+      	$('.loading .loading-step-1').addClass('success')
       })
       
       $('#toStep3').click(()=>{
       	$('#ava-2').addClass('is-hidden')
       	$('#ava-3').removeClass('is-hidden')
+      
+      	$('.loading .loading-step-2').addClass('success')
       })
       
       $('#toStep4').click(()=>{
+      	
+      	//scan fail nên không chuyển
       	$('#ava-3').addClass('is-hidden')
       	$('#ava-4').removeClass('is-hidden')
+      	$('.loading .loading-step-3').addClass('success')
+      	
+      	//scan fail
+      	//- $('.loading .loading-step-3').addClass('fail')
       })
       
       $('#toSuccess').click(()=>{
       	$('#ava-4').addClass('is-hidden')
       	$('#ava-0').removeClass('is-hidden')
       	$('.scanning').addClass('is-hidden')
+      	$('.successful').removeClass('is-hidden')
+      
+      	$('.loading .loading-step-4').addClass('success')
+      })
+      $('#toSuccess1').click(()=>{
+      	$('.scanByImage').addClass('is-hidden')
       	$('.successful').removeClass('is-hidden')
       })
       
