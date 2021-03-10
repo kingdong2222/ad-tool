@@ -602,6 +602,7 @@ ul.is-default{
 				margin: 0 auto;
 				font-size: 18px;
 				display: block;
+				min-height: 48px;
 			}
 			.bottom-block{
 				// @media screen and (min-height: 670px) {
@@ -812,6 +813,7 @@ ul.is-default{
 				flex-shrink: 0;
 				button{
 					height: 48px;
+					font-size: 18px;
 				}
 				background-color: #F5F6F7;
 				border-radius: 8px;

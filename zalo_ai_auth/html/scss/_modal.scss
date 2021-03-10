@@ -343,13 +343,14 @@
 			.camera{
 				video{
 					transform: scaleX(-1);
+					border-radius: 99%;
 				}
 			}
 			.successful{
-				.camera{
-					img{
-						object-fit: cover;
-					}
+				img{
+					transform: scaleX(-1);
+					min-width: 285px;
+					min-height: 285px;
 				}
 			}
 		}
@@ -364,16 +365,29 @@
 					border-radius: 8px;
 					width: calc(100vw - 24px);
 					// padding-top: 220px;
-					height: 220px;
+					height: calc(9 * calc(100vw - 24px) / 16);
 					margin-bottom: 0;
 					img{
-						height: 220px;
+						height: calc(9 * calc(100vw - 24px) / 16);
+						width: calc(100vw - 24px);
+						object-fit: cover;
+						min-height: calc(9 * calc(100vw - 24px) / 16);
+					}
+					video{
+						height: calc(9 * calc(100vw - 24px) / 16);
+						min-height: calc(9 * calc(100vw - 24px) / 16);
 					}
 					@media screen and (min-width: 768px) {
 						max-width: calc(600px - 24px);
 						height: calc(9 * calc(600px - 24px) / 16);
 						img{
+							max-width: calc(600px - 24px);
 							height: calc(9 * calc(600px - 24px) / 16);
+							min-height: calc(9 * calc(600px - 24px) / 16);
+						}
+						video{
+							height: calc(9 * calc(600px - 24px) / 16);
+							min-height: calc(9 * calc(600px - 24px) / 16);
 						}
 					}
 				}

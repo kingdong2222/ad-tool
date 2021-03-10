@@ -13236,6 +13236,7 @@ ul.is-default li:before {
   margin: 0 auto;
   font-size: 18px;
   display: block;
+  min-height: 48px;
 }
 .zalo-ai-auth .body#first-screen .bottom-block {
   width: 100%;
@@ -13474,6 +13475,7 @@ ul.is-default li:before {
 }
 .zalo-ai-auth .body#second-screen .footer-block button {
   height: 48px;
+  font-size: 18px;
 }
 .zalo-ai-auth .body#second-screen .footer-block .list-instruction {
   padding: 1em;
@@ -15884,10 +15886,14 @@ ul.is-default li:before {
   -webkit-transform: scaleX(-1);
       -ms-transform: scaleX(-1);
           transform: scaleX(-1);
+  border-radius: 99%;
 }
-.bl-popup .popup-container#popup-avatar .successful .camera img {
-  -o-object-fit: cover;
-     object-fit: cover;
+.bl-popup .popup-container#popup-avatar .successful img {
+  -webkit-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+          transform: scaleX(-1);
+  min-width: 285px;
+  min-height: 285px;
 }
 .bl-popup .popup-container#popup-id .bl-popup-context p {
   font-size: 1em;
@@ -15897,11 +15903,19 @@ ul.is-default li:before {
 .bl-popup .popup-container#popup-id .bl-popup-context .camera {
   border-radius: 8px;
   width: calc(100vw - 24px);
-  height: 220px;
+  height: calc(9 * calc(100vw - 24px) / 16);
   margin-bottom: 0;
 }
 .bl-popup .popup-container#popup-id .bl-popup-context .camera img {
-  height: 220px;
+  height: calc(9 * calc(100vw - 24px) / 16);
+  width: calc(100vw - 24px);
+  -o-object-fit: cover;
+     object-fit: cover;
+  min-height: calc(9 * calc(100vw - 24px) / 16);
+}
+.bl-popup .popup-container#popup-id .bl-popup-context .camera video {
+  height: calc(9 * calc(100vw - 24px) / 16);
+  min-height: calc(9 * calc(100vw - 24px) / 16);
 }
 @media screen and (min-width: 768px) {
   .bl-popup .popup-container#popup-id .bl-popup-context .camera {
@@ -15909,7 +15923,13 @@ ul.is-default li:before {
     height: calc(9 * calc(600px - 24px) / 16);
   }
   .bl-popup .popup-container#popup-id .bl-popup-context .camera img {
+    max-width: calc(600px - 24px);
     height: calc(9 * calc(600px - 24px) / 16);
+    min-height: calc(9 * calc(600px - 24px) / 16);
+  }
+  .bl-popup .popup-container#popup-id .bl-popup-context .camera video {
+    height: calc(9 * calc(600px - 24px) / 16);
+    min-height: calc(9 * calc(600px - 24px) / 16);
   }
 }
 .bl-popup .popup-container#popup-id .bl-popup-context.capture p, .bl-popup .popup-container#popup-id .bl-popup-context.capture-behind p {
