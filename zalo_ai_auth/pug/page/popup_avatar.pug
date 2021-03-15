@@ -1,7 +1,7 @@
 block Popup
 
 
-.popup-container#popup-avatar
+.popup-container#popup-avatar-scanning
 	.bl-popup-heading
 		span Xác thực khuôn mặt
 		a.func-close-popup(href="javascript:void(0)")
@@ -9,22 +9,7 @@ block Popup
 		a.func-next.guiding-sound.sound-on
 			img(src='./images/ico_speaker.png')
 			img(src='./images/ico_speaker_disable.png')
-		
-	.bl-popup-context.choose-option 
-		p Chọn 1 trong 2 phương thức xác thực
-		.options 
-			.option 
-				p Xác thực qua hành động
-				img(src='./images/img_scan_active.png')
-				p.small Di chuyển khuôn mặt theo 4 hướng trên, dưới, trái, phải để xác thực 
-				button.button.is-primary.is-large#optionScan1 Bắt đầu
-			.option
-				p Xác thực qua ảnh
-				img(src='./images/img_scan_passive.png')
-				p.small Nhìn thẳng khuôn mặt vào camera và nhấn nút chụp ảnh 
-				button.button.is-primary.is-large#optionScan2 Bắt đầu
-
-	.bl-popup-context.scanning.is-hidden
+	.bl-popup-context.scanning
 		.camera
 			video(src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')
 			//- img.loading(src='./images/circle_step_0.png')
@@ -63,7 +48,6 @@ block Popup
 					rect.cls-1.loading-step-3(width='1.11' height='6.68' x='50.81' y='118.17' rx='.56' transform='rotate(11.25 51.38394 121.49589)')
 					rect.cls-1.loading-step-2(width='1.11' height='6.68' x='120.96' y='71.3' rx='.56' transform='rotate(101.25 121.51198 74.63633)')
 					rect.cls-1.loading-step-4(width='1.11' height='6.68' x='3.93' y='48.02' rx='.56' transform='rotate(101.25 4.48886 51.36232)')
-
 		.content
 			.step#ava-0 
 				p Đầu tiên, bạn phải đặt khuôn mặt mình trong hình tròn. Sau đó bạn bắt đầu di chuyển theo hướng dẫn
@@ -84,7 +68,23 @@ block Popup
 				p Vui lòng cúi mặt xuống từ từ
 				img(src='./images/img_head_down.png')
 				button.feature-hidden#toSuccess nhấn để chuyển
-	.bl-popup-context.scanByImage.is-hidden 
+	.bl-popup-context.successful.is-hidden
+		.camera 
+			img(src='./images/img_demo_person.png')
+		.content
+			.step
+				p Xác thực khuôn mặt thành công
+		button.button.is-primary.is-large.is-fullwidth#scanFaceDone Tiếp tục
+.popup-container#popup-avatar
+	.bl-popup-heading
+		span Xác thực khuôn mặt
+		a.func-close-popup(href="javascript:void(0)")
+			i.icz.icz-close
+		a.func-next.guiding-sound.sound-on
+			img(src='./images/ico_speaker.png')
+			img(src='./images/ico_speaker_disable.png')
+	
+	.bl-popup-context.scanByImage.is-hidden
 		.camera
 			video(src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')
 		.content
@@ -99,8 +99,7 @@ block Popup
 		.content
 			.step
 				p Xác thực khuôn mặt thành công
-		button.button.is-primary.is-large.is-fullwidth#scanFaceDone Tiếp tục
-
+		button.button.is-primary.is-large.is-fullwidth#scanFaceImgDone Tiếp tục
 .popup-container#popup-id
 	.bl-popup-heading
 		span Ảnh CMND/CCCD mặt trước
@@ -113,6 +112,7 @@ block Popup
 		p Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình
 		.camera 
 			video(src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')
+		button.feature-hidden#captureIdfail case chụp CMND thất bại
 		button.button.is-primary.is-rounded#captureId 
 			img(src='./images/ico_capture.png')
 	.bl-popup-context.check-again.is-hidden
@@ -120,9 +120,11 @@ block Popup
 		p Đảm bảo ảnh chụp rõ ràng, dễ đọc và là hình CMND/CCCD bản gốc (không phải bản sao)
 		.camera 
 			img(src='./images/img_cccd_demo.png')
-		.buttons 
-			button.button.is-normal.is-outlined.is-large#captureAgain Chụp lại
-			button.button.is-primary.is-large#acceptId Dùng ảnh này
+		.content
+			.step
+				p.mess Mặt trước CMND/CCCD hợp lệ
+		button.button.is-primary.is-large.is-fullwidth#captureAgain Chụp lại
+		button.button.is-primary.is-large.is-fullwidth#acceptId Dùng ảnh này
 	.bl-popup-context.capture-behind.is-hidden
 		p Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt sau khớp với khung hình
 		.camera 
@@ -134,9 +136,11 @@ block Popup
 		p Đảm bảo ảnh chụp rõ ràng, dễ đọc và là hình CMND/CCCD bản gốc (không phải bản sao)
 		.camera 
 			img(src='./images/img_cccd_demo_behind.png')
-		.buttons 
-			button.button.is-normal.is-outlined.is-large#captureAgainBehind Chụp lại
-			button.button.is-primary.is-large#acceptIdBehind Dùng ảnh này
+		.content
+			.step
+				p.mess.success Mặt sau CMND/CCCD hợp lệ
+		button.button.is-primary.is-large.is-fullwidth#captureAgainBehind Chụp lại
+		button.button.is-primary.is-large.is-fullwidth#acceptIdBehind Dùng ảnh này
 	.bl-popup-context.upload-loading.is-hidden
 		i.icz.icz-arrow-up
 		p Đang tải ảnh…

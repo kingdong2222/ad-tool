@@ -22,8 +22,18 @@ block Body
 			.step#s3 
 	.body-block
 		.block-content.first
-			p Vui lòng thực hiện các thao tác xác thực khuôn mặt theo hướng dẫn
-			img.intruction(src='./images/img_step1.png')
+			p Vui lòng thực hiện các thao tác xác thực khuôn mặt theo 1 trong 2 phương thức sau
+			.options 
+				.option 
+					p Xác thực qua hành động
+					img(src='./images/img_scan_active.png')
+					p.small Di chuyển khuôn mặt theo 4 hướng trên, dưới, trái, phải để xác thực 
+					button.button.is-primary.is-large#optionScan1 Bắt đầu
+				.option
+					p Xác thực qua ảnh
+					img(src='./images/img_scan_passive.png')
+					p.small Nhìn thẳng khuôn mặt vào camera và nhấn nút chụp ảnh 
+					button.button.is-primary.is-large#optionScan2 Bắt đầu
 		.block-content.second.is-hidden 
 			p Xác thực CMND/CCCD
 			img.intruction(src='./images/img_step2.png')
@@ -69,7 +79,7 @@ block Body
 				.item 
 					img(src='./images/ico_face_3.png')
 					p Không đeo kính, khẩu trang, che mặt
-			button.button.is-primary.is-large.is-fullwidth.func-popup-avatarPhoto Bắt đầu chụp
+			//- button.button.is-primary.is-large.is-fullwidth.func-popup-avatarPhoto Bắt đầu chụp
 		.block-content.second.is-hidden 
 			.list-instruction 
 				.item

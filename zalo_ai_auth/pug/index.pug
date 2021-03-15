@@ -85,13 +85,15 @@ block javaScripts extend
 					$('#ava-1').addClass('is-hidden')
 					$('#ava-0').removeClass('is-hidden')
 					$('.successful').addClass('is-hidden')
-					$('.scanning').addClass('is-hidden')
-					$('.choose-option').removeClass('is-hidden')
+					$('.scanning').removeClass('is-hidden')
 					$('rect').removeClass('success')
 					$('rect').removeClass('fail')
+					$(".scanByImage").addClass("is-hidden");
 				} else if(popups[i].id == 'popup-id'){
 					$('.capture').addClass('is-hidden')
+					$('.capture-behind').addClass('is-hidden')
 					$('.check-again').addClass('is-hidden')
+					$('.check-again-behind').addClass('is-hidden')
 					$('.upload-loading').addClass('is-hidden')
 					$('#popup-id .bl-popup-heading').css('opacity',1)
 				}
@@ -160,13 +162,14 @@ block javaScripts extend
 		//button click function test
 
 		$('#optionScan1').click(()=>{
-			$('.choose-option').addClass('is-hidden')
-			$('.scanning').removeClass("is-hidden")
+			$("html").addClass("overlay-popup");
+			$("#popup-avatar-scanning").addClass("is-show");
 		})
 
 		$('#optionScan2').click(()=>{
-			$('.choose-option').addClass('is-hidden')
-			$('.scanByImage').removeClass("is-hidden")
+			$("html").addClass("overlay-popup");
+			$("#popup-avatar").addClass("is-show");
+			$(".scanByImage").removeClass("is-hidden");
 		})
 
 		$('#toStep1').click(()=>{
@@ -220,6 +223,14 @@ block javaScripts extend
 			$('#s2').addClass('active')
 			setTimeout(()=>{$('.capture').removeClass('is-hidden')},1000)
 		})
+		$('#scanFaceImgDone').click(()=>{
+			$(".func-close-popup").click()
+			$('.first').addClass('is-hidden')
+			$('.second').removeClass('is-hidden')
+			$('#s1').removeClass('active')
+			$('#s2').addClass('active')
+			setTimeout(()=>{$('.capture').removeClass('is-hidden')},1000)
+		})
 
 
 		//capture ID 2 face
@@ -227,6 +238,21 @@ block javaScripts extend
 		$('#captureId').click(()=>{
 			$('.capture').addClass('is-hidden')
 			$('.check-again').removeClass('is-hidden')
+			$('.check-again .mess').addClass('success')
+			$('.check-again .mess').removeClass('fail')
+			$('.check-again .mess').html('Mặt trước CMND/CCCD hợp lệ')
+			$('.check-again #captureAgain').addClass('is-hidden')
+			$('.check-again #acceptId').removeClass('is-hidden')
+			$('#popup-id .bl-popup-heading').css('opacity',0)
+		})
+
+		$('#captureIdfail').click(()=>{
+			$('.capture').addClass('is-hidden')
+			$('.check-again').removeClass('is-hidden')
+			$('.check-again .mess').addClass('fail')
+			$('.check-again .mess').html('Mặt trước CMND/CCCD không hợp lệ')
+			$('.check-again #acceptId').addClass('is-hidden')
+			$('.check-again #captureAgain').removeClass('is-hidden')
 			$('#popup-id .bl-popup-heading').css('opacity',0)
 		})
 

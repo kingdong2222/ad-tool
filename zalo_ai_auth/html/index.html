@@ -42,7 +42,19 @@
         </div>
         <div class="body-block">
           <div class="block-content first">
-            <p>Vui lòng thực hiện các thao tác xác thực khuôn mặt theo hướng dẫn</p><img class="intruction" src="./images/img_step1.png">
+            <p>Vui lòng thực hiện các thao tác xác thực khuôn mặt theo 1 trong 2 phương thức sau</p>
+            <div class="options"> 
+              <div class="option"> 
+                <p>Xác thực qua hành động</p><img src="./images/img_scan_active.png">
+                <p class="small">Di chuyển khuôn mặt theo 4 hướng trên, dưới, trái, phải để xác thực </p>
+                <button class="button is-primary is-large" id="optionScan1">Bắt đầu</button>
+              </div>
+              <div class="option">
+                <p>Xác thực qua ảnh</p><img src="./images/img_scan_passive.png">
+                <p class="small">Nhìn thẳng khuôn mặt vào camera và nhấn nút chụp ảnh </p>
+                <button class="button is-primary is-large" id="optionScan2">Bắt đầu</button>
+              </div>
+            </div>
           </div>
           <div class="block-content second is-hidden"> 
             <p>Xác thực CMND/CCCD</p><img class="intruction" src="./images/img_step2.png">
@@ -97,7 +109,6 @@
                 <p>Không đeo kính, khẩu trang, che mặt</p>
               </div>
             </div>
-            <button class="button is-primary is-large is-fullwidth func-popup-avatarPhoto">Bắt đầu chụp</button>
           </div>
           <div class="block-content second is-hidden"> 
             <div class="list-instruction"> 
@@ -134,24 +145,9 @@
     <div class="bl-tooltip">
     </div>
     <div class="bl-popup">
-      <div class="popup-container" id="popup-avatar">
+      <div class="popup-container" id="popup-avatar-scanning">
         <div class="bl-popup-heading"><span>Xác thực khuôn mặt</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next guiding-sound sound-on"><img src="./images/ico_speaker.png"><img src="./images/ico_speaker_disable.png"></a></div>
-        <div class="bl-popup-context choose-option"> 
-          <p>Chọn 1 trong 2 phương thức xác thực</p>
-          <div class="options"> 
-            <div class="option"> 
-              <p>Xác thực qua hành động</p><img src="./images/img_scan_active.png">
-              <p class="small">Di chuyển khuôn mặt theo 4 hướng trên, dưới, trái, phải để xác thực </p>
-              <button class="button is-primary is-large" id="optionScan1">Bắt đầu</button>
-            </div>
-            <div class="option">
-              <p>Xác thực qua ảnh</p><img src="./images/img_scan_passive.png">
-              <p class="small">Nhìn thẳng khuôn mặt vào camera và nhấn nút chụp ảnh </p>
-              <button class="button is-primary is-large" id="optionScan2">Bắt đầu</button>
-            </div>
-          </div>
-        </div>
-        <div class="bl-popup-context scanning is-hidden">
+        <div class="bl-popup-context scanning">
           <div class="camera">
             <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
             <svg class="loading" viewbox="0 0 126 126">
@@ -215,7 +211,19 @@
             </div>
           </div>
         </div>
-        <div class="bl-popup-context scanByImage is-hidden"> 
+        <div class="bl-popup-context successful is-hidden">
+          <div class="camera"> <img src="./images/img_demo_person.png"></div>
+          <div class="content">
+            <div class="step">
+              <p>Xác thực khuôn mặt thành công</p>
+            </div>
+          </div>
+          <button class="button is-primary is-large is-fullwidth" id="scanFaceDone">Tiếp tục</button>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-avatar">
+        <div class="bl-popup-heading"><span>Xác thực khuôn mặt</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next guiding-sound sound-on"><img src="./images/ico_speaker.png"><img src="./images/ico_speaker_disable.png"></a></div>
+        <div class="bl-popup-context scanByImage is-hidden">
           <div class="camera">
             <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
           </div>
@@ -233,7 +241,7 @@
               <p>Xác thực khuôn mặt thành công</p>
             </div>
           </div>
-          <button class="button is-primary is-large is-fullwidth" id="scanFaceDone">Tiếp tục</button>
+          <button class="button is-primary is-large is-fullwidth" id="scanFaceImgDone">Tiếp tục</button>
         </div>
       </div>
       <div class="popup-container" id="popup-id">
@@ -243,16 +251,20 @@
           <div class="camera"> 
             <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
           </div>
+          <button class="feature-hidden" id="captureIdfail">case chụp CMND thất bại</button>
           <button class="button is-primary is-rounded" id="captureId"> <img src="./images/ico_capture.png"></button>
         </div>
         <div class="bl-popup-context check-again is-hidden">
           <h4>Kiểm tra hình chụp</h4>
           <p>Đảm bảo ảnh chụp rõ ràng, dễ đọc và là hình CMND/CCCD bản gốc (không phải bản sao)</p>
           <div class="camera"> <img src="./images/img_cccd_demo.png"></div>
-          <div class="buttons"> 
-            <button class="button is-normal is-outlined is-large" id="captureAgain">Chụp lại</button>
-            <button class="button is-primary is-large" id="acceptId">Dùng ảnh này</button>
+          <div class="content">
+            <div class="step">
+              <p class="mess">Mặt trước CMND/CCCD hợp lệ</p>
+            </div>
           </div>
+          <button class="button is-primary is-large is-fullwidth" id="captureAgain">Chụp lại</button>
+          <button class="button is-primary is-large is-fullwidth" id="acceptId">Dùng ảnh này</button>
         </div>
         <div class="bl-popup-context capture-behind is-hidden">
           <p>Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt sau khớp với khung hình</p>
@@ -265,10 +277,13 @@
           <h4>Kiểm tra hình chụp</h4>
           <p>Đảm bảo ảnh chụp rõ ràng, dễ đọc và là hình CMND/CCCD bản gốc (không phải bản sao)</p>
           <div class="camera"> <img src="./images/img_cccd_demo_behind.png"></div>
-          <div class="buttons"> 
-            <button class="button is-normal is-outlined is-large" id="captureAgainBehind">Chụp lại</button>
-            <button class="button is-primary is-large" id="acceptIdBehind">Dùng ảnh này</button>
+          <div class="content">
+            <div class="step">
+              <p class="mess success">Mặt sau CMND/CCCD hợp lệ</p>
+            </div>
           </div>
+          <button class="button is-primary is-large is-fullwidth" id="captureAgainBehind">Chụp lại</button>
+          <button class="button is-primary is-large is-fullwidth" id="acceptIdBehind">Dùng ảnh này</button>
         </div>
         <div class="bl-popup-context upload-loading is-hidden"><i class="icz icz-arrow-up"></i>
           <p>Đang tải ảnh…</p>
@@ -346,13 +361,15 @@
       			$('#ava-1').addClass('is-hidden')
       			$('#ava-0').removeClass('is-hidden')
       			$('.successful').addClass('is-hidden')
-      			$('.scanning').addClass('is-hidden')
-      			$('.choose-option').removeClass('is-hidden')
+      			$('.scanning').removeClass('is-hidden')
       			$('rect').removeClass('success')
       			$('rect').removeClass('fail')
+      			$(".scanByImage").addClass("is-hidden");
       		} else if(popups[i].id == 'popup-id'){
       			$('.capture').addClass('is-hidden')
+      			$('.capture-behind').addClass('is-hidden')
       			$('.check-again').addClass('is-hidden')
+      			$('.check-again-behind').addClass('is-hidden')
       			$('.upload-loading').addClass('is-hidden')
       			$('#popup-id .bl-popup-heading').css('opacity',1)
       		}
@@ -421,13 +438,14 @@
       //button click function test
       
       $('#optionScan1').click(()=>{
-      	$('.choose-option').addClass('is-hidden')
-      	$('.scanning').removeClass("is-hidden")
+      	$("html").addClass("overlay-popup");
+      	$("#popup-avatar-scanning").addClass("is-show");
       })
       
       $('#optionScan2').click(()=>{
-      	$('.choose-option').addClass('is-hidden')
-      	$('.scanByImage').removeClass("is-hidden")
+      	$("html").addClass("overlay-popup");
+      	$("#popup-avatar").addClass("is-show");
+      	$(".scanByImage").removeClass("is-hidden");
       })
       
       $('#toStep1').click(()=>{
@@ -481,6 +499,14 @@
       	$('#s2').addClass('active')
       	setTimeout(()=>{$('.capture').removeClass('is-hidden')},1000)
       })
+      $('#scanFaceImgDone').click(()=>{
+      	$(".func-close-popup").click()
+      	$('.first').addClass('is-hidden')
+      	$('.second').removeClass('is-hidden')
+      	$('#s1').removeClass('active')
+      	$('#s2').addClass('active')
+      	setTimeout(()=>{$('.capture').removeClass('is-hidden')},1000)
+      })
       
       
       //capture ID 2 face
@@ -488,6 +514,21 @@
       $('#captureId').click(()=>{
       	$('.capture').addClass('is-hidden')
       	$('.check-again').removeClass('is-hidden')
+      	$('.check-again .mess').addClass('success')
+      	$('.check-again .mess').removeClass('fail')
+      	$('.check-again .mess').html('Mặt trước CMND/CCCD hợp lệ')
+      	$('.check-again #captureAgain').addClass('is-hidden')
+      	$('.check-again #acceptId').removeClass('is-hidden')
+      	$('#popup-id .bl-popup-heading').css('opacity',0)
+      })
+      
+      $('#captureIdfail').click(()=>{
+      	$('.capture').addClass('is-hidden')
+      	$('.check-again').removeClass('is-hidden')
+      	$('.check-again .mess').addClass('fail')
+      	$('.check-again .mess').html('Mặt trước CMND/CCCD không hợp lệ')
+      	$('.check-again #acceptId').addClass('is-hidden')
+      	$('.check-again #captureAgain').removeClass('is-hidden')
       	$('#popup-id .bl-popup-heading').css('opacity',0)
       })
       
