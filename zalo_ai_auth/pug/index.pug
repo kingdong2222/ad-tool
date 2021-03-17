@@ -78,7 +78,7 @@ block javaScripts extend
 			//case reset page in popups
 			let popups = $('.popup-container')
 			for(let i = 0;i < popups.length; i++){
-				if(popups[i].id == 'popup-avatar'){
+				if(popups[i].id == 'popup-avatar-scanning'){
 					$('#ava-4').addClass('is-hidden')
 					$('#ava-3').addClass('is-hidden')
 					$('#ava-2').addClass('is-hidden')
@@ -96,6 +96,10 @@ block javaScripts extend
 					$('.check-again-behind').addClass('is-hidden')
 					$('.upload-loading').addClass('is-hidden')
 					$('#popup-id .bl-popup-heading').css('opacity',1)
+				} else if(popups[i].id == 'popup-avatar'){
+					$('.scanByImage').addClass('is-hidden')
+					$('.bl-popup-context .fail').addClass('is-hidden')
+					$('.bl-popup-context .successful').addClass('is-hidden')
 				}
 			}
 		});
@@ -246,27 +250,28 @@ block javaScripts extend
 		$('#captureId').click(()=>{
 			$('.capture').addClass('is-hidden')
 			$('.check-again').removeClass('is-hidden')
-			$('.check-again .mess').addClass('success')
-			$('.check-again .mess').removeClass('fail')
-			$('.check-again .mess').html('Mặt trước CMND/CCCD hợp lệ')
-			$('.check-again #captureAgain').addClass('is-hidden')
-			$('.check-again #acceptId').removeClass('is-hidden')
+			$('.check-again .mess').removeClass('is-hidden')
 			$('#popup-id .bl-popup-heading').css('opacity',0)
 		})
 
 		$('#captureIdfail').click(()=>{
 			$('.capture').addClass('is-hidden')
 			$('.check-again').removeClass('is-hidden')
-			$('.check-again .mess').addClass('fail')
+
+			//thêm các message lỗi khác
 			$('.check-again .mess').html('Mặt trước CMND/CCCD không hợp lệ')
-			$('.check-again #acceptId').addClass('is-hidden')
-			$('.check-again #captureAgain').removeClass('is-hidden')
-			$('#popup-id .bl-popup-heading').css('opacity',0)
+			
+			$('.check-again #acceptId').attr("disabled", true)
+			$('.check-again #captureAgain').removeClass('is-outlined')
+
 		})
 
 		$('#captureAgain').click(()=>{
 			$('.capture').removeClass('is-hidden')
 			$('.check-again').addClass('is-hidden')
+			$('.check-again .mess').html('')
+			$('.check-again #captureAgain').addClass('is-outlined')
+			$('.check-again #acceptId').removeAttr("disabled")
 			$('#popup-id .bl-popup-heading').css('opacity',1)
 		})
 
@@ -312,4 +317,32 @@ block javaScripts extend
 			$('.third .success').addClass('is-hidden')
 			$('#s2').removeClass('active')
 			$('#s3').addClass('active')
+		})
+
+		document.getElementById('phoneInput').oninput = value => {
+			if(value){
+				$('#checkMobileNumber').removeAttr("disabled")
+			}
+		}
+
+		//case verify mobile successful
+		$('#checkMobileNumber').click(()=>{
+			$('#popup-verifyResult .success_result').removeClass('is-hidden')
+			$('#popup-verifyResult .fail_result').addClass('is-hidden')
+			$('#popup-verifyResult .verify-mess').html('Xác thực Zalo thành công')
+		})
+
+		//case verify mobile fail
+		$('#resultFail').click(()=>{
+			$('#popup-verifyResult .success_result').addClass('is-hidden')
+			$('#popup-verifyResult .fail_result').removeClass('is-hidden')
+			$('#popup-verifyResult .verify-mess').html('Xác thực Zalo thất bại')
+			$('#popup-verifyResult .fail_result .percent').html('49%')
+		})
+
+		$('#numberInvalid').click(()=>{
+			$('#popup-verifyResult .success_result').addClass('is-hidden')
+			$('#popup-verifyResult .fail_result').removeClass('is-hidden')
+			$('#popup-verifyResult .fail_result .percent').html('0%')
+			$('#popup-verifyResult .verify-mess').html('Số điện thoại Zalo không tồn tại')
 		})

@@ -121,7 +121,7 @@ block Popup
 		p Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt trước khớp với khung hình
 		.camera 
 			video(src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')
-		button.feature-hidden#captureIdfail case chụp CMND thất bại
+		//- button.feature-hidden#captureIdfail case chụp CMND thất bại
 		button.button.is-primary.is-rounded#captureId 
 			img(src='./images/ico_capture.png')
 	.bl-popup-context.check-again.is-hidden
@@ -131,12 +131,13 @@ block Popup
 			img(src='./images/img_cccd_demo.png')
 		.content
 			.step
-				p.mess Mặt trước CMND/CCCD hợp lệ
+				p.mess.fail
 		//- button.button.is-primary.is-large.is-fullwidth#captureAgain Chụp lại
 		//- button.button.is-primary.is-large.is-fullwidth#acceptId Dùng ảnh này
+		button.feature-hidden#captureIdfail case xác thực CMND thất bại
 		.buttons 
-			button.button.is-primary.is-large.is-fullwidth#captureAgain Chụp lại
-			button.button.is-primary.is-large.is-fullwidth#acceptId Dùng ảnh này
+			button.button.is-primary.is-large.is-outlined#captureAgain Chụp lại
+			button.button.is-primary.is-large#acceptId Dùng ảnh này
 	.bl-popup-context.capture-behind.is-hidden
 		p Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt sau khớp với khung hình
 		.camera 
@@ -150,9 +151,12 @@ block Popup
 			img(src='./images/img_cccd_demo_behind.png')
 		.content
 			.step
-				p.mess.success Mặt sau CMND/CCCD hợp lệ
-		button.button.is-primary.is-large.is-fullwidth#captureAgainBehind Chụp lại
-		button.button.is-primary.is-large.is-fullwidth#acceptIdBehind Dùng ảnh này
+				p.mess.fail
+		//- button.button.is-primary.is-large.is-fullwidth#captureAgainBehind Chụp lại
+		//- button.button.is-primary.is-large.is-fullwidth#acceptIdBehind Dùng ảnh này
+		.buttons
+			button.button.is-primary.is-large.is-outlined#captureAgainBehind Chụp lại
+			button.button.is-primary.is-large#acceptIdBehind Dùng ảnh này
 	.bl-popup-context.upload-loading.is-hidden
 		i.icz.icz-arrow-up
 		p Đang tải ảnh…
@@ -168,7 +172,7 @@ block Popup
 	.bl-popup-context.is-hidden 
 		img.success_result(src='./images/img_success.png')
 		img.fail_result.is-hidden(src='./images/img_fail.png')
-		p Xác thực Zalo thành công
+		p.verify-mess Xác thực Zalo thành công
 		.cheking-percent.success_result
 			img(src='./images/ico_check.png')
 			.num-percent 

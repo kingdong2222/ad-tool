@@ -108,4 +108,6 @@ block Body
 		.footer-block 
 			p Vui lòng nhập số điện thoại đăng ký Zalo
 			input(type='tel' id="phoneInput" placeholder="Số điện thoại" maxlength="10")
-			button.button.is-primary.is-large.is-fullwidth.func-popup-verifyResult Kiểm tra
+			button.feature-hidden.func-popup-verifyResult#resultFail case kiểm tra fail
+			button.feature-hidden.func-popup-verifyResult#numberInvalid case không tìm thấy số dt
+			button.button.is-primary.is-large.is-fullwidth.func-popup-verifyResult#checkMobileNumber(disabled) Kiểm tra

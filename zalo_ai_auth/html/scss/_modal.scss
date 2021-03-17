@@ -451,12 +451,27 @@
 					p{
 						margin-bottom: $gutter;
 					}
-					.button{
-						width: calc(100% - 48px);
+					// .button{
+					// 	width: calc(100% - 48px);
+					// 	position: fixed;
+					// 	bottom: $gutter;
+					// 	@media screen and (min-width: 768px) {
+					// 		max-width: calc(600px - 48px);
+					// 	}
+					// }
+					.buttons{
+						display: flex;
+						justify-content: space-between;
 						position: fixed;
 						bottom: $gutter;
-						@media screen and (min-width: 768px) {
-							max-width: calc(600px - 48px);
+						left: $gutter;
+						right: $gutter;
+						.button{
+							max-width: calc(50% - 8px);
+							&.is-outlined{
+								color: #131820;
+								border-color: #989EA5;
+							}
 						}
 					}
 				}

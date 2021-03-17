@@ -13698,6 +13698,12 @@ ul.is-default li:before {
   bottom: 24px;
   width: calc(100% - 48px);
 }
+.zalo-ai-auth .body#verifyZaloScreen .footer-block button.feature-hidden {
+  height: auto;
+  width: 100%;
+  position: relative;
+  margin: 1rem 0;
+}
 
 /* Header */
 .header {
@@ -16038,15 +16044,24 @@ ul.is-default li:before {
 .bl-popup .popup-container#popup-id .bl-popup-context.check-again p, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind p {
   margin-bottom: 24px;
 }
-.bl-popup .popup-container#popup-id .bl-popup-context.check-again .button, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .button {
-  width: calc(100% - 48px);
+.bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: fixed;
   bottom: 24px;
+  left: 24px;
+  right: 24px;
 }
-@media screen and (min-width: 768px) {
-  .bl-popup .popup-container#popup-id .bl-popup-context.check-again .button, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .button {
-    max-width: calc(600px - 48px);
-  }
+.bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons .button, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .buttons .button {
+  max-width: calc(50% - 8px);
+}
+.bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons .button.is-outlined, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .buttons .button.is-outlined {
+  color: #131820;
+  border-color: #989EA5;
 }
 .bl-popup .popup-container#popup-id .bl-popup-context.upload-loading {
   padding-top: 0;
