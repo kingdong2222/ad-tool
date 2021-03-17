@@ -250,6 +250,27 @@
 					}
 				}
 			}
+			&.fail{
+				.camera{
+					padding-top: unset;
+					background-color: unset;
+				}
+				.content{
+					.step{
+						p{
+							color: #BC1600;
+						}
+					}
+				}
+				.button{
+					position: fixed;
+					bottom: 24px;
+					width: calc(100% - 48px);
+					@media screen and (min-width: 768px) {
+						width: calc(600px - 48px)
+					}
+				}
+			}
 			&.successful{
 				.camera{
 					padding-top: unset;
@@ -259,9 +280,6 @@
 					.step{
 						p{
 							color: #0CB8AB;
-							&.fail{
-								color: #FF1E00;
-							}
 						}
 					}
 				}

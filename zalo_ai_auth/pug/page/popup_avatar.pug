@@ -68,6 +68,7 @@ block Popup
 				p Vui lòng cúi mặt xuống từ từ
 				img(src='./images/img_head_down.png')
 				button.feature-hidden#toSuccess nhấn để chuyển
+	
 	.bl-popup-context.successful.is-hidden
 		.camera 
 			img(src='./images/img_demo_person.png')
@@ -91,8 +92,16 @@ block Popup
 			.step 
 				p Đăt toàn bộ khuôn mặt trong hình tròn và nhìn thẳng  rồi nhấn nút  "chụp ảnh" 
 				img(src='./images/img_head_directfront.png')
+				button.feature-hidden#toFail1(style="bottom: 100px;") case chụp selfie fail
 				button.button.is-primary.is-rounded#toSuccess1
 					img(src='./images/ico_capture.png')
+	.bl-popup-context.fail.is-hidden
+		.camera 
+			img(src='./images/img_demo_person.png')
+		.content
+			.step
+				p Xác thực khuôn mặt thất bại
+		button.button.is-primary.is-large.is-fullwidth#scanFaceImgFail Chụp lại
 	.bl-popup-context.successful.is-hidden
 		.camera 
 			img(src='./images/img_demo_person.png')
@@ -123,8 +132,11 @@ block Popup
 		.content
 			.step
 				p.mess Mặt trước CMND/CCCD hợp lệ
-		button.button.is-primary.is-large.is-fullwidth#captureAgain Chụp lại
-		button.button.is-primary.is-large.is-fullwidth#acceptId Dùng ảnh này
+		//- button.button.is-primary.is-large.is-fullwidth#captureAgain Chụp lại
+		//- button.button.is-primary.is-large.is-fullwidth#acceptId Dùng ảnh này
+		.buttons 
+			button.button.is-primary.is-large.is-fullwidth#captureAgain Chụp lại
+			button.button.is-primary.is-large.is-fullwidth#acceptId Dùng ảnh này
 	.bl-popup-context.capture-behind.is-hidden
 		p Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt sau khớp với khung hình
 		.camera 
@@ -154,12 +166,18 @@ block Popup
 		a.func-close-popup(href="javascript:void(0)")
 			i.icz.icz-close
 	.bl-popup-context.is-hidden 
-		img(src='./images/img_success.png')
+		img.success_result(src='./images/img_success.png')
+		img.fail_result.is-hidden(src='./images/img_fail.png')
 		p Xác thực Zalo thành công
-		.cheking-percent 
+		.cheking-percent.success_result
 			img(src='./images/ico_check.png')
 			.num-percent 
 				p.percent 95%
+				p Độ tương đồng
+		.cheking-percent.fail_result.is-hidden 
+			img(src='./images/ico_check_fail.png')
+			.num-percent 
+				p.percent 49%
 				p Độ tương đồng
 		button.button.is-primary.is-large.is-fullwidth.go-back-home-final Hoàn thành
 

@@ -15869,15 +15869,29 @@ ul.is-default li:before {
   height: auto;
   margin-top: 24px;
 }
+.bl-popup .popup-container .bl-popup-context.fail .camera {
+  padding-top: unset;
+  background-color: unset;
+}
+.bl-popup .popup-container .bl-popup-context.fail .content .step p {
+  color: #BC1600;
+}
+.bl-popup .popup-container .bl-popup-context.fail .button {
+  position: fixed;
+  bottom: 24px;
+  width: calc(100% - 48px);
+}
+@media screen and (min-width: 768px) {
+  .bl-popup .popup-container .bl-popup-context.fail .button {
+    width: calc(600px - 48px);
+  }
+}
 .bl-popup .popup-container .bl-popup-context.successful .camera {
   padding-top: unset;
   background-color: unset;
 }
 .bl-popup .popup-container .bl-popup-context.successful .content .step p {
   color: #0CB8AB;
-}
-.bl-popup .popup-container .bl-popup-context.successful .content .step p.fail {
-  color: #FF1E00;
 }
 .bl-popup .popup-container .bl-popup-context.successful .button {
   position: fixed;

@@ -214,6 +214,14 @@ block javaScripts extend
 			$('.scanByImage').addClass('is-hidden')
 			$('.successful').removeClass('is-hidden')
 		})
+		$('#toFail1').click(()=>{
+			$('.scanByImage').addClass('is-hidden')
+			$('.fail').removeClass('is-hidden')
+		})
+		$('#scanFaceImgFail').click(()=>{
+			$('.scanByImage').removeClass('is-hidden')
+			$('.fail').addClass('is-hidden')
+		})
 
 		$('#scanFaceDone').click(()=>{
 			$(".func-close-popup").click()

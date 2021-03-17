@@ -230,9 +230,19 @@
           <div class="content">
             <div class="step"> 
               <p>Đăt toàn bộ khuôn mặt trong hình tròn và nhìn thẳng  rồi nhấn nút  "chụp ảnh" </p><img src="./images/img_head_directfront.png">
+              <button class="feature-hidden" id="toFail1" style="bottom: 100px;">case chụp selfie fail</button>
               <button class="button is-primary is-rounded" id="toSuccess1"><img src="./images/ico_capture.png"></button>
             </div>
           </div>
+        </div>
+        <div class="bl-popup-context fail is-hidden">
+          <div class="camera"> <img src="./images/img_demo_person.png"></div>
+          <div class="content">
+            <div class="step">
+              <p>Xác thực khuôn mặt thất bại</p>
+            </div>
+          </div>
+          <button class="button is-primary is-large is-fullwidth" id="scanFaceImgFail">Chụp lại</button>
         </div>
         <div class="bl-popup-context successful is-hidden">
           <div class="camera"> <img src="./images/img_demo_person.png"></div>
@@ -263,8 +273,10 @@
               <p class="mess">Mặt trước CMND/CCCD hợp lệ</p>
             </div>
           </div>
-          <button class="button is-primary is-large is-fullwidth" id="captureAgain">Chụp lại</button>
-          <button class="button is-primary is-large is-fullwidth" id="acceptId">Dùng ảnh này</button>
+          <div class="buttons"> 
+            <button class="button is-primary is-large is-fullwidth" id="captureAgain">Chụp lại</button>
+            <button class="button is-primary is-large is-fullwidth" id="acceptId">Dùng ảnh này</button>
+          </div>
         </div>
         <div class="bl-popup-context capture-behind is-hidden">
           <p>Đặt toàn bộ mặt thẻ vào trong khung và đảm bảo mặt sau khớp với khung hình</p>
@@ -294,11 +306,17 @@
       </div>
       <div class="popup-container" id="popup-verifyResult">
         <div class="bl-popup-heading"><span>Kết quả kiểm tra</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
-        <div class="bl-popup-context is-hidden"> <img src="./images/img_success.png">
+        <div class="bl-popup-context is-hidden"> <img class="success_result" src="./images/img_success.png"><img class="fail_result is-hidden" src="./images/img_fail.png">
           <p>Xác thực Zalo thành công</p>
-          <div class="cheking-percent"> <img src="./images/ico_check.png">
+          <div class="cheking-percent success_result"><img src="./images/ico_check.png">
             <div class="num-percent"> 
               <p class="percent">95%</p>
+              <p>Độ tương đồng</p>
+            </div>
+          </div>
+          <div class="cheking-percent fail_result is-hidden"> <img src="./images/ico_check_fail.png">
+            <div class="num-percent"> 
+              <p class="percent">49%</p>
               <p>Độ tương đồng</p>
             </div>
           </div>
@@ -489,6 +507,14 @@
       $('#toSuccess1').click(()=>{
       	$('.scanByImage').addClass('is-hidden')
       	$('.successful').removeClass('is-hidden')
+      })
+      $('#toFail1').click(()=>{
+      	$('.scanByImage').addClass('is-hidden')
+      	$('.fail').removeClass('is-hidden')
+      })
+      $('#scanFaceImgFail').click(()=>{
+      	$('.scanByImage').removeClass('is-hidden')
+      	$('.fail').addClass('is-hidden')
       })
       
       $('#scanFaceDone').click(()=>{
