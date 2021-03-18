@@ -4168,7 +4168,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 24px;
 }
