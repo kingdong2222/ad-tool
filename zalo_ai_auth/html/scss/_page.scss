@@ -832,27 +832,21 @@ ul.is-default{
 								margin-bottom: 12px;
 							}
 							.info-block{
-								display: flex;
-								flex-direction: row;
-								align-items: baseline;
-								// margin-bottom: 32px;
-								max-width: 500px;
-								margin: 0 auto;
+								
 								.block{
-									margin-right: 12px;
-									margin-bottom: 0;
-									width: 50%;
-									&:last-child{
-										margin-right: 0;
-									}
+									display: flex;
 									p{
 										text-align: start;
 										font-size: 14px;
 										letter-spacing: 0;
 										line-height: 28px;
 										font-weight: 400;
-									}
-									
+										flex-grow: 1;
+										&:first-child{
+											min-width: 50%;
+											flex-grow: 0;
+										}
+									}	
 								}
 							}
 						}

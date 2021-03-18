@@ -13504,27 +13504,10 @@ ul.is-default li:before {
   line-height: 19px;
   margin-bottom: 12px;
 }
-.zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block {
+.zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block .block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block .block {
-  margin-right: 12px;
-  margin-bottom: 0;
-  width: 50%;
-}
-.zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block .block:last-child {
-  margin-right: 0;
 }
 .zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block .block p {
   text-align: start;
@@ -13532,6 +13515,15 @@ ul.is-default li:before {
   letter-spacing: 0;
   line-height: 28px;
   font-weight: 400;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content .info-block .block p:first-child {
+  min-width: 50%;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
 }
 .zalo-ai-auth .body#second-screen .footer-block {
   -ms-flex-negative: 0;

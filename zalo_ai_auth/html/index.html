@@ -80,16 +80,22 @@
               <div class="info-block">
                 <div class="block">
                   <p>Họ và tên:</p>
-                  <p>Ngày sinh:</p>
-                  <p>Số CMND/CCCD:</p>
-                  <p>Nơi cấp:</p>
-                  <p>Ngày cấp:</p>
+                  <p>Nguyễn Văn A Nguyễn Văn A</p>
                 </div>
                 <div class="block">
-                  <p>Nguyễn Văn A</p>
+                  <p>Ngày sinh:</p>
                   <p>01/01/2000</p>
+                </div>
+                <div class="block">
+                  <p>Số CMND/CCCD:</p>
                   <p>0241111111</p>
-                  <p>Tp.Hồ Chí Minh</p>
+                </div>
+                <div class="block"> 
+                  <p>Nơi cấp:</p>
+                  <p>Tp.Hồ Chí Minh Tp.Hồ Chí Minh</p>
+                </div>
+                <div class="block"> 
+                  <p>Ngày cấp:</p>
                   <p>02/02/2018</p>
                 </div>
               </div>
@@ -398,6 +404,7 @@
       			$('.scanByImage').addClass('is-hidden')
       			$('.bl-popup-context .fail').addClass('is-hidden')
       			$('.bl-popup-context .successful').addClass('is-hidden')
+      			$('#popup-avatar .fail').addClass('is-hidden')
       		}
       	}
       });
@@ -518,7 +525,7 @@
       })
       $('#toFail1').click(()=>{
       	$('.scanByImage').addClass('is-hidden')
-      	$('.fail').removeClass('is-hidden')
+      	$('#popup-avatar .fail').removeClass('is-hidden')
       })
       $('#scanFaceImgFail').click(()=>{
       	$('.scanByImage').removeClass('is-hidden')

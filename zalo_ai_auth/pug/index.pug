@@ -100,6 +100,7 @@ block javaScripts extend
 					$('.scanByImage').addClass('is-hidden')
 					$('.bl-popup-context .fail').addClass('is-hidden')
 					$('.bl-popup-context .successful').addClass('is-hidden')
+					$('#popup-avatar .fail').addClass('is-hidden')
 				}
 			}
 		});
@@ -220,7 +221,7 @@ block javaScripts extend
 		})
 		$('#toFail1').click(()=>{
 			$('.scanByImage').addClass('is-hidden')
-			$('.fail').removeClass('is-hidden')
+			$('#popup-avatar .fail').removeClass('is-hidden')
 		})
 		$('#scanFaceImgFail').click(()=>{
 			$('.scanByImage').removeClass('is-hidden')
