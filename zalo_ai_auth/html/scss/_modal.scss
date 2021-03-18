@@ -471,7 +471,12 @@
 							&.is-outlined{
 								color: #131820;
 								border-color: #989EA5;
+								background-color: #fff;
 							}
+						}
+						@media screen and (min-width: 768px) {
+							max-width: calc(600px - 48px);
+							margin: 0 auto;
 						}
 					}
 				}
@@ -517,9 +522,9 @@
 					margin-bottom: 32px;
 					margin-top: 24px;
 				}
-				@media screen and (max-height: 670px) {
+				@media screen and (min-height: 670px) and (min-width: 768px){
 					img{
-						width: 80%;
+						width: 85%;
 					}
 				}
 				.cheking-percent {

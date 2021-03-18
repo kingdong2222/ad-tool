@@ -16062,6 +16062,13 @@ ul.is-default li:before {
 .bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons .button.is-outlined, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .buttons .button.is-outlined {
   color: #131820;
   border-color: #989EA5;
+  background-color: #fff;
+}
+@media screen and (min-width: 768px) {
+  .bl-popup .popup-container#popup-id .bl-popup-context.check-again .buttons, .bl-popup .popup-container#popup-id .bl-popup-context.check-again-behind .buttons {
+    max-width: calc(600px - 48px);
+    margin: 0 auto;
+  }
 }
 .bl-popup .popup-container#popup-id .bl-popup-context.upload-loading {
   padding-top: 0;
@@ -16107,9 +16114,9 @@ ul.is-default li:before {
   margin-bottom: 32px;
   margin-top: 24px;
 }
-@media screen and (max-height: 670px) {
+@media screen and (min-height: 670px) and (min-width: 768px) {
   .bl-popup .popup-container#popup-verifyResult .bl-popup-context img {
-    width: 80%;
+    width: 85%;
   }
 }
 .bl-popup .popup-container#popup-verifyResult .bl-popup-context .cheking-percent {
