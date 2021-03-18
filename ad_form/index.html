@@ -251,6 +251,7 @@
     <script>
       $(".func-tooltip-1").click(function(){
       	$("body").addClass("overlay-tooltip");
+      	$("html").css('overflow', "hidden")
       	$("#tooltip-1").addClass("is-show");
       });
       $(".func-tooltip-close").click(function(){
@@ -259,8 +260,16 @@
       });
       $(".func-close-tooltip").click(function(){
       	$("body").removeClass("overlay-tooltip");
+      	$("html").css('overflow', 'auto')
       	$(".tooltip-container").removeClass("is-show");
       });
+      $(".bl-tooltip").click(function(value){
+      	if(value.target.className == 'bl-tooltip'){
+      		$("body").removeClass("overlay-tooltip");
+      		$("html").css('overflow', 'auto')
+      		$(".tooltip-container").removeClass("is-show");
+      	}
+      })
       new Picker(document.querySelector('.js-date-picker'),{
       	format: 'D MMM YYYY',
       	text: {

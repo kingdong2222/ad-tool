@@ -349,7 +349,7 @@ table th {
 }
 
 .is-size-4 {
-  font-size: 1.125em !important;
+  font-size: 1.25em !important;
 }
 
 .is-size-5 {
@@ -378,7 +378,7 @@ table th {
   }
 
   .is-size-4-mobile {
-    font-size: 1.125em !important;
+    font-size: 1.25em !important;
   }
 
   .is-size-5-mobile {
@@ -407,7 +407,7 @@ table th {
   }
 
   .is-size-4-tablet {
-    font-size: 1.125em !important;
+    font-size: 1.25em !important;
   }
 
   .is-size-5-tablet {
@@ -436,7 +436,7 @@ table th {
   }
 
   .is-size-4-touch {
-    font-size: 1.125em !important;
+    font-size: 1.25em !important;
   }
 
   .is-size-5-touch {
@@ -465,7 +465,7 @@ table th {
   }
 
   .is-size-4-desktop {
-    font-size: 1.125em !important;
+    font-size: 1.25em !important;
   }
 
   .is-size-5-desktop {
@@ -494,7 +494,7 @@ table th {
   }
 
   .is-size-4-widescreen {
-    font-size: 1.125em !important;
+    font-size: 1.25em !important;
   }
 
   .is-size-5-widescreen {
@@ -523,7 +523,7 @@ table th {
   }
 
   .is-size-4-fullhd {
-    font-size: 1.125em !important;
+    font-size: 1.25em !important;
   }
 
   .is-size-5-fullhd {
@@ -3752,7 +3752,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   font-size: 1em;
 }
 .select.is-loading.is-large:after {
-  font-size: 1.125em;
+  font-size: 1.25em;
 }
 
 .file {
@@ -3987,7 +3987,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   font-size: 21px;
 }
 .file.is-large {
-  font-size: 1.125em;
+  font-size: 1.25em;
 }
 .file.is-large .file-icon .fa {
   font-size: 28px;
@@ -4169,7 +4169,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
       -ms-flex-align: center;
           align-items: center;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 24px;
 }
 .label:not(:last-child) {
@@ -4182,7 +4182,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   font-size: 1em;
 }
 .label.is-large {
-  font-size: 1.125em;
+  font-size: 1.25em;
 }
 .label .limit {
   margin-left: auto;
@@ -4383,7 +4383,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
     padding-top: 0.375em;
   }
   .field-label.is-large {
-    font-size: 1.125em;
+    font-size: 1.25em;
     padding-top: 0.375em;
   }
 }
@@ -4447,7 +4447,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 .control.has-icons-left .input.is-large ~ .icon,
 .control.has-icons-left .select.is-large ~ .icon, .control.has-icons-right .input.is-large ~ .icon,
 .control.has-icons-right .select.is-large ~ .icon {
-  font-size: 1.125em;
+  font-size: 1.25em;
 }
 .control.has-icons-left .icon, .control.has-icons-right .icon {
   color: #131820;
@@ -4485,7 +4485,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   font-size: 1em;
 }
 .control.is-loading.is-large:after {
-  font-size: 1.125em;
+  font-size: 1.25em;
 }
 .control.is-danger .input {
   border-color: #d62000;
@@ -8774,7 +8774,7 @@ Generated using nucleoapp.com
 
 .picker-picked {
   color: #1745cf;
-  font-size: 1.125em;
+  font-size: 1.25em;
   font-weight: 600;
   line-height: 1.5rem;
 }
@@ -9063,9 +9063,9 @@ hr.line.is-outside {
 
 .title {
   display: block;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   color: #131820;
-  font-size: 1.125em;
+  font-size: 1.25em;
   font-weight: 700;
   letter-spacing: -0.2px;
   line-height: 28px;
@@ -9077,7 +9077,7 @@ hr.line.is-outside {
   color: #5F656D;
   font-size: 0.875em;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 22px;
 }
 .subtitle strong {
   color: #131820;
@@ -9381,9 +9381,6 @@ select:invalid {
 .bl-form .field .control .select select, .bl-form .field .control .textarea, .bl-form .field .control .input {
   border-bottom: none;
   padding-bottom: 6px;
-}
-.bl-form .field .control .select select [disabled], .bl-form .field .control .select select:invalid, .bl-form .field .control .textarea [disabled], .bl-form .field .control .textarea:invalid, .bl-form .field .control .input [disabled], .bl-form .field .control .input:invalid {
-  color: #989EA5;
 }
 .bl-form .is-otr {
   font-size: 1.125em;

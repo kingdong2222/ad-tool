@@ -252,6 +252,7 @@
       $(".func-tooltip-1").click(function(){
       	$("body").addClass("overlay-tooltip");
       	$("#tooltip-1").addClass("is-show");
+      	$("html").css('overflow', "hidden")
       });
       $(".func-tooltip-close").click(function(){
       	$("body").addClass("overlay-tooltip");
@@ -260,7 +261,15 @@
       $(".func-close-tooltip").click(function(){
       	$("body").removeClass("overlay-tooltip");
       	$(".tooltip-container").removeClass("is-show");
+      	$("html").css('overflow', 'auto')
       });
+      $(".bl-tooltip").click(function(value){
+      	if(value.target.className == 'bl-tooltip'){
+      		$("body").removeClass("overlay-tooltip");
+      		$("html").css('overflow', 'auto')
+      		$(".tooltip-container").removeClass("is-show");
+      	}
+      })
       $(".func-tooltip-zalo-form").click(function(){
       	$("body").addClass("overlay-tooltip");
       	$("#tooltip-zalo-form").addClass("is-show");

@@ -129,12 +129,20 @@
       $(".func-tooltip-2").click(function(){
       	$("body").addClass("overlay-tooltip");
       	$("#tooltip-2").addClass("is-show");
+      	$("html").css('overflow', "hidden")
       });
       $(".func-close-tooltip").click(function(){
       	$("body").removeClass("overlay-tooltip");
       	$(".tooltip-container").removeClass("is-show");
+      	$("html").css('overflow', 'auto')
       });
-      
+      $(".bl-tooltip").click(function(value){
+      	if(value.target.className == 'bl-tooltip'){
+      		$("body").removeClass("overlay-tooltip");
+      		$("html").css('overflow', 'auto')
+      		$(".tooltip-container").removeClass("is-show");
+      	}
+      })
       var backStick = document.getElementsByClassName("func-back")[0]
       window.onscroll = function() {
       	if (window.scrollY >= 80){

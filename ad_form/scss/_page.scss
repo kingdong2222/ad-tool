@@ -85,8 +85,8 @@ hr.line{display:block;background-color:$grey-light;height:1px;@include margin(0 
 	}
 }
 .func-popup-location{@include position(absolute, 0);z-index:1}
-.title{display:block;margin-bottom:$gutter;color:$text;font-size:$size-large;font-weight:$weight-bold;letter-spacing: -0.2px;line-height: 28px;}
-.subtitle{display:block;margin-bottom:32px;color:$grey;font-size:$size-normal;font-weight:$weight-normal;line-height:20px;
+.title{display:block;margin-bottom:1em;color:$text;font-size:$size-large;font-weight:$weight-bold;letter-spacing: -0.2px;line-height: 28px;}
+.subtitle{display:block;margin-bottom:32px;color:$grey;font-size:$size-normal;font-weight:$weight-normal;line-height:22px;
 	strong{
 		color: $text;
 		font-weight: 600;
@@ -237,9 +237,6 @@ select:invalid{color:#ccc}
 			.select select, .textarea, .input{
 				border-bottom: none;
 				padding-bottom: 6px;
-				[disabled], &:invalid{
-					color: #989EA5;
-				}
 			}
 		}
 	}
