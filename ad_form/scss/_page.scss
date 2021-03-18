@@ -24,6 +24,15 @@ body{
 	}
 }
 /* General */
+
+.buttons .button.is-primary.is-outlined{
+	&:focus, &:hover{
+		background-color: inherit !important;
+		border-color: inherit;
+		color: inherit;
+	}
+}
+
 .controls{
 	.control{
 		@include padding(5px null);
@@ -150,7 +159,7 @@ select:invalid{color:#ccc}
 	}
 	.ico-wrap{background-color:$success;@include size(64px);@include margin(35px auto 20px);border-radius:100%}
 	.ico-success{display:block;@include size(72px);@include margin(8px auto 24px);}
-	p.is-policy{@include padding(4px null null);padding-bottom:env(safe-area-inset-bottom);color:$grey;font-size:$size-small;
+	p.is-policy{@include padding(4px null null);color:$grey;font-size:$size-small;
 		strong{font-weight:$weight-bold}
 		a{
 			color:$grey;
@@ -161,11 +170,10 @@ select:invalid{color:#ccc}
 		a{
 			text-decoration: underline;
 		}
-		& +  .button {
+		& +  .buttons {
 			margin-top: 2em;
 		}
 	}
-	.button{margin-top:$gutter/1.5}
 	// @include tablet{@include padding(($gutter/2) 55px)}
 	.context-default{
 		h4{margin-bottom:$gutter*0.5;color:$text;font-size:$size-normal;font-weight:$weight-bold}
@@ -198,15 +206,20 @@ select:invalid{color:#ccc}
 	.buttons{
 		display: flex;
 		justify-content: space-between;
+		margin-top: $gutter/1.5;
+		.button:not(:last-child):not(.is-fullwidth){
+			margin-right: 1em;
+		}
 		&:last-child{
 			margin-bottom: 0;
 		}
 		.is-primary{
-			width: calc(70% - 16px);
+			flex-grow: 1;
 			margin-bottom: 0;
+			min-width: 0;
 		}
 		.is-outlined{
-			width: 30%;
+			flex-grow: 0;
 		}
 	}
 	.field{
@@ -224,6 +237,9 @@ select:invalid{color:#ccc}
 			.select select, .textarea, .input{
 				border-bottom: none;
 				padding-bottom: 6px;
+				[disabled], &:invalid{
+					color: #989EA5;
+				}
 			}
 		}
 	}

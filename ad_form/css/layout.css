@@ -8864,6 +8864,12 @@ body.for-article .page-content .field:not(:last-child) {
 }
 
 /* General */
+.buttons .button.is-primary.is-outlined:focus, .buttons .button.is-primary.is-outlined:hover {
+  background-color: inherit !important;
+  border-color: inherit;
+  color: inherit;
+}
+
 .controls .control {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -9267,7 +9273,6 @@ select:invalid {
 }
 .bl-form p.is-policy {
   padding-top: 4px;
-  padding-bottom: env(safe-area-inset-bottom);
   color: #5F656D;
   font-size: 0.75em;
 }
@@ -9286,11 +9291,8 @@ select:invalid {
 .bl-form p.is-question a {
   text-decoration: underline;
 }
-.bl-form p.is-question + .button {
+.bl-form p.is-question + .buttons {
   margin-top: 2em;
-}
-.bl-form .button {
-  margin-top: 1em;
 }
 .bl-form .context-default h4 {
   margin-bottom: 0.75em;
@@ -9346,16 +9348,25 @@ select:invalid {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 1em;
+}
+.bl-form .buttons .button:not(:last-child):not(.is-fullwidth) {
+  margin-right: 1em;
 }
 .bl-form .buttons:last-child {
   margin-bottom: 0;
 }
 .bl-form .buttons .is-primary {
-  width: calc(70% - 16px);
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   margin-bottom: 0;
+  min-width: 0;
 }
 .bl-form .buttons .is-outlined {
-  width: 30%;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
 }
 .bl-form .field .control .add-border-bottom::after {
   content: "";
@@ -9370,6 +9381,9 @@ select:invalid {
 .bl-form .field .control .select select, .bl-form .field .control .textarea, .bl-form .field .control .input {
   border-bottom: none;
   padding-bottom: 6px;
+}
+.bl-form .field .control .select select [disabled], .bl-form .field .control .select select:invalid, .bl-form .field .control .textarea [disabled], .bl-form .field .control .textarea:invalid, .bl-form .field .control .input [disabled], .bl-form .field .control .input:invalid {
+  color: #989EA5;
 }
 .bl-form .is-otr {
   font-size: 1.125em;
