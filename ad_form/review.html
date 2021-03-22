@@ -106,11 +106,21 @@
       $(".func-close-tooltip").click(function(){
       	$("body").removeClass("overlay-tooltip");
       	$(".tooltip-container").removeClass("is-show");
+      	
+      	$("html").css('overflow', 'auto')
       });
       $(".func-tooltip-zalo-form").click(function(){
       	$("body").addClass("overlay-tooltip");
       	$("#tooltip-zalo-form").addClass("is-show");
+      	$("html").css('overflow', "hidden")
       });
+      $(".bl-tooltip").click(function(value){
+      	if(value.target.className == 'bl-tooltip'){
+      		$("body").removeClass("overlay-tooltip");
+      		$("html").css('overflow', 'auto')
+      		$(".tooltip-container").removeClass("is-show");
+      	}
+      })
     </script>
   </body>
 </html>
