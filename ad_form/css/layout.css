@@ -9924,12 +9924,17 @@ select:invalid {
   margin-bottom: 0;
 }
 .ad-form-v2 .body .group-form .bl-form .buttons .is-primary {
-  width: calc(70% - 16px);
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   margin: 0;
 }
 .ad-form-v2 .body .group-form .bl-form .buttons .is-outlined {
-  width: 30%;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
   background-color: #fff;
+  margin-right: 1em;
 }
 .ad-form-v2 .copyright {
   margin-top: 24px;

@@ -434,12 +434,13 @@ select:invalid{color:#989EA5}
 						margin-bottom: 0;
 					}
 					.is-primary{
-						width: calc(70% - 16px);
+						flex-grow: 1;
 						margin: 0;
 					}
 					.is-outlined{
-						width: 30%;
+						flex-grow: 0;
 						background-color: #fff;
+						margin-right: 1em;
 					}
 				}
 			}
