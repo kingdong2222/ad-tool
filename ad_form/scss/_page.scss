@@ -109,7 +109,7 @@ hr.line{display:block;background-color:$grey-light;height:1px;@include margin(0 
 		margin-right:$gutter*1.5;@include padding(4px null);
 	}
 }
-select:invalid{color:#ccc}
+select:invalid{color:#989EA5}
 .copyright{@include margin(12px null $gutter);text-align:center;font-size:0.688em;color:$grey-light;}
 
 /* Block */
