@@ -564,6 +564,7 @@ ul.is-default{
 		}
 		&#first-screen{
 			position: relative;
+			height: 100vh;
 			.logo{
 				width: 126px;
 				display: block;
@@ -577,7 +578,7 @@ ul.is-default{
 					display: block;
 					margin: 0 auto;
 					@media screen and (min-height: 670px) {
-						width: 100%;
+						width: 70%;
 					}
 				}
 			}
@@ -613,14 +614,14 @@ ul.is-default{
 				// 	margin-top: 0;
 				// }
 				// margin-top: 48px;
-				// position: absolute;
-				// bottom: 20px;
-				// left: 0;
+				position: absolute;
+				bottom: 20px;
+				left: 0;
 				width: 100%;
-				margin-top: 48px;
-				@media screen and (min-width: 768px) {
-					margin-top: 96px;
-				}
+				// margin-top: 48px;
+				// @media screen and (min-width: 768px) {
+				// 	margin-top: 96px;
+				// }
 				p{
 					margin: 0;
 					font-size: 12px;

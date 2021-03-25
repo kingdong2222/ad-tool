@@ -13195,6 +13195,7 @@ ul.is-default li:before {
 }
 .zalo-ai-auth .body#first-screen {
   position: relative;
+  height: 100vh;
 }
 .zalo-ai-auth .body#first-screen .logo {
   width: 126px;
@@ -13212,7 +13213,7 @@ ul.is-default li:before {
 }
 @media screen and (min-height: 670px) {
   .zalo-ai-auth .body#first-screen .banner img {
-    width: 100%;
+    width: 70%;
   }
 }
 .zalo-ai-auth .body#first-screen h2 {
@@ -13239,13 +13240,10 @@ ul.is-default li:before {
   min-height: 48px;
 }
 .zalo-ai-auth .body#first-screen .bottom-block {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
   width: 100%;
-  margin-top: 48px;
-}
-@media screen and (min-width: 768px) {
-  .zalo-ai-auth .body#first-screen .bottom-block {
-    margin-top: 96px;
-  }
 }
 .zalo-ai-auth .body#first-screen .bottom-block p {
   margin: 0;
@@ -15839,7 +15837,7 @@ ul.is-default li:before {
   height: 48px;
 }
 .bl-popup .popup-container .bl-popup-context .content {
-  max-width: 300px;
+  max-width: 350px;
 }
 .bl-popup .popup-container .bl-popup-context .content .step {
   display: -webkit-box;
@@ -15858,6 +15856,11 @@ ul.is-default li:before {
   font-size: 1em;
   line-height: 24px;
   font-weight: 400;
+}
+.bl-popup .popup-container .bl-popup-context .content .step p.fail {
+  color: #BC1600;
+  font-weight: 600;
+  margin-top: 0.5em;
 }
 .bl-popup .popup-container .bl-popup-context .content .step p + .button {
   margin-top: 24px;
@@ -15916,6 +15919,16 @@ ul.is-default li:before {
 .bl-popup .popup-container .bl-popup-context.scanByImage .content button img {
   width: 27px;
   margin-top: 0 !important;
+}
+.bl-popup .popup-container .bl-popup-context.scanByImage .content button.is-loading img {
+  opacity: 0;
+}
+.bl-popup .popup-container .bl-popup-context.scanByImage .content button.is-loading:after {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #fff;
+  top: 11px;
+  left: 11px;
 }
 .bl-popup .popup-container .bl-popup-context.scanByImage .content button:after {
   content: "";

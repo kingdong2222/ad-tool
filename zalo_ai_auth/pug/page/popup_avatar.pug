@@ -90,9 +90,11 @@ block Popup
 			video(src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')
 		.content
 			.step 
-				p Đăt toàn bộ khuôn mặt trong hình tròn và nhìn thẳng  rồi nhấn nút  "chụp ảnh" 
+				p Đăt toàn bộ khuôn mặt trong hình tròn và nhìn thẳng rồi nhấn nút "chụp ảnh" 
+				p.fail.is-hidden Hình ảnh của bạn chưa nhìn thẳng
 				img(src='./images/img_head_directfront.png')
 				button.feature-hidden#toFail1(style="bottom: 100px;") case chụp selfie fail
+				button.button.is-primary.is-rounded.is-loading
 				button.button.is-primary.is-rounded#toSuccess1
 					img(src='./images/ico_capture.png')
 	.bl-popup-context.fail.is-hidden

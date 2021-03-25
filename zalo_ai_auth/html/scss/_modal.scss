@@ -229,7 +229,7 @@
 			}
 			
 			.content{
-				max-width: 300px;
+				max-width: 350px;
 				.step{
 					display: flex;
 					flex-direction: column;
@@ -239,6 +239,11 @@
 						font-size: 1em;
 						line-height: 24px;
 						font-weight: 400;
+						&.fail{
+							color: #BC1600;
+							font-weight: 600;
+							margin-top: .5em;
+						}
 					}
 					p+.button{
 						margin-top: 24px;
@@ -310,6 +315,18 @@
 						img{
 							width: 27px;
 							margin-top: 0 !important;
+						}
+						&.is-loading{
+							img{
+								opacity: 0;
+							}
+						}
+						&.is-loading:after{
+							width: 48px;
+							height: 48px;
+							border: 2px solid #fff;
+							top: 11px;
+							left: 11px;
 						}
 						&:after{
 							content: '';
