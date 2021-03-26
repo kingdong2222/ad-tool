@@ -86,8 +86,8 @@ block javaScripts extend
 					$('#ava-0').removeClass('is-hidden')
 					$('.successful').addClass('is-hidden')
 					$('.scanning').removeClass('is-hidden')
-					$('rect').removeClass('success')
-					$('rect').removeClass('fail')
+					//- $('rect').removeClass('success')
+					//- $('rect').removeClass('fail')
 					$(".scanByImage").addClass("is-hidden");
 				} else if(popups[i].id == 'popup-id'){
 					$('.capture').addClass('is-hidden')
@@ -186,14 +186,14 @@ block javaScripts extend
 			$('#ava-1').addClass('is-hidden')
 			$('#ava-2').removeClass('is-hidden')
 
-			$('.loading .loading-step-1').addClass('success')
+			//- $('.loading .loading-step-1').addClass('success')
 		})
 
 		$('#toStep3').click(()=>{
 			$('#ava-2').addClass('is-hidden')
 			$('#ava-3').removeClass('is-hidden')
 
-			$('.loading .loading-step-2').addClass('success')
+			//- $('.loading .loading-step-2').addClass('success')
 		})
 
 		$('#toStep4').click(()=>{
@@ -201,7 +201,7 @@ block javaScripts extend
 			//scan fail nên không chuyển
 			$('#ava-3').addClass('is-hidden')
 			$('#ava-4').removeClass('is-hidden')
-			$('.loading .loading-step-3').addClass('success')
+			//- $('.loading .loading-step-3').addClass('success')
 			
 			//scan fail
 			//- $('.loading .loading-step-3').addClass('fail')
@@ -213,7 +213,7 @@ block javaScripts extend
 			$('.scanning').addClass('is-hidden')
 			$('.successful').removeClass('is-hidden')
 
-			$('.loading .loading-step-4').addClass('success')
+			//- $('.loading .loading-step-4').addClass('success')
 		})
 		$('#toSuccess1').click(()=>{
 			$('.scanByImage').addClass('is-hidden')
@@ -347,3 +347,13 @@ block javaScripts extend
 			$('#popup-verifyResult .fail_result .percent').html('0%')
 			$('#popup-verifyResult .verify-mess').html('Số điện thoại Zalo không tồn tại')
 		})
+
+		window.onload = () => {
+			let width = window.innerWidth
+			if(width >= 375 && width <= 667){
+				$('#popup-avatar-scanning .camera').addClass('case-ratio43')
+				$('#popup-avatar .camera').addClass('case-ratio43')
+				$('#popup-id .camera').addClass('case-ratio34')
+			}
+			
+		}

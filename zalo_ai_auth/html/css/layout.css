@@ -13195,7 +13195,7 @@ ul.is-default li:before {
 }
 .zalo-ai-auth .body#first-screen {
   position: relative;
-  height: 100vh;
+  height: 85vh;
 }
 .zalo-ai-auth .body#first-screen .logo {
   width: 126px;
@@ -15802,6 +15802,16 @@ ul.is-default li:before {
     min-height: 285px;
   }
 }
+.bl-popup .popup-container .bl-popup-context .camera.case-ratio43 video {
+  width: 250px;
+  height: calc(250px * 4 / 3);
+  border-radius: 0 !important;
+}
+.bl-popup .popup-container .bl-popup-context .camera.case-ratio43 img {
+  min-width: 250px !important;
+  min-height: calc(250px * 4 / 3) !important;
+  border-radius: 0 !important;
+}
 .bl-popup .popup-container .bl-popup-context .camera .loading {
   width: 235px;
   height: 235px;
@@ -16000,6 +16010,18 @@ ul.is-default li:before {
     height: calc(600px - 24px);
     min-height: calc(600px - 24px);
   }
+}
+.bl-popup .popup-container#popup-id .bl-popup-context .camera.case-ratio34 img {
+  width: calc(100vw - 24px);
+  height: calc(calc(100vw - 24px) * 3 / 4);
+  -o-object-fit: cover;
+     object-fit: cover;
+  min-height: calc(calc(100vw - 24px) * 3 / 4);
+}
+.bl-popup .popup-container#popup-id .bl-popup-context .camera.case-ratio34 video {
+  width: calc(100vw - 24px);
+  height: calc(calc(100vw - 24px) * 3 / 4);
+  min-height: calc(calc(100vw - 24px) * 3 / 4);
 }
 .bl-popup .popup-container#popup-id .bl-popup-context .content .step p {
   margin-bottom: 0;
