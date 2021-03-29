@@ -179,6 +179,10 @@
 					min-height: 285px;
 				}
 				overflow: hidden;
+				-webkit-backface-visibility: hidden;
+				-moz-backface-visibility: hidden;
+				-webkit-transform: translate3d(0, 0, 0);
+				-moz-transform: translate3d(0, 0, 0);
     			// padding-top: 250px;
 				background-color:  $text;
 				position: relative;
@@ -401,6 +405,11 @@
 					// padding-top: 220px;
 					height: calc(9 * calc(100vw - 24px) / 16);
 					margin-bottom: 0;
+					overflow: hidden;
+					-webkit-backface-visibility: hidden;
+					-moz-backface-visibility: hidden;
+					-webkit-transform: translate3d(0, 0, 0);
+					-moz-transform: translate3d(0, 0, 0);
 					img{
 						height: calc(100vw - 24px);
 						width: calc(100vw - 24px);
