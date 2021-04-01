@@ -12,13 +12,20 @@ block Popup
 	.bl-popup-context.scanning
 		.camera
 			video(src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')
+			//- .svg-guiding 
+			//- 	svg(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 54.18 107.38')
+			//- 		defs
+			//- 			style.
+			//- 				.cls-1{fill:#1af7fc;}
+			//- 		path.cls-1(d='M880.53,1319.69l.18,13.39.1,13.39.08,26.78-.08,26.77-.1,13.39-.18,13.39a.13.13,0,0,1-.14.13.13.13,0,0,1-.13-.13l-.18-13.39L880,1400l-.08-26.77.08-26.78.1-13.39.18-13.39a.13.13,0,0,1,.14-.13A.13.13,0,0,1,880.53,1319.69Z')
+
 			//- img.loading(src='./images/circle_step_0.png')
 			
 		.content
-			.step#ava-0 
-				p Đầu tiên, bạn phải đặt khuôn mặt mình trong hình tròn. Sau đó bạn bắt đầu di chuyển theo hướng dẫn
-				button.button.is-primary.is-large#toStep1 Bắt đầu
-			.step#ava-1.is-hidden
+			//- .step#ava-0 
+			//- 	p Đầu tiên, bạn phải đặt khuôn mặt mình trong hình tròn. Sau đó bạn bắt đầu di chuyển theo hướng dẫn
+			//- 	button.button.is-primary.is-large#toStep1 Bắt đầu
+			.step#ava-1
 				p Vui lòng quay mặt từ từ sang trái
 				img(src='./images/img_head_left.png')
 				button.feature-hidden#toStep2 nhấn để chuyển
@@ -135,8 +142,8 @@ block Popup
 .popup-container#popup-verifyResult
 	.bl-popup-heading
 		span Kết quả kiểm tra
-		a.func-close-popup(href="javascript:void(0)")
-			i.icz.icz-close
+		//- a.func-close-popup(href="javascript:void(0)")
+		//- 	i.icz.icz-close
 	.bl-popup-context.is-hidden 
 		img.success_result(src='./images/img_success.png')
 		img.fail_result.is-hidden(src='./images/img_fail.png')
