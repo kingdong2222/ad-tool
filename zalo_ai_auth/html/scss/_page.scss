@@ -565,6 +565,9 @@ ul.is-default{
 		&#first-screen{
 			position: relative;
 			height: 85vh;
+			@media screen and (max-width: 600px) {
+				height: 100vh;
+			}
 			.logo{
 				width: 126px;
 				display: block;
@@ -708,8 +711,9 @@ ul.is-default{
 							flex-direction: row;
 							margin-top: 2em;
 							margin-bottom: 2em;
+							justify-content: center;
 							.option{
-								width: 50%;
+								width: 80%;
 								position: relative;
 								align-items: center;
 								display: flex;
@@ -735,23 +739,23 @@ ul.is-default{
 										font-weight: normal;
 									}
 								}
-								&:nth-child(1){
-									padding-right: 24px;
-									&::after{
-										position: absolute;
-										top: 24px;
-										right: 0;
-										content: '';
-										box-sizing: border-box;
-										height: 300px;
-										width: 1px;
-										border: 1px dashed #D0D7DF;
-										opacity: 0.75;
-									}
-								}
-								&:nth-child(2){
-									padding-left: 24px;
-								}
+								// &:nth-child(1){
+								// 	padding-right: 24px;
+								// 	&::after{
+								// 		position: absolute;
+								// 		top: 24px;
+								// 		right: 0;
+								// 		content: '';
+								// 		box-sizing: border-box;
+								// 		height: 300px;
+								// 		width: 1px;
+								// 		border: 1px dashed #D0D7DF;
+								// 		opacity: 0.75;
+								// 	}
+								// }
+								// &:nth-child(2){
+								// 	padding-left: 24px;
+								// }
 								.button{
 									min-width: 140px;
 								}
@@ -841,6 +845,24 @@ ul.is-default{
 								}
 							}
 						}
+						h5{
+							font-size: 14px;
+							font-weight: 600;
+							letter-spacing: 0;
+							line-height: 22px;
+							text-align: center;
+							span{
+								&.is-success{
+									color: #0CB8AB;
+								}
+								&.is-fail{
+									color: #FF1E00;
+								}
+							}
+						}
+						.result-block-content + h5{
+							margin-top: 16px;
+						}
 						.result-block-content{
 							padding: 16px;
 							border-radius: 8px;
@@ -852,6 +874,7 @@ ul.is-default{
 								line-height: 19px;
 								margin-bottom: 12px;
 							}
+							
 							.info-block{
 								
 								.block{

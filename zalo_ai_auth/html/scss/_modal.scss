@@ -351,7 +351,7 @@
 							width: 63px;
 							height: 63px;
 							position: absolute;
-							top: 4.5px;
+							top: 3.5px;
 							left: 4.5px;
 						}
 					}
@@ -482,7 +482,7 @@
 							width: 63px;
 							height: 63px;
 							position: absolute;
-							top: 4.5px;
+							top: 3.5px;
 							left: 4.5px;
 						}
 						&#captureIdfail{
@@ -575,9 +575,14 @@
 					margin-bottom: 32px;
 					margin-top: 24px;
 				}
-				@media screen and (min-height: 670px) and (min-width: 768px){
+				@media screen and (min-height: 670px) {
 					img{
-						width: 85%;
+						width: 80%;
+					}
+				}
+				@media screen and (max-width: 768px) {
+					img{
+						width: 80%;
 					}
 				}
 				.cheking-percent {
@@ -617,7 +622,11 @@
 					position: fixed;
 					width: calc(100% - 48px);
 					margin: 0 auto;
-					bottom: 24px;
+					bottom: 72px;
+					&.cancel-pass{
+						bottom: 24px;
+						border: none;
+					}
 					@media screen and (min-width: 768px) {
 						width: calc(600px - 48px);
 					}

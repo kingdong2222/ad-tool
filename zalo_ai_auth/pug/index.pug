@@ -39,22 +39,22 @@ block javaScripts extend
 
 		const first = document.getElementById('first-screen')
 		const second = document.getElementById('second-screen')
-		const third = document.getElementById('verifyZaloScreen')
+		//- const third = document.getElementById('verifyZaloScreen')
 
 		document.getElementById('start').onclick = () => {
 			first.classList.add('is-hidden')
 			second.classList.remove('is-hidden')
 		}
 
-		document.getElementById('verifyZalo').onclick = () => {
+		//- document.getElementById('verifyZalo').onclick = () => {
 
-			document.getElementById('phoneInput').focus()
+		//- 	document.getElementById('phoneInput').focus()
 
-			second.classList.add('is-hidden')
-			third.classList.remove('is-hidden')
+		//- 	second.classList.add('is-hidden')
+		//- 	third.classList.remove('is-hidden')
 			
-			$('#s3').removeClass('active')
-		}
+		//- 	$('#s3').removeClass('active')
+		//- }
 
 		$(".func-popup-avatarPhoto").click(function(){
 			$("html").addClass("overlay-popup");
@@ -166,10 +166,6 @@ block javaScripts extend
 
 		//button click function test
 
-		$('#optionScan1').click(()=>{
-			$("html").addClass("overlay-popup");
-			$("#popup-avatar-scanning").addClass("is-show");
-		})
 
 		$('#optionScan2').click(()=>{
 			$("html").addClass("overlay-popup");
@@ -177,35 +173,7 @@ block javaScripts extend
 			$(".scanByImage").removeClass("is-hidden");
 		})
 
-		$('#toStep1').click(()=>{
-			$('#ava-0').addClass('is-hidden')
-			$('#ava-1').removeClass('is-hidden')
-		})
-
-		$('#toStep2').click(()=>{
-			$('#ava-1').addClass('is-hidden')
-			$('#ava-2').removeClass('is-hidden')
-
-			//- $('.loading .loading-step-1').addClass('success')
-		})
-
-		$('#toStep3').click(()=>{
-			$('#ava-2').addClass('is-hidden')
-			$('#ava-3').removeClass('is-hidden')
-
-			//- $('.loading .loading-step-2').addClass('success')
-		})
-
-		$('#toStep4').click(()=>{
-			
-			//scan fail nên không chuyển
-			$('#ava-3').addClass('is-hidden')
-			$('#ava-4').removeClass('is-hidden')
-			//- $('.loading .loading-step-3').addClass('success')
-			
-			//scan fail
-			//- $('.loading .loading-step-3').addClass('fail')
-		})
+		
 
 		$('#toSuccess').click(()=>{
 			$('#ava-4').addClass('is-hidden')

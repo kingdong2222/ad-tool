@@ -13197,6 +13197,11 @@ ul.is-default li:before {
   position: relative;
   height: 85vh;
 }
+@media screen and (max-width: 600px) {
+  .zalo-ai-auth .body#first-screen {
+    height: 100vh;
+  }
+}
 .zalo-ai-auth .body#first-screen .logo {
   width: 126px;
   display: block;
@@ -13353,9 +13358,12 @@ ul.is-default li:before {
           flex-direction: row;
   margin-top: 2em;
   margin-bottom: 2em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .zalo-ai-auth .body#second-screen .body-block .block-content.first .options .option {
-  width: 50%;
+  width: 80%;
   position: relative;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -13388,24 +13396,6 @@ ul.is-default li:before {
   margin-top: 12px;
   margin-bottom: 16px;
   font-weight: normal;
-}
-.zalo-ai-auth .body#second-screen .body-block .block-content.first .options .option:nth-child(1) {
-  padding-right: 24px;
-}
-.zalo-ai-auth .body#second-screen .body-block .block-content.first .options .option:nth-child(1)::after {
-  position: absolute;
-  top: 24px;
-  right: 0;
-  content: "";
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  height: 300px;
-  width: 1px;
-  border: 1px dashed #D0D7DF;
-  opacity: 0.75;
-}
-.zalo-ai-auth .body#second-screen .body-block .block-content.first .options .option:nth-child(2) {
-  padding-left: 24px;
 }
 .zalo-ai-auth .body#second-screen .body-block .block-content.first .options .option .button {
   min-width: 140px;
@@ -13508,6 +13498,22 @@ ul.is-default li:before {
     width: 60%;
     height: calc(60% * 9 / 16);
   }
+}
+.zalo-ai-auth .body#second-screen .body-block .block-content.third h5 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  text-align: center;
+}
+.zalo-ai-auth .body#second-screen .body-block .block-content.third h5 span.is-success {
+  color: #0CB8AB;
+}
+.zalo-ai-auth .body#second-screen .body-block .block-content.third h5 span.is-fail {
+  color: #FF1E00;
+}
+.zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content + h5 {
+  margin-top: 16px;
 }
 .zalo-ai-auth .body#second-screen .body-block .block-content.third .result-block-content {
   padding: 16px;
@@ -15971,7 +15977,7 @@ ul.is-default li:before {
   width: 63px;
   height: 63px;
   position: absolute;
-  top: 4.5px;
+  top: 3.5px;
   left: 4.5px;
 }
 @media screen and (max-height: 670px) {
@@ -16081,7 +16087,7 @@ ul.is-default li:before {
   width: 63px;
   height: 63px;
   position: absolute;
-  top: 4.5px;
+  top: 3.5px;
   left: 4.5px;
 }
 .bl-popup .popup-container#popup-id .bl-popup-context.capture button#captureIdfail, .bl-popup .popup-container#popup-id .bl-popup-context.capture-behind button#captureIdfail {
@@ -16170,9 +16176,14 @@ ul.is-default li:before {
   margin-bottom: 32px;
   margin-top: 24px;
 }
-@media screen and (min-height: 670px) and (min-width: 768px) {
+@media screen and (min-height: 670px) {
   .bl-popup .popup-container#popup-verifyResult .bl-popup-context img {
-    width: 85%;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bl-popup .popup-container#popup-verifyResult .bl-popup-context img {
+    width: 80%;
   }
 }
 .bl-popup .popup-container#popup-verifyResult .bl-popup-context .cheking-percent {
@@ -16219,7 +16230,11 @@ ul.is-default li:before {
   position: fixed;
   width: calc(100% - 48px);
   margin: 0 auto;
+  bottom: 72px;
+}
+.bl-popup .popup-container#popup-verifyResult .bl-popup-context button.cancel-pass {
   bottom: 24px;
+  border: none;
 }
 @media screen and (min-width: 768px) {
   .bl-popup .popup-container#popup-verifyResult .bl-popup-context button {

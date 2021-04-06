@@ -24,11 +24,11 @@ block Body
 		.block-content.first
 			p Vui lòng thực hiện các thao tác xác thực khuôn mặt theo 1 trong 2 phương thức sau
 			.options 
-				.option 
-					p Xác thực qua hành động
-					img(src='./images/img_scan_active.png')
-					p.small Di chuyển khuôn mặt theo 4 hướng trên, dưới, trái, phải để xác thực 
-					button.button.is-primary.is-large#optionScan1 Bắt đầu
+				//- .option 
+				//- 	p Xác thực qua hành động
+				//- 	img(src='./images/img_scan_active.png')
+				//- 	p.small Di chuyển khuôn mặt theo 4 hướng trên, dưới, trái, phải để xác thực 
+				//- 	button.button.is-primary.is-large#optionScan1 Bắt đầu
 				.option
 					p Xác thực qua ảnh
 					img(src='./images/img_scan_passive.png')
@@ -70,6 +70,11 @@ block Body
 					.block 
 						p Ngày cấp:
 						p 02/02/2018
+			h5 Xác thực thông tin qua Zalo:<br>
+				span.is-success 60% độ tương đồng
+			h5 Xác thực thông tin qua Zalo:<br>
+				span.is-fail 40% độ tương đồng
+
 	.footer-block 
 		.block-content.first 
 			.list-instruction
@@ -96,8 +101,10 @@ block Body
 					p Không để ngón tay hay vật dụng đè vào giấy tờ khi chụp
 			button.button.is-primary.is-large.is-fullwidth.func-popup-Id Bắt đầu chụp
 		.block-content.third.is-hidden
-			button.button.is-primary.is-large.is-fullwidth#verifyZalo Xác thực bằng Zalo
-			button.button.is-primary.is-outlined.is-large.is-fullwidth.go-back-home  Bỏ qua
+			//- button.button.is-primary.is-large.is-fullwidth#verifyZalo Xác thực bằng Zalo
+			button.button.is-primary.is-large.is-fullwidth Hoàn tất
+			button.button.is-primary.is-large.is-fullwidth Xác thực lại
+			//- button.button.is-primary.is-outlined.is-large.is-fullwidth.go-back-home  Bỏ qua
 .body#verifyZaloScreen.is-hidden
 	.header-block 
 		.logo-block

@@ -44,11 +44,6 @@
           <div class="block-content first">
             <p>Vui lòng thực hiện các thao tác xác thực khuôn mặt theo 1 trong 2 phương thức sau</p>
             <div class="options"> 
-              <div class="option"> 
-                <p>Xác thực qua hành động</p><img src="./images/img_scan_active.png">
-                <p class="small">Di chuyển khuôn mặt theo 4 hướng trên, dưới, trái, phải để xác thực </p>
-                <button class="button is-primary is-large" id="optionScan1">Bắt đầu</button>
-              </div>
               <div class="option">
                 <p>Xác thực qua ảnh</p><img src="./images/img_scan_passive.png">
                 <p class="small">Nhìn thẳng khuôn mặt vào camera và nhấn nút chụp ảnh </p>
@@ -100,6 +95,8 @@
                 </div>
               </div>
             </div>
+            <h5>Xác thực thông tin qua Zalo:<br><span class="is-success">60% độ tương đồng</span></h5>
+            <h5>Xác thực thông tin qua Zalo:<br><span class="is-fail">40% độ tương đồng</span></h5>
           </div>
         </div>
         <div class="footer-block"> 
@@ -131,8 +128,8 @@
             <button class="button is-primary is-large is-fullwidth func-popup-Id">Bắt đầu chụp</button>
           </div>
           <div class="block-content third is-hidden">
-            <button class="button is-primary is-large is-fullwidth" id="verifyZalo">Xác thực bằng Zalo</button>
-            <button class="button is-primary is-outlined is-large is-fullwidth go-back-home"> Bỏ qua</button>
+            <button class="button is-primary is-large is-fullwidth">Hoàn tất</button>
+            <button class="button is-primary is-large is-fullwidth">Xác thực lại</button>
           </div>
         </div>
       </div>
@@ -292,6 +289,7 @@
             </div>
           </div>
           <button class="button is-primary is-large is-fullwidth go-back-home-final">Hoàn thành</button>
+          <button class="button is-primary is-outlined is-large is-fullwidth cancel-pass">Bỏ qua</button>
         </div>
       </div>
     </div>
@@ -304,22 +302,22 @@
     <script>
       const first = document.getElementById('first-screen')
       const second = document.getElementById('second-screen')
-      const third = document.getElementById('verifyZaloScreen')
+      //- const third = document.getElementById('verifyZaloScreen')
       
       document.getElementById('start').onclick = () => {
       	first.classList.add('is-hidden')
       	second.classList.remove('is-hidden')
       }
       
-      document.getElementById('verifyZalo').onclick = () => {
+      //- document.getElementById('verifyZalo').onclick = () => {
       
-      	document.getElementById('phoneInput').focus()
+      //- 	document.getElementById('phoneInput').focus()
       
-      	second.classList.add('is-hidden')
-      	third.classList.remove('is-hidden')
+      //- 	second.classList.add('is-hidden')
+      //- 	third.classList.remove('is-hidden')
       	
-      	$('#s3').removeClass('active')
-      }
+      //- 	$('#s3').removeClass('active')
+      //- }
       
       $(".func-popup-avatarPhoto").click(function(){
       	$("html").addClass("overlay-popup");
@@ -431,10 +429,6 @@
       
       //button click function test
       
-      $('#optionScan1').click(()=>{
-      	$("html").addClass("overlay-popup");
-      	$("#popup-avatar-scanning").addClass("is-show");
-      })
       
       $('#optionScan2').click(()=>{
       	$("html").addClass("overlay-popup");
@@ -442,35 +436,7 @@
       	$(".scanByImage").removeClass("is-hidden");
       })
       
-      $('#toStep1').click(()=>{
-      	$('#ava-0').addClass('is-hidden')
-      	$('#ava-1').removeClass('is-hidden')
-      })
       
-      $('#toStep2').click(()=>{
-      	$('#ava-1').addClass('is-hidden')
-      	$('#ava-2').removeClass('is-hidden')
-      
-      	//- $('.loading .loading-step-1').addClass('success')
-      })
-      
-      $('#toStep3').click(()=>{
-      	$('#ava-2').addClass('is-hidden')
-      	$('#ava-3').removeClass('is-hidden')
-      
-      	//- $('.loading .loading-step-2').addClass('success')
-      })
-      
-      $('#toStep4').click(()=>{
-      	
-      	//scan fail nên không chuyển
-      	$('#ava-3').addClass('is-hidden')
-      	$('#ava-4').removeClass('is-hidden')
-      	//- $('.loading .loading-step-3').addClass('success')
-      	
-      	//scan fail
-      	//- $('.loading .loading-step-3').addClass('fail')
-      })
       
       $('#toSuccess').click(()=>{
       	$('#ava-4').addClass('is-hidden')
