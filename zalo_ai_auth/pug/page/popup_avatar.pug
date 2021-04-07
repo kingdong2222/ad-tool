@@ -66,24 +66,19 @@ block Popup
 				p Đăt toàn bộ khuôn mặt trong hình tròn và nhìn thẳng rồi nhấn nút "chụp ảnh" 
 				p.fail.is-hidden Hình ảnh của bạn chưa nhìn thẳng
 				img(src='./images/img_head_directfront.png')
-				button.feature-hidden#toFail1(style="bottom: 100px;") case chụp selfie fail
+				
 				button.button.is-primary.is-rounded.is-loading
 				button.button.is-primary.is-rounded#toSuccess1
 					img(src='./images/ico_capture.png')
-	.bl-popup-context.fail.is-hidden
+	.bl-popup-context.scanByImageResult.is-hidden
 		.camera 
 			img(src='./images/img_demo_person.png')
 		.content
 			.step
-				p Xác thực khuôn mặt thất bại
-		button.button.is-primary.is-large.is-fullwidth#scanFaceImgFail Chụp lại
-	.bl-popup-context.successful.is-hidden
-		.camera 
-			img(src='./images/img_demo_person.png')
-		.content
-			.step
-				p Xác thực khuôn mặt thành công
-		button.button.is-primary.is-large.is-fullwidth#scanFaceImgDone Tiếp tục
+				p.mess 
+		.buttons 
+			button.button.is-primary.is-large.is-outlined.is-fullwidth#scanFaceImgFail Chụp lại
+			button.button.is-primary.is-large.is-fullwidth#scanFaceImgDone Dùng ảnh này
 .popup-container#popup-id
 	.bl-popup-heading
 		span Ảnh CMND/CCCD mặt trước
@@ -109,7 +104,7 @@ block Popup
 				p.mess.fail
 		//- button.button.is-primary.is-large.is-fullwidth#captureAgain Chụp lại
 		//- button.button.is-primary.is-large.is-fullwidth#acceptId Dùng ảnh này
-		button.feature-hidden#captureIdfail case xác thực CMND thất bại
+		//- button.feature-hidden#captureIdfail case xác thực CMND thất bại
 		.buttons 
 			button.button.is-primary.is-large.is-outlined#captureAgain Chụp lại
 			button.button.is-primary.is-large#acceptId Dùng ảnh này
@@ -158,6 +153,7 @@ block Popup
 			.num-percent 
 				p.percent 49%
 				p Độ tương đồng
+		button.button.is-primary.is-large.is-fullwidth Xác thực lại
 		button.button.is-primary.is-large.is-fullwidth.go-back-home-final Hoàn thành
 		button.button.is-primary.is-outlined.is-large.is-fullwidth.cancel-pass Bỏ qua
 

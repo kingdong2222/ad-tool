@@ -20,7 +20,7 @@ block pages
 
 //- Add Body
 block body
-	include page/_index.pug
+	include page/_index_lite.pug
 
 //- Add Dockbar
 block dockbar
@@ -39,22 +39,12 @@ block javaScripts extend
 
 		const first = document.getElementById('first-screen')
 		const second = document.getElementById('second-screen')
-		const third = document.getElementById('verifyZaloScreen')
 
 		document.getElementById('start').onclick = () => {
 			first.classList.add('is-hidden')
 			second.classList.remove('is-hidden')
 		}
 
-		document.getElementById('verifyZalo').onclick = () => {
-
-			document.getElementById('phoneInput').focus()
-
-			second.classList.add('is-hidden')
-			third.classList.remove('is-hidden')
-			
-			$('#s3').removeClass('active')
-		}
 
 		$(".func-popup-avatarPhoto").click(function(){
 			$("html").addClass("overlay-popup");
@@ -102,9 +92,8 @@ block javaScripts extend
 					$('#popup-id .bl-popup-heading').css('opacity',1)
 				} else if(popups[i].id == 'popup-avatar'){
 					$('.scanByImage').addClass('is-hidden')
-					$('.scanByImageResult').addClass('is-hidden')
 					//- $('.bl-popup-context .fail').addClass('is-hidden')
-					//- $('.bl-popup-context .successful').addClass('is-hidden')
+					$('.scanByImageResult').addClass('is-hidden')
 					$('#popup-avatar .fail').addClass('is-hidden')
 				}
 			}
@@ -171,11 +160,6 @@ block javaScripts extend
 
 		//button click function test
 
-		$('#optionScan1').click(()=>{
-			$("html").addClass("overlay-popup");
-			$("body").addClass("overlay-popup");
-			$("#popup-avatar-scanning").addClass("is-show");
-		})
 
 		$('#optionScan2').click(()=>{
 			$("html").addClass("overlay-popup");
@@ -225,10 +209,6 @@ block javaScripts extend
 		$('#toSuccess1').click(()=>{
 			$('.scanByImage').addClass('is-hidden')
 			$('.scanByImageResult').removeClass('is-hidden')
-		})
-		$('#toFail1').click(()=>{
-			$('.scanByImage').addClass('is-hidden')
-			$('#popup-avatar .fail').removeClass('is-hidden')
 		})
 		$('#scanFaceImgFail').click(()=>{
 			$('.scanByImage').removeClass('is-hidden')

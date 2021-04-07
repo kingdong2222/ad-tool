@@ -698,7 +698,7 @@ ul.is-default{
 					}
 					img.intruction{
 						margin: -16px auto 16px;
-						width: 65%;
+						width: 60%;
 						display: block;
 						@media screen and (min-height: 670px) {
 							width: 80%;
@@ -712,6 +712,16 @@ ul.is-default{
 							margin-top: 2em;
 							margin-bottom: 2em;
 							justify-content: center;
+							&.is-lite{
+								.option{
+									&:nth-child(1){
+										padding-right: 0;
+										&::after{
+											display: none;
+										}
+									}
+								}
+							}
 							.option{
 								width: 80%;
 								position: relative;
@@ -739,26 +749,33 @@ ul.is-default{
 										font-weight: normal;
 									}
 								}
-								// &:nth-child(1){
-								// 	padding-right: 24px;
-								// 	&::after{
-								// 		position: absolute;
-								// 		top: 24px;
-								// 		right: 0;
-								// 		content: '';
-								// 		box-sizing: border-box;
-								// 		height: 300px;
-								// 		width: 1px;
-								// 		border: 1px dashed #D0D7DF;
-								// 		opacity: 0.75;
-								// 	}
-								// }
-								// &:nth-child(2){
-								// 	padding-left: 24px;
-								// }
+								&:nth-child(1){
+									padding-right: 24px;
+									&::after{
+										position: absolute;
+										top: 24px;
+										right: 0;
+										content: '';
+										box-sizing: border-box;
+										height: 300px;
+										width: 1px;
+										border: 1px dashed #D0D7DF;
+										opacity: 0.75;
+									}
+								}
+								&:nth-child(2){
+									padding-left: 24px;
+								}
 								.button{
 									min-width: 140px;
 								}
+							}
+						}
+					}
+					&.second{
+						@media screen and (max-width: 400px) {
+							img.intruction{
+								margin-bottom: 0;
 							}
 						}
 					}
@@ -845,22 +862,22 @@ ul.is-default{
 								}
 							}
 						}
-						h5{
-							font-size: 14px;
+						h4{
+							font-size: 16px;
 							font-weight: 600;
 							letter-spacing: 0;
 							line-height: 22px;
 							text-align: center;
 							span{
-								&.is-success{
+								&.success{
 									color: #0CB8AB;
 								}
-								&.is-fail{
+								&.fail{
 									color: #FF1E00;
 								}
 							}
 						}
-						.result-block-content + h5{
+						.result-block-content + h4{
 							margin-top: 16px;
 						}
 						.result-block-content{
@@ -924,12 +941,18 @@ ul.is-default{
 							width: 56px;
 							// padding: 8px;
 							object-fit: contain;
+							@media screen and (max-width: 400px) {
+								width: 40px;
+							}
 						}
 						p{
 							font-size: 0.75em;
 							line-height: 18px;
 							color: #131820;
 							padding: 16px 0 16px 12px;
+							@media screen and (max-width: 400px) {
+								padding: 12px 0 12px 12px;
+							}
 						}
 					}
 				}

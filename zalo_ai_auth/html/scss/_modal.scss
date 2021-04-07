@@ -157,7 +157,7 @@
 			text-align: center;
 			overflow-y:hidden;
 			-webkit-overflow-scrolling:touch;
-			padding-top:48px;
+			padding-top:24px;
 			&.is-grey{background-color:$grey-light}
 			&.is-crop{background-color:$text}
 			&.is-less{padding-top:49px}
@@ -365,6 +365,28 @@
 						p+img{
 							display: none;
 						}
+					}
+				}
+			}
+			.scanByImageResult{
+				.buttons{
+					display: flex;
+					justify-content: space-between;
+					position: fixed;
+					bottom: $gutter;
+					left: $gutter;
+					right: $gutter;
+					.button{
+						max-width: calc(50% - 8px);
+						&.is-outlined{
+							color: #131820;
+							border-color: #989EA5;
+							background-color: #fff;
+						}
+					}
+					@media screen and (min-width: 768px) {
+						max-width: calc(600px - 48px);
+						margin: 0 auto;
 					}
 				}
 			}
@@ -622,7 +644,10 @@
 					position: fixed;
 					width: calc(100% - 48px);
 					margin: 0 auto;
-					bottom: 72px;
+					bottom: 24px;
+					&.go-back-home-final{
+						bottom: 72px;
+					}
 					&.cancel-pass{
 						bottom: 24px;
 						border: none;
