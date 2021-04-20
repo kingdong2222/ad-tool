@@ -1,0 +1,31 @@
+block home
+
+a.logo-register(href="index.html")
+
+.module-register
+	.heading
+		h2.wow.fadeIn Registration
+		p.wow.fadeIn Registration form will be officially open from 8:00 AM 7<sup>th</sup> to 11:59 PM 09<sup>th</sup> December
+		p.wow.fadeIn *Entrance QR code will be sent to your Zalo account
+	.default-form.wow.fadeIn
+		.form-group.mb-3
+			label(for="name") Your name
+			input.form-control(type="text" id="name" placeholder="")
+		.form-group.mb-3
+			label(for="tel") Zalo registered number *
+			input.form-control(type="text" id="tel" placeholder="")
+		em.error Lorem ipsum 
+		.form-group.mb-3
+			label(for="email") Email
+			input.form-control(type="text" id="email" placeholder="")
+		.form-group.mb-3
+			label(for="company") Company Name
+			input.form-control(type="text" id="company" placeholder="")
+		.form-group.mb-5
+			label(for="job") Job Title
+			input.form-control(type="text" id="job" placeholder="")
+		.form-group.is-otr.mb-5
+			label(for="more") How does your job relate to AI
+			textarea.form-control(type="text" id="more" placeholder="" rows="5")
+		.form-group.is-button
+			a.btn.btn-primary.btn--m(href="javascript:void(0);" data-toggle="modal" data-target="#modal-register-alert") Register Now

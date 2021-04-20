@@ -1,0 +1,168 @@
+block home
+
+.vide-kv-wrap#intro
+	//- .vide-kv#vide-kv(style="background:url('images/poster.png') center center no-repeat; background-size:cover;")
+	.vide-kv#vide-kv(data-vide-bg="webm: images/speed_edit.webm, poster: images/poster.png" data-vide-options="position: center 50%")
+.container.max-width
+	.module-hero
+		.row.align-items-center
+			.col-lg-6.d-none.d-lg-block
+			.col-lg-6
+				.hero-container.wow.fadeInUp
+					span.logo-hero
+					h1 <strong>Artificial Intelligence for Daily Life</strong><br><br>AI has widely emerged to Vietnamese daily lives<br>in many amazing ways.<br>The Zalo AI Summit connects Vietnamese AI experts<br>around the world to initiate new areas of using AI to create<br>entirely new efficient solutions in the Vietnam context.<br><br><strong>08:00 AM | 20th December</strong>
+					.btn-wrap
+						a.btn.btn-primary.btn--m(href="register.html") Request Invitation
+						a.btn.btn-primary.btn--m.hidden(data-toggle="modal" data-target="#modal-before") Request Invitation
+						a.btn.btn-primary.btn--m.disabled.hidden(href="register.html") Request Invitation
+					.img-kv.d-block.d-lg-none
+						img(src="images/kv.png" alt=page)
+
+.module-intro
+	//.context-intro.text-center.wow.fadeIn
+		p Launched in 2017, <strong>Zalo AI Summit</strong> has gathered leading experts to discuss and provide solutions for AI development in Vietnam. The 2nd Summit, hold in 2018, represented a critical milestone in our journey into the AI era.
+		p This year event, <strong>Zalo AI Summit 2019</strong> is an affirmation of Vietnamese engineers’ ability in making AI products that serve Vietnamese lives. Passing through the dawn of the era, Vietnam now enters the phase of applying AI in multiple sectors
+	.swiper-container.swiper-intro.wow.fadeIn
+		.swiper-wrapper
+			.swiper-slide
+				a.item-intro.is-video(href="javascript:void(0);" data-toggle="modal" data-target="#modal-video" style="background-image:url(images/img_slider0.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider1.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider2.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider3.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider4.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider5.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider6.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider7.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider8.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider9.jpg)")
+			.swiper-slide
+				.item-intro.is-img(style="background-image:url(images/img_slider10.jpg)")
+		.swiper-button-next#intro-next
+			i.icn.icn-tail-right
+		.swiper-button-prev#intro-prev
+			i.icn.icn-tail-left
+
+.module-speaker#speakers
+	.heading.text-center.wow.fadeIn
+		h2 Speakers
+		p Connect with the key people who are AI experts at the leading technology companies in Vietnam 
+	.context-speaker
+		ul.speaker-list
+			li.wow.fadeIn
+				a.item-speaker(href="javascript:void(0);" data-toggle="modal" data-target="#modal-speaker-sonnguyen")
+					span.avatar(style="background-image:url(images/speaker_sonnguyen.jpg)")
+					h4.name Son Nguyen
+					p.company Zalo AI
+			li.wow.fadeIn
+				a.item-speaker(href="javascript:void(0);" data-toggle="modal" data-target="#modal-speaker-duynguyen")
+					span.avatar(style="background-image:url(images/speaker_duynguyen.jpg)")
+					h4.name Duy Nguyen
+					p.company Zalo AI
+			li.wow.fadeIn
+				a.item-speaker(href="javascript:void(0);" data-toggle="modal" data-target="#modal-speaker-minhnguyen")
+					span.avatar(style="background-image:url(images/speaker_minhnguyen.jpg)")
+					h4.name Minh Nguyen
+					p.company JAIST
+			li.wow.fadeIn
+				a.item-speaker(href="javascript:void(0);" data-toggle="modal" data-target="#modal-speaker-mynguyen")
+					span.avatar(style="background-image:url(images/speaker_mynguyen.jpg)")
+					h4.name My Nguyen
+					p.company Amazon Web Services
+			li.wow.fadeIn
+				a.item-speaker(href="javascript:void(0);" data-toggle="modal" data-target="#modal-speaker-chuongnguyen")
+					span.avatar(style="background-image:url(images/speaker_chuongnguyen.jpg)")
+					h4.name Chuong Nguyen
+					p.company Zalo AI Lab
+		.wow.fadeIn
+			a.item-speaker.is-host(href="javascript:void(0);" data-toggle="modal" data-target="#modal-speaker-vqk")
+				span.avatar(style="background-image:url(images/speaker_vqk.jpg)")
+				.text
+					p
+						strong Hosted by
+					h4.name Vuong Quang Khai
+					p.company Zalo
+
+.module-agenda#agenda
+	.heading.text-center.wow.fadeIn
+		h2 Agenda
+	.context-agenda
+		ul.timeline
+			li.wow.fadeIn
+				p.timeline-date 8:00 - 9:00
+				.timeline-content
+					h3 Check-in.
+				.clear
+			li.wow.fadeIn
+				p.timeline-date 9:00 – 9:05
+				.timeline-content
+					h3 Opening Speech
+				.clear
+			li.wow.fadeIn
+				p.timeline-date 9:05 – 9:40
+				.timeline-content
+					h3  Story of Kiki, how we built the virtual assistant for Vietnamese people
+					p Son Nguyen & Duy Nguyen - Zalo AI
+				.clear
+			li.wow.fadeIn
+				p.timeline-date 9:40 – 10:00
+				.timeline-content
+					h3 Presentation of Prof Minh Nguyen - JAIST
+				.clear
+			li.wow.fadeIn
+				p.timeline-date 10:00 – 10:20
+				.timeline-content
+					h3 Streamlining machine learning operations
+					p My Nguyen - AWS
+				.clear
+			li.wow.fadeIn
+				p.timeline-date 10:20 – 10:40
+				.timeline-content
+					h3 Tea Break
+				.clear
+			li.wow.fadeIn
+				p.timeline-date 10:40 - 11:00
+				.timeline-content
+					h3 Bring AI to Media
+					p Chuong Nguyen - Zalo AI
+				.clear
+			li.wow.fadeIn
+				p.timeline-date 11:00 - 11:45
+				.timeline-content
+					h3 Presentation from Winner of Zalo AI Challenge
+					p Awards Ceremony  
+				.clear
+			li.wow.fadeIn
+				p.timeline-date 11:45		
+				.timeline-content
+					h3 Closing
+
+.module-venue
+	.heading.text-center.wow.fadeIn
+		h2 VNG Campus
+		p Tan Thuan Dong, District 7, Ho Chi Minh City
+	.container
+		.row
+			.col-lg-8
+				.map-google.text-center.wow.fadeIn
+					iframe(width="760" height="277" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6968200479764!2d106.74371111498317!3d10.757832892334164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752596009b808b%3A0x44c31d92ca50b338!2sVNG%20Campus!5e0!3m2!1svi!2s!4v1575530285673!5m2!1svi!2s" allowfullscreen)
+					//img(src="images/img_map.png" alt=page)
+			.col-lg-4
+				.map-vng.wow.fadeIn
+					a(data-fancybox="gallery" href="images/img_map.jpg")
+						img(src="images/img_map.jpg" alt=page)
+			//- .col-lg-4
+			//- 	.map-vng.wow.fadeIn
+			//- 		a(data-fancybox="gallery" href="images/img_map.jpg")
+			//- 			.img(style="background-image:url('images/img_map_thumb.jpg')" alt=page)
+				
+				
+

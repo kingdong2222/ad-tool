@@ -1,0 +1,112 @@
+extends layout.pug
+
+//- Setting
+block setting
+	- var layout = true
+	- var header = true
+	- var footer = false
+	- var modal = true
+	- var wow = true
+	- var swiperjs = true
+	- var videjs = true
+	- var fancyboxjs = true
+
+block head
+	include head.pug
+
+block pages
+	- bodyC.push("")
+	- layoutClasses.push("project-layout")
+	- headerClasses.push("")
+	- bodyClasses.push("page-content")
+	- footerClasses.push("")
+	
+//- Add Header
+block header
+	include page/header.pug
+
+//- Add Body
+block body
+	include page/_home.pug
+
+//- Add Footer
+block footer
+	include page/footer.pug
+
+//- Add Modal
+block modal
+	include page/modal_before.pug
+	include page/modal_video.pug
+	include page/modal_speaker_vqk.pug
+	include page/modal_speaker_sonnguyen.pug
+	include page/modal_speaker_duynguyen.pug
+	include page/modal_speaker_chuongnguyen.pug
+	include page/modal_speaker_mynguyen.pug
+	include page/modal_speaker_minhnguyen.pug
+
+block javaScripts extend
+	script.
+		var wow = new WOW(
+		{
+			boxClass:     'wow',
+			animateClass: 'animated',
+			offset:       60,
+			mobile:       true,
+			live:         true,
+			callback:     function(box) {
+			},
+			scrollContainer: true
+			}
+		);
+		wow.init();
+		var swiper = new Swiper('.swiper-intro', {
+			slidesPerView: 'auto',
+			spaceBetween: 20,
+			loop: true,
+			autoplay: {
+				delay: 3000,
+			},
+			keyboard: {
+				enabled: true,
+				onlyInViewport: false,
+			},
+			navigation: {
+				nextEl: '#intro-next',
+				prevEl: '#intro-prev',
+			},
+			breakpoints: {
+				// when window width is <= 768px
+				768: {
+				slidesPerView: 1.1,
+				spaceBetween: 5,
+				},
+				// when window width is <= 1024px
+				1024: {
+				slidesPerView: 2.6,
+				spaceBetween: 20,
+				}
+			},
+		});
+		$(document).ready(function(){
+			$("#modal-video").on('hide.bs.modal', function(){
+				$('#video1')[0].pause();
+			});
+			$("#modal-video").on('show.bs.modal', function(){
+				$('#video1')[0].play();
+			});
+		});
+
+		$('[data-fancybox="gallery"]').fancybox({
+			backFocus : false,
+			beforeClose : function(instance) {
+				// This is index of current fancyBox slide
+				console.info( instance.currIndex  );
+				// Update position of the slider
+				swiper.slideTo( instance.currIndex, 0 );
+			}
+		});
+		$('.list-unstyled > li').click(function(){
+			$('.list-unstyled').toggleClass('is-visible');
+			$('.cd-nav-trigger').removeClass('menu-is-open')
+		})
+		
