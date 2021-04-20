@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -6744,7 +6745,7 @@ body {
   top: 0;
   width: 100%;
   background-color: #FBEC21;
-  z-index: 1000;
+  z-index: 9999;
   height: 50px;
   padding-left: 16px;
   display: -webkit-box;
@@ -7147,6 +7148,7 @@ body {
   }
   .module-first .container img {
     width: 60%;
+    height: 100%;
   }
   .module-first .container .logo-container {
     -webkit-box-pack: start !important;
@@ -7159,7 +7161,7 @@ body {
 }
 @media only screen and (min-width: 992px) and (max-width: 1100px) {
   .module-first .container .logo-container {
-    margin-bottom: 48px !important;
+    margin-bottom: 32px !important;
   }
 }
 @media (min-width: 992px) {
@@ -7200,9 +7202,17 @@ body {
   .module-first .container .right-content p {
     font-size: 24px;
     font-weight: 500;
-    line-height: 48px;
+    line-height: 44px;
     margin-bottom: 32px;
   }
+}
+@media only screen and (min-width: 992px) and (max-width: 1100px) {
+  .module-first .container .right-content p {
+    line-height: 36px;
+    margin-bottom: 28px;
+  }
+}
+@media (min-width: 992px) {
   .module-first .container .right-content .button:hover {
     background-color: #efdf04;
   }
@@ -8238,7 +8248,7 @@ body {
 #register .modal-body.custom-form .header-form h2 {
   font-size: 20px;
   text-align: center;
-  width: 220px;
+  width: 250px;
   margin: 0 auto;
 }
 #register .modal-body.custom-form .header-form h2::after {
@@ -8589,7 +8599,7 @@ body {
   max-width: calc(100vw - 64px);
 }
 #register .modal-body.custom-form .group-dropdown .dropdown .dropdown-menu {
-  max-height: 300px;
+  max-height: 220px;
   overflow-x: hidden;
   overflow-y: auto;
   border: none;
