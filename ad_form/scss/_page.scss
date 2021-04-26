@@ -223,6 +223,21 @@ select:invalid{color:#989EA5}
 		}
 	}
 	.field{
+		&.check-for-caring{
+			margin-bottom: 20px;
+			label{
+				font-size: 12px;
+				line-height: 18px;
+				&::after, &::before{
+					top: 25% !important;
+				}
+				@media screen and (min-width: 440px) {
+					&::after, &::before{
+						top: 50% !important;
+					}
+				}
+			}
+		}
 		.control{
 			.add-border-bottom{
 				&::after{

@@ -9368,6 +9368,21 @@ select:invalid {
       -ms-flex-positive: 0;
           flex-grow: 0;
 }
+.bl-form .field.check-for-caring {
+  margin-bottom: 20px;
+}
+.bl-form .field.check-for-caring label {
+  font-size: 12px;
+  line-height: 18px;
+}
+.bl-form .field.check-for-caring label::after, .bl-form .field.check-for-caring label::before {
+  top: 25% !important;
+}
+@media screen and (min-width: 440px) {
+  .bl-form .field.check-for-caring label::after, .bl-form .field.check-for-caring label::before {
+    top: 50% !important;
+  }
+}
 .bl-form .field .control .add-border-bottom::after {
   content: "";
   display: block;
