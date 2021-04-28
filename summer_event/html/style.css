@@ -17956,13 +17956,11 @@ video[poster] {
 
 .body-single.summerEvent-page {
   font-family: "Mulish", sans-serif;
-  padding: 0 16px;
   z-index: 1;
   position: relative;
 }
 @media screen and (min-width: 1024px) {
   .body-single.summerEvent-page {
-    padding: 0 100px;
     margin-top: 0;
   }
 }
@@ -17972,10 +17970,12 @@ video[poster] {
 }
 .body-single.summerEvent-page .section-header {
   position: relative;
+  padding: 0 16px;
 }
 @media screen and (min-width: 1024px) {
   .body-single.summerEvent-page .section-header {
     margin-bottom: 150px;
+    padding-left: 100px;
   }
 }
 .body-single.summerEvent-page .section-header img.header-bg {
@@ -17989,8 +17989,14 @@ video[poster] {
   .body-single.summerEvent-page .section-header img.header-bg {
     position: absolute;
     max-width: 900px;
-    right: -155px;
+    right: -10px;
     min-width: unset;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .body-single.summerEvent-page .section-header img.header-bg {
+    max-width: 700px;
+    right: -30px;
   }
 }
 .body-single.summerEvent-page .section-header .block-content {
@@ -18035,6 +18041,12 @@ video[poster] {
   position: relative;
   z-index: 1;
 }
+@media screen and (max-width: 1279px) {
+  .body-single.summerEvent-page .section-header .block-content h1.title-touch, .body-single.summerEvent-page .section-header .block-content h1.title-desktop {
+    font-size: 26px;
+    line-height: 42px;
+  }
+}
 .body-single.summerEvent-page .section-header .block-content h1.title-touch span, .body-single.summerEvent-page .section-header .block-content h1.title-desktop span {
   color: #1744CF;
   position: relative;
@@ -18057,29 +18069,64 @@ video[poster] {
   max-width: 80px;
   margin: 0 auto;
   display: block;
-  padding-top: 56px;
+  -webkit-transition: all 2s ease;
+  -o-transition: all 2s ease;
+  transition: all 2s ease;
 }
 @media screen and (min-width: 1024px) {
   .body-single.summerEvent-page img.plane-icon {
-    padding-top: 8px;
+    padding-top: 150px;
+    position: relative;
+    -webkit-animation: plane-fly 2.5s infinite;
+            animation: plane-fly 2.5s infinite;
+    top: 0px;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .body-single.summerEvent-page img.plane-icon {
+    padding-top: 80px;
+  }
+}
+@-webkit-keyframes plane-fly {
+  0%, 100% {
+    top: 0px;
+  }
+  50% {
+    top: 25px;
+  }
+}
+@keyframes plane-fly {
+  0%, 100% {
+    top: 0px;
+  }
+  50% {
+    top: 25px;
   }
 }
 .body-single.summerEvent-page .plane-icon + p {
-  margin-top: 12px;
+  margin-top: 36px;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 0.0015em;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 96px;
+}
+.body-single.summerEvent-page .section-body {
+  padding: 0 16px;
+}
+@media screen and (min-width: 1024px) {
+  .body-single.summerEvent-page .section-body {
+    padding: 0 100px;
+  }
 }
 .body-single.summerEvent-page .section-body .title {
   margin-bottom: 40px;
 }
 @media screen and (min-width: 1024px) {
   .body-single.summerEvent-page .section-body .title {
-    margin-bottom: 60px;
+    margin-bottom: 48px;
   }
 }
 .body-single.summerEvent-page .section-body .title h2 {
