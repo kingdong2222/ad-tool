@@ -17902,7 +17902,7 @@ video[poster] {
 }
 @media screen and (min-width: 1024px) {
   .summerEvent-header {
-    padding: 1.625rem 3.75rem;
+    padding: 1.625rem 100px;
   }
 }
 .summerEvent-header .summerEvent-header-container {
