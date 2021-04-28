@@ -18301,6 +18301,11 @@ video[poster] {
   color: #0A1829;
   margin-bottom: 16px;
 }
+@media screen and (min-width: 1024px) {
+  .body-single.summerEvent-page .section-body.is-doituong .content-block .item .text-content h3 {
+    margin-bottom: 24px;
+  }
+}
 .body-single.summerEvent-page .section-body.is-doituong .content-block .item .text-content p {
   font-family: Mulish;
   font-size: 16px;
