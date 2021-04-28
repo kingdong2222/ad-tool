@@ -17955,6 +17955,7 @@ video[poster] {
 }
 
 .body-single.summerEvent-page {
+  font-family: "Mulish", sans-serif;
   padding: 0 16px;
   z-index: 1;
   position: relative;
@@ -17971,31 +17972,23 @@ video[poster] {
 }
 .body-single.summerEvent-page .section-header {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
 }
 @media screen and (min-width: 1024px) {
   .body-single.summerEvent-page .section-header {
-    display: block;
     margin-bottom: 150px;
   }
 }
 .body-single.summerEvent-page .section-header img.header-bg {
   position: relative;
-  top: 20px;
-  right: 23vw;
-  min-width: 130vw;
+  top: 0;
+  right: 5vw;
+  min-width: 110vw;
+  z-index: -1;
 }
 @media screen and (min-width: 1024px) {
   .body-single.summerEvent-page .section-header img.header-bg {
     position: absolute;
     max-width: 900px;
-    top: 0;
     right: -155px;
     min-width: unset;
   }
@@ -18014,7 +18007,6 @@ video[poster] {
   margin-bottom: 40px;
 }
 .body-single.summerEvent-page .section-header .block-content p {
-  font-family: Mulish;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -18031,7 +18023,6 @@ video[poster] {
   }
 }
 .body-single.summerEvent-page .section-header .block-content h1.title-touch, .body-single.summerEvent-page .section-header .block-content h1.title-desktop {
-  font-family: Mulish;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -18075,7 +18066,6 @@ video[poster] {
 }
 .body-single.summerEvent-page .plane-icon + p {
   margin-top: 12px;
-  font-family: Mulish;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -18085,10 +18075,14 @@ video[poster] {
   margin-bottom: 100px;
 }
 .body-single.summerEvent-page .section-body .title {
-  margin-bottom: 16px;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 1024px) {
+  .body-single.summerEvent-page .section-body .title {
+    margin-bottom: 60px;
+  }
 }
 .body-single.summerEvent-page .section-body .title h2 {
-  font-family: Mulish;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -18111,14 +18105,12 @@ video[poster] {
 }
 .body-single.summerEvent-page .section-body .title p {
   margin-top: 8px;
-  font-family: Mulish;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0em;
   color: #80838A;
-  margin-bottom: 8px;
 }
 .body-single.summerEvent-page .section-body .content-block {
   display: -webkit-box;
@@ -18173,7 +18165,7 @@ video[poster] {
           align-items: center;
   text-align: center;
   padding: 0px 0px 56px;
-  margin: 24px 0px;
+  margin-bottom: 24px;
   overflow: hidden;
   max-width: 330px;
 }
@@ -18190,6 +18182,7 @@ video[poster] {
 .body-single.summerEvent-page .section-body .content-block .block img {
   margin-bottom: 20px;
   border-top: 8px solid;
+  width: 100%;
 }
 .body-single.summerEvent-page .section-body .content-block .block.first img {
   border-color: #FC626D;
@@ -18205,7 +18198,6 @@ video[poster] {
 }
 .body-single.summerEvent-page .section-body .content-block .block h3 {
   margin-bottom: 8px;
-  font-family: Mulish;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -18214,7 +18206,7 @@ video[poster] {
   color: #0A1829;
 }
 .body-single.summerEvent-page .section-body .content-block .block p {
-  font-family: Mulish;
+  max-width: 380px;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -18250,7 +18242,9 @@ video[poster] {
             flex-direction: row;
   }
   .body-single.summerEvent-page .section-body.is-doituong .content-block img {
-    max-width: 570px;
+    max-width: 550px;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .body-single.summerEvent-page .section-body.is-doituong .content-block .block-list {
     padding-right: 80px;
@@ -18269,7 +18263,6 @@ video[poster] {
 .body-single.summerEvent-page .section-body.is-doituong .content-block .item .circle-num {
   padding: 10px;
   color: #1744cf;
-  font-family: Mulish;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -18292,7 +18285,6 @@ video[poster] {
   margin-bottom: 32px;
 }
 .body-single.summerEvent-page .section-body.is-doituong .content-block .item .text-content h3 {
-  font-family: Mulish;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -18307,7 +18299,6 @@ video[poster] {
   }
 }
 .body-single.summerEvent-page .section-body.is-doituong .content-block .item .text-content p {
-  font-family: Mulish;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -18331,23 +18322,10 @@ video[poster] {
   padding: 0;
   width: auto;
   height: auto;
-  font-size: 1.125rem;
+  font-size: 1.75rem;
 }
 .body-single.summerEvent-page .section-body.is-thele {
   position: relative;
-}
-.body-single.summerEvent-page .section-body.is-thele img.bg {
-  max-width: 520px;
-  position: absolute;
-  bottom: 0;
-  right: -16px;
-  opacity: 0.5;
-  z-index: -1;
-}
-@media screen and (min-width: 1024px) {
-  .body-single.summerEvent-page .section-body.is-thele img.bg {
-    right: -50px;
-  }
 }
 .body-single.summerEvent-page .section-body.is-thele .button {
   margin: 0 auto 40px;
@@ -18362,11 +18340,25 @@ video[poster] {
   border-radius: 12px;
   list-style: disc;
   margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.body-single.summerEvent-page .section-body ul.list-content img.bg {
+  max-width: 520px;
+  position: absolute;
+  bottom: -40%;
+  right: -16px;
+  opacity: 0.3;
+}
+@media screen and (min-width: 1024px) {
+  .body-single.summerEvent-page .section-body ul.list-content img.bg {
+    right: -50px;
+    bottom: -30%;
+  }
 }
 .body-single.summerEvent-page .section-body ul.list-content li {
   margin-bottom: 16px;
   margin-left: 24px;
-  font-family: Mulish;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
