@@ -17993,7 +17993,7 @@ video[poster] {
     min-width: unset;
   }
 }
-@media screen and (max-width: 1279px) {
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
   .body-single.summerEvent-page .section-header img.header-bg {
     max-width: 700px;
     right: -30px;
@@ -18041,7 +18041,7 @@ video[poster] {
   position: relative;
   z-index: 1;
 }
-@media screen and (max-width: 1279px) {
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
   .body-single.summerEvent-page .section-header .block-content h1.title-touch, .body-single.summerEvent-page .section-header .block-content h1.title-desktop {
     font-size: 26px;
     line-height: 42px;
@@ -18082,7 +18082,7 @@ video[poster] {
     top: 0px;
   }
 }
-@media screen and (max-width: 1279px) {
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
   .body-single.summerEvent-page img.plane-icon {
     padding-top: 80px;
   }
