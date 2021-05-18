@@ -19,7 +19,7 @@
     <link href="css/layout.css" rel="stylesheet" type="text/css">
     <style></style>
   </head>
-  <body class="for-article">
+  <body>
     <div class="layer-loading is-active">
       <div class="lds-ring">
         <div></div>
@@ -28,7 +28,7 @@
         <div></div>
       </div>
     </div>
-    <div class="page-content">
+    <div class="page-content has-cover-fixed">
       <div class="func-test"><a class="func-tooltip func-tooltip-close" href="javascript:void(0);">Đóng Zalo Form</a></div>
       <div class="bl-cover"><span class="img-cover" style="background-image:url(images/upload/cover_default.png)"></span></div>
       <div class="body">
@@ -259,10 +259,27 @@
       $(".func-tooltip-1").click(function(){
       	$("body").addClass("overlay-tooltip");
       	$("#tooltip-1").addClass("is-show");
+      	$("html").css('overflow', "hidden")
+      });
+      $(".func-tooltip-close").click(function(){
+      	$("body").addClass("overlay-tooltip");
+      	$("#tooltip-close").addClass("is-show");
       });
       $(".func-close-tooltip").click(function(){
       	$("body").removeClass("overlay-tooltip");
       	$(".tooltip-container").removeClass("is-show");
+      	$("html").css('overflow', 'auto')
+      });
+      $(".bl-tooltip").click(function(value){
+      	if(value.target.className == 'bl-tooltip'){
+      		$("body").removeClass("overlay-tooltip");
+      		$("html").css('overflow', 'auto')
+      		$(".tooltip-container").removeClass("is-show");
+      	}
+      })
+      $(".func-tooltip-zalo-form").click(function(){
+      	$("body").addClass("overlay-tooltip");
+      	$("#tooltip-zalo-form").addClass("is-show");
       });
       new Picker(document.querySelector('.js-date-picker'),{
       	format: 'D MMM YYYY',
@@ -281,6 +298,136 @@
       
       //- tắt loading[test]
       setTimeout(function(){$('.layer-loading').removeClass("is-active")},3000)
+      
+      /* Read More JS */
+      const ReadMore = (() => {
+      let s;
+      
+      return {
+      	settings() {
+      	return {
+      		content: document.querySelectorAll('.js-read-more'),
+      		originalContentArr: [],
+      		truncatedContentArr: [],
+      		moreLink: "Xem thêm",
+      		lessLink: "Thu gọn",
+      	}
+      	},
+      
+      	init() {
+      	s = this.settings();
+      	this.bindEvents();
+      	},
+      
+      	bindEvents() {
+      	ReadMore.truncateText();
+      	},
+      
+      	/**
+      	* Count Words
+      	* Helper to handle word count.
+      	* @param {string} str - Target content string.
+      	*/
+      	countWords(str) {
+      	return str.split(/\s+/).length;
+      	},
+      
+      	/**
+      	* Ellpise Content
+      	* @param {string} str - content string.
+      	* @param {number} wordsNum - Number of words to show before truncation.
+      	*/
+      	ellipseContent(str, wordsNum) {
+      	return str.split(/\s+/).slice(0, wordsNum).join(' ') + '...';
+      	},
+      
+      	truncateText() {
+      
+      	for (let i = 0; i < s.content.length; i++) {
+      		//console.log(s.content)
+      		const originalContent = s.content[i].innerHTML;
+      		const numberOfWords = s.content[i].dataset.rmWords;
+      		const truncateContent = ReadMore.ellipseContent(originalContent, numberOfWords);
+      		const originalContentWords = ReadMore.countWords(originalContent);
+      
+      		s.originalContentArr.push(originalContent);
+      		s.truncatedContentArr.push(truncateContent);
+      
+      		if (numberOfWords < originalContentWords) {
+      		s.content[i].innerHTML = s.truncatedContentArr[i];
+      		let self = i;
+      		ReadMore.createLink(self)
+      		}
+      	}
+      	ReadMore.handleClick(s.content);
+      	},
+      
+      	/**
+      	* Create Link
+      	* Creates and Inserts Read More Link
+      	* @param {number} index - index reference of looped item
+      	*/
+      	createLink(index) {
+      	const linkWrap = document.createElement('span');
+      
+      	linkWrap.className = 'read-more-link-wrap';
+      
+      	linkWrap.innerHTML = `<a id="read-more_${index}"
+      								class="read-more-link"
+      								style="cursor:pointer;">
+      								${s.moreLink}
+      							</a>`;
+      
+      	// Inset created link
+      	s.content[index].parentNode.insertBefore(linkWrap, s.content[index].nextSibling);
+      
+      	},
+      
+      	/**
+      	* Handle Click
+      	* Toggle Click eve
+      	*/
+      	handleClick(el) {
+      	const readMoreLink = document.querySelectorAll('.read-more-link');
+      
+      	for (let j = 0, l = readMoreLink.length; j < l; j++) {
+      
+      		readMoreLink[j].addEventListener('click', function() {
+      
+      		const moreLinkID = this.getAttribute('id');
+      		let index = moreLinkID.split('_')[1];
+      
+      		el[index].classList.toggle('is-expanded');
+      
+      		if (this.dataset.clicked !== 'true') {
+      			el[index].innerHTML = s.originalContentArr[index];
+      			this.innerHTML = s.lessLink;
+      			this.dataset.clicked = true;
+      		} else {
+      			el[index].innerHTML = s.truncatedContentArr[index];
+      			this.innerHTML = s.moreLink;
+      			this.dataset.clicked = false;
+      		}
+      		});
+      	}
+      	},
+      
+      	/**
+      	* Open All
+      	* Method to expand all instances on the page.
+      	* Will probably be useful with a destroy method.
+      	*/
+      	openAll() {
+      	const instances = document.querySelectorAll('.read-more-link');
+      		for (let i = 0; i < instances.length; i++) {
+      		content[i].innerHTML = s.truncatedContentArr[i];
+      		instances[i].innerHTML = s.moreLink;
+      		}
+      	}
+      	}
+      })();
+      //export default ReadMore;
+      ReadMore.init();
     </script>
   </body>
 </html>

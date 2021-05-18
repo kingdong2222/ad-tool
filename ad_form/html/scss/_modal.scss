@@ -14,16 +14,32 @@
 	}
 }
 .bl-tooltip{
-	.tooltip-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:$gutter;border-top-right-radius:$gutter;overflow:hidden;
+	.tooltip-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:12px;border-top-right-radius:12px;overflow:hidden;
 		@include from($tablet){left:50%;width:600px;margin-left:-300px}
-		.bl-tooltip-heading{display:flex;justify-content:space-between;align-items:center;height:50px;@include padding(null $gutter);border-bottom:1px solid $border;
-			span{color:$text;font-size:$size-medium;font-weight:$weight-semibold}
-			.func-close-tooltip{flex-shrink:0;@include size(50px);margin-right:-$gutter;color:inherit;
-				[class^=icz]{display:inline-block;@include size(50px);@include padding(15px);font-size:1.25rem;vertical-align:middle}
+		.bl-tooltip-heading{
+			z-index: 10;
+			position: relative;
+			background: #fff;
+			display:flex;justify-content:space-between;align-items:center;height:48px;@include padding(null $gutter);border-bottom:1px solid $border;
+			span{color:$text;font-size:$size-medium;font-weight:$weight-bold}
+			.func-close-tooltip{flex-shrink:0;@include size(48px);margin-right:-$gutter;color:inherit;
+				[class^=icz]{display:inline-block;@include size(48px);@include padding(16px);font-size:1.125rem;vertical-align:middle}
 			}
 		}
-		.bl-tooltip-context{max-height:400px;@include padding($gutter);font-size:$size-normal;overflow-y:scroll;-webkit-overflow-scrolling:touch;
-			p{margin-bottom:$gutter/2}
+		&#tooltip-zalo-form{
+			.bl-tooltip-context{
+				max-height: 75vh;
+			}
+		}
+		.bl-tooltip-context{
+			margin-top: -4px;
+			max-height:400px;@include padding($gutter);font-size:$size-normal;overflow-y:scroll;-webkit-overflow-scrolling:touch;
+			p{
+				margin-bottom:$gutter/2;
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
 			ul{margin-bottom:$gutter;margin-top:$gutter;
 				li{position:relative;margin-bottom:$gutter/2;padding-left:20px;
 					&:before{@include position(absolute, 7px null null 7px);content:"";background-color:$text;@include size(4px);border-radius:100%}
@@ -31,6 +47,17 @@
 				}
 			}
 			@media only screen and (max-height:600px){max-height:280px}
+		}
+		&#tooltip-close{
+			.bl-tooltip-context{
+				font-size: unset;
+				p{
+					margin-bottom: $gutter;
+				}
+				.is-primary{
+					margin-bottom: $gutter/2;
+				}
+			}
 		}
 	}
 }
@@ -89,29 +116,66 @@
 .bl-popup{
 	.popup-container{@include position(absolute, null);bottom:-100%;background-color:#fff;width:100%;border-top-left-radius:$gutter;border-top-right-radius:$gutter;overflow:hidden;
 		@include from($tablet){left:50%;width:600px;margin-left:-300px}
-		.bl-popup-heading{display:flex;align-items:center;@include position(absolute, 0 0 null 0);z-index:10;background-color:$white;height:50px;@include padding(null $gutter);border-bottom:1px solid $border;border-top-left-radius:$gutter;border-top-right-radius:$gutter;
+		.bl-popup-heading{display:flex;align-items:center;@include position(absolute, 0 0 null 0);z-index:10;background-color:$white;height:48px;@include padding(null $gutter);border-bottom:1px solid $border;border-top-left-radius:$gutter;border-top-right-radius:$gutter;
 			&.is-show-back{
 				.func-close-popup{display:none}
 				.func-back-popup{display:block}
 			}
-			span{color:$text;font-size:$size-medium;font-weight:$weight-semibold}
-			[class^=func-]{@include position(absolute, 0 null null 0);@include size(50px);color:inherit;
-				[class^=icz]{display:inline-block;@include size(50px);@include padding(14px);font-size:1.325rem;vertical-align:middle}
+			span{color:$text;font-size:$size-medium;font-weight:$weight-bold}
+			[class^=func-]{@include position(absolute, 0 null null 0);@include size(48px);color:inherit;
+				[class^=icz]{display:inline-block;@include size(48px);@include padding(16px);font-size:1.125rem;vertical-align:middle}
 				&.is-right{right:0;left:initial}
 			}
 			.func-back-popup{display:none;}
 		}
-		.bl-popup-search{@include position(absolute, 50px 0 null 0);z-index:10;background-color:$white;height:40px;@include padding(4px $gutter null);
-			.input{height:40px;padding-left:1.5rem;border-bottom-color:#eee}
-			.icon{left:-4px;top:6px}
+		.bl-popup-search{
+			@include position(absolute, 48px 0 null 0);
+			z-index:10;
+			background-color:#fff;
+			@include padding(20px $gutter 16px);
+			.field{
+				background-color:#F0F2F6;
+				border-radius: 4px;
+				.control{
+					padding: 0 12px;
+				}
+			}
+			.input{
+				background-color: transparent;
+				color: #131920;
+				height:40px;
+				padding: 0;
+				padding-left: 28px;
+				border-bottom:none;
+				&::placeholder{
+					color: #989EA5;
+				}
+			}
+			.icon{left:12px;top:12px;color: #131920;font-size: 16px;}
+			.control.has-icons-left .input:focus ~ .icon, .control.has-icons-left .select:focus ~ .icon, .control.has-icons-right .input:focus ~ .icon, .control.has-icons-right .select:focus ~ .icon{
+				color: #131920;
+			}
 		}
 		.bl-popup-heading + .bl-popup-context{padding-top:64px}
-		.bl-popup-search + .bl-popup-context{padding-top:96px}
+		.bl-popup-search + .bl-popup-context{padding-top:120px}
 		.bl-popup-context{position:relative;height:100%;@include padding($gutter $gutter 30px);overflow-y:scroll;-webkit-overflow-scrolling:touch;
 			.group-add-list{
-				li{border-bottom:1px solid #eee;
-					&:last-child{border-bottom:none}
-					a{display:block;@include padding(8px null);color:$text;font-size:$size-medium}
+				li{
+					// border-bottom:1px solid #eee;
+					&::after{
+						content: '';
+						display: block;
+						background-color: #F0F2F6;
+						width: 100%;
+						height: 1px;
+						transform: scaleY(0.5);
+					}
+					&:last-child{
+						&::after{
+							display: none;
+						}
+					}
+					a{display:block;@include padding(10px null);color:$text;font-size:$size-medium}
 				}
 			}
 		}
