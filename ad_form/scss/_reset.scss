@@ -26,7 +26,11 @@ h6{@extend .h6;}
 .color-warning{color:$warning!important}
 
 /* Box Shadow */
-%is-shadow{box-shadow: 0 -12px 24px 0 rgba(67,86,100,0.03), 0 12px 24px 0 rgba(67,86,100,0.12);}
+%is-shadow-1, .is-shadow-1{box-shadow:0 2px 5px rgba(67,86,100,0.12)!important}
+%is-shadow-2, .is-shadow-2{box-shadow:0 2px 4px rgba(67,86,100,0.10), 0 5px 8px rgba(67,86,100,0.12)!important}
+%is-shadow-3, .is-shadow-3{box-shadow:0 4px 8px rgba(67,86,100,0.10), 0 8px 16px rgba(67,86,100,0.08)!important}
+%is-shadow-4, .is-shadow-4{box-shadow:0 16px 32px rgba(67,86,100,0.17)!important}
+%is-shadow-5, .is-shadow-5{box-shadow:0 61px 84px rgba(67,86,100,0.14)!important}
 
 /* Radius */
 %is-radius-small, .is-radius-small{border-radius:$radius-small!important}

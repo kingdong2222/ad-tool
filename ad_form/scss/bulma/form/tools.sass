@@ -1,4 +1,4 @@
-$label-color: #131820 !default
+$label-color: #666 !default
 $label-weight: $weight-semibold !default
 
 $help-size: $size-small !default
@@ -7,11 +7,10 @@ $help-size: $size-small !default
   color: $label-color
   display: flex
   align-items: center
-  font-size: 1rem
+  font-size: 0.813rem
   font-weight: $label-weight
-  line-height: 24px
   &:not(:last-child)
-    margin-bottom: 6px
+    margin-bottom: 2px
   // Sizes
   &.is-small
     font-size: $size-small
@@ -48,7 +47,7 @@ $help-size: $size-small !default
 
 .field
   &:not(:last-child)
-    margin-bottom: 24px
+    margin-bottom: 36px
   // Modifiers
   &.has-addons
     display: flex
@@ -189,12 +188,11 @@ $help-size: $size-small !default
         font-size: $size-large
     .icon
       color: $input-icon-color
-      height: 18px
+      height: $input-height
       pointer-events: none
       position: absolute
-      top: 5px
-      width: 18px
-      font-size: 18px
+      top: 0
+      width: $input-height
       //z-index: 4
   &.has-icons-left
     .input,
