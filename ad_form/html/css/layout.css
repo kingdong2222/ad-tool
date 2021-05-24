@@ -9392,7 +9392,7 @@ select:invalid {
 .bl-form .field .control .add-border-bottom::after {
   content: "";
   display: block;
-  background-color: #D0D7DF;
+  background-color: #c1c8ce;
   width: 100%;
   height: 1px;
   -webkit-transform: scaleY(0.5);
