@@ -84,7 +84,7 @@ hr.line{display:block;background-color:$grey-light;height:1px;@include margin(0 
 		color:inherit;
 	}
 }
-.func-popup-location{@include position(absolute, 0);z-index:1}
+.func-popup-location, .func-select-time{@include position(absolute, 0);z-index:1}
 .title{display:block;margin-bottom:1em;color:$text;font-size:$size-large;font-weight:$weight-bold;letter-spacing: -0.2px;line-height: 28px;}
 .subtitle{display:block;margin-bottom:32px;color:$grey;font-size:$size-normal;font-weight:$weight-normal;line-height:22px;
 	strong{
@@ -146,7 +146,24 @@ select:invalid{color:#989EA5}
 		.avatar{@include margin(0 5px)}
 	}
 }
+.m-oa + .ver-3{
+	margin-top: -48px;
+	z-index: 1;
+}
 .bl-form{
+	&.ver-3{
+		.field-contain{
+			padding: 72px 16px 24px;
+			background: #F8F9FA;
+			border-radius: 24px 24px 8px 8px;
+			margin-bottom: 16px;
+			.field{
+				input{
+					background-color: transparent;
+				}
+			}
+		}
+	}
 	.label{
 		display:block;
 		span{
@@ -189,7 +206,27 @@ select:invalid{color:#989EA5}
 	.subtitle + .context-zaloid{
 		margin-top: -8px;
 	}
-	.context-zaloid{background-color:#F1F4FD;@include margin(null -24px 12px);@include padding(1rem 12px);
+	.context-zaloid{
+		text-align: center;
+		margin-bottom: 24px;
+		p{
+			&.is-title{
+				font-weight: 700;
+				font-size: 20px;
+				line-height: 28px;
+				color: #131820;
+				margin-bottom: 16px;
+			}
+			&.is-gray{
+				font-size: 14px;
+				line-height: 20px;
+				color: #5F656D;
+				margin-top: 8px;
+			}
+		}
+		// background-color:#F1F4FD;
+		// @include margin(null -24px 12px);
+		// @include padding(1rem 12px);
 		&.context-v2{
 			padding-right: 40px;
 			padding-left: 40px;
@@ -274,8 +311,17 @@ select:invalid{color:#989EA5}
 	}
 	.avatar.avatar--s{@include size(40px)}
 }
-.m-oa{display:flex;align-items:center;background: linear-gradient(270deg, #4EABF8 0%, #2D68F6 100%);max-width:300px;@include margin(null auto ($gutter/0.75));@include padding(6px);@extend %is-radius-rounded;
-	.avatar.avatar--m{flex-shrink:0;@include size(48px);margin-right:$gutter/2}
+.m-oa{
+	display:flex;align-items:center;
+	background: url('../images/zaloid_Signature.png') center center no-repeat;
+	background-size: cover;
+	// background: linear-gradient(270deg, #4EABF8 0%, #2D68F6 100%);
+	max-width:300px;
+	box-shadow: 0px 0px 2px rgba(10, 24, 41, 0.08), 0px 0px 8px rgba(10, 24, 41, 0.08);
+	// @include margin(null auto ($gutter/0.75));
+	position: relative;
+	@include padding(4px);@extend %is-radius-rounded;
+	.avatar.avatar--m{flex-shrink:0;@include size(40px);margin-right:$gutter/2}
 	.desc{flex-grow:1;min-width:0;padding-right:40px;
 		span{display:block;color:$white;font-size:$size-medium;font-weight:$weight-semibold;line-height: 24px;
 			&.is-label{font-size:$size-small;font-weight:$weight-normal;  line-height: 18px}
@@ -439,6 +485,7 @@ select:invalid{color:#989EA5}
 				}
 			}
 			.bl-form{
+				
 				.field{
 					padding: $gutter;
 					border-radius: 12px;

@@ -118,13 +118,38 @@
 		.popup-container{height:0;
 			&.is-show{z-index:1;bottom:0;height:96.5%;@extend %tr-all;
 				&#popup-daterangepicker{height:auto;}
-				
+				&#popup-select-time{
+					height: 50%;
+					.time-select-list{
+						margin-bottom: 16px;
+						li{
+							label{
+								font-size: 14px;
+								line-height: 24px;
+								color: #252525;
+							}
+							margin-bottom: 16px;
+						}
+					}
+					p.is-gray{
+						font-size: 12px;
+						line-height: 16px;
+						color: #5F656D;
+						margin-bottom: 16px;
+					}
+				}
 				.bl-popup-context{
 					&.has-fixed{
 						.bottom{opacity:1;visibility:visible;}
 					}
 				}
 			}
+		}
+		.bl-popup-footer{
+			position: absolute;
+			bottom: 32px;
+			right: 16px;
+			left: 16px;
 		}
 	}
 }

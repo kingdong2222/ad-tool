@@ -9052,7 +9052,7 @@ hr.line.is-outside {
   color: inherit;
 }
 
-.func-popup-location {
+.func-popup-location, .func-select-time {
   position: absolute;
   top: 0;
   right: 0;
@@ -9248,6 +9248,20 @@ select:invalid {
   margin: 0 5px;
 }
 
+.m-oa + .ver-3 {
+  margin-top: -48px;
+  z-index: 1;
+}
+
+.bl-form.ver-3 .field-contain {
+  padding: 72px 16px 24px;
+  background: #F8F9FA;
+  border-radius: 24px 24px 8px 8px;
+  margin-bottom: 16px;
+}
+.bl-form.ver-3 .field-contain .field input {
+  background-color: transparent;
+}
 .bl-form .label {
   display: block;
 }
@@ -9315,11 +9329,21 @@ select:invalid {
   margin-top: -8px;
 }
 .bl-form .context-zaloid {
-  background-color: #F1F4FD;
-  margin-right: -24px;
-  margin-bottom: 12px;
-  margin-left: -24px;
-  padding: 1rem 12px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.bl-form .context-zaloid p.is-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #131820;
+  margin-bottom: 16px;
+}
+.bl-form .context-zaloid p.is-gray {
+  font-size: 14px;
+  line-height: 20px;
+  color: #5F656D;
+  margin-top: 8px;
 }
 .bl-form .context-zaloid.context-v2 {
   padding-right: 40px;
@@ -9494,20 +9518,19 @@ select:invalid {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: -webkit-gradient(linear, right top, left top, from(#4EABF8), to(#2D68F6));
-  background: -o-linear-gradient(right, #4EABF8 0%, #2D68F6 100%);
-  background: linear-gradient(270deg, #4EABF8 0%, #2D68F6 100%);
+  background: url("../images/zaloid_Signature.png") center center no-repeat;
+  background-size: cover;
   max-width: 300px;
-  margin-right: auto;
-  margin-bottom: 2em;
-  margin-left: auto;
-  padding: 6px;
+  -webkit-box-shadow: 0px 0px 2px rgba(10, 24, 41, 0.08), 0px 0px 8px rgba(10, 24, 41, 0.08);
+          box-shadow: 0px 0px 2px rgba(10, 24, 41, 0.08), 0px 0px 8px rgba(10, 24, 41, 0.08);
+  position: relative;
+  padding: 4px;
 }
 .m-oa .avatar.avatar--m {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
   margin-right: 0.75em;
 }
 .m-oa .desc {
@@ -10263,9 +10286,35 @@ select:invalid {
 .overlay-tooltip .bl-tooltip .popup-container.is-show#popup-daterangepicker {
   height: auto;
 }
+.overlay-tooltip .bl-tooltip .popup-container.is-show#popup-select-time {
+  height: 50%;
+}
+.overlay-tooltip .bl-tooltip .popup-container.is-show#popup-select-time .time-select-list {
+  margin-bottom: 16px;
+}
+.overlay-tooltip .bl-tooltip .popup-container.is-show#popup-select-time .time-select-list li {
+  margin-bottom: 16px;
+}
+.overlay-tooltip .bl-tooltip .popup-container.is-show#popup-select-time .time-select-list li label {
+  font-size: 14px;
+  line-height: 24px;
+  color: #252525;
+}
+.overlay-tooltip .bl-tooltip .popup-container.is-show#popup-select-time p.is-gray {
+  font-size: 12px;
+  line-height: 16px;
+  color: #5F656D;
+  margin-bottom: 16px;
+}
 .overlay-tooltip .bl-tooltip .popup-container.is-show .bl-popup-context.has-fixed .bottom {
   opacity: 1;
   visibility: visible;
+}
+.overlay-tooltip .bl-tooltip .bl-popup-footer {
+  position: absolute;
+  bottom: 32px;
+  right: 16px;
+  left: 16px;
 }
 
 .bl-popup .popup-container, .bl-tooltip .popup-container {
