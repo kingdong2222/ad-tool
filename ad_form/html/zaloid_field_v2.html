@@ -259,6 +259,19 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/picker.js"></script>
     <script>
+      $("textarea")
+      	.each(function () {
+      		if (this.scrollHeight > 0) {
+      		this.setAttribute("style", "height:" + this.scrollHeight + "px;");
+      		}
+      	})
+      	.on("input", function () {
+      		if (this.scrollHeight > 0) {
+      		this.style.height = "auto";
+      		this.style.height = this.scrollHeight + "px";
+      		}
+      	});
+      
       $(".func-tooltip-2").click(function(){
       	$("body").addClass("overlay-tooltip");
       	$("#tooltip-2").addClass("is-show");
