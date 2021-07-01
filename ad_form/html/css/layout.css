@@ -9265,7 +9265,7 @@ select:invalid {
   line-height: 16px;
   color: #5F656D;
 }
-.bl-form.ver-3 .field-contain .field input {
+.bl-form.ver-3 .field-contain .field input, .bl-form.ver-3 .field-contain .field textarea {
   background-color: transparent;
 }
 .bl-form.ver-3 .field-contain .field select {
@@ -10314,7 +10314,7 @@ select:invalid {
   height: auto;
 }
 .overlay-tooltip .bl-tooltip .popup-container.is-show#popup-select-time {
-  min-height: 50%;
+  min-height: 30%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
