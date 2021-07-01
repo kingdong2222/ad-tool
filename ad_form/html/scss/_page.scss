@@ -95,7 +95,7 @@ hr.line{display:block;background-color:$grey-light;height:1px;@include margin(0 
 		br{display:block;content:"";@include margin(10px null)}
 	}
 	.read-more-link-wrap{white-space:nowrap;margin-left:4px;
-		.read-more-link{color:$text;font-weight: $weight-semibold;}
+		.read-more-link{color:$grey;font-weight: $weight-semibold;}
 	}
 	.js-read-more.is-expanded + .read-more-link-wrap{display:none}
 	@include tablet{margin-bottom:2.5em;}

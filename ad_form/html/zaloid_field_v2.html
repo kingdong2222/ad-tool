@@ -290,10 +290,12 @@
       $(".func-select-time").click(function(){
       	$("html").addClass("overlay-tooltip");
       	$("#popup-select-time").addClass("is-show");
+      	$("html").css('overflow', "hidden")
       });
       $(".func-close-popup").click(function(){
       	$("html").removeClass("overlay-tooltip");
       	$(".popup-container").removeClass("is-show");
+      	$("html").css('overflow', "auto")
       });
       
       //- tắt loading[test]

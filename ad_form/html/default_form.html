@@ -400,10 +400,12 @@
       $(".func-popup-location").click(function(){
       	$("html").addClass("overlay-tooltip");
       	$("#popup-location").addClass("is-show");
+      	$("html").css('overflow', "hidden")
       });
       $(".func-close-popup").click(function(){
       	$("html").removeClass("overlay-tooltip");
       	$(".popup-container").removeClass("is-show");
+      	$("html").css('overflow', "auto")
       });
       
       //- tắt loading[test]
