@@ -9259,8 +9259,23 @@ select:invalid {
   border-radius: 24px 24px 8px 8px;
   margin-bottom: 16px;
 }
+.bl-form.ver-3 .field-contain .field label {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  color: #5F656D;
+}
 .bl-form.ver-3 .field-contain .field input {
   background-color: transparent;
+}
+.bl-form.ver-3 .field-contain .field select {
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  display: block;
+  padding-right: 0;
+  width: calc(100% - 1.5em);
 }
 .bl-form .label {
   display: block;
@@ -9981,6 +9996,16 @@ select:invalid {
 }
 .ad-form-v2 .copyright {
   margin-top: 24px;
+}
+
+.new-version-3 .bl-info-oa .avatar {
+  margin-bottom: 16px;
+}
+.new-version-3 .bl-info-oa {
+  margin-bottom: 4px;
+}
+.new-version-3 .bl-info-oa h1 {
+  margin-bottom: 0;
 }
 
 .bl-tooltip {

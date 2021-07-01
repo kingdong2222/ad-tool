@@ -158,8 +158,22 @@ select:invalid{color:#989EA5}
 			border-radius: 24px 24px 8px 8px;
 			margin-bottom: 16px;
 			.field{
+				label{
+					font-weight: 600;
+					font-size: 13px;
+					line-height: 16px;
+					color: #5F656D;
+				}
 				input{
 					background-color: transparent;
+				}
+				select{
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: block;
+					padding-right: 0;
+					width: calc(100% - 1.5em);
 				}
 			}
 		}
@@ -556,3 +570,15 @@ select:invalid{color:#989EA5}
 // 		}
 // 	}
 // }
+
+.new-version-3{
+	.bl-info-oa .avatar{
+		margin-bottom: 16px;
+	}
+	.bl-info-oa{
+		margin-bottom: 4px;
+		h1{
+			margin-bottom: 0;
+		}
+	}
+}
