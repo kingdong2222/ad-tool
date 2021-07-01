@@ -10006,6 +10006,9 @@ select:invalid {
 }
 .new-version-3 .bl-info-oa h1 {
   margin-bottom: 0;
+  font-weight: 700;
+  line-height: 20px;
+  color: #131820;
 }
 
 .bl-tooltip {
