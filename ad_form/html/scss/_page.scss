@@ -221,21 +221,23 @@ select:invalid{color:#989EA5}
 		margin-top: -8px;
 	}
 	.context-zaloid{
-		text-align: center;
 		margin-bottom: 24px;
 		p{
 			&.is-title{
 				font-weight: 700;
-				font-size: 20px;
-				line-height: 28px;
+				font-size: 14px;
+				line-height: 18px;
 				color: #131820;
 				margin-bottom: 16px;
+				text-align: center;
+				padding: 0 24px;
 			}
 			&.is-gray{
 				font-size: 14px;
 				line-height: 20px;
 				color: #5F656D;
-				margin-top: 8px;
+				margin-top: 16px;
+				margin-bottom: 0;
 			}
 		}
 		// background-color:#F1F4FD;
@@ -573,16 +575,29 @@ select:invalid{color:#989EA5}
 
 .new-version-3{
 	.bl-info-oa .avatar{
-		margin-bottom: 16px;
+		margin-bottom: 8px;
 	}
 	.bl-info-oa{
-		margin-bottom: 4px;
+		margin-bottom: 16px;
 		h1{
 			margin-bottom: 0;
-			font-weight: 700;
-			// font-size: 14px;
 			line-height: 20px;
 			color: #131820;
 		}
+	}
+	.bl-form{
+		h2{
+			margin-bottom: 4px;
+			font-size: 20px;
+			line-height: 24px;
+		}
+		.subtitle{
+			margin-bottom: 16px;
+		}
+	}
+	.context-zaloid{
+		padding: 12px 16px 16px;
+		background-color: #F8F9FA;
+		border-radius: 8px;
 	}
 }

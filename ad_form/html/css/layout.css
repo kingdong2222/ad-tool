@@ -9344,21 +9344,23 @@ select:invalid {
   margin-top: -8px;
 }
 .bl-form .context-zaloid {
-  text-align: center;
   margin-bottom: 24px;
 }
 .bl-form .context-zaloid p.is-title {
   font-weight: 700;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 14px;
+  line-height: 18px;
   color: #131820;
   margin-bottom: 16px;
+  text-align: center;
+  padding: 0 24px;
 }
 .bl-form .context-zaloid p.is-gray {
   font-size: 14px;
   line-height: 20px;
   color: #5F656D;
-  margin-top: 8px;
+  margin-top: 16px;
+  margin-bottom: 0;
 }
 .bl-form .context-zaloid.context-v2 {
   padding-right: 40px;
@@ -9999,16 +10001,28 @@ select:invalid {
 }
 
 .new-version-3 .bl-info-oa .avatar {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 .new-version-3 .bl-info-oa {
-  margin-bottom: 4px;
+  margin-bottom: 16px;
 }
 .new-version-3 .bl-info-oa h1 {
   margin-bottom: 0;
-  font-weight: 700;
   line-height: 20px;
   color: #131820;
+}
+.new-version-3 .bl-form h2 {
+  margin-bottom: 4px;
+  font-size: 20px;
+  line-height: 24px;
+}
+.new-version-3 .bl-form .subtitle {
+  margin-bottom: 16px;
+}
+.new-version-3 .context-zaloid {
+  padding: 12px 16px 16px;
+  background-color: #F8F9FA;
+  border-radius: 8px;
 }
 
 .bl-tooltip {
