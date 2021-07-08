@@ -9255,7 +9255,9 @@ select:invalid {
 
 .bl-form.ver-3 .field-contain {
   padding: 72px 16px 24px;
-  background: #F8F9FA;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 2px rgba(10, 24, 41, 0.08), 0px 0px 8px rgba(10, 24, 41, 0.08);
+          box-shadow: 0px 0px 2px rgba(10, 24, 41, 0.08), 0px 0px 8px rgba(10, 24, 41, 0.08);
   border-radius: 24px 24px 8px 8px;
   margin-bottom: 16px;
 }
@@ -9339,9 +9341,6 @@ select:invalid {
 }
 .bl-form .context-default + .is-policy {
   padding-top: 2em;
-}
-.bl-form .subtitle + .context-zaloid {
-  margin-top: -8px;
 }
 .bl-form .context-zaloid {
   margin-bottom: 24px;
@@ -10013,10 +10012,18 @@ select:invalid {
 }
 .new-version-3 .bl-form h2 {
   margin-bottom: 4px;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 24px;
+  line-height: 32px;
 }
 .new-version-3 .bl-form .subtitle {
+  margin-bottom: 16px;
+}
+.new-version-3 .bl-form + h3 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #131820;
   margin-bottom: 16px;
 }
 .new-version-3 .context-zaloid {
