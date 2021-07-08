@@ -9278,6 +9278,7 @@ select:invalid {
   display: block;
   padding-right: 0;
   width: calc(100% - 1.5em);
+  color: #131820;
 }
 .bl-form .label {
   display: block;
