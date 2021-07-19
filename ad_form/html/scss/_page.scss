@@ -161,9 +161,12 @@ select:invalid{color:#989EA5}
 			.field{
 				label{
 					font-weight: 600;
-					font-size: 13px;
+					font-size: 14px;
 					line-height: 16px;
-					color: #5F656D;
+					color: #131820;
+					span{
+						font-size: 14px;
+					}
 				}
 				input,textarea{
 					background-color: transparent;
@@ -579,12 +582,9 @@ select:invalid{color:#989EA5}
 	.bl-info-oa{
 		margin-bottom: 16px;
 		h1{
-			margin-bottom: 0;
 			line-height: 20px;
 			color: #131820;
 		}
-	}
-	.bl-form{
 		h2{
 			margin-bottom: 4px;
 			font-size: 24px;

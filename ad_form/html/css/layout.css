@@ -9263,9 +9263,12 @@ select:invalid {
 }
 .bl-form.ver-3 .field-contain .field label {
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 16px;
-  color: #5F656D;
+  color: #131820;
+}
+.bl-form.ver-3 .field-contain .field label span {
+  font-size: 14px;
 }
 .bl-form.ver-3 .field-contain .field input, .bl-form.ver-3 .field-contain .field textarea {
   background-color: transparent;
@@ -10007,16 +10010,15 @@ select:invalid {
   margin-bottom: 16px;
 }
 .new-version-3 .bl-info-oa h1 {
-  margin-bottom: 0;
   line-height: 20px;
   color: #131820;
 }
-.new-version-3 .bl-form h2 {
+.new-version-3 .bl-info-oa h2 {
   margin-bottom: 4px;
   font-size: 24px;
   line-height: 32px;
 }
-.new-version-3 .bl-form .subtitle {
+.new-version-3 .bl-info-oa .subtitle {
   margin-bottom: 16px;
 }
 .new-version-3 .bl-form + h3 {
