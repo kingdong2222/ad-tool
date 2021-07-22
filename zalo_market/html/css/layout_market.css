@@ -8212,6 +8212,48 @@ body.overlay-open-new .bl-popup .popup-container.is-show#popup-suggest-message .
 .dockbar .context-dockbar.homepage-shop ul li:nth-child(1) a.active [class^=icn]:before {
   content: "";
 }
+.dockbar .context-dockbar.push-post {
+  height: 75px;
+  border-top: 1px solid #F2F4F8;
+  padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+.dockbar .context-dockbar.push-post .btn {
+  width: 50%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  border-radius: 8px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.dockbar .context-dockbar.push-post .btn:first-child {
+  margin-right: 6px;
+  color: #FFFFFF;
+}
+.dockbar .context-dockbar.push-post .btn:last-child {
+  margin-left: 6px;
+  color: #35425B;
+  border: 1px solid #35425B;
+}
 .dockbar .trans-dockbar {
   height: 55px;
 }

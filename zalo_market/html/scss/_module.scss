@@ -6291,6 +6291,35 @@ body.overlay-open-new .bl-popup {
         }
       }
     }
+    &.push-post {
+      height: 75px;
+      border-top: 1px solid #F2F4F8;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      .btn{
+        width: 50%;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        border-radius: 8px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:first-child{
+          margin-right: 6px;
+          color: #FFFFFF;
+        }
+        &:last-child{
+          margin-left: 6px;
+          color: #35425B;
+          border: 1px solid #35425B;
+        }
+      }
+    }
   }
   .trans-dockbar {
     height: 55px;
