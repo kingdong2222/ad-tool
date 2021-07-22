@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Market</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <!--link(rel="icon" type="image/ico" href="images/fav.ico")-->
+    <link href="css/core.css" rel="stylesheet" type="text/css">
+    <link href="css/layout_market.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body>
+    <div class="zMarket-layout">
+      <div class="page-content">
+        <div class="bl-module module-profile-v2 module-profile custom-in-shop">
+          <div class="context-user-profile">
+            <div class="avatar avatar--m">
+              <div class="avatar-img" style="background-image:url(http://via.placeholder.com/200x200)"></div>
+            </div>
+            <div class="desc new-desc">
+              <h2 class="user-name">Username</h2>
+              <div class="credit"><a>99 <span>credit</span></a><a href="list_followers.html">30 <span>Người theo dõi</span></a></div>
+            </div>
+          </div><a class="button-share func-share" href="#!share"><i class="icn icn-share"></i>
+            <div class="feature-share-list">
+              <div class="arrows"></div>
+              <div class="item-feature"><i class="icn icn-a-share"></i><span>Chia sẻ cho bạn bè</span></div>
+              <div class="item-feature"><i class="icn icn-clock"></i><span>Đăng lên nhật ký</span></div>
+            </div></a>
+        </div>
+        <div class="bl-module module-tabs is-custom custom-in-shop">
+          <ul>
+            <li class="tab active"><a class="fs--l" href="#buying">Mua hàng</a></li>
+            <li class="tab"><a class="fs--l" href="#selling">Đăng bán </a></li>
+          </ul>
+        </div>
+        <div class="bl-module bl-module-v2" id="buying">
+          <div class="new-module module-order-profile">
+            <div class="header-module">
+              <div class="left-content"><i class="icn icn-single-content"></i>
+                <p>Đơn hàng</p>
+              </div>
+              <div class="right-content"><a href="new_order_list.html">Xem tất cả</a></div>
+            </div>
+            <div class="container-module">
+              <div class="container-block"><i class="icn icn-tag-sale"></i>
+                <p>Chờ xác nhận</p>
+              </div>
+              <div class="container-block"><i class="icn icn-tag-check"></i>
+                <p>Đã xác nhận</p>
+              </div>
+              <div class="container-block"><i class="icn icn-basket-simple-remove"></i>
+                <p>Hủy đơn</p>
+              </div>
+              <div class="container-block"><i class="icn icn-box"></i>
+                <p>Chuyển hoàn</p>
+              </div>
+            </div>
+          </div>
+          <div class="new-module module-selling-news-profile">
+            <div class="header-module">
+              <div class="left-content"><i class="icn icn-asking"></i>
+                <p>Tin rao đã hỏi</p>
+              </div>
+              <div class="right-content"><a href="new_order_asking.html">Xem tất cả</a></div>
+            </div>
+            <div class="container-module">
+              <div class="block-empty-news">
+                <p>Bạn chưa hỏi tin rao vặt nào</p><a class="btn btn-primary btn--m w-100">Xem tin rao vặt</a>
+              </div>
+              <ul class="product-seller-list">
+                <li><a class="item-product-seller" href="#!"><span class="media"><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">1</span></span><span class="img" style="background-image:url('images/img_product_seller.png')"></span></span><span class="content"><span class="price">20,1 Tỷ</span><span class="desc">Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ</span>
+                      <ul class="attr-list">
+                        <li>50m<sup>2</sup></li>
+                        <li>Q.Bình Thạnh</li>
+                        <li>Tp.HCM</li>
+                      </ul></span></a></li>
+                <li><a class="item-product-seller" href="#!"><span class="media"><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">1</span></span><span class="img" style="background-image:url('images/img_product_seller.png')"></span></span><span class="content"><span class="price">20,1 Tỷ</span><span class="desc">Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ</span>
+                      <ul class="attr-list">
+                        <li>50m<sup>2</sup></li>
+                        <li>Q.Bình Thạnh</li>
+                        <li>Tp.HCM</li>
+                      </ul></span></a></li>
+              </ul>
+            </div>
+          </div><a class="new-module has-header-only" href="addr_list.html">
+            <div class="header-module">
+              <div class="left-content"><i class="icn icn-address"></i>
+                <p>Danh sách địa chỉ</p>
+              </div>
+              <div class="right-content"><i class="icn icn-small-right"></i></div>
+            </div></a>
+        </div>
+        <div class="bl-module bl-module-v2" id="selling" style="display:none">
+          <div class="tab-custom">
+            <ul>
+              <li class="tab active"> <a href="#d0">Đang chạy</a></li>
+              <li class="tab"><a href="#d1">Chờ duyệt</a></li>
+              <li class="tab"><a href="#d2">Hết hạn</a></li>
+              <li class="tab"><a href="#d3">Đã bán</a></li>
+              <li class="tab"><a href="#d4">Từ chối</a></li>
+            </ul>
+          </div>
+          <div class="context-tab-content">
+            <div id="d0">
+              <!--case when empty-->
+              <div class="bl-module module-empty is-transparent"><img class="m-bottom-2" src="images/img_empty.png" alt="Zalo Market">
+                <p class="fs--l fw-medium text-center m-bottom-6">Không có tin đang rao bán nào</p>
+              </div>
+              <ul class="bl-post-list">
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Đang rao bán</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl">
+                      <div class="notification is-warning"><i class="icn icn-bold-warning"></i><span>Sản phẩm này chưa được hiển thị trên Zalo Shop</span></div><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a>
+                    </div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Đã bán</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Đang rao bán</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Đã bán</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Đang rao bán</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Đã bán</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Đang rao bán</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Đã bán</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Đang rao bán</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Đã bán</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Đang rao bán</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Chuyển trạng thái	</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div id="d1" style="display:none">
+              <ul class="bl-post-list">
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Chờ duyệt</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Đã bán</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Chờ duyệt</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Đã bán</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Chờ duyệt</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Đã bán</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div id="d2" style="display:none">
+              <ul class="bl-post-list">
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Hết hạn</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Gia hạn</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Hết hạn</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Gia hạn</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Hết hạn</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta"><a class="btn btn--s" href="#!">Gia hạn</a><a class="btn btn--s" href="#!">Đăng nhật ký</a></span></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div id="d3" style="display:none">
+              <ul class="bl-post-list">
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Đã bán</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta has-only-action"><a class="btn btn--s" href="#!">Rao bán lại</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Đã bán</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta has-only-action"><a class="btn btn--s" href="#!">Rao bán lại</a></span></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Đã bán</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                    <div class="footer-bl"><span class="group-cta has-only-action"><a class="btn btn--s" href="#!">Rao bán lại</a></span></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div id="d4" style="display:none">
+              <ul class="bl-post-list">
+                <li>
+                  <div class="bl-post">
+                    <div class="head-bl"><span class="status">Từ chối duyệt</span><span class="date">24 Mar 2020</span></div>
+                    <div class="body-bl"><a class="content" href="#!"><span class="img" style="background-image:url(http://via.placeholder.com/200x200)"></span>
+                        <div class="desc"><span class="price">2,4 tỷ</span><span class="text">Sang quán sữa chua Cô Thỏ 142 Võ Văn Ngân</span></div></a></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dockbar">
+        <div class="context-dockbar homepage-shop is-listing">
+          <ul>
+            <li><a href="index.html"><i class="icn icn-ue60-home"></i><span class="text">Trang chủ</span></a></li>
+            <li><a href="create_sell_post.html"><i class="icn icn-bold-circle-add"></i><span class="text">Đăng tin</span></a></li>
+            <li><a href="profile.html"><i class="icn icn-account"></i><span class="text">Tài khoản</span></a></li>
+          </ul>
+        </div>
+        <div class="trans-dockbar"></div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      //- demo active dockbar
+      $(".context-dockbar li a").removeClass("active");
+      $(".context-dockbar li:nth-child(3) a").addClass("active");
+      
+      $('.tab a').on('click', function (e) {
+      	e.preventDefault();
+      	$(this).parent().addClass('active');
+      	$(this).parent().siblings().removeClass('active');
+      	
+      	target = $(this).attr('href');
+      	if(target =='#buying' || target == '#selling'){
+      		$('.bl-module-v2').not(target).hide();
+      		$(target).fadeIn(400);
+      		$("html, body").animate({ scrollTop: 0 }, 500);
+      	} else {
+      		$('.context-tab-content > div').not(target).hide();
+      		$(target).fadeIn(500);
+      		$("html, body").animate({ scrollTop: 0 }, 500);
+      	}
+      	
+      });
+      
+      $(".func-share").click(function(){
+      	event.stopPropagation();
+      	$(".feature-share-list").toggleClass("is-active");
+      });
+    </script>
+  </body>
+</html>

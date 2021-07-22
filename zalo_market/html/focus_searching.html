@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Market</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <!--link(rel="icon" type="image/ico" href="images/fav.ico")-->
+    <link href="css/core.css" rel="stylesheet" type="text/css">
+    <link href="css/layout_market.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body>
+    <div class="zMarket-layout">
+      <div class="page-content has-grey-background">
+        <div class="module-home-search focus-search"> 
+          <div class="form-row">
+            <input type="text" placeholder="Nhập từ khóa cần tìm" value=""><a class="func-search" href="#!"><i class="icn icn-search"></i></a>
+          </div>
+          <div class="filter-list"> 
+            <div class="filter-location filter-item"> 
+              <label>Địa điểm</label><i class="icn icn-small-down"></i>
+            </div>
+            <div class="filter-category filter-item">
+              <label>Danh mục</label><i class="icn icn-small-down"></i>
+            </div>
+            <div class="filter-price filter-item"> 
+              <label>Khoảng giá</label><i class="icn icn-small-down"></i>
+            </div>
+          </div><a class="btn btn-primary btn--s w-100">Tìm kiếm	</a>
+        </div>
+        <div class="bl-module module-recently-search">
+          <div class="contain-text"> 
+            <h3 class="title">Tin nổi bật 24h</h3>
+          </div>
+          <div class="list-search"> <a class="item"><i class="icn icn-clock"> </i>
+              <p class="text">nha thue</p></a><a class="item"><i class="icn icn-clock"> </i>
+              <p class="text">xe 4 cho</p></a><a class="item"><i class="icn icn-clock"> </i>
+              <p class="text">xe hoi 7 cho</p></a></div>
+        </div>
+        <div class="bl-popup"> 
+          <div class="popup-container has-radius" id="popup-filter-category">
+            <div class="bl-popup-heading"><span class="fw-medium">Chọn ngành hàng</span><a class="func-close-popup" href="#!"><i class="icn icn-small-remove"></i></a></div>
+            <div class="bl-popup-context">
+              <div class="default-form">
+                <div class="form-row">
+                  <div class="checkbox-list w-100">
+                    <ul>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona-cate-all" name="category" type="radio">
+                          <label for="optiona-cate-all">Tất cả</label>
+                        </div>
+                        <div class="input-group">
+                          <input id="home" name="category" type="radio">
+                          <label for="home">Bất động sản</label>
+                        </div>
+                        <div class="input-group">
+                          <input id="car" name="category" type="radio">
+                          <label for="car">Xe cộ</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popup-container has-radius" id="popup-filter-price">
+            <div class="bl-popup-heading"><span class="fw-medium">Chọn mức giá</span><a class="func-close-popup" href="#!"><i class="icn icn-small-remove"></i></a></div>
+            <div class="bl-popup-context">
+              <div class="default-form">
+                <div class="form-row">
+                  <div class="checkbox-list w-100">
+                    <ul>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona-price-all" name="price" type="radio">
+                          <label for="optiona-price-all">Tất cả</label>
+                        </div>
+                        <div class="input-group">
+                          <input id="price_1" name="price" type="radio">
+                          <label for="price_1">Dưới 50 triệu</label>
+                        </div>
+                        <div class="input-group">
+                          <input id="price_2" name="price" type="radio">
+                          <label for="price_2">Item 1		</label>
+                        </div>
+                        <div class="input-group">
+                          <input id="price_3" name="price" type="radio">
+                          <label for="price_3">Item 2</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="popup-container has-radius" id="popup-filter-location">
+              <div class="bl-popup-heading"><span class="fw-medium">Chọn Tỉnh thành</span><a class="func-close-popup" href="#!"><i class="icn icn-small-remove"></i></a></div>
+              <div class="bl-popup-context">
+                <div class="default-form">
+                  <div class="form-row">
+                    <div class="checkbox-list w-100">
+                      <ul>
+                        <li>
+                          <div class="input-group">
+                            <input id="optiona-location-all" name="location" type="radio">
+                            <label for="optiona-location-all">Tất cả</label>
+                          </div>
+                          <div class="input-group">
+                            <input id="location_1" name="location" type="radio">
+                            <label for="location_1">TP HCM</label>
+                          </div>
+                          <div class="input-group">
+                            <input id="location_2" name="location" type="radio">
+                            <label for="location_2">Item 1		</label>
+                          </div>
+                          <div class="input-group">
+                            <input id="location_3" name="location" type="radio">
+                            <label for="location_3">Item 2					</label>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dockbar">
+        <div class="context-dockbar homepage-shop is-listing" data-step="3" data-intro="&lt;strong&gt;Đăng bán&lt;/strong&gt; Bất động sản hoặc xe của bạn nhanh chóng dễ dàng" data-tooltipclass="forLastStep">
+          <ul>
+            <li><a href="index.html"><i class="icn icn-ue60-home"></i><span class="text">Trang chủ</span></a></li>
+            <li><a href="create_sell_post.html"><i class="icn icn-bold-circle-add"></i><span class="text">Đăng tin</span></a></li>
+            <li><a href="profile.html"><i class="icn icn-account"></i><span class="text">Tài khoản</span></a></li>
+          </ul>
+        </div>
+        <div class="trans-dockbar"></div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script>
+      //popup filter search
+      $('.filter-location').click(()=>{
+      	$("body").addClass("overlay-open");
+      	$("#popup-filter-location").addClass("is-show");
+      })
+      
+      $('.filter-price').click(()=>{
+      	$("body").addClass("overlay-open");
+      	$("#popup-filter-price").addClass("is-show");
+      })
+      
+      $('.filter-category').click(()=>{
+      	$("body").addClass("overlay-open");
+      	$("#popup-filter-category").addClass("is-show");
+      })
+      
+      $(".func-close-popup").click(function(){
+      	$("body").removeClass("overlay-open");
+      	$(".popup-container").removeClass("is-show");
+      });
+      
+      $(".input-group").click(function(){
+      	$(".popup-container").removeClass("is-show");
+      	$("body").removeClass("overlay-open");
+      });
+    </script>
+  </body>
+</html>

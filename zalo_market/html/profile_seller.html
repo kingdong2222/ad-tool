@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Market</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <!--link(rel="icon" type="image/ico" href="images/fav.ico")-->
+    <link href="css/core.css" rel="stylesheet" type="text/css">
+    <link href="css/layout_market.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body>
+    <div class="zMarket-layout">
+      <div class="page-content is-bg">
+        <div class="bl-module module-profile-v2 module-profile seller-profile custom-in-shop">
+          <div class="context-user-profile">
+            <div class="avatar avatar--m">
+              <div class="avatar-img" style="background-image:url(http://via.placeholder.com/200x200)"></div>
+            </div>
+            <div class="desc new-desc">
+              <h2 class="user-name">Vien khoa hoc cong nghê</h2>
+              <div class="credit">
+                <p>30 người đang theo dõi</p>
+              </div>
+            </div>
+          </div>
+          <div class="right-container"><a class="btn btn--xs hidden">Theo dõi</a><a class="btn btn--xs is-followed">Đã theo dõi</a><a class="button-share func-share" href="#!share"><i class="icn icn-share"></i>
+              <div class="feature-share-list">
+                <div class="arrows"></div>
+                <div class="item-feature"><i class="icn icn-a-share"></i><span>Chia sẻ cho bạn bè</span></div>
+                <div class="item-feature"><i class="icn icn-clock"></i><span>Đăng lên nhật ký</span></div>
+              </div></a></div>
+        </div>
+        <div class="bl-module bl-module-v2 module-seller-profile">
+          <div class="searching-post"><i class="icn icn-search"></i>
+            <input placeholder="Tìm tin rao">
+          </div>
+          <ul class="quick-filter">
+            <li><a class="item-filter func-open-status" href="#!"><span class="text">Trạng thái <strong> Tất cả</strong></span><i class="icn icn-small-down"></i></a></li>
+            <li><a class="item-filter func-open-quanhuyen" href="#!"><span class="text">Vị trí <strong> Tất cả</strong></span><i class="icn icn-small-down"></i></a></li>
+            <li><a class="item-filter func-quick-filter" href="#!"><span class="text">Sắp xếp <strong> Mới nhất</strong></span><i class="icn icn-small-down"></i></a></li>
+          </ul>
+          <!--case đang bán-->
+          <div class="block-post" id="sell-0">
+            <p class="no-post">Không có tin rao</p>
+            <ul class="product-seller-list">
+              <li><a class="item-product-seller" href="#!"><span class="media"><span class="img" style="background-image:url('images/img_product_seller.png')"></span><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">1</span></span></span><span class="content"><span class="price">20,1 Tỷ</span><span class="desc">Căn hộ Green Star </span>
+                    <ul class="attr-list">
+                      <li>50m<sup>2</sup></li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                    </ul></span></a></li>
+              <li><a class="item-product-seller" href="#!"><span class="media"><span class="img" style="background-image:url('images/img_product_seller.png')"></span><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">1</span></span></span><span class="content"><span class="price">20,1 Tỷ</span><span class="desc">Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ</span>
+                    <ul class="attr-list">
+                      <li>50m<sup>2</sup></li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                    </ul></span></a></li>
+              <li><a class="item-product-seller" href="#!"><span class="media"><span class="img" style="background-image:url('images/img_product_seller.png')"></span><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">6</span></span></span><span class="content"><span class="price">700 triệu</span><span class="desc">Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ</span>
+                    <ul class="attr-list">
+                      <li>50m<sup>2</sup></li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                    </ul></span></a></li>
+            </ul>
+          </div>
+          <!--case đã bán-->
+          <div class="block-post" id="sell-2">
+            <div class="title">
+              <div class="line"></div>
+              <p>Đã bán</p>
+              <div class="line"></div>
+            </div>
+            <p class="no-post">Không có tin rao</p>
+            <ul class="product-seller-list">
+              <li><a class="item-product-seller" href="#!"><span class="media"><span class="img" style="background-image:url('images/img_product_seller.png')"><span class="overlay">
+                        <p>Đã bán</p></span></span><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">1</span></span></span><span class="content"><span class="price">20,1 Tỷ</span><span class="desc">Căn hộ Green Star </span>
+                    <ul class="attr-list">
+                      <li>50m<sup>2</sup></li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                    </ul></span></a></li>
+              <li><a class="item-product-seller" href="#!"><span class="media"><span class="img" style="background-image:url('images/img_product_seller.png')"><span class="overlay">
+                        <p>Đã bán</p></span></span><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">1</span></span></span><span class="content"><span class="price">20,1 Tỷ</span><span class="desc">Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ</span>
+                    <ul class="attr-list">
+                      <li>50m<sup>2</sup></li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                    </ul></span></a></li>
+              <li><a class="item-product-seller" href="#!"><span class="media"><span class="img" style="background-image:url('images/img_product_seller.png')"><span class="overlay">
+                        <p>Đã bán</p></span></span><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">6</span></span></span><span class="content"><span class="price">700 triệu</span><span class="desc">Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ</span>
+                    <ul class="attr-list">
+                      <li>50m<sup>2</sup></li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM	</li>
+                    </ul></span></a></li>
+            </ul>
+          </div>
+          <!--case hết hạn-->
+          <div class="block-post" id="sell-3">
+            <div class="title">
+              <div class="line"></div>
+              <p>Hết hạn</p>
+              <div class="line"></div>
+            </div>
+            <p class="no-post">Không có tin rao</p>
+            <ul class="product-seller-list">
+              <li><a class="item-product-seller" href="#!"><span class="media"><span class="img" style="background-image:url('images/img_product_seller.png')"><span class="overlay">
+                        <p>Hết hạn</p></span></span><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">1</span></span></span><span class="content"><span class="price">20,1 Tỷ</span><span class="desc">Căn hộ Green Star </span>
+                    <ul class="attr-list">
+                      <li>50m<sup>2</sup></li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                    </ul></span></a></li>
+              <li><a class="item-product-seller" href="#!"><span class="media"><span class="img" style="background-image:url('images/img_product_seller.png')"><span class="overlay">
+                        <p>Hết hạn</p></span></span><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">1</span></span></span><span class="content"><span class="price">20,1 Tỷ</span><span class="desc">Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ</span>
+                    <ul class="attr-list">
+                      <li>50m<sup>2</sup></li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM</li>
+                    </ul></span></a></li>
+              <li><a class="item-product-seller" href="#!"><span class="media"><span class="img" style="background-image:url('images/img_product_seller.png')"><span class="overlay">
+                        <p>Hết hạn</p></span></span><span class="count-img"><i class="icn icn-bold-img"></i><span class="number">6</span></span></span><span class="content"><span class="price">700 triệu</span><span class="desc">Căn hộ Green Star Nguyễn Lương Bằng Q.7 Giá 2,3 Tỷ</span>
+                    <ul class="attr-list">
+                      <li>50m<sup>2</sup></li>
+                      <li>Q.Bình Thạnh</li>
+                      <li>Tp.HCM	</li>
+                    </ul></span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="bl-popup">
+          <div class="popup-container has-radius" id="popup-status-selling">
+            <div class="bl-popup-heading"><span class="fw-medium">Trạng thái</span><a class="func-close-popup" href="#!"><i class="icn icn-small-remove"></i></a><a class="func-reset" href="#!"><span>Lưu</span></a></div>
+            <div class="bl-popup-context">
+              <div class="default-form">
+                <div class="form-row">
+                  <div class="checkbox-list w-100">
+                    <ul>
+                      <li>
+                        <div class="input-group">
+                          <input id="selling" name="optiona1" type="checkbox">
+                          <label for="selling">Tin đang rao</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="selled" name="optiona1" type="checkbox">
+                          <label for="selled">Tin đã bán</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="time_over" name="optiona1" type="checkbox">
+                          <label for="time_over">Tin hết hạn</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popup-container has-radius" id="popup-quanhuyen">
+            <div class="bl-popup-heading"><span class="fw-medium">Chọn Tỉnh, thành phố</span><a class="func-close-popup" href="#!"><i class="icn icn-small-remove"></i></a></div>
+            <div class="bl-popup-context">
+              <ul class="select-list">
+                <li>
+                  <div class="item"><span>Toàn quốc</span></div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Thành Phố Hồ Chí Minh</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hà Nội</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location func-seemore"><span>Quảng Ngãi</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Đà Nẵng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Cần Thơ</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Bình Dương</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Bà Rịa - Vũng Tàu</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Đồng Nai</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Bình Thuận</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Lâm Đồng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Vĩnh Phúc</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hải Phòng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="popup-container has-radius" id="popup-quick-filter">
+            <div class="bl-popup-heading"><span class="fw-medium">nameFilter</span><a class="func-close-popup" href="#!"><i class="icn icn-small-remove"></i></a></div>
+            <div class="bl-popup-context">
+              <ul class="select-list">
+                <li>
+                  <div class="item"><span>Value 1</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item"><span>Value 2</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+              </ul>
+              <div class="default-form">
+                <div class="form-row">
+                  <div class="checkbox-list w-100">
+                    <ul>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona111111" name="optiona1" type="radio">
+                          <label for="optiona111111">Value</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bl-slide" id="slide-select-location">
+          <div class="slide-container">
+            <div class="bl-slide-heading"><span class="fw-medium">Chọn Tỉnh, thành phố</span><a class="func-close-slide" href="#!"><i class="icn icn-small-left"></i></a></div>
+            <div class="bl-slide-context">
+              <ul class="select-list">
+                <li>
+                  <div class="item"><span>Toàn quốc</span></div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Thành Phố Hồ Chí Minh</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hà Nội</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location func-seemore"><span>Quảng Ngãi</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Đà Nẵng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Cần Thơ</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Bình Dương</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Bà Rịa - Vũng Tàu</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Đồng Nai</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Bình Thuận</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Lâm Đồng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Vĩnh Phúc</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hải Phòng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hải Phòng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hải Phòng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bl-slide" id="slide-filter">
+          <div class="slide-container">
+            <div class="bl-slide-heading"><span class="fw-medium">Chọn quận, huyện, thị xã</span><a class="func-close-slide" href="#!"><i class="icn icn-small-left"></i></a></div>
+            <div class="bl-slide-context">
+              <div class="default-form">
+                <div class="form-row">
+                  <div class="checkbox-list w-100">
+                    <ul>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona1111111" name="optiona1" type="radio">
+                          <label for="optiona1111111">Tất cả</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona2222222" name="optiona2" type="radio">
+                          <label for="optiona2222222">Tp. Bà Rịa</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona33333333" name="optiona2" type="radio">
+                          <label for="optiona33333333">Tp. Vũng Tàu</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona4444444" name="optiona2" type="radio">
+                          <label for="optiona4444444">Huyện Châu Đức</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona5555555" name="optiona2" type="radio">
+                          <label for="optiona5555555">Huyện Đất Đỏ</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona6666666" name="optiona2" type="radio">
+                          <label for="optiona6666666">Huyện Long Điền</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona7777777" name="optiona2" type="radio">
+                          <label for="optiona7777777">Thị Xã Phú Mỹ</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona8888888" name="optiona2" type="radio">
+                          <label for="optiona8888888">Huyện Xuyên Mộc</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      $(".func-open-status").click(function(){
+      	$("body").addClass("overlay-open");
+      	$("#popup-status-selling").addClass("is-show");
+      });
+      $(".func-close-popup").click(function(){
+      	$("body").removeClass("overlay-open");
+      	$(".popup-container").removeClass("is-show");
+      });
+      $(".func-open-quanhuyen").click(function(){
+      	$("body").addClass("overlay-open");
+      	$("#popup-quanhuyen").addClass("is-show");
+      });
+      $(".func-quick-filter").click(function(){
+      	$("body").addClass("overlay-open");
+      	$("#popup-quick-filter").addClass("is-show");
+      });
+      $("#popup-quanhuyen  .select-location").click(function(){
+      	$("#slide-filter").addClass("is-show");
+      });
+      $(".func-close-slide").click(function(){
+      	$(".slide-container").removeClass("is-show");
+      	$(".bl-slide").removeClass("is-show");
+      });
+      $("#slide-filter .input-group").click(function(){
+      	$(".slide-container").removeClass("is-show");
+      	$(".bl-slide").removeClass("is-show");
+      });
+      $(".func-share").click(function(){
+      	event.stopPropagation();
+      	$(".feature-share-list").toggleClass("is-active");
+      });
+      $(".page-content").click(function(){
+      	$(".feature-share-list").removeClass("is-active");
+      });
+    </script>
+  </body>
+</html>
