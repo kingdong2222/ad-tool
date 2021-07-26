@@ -12185,6 +12185,9 @@ table .func-faqs [class^=icz] {
 .table-responsive table tbody td.price {
   text-align: right;
 }
+.table-responsive table tbody td.push-post-now {
+  width: 120px;
+}
 .table-responsive table tbody td.push-post-now .blk-bar {
   position: relative;
   width: 100%;
