@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Store Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <!--link(rel="icon" type="image/ico" href="images/fav.ico")-->
+    <link href="css/layout.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body>
+    <div class="module-balon">
+      <div class="inside">
+        <div class="img-container"><span class="img" style="background-image: url('images/banner_khaosat2.png');"></span></div>
+        <div class="desc">
+          <h2>Khảo sát nhu cầu về tính năng chọn vị trí quảng cáo</h2>
+          <p>Nhằm tạo điều kiện để quảng cáo nhắm đúng đối tượng hơn khi chạy Zalo Ads, chúng tôi mong muốn được lắng nghe nhu cầu của các bạn về tính năng chọn vị trí này.</p>
+          <div class="button-wrap"><a class="btn-close" href="#!">Không, cảm ơn</a><a class="btn-join" href="https://docs.google.com/forms/d/e/1FAIpQLSfqrGcqLKdMeFQeskLEtUy-dKYo-3a0KP-0TwN_NrUnVFx7YA/viewform" target="_blank">Khảo sát ngay</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="admin-layout">
+      <header>
+      </header>
+      <div class="page-content">
+        <nav class="sidebar-navigation">
+        </nav>
+        <div class="main-content">
+          <footer>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade modal-center" id="modal-template-popup" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header"><a class="close" href="javascript:void(0);" data-dismiss="modal" aria-label="Close"><i class="icz icz-close"></i></a></div>
+          <div class="context-banner-home"><a class="img" href="#!"><img src="http://placehold.it/100"></a>
+            <p>Description	</p><a class="btn btn-primary btn--m w-100" href="#!">Button 1</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      $(window).on('load', function () {
+      	$("#modal-template-popup").modal("show");
+      });
+    </script>
+  </body>
+  <script>
+    $('.module-balon .btn-close').on('click', function(event){
+    		$('.module-balon').removeClass('ease-in');
+    });
+    window.setTimeout(function(){$(".module-balon").addClass("ease-in");}, 500);
+    	
+  </script>
+</html>

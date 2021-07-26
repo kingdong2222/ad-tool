@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+    <div class="module-balon">
+      <div class="inside">
+        <div class="img-container"><span class="img" style="background-image: url('images/banner_khaosat2.png');"></span></div>
+        <div class="desc">
+          <h2>Khảo sát nhu cầu về tính năng chọn vị trí quảng cáo</h2>
+          <p>Nhằm tạo điều kiện để quảng cáo nhắm đúng đối tượng hơn khi chạy Zalo Ads, chúng tôi mong muốn được lắng nghe nhu cầu của các bạn về tính năng chọn vị trí này.</p>
+          <div class="button-wrap"><a class="btn-close" href="#!">Không, cảm ơn</a><a class="btn-join" href="https://docs.google.com/forms/d/e/1FAIpQLSfqrGcqLKdMeFQeskLEtUy-dKYo-3a0KP-0TwN_NrUnVFx7YA/viewform" target="_blank">Khảo sát ngay</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+  <script>
+    $('.module-balon .btn-close').on('click', function(event){
+    		$('.module-balon').removeClass('ease-in');
+    });
+    window.setTimeout(function(){$(".module-balon").addClass("ease-in");}, 500);
+    	
+  </script>
+</html>
