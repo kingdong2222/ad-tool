@@ -380,7 +380,7 @@
       })
       
       $(".func-close-popup").click(function(){
-      	$("body").removeClass("overlay-open");
+      	setTimeout(()=>{$("body").removeClass("overlay-open");}, 200)
       	$(".popup-container").removeClass("is-show");
       });
       $(".func-close-transparent").click(function(){
