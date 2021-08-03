@@ -32,11 +32,8 @@
                 <div class="filter-location filter-item"> 
                   <label>Địa điểm</label><i class="icn icn-small-down"></i>
                 </div>
-                <div class="filter-category filter-item">
+                <div class="filter-category filter-item func-open-category">
                   <label>Danh mục</label><i class="icn icn-small-down"></i>
-                </div>
-                <div class="filter-price filter-item"> 
-                  <label>Khoảng giá</label><i class="icn icn-small-down"></i>
                 </div>
               </div><a class="btn btn-primary btn--s w-100">Tìm kiếm	</a>
             </div>
@@ -303,11 +300,364 @@
                           </div>
                           <div class="input-group">
                             <input id="location_3" name="location" type="radio">
-                            <label for="location_3">Item 2					</label>
+                            <label for="location_3">Item 2			</label>
                           </div>
                         </li>
                       </ul>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popup-container has-radius" id="popup-filter-category-ver2">
+            <div class="bl-popup-heading"><span class="fs--l fw-medium">Chọn danh mục</span><a class="func-close-popup" href="#!"><i class="icn icn-small-remove"></i></a></div>
+            <div class="bl-popup-context">
+              <div class="is-first"> <span class="title">Dạnh mục</span>
+                <ul class="radio-list">
+                  <li>
+                    <div class="input-group-radio">
+                      <input id="opt-cate-all" name="option-cate" type="radio">
+                      <label class="fs--m" for="opt-cate-all">Tất cả</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-group-radio">
+                      <input id="opt-cate-bds" name="option-cate" type="radio">
+                      <label class="fs--m" for="opt-cate-bds">Bất động sản</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="input-group-radio">
+                      <input id="opt-cate-car" name="option-cate" type="radio">
+                      <label class="fs--m" for="opt-cate-car">Xe cộ</label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="group-bds">
+                <div class="blk-radio-choose is-second"><span class="title">Hình thức</span>
+                  <ul class="radio-list">
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="opt-bds-1" name="opt-bds-1" type="radio">
+                        <label class="fs--m" for="opt-bds-1">Tất cả</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="opt-bds-2" name="opt-bds-1" type="radio">
+                        <label class="fs--m" for="opt-bds-2">Cho thuê</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="opt-bds-3" name="opt-bds-1" type="radio">
+                        <label class="fs--m" for="opt-bds-3">Bán</label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="blk-radio-choose is-third final-step"> <span class="title">Loại hình bất động sản</span>
+                  <ul class="radio-list">
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="opt-bds-4" name="opt-bds-2" type="radio">
+                        <label class="fs--m" for="opt-bds-4">Tất cả</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="opt-bds-5" name="opt-bds-2" type="radio">
+                        <label class="fs--m" for="opt-bds-5">Chung cư</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="opt-bds-6" name="opt-bds-2" type="radio">
+                        <label class="fs--m" for="opt-bds-6">Nhà</label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="blk-radio-choose is-fourth final-step"><span class="title">Loại hình xe cộ</span>
+                  <ul class="radio-list">
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="opt-car-4" name="opt-car-2" type="radio">
+                        <label class="fs--m" for="opt-car-4">Tất cả</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="opt-car-5" name="opt-car-2" type="radio">
+                        <label class="fs--m" for="opt-car-5">item 1</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="opt-car-6" name="opt-car-2" type="radio">
+                        <label class="fs--m" for="opt-car-6">item 2</label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dockbar-temp-footer"></div>
+            </div>
+            <div class="bl-popup-footer">
+              <div class="button-dockbar"><a class="btn w-100" href="#!">Áp dụng bộ lọc	</a></div>
+            </div>
+          </div>
+          <div class="popup-container has-radius" id="popup-full-filter-new"> 
+            <div class="bl-popup-heading"><span class="fs--l fw-medium">Chọn số giấy tờ</span><a class="func-close-popup" href="#!"><i class="icn icn-small-remove"></i></a><a class="func-reset" href="#!"><span>Làm mới</span></a></div>
+            <div class="bl-popup-context">
+              <div class="group-filter-category"><span class="title">Khu vực</span>
+                <div class="open-popup-quanhuyen"><span>Quận 2, Thành Phố Hồ Chí Minh</span><i class="icn icn-small-right"></i></div>
+              </div>
+              <div class="group-filter-category no-border">
+                <div class="is-first"> <span class="title">Dạnh mục</span>
+                  <ul class="radio-list">
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="full-opt-cate-all" name="full-option-cate" type="radio">
+                        <label class="fs--m" for="full-opt-cate-all">Tất cả</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="full-opt-cate-bds" name="full-option-cate" type="radio">
+                        <label class="fs--m" for="full-opt-cate-bds">Bất động sản</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="input-group-radio">
+                        <input id="full-opt-cate-car" name="full-option-cate" type="radio">
+                        <label class="fs--m" for="full-opt-cate-car">Xe cộ</label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="group-bds-full">
+                  <div class="blk-radio-choose is-second"><span class="title">Hình thức</span>
+                    <ul class="radio-list">
+                      <li>
+                        <div class="input-group-radio">
+                          <input id="full-opt-bds-1" name="full-opt-bds-1" type="radio">
+                          <label class="fs--m" for="full-opt-bds-1">Tất cả</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group-radio">
+                          <input id="full-opt-bds-2" name="full-opt-bds-1" type="radio">
+                          <label class="fs--m" for="full-opt-bds-2">Cho thuê</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group-radio">
+                          <input id="full-opt-bds-3" name="full-opt-bds-1" type="radio">
+                          <label class="fs--m" for="full-opt-bds-3">Bán</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="blk-radio-choose is-third final-step"> <span class="title">Loại hình bất động sản</span>
+                    <ul class="radio-list">
+                      <li>
+                        <div class="input-group-radio">
+                          <input id="full-opt-bds-4" name="full-opt-bds-2" type="radio">
+                          <label class="fs--m" for="full-opt-bds-4">Tất cả</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group-radio">
+                          <input id="full-opt-bds-5" name="full-opt-bds-2" type="radio">
+                          <label class="fs--m" for="full-opt-bds-5">Chung cư</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group-radio">
+                          <input id="full-opt-bds-6" name="full-opt-bds-2" type="radio">
+                          <label class="fs--m" for="full-opt-bds-6">Nhà</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="blk-radio-choose is-fourth final-step"><span class="title">Loại hình xe cộ</span>
+                    <ul class="radio-list">
+                      <li>
+                        <div class="input-group-radio">
+                          <input id="full-opt-car-4" name="full-opt-car-2" type="radio">
+                          <label class="fs--m" for="full-opt-car-4">Tất cả</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group-radio">
+                          <input id="full-opt-car-5" name="full-opt-car-2" type="radio">
+                          <label class="fs--m" for="full-opt-car-5">item 1</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group-radio">
+                          <input id="full-opt-car-6" name="full-opt-car-2" type="radio">
+                          <label class="fs--m" for="full-opt-car-6">item 2</label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="dockbar-temp-footer"></div>
+            </div>
+            <div class="bl-popup-footer">
+              <div class="button-dockbar">
+                <div class="checkbox">
+                  <input type="checkbox" name="remember-option" id="check-remember">
+                  <label for="check-remember">Lưu lại bộ lọc cho lần sau vào Home & Car</label>
+                </div><a class="btn w-100" href="#!">Khám phá ngay	</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bl-slide" id="slide-select-location">
+          <div class="slide-container">
+            <div class="bl-slide-heading"><span class="fw-medium">Chọn Tỉnh, thành phố</span><a class="func-close-slide" href="#!"><i class="icn icn-small-left"></i></a></div>
+            <div class="bl-slide-context">
+              <ul class="select-list">
+                <li>
+                  <div class="item"><span>Toàn quốc</span></div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Thành Phố Hồ Chí Minh</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hà Nội</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location func-seemore"><span>Quảng Ngãi</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Đà Nẵng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Cần Thơ</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Bình Dương</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Bà Rịa - Vũng Tàu</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Đồng Nai</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Bình Thuận</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Lâm Đồng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Vĩnh Phúc</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hải Phòng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hải Phòng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item select-location"><span>Hải Phòng</span>
+                    <div class="toggle"><i class="icn icn-small-right"></i></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bl-slide" id="slide-filter-full">
+          <div class="slide-container">
+            <div class="bl-slide-heading"><span class="fw-medium">Chọn quận, huyện</span><a class="func-close-slide" href="#!"><i class="icn icn-small-left"></i></a></div>
+            <div class="bl-slide-context">
+              <div class="default-form">
+                <div class="form-row">
+                  <div class="checkbox-list w-100">
+                    <ul>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona1111111" name="optiona1" type="radio">
+                          <label for="optiona1111111">Tất cả</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona2222222" name="optiona2" type="radio">
+                          <label for="optiona2222222">Tp. Bà Rịa</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona33333333" name="optiona2" type="radio">
+                          <label for="optiona33333333">Tp. Vũng Tàu</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona4444444" name="optiona2" type="radio">
+                          <label for="optiona4444444">Huyện Châu Đức</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona5555555" name="optiona2" type="radio">
+                          <label for="optiona5555555">Huyện Đất Đỏ</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona6666666" name="optiona2" type="radio">
+                          <label for="optiona6666666">Huyện Long Điền</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona7777777" name="optiona2" type="radio">
+                          <label for="optiona7777777">Thị Xã Phú Mỹ</label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="input-group">
+                          <input id="optiona8888888" name="optiona2" type="radio">
+                          <label for="optiona8888888">Huyện Xuyên Mộc</label>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -366,18 +716,27 @@
       //popup filter search
       $('.filter-location').click(()=>{
       	$("body").addClass("overlay-open");
-      	$("#popup-filter-location").addClass("is-show");
+      	$("#popup-full-filter-new").addClass("is-show");
       })
+      $(".open-popup-quanhuyen").click(()=>{
+      	$("#slide-select-location").addClass("is-show");
+      })
+      $("#slide-select-location  .select-location").click(function(){
+      	$("#slide-filter-full").addClass("is-show");
+      });
+      $("#slide-filter-full  input").click(function(){
+      	$(".func-close-slide").click();
+      });
       
       $('.filter-price').click(()=>{
       	$("body").addClass("overlay-open");
       	$("#popup-filter-price").addClass("is-show");
       })
       
-      $('.filter-category').click(()=>{
-      	$("body").addClass("overlay-open");
-      	$("#popup-filter-category").addClass("is-show");
-      })
+      //- $('.filter-category').click(()=>{
+      //- 	$("body").addClass("overlay-open");
+      //- 	$("#popup-filter-category").addClass("is-show");
+      //- })
       
       $(".func-close-popup").click(function(){
       	setTimeout(()=>{$("body").removeClass("overlay-open");}, 200)
@@ -392,22 +751,119 @@
       	$("body").removeClass("overlay-open");
       });
       
+      //new filter category ver2 
+      $(".func-open-category").click(function(){
+      	$("body").addClass("overlay-open");
+      	$("#popup-filter-category-ver2").addClass("is-show");
+      });
+      $("#popup-filter-category-ver2 #opt-cate-bds").click(function(){
+      	$('.group-bds').addClass('show')
+      	$('.group-bds .final-step').removeClass('show')
+      	
+      	$('.group-bds input').prop( "checked", false );
+      
+      	setTimeout(()=>{
+      		
+      		$('.group-bds .is-second').addClass('show')
+      	},100)
+      	setTimeout(()=>{$('.group-bds .is-third').css('display', 'block')},200)
+      })
+      $("#popup-filter-category-ver2 #opt-cate-all").click(function(){
+      	$('.group-bds').addClass('show')
+      	$('.group-bds .final-step').removeClass('show')
+      	
+      	$('.group-bds input').prop( "checked", false );
+      
+      	setTimeout(()=>{
+      		$('.group-bds .is-second').addClass('show')
+      	},100)
+      	setTimeout(()=>{$('.group-bds .is-third').css('display', 'block')},200)
+      })
+      $("#popup-filter-category-ver2 #opt-cate-car").click(function(){
+      	$('.group-bds').addClass('show')
+      	$('.group-bds .final-step').removeClass('show')
+      	//- $('.group-bds .is-third').css('display', 'none')
+      	$('.group-bds input').prop( "checked", false );
+      
+      	setTimeout(()=>{$('.group-bds .is-second').addClass('show')},100)
+      })
+      $("#popup-filter-category-ver2 #opt-bds-1").click(function(){
+      	//- $('.group-bds .final-step').removeClass('show')
+      	if($("#opt-cate-bds")[0].checked == true){
+      		$('.group-bds .is-third').css('display', 'block')
+      		if(!$('.group-bds .is-third').hasClass('show')){
+      			setTimeout(()=>{$('.group-bds .is-third').addClass('show')},100)
+      		}
+      		
+      	} else if($("#opt-cate-car")[0].checked == true){
+      		$('.group-bds .is-third').css('display', 'none')
+      		if(!$('.group-bds .is-fourth').hasClass('show')){
+      			setTimeout(()=>{$('.group-bds .is-fourth').addClass('show')},100)
+      		}
+      		
+      	} else {
+      		setTimeout(()=>{$('.group-bds .blk-radio-choose').addClass('show')},100)
+      	}
+      		
+      })
+      $("#popup-filter-category-ver2 #opt-bds-2").click(function(){
+      	//- $('.group-bds .final-step').removeClass('show')
+      	if($("#opt-cate-bds")[0].checked == true){
+      		$('.group-bds .is-third').css('display', 'block')
+      		if(!$('.group-bds .is-third').hasClass('show')){
+      			setTimeout(()=>{$('.group-bds .is-third').addClass('show')},100)
+      		}
+      		
+      	} else if($("#opt-cate-car")[0].checked == true){
+      		$('.group-bds .is-third').css('display', 'none')
+      		if(!$('.group-bds .is-fourth').hasClass('show')){
+      			setTimeout(()=>{$('.group-bds .is-fourth').addClass('show')},100)
+      		}
+      		
+      	} else {
+      		setTimeout(()=>{$('.group-bds .blk-radio-choose').addClass('show')},100)
+      
+      	}
+      })
+      $("#popup-filter-category-ver2 #opt-bds-3").click(function(){
+      	//- $('.group-bds .final-step').removeClass('show')
+      	if($("#opt-cate-bds")[0].checked == true){
+      		$('.group-bds .is-third').css('display', 'block')
+      		setTimeout(()=>{$('.group-bds .is-third').addClass('show')},100)
+      	} else if($("#opt-cate-car")[0].checked == true){
+      		$('.group-bds .is-third').css('display', 'none')
+      		if(!$('.group-bds .is-fourth').hasClass('show')){
+      			setTimeout(()=>{$('.group-bds .is-fourth').addClass('show')},100)
+      		}
+      		
+      	} else {
+      		setTimeout(()=>{$('.group-bds .blk-radio-choose').addClass('show')},100)
+      	}
+      })
+      
+      $(".func-new-full-filter").click(()=>{
+      	$("body").addClass("overlay-open");
+      	$("#popup-full-filter-new ").addClass("is-show");
+      })
+      $(".open-popup-quanhuyen").click(()=>{
+      	$("#slide-select-location").addClass("is-show");
+      })
       
       
       //introjs
-      var tour = introJs()
-      tour.onbeforechange(()=>{
-      	$("body").css('overflow','hidden');
-      }).onbeforeexit(()=>{
-      	//- $("body").css('overflow','auto');
-      	$("#modal-banner-home").modal("show");
-      }).start();
-      $(".introjs-skipbutton").click(function(){
-      	$("body").removeClass("is-overflow-hidden");
-      });
-      $('.introjs-skipbutton').click(function(){
-      	$('html, body').animate({ scrollTop: 0 }, 500);
-      })
+      //- var tour = introJs()
+      //- tour.onbeforechange(()=>{
+      //- 	$("body").css('overflow','hidden');
+      //- }).onbeforeexit(()=>{
+      //- 	//- $("body").css('overflow','auto');
+      //- 	$("#modal-banner-home").modal("show");
+      //- }).start();
+      //- $(".introjs-skipbutton").click(function(){
+      //- 	$("body").removeClass("is-overflow-hidden");
+      //- });
+      //- $('.introjs-skipbutton').click(function(){
+      //- 	$('html, body').animate({ scrollTop: 0 }, 500);
+      //- })
     </script>
   </body>
 </html>

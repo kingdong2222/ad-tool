@@ -1391,6 +1391,12 @@
       $(".open-popup-quanhuyen").click(()=>{
       	$("#slide-select-location").addClass("is-show");
       })
+      $("#slide-select-location  .select-location").click(function(){
+      	$("#slide-filter-full").addClass("is-show");
+      });
+      $("#slide-filter-full  input").click(function(){
+      	$(".func-close-slide").click();
+      });
       
       
       $(".func-quick-filter").click(function(){
@@ -1402,9 +1408,6 @@
       });
       
       $("#popup-quanhuyen  .select-location").click(function(){
-      	$("#slide-filter").addClass("is-show");
-      });
-      $("  .select-location").click(function(){
       	$("#slide-filter").addClass("is-show");
       });
       $('#popup-quick-filter .input-group').click(function(){
