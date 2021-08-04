@@ -11535,7 +11535,6 @@ ul.select-list.custom-for-modal li:first-child .item {
   display: -ms-flexbox;
   display: flex;
   padding-top: 8px;
-  padding-bottom: 12px;
 }
 .module-home-search .filter-list .filter-item {
   width: 50%;
