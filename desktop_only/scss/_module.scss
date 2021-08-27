@@ -30,34 +30,33 @@
 			}
 			&.is-disabled{
 				position: relative;
-				.acc_head{
-					position: relative;
-					overflow: hidden;
-					&::after{
-						content: "\ea86  Hiện bạn không được phép nạp tiền bằng hình thức này";
-						font-family: 'zadicon', 'Mulish';
-						position: absolute;
-						top: 0;
-						left: 0;
-						opacity: 1;
-						width: 100%;
-						height: 100%;
-						text-align: center;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						background: #FFFFFF;
-						opacity: 0.95;
-						font-weight: 600;
-						font-size: 14px;
-						line-height: 20px;
-						color: #5F656D;
-					}
+				border-radius: 8px !important;
+				overflow: hidden;
+				&::after{
+					content: "\ea86  Hiện bạn không được phép nạp tiền bằng hình thức này";
+					font-family: 'zadicon', 'Mulish';
+					position: absolute;
+					top: 0;
+					left: 0;
+					opacity: 1;
+					width: 100%;
+					height: 100%;
+					text-align: center;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background: #FFFFFF;
+					opacity: 0.95;
+					font-weight: 600;
+					font-size: 14px;
+					line-height: 20px;
+					color: #5F656D;
 				}
+				
 			}
 		}
-		.heading-box{display:flex;align-items:center;position:relative;@include margin(-$gutter);margin-bottom:1rem;@include padding(12px $gutter);@extend %is-radius;
-			.ico-wrap{display:block;flex-shrink:0;@include size(24px);margin-right:$gutter;color:$primary;font-size:1.5rem}
+		.heading-box{display:flex;align-items:center;position:relative;@include margin(-$gutter);margin-bottom:1rem;@include padding(16px 24px);border-radius: 8px;
+			.ico-wrap{display:block;flex-shrink:0;@include size(24px);height: fit-content;margin-right:$gutter;color:$primary;font-size:1.5rem}
 			.context{flex-grow:1;min-width:0}
 		}
 		.content-box{@include padding(12px $gutter);border-top:1px solid $border;
