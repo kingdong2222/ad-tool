@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/cropper.css">
+    <style></style>
+  </head>
+  <body class="zad-v2">
+    <div class="page-content is-popup">
+      <div class="popup-container" id="popup-setup-form">
+        <div class="bl-popup-heading"><span>Tạo form</span><a class="func-close-popup func-alert" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context">
+          <div class="section-setup-form">
+            <div class="bl-setup">
+              <div class="heading-setup">
+                <div class="name"><span>QC Website - 21/12/2019 15:09</span><a class="func-edit" href="javascript:void(0)"><i class="icz icz-fill-edit"></i></a></div>
+                <input class="is-hidden" type="text" placeholder="" value="QC Website - 21/12/2019 15:09">
+                <p class="help has-text-danger mt-0 mb-2">error message</p>
+              </div>
+              <div class="group-permission">
+                <div class="wrap-label">
+                  <h2>Cho phép người tiếp cận quảng cáo kiểm tra thông tin</h2><small>Thêm 1 trang kiểm tra lại thông tin trước khi gửi cho nhà quảng cáo. Việc này nhằm tăng chất lượng của lead nhưng cũng có thể ảnh hưởng đến tỷ lệ gửi thành công của Form</small>
+                </div>
+                <label class="switch switch-theme">
+                  <input type="checkbox"><span class="slider round"></span>
+                </label>
+              </div>
+              <div class="group-form is-expanded">
+                <div class="heading-gf"><span>Thông tin form</span><i class="icz icz-fill-blog is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label">Tiêu đề</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icons-right is-danger">
+                          <input class="input" type="input" placeholder="Nhập tiêu đề" value="Đăng ký thông tin để nhận báo giá sản phẩm từ Brand"><span class="icon is-right"><small class="is-char">255</small></span>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small pt-0">
+                      <label class="label">Nội dung</label>
+                      <!--small Không bắt buộc-->
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icons-right is-danger">
+                          <textarea class="textarea" type="textarea" placeholder="Nhập nội dung" value="Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương"></textarea><span class="icon is-right"><small class="is-char">600</small></span>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal func-crop-image">
+                    <div class="field-label is-small">
+                      <label class="label is-block">Ảnh bìa</label><small>Kích thước đề nghị 1024x533<br />Dung lượng không quá 2MB</small>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control" id="input-image-first">
+                          <div class="cover-ad-form is-upload">
+                            <div class="inputfile-container">
+                              <input class="inputfile" type="file" accept="image/jpg,image/png,image/jpeg" id="file1">
+                              <label for="file1"></label>
+                            </div><span class="text-form">Đăng ảnh bìa</span>
+                          </div>
+                        </div>
+                        <div class="control is-hidden" id="input-image-second">
+                          <div class="cover-ad-form">
+                            <div class="inputfile-container">
+                              <input class="inputfile" type="file" accept="image/jpg,image/png,image/jpeg" id="file2">
+                              <label for="file2"></label>
+                            </div>
+                            <div class="src" id="reup-preview" style="background-image:url(https://via.placeholder.com/1024x533)"></div>
+                            <div class="ico-edit"><i class="icz icz-fill-edit"></i></div>
+                          </div>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label">Nút hiển thị</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control is-danger">
+                          <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="name-item">Gửi thông tin</span><i class="icz icz-fill-triangle-down"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-m2">
+                              <ul>
+                                <li><a href="javascript:void(0)">Gửi thông tin</a></li>
+                                <li><a href="javascript:void(0)">Tải báo giá</a></li>
+                                <li><a href="javascript:void(0)">Đăng ký tư vấn</a></li>
+                                <li><a href="javascript:void(0)">Nhận tài liệu</a></li>
+                                <li><a href="javascript:void(0)">Nhận khuyến mãi</a></li>
+                                <li><a href="javascript:void(0)">Đặt lịch hẹn</a></li>
+                                <li><a href="javascript:void(0)">Nhận ưu đãi</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-form is-expanded">
+                <div class="heading-gf"><span>Câu hỏi thông tin khách hàng</span><i class="icz icz-fill-badge is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <p class="is-size-7 has-text-weight-semibold mb-3">Bạn muốn Form thu thập các thông tin nào?</p>
+                  <ul class="qa-list" id="qa1">
+                    <li>
+                      <div class="item-qa">
+                        <div class="func-drag"></div>
+                        <div class="inner"><i class="icz icz-account"></i><span class="title-qa">Họ và tên</span></div>
+                        <div class="func-wrap">
+                          <!-- Action nào ko có thì bỏ đi--><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-arrow-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-arrow-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="func-drag"></div>
+                        <div class="inner"><i class="icz icz-phone"></i><span class="title-qa">Số điện thoại</span></div>
+                        <div class="func-wrap">
+                          <!-- Action nào ko có thì bỏ đi--><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-arrow-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-arrow-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="func-drag"></div>
+                        <div class="inner"><i class="icz icz-fill-calendar"></i><span class="title-qa">Ngày sinh</span></div>
+                        <div class="func-wrap">
+                          <!-- Action nào ko có thì bỏ đi--><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-arrow-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-arrow-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="func-drag"></div>
+                        <div class="inner"><i class="icz icz-mail"></i><span class="title-qa">Địa chỉ email</span></div>
+                        <div class="func-wrap">
+                          <!-- Action nào ko có thì bỏ đi--><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-arrow-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-arrow-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="func-drag"></div>
+                        <div class="inner"><i class="icz icz-address"></i><span class="title-qa">Địa chỉ</span></div>
+                        <div class="func-wrap">
+                          <!-- Action nào ko có thì bỏ đi--><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-arrow-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-arrow-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="func-drag"></div>
+                        <div class="inner"><i class="icz icz-woman-man"></i><span class="title-qa">Giới tính</span></div>
+                        <div class="func-wrap">
+                          <!-- Action nào ko có thì bỏ đi--><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-arrow-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-arrow-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="add-gf-wrap dropdown"><a class="button is-add dropdown-toggle" role="button" id="dropdown-add-gf1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm một câu hỏi mới</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-add-gf1">
+                      <ul class="add-gf-list">
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-fill-calendar"></i><span>Ngày sinh</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-mail"></i><span>Địa chỉ email</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-address"></i><span>Địa chỉ</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-woman-man"></i><span>Giới tính</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-form is-expanded">
+                <div class="heading-gf"><span>Câu hỏi tùy chọn</span><i class="icz icz-fill-blog is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <p class="is-size-7 has-text-weight-semibold mb-3">Bạn muốn biết thêm điều gì từ khách hàng?</p>
+                  <ul class="qa-list" id="qa2">
+                    <li>
+                      <div class="item-qa">
+                        <div class="func-drag"></div>
+                        <div class="inner mb-2"><i class="icz icz-text"></i><span class="title-qa">Câu trả lời ngắn</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-arrow-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-arrow-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                        <div class="control has-icons-right is-danger">
+                          <input class="input" type="input" placeholder="Nội dung câu hỏi" value="">
+                          <p class="help has-text-danger">error message</p><span class="icon is-right"><small class="is-char">255</small></span>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="func-drag"></div>
+                        <div class="inner mb-2"><i class="icz icz-survey"></i><span class="title-qa">Câu trắc nghiệm có một lựa chọn</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-arrow-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-arrow-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                        <div class="mb-3">
+                          <div class="control has-icons-right is-danger">
+                            <input class="input" type="input" placeholder="Nội dung câu hỏi" value=""><span class="icon is-right"><small class="is-char">255</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                        </div>
+                        <p class="mb-2"> <strong class="is-block is-size-6 has-text-weight-bold">Danh sách lựa chọn (nhập ít nhất 2 lựa chọn)</strong><small class="is-block is-size-7 has-text-grey">Nhập lựa chọn cho câu hỏi, sau đó bấm <strong class="has-text-base">Enter</strong> để thêm vào danh sách</small></p>
+                        <div class="mb-3">
+                          <div class="control has-icons-right is-danger">
+                            <input class="input" type="input" placeholder="Nhập lựa chọn" value=""><span class="icon is-right"><small class="is-char">128</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                        </div>
+                        <div class="tags" id="tag1"><span class="tag is-rounded">Option 1
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 2
+                            <button class="delete is-small"></button></span></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="func-drag"></div>
+                        <div class="inner mb-2"><i class="icz icz-multi-check"></i><span class="title-qa">Câu trắc nghiệm có nhiều lựa chọn</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-arrow-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-arrow-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                        <div class="mb-3">
+                          <div class="control has-icons-right is-danger">
+                            <input class="input" type="input" placeholder="Nội dung câu hỏi" value=""><span class="icon is-right"><small class="is-char">255</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                        </div>
+                        <p class="mb-2"> <strong class="is-block is-size-6 has-text-weight-bold">Danh sách lựa chọn (nhập ít nhất 2 lựa chọn)</strong><small class="is-block is-size-7 has-text-grey">Nhập lựa chọn cho câu hỏi, sau đó bấm <strong class="has-text-base">Enter</strong> để thêm vào danh sách</small></p>
+                        <div class="mb-3">
+                          <div class="control has-icons-right is-danger">
+                            <input class="input" type="input" placeholder="Nhập lựa chọn" value=""><span class="icon is-right"><small class="is-char">128</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                        </div>
+                        <div class="tags" id="tag2"><span class="tag is-rounded">Option 1
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 2
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 3
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 4
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 5
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 6
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 7
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 8
+                            <button class="delete is-small"></button></span></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="add-gf-wrap dropdown"><a class="button is-add dropdown-toggle" role="button" id="dropdown-add-gf2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm một câu hỏi mới</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-add-gf2">
+                      <ul class="add-gf-list">
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-text"></i><span>Câu trả lời ngắn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-survey"></i><span>Câu trắc nghiệm có một lựa chọn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-multi-check"></i><span>Câu trắc nghiệm có nhiều lựa chọn</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="notification is-warning"><i class="icz icz-fill-warning"></i>
+                <button class="delete"></button>
+                <h4>Bạn đang có quá nhiều câu hỏi</h4>
+                <p>Có quá nhiều câu hỏi sẽ ảnh hưởng đến tỷ lệ hoàn thành Form</p>
+              </div>
+              <div class="button-wrap"><a class="button is-primary is-large func-alert" href="javascript:void(0);">Lưu form</a></div>
+            </div>
+            <div class="bl-preview-form">
+              <div class="navigation-top">
+                <div class="button-prev"><i class="icz icz-left"></i></div>
+                <p class="text-paging">Trang 1/n (n là tổng trang)</p>
+                <div class="button-next"><i class="icz icz-right"></i>
+                  <div class="tippy-preview">
+                    <div class="arrow"></div>
+                    <div class="tippy-content">
+                      <p>Bấm vào dấu “<i class="icz icz-right"></i>” để xem trang kế tiếp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-preview swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="bl-preview-form-container">
+                      <div class="bl-cover is-null"></div>
+                      <div class="bl-cover"><span class="img-cover" id="img-cover" style="background-image:url(images/upload/cover_default_otr_v2.png)"></span></div>
+                      <div class="body-form">
+                        <div class="bl-info-oa">
+                          <div class="avatar avatar--l">
+                            <div class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></div>
+                          </div>
+                          <h1>Brand Official Account</h1>
+                        </div>
+                        <div class="bl-form">
+                          <h2>Đăng ký thông tin để nhận báo giá sản phẩm từ Brand</h2>
+                          <h4> 
+                            <div class="js-read-more" data-rm-words="42">Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm</div>
+                          </h4>
+                          <div class="field">
+                            <label class="label">Họ và tên</label>
+                            <div class="control">
+                              <input class="input is-line" type="text" placeholder="Nhập họ và tên">
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Địa chỉ email</label>
+                            <div class="control">
+                              <input class="input is-line" type="text" placeholder="Nhập email của bạn" value="john_doe_20@yahoo.com" disabled>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Ngày sinh</label>
+                            <div class="control">
+                              <input class="input is-line" type="text" placeholder="Nhập ngày sinh" value="12/12/1990" disabled>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Giới tính</label>
+                            <div class="control"><span class="select is-line is-fullwidth">
+                                <select required>
+                                  <option selected disabled value="">Chọn giới tính</option>
+                                  <option value="1">Nam</option>
+                                  <option value="2">Nữ</option>
+                                </select></span></div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Địa chỉ liên hệ</label>
+                            <div class="control">
+                              <textarea class="textarea is-line" type="textarea" placeholder="Nhập địa chỉ" disabled>182 Lê Đại Hành</textarea>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Độ tuổi</label>
+                            <div class="controls">
+                              <div class="control">
+                                <input id="t1" type="checkbox" name="" checked>
+                                <label for="t1">Dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="t2" type="checkbox" name="">
+                                <label for="t2">18 - 24</label>
+                              </div>
+                              <div class="control">
+                                <input id="t3" type="checkbox" name="">
+                                <label for="t3">25 - 34</label>
+                              </div>
+                              <div class="control">
+                                <input id="t4" type="checkbox" name="">
+                                <label for="t4">35 - 44</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Độ tuổi</label>
+                            <div class="controls is-rows">
+                              <div class="control">
+                                <input id="t7" type="checkbox" name="" checked>
+                                <label for="t7">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="t8" type="checkbox" name="">
+                                <label for="t8">18 - 24</label>
+                              </div>
+                              <div class="control">
+                                <input id="t9" type="checkbox" name="">
+                                <label for="t9">25 - 34</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Hệ điều hành</label>
+                            <div class="controls">
+                              <div class="control">
+                                <input id="f1" type="radio" name="hdh" checked>
+                                <label for="f1">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="f2" type="radio" name="hdh">
+                                <label for="f2">iOS</label>
+                              </div>
+                              <div class="control">
+                                <input id="f3" type="radio" name="hdh">
+                                <label for="f3">PC</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Hệ điều hành</label>
+                            <div class="controls is-rows">
+                              <div class="control">
+                                <input id="f4" type="radio" name="hdh1">
+                                <label for="f4">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="f5" type="radio" name="hdh1">
+                                <label for="f5">iOS</label>
+                              </div>
+                              <div class="control">
+                                <input id="f6" type="radio" name="hdh1">
+                                <label for="f6">PC</label>
+                              </div>
+                              <div class="control">
+                                <input id="f7" type="radio" name="hdh1" checked>
+                                <label for="f7">Khác</label>
+                              </div>
+                              <div class="control">
+                                <input class="input is-line" type="text" placeholder="Hệ điều hành khác">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="button is-black is-large is-fullwidth">Tiếp theo</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bl-preview-form-container">
+                      <div class="bl-cover is-null"></div>
+                      <div class="bl-cover"><span class="img-cover" id="img-cover" style="background-image:url(images/upload/cover_default_otr_v2.png)"></span></div>
+                      <div class="body-form">
+                        <div class="bl-info-oa">
+                          <div class="avatar avatar--l">
+                            <div class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></div>
+                          </div>
+                          <h1>Brand Official Account</h1>
+                        </div>
+                        <div class="bl-form">
+                          <h2>Đăng ký thông tin để nhận báo giá sản phẩm từ Brand</h2>
+                          <h4> 
+                            <div class="js-read-more" data-rm-words="42">Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm</div>
+                          </h4>
+                          <div class="group-value">
+                            <p>{Mobile Number}</p>
+                            <p>{Name}</p>
+                            <p>{Email}</p>
+                            <p>{DOB}</p>
+                            <p>{Address}</p>
+                          </div>
+                          <p class="is-policy">Bằng việc bấm nút <strong>Gửi thông tin</strong>, bạn đồng ý gửi các thông tin này tới Brand Official Account. Việc sử dụng các thông tin này của Brand Official Account tuân thủ theo các <a href="#!" target="_blank">quy định chung</a> của Zalo Ads</p>
+                          <div class="button is-black is-large is-fullwidth">Gửi thông tin</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bl-popup">
+    </div>
+    <div class="bl-modal">
+      <div class="modal-container is-small" id="modal-delete-form">
+        <div class="bl-modal-heading"><span>Xóa form</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc chắn muốn xóa Form này không?</p>
+          <p><strong class="is-size-5 has-text-primary">Form cho pepsi</strong></p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined" href="javascript:void(0)">Hủy bỏ</button>
+            <button class="button is-primary" href="javascript:void(0)">Xóa form</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-alert">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Nội dung thông báo</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined func-close-modal" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary func-close-popup func-close-modal" href="javascript:void(0)">[Main Action]</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-close-create-form">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc chắn muốn đóng Zalo Form không? Bạn sẽ mất mọi công việc đang thực hiện</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined func-close-modal" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary func-close-popup func-close-modal" href="javascript:void(0)">Đồng ý</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-exit">
+        <div class="bl-modal-heading"><span>Thoát nạp tiền</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Thông tin đang nhập sẽ không được lưu lại. Bạn có muốn thoát</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary" onclick="location.href='home_payment.html'">Thoát nạp tiền</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-large" id="modal-cropImage">
+        <div class="bl-modal-heading"><span>Cắt ảnh</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <div class="modal-body">
+            <div class="crop-container">
+              <!-- demo--><img src="images/img_ad.png" alt="">
+              <div class="frame-crop"><img src="images/frame-16-9.png" alt=""></div>
+            </div>
+          </div>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="group-pos">
+            <div class="post-left">
+              <p>Tỉ lệ {ratio number}</p>
+            </div>
+            <div class="pos-right"><a class="button is-primary is-large open-all-ratio" href="#!">Tiếp tục</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/sortable.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/cropper.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+      tippy('[data-tippy-content]',{});
+      
+      $(".heading-setup .func-edit").click(function(){
+      	$(".heading-setup .name").addClass("is-hidden");
+      	$(".heading-setup input").removeClass("is-hidden");
+      	$(".heading-setup input").focus();
+      });
+      $(".func-alert").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-alert").addClass("is-show");
+      });
+      
+      $(".func-close-modal").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal-container").removeClass("is-show");
+      	$("div").remove(".cropper-container");
+      });
+      
+      $("#file1").click(() => {
+      	cropLargeImg()
+      })
+      $("#file2").click(() => {
+      	cropLargeImgAgain()
+      	$("div").remove(".cropper-container");
+      })
+      
+      var cropLargeImg = function () {
+      
+      	var Cropper = window.Cropper;
+      	var URL = window.URL || window.webkitURL;
+      	var container = document.querySelector('.img-container');
+      	var image = container.getElementsByTagName('img').item(0);
+      	//- var download = document.getElementById('download-large-image');
+      	var actions = document.getElementById('actions');
+      	var options = {
+      		aspectRatio: 1024 / 533,
+      		autoCropArea: 1,
+      		zoomable: false,
+      		zoomOnTouch: false,
+      		zoomOnWheel: false,
+      		dragMode: 'none',
+      		viewMode: 2,
+      	};
+      	var cropper = new Cropper(image, options);
+      	var originalImageURL = image.src;
+      	var uploadedImageType = 'image/*';
+      	var uploadedImageName = 'cropped.jpeg';
+      	var uploadedImageURL;
+      
+      	// Buttons
+      	if (!document.createElement('canvas').getContext) {
+      		$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+      	}
+      
+      	if (typeof document.createElement('cropper').style.transition === 'undefined') {
+      		$('button[data-method="rotate"]').prop('disabled', true);
+      		$('button[data-method="scale"]').prop('disabled', true);
+      	}
+      
+      	// Methods
+      	actions.querySelector('.docs-buttons').onclick = function (event) {
+      		var e = event || window.event;
+      		var target = e.target || e.srcElement;
+      		var cropped;
+      		var result;
+      		var input;
+      		var data;
+      
+      		if (!cropper) {
+      			return;
+      		}
+      		while (target !== this) {
+      			if (target.getAttribute('data-method')) {
+      				break;
+      			}
+      
+      			target = target.parentNode;
+      		}
+      		if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+      			return;
+      		}
+      		data = {
+      			method: target.getAttribute('data-method'),
+      			target: target.getAttribute('data-target'),
+      			option: target.getAttribute('data-option') || undefined,
+      			secondOption: target.getAttribute('data-second-option') || undefined
+      		};
+      		cropped = cropper.cropped;
+      		if (data.method) {
+      			if (typeof data.target !== 'undefined') {
+      				input = document.querySelector(data.target);
+      
+      				if (!target.hasAttribute('data-option') && data.target && input) {
+      					try {
+      						data.option = JSON.parse(input.value);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      				}
+      			}
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					try {
+      						data.option = JSON.parse(data.option);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      					if (uploadedImageType === 'image/*') {
+      						if (!data.option) {
+      							data.option = {};
+      						}
+      						data.option.fillColor = '#fff';
+      					}
+      					break;
+      			}
+      			result = cropper[data.method]({ width: 1024, height: 533, imageSmoothingQuality: 'high', }, data.secondOption);
+      
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					if (result) {
+      							$("html").removeClass("overlay-modal");
+      							$(".modal-container").removeClass("is-show");
+      							$('#input-image-first').addClass("is-hidden");
+      							$('#input-image-second').removeClass("is-hidden");
+      							$('#reup-preview').css("background-image", "url("+result.toDataURL(uploadedImageType)+")")
+      							$('#img-cover').css("background-image", "url("+result.toDataURL(uploadedImageType)+")")	
+      					}
+      
+      					break;
+      			}
+      
+      			if (typeof result === 'object' && result !== cropper && input) {
+      				try {
+      					input.value = JSON.stringify(result);
+      				} catch (e) {
+      					console.log(e.message);
+      				}
+      			}
+      		}
+      	};
+      
+      
+      	// Import image
+      	var inputImage = document.getElementById('file1');
+      
+      	if (URL) {
+      		inputImage.onchange = function () {
+      			var files = this.files;
+      			var file;
+      
+      			if (cropper && files && files.length) {
+      
+      				
+      				$("html").addClass("overlay-modal");
+      				$("#modal-crop-image").addClass("is-show");
+      				
+      				setTimeout(() => {
+      					tippy('#tippy-crop-img', {
+      						content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+      						allowHTML: true,
+      						maxWidth: 270,
+      						theme: 'zad',
+      						showOnCreate: true,
+      						placement: 'right-start',
+      						onShow(instance) {
+      							instance.setProps({ trigger: 'click' })
+      						},
+      						onHide(instance) {
+      							instance.setProps({ trigger: 'mouseenter focus' })
+      						},
+      					});
+      				}, 100)
+      
+      
+      				file = files[0];
+      
+      				if (/^image\/\w+/.test(file.type)) {
+      					uploadedImageType = file.type;
+      					uploadedImageName = file.name;
+      
+      					if (uploadedImageURL) {
+      						URL.revokeObjectURL(uploadedImageURL);
+      					}
+      
+      					image.src = uploadedImageURL = URL.createObjectURL(file);
+      					cropper.destroy();
+      					cropper = new Cropper(image, options);
+      					inputImage.value = null;
+      				} else {
+      					window.alert('Please choose an image file.');
+      				}
+      			}
+      		};
+      	} else {
+      		inputImage.disabled = true;
+      		inputImage.parentNode.className += ' disabled';
+      	}
+      };
+      
+      var cropLargeImgAgain = function () {
+      
+      	var Cropper = window.Cropper;
+      	var URL = window.URL || window.webkitURL;
+      	var container = document.querySelector('.img-container');
+      	var image = container.getElementsByTagName('img').item(0);
+      	//- var download = document.getElementById('download-large-image');
+      	var actions = document.getElementById('actions');
+      	var options = {
+      		aspectRatio: 1024 / 533,
+      		autoCropArea: 1,
+      		zoomable: false,
+      		zoomOnTouch: false,
+      		zoomOnWheel: false,
+      		dragMode: 'none',
+      		viewMode: 2,
+      	};
+      	var cropper = new Cropper(image, options);
+      	var originalImageURL = image.src;
+      	var uploadedImageType = 'image/*';
+      	var uploadedImageName = 'cropped.jpeg';
+      	var uploadedImageURL;
+      
+      	// Buttons
+      	if (!document.createElement('canvas').getContext) {
+      		$('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+      	}
+      
+      	if (typeof document.createElement('cropper').style.transition === 'undefined') {
+      		$('button[data-method="rotate"]').prop('disabled', true);
+      		$('button[data-method="scale"]').prop('disabled', true);
+      	}
+      
+      	// Methods
+      	actions.querySelector('.docs-buttons').onclick = function (event) {
+      		var e = event || window.event;
+      		var target = e.target || e.srcElement;
+      		var cropped;
+      		var result;
+      		var input;
+      		var data;
+      
+      		if (!cropper) {
+      			return;
+      		}
+      		while (target !== this) {
+      			if (target.getAttribute('data-method')) {
+      				break;
+      			}
+      
+      			target = target.parentNode;
+      		}
+      		if (target === this || target.disabled || target.className.indexOf('disabled') > -1) {
+      			return;
+      		}
+      		data = {
+      			method: target.getAttribute('data-method'),
+      			target: target.getAttribute('data-target'),
+      			option: target.getAttribute('data-option') || undefined,
+      			secondOption: target.getAttribute('data-second-option') || undefined
+      		};
+      		cropped = cropper.cropped;
+      		if (data.method) {
+      			if (typeof data.target !== 'undefined') {
+      				input = document.querySelector(data.target);
+      
+      				if (!target.hasAttribute('data-option') && data.target && input) {
+      					try {
+      						data.option = JSON.parse(input.value);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      				}
+      			}
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					try {
+      						data.option = JSON.parse(data.option);
+      					} catch (e) {
+      						console.log(e.message);
+      					}
+      					if (uploadedImageType === 'image/*') {
+      						if (!data.option) {
+      							data.option = {};
+      						}
+      						data.option.fillColor = '#fff';
+      					}
+      					break;
+      			}
+      			result = cropper[data.method]({ width: 1024, height: 533, imageSmoothingQuality: 'high', }, data.secondOption);
+      
+      			switch (data.method) {
+      				case 'getCroppedCanvas':
+      					if (result) {
+      							$("html").removeClass("overlay-modal");
+      							$(".modal-container").removeClass("is-show");
+      							$('#reup-preview').css("background-image", "url("+result.toDataURL(uploadedImageType)+")")
+      							$('#img-cover').css("background-image", "url("+result.toDataURL(uploadedImageType)+")")
+      
+      					}
+      
+      					break;
+      			}
+      
+      			if (typeof result === 'object' && result !== cropper && input) {
+      				try {
+      					input.value = JSON.stringify(result);
+      				} catch (e) {
+      					console.log(e.message);
+      				}
+      			}
+      		}
+      	};
+      
+      
+      	// Import image
+      	var inputImage = document.getElementById('file2');
+      
+      	if (URL) {
+      		inputImage.onchange = function () {
+      			var files = this.files;
+      			var file;
+      
+      			if (cropper && files && files.length) {
+      
+      				
+      				$("html").addClass("overlay-modal");
+      				$("#modal-crop-image").addClass("is-show");
+      				
+      				setTimeout(() => {
+      					tippy('#tippy-crop-img', {
+      						content: '<div class="tippy-block"><p style="margin-bottom:20px">Hình ảnh của bạn sẽ được cắt để phù hợp với qui định quảng cáo và có kết quả chính xác nhất.</p><a href="#!" style="color:#2997FF; ">Đã hiểu</a></div>',
+      						allowHTML: true,
+      						maxWidth: 270,
+      						theme: 'zad',
+      						showOnCreate: true,
+      						placement: 'right-start',
+      						onShow(instance) {
+      							instance.setProps({ trigger: 'click' })
+      						},
+      						onHide(instance) {
+      							instance.setProps({ trigger: 'mouseenter focus' })
+      						},
+      					});
+      				}, 100)
+      
+      
+      				file = files[0];
+      
+      				if (/^image\/\w+/.test(file.type)) {
+      					uploadedImageType = file.type;
+      					uploadedImageName = file.name;
+      
+      					if (uploadedImageURL) {
+      						URL.revokeObjectURL(uploadedImageURL);
+      					}
+      
+      					image.src = uploadedImageURL = URL.createObjectURL(file);
+      					cropper.destroy();
+      					cropper = new Cropper(image, options);
+      					inputImage.value = null;
+      				} else {
+      					window.alert('Please choose an image file.');
+      				}
+      			}
+      		};
+      	} else {
+      		inputImage.disabled = true;
+      		inputImage.parentNode.className += ' disabled';
+      	}
+      };
+      
+      new Sortable(qa1, {
+      	handle: '.func-drag',
+      	animation: 150,
+      	ghostClass: 'is-ghost'
+      });
+      new Sortable(qa2, {
+      	handle: '.func-drag',
+      	animation: 150,
+      	ghostClass: 'is-ghost'
+      });
+      new Sortable(tag1, {
+      	animation: 150,
+      	ghostClass: 'is-ghost'
+      });
+      new Sortable(tag2, {
+      	animation: 150,
+      	ghostClass: 'is-ghost'
+      });
+      var swiper = new Swiper('.swiper-container', {
+      	slidesPerView: 1,
+      	navigation: {
+      		nextEl: '.button-next',
+      		prevEl: '.button-prev',
+      	},
+      });
+      var tippyPreview = document.getElementsByClassName('tippy-preview')[0];
+      var navigationTop = document.getElementsByClassName('navigation-top')[0];
+      navigationTop.style.display="none";
+      //- check nếu bật nút cho phép thì hiện navigation của swiper
+      var clicks = 0;
+      $(".switch-theme").click(function(e){
+      	e.stopPropagation();
+      	clicks += 1;
+      	if(clicks > 3){
+      		tippyPreview.style.display="none";
+      		console.log('a')
+      	}
+      });
+      
+      $(".switch-theme input[type='checkbox']").change(function(event){
+      	var groupInput = document.querySelectorAll(".switch-theme input[type='checkbox']:checked");
+      	var lengthChecked = groupInput.length;
+      	for(let i = 0; i<= lengthChecked; i++){
+      		if(groupInput.length ===0){
+      			navigationTop.style.display="none";
+      
+      		}
+      		else{
+      			navigationTop.style.display="flex";
+      		}
+      	}
+      });
+      
+      $("body,html").click(function(e){
+      	tippyPreview.style.display="none";
+      });
+      //- style navagation
+      /* hide left arrow by deafult */
+      var arrowPrev = document.getElementsByClassName('button-prev')[0];
+      var arrowNext = document.getElementsByClassName('button-next')[0];
+      arrowPrev.classList.add("is-disabled");
+      /* Swiper API - if index = 1 hide left arrow / otherwise show */
+      swiper.on('slideChange', function() {
+      	var realIndex = swiper.realIndex;
+      	if (realIndex == 0) {
+      		arrowPrev.classList.add("is-disabled");
+      		arrowNext.classList.remove("is-disabled");
+      	}
+      	
+      	else if(swiper.isEnd){
+      		arrowNext.classList.add("is-disabled");
+      		arrowPrev.classList.remove("is-disabled");
+      	}
+      	console.log(swiper.isEnd)
+      });
+    </script>
+  </body>
+</html>

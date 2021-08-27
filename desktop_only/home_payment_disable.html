@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/layout.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body class="zad-v2">
+    <div class="header-payment">
+      <div class="header-container"><span class="logo func-modal-exit"><i class="ico-logo"></i></span>
+        <div class="pos-right">
+          <div class="navbar-user"><span class="avatar avatar--m"><span class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></span></span><span class="name">Hoang Nguyen Hoang Nguyen</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="body-payment">
+      <div class="body">
+        <div class="columns is-centered">
+          <div class="column is-10">
+            <div class="head-payment">
+              <h1>Chọn hình thức nạp tiền</h1>
+            </div>
+            <ul class="accordionjs" id="my-accordion">
+              <li class="bl-payment is-accordion is-disabled">
+                <div class="heading-box">
+                  <div class="ico-wrap"><i class="icz icz-online-payment"></i></div>
+                  <div class="context">
+                    <h2 class="title">Nạp tiền trực tuyến</h2>
+                    <p class="caption">Các hình thức nạp tiền từ thẻ thanh toán quốc tế, thẻ ATM, ví điện tử.</p>
+                  </div>
+                </div>
+                <div class="content-box">
+                  <ul class="accordionjs" id="demo-accordion">
+                    <li>
+                      <div class="control is-op">
+                        <input id="op1" type="radio" name="op">
+                        <label class="label-op" for="op1"><i class="icz icz-visa"></i><span>Thẻ quốc tế Visa, Master, JCB</span></label>
+                      </div>
+                      <div class="content-box-inside">
+                        <div class="card-list measuringWrapper">
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-visa" id="card-visa" name="option" type="radio">
+                              <label class="label-custom" for="card-visa"><i class="ico-card" style="background-image:url(images/img_bank/visa.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-visa" id="card-master" name="option" type="radio">
+                              <label class="label-custom" for="card-master"><i class="ico-card" style="background-image:url(images/img_bank/master.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-visa" id="card-jcb" name="option" type="radio">
+                              <label class="label-custom" for="card-jcb"><i class="ico-card" style="background-image:url(images/img_bank/jcb.png)"></i></label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="buttons has-addons is-right">
+                          <button class="button is-primary" id="button-visa" onclick="location.href='topup_card.html'" disabled>Tiếp tục</button>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="control is-op">
+                        <input id="op2" type="radio" name="op">
+                        <label class="label-op" for="op2"><i class="icz icz-atm-card"></i><span>Thẻ ATM nội địa/Internet Banking</span></label>
+                      </div>
+                      <div class="content-box-inside">
+                        <div class="card-list">
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-1" name="option" type="radio">
+                              <label class="label-custom" for="card-1"><i class="ico-card" style="background-image:url(images/img_bank/abb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-2" name="option" type="radio">
+                              <label class="label-custom" for="card-2"><i class="ico-card" style="background-image:url(images/img_bank/acb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-3" name="option" type="radio">
+                              <label class="label-custom" for="card-3"><i class="ico-card" style="background-image:url(images/img_bank/bidv.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-4" name="option" type="radio">
+                              <label class="label-custom" for="card-4"><i class="ico-card" style="background-image:url(images/img_bank/dad.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-5" name="option" type="radio">
+                              <label class="label-custom" for="card-5"><i class="ico-card" style="background-image:url(images/img_bank/eib.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-6" name="option" type="radio">
+                              <label class="label-custom" for="card-6"><i class="ico-card" style="background-image:url(images/img_bank/gpb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-7" name="option" type="radio">
+                              <label class="label-custom" for="card-7"><i class="ico-card" style="background-image:url(images/img_bank/hdb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-8" name="option" type="radio">
+                              <label class="label-custom" for="card-8"><i class="ico-card" style="background-image:url(images/img_bank/ivb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-9" name="option" type="radio">
+                              <label class="label-custom" for="card-9"><i class="ico-card" style="background-image:url(images/img_bank/jcb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-10" name="option" type="radio">
+                              <label class="label-custom" for="card-10"><i class="ico-card" style="background-image:url(images/img_bank/klp.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-11" name="option" type="radio">
+                              <label class="label-custom" for="card-11"><i class="ico-card" style="background-image:url(images/img_bank/lpb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-12" name="option" type="radio">
+                              <label class="label-custom" for="card-12"><i class="ico-card" style="background-image:url(images/img_bank/mb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-13" name="option" type="radio">
+                              <label class="label-custom" for="card-13"><i class="ico-card" style="background-image:url(images/img_bank/msb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-14" name="option" type="radio">
+                              <label class="label-custom" for="card-14"><i class="ico-card" style="background-image:url(images/img_bank/nab.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-15" name="option" type="radio">
+                              <label class="label-custom" for="card-15"><i class="ico-card" style="background-image:url(images/img_bank/nasb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-16" name="option" type="radio">
+                              <label class="label-custom" for="card-16"><i class="ico-card" style="background-image:url(images/img_bank/ncb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-17" name="option" type="radio">
+                              <label class="label-custom" for="card-17"><i class="ico-card" style="background-image:url(images/img_bank/ocb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-18" name="option" type="radio">
+                              <label class="label-custom" for="card-18"><i class="ico-card" style="background-image:url(images/img_bank/ojb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-19" name="option" type="radio">
+                              <label class="label-custom" for="card-19"><i class="ico-card" style="background-image:url(images/img_bank/pbvn.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-20" name="option" type="radio">
+                              <label class="label-custom" for="card-20"><i class="ico-card" style="background-image:url(images/img_bank/pgb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-21" name="option" type="radio">
+                              <label class="label-custom" for="card-21"><i class="ico-card" style="background-image:url(images/img_bank/pvcb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-22" name="option" type="radio">
+                              <label class="label-custom" for="card-22"><i class="ico-card" style="background-image:url(images/img_bank/scb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-23" name="option" type="radio">
+                              <label class="label-custom" for="card-23"><i class="ico-card" style="background-image:url(images/img_bank/seab.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-24" name="option" type="radio">
+                              <label class="label-custom" for="card-24"><i class="ico-card" style="background-image:url(images/img_bank/sgb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-25" name="option" type="radio">
+                              <label class="label-custom" for="card-25"><i class="ico-card" style="background-image:url(images/img_bank/sgcb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-26" name="option" type="radio">
+                              <label class="label-custom" for="card-26"><i class="ico-card" style="background-image:url(images/img_bank/shb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-27" name="option" type="radio">
+                              <label class="label-custom" for="card-27"><i class="ico-card" style="background-image:url(images/img_bank/shbvn.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-28" name="option" type="radio">
+                              <label class="label-custom" for="card-28"><i class="ico-card" style="background-image:url(images/img_bank/tcb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-29" name="option" type="radio">
+                              <label class="label-custom" for="card-29"><i class="ico-card" style="background-image:url(images/img_bank/tpb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-30" name="option" type="radio">
+                              <label class="label-custom" for="card-30"><i class="ico-card" style="background-image:url(images/img_bank/uob.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-31" name="option" type="radio">
+                              <label class="label-custom" for="card-31"><i class="ico-card" style="background-image:url(images/img_bank/vab.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-32" name="option" type="radio">
+                              <label class="label-custom" for="card-32"><i class="ico-card" style="background-image:url(images/img_bank/varb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-33" name="option" type="radio">
+                              <label class="label-custom" for="card-33"><i class="ico-card" style="background-image:url(images/img_bank/vb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-34" name="option" type="radio">
+                              <label class="label-custom" for="card-34"><i class="ico-card" style="background-image:url(images/img_bank/vcb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-35" name="option" type="radio">
+                              <label class="label-custom" for="card-35"><i class="ico-card" style="background-image:url(images/img_bank/vccb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-36" name="option" type="radio">
+                              <label class="label-custom" for="card-36"><i class="ico-card" style="background-image:url(images/img_bank/vib.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-37" name="option" type="radio">
+                              <label class="label-custom" for="card-37"><i class="ico-card" style="background-image:url(images/img_bank/vpb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-38" name="option" type="radio">
+                              <label class="label-custom" for="card-38"><i class="ico-card" style="background-image:url(images/img_bank/vrb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-39" name="option" type="radio">
+                              <label class="label-custom" for="card-39"><i class="ico-card" style="background-image:url(images/img_bank/vtb.png)"></i></label>
+                            </div>
+                          </div>
+                          <div class="item-card">
+                            <div class="input-group">
+                              <input class="is-atmcard" id="card-40" name="option" type="radio">
+                              <label class="label-custom" for="card-40"><i class="ico-card" style="background-image:url(images/img_bank/woo.png)"></i></label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="buttons has-addons is-right">
+                          <button class="button is-primary" id="button-atmcard" onclick="location.href='topup_card.html'" disabled>Tiếp tục</button>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="control is-op">
+                        <input id="op3" type="radio" name="op">
+                        <label class="label-op" for="op3"><i class="ico-zalopay"></i><span>Ví điện tử ZaloPay</span></label>
+                      </div>
+                      <div class="content-box-inside">
+                        <p>Bạn cần tải ứng dụng ZaloPay trên điện thoại trước để nạp tiền bằng hình thức này.</p>
+                        <div class="buttons has-addons is-right">
+                          <button class="button is-primary" onclick="location.href='topup_zalopay.html'">Tiếp tục</button>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="control is-op">
+                        <input id="op4" type="radio" name="op">
+                        <label class="label-op" for="op4"><i class="ico-momo"></i><span>Ví điện tử Momo</span></label>
+                      </div>
+                      <div class="content-box-inside">
+                        <p>Vui lòng tải ứng dụng MoMo để thanh toán</p>
+                        <div class="buttons has-addons is-right">
+                          <button class="button is-primary" onclick="location.href='topup_zalopay.html'">Tiếp tục</button>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="bl-payment is-accordion is-disabled">
+                <div class="heading-box">
+                  <div class="ico-wrap"><i class="icz icz-coupon"></i></div>
+                  <div class="context">
+                    <h2 class="title">Nạp tiền bằng mã voucher</h2>
+                    <p class="caption">Sử dụng mã voucher được tặng để nạp tiền vào tài khoản</p>
+                  </div>
+                </div>
+                <div class="content-box has-padding-more">
+                  <div class="field ml-4">
+                    <p class="mb-3">Nhập mã voucher để nạp tiền vào tài khoản</p>
+                    <!-- case start-->
+                    <div class="field is-grouped mb-0">
+                      <div class="control mr-3">
+                        <input class="input is-voucher" type="text" placeholder="Nhập mã voucher">
+                      </div>
+                      <div class="control"><a class="button is-primary" disabled>Kiểm tra</a></div>
+                    </div>
+                    <p class="help">Nhập mã voucher và bấm kiểm tra</p>
+                    <!-- case error-->
+                    <div class="field is-grouped mb-0">
+                      <div class="control is-danger mr-3">
+                        <input class="input is-voucher" type="text" placeholder="Nhập mã voucher" value="83686-D42323-A00AA607B">
+                      </div>
+                      <div class="control"><a class="button is-primary" disabled>Kiểm tra</a></div>
+                    </div>
+                    <p class="help has-text-danger">Mã voucher không hợp lệ</p>
+                    <!-- case ok-->
+                    <div class="field is-grouped mb-0">
+                      <div class="control mr-3">
+                        <input class="input is-voucher" type="text" placeholder="Nhập mã voucher" value="83686-D42323-A00AA607B">
+                      </div>
+                      <div class="control"><a class="button is-primary" onclick="location.href='topup_voucher.html'">Kiểm tra</a></div>
+                    </div>
+                    <p class="help">Nhập mã voucher và bấm kiểm tra</p>
+                  </div>
+                  <p class="is-notice ml-4"><i class="icz icz-fill-info"></i>Hướng dẫn nạp tiền bằng mã voucher. <a href="https://ads.zalo.me/business/huong-dan-nap-tien-bang-ma-voucher/" target="_blank">Xem chi tiết</a></p>
+                </div>
+              </li>
+              <li class="bl-payment is-accordion">
+                <div class="heading-box">
+                  <div class="ico-wrap"><i class="icz icz-transfer"></i></div>
+                  <div class="context">
+                    <h2 class="title">Chuyển khoản</h2>
+                    <p class="caption">Nạp tiền bằng hình thức chuyển khoản</p>
+                  </div>
+                </div>
+                <div class="content-box has-padding-more">
+                  <p class="mb-3 ml-4">Khi chuyển khoản, vui lòng ghi nội dung chuyển tiền chính xác MÃ THANH TOÁN của bạn.</p>
+                  <div class="section-transfer">
+                    <div class="bl-transfer">
+                      <p>Mã thanh toán của bạn là</p>
+                      <div class="code">0376564327 SDBDZB</div>
+                    </div>
+                    <div class="ico-transfer"><i class="icz icz-arrow-right"></i></div>
+                    <div class="bl-checking">
+                      <label class="label">Mã thanh toán</label>
+                      <!-- case start-->
+                      <div class="field is-grouped mb-0">
+                        <div class="control is-expanded mr-3">
+                          <input class="input is-voucher" type="text" placeholder="Nhập mã thanh toán">
+                        </div>
+                        <div class="control"><a class="button is-primary" disabled>Xác nhận</a></div>
+                      </div>
+                      <p class="help">Nhập mã bên trái để xác nhận chuyển khoản</p>
+                      <!-- case error-->
+                      <div class="field is-grouped mb-0">
+                        <div class="control is-expanded is-danger mr-3">
+                          <input class="input is-voucher" type="text" placeholder="Nhập mã thanh toán" value="0376564327 SDBDZB">
+                        </div>
+                        <div class="control"><a class="button is-primary" disabled>Xác nhận</a></div>
+                      </div>
+                      <p class="help has-text-danger">Validation message here</p>
+                      <!-- case ok-->
+                      <div class="field is-grouped mb-0">
+                        <div class="control is-expanded mr-3">
+                          <input class="input is-voucher" type="text" placeholder="Nhập mã thanh toán" value="0376564327 SDBDZB">
+                        </div>
+                        <div class="control"><a class="button is-primary" onclick="location.href='topup_transfer.html'">Xác nhận</a></div>
+                      </div>
+                      <p class="help">Nhập mã bên trái để xác nhận chuyển khoản</p>
+                    </div>
+                  </div>
+                  <div class="inline-message is-info"><i class="icz icz-fill-bulb"></i>
+                    <p class="mb-2">Nếu có nhu cầu xuất hóa đơn cho số tiền nạp, nhà quảng cáo vui lòng xem thêm thông tin hướng dẫn nhận hóa đơn các kênh nạp tiền của Zalo Ads</p>
+                    <p><a class="has-text-link" href="https://ads.zalo.me/business/huong-dan-nhan-hoa-don-cac-kenh-nap-tien/" target="_blank">Hướng dẫn nhận hóa đơn các kênh nạp tiền</a></p>
+                  </div>
+                  <div class="inline-message is-info"><i class="icz icz-fill-bulb"></i>
+                    <p>Bạn đang tham gia vào công ty quảng cáo. Các giao dịch nạp tiền sẽ được tự động ghi nhận hóa đơn cho công ty này. Vui lòng liên hệ công ty bạn tham gia, để biết thêm về cách nhận hóa đơn và quyền lợi của thành viên công ty quảng cáo. Trước khi thực hiện chuyển khoản.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div><a class="feature-hidden func-modal-alert" href="javascript:void(0);">Bấm vào đây để xem lỗi</a>
+    </div>
+    <div class="bl-non-support">
+      <div class="context"><img src="images/v2/img_notify_device.png" alt="Zalo Ads">
+        <h4>Công cụ hiện chỉ hỗ trợ trên <br>thiết bị máy vi tính.</h4>
+        <p>Phiên bản trên điện thoại sẽ được cập nhật vào thời gian sắp tới</p>
+      </div>
+    </div>
+    <div class="bl-popup">
+    </div>
+    <div class="bl-modal">
+      <div class="modal-container is-small" id="modal-delete-form">
+        <div class="bl-modal-heading"><span>Xóa form</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc chắn muốn xóa Form này không?</p>
+          <p><strong class="is-size-5 has-text-primary">Form cho pepsi</strong></p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined" href="javascript:void(0)">Hủy bỏ</button>
+            <button class="button is-primary" href="javascript:void(0)">Xóa form</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-alert">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Nội dung thông báo</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined func-close-modal" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary func-close-popup func-close-modal" href="javascript:void(0)">[Main Action]</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-close-create-form">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc chắn muốn đóng Zalo Form không? Bạn sẽ mất mọi công việc đang thực hiện</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined func-close-modal" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary func-close-popup func-close-modal" href="javascript:void(0)">Đồng ý</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-exit">
+        <div class="bl-modal-heading"><span>Thoát nạp tiền</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Thông tin đang nhập sẽ không được lưu lại. Bạn có muốn thoát</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary" onclick="location.href='home_payment.html'">Thoát nạp tiền</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/accordion.min.js"></script>
+    <script>
+      jQuery(document).ready(function($){
+      	$("#my-accordion").accordionjs({
+      		slideSpeed  : 300,
+      		activeIndex : false,
+      		closeAble: true,
+      	});
+      });
+      jQuery(document).ready(function($){
+      	$("#demo-accordion").accordionjs({
+      		slideSpeed  : 300,
+      		activeIndex : 5,
+      		closeAble: false,
+      	});
+      });
+      $("input.is-visa").change(function(event){
+      	if (this.checked){
+      		$('#button-visa').prop("disabled", false);
+      	}
+      });
+      $("input.is-atmcard").change(function(event){
+      	if (this.checked){
+      		$('#button-atmcard').prop("disabled", false);
+      	}
+      });
+      $(".func-modal-alert").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-alert").addClass("is-show");
+      });
+      $(".func-modal-alert").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-alert").addClass("is-show");
+      });
+      $(".func-modal-exit").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-exit").addClass("is-show");
+      });
+      $(".func-close-modal").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal-container").removeClass("is-show");
+      });
+      //- tắt loading[test]
+      setTimeout(function(){$('.layer-loading').removeClass("is-active")},3000)
+    </script>
+  </body>
+</html>
