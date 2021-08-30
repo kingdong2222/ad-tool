@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.1.0.1.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body class="has-progressbar">
+    <div class="progressbar">
+      <div></div>
+    </div>
+    <div class="page-content">
+      <div class="body">
+        <div class="breadcrumb is-fixed"><span>Hình ảnh quảng cáo</span><a class="func-back" href="javascript:history.back()"><i class="icz icz-arrow-left"></i></a></div>
+        <div class="trans-breadcrumb"></div>
+        <div class="section-create-ads">
+          <div class="creative">
+            <div class="preview-ads">
+              <div class="ads-head">
+                <div class="avatar avatar--m">
+                  <div class="avatar-img" style="background-image:url(https://via.placeholder.com/120x120)"></div>
+                </div>
+                <div class="field is-title">
+                  <div class="control is-large">
+                    <input class="input" placeholder="Nhập tiêu đề quảng cáo" maxlength="30">
+                  </div>
+                  <p class="help is-hidden has-text-danger">Nội dung báo lỗi</p>
+                </div>
+              </div>
+              <div class="ads-body">
+                <div class="field is-description">
+                  <div class="control">
+                    <textarea class="textarea" placeholder="Nội dung mô tả quảng cáo" maxlength="90"></textarea>
+                  </div>
+                  <p class="help is-hidden has-text-danger">Nội dung báo lỗi</p>
+                </div>
+                <div class="ads-img">
+                  <div class="guide">Hình quảng cáo</div>
+                  <div class="img-container" style="background-image:url()"></div>
+                </div>
+              </div>
+              <div class="ads-footer">
+                <div class="field mb-0">
+                  <div class="control">
+                    <textarea class="textarea" placeholder="Mô tả" maxlength="60"></textarea>
+                  </div>
+                </div>
+                <div class="field mb-0">
+                  <div class="control">
+                    <textarea class="textarea" placeholder="Thông tin thêm" maxlength="60"></textarea>
+                  </div>
+                </div>
+                <div class="select ads-btn select-by-popup">Đăng ký</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-group-upload">
+          <ul>
+            <li class="active">
+              <div class="info-ad-group group-avatar">
+                <div class="avatar-ad func-popup-libraryImage">
+                  <div class="src" style="background-image:url(https://via.placeholder.com/718x388)"></div>
+                  <div class="ico-edit"><i class="icz icz-fill-edit"></i></div>
+                </div>
+              </div><span>Hình đại diện</span>
+              <div class="check"><i class="icz icz-fill-check"></i></div>
+            </li>
+            <li>
+              <div class="info-ad-group group-avatar">
+                <div class="avatar-ad func-popup-libraryImage"></div>
+              </div><span>Hình đại diện</span>
+              <div class="check"><i class="icz icz-fill-check"></i></div>
+            </li>
+            <li class="active">
+              <div class="info-ad-group group-cover">
+                <div class="cover-ad func-popup-libraryImage">
+                  <div class="src" style="background-image:url(https://via.placeholder.com/120x120)"></div>
+                  <div class="ico-edit"><i class="icz icz-fill-edit"></i></div>
+                </div>
+              </div><span>Hình quảng cáo</span>
+              <div class="check"><i class="icz icz-fill-check"></i></div>
+            </li>
+            <li>
+              <div class="info-ad-group group-cover">
+                <div class="cover-ad func-popup-libraryImage"></div>
+              </div><span>Hình quảng cáo</span>
+              <div class="check"><i class="icz icz-fill-check"></i></div>
+            </li>
+            <li>
+              <div class="icon-editText edit-title"><i class="icz icz-edit-text"></i></div><span>Tiêu đề</span>
+              <div class="check"><i class="icz icz-fill-check"></i></div>
+            </li>
+            <li>
+              <div class="icon-editText edit-description"><i class="icz icz-edit-text"></i></div><span>Mô tả</span>
+              <div class="check"><i class="icz icz-fill-check"></i></div>
+            </li>
+            <!-- nút bấm luôn active-->
+            <li class="active">
+              <div class="icon-editText edit-btn select-by-popup" for="selectBtn"><i class="icz icz-button"></i></div><span>Nút bấm</span>
+              <div class="check"><i class="icz icz-fill-check"></i></div>
+            </li>
+          </ul><a class="feature-hidden func-active-demo" href="javascript:void(0)" style="display:block">T/h khi bấm vào để hoàn thành việc upload nội dung và tắt disabled button</a>
+        </div>
+        <div class="section-next-step">
+          <div class="buttons">
+            <button class="button is-primary is-large is-fullwidth" onclick="location.href='create_ads_simplified_step3.html'" disabled>Bước tiếp theo</button>
+          </div>
+        </div>
+        <div class="trans-section-next-step"></div>
+      </div>
+    </div>
+    <div class="bl-tooltip">
+    </div>
+    <div class="bl-popup">
+      <div class="popup-container" id="popup-libraryNull">
+        <div class="bl-popup-heading"><span>Thư viện</span><a class="func-close-myself" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context"><img class="img-welcome-library" src="images/img_library_null.png" alt="Zalo Ads">
+          <p class="has-text-weight-semibold has-text-centered mb-3">Bạn chưa có tập tin nào trong thư viện</p>
+          <div class="buttons is-centered mb-1">
+            <div class="button is-text"><i class="icz icz-file-add mr-2"></i><span>Đăng tập tin hoặc hình ảnh</span>
+              <div class="inputfile-container">
+                <input class="inputfile" type="file" id="file1">
+                <label for="file1"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-library">
+        <div class="bl-popup-heading"><span>Thư viện</span><a class="func-close-myself" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next func-close-myself" href="#!.html">Lưu</a></div>
+        <div class="bl-popup-context">
+          <div class="buttons is-centered mb-1">
+            <div class="button is-text"><i class="icz icz-file-add mr-2"></i><span>Đăng tập tin hoặc hình ảnh</span>
+              <div class="inputfile-container">
+                <input class="inputfile" type="file" id="file1">
+                <label for="file1"></label>
+              </div>
+            </div>
+          </div>
+          <hr class="separate is-outside">
+          <!--.document-tabs
+          ul
+          	li
+          		a.is-active(href="#!") Hình ảnh
+          	li
+          		a(href="#!") Tập tin
+          -->
+          <div class="title is-lighter"><span>12 hình ảnh & tập tin</span><span class="has-selected">Đang chọn (2)</span></div>
+          <ul class="file-list">
+            <li>
+              <div class="ico-wrap"><i class="icz icz-fill-file"></i></div>
+              <div class="input-group-add">
+                <input id="file-up1" name="option" type="checkbox">
+                <label class="label-custom" for="file-up1">hopdong_2020.docx</label>
+              </div>
+            </li>
+            <li>
+              <div class="ico-wrap"><i class="icz icz-fill-image"></i></div>
+              <div class="input-group-add">
+                <input id="file-up2" name="option" type="checkbox">
+                <label class="label-custom" for="file-up2">hinh_nancy.jpg</label>
+              </div>
+            </li>
+            <li>
+              <div class="ico-wrap"><i class="icz icz-fill-file"></i></div>
+              <div class="input-group-add">
+                <input id="file-up3" name="option" type="checkbox">
+                <label class="label-custom" for="file-up3">hopdong_2021.docx</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-moreInfo">
+        <div class="bl-popup-heading"><span>Loại hình quảng cáo</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context">
+          <div class="field">
+            <div class="control has-icons-left">
+              <input class="input" type="text" placeholder="Tìm kiếm loại hình quảng cáo"><span class="icon is-left"><i class="icz icz-search"></i></span>
+            </div>
+          </div>
+          <div class="info-ad-list">
+            <h2>Quảng cáo thực phẩm chức năng</h2>
+            <ul>
+              <li>Giấy phép công bố tiêu chuẩn chất lượng sản phẩm.</li>
+              <li>Giấy xác nhận nội dung quảng cáo sản phẩm thực phẩm</li>
+            </ul>
+          </div>
+          <div class="info-ad-list">
+            <h2>Quảng cáo thuốc</h2>
+            <ul>
+              <li>Giấy phép quảng cáo thuốc</li>
+            </ul>
+          </div>
+          <div class="info-ad-list">
+            <h2>Quảng cáo mỹ phẩm</h2>
+            <ul>
+              <li>Giấy phép công bố tiêu chuẩn chất lượng sản phẩm</li>
+              <li>Giấy phép xác nhận quảng cáo</li>
+            </ul>
+          </div>
+          <div class="info-ad-list">
+            <h2>Quảng cáo hóa chất, chế phẩm diệt côn trùng, diệt khuẩn dùng trong lĩnh vực gia dụng và y tế</h2>
+            <ul>
+              <li>Giấy phép công bố</li>
+              <li>Giấy phép quảng cáo (đã bao gồm giấy phép quảng cáo online)</li>
+            </ul>
+          </div>
+          <div class="info-ad-list">
+            <h2>Quảng cáo sữa, quảng cáo sản phẩm dinh dưỡng dùng cho trẻ nhỏ trên 24 tháng tuổi </h2>
+            <ul>
+              <li>Giấy phép công bố</li>
+              <li>Giấy phép quảng cáo</li>
+            </ul>
+          </div>
+          <button class="button is-white has-text-link px-0">Xem thêm về quy định quảng cáo trên Zalo Ads</button>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-libraryImage">
+        <div class="bl-popup-heading"><span>Thư viện hình ảnh</span><a class="func-close-myself" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next func-popup-cropImage" href="javascript:void(0)">Tiếp tục</a></div>
+        <div class="bl-popup-context">
+          <div class="buttons is-centered mb-1">
+            <div class="button is-text"><i class="icz icz-file-add mr-2"></i><span>Tải hình ảnh mới</span>
+              <div class="inputfile-container">
+                <input class="inputfile" type="file" id="file1">
+                <label for="file1"></label>
+              </div>
+            </div>
+          </div>
+          <hr class="separate is-outside">
+          <ul class="img-list is-outside">
+            <li><span class="img" style="background-image:url(https://via.placeholder.com/120x120)"></span><span class="func-popup-cropImageError" style="position:absolute;z-index:10;top:0;right:0;left:0; bottom:0;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;">Bấm để hiện lỗi crop ảnh bị lỗi or chờ quá lâu</span></li>
+            <li class="is-active"><span class="img" style="background-image:url(https://via.placeholder.com/120x120)"></span></li>
+            <li><span class="img" style="background-image:url(https://via.placeholder.com/120x120)"></span></li>
+            <li><span class="img" style="background-image:url(https://via.placeholder.com/120x120)"></span></li>
+            <li><span class="img" style="background-image:url(https://via.placeholder.com/120x120)"></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-libraryVideo">
+        <div class="bl-popup-heading"><span>Thư viện Video</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next func-close-popup" href="#!.html">Lưu</a></div>
+        <div class="bl-popup-context">
+          <div class="buttons is-centered mb-1">
+            <div class="button is-text"><i class="icz icz-file-add mr-2"></i><span>Tải Video mới</span>
+              <div class="inputfile-container">
+                <input class="inputfile" type="file" id="file1">
+                <label for="file1"></label>
+              </div>
+            </div>
+          </div>
+          <hr class="separate is-outside">
+          <ul class="img-list is-outside">
+            <li class="is-active"><span class="img" style="background-image:url(https://via.placeholder.com/120x120)"></span></li>
+            <li><span class="img" style="background-image:url(https://via.placeholder.com/120x120)"></span></li>
+            <li><span class="img" style="background-image:url(https://via.placeholder.com/120x120)"></span></li>
+            <li><span class="img" style="background-image:url(https://via.placeholder.com/120x120)"></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-cropImage">
+        <div class="bl-popup-heading"><span>Cắt hình</span><a class="func-close-myself" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next" href="javascript:void(0);">Xong</a></div>
+        <div class="bl-popup-context is-crop">
+          <div class="section-crop"><img src="https://via.placeholder.com/500x200" alt="Zalo Ads"></div>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-cropImageError">
+        <div class="bl-popup-heading"><span>Cắt hình</span><a class="func-close-myself" href="javascript:void(0)"><i class="icz icz-close"></i></a>
+          <!-- trường hợp lỗi thì không hiện button Xong-->
+          <!--a.func-next(href="javascript:void(0);") Xong-->
+        </div>
+        <div class="bl-popup-context is-crop crop-error">
+          <div class="section-crop">
+            <div><i class="icz icz-fill-error-hex"></i><span>Có lỗi xảy ra trong quá trình tải ảnh lên.<br> Vui lòng thử lại</span><a class="button is-primary is-large is-fullwidth func-close-myself" href="#!">Tải lại ảnh</a></div>
+          </div>
+          <!--.func-crop
+          a(href="#!")
+          	i.icz.icz-picture
+          a(href="")
+          	i.icz.icz-screen-maximize
+          a(href="")
+          	i.icz.icz-zoom-out
+          a(href="")
+          	i.icz.icz-zoom-in
+          -->
+        </div>
+      </div>
+      <div class="popup-container" id="popup-select-item">
+        <div class="bl-popup-heading"><span>Chọn nút bấm</span><a class="func-close-myself" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context">
+          <div class="checkbox-list">
+            <div class="item-checkbox">
+              <div class="input-group-checkbox checked-right">
+                <input id="oa-0" name="option" type="radio">
+                <label class="label-custom" for="oa-0">
+                  <div class="desc"><span>Xem thêm</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox checked-right">
+                <input id="oa-1" name="option" type="radio">
+                <label class="label-custom" for="oa-1">
+                  <div class="desc"><span>Đăng ký</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox checked-right">
+                <input id="oa-2" name="option" type="radio">
+                <label class="label-custom" for="oa-2">
+                  <div class="desc"><span>Đăng ký</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox checked-right">
+                <input id="oa-3" name="option" type="radio">
+                <label class="label-custom" for="oa-3">
+                  <div class="desc"><span>Đăng ký</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox checked-right">
+                <input id="oa-4" name="option" type="radio">
+                <label class="label-custom" for="oa-4">
+                  <div class="desc"><span>Đăng ký</span></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-select-item-1">
+        <div class="bl-popup-heading"><span>Chọn nút bấm</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next" href="javascript:void(0);">Lưu</a></div>
+        <div class="bl-popup-context">
+          <div class="checkbox-list">
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-cta">
+                <input id="cta-0" name="option" type="radio">
+                <label class="label-custom" for="cta-0">
+                  <div class="desc"><span>Đặt mua ngay</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-cta call">
+                <input id="cta-5" name="option" type="radio">
+                <label class="label-custom" for="cta-5">
+                  <div class="desc"><span>Gọi ngay</span></div>
+                </label>
+                <div class="field mt-2" style="display:none">
+                  <div class="control">
+                    <input class="input is-outlined" type="text" placeholder="Nhập số điện thoại">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-cta">
+                <input id="cta-1" name="option" type="radio">
+                <label class="label-custom" for="cta-1">
+                  <div class="desc"><span>Đăng ký</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-cta">
+                <input id="cta-2" name="option" type="radio">
+                <label class="label-custom" for="cta-2">
+                  <div class="desc"><span>Đăng ký</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-cta">
+                <input id="cta-3" name="option" type="radio">
+                <label class="label-custom" for="cta-3">
+                  <div class="desc"><span>Đăng ký</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-cta">
+                <input id="cta-4" name="option" type="radio">
+                <label class="label-custom" for="cta-4">
+                  <div class="desc"><span>Đăng ký</span></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bl-modal">
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script>
+      //- demo progressbar
+      $(".progressbar > div").css("width","50%");
+      
+      $("#popup-libraryImage .func-close-myself").addClass("func-close-popup");
+      
+      
+      
+      $(".edit-title").click(function(){
+      	$(".field.is-title  input").focus();
+      });
+      $(".edit-description").click(function(){
+      	$(".field.is-description  textarea").focus();
+      });
+      $(".edit-btn").mousedown(function(){
+      	$("select").trigger("click")
+      });
+      
+      $(".func-popup-cropImage").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$(window).scrollTop(0);
+      	$("#popup-cropImage").addClass("is-show");
+      });
+      $(".func-popup-libraryImage").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$(window).scrollTop(0);
+      	$("#popup-libraryImage").addClass("is-show");
+      });
+      $(".select-by-popup").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$("#popup-select-item-1").addClass("is-show");
+      });
+      $(".func-close-popup").click(function(){
+      	$("html").removeClass("overlay-popup");
+      	$(".popup-container").removeClass("is-show");
+      });
+      $(".func-close-myself").click(function(){
+      	$(this).parent().closest(".popup-container").removeClass("is-show");
+      });
+      
+      
+      //- resize textarea
+      $("textarea").each(function () {
+      	this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
+      	}).on("input", function () {
+      	this.style.height = "auto";
+      	this.style.height = (this.scrollHeight) + "px";
+      	console.log(this.scrollHeight)
+      });
+      $(".ads-footer textarea").focusout(function(){
+      });
+      //- check value nếu không có thì hiện báo lỗi
+      $(".field.is-title input, .field.is-description textarea").focusout(function(){
+      	if($(".field.is-title input").val() ==='' && $(".field.is-description textarea").val() ===''){
+      		$(this).attr("placeholder","");
+      		$(this).parent().addClass("is-danger")
+      		$(this).parent().parent().find(".help").removeClass('is-hidden')
+      	}else{
+      		$(this).parent().removeClass("is-danger")
+      		$(this).parent().parent().find(".help").addClass('is-hidden')
+      	}
+      });
+      //- khi bấm vào để hoàn thành việc upload nội dung và tắt disabled button
+      $(".func-active-demo").click(function(){
+      	$(".section-group-upload ul li").addClass("active");
+      	$("button").removeAttr("disabled");
+      })
+      
+      //- bấm vao cta gọi ngay thì hiện input nhập sdt
+      $(".input-group-checkbox").click( function(){
+      	if($(this).hasClass("call")) {
+      		$(".field").css("display","block")
+      	}
+      	else {
+      		$(".field").css("display","none")
+      	};
+      });	
+    </script>
+  </body>
+</html>

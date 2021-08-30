@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.1.0.1.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body>
+    <div class="page-content pt-0">
+      <div class="body">
+        <div class="toast-message is-success is-show"><i class="icz icz-fill-check"></i>
+          <h4>Quảng cáo đã được gửi duyệt thành công</h4>
+        </div><a class="toast-message on-top is-danger" href="#!"><i class="icz icz-fill-check"></i>
+          <h4>Quảng cáo bị từ chối</h4>
+          <button class="button is-text is-ghost is-small has-text-link func-view-reason">Xem lý do</button></a><a class="toast-message on-top is-warning" href="#!"><i class="icz icz-fill-warning"></i>
+          <h4>Quảng cáo đang tạm dừng</h4>
+          <button class="button is-text is-ghost is-small has-text-link func-modal-continue" href="#!">Tiếp tục chạy</button></a>
+        <div class="title-heading">
+          <div class="icon-home"><i class="icz icz-fill-home"></i></div>
+          <h1>{Tên QC}</h1>
+        </div>
+        <div class="notification is-info"><i class="icz icz-fill-bulb"></i>
+          <h4>Quảng cáo của bạn đã được duyệt. Vui lòng nạp thêm tiền vào tài khoản để quảng cáo có thể bắt đầu được phân phối</h4><a class="button is-white is-small has-text-link" href="#!" target="_blank">Nạp tiền</a>
+        </div>
+        <div class="notification is-info"><i class="icz icz-fill-bulb"></i>
+          <h4>Số tiền trong tài khoản không đủ để quảng cáo tiếp tục được phân phối. Vui lòng nạp thêm tiền</h4><a class="button is-white is-small has-text-link" href="#!" target="_blank">Nạp tiền</a>
+        </div>
+        <div class="notification is-info"><i class="icz icz-fill-bulb"></i>
+          <h4>Bạn cần bổ sung giấy phép cho quảng cáo này</h4><a class="button is-white is-small has-text-link func-popup-view-document-simplified">Cung cấp giấy phép</a>
+        </div>
+        <div class="section-detail-ads mt-4">
+          <div class="context-cash">
+            <div class="line-cash pb-2"><span>Số tiền đã chi</span><span class="is-money ml-auto">140,000đ</span></div>
+            <div class="percent-cash">
+              <div class="line-percent-cash"><span style="width:40%"></span></div>
+              <div class="line-percent-value"><span>0</span><span>300,000</span></div>
+            </div>
+          </div>
+          <div class="context-performance-ads mt-4">
+            <h2 class="is-size-6 has-text-weight-bold mb-2">Hiệu quả của quảng cáo</h2>
+            <ul class="result-list">
+              <li>
+                <div class="item-result"><span>Hiển thị</span>
+                  <p>8,900,000</p>
+                </div>
+              </li>
+              <li>
+                <div class="item-result"><span>Lượt nhấn</span>
+                  <p>900</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <hr class="line mt-4 mb-4">
+          <div class="context-info-ads">
+            <h2 class="is-size-6 has-text-weight-bold mb-2">Thông tin quảng cáo</h2>
+            <ul class="review-list is-simplified">
+              <li>
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context"><small>Trạng thái</small>
+                  <p>Đang chạy</p>
+                </div>
+                <div class="action-group">
+                  <div class="switch">
+                    <input id="switch-1" type="checkbox" checked="">
+                    <label class="slider round" for="switch-1"></label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context"><small>Trạng thái</small>
+                  <p class="color-error">Bị từ chối</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context"><small>Trạng thái</small>
+                  <p>Tạo mới</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context"><small>Trạng thái</small>
+                  <p>Chờ duyệt</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context"><small>Trạng thái</small>
+                  <p>Tạm dừng</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context"><small>Trạng thái</small>
+                  <p>Hoàn tất</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context"><small>Trạng thái</small>
+                  <p>Dừng hoạt động</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context"><small>Trạng thái</small>
+                  <p>Không chạy (chiến dịch đã tạm dừng</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context"><small>Trạng thái</small>
+                  <p>Không chạy (chờ lịch chạy</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-webpage"></i></div>
+                <div class="context"><small>Loại quảng cáo</small>
+                  <p>Quảng cáo website</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-fill-dong"></i></div>
+                <div class="context"><small>Chi phí/ Ngân sách</small>
+                  <p>140,000đ/ 300,000đ</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-clock"></i></div>
+                <div class="context"><small>Số ngày chạy</small>
+                  <p>1 ngày</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-fill-calendar"></i></div>
+                <div class="context"><small>Lịch chạy</small>
+                  <p>02/02/2021 - 03/02/2021</p>
+                </div>
+              </li>
+              <li>
+                <div class="ico-single"><i class="icz icz-fill-link"></i></div>
+                <div class="context"><small>Trang đích</small>
+                  <p>https://www.adtima.vn</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="context-audience mt-3">
+            <h2 class="is-size-6 has-text-weight-bold mb-2">Đối tượng xem quảng cáo</h2>
+            <div class="desc-more mb-4">
+              <p><strong>Vị trí</strong> 231 địa điểm <i class="icz icz-c-info func-popup-viewLocation-1"></i>{T/h xem chi tiết}</p>
+              <p><strong>Vị trí</strong> 5 địa điểm <i class="icz icz-c-info func-popup-viewLocation-2"></i>{T/h xem chi tiết(Dạng khác)}</p>
+              <p><strong>Độ tuổi</strong> 18-24, 25-34</p>
+              <p><strong>Giới tính</strong> Nam</p>
+              <p><strong>Nền tảng</strong> Android, iOS, PC</p>
+              <p><strong>Tiêu chí khác</strong> 2 tiêu chí</p>
+            </div>
+            <h2 class="is-size-6 has-text-weight-bold mb-2">Nhóm đối tượng từ danh sách SĐT</h2>
+            <div class="desc-more mb-4">
+              <p><strong>Tên nhóm đã lưu</strong> TêndanhsachsodiendienthoaitenTêndanhsachsodiendienthoaiten</p>
+              <p><strong>Số lượng SĐT</strong> 1000 (phonenumber.txt)</p>
+            </div>
+            <h2 class="is-size-6 has-text-weight-bold mb-2">Nhóm đối tượng tương tự từ danh sách SĐT</h2>
+            <div class="desc-more mb-4">
+              <p><strong>Tên nhóm đã lưu</strong> TêndanhsachsodiendienthoaitenTêndanhsachsodiendienthoaiten</p>
+              <p><strong>Nguồn nhóm đối tượng</strong> {file_name}</p>
+            </div>
+            <button class="button is-primary is-light is-fullwidth func-popup-createAudience btn_editAudience">Chỉnh sửa quảng cáo</button>
+            <ul class="review-list is-simplified provide-document">
+              <li class="func-popup-view-document-simplified">
+                <div class="ico-single"><i class="icz icz-antenna"></i></div>
+                <div class="context">
+                  <p>Giấy phép, tài liệu quảng cáo</p>
+                </div>
+                <div class="action-group">
+                  <div class="icon-right"><i class="icz icz-right"></i></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <hr class="line mt-4 mb-4">
+          <div class="context-preview-ads">
+            <h2 class="is-size-6 has-text-weight-bold mb-2">Hình ảnh quảng cáo</h2>
+            <div class="preview-ads is-detail">
+              <div class="ads-head">
+                <div class="avatar avatar--s">
+                  <div class="avatar-img" style="background-image:url(https://via.placeholder.com/120x120)"></div>
+                </div><span>{Tiêu đề quảng cáo}</span>
+              </div>
+              <div class="ads-body">
+                <p class="ellips-2">{Nội dung quảng cáo}</p>
+                <div class="ads-img">
+                  <div class="img-container" style="background-image:url(https://via.placeholder.com/1024x533)"></div>
+                </div>
+              </div>
+              <div class="ads-footer"><span class="ads-btn">Nút bấm</span></div>
+            </div>
+          </div>
+          <hr class="line mt-4 mb-4">
+          <div class="context-preview-ads">
+            <h2 class="is-size-6 has-text-weight-bold mb-2">Hình ảnh quảng cáo {Dành cho QC Website có OA}</h2>
+            <div class="preview-ads is-detail">
+              <div class="ads-head">
+                <div class="avatar avatar--s">
+                  <div class="avatar-img" style="background-image:url(https://via.placeholder.com/120x120)"></div>
+                </div><span>{Tiêu đề quảng cáo}</span>
+              </div>
+              <div class="ads-body">
+                <p class="ellips-2">{Nội dung quảng cáo}</p>
+                <div class="ads-img">
+                  <div class="img-container" style="background-image:url(https://via.placeholder.com/1024x533)"></div>
+                </div>
+              </div>
+              <div class="ads-footer">
+                <p class="ellips-2 is-size-6 mb-1">{Mô tả}</p>
+                <p class="ellips-2 is-size-7">{Thông tin thêm}</p><span class="ads-btn">Nút bấm</span>
+              </div>
+            </div>
+            <button class="button is-outlined is-fullwidth">Tạo bản sao của quảng cáo này</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bl-tooltip">
+      <div class="tooltip-container" id="tooltip-default">
+        <div class="bl-tooltip-heading"><span>Tooltip default</span><a class="func-close-tooltip" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-tooltip-context">
+          <p>Đang cập nhật...</p>
+        </div>
+      </div>
+      <div class="tooltip-container" id="tooltip-web">
+        <div class="bl-tooltip-heading"><span>Quảng cáo website</span><a class="func-close-tooltip" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-tooltip-context">
+          <p>Quảng cáo website là hình thức quảng cáo tăng lượng truy cập về website của doanh nghiệp, cửa hàng.</p>
+          <p>Với hình thức quảng cáo Website, bạn có thể:</p>
+          <ul>
+            <li class="has-icon"><i class="icz icz-fill-check"></i>Chuyển mọi người đến đích như trang web, ứng dụng hoặc cửa hàng (Lượt click đến trang web)</li>
+            <li class="has-icon"><i class="icz icz-fill-check"></i>Tăng số người đi tới ứng dụng trên thiết bị di động hoặc máy tính của mình (Tương tác với ứng dụng)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tooltip-container" id="tooltip-oa">
+        <div class="bl-tooltip-heading"><span>Quảng cáo Zalo OA</span><a class="func-close-tooltip" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-tooltip-context">
+          <p>Đang cập nhật...</p>
+        </div>
+      </div>
+      <div class="tooltip-container" id="tooltip-message">
+        <div class="bl-tooltip-heading"><span>Quảng cáo tin nhắn</span><a class="func-close-tooltip" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-tooltip-context">
+          <p>Đang cập nhật...</p>
+        </div>
+      </div>
+      <div class="tooltip-container" id="tooltip-form">
+        <div class="bl-tooltip-heading"><span>Quảng cáo Form</span><a class="func-close-tooltip" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-tooltip-context">
+          <p>Hình thức quảng cáo này nhằm mục đích thu nhập thông tin khách hàng giúp cửa hàng có được danh sách khách hàng tiềm năng</p>
+          <p>Quảng cáo Form hiện tại chỉ hỗ trợ cho một số ngành hàng</p><a href="#!" target="_blank">Xem danh sách ngành hàng hỗ trợ Quảng cáo Form</a>
+        </div>
+      </div>
+      <div class="tooltip-container" id="view-reason">
+        <div class="bl-tooltip-heading"><span>Lý do bị từ chối</span><a class="func-close-tooltip" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-tooltip-context">
+          <ul class="mb-4">
+            <li>Nội dung sai chính tả, ngữ pháp.</li>
+            <li>Sản phẩm, dịch vụ cần giấy phép quảng cáo, vui lòng upload bổ sung</li>
+            <li>Vui lòng bổ sung dòng chữ "Sản phẩm này không phải là thuốc, không có tác dụng thay thế thuốc" trong nội dung hoặc hình ảnh quảng cáo</li>
+            <li>Lý do khác</li>
+            <li>{content từ CTV}</li>
+          </ul>
+          <p class="mb-2"><a href="#!">Xem thêm Chính sách quảng cáo<i class="icz icz-launch ml-2"></i></a></p>
+          <p class="mb-4"><a href="#!">Xem thêm các vi phạm và chính sách duyệt quảng cáo khác<i class="icz icz-launch ml-2"></i></a></p>
+          <hr class="line is-outside mb-3">
+          <p>Sử dung: <a href="#!">"Công cụ kiểm tra nội dung và hình ảnh"</a> để kiểm tra trước các lỗi có thể vi phạm chính sách quảng cáo</p>
+        </div>
+      </div>
+    </div>
+    <div class="bl-popup">
+      <div class="popup-container" id="popup-viewLocation-1">
+        <div class="bl-popup-heading"><span>Vị trí (294 địa điểm)</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context is-grey is-less">
+          <ul class="group-view-list">
+            <li>
+              <div class="item-view has-func has-collapse in"><a href="javascript:void(0)">Miền Bắc</a></div>
+              <ul>
+                <li>
+                  <div class="item-view has-func has-collapse in"><a href="javascript:void(0)">Hà Nội</a></div>
+                  <ul>
+                    <li>
+                      <div class="item-view has-func"><a href="javascript:void(0)">Ba Đình</a></div>
+                    </li>
+                    <li>
+                      <div class="item-view has-func"><a href="javascript:void(0)">Hai Bà Trưng</a></div>
+                    </li>
+                    <li>
+                      <div class="item-view has-func"><a href="javascript:void(0)">Hoàn Kiếm</a></div>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="item-view has-func has-collapse"><a href="javascript:void(0)">Hải Dương</a></div>
+                </li>
+                <li>
+                  <div class="item-view has-func has-collapse"><a href="javascript:void(0)">Hải Phòng</a></div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="item-view has-func has-collapse"><a href="javascript:void(0)">Miền Trung</a></div>
+            </li>
+            <li>
+              <div class="item-view has-func has-collapse"><a href="javascript:void(0)">Miền Nam</a></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-viewLocation-2">
+        <div class="bl-popup-heading"><span>Vị trí (5 địa điểm)</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context is-less">
+          <ul class="location-list my-2">
+            <li><span>1 Lê Duẩn, Bến Nghé, District 1, Ho Chi Minh City, Vietnam</span><span class="is-km">+25km</span><i class="icz icz-fill-pin"></i></li>
+            <li><span>1 Lê Duẩn, Bến Nghé, District 1, Ho Chi Minh City, Vietnam</span><span class="is-km">+25km</span><i class="icz icz-fill-pin"></i></li>
+          </ul>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-viewStandard">
+        <div class="bl-popup-heading"><span>Tiêu chí khác (5)</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context is-grey is-less">
+          <ul class="group-view-list">
+            <li>
+              <div class="item-view has-func has-collapse in"><a href="javascript:void(0)">Nhân khẩu học</a></div>
+              <ul>
+                <li>
+                  <div class="item-view has-func has-collapse in"><a href="javascript:void(0)">Tình trạng hôn nhân</a></div>
+                  <ul>
+                    <li>
+                      <div class="item-view has-func"><a href="javascript:void(0)">Độc thân</a></div>
+                    </li>
+                    <li>
+                      <div class="item-view has-func"><a href="javascript:void(0)">Đã kết hôn</a></div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="item-view has-func has-collapse in"><a href="javascript:void(0)">Sở thích</a></div>
+              <ul>
+                <li>
+                  <div class="item-view has-func has-collapse in"><a href="javascript:void(0)">Sức khỏe</a></div>
+                  <ul>
+                    <li>
+                      <div class="item-view has-func"><a href="javascript:void(0)">Sản phẩm chăm sóc sức khỏe</a></div>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="item-view has-func has-collapse in"><a href="javascript:void(0)">Thời trang làm đẹp</a></div>
+                  <ul>
+                    <li>
+                      <div class="item-view has-func"><a href="javascript:void(0)">Mỹ phẩm, làm đẹp</a></div>
+                    </li>
+                    <li>
+                      <div class="item-view has-func"><a href="javascript:void(0)">Sản phẩm chăm sóc sức khỏe</a></div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-view-document">
+        <div class="bl-popup-heading"><span>Cung cấp Giấy phép/Tài liệu</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context">
+          <div class="document-tabs is-outside">
+            <ul>
+              <li><a class="b-nav-tabv is-active" href="#tab1a" data-tab="tab1a">Giấy phép/Tài liệu</a></li>
+              <li><a class="b-nav-tabv" href="#tab2a" data-tab="tab2a">Liên kết</a></li>
+            </ul>
+          </div>
+          <div class="b-tabv" id="tab1a">
+            <p class="is-size-7 mb-3">Nhà quảng cáo vui lòng cung cấp đầy đủ các chứng từ/giấy phép (nếu có) của sản phẩm quảng cáo để quảng cáo được duyệt. <a class="func-popup-moreInfo" href="#!">Tra cứu các loại hình quảng cáo cần giấy phép</a></p>
+            <div class="upload-document-group">
+              <ul>
+                <li><a class="func-upload-document func-popup-library">
+                    <div class="ico-wrap"><i class="icz icz-archive-drawer"></i></div><span>Chọn file từ thư viện</span></a></li>
+                <li><a class="func-upload-document func-popup-libraryNull">
+                    <div class="ico-wrap"><i class="icz icz-archive-drawer"></i></div><span>Chọn file từ thư viện (null)</span></a></li>
+                <li>
+                  <div class="func-upload-document">
+                    <div class="ico-wrap"><i class="icz icz-file-add"></i></div><span>Đăng file mới</span>
+                    <div class="inputfile-container">
+                      <input class="inputfile" type="file" id="file1">
+                      <label for="file1"></label>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <hr class="separate is-outside">
+            <div class="title is-lighter mb-0"><span>Giấy phép đã cung cấp (2)</span></div>
+            <div class="input-group-more is-single">
+              <div class="ico-single"><i class="icz icz-fill-file"></i></div>
+              <p>hopdong_2019.docx</p><a class="func-delete func-modal-delete" href="javascript:void(0);"><i class="icz icz-fill-remove"></i></a>
+            </div>
+            <div class="input-group-more is-single">
+              <div class="ico-single"><i class="icz icz-fill-image"></i></div>
+              <p>hinhanh_dienvien.jpg</p><a class="func-delete func-modal-delete" href="javascript:void(0);"><i class="icz icz-fill-remove"></i></a>
+            </div>
+          </div>
+          <div class="b-tabv" id="tab2a">
+            <p class="is-size-7 my-3">Quảng cáo có sử dụng có bản quyền phải có link stock của hình ảnh đó</p>
+            <div class="field mb-2">
+              <div class="control">
+                <textarea class="textarea has-fixed-size is-outlined" type="textarea" placeholder="Dán đường dẫn link vào đây"></textarea>
+              </div>
+            </div>
+            <div class="buttons is-right">
+              <button class="button is-primary mx-0" disabled>Thêm liên kết</button>
+            </div>
+            <hr class="separate is-outside">
+            <h2 class="subtitle">Liên kết đã thêm</h2>
+            <div class="input-group-more is-single">
+              <div class="ico-single"><i class="icz icz-fill-link"></i></div>
+              <p>https://unsplash.com/photos/PsdmADHMbvg</p><a class="func-delete func-modal-delete" href="javascript:void(0);"><i class="icz icz-trash"></i></a>
+            </div>
+            <div class="input-group-more is-single">
+              <div class="ico-single"><i class="icz icz-fill-link"></i></div>
+              <p>https://www.shutterstock.com/image-photo/portrait-mature-woman-back-yard-garden-583311982</p><a class="func-delete func-modal-delete" href="javascript:void(0);"><i class="icz icz-trash"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-view-document-simplified">
+        <div class="bl-popup-heading"><span>Cung cấp Giấy phép/Tài liệu</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context has-fixed">
+          <div class="document-tabs is-outside">
+            <ul>
+              <li><a class="b-nav-tabv is-active" href="#tab1a" data-tab="tab1a">Giấy phép/Tài liệu</a></li>
+              <li><a class="b-nav-tabv" href="#tab2a" data-tab="tab2a">Liên kết</a></li>
+            </ul>
+          </div>
+          <div class="b-tabv" id="tab1a">
+            <p class="is-size-7 mb-3">Nhà quảng cáo vui lòng cung cấp đầy đủ các chứng từ/giấy phép (nếu có) của sản phẩm quảng cáo để quảng cáo được duyệt. <a class="func-popup-moreInfo" href="#!">Tra cứu các loại hình quảng cáo cần giấy phép</a></p>
+            <div class="upload-document-group">
+              <ul>
+                <li><a class="func-upload-document func-popup-library">
+                    <div class="ico-wrap"><i class="icz icz-archive-drawer"></i></div><span>Chọn file từ thư viện</span></a></li>
+                <li><a class="func-upload-document func-popup-libraryNull">
+                    <div class="ico-wrap"><i class="icz icz-archive-drawer"></i></div><span>Chọn file từ thư viện (null)</span></a></li>
+                <li>
+                  <div class="func-upload-document">
+                    <div class="ico-wrap"><i class="icz icz-file-add"></i></div><span>Đăng file mới</span>
+                    <div class="inputfile-container">
+                      <input class="inputfile" type="file" id="file1">
+                      <label for="file1"></label>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <hr class="separate is-outside">
+            <div class="title is-lighter mb-0"><span>Giấy phép đã cung cấp (2)</span></div>
+            <div class="input-group-more is-single">
+              <div class="ico-single"><i class="icz icz-fill-file"></i></div>
+              <p>hopdong_2019.docx</p><a class="func-delete func-modal-delete" href="javascript:void(0);"><i class="icz icz-fill-remove"></i></a>
+            </div>
+            <div class="input-group-more is-single">
+              <div class="ico-single"><i class="icz icz-fill-image"></i></div>
+              <p>hinhanh_dienvien.jpg</p><a class="func-delete func-modal-delete" href="javascript:void(0);"><i class="icz icz-fill-remove"></i></a>
+            </div>
+          </div>
+          <div class="b-tabv" id="tab2a">
+            <p class="is-size-7 my-3">Quảng cáo có sử dụng có bản quyền phải có link stock của hình ảnh đó</p>
+            <div class="field mb-2">
+              <div class="control">
+                <textarea class="textarea has-fixed-size is-outlined" type="textarea" placeholder="Dán đường dẫn link vào đây"></textarea>
+              </div>
+            </div>
+            <div class="buttons is-right">
+              <button class="button is-primary mx-0" disabled>Thêm liên kết</button>
+            </div>
+            <hr class="separate is-outside">
+            <h2 class="subtitle">Liên kết đã thêm</h2>
+            <div class="input-group-more is-single">
+              <div class="ico-single"><i class="icz icz-fill-link"></i></div>
+              <p>https://unsplash.com/photos/PsdmADHMbvg</p><a class="func-delete func-modal-delete" href="javascript:void(0);"><i class="icz icz-trash"></i></a>
+            </div>
+            <div class="input-group-more is-single">
+              <div class="ico-single"><i class="icz icz-fill-link"></i></div>
+              <p>https://www.shutterstock.com/image-photo/portrait-mature-woman-back-yard-garden-583311982</p><a class="func-delete func-modal-delete" href="javascript:void(0);"><i class="icz icz-trash"></i></a>
+            </div>
+          </div>
+          <div class="bottom"><a class="feature-hidden func-select-daterangepicker" href="javascript:void(0)" style="position:absolute;top:0;left:20px;margin:0 auto;">T/h khi bấm vào Gửi duyệt bật popup</a>
+            <div class="buttons is-centered">
+              <button class="button is-primary is-large mt-3 btn_confirm" onclick="location.href='ad_waiting.html'">Gửi duyệt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container has-calendar-right" id="popup-daterangepicker">
+        <div class="bl-popup-heading"><span>Chọn ngày</span><a class="func-re-open" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-next func-re-open" href="javascript:void(0);">Lưu</a></div>
+        <div class="bl-popup-context">
+          <div class="result-daterangepicker"><span class="label">Ngày đã chọn</span><span class="date">18/08/2020 - 30/08/2020</span></div>
+          <div id="date-picker-calendar">
+            <div class="daterangepicker ltr auto-apply show-ranges show-calendar opensright" style="top: 35px; left: 0px; right: auto;">
+              <div class="ranges">
+                <ul>
+                  <li data-range-key="Hôm nay">Hôm nay</li>
+                  <li data-range-key="7 ngày trước">7 ngày trước</li>
+                  <li data-range-key="Tháng này">Tháng này</li>
+                  <li class="active" data-range-key="Tùy chỉnh">Tùy chỉnh</li>
+                </ul>
+              </div>
+              <div class="drp-calendar left">
+                <div class="calendar-table">
+                  <table class="table-condensed">
+                    <thead>
+                      <tr>
+                        <th class="prev available"><span></span></th>
+                        <th class="month" colspan="5">Tháng 8/2020</th>
+                        <th class="next available"><span></span></th>
+                      </tr>
+                      <tr>
+                        <th>T2</th>
+                        <th>T3</th>
+                        <th>T4</th>
+                        <th>T5</th>
+                        <th>T6</th>
+                        <th>T7</th>
+                        <th>CN</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="off ends available" data-title="r0c0">27</td>
+                        <td class="off ends available" data-title="r0c1">28</td>
+                        <td class="off ends available" data-title="r0c2">29</td>
+                        <td class="off ends available" data-title="r0c3">30</td>
+                        <td class="off ends available" data-title="r0c4">31</td>
+                        <td class="weekend available" data-title="r0c5">1</td>
+                        <td class="weekend available" data-title="r0c6">2</td>
+                      </tr>
+                      <tr>
+                        <td class="available" data-title="r1c0">3</td>
+                        <td class="active start-date available" data-title="r1c1">4</td>
+                        <td class="in-range available" data-title="r1c2">5</td>
+                        <td class="in-range available" data-title="r1c3">6</td>
+                        <td class="in-range available" data-title="r1c4">7</td>
+                        <td class="weekend in-range available" data-title="r1c5">8</td>
+                        <td class="weekend in-range available" data-title="r1c6">9</td>
+                      </tr>
+                      <tr>
+                        <td class="in-range available" data-title="r2c0">10</td>
+                        <td class="in-range available" data-title="r2c1">11</td>
+                        <td class="in-range available" data-title="r2c2">12</td>
+                        <td class="in-range available" data-title="r2c3">13</td>
+                        <td class="in-range available" data-title="r2c4">14</td>
+                        <td class="weekend in-range available" data-title="r2c5">15</td>
+                        <td class="weekend in-range available" data-title="r2c6">16</td>
+                      </tr>
+                      <tr>
+                        <td class="in-range available" data-title="r3c0">17</td>
+                        <td class="in-range available" data-title="r3c1">18</td>
+                        <td class="in-range available" data-title="r3c2">19</td>
+                        <td class="in-range available" data-title="r3c3">20</td>
+                        <td class="in-range available" data-title="r3c4">21</td>
+                        <td class="weekend in-range available" data-title="r3c5">22</td>
+                        <td class="weekend in-range available" data-title="r3c6">23</td>
+                      </tr>
+                      <tr>
+                        <td class="in-range available" data-title="r4c0">24</td>
+                        <td class="in-range available" data-title="r4c1">25</td>
+                        <td class="in-range available" data-title="r4c2">26</td>
+                        <td class="in-range available" data-title="r4c3">27</td>
+                        <td class="today in-range available" data-title="r4c4">28</td>
+                        <td class="weekend active end-date in-range available" data-title="r4c5">29</td>
+                        <td class="weekend available" data-title="r4c6">30</td>
+                      </tr>
+                      <tr>
+                        <td class="available" data-title="r5c0">31</td>
+                        <td class="off ends available" data-title="r5c1">1</td>
+                        <td class="off ends available" data-title="r5c2">2</td>
+                        <td class="off ends available" data-title="r5c3">3</td>
+                        <td class="off ends available" data-title="r5c4">4</td>
+                        <td class="weekend off ends available" data-title="r5c5">5</td>
+                        <td class="weekend off ends available" data-title="r5c6">6</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="calendar-time" style="display: none;"></div>
+              </div>
+              <div class="drp-calendar right">
+                <div class="calendar-table">
+                  <table class="table-condensed">
+                    <thead>
+                      <tr>
+                        <th class="prev available"><span></span></th>
+                        <th class="month" colspan="5">Tháng 9 2020</th>
+                        <th class="next available"><span></span></th>
+                      </tr>
+                      <tr>
+                        <th>T2</th>
+                        <th>T3</th>
+                        <th>T4</th>
+                        <th>T5</th>
+                        <th>T6</th>
+                        <th>T7</th>
+                        <th>CN</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="off ends available" data-title="r0c0">31</td>
+                        <td class="available" data-title="r0c1">1</td>
+                        <td class="available" data-title="r0c2">2</td>
+                        <td class="available" data-title="r0c3">3</td>
+                        <td class="available" data-title="r0c4">4</td>
+                        <td class="weekend available" data-title="r0c5">5</td>
+                        <td class="weekend available" data-title="r0c6">6</td>
+                      </tr>
+                      <tr>
+                        <td class="available" data-title="r1c0">7</td>
+                        <td class="available" data-title="r1c1">8</td>
+                        <td class="available" data-title="r1c2">9</td>
+                        <td class="available" data-title="r1c3">10</td>
+                        <td class="available" data-title="r1c4">11</td>
+                        <td class="weekend available" data-title="r1c5">12</td>
+                        <td class="weekend available" data-title="r1c6">13</td>
+                      </tr>
+                      <tr>
+                        <td class="available" data-title="r2c0">14</td>
+                        <td class="available" data-title="r2c1">15</td>
+                        <td class="available" data-title="r2c2">16</td>
+                        <td class="available" data-title="r2c3">17</td>
+                        <td class="available" data-title="r2c4">18</td>
+                        <td class="weekend available" data-title="r2c5">19</td>
+                        <td class="weekend available" data-title="r2c6">20</td>
+                      </tr>
+                      <tr>
+                        <td class="available" data-title="r3c0">21</td>
+                        <td class="available" data-title="r3c1">22</td>
+                        <td class="available" data-title="r3c2">23</td>
+                        <td class="available" data-title="r3c3">24</td>
+                        <td class="available" data-title="r3c4">25</td>
+                        <td class="weekend available" data-title="r3c5">26</td>
+                        <td class="weekend available" data-title="r3c6">27</td>
+                      </tr>
+                      <tr>
+                        <td class="available" data-title="r4c0">28</td>
+                        <td class="available" data-title="r4c1">29</td>
+                        <td class="available" data-title="r4c2">30</td>
+                        <td class="off ends available" data-title="r4c3">1</td>
+                        <td class="off ends available" data-title="r4c4">2</td>
+                        <td class="weekend off ends available" data-title="r4c5">3</td>
+                        <td class="weekend off ends available" data-title="r4c6">4</td>
+                      </tr>
+                      <tr>
+                        <td class="off ends available" data-title="r5c0">5</td>
+                        <td class="off ends available" data-title="r5c1">6</td>
+                        <td class="off ends available" data-title="r5c2">7</td>
+                        <td class="off ends available" data-title="r5c3">8</td>
+                        <td class="off ends available" data-title="r5c4">9</td>
+                        <td class="weekend off ends available" data-title="r5c5">10</td>
+                        <td class="weekend off ends available" data-title="r5c6">11</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="calendar-time" style="display: none;"></div>
+              </div>
+              <div class="drp-buttons"><span class="drp-selected">04/08/2020 - 29/08/2020</span>
+                <button class="cancelBtn btn btn-sm btn-default" type="button">Hủy</button>
+                <button class="applyBtn btn btn-sm btn-primary" type="button">Áp dụng</button>
+              </div>
+            </div>
+          </div>
+          <div class="func-select-ranges"><span>Hôm nay</span><i class="icz icz-up"></i>
+            <div class="checkbox-list">
+              <div class="item-checkbox">
+                <div class="input-group">
+                  <input id="op1" name="option" type="radio" checked>
+                  <label class="label-custom" for="op1"><span>Hôm nay</span></label>
+                </div>
+              </div>
+              <div class="item-checkbox">
+                <div class="input-group">
+                  <input id="op2" name="option" type="radio">
+                  <label class="label-custom" for="op2"><span>7 ngày trước</span></label>
+                </div>
+              </div>
+              <div class="item-checkbox">
+                <div class="input-group">
+                  <input id="op3" name="option" type="radio">
+                  <label class="label-custom" for="op3"><span>30 ngày trước</span></label>
+                </div>
+              </div>
+              <div class="item-checkbox">
+                <div class="input-group">
+                  <input id="op4" name="option" type="radio">
+                  <label class="label-custom" for="op4"><span>Tháng này</span></label>
+                </div>
+              </div>
+              <div class="item-checkbox">
+                <div class="input-group">
+                  <input id="op5" name="option" type="radio">
+                  <label class="label-custom" for="op5"><span>Tùy chỉnh</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-daterangepicker-2">
+        <div class="bl-popup-heading"><span>Ngân sách & Lịch chạy</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context has-fixed">
+          <div class="tag-notice mb-3"><span>Áp dụng cho toàn lịch chạy</span></div>
+          <div class="section-create-ads">
+            <div class="inline-message is-danger mb-2"><i class="icz icz-fill-error-hex"></i>
+              <p>Ngân sách tối thiểu là xx.xxxđ</p>
+            </div>
+            <div class="field mt-3 mb-0">
+              <label class="label is-medium has-text-weight-bold mb-3">Ngân sách chạy quảng cáo</label>
+              <div class="field-group mb-3">
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-large" value="0">
+                  </div>
+                </div>
+                <div class="unit">VNĐ</div>
+              </div>
+            </div>
+            <hr class="line is-outside mb-3">
+            <div class="inline-message is-danger mb-2"><i class="icz icz-fill-error-hex"></i>
+              <p>Thời gian kết thúc quảng cáo phải lớn hơn ngày hiện tại. Vui lòng điều chỉnh cho phù hợp</p>
+            </div>
+            <label class="label is-medium has-text-weight-bold mb-3 mt-3">Lịch chạy quảng cáo</label>
+            <div class="section-calendar has-ico">
+              <div class="input-group-more is-2col">
+                <div><i class="icz icz-fill-calendar"></i>
+                  <p class="is-size-6">Ngày bắt đầu</p>
+                </div>
+                <div>
+                  <p class="is-size-5 has-text-weight-semibold has-text-link func-open-daterange">21/01/2020</p>
+                </div>
+              </div>
+              <div class="input-group-more is-2col">
+                <div><i class="icz icz-fill-calendar"></i>
+                  <p class="is-size-6">Ngày kết thúc</p>
+                </div>
+                <div>
+                  <p class="is-size-5 has-text-weight-semibold has-text-link func-open-daterange">21/01/2020</p>
+                </div>
+              </div>
+            </div>
+            <div class="review-total-price mt-2">Quảng cáo của bạn sẽ có tổng chi phí dự kiến là <strong>100,000đ </strong> từ <strong> 21/01/2021 </strong> đến <strong> 22/01/2021</strong>. Chi phí chạy thật có thể thay đổi.</div>
+          </div>
+          <div class="bottom">
+            <div class="buttons is-centered">
+              <button class="button is-primary is-large mt-3 btn_confirm" onclick="location.href='ad_waiting.html'">Gửi duyệt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bl-modal">
+      <div class="modal-container" id="modal-alert-1">
+        <div class="bl-modal-heading"><span>Có sự cố trong quá trình tải dữ liệu</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Dữ liệu bị abc xyz . . . .  vui lòng thử lại.</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-light is-large is-invisible">Secondary</button>
+            <button class="button is-primary is-large" href="#!">Primary</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-alert-continue">
+        <div class="bl-modal-heading"><span>{Error}</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>{Error message}</p>
+          <div class="buttons is-centered">
+            <button class="button is-fullwidth is-primary is-large" href="#!">Primary</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-template-1">
+        <div class="bl-modal-heading"><span>{Tiêu đề}</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>{Nội dung}</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-light is-large" href="#!">Secondary</button>
+            <button class="button is-primary is-large" href="#!">Primary</button>
+          </div>
+          <div class="buttons is-centered">
+            <button class="button is-fullwidth is-primary is-large" href="#!">Primary</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-confirm-delete">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc muốn xóa [name] này?</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-light is-large" href="#!">Không</button>
+            <button class="button is-primary is-large" href="#!">Xác nhận</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-confirm-exit">
+        <div class="bl-modal-heading"><span>Thoát</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn sẽ mất các dữ liệu đã nhập. Bạn có chắc muốn thoát không?</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-outlined is-large" href="#!">Không</button>
+            <button class="button is-outlined is-large" onclick="location.href='create_ads_simplified_step1.html'">Xác nhận</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-confirm-stop">
+        <div class="bl-modal-heading"><span>Tạm dừng quảng cáo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc muốn tạm dừng quảng cáo này không?</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-outlined is-large" href="#!">Không</button>
+            <button class="button is-outlined is-large" href="#!">Xác nhận</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-conflict">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Quảng cáo này được tạo từ một phiên bản khác của Zalo Ads. Chỉnh sửa quảng cáo này sẽ làm mất quyền chỉnh sửa ở phiên bản khác do không hỗ trợ một số tính năng.</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-outlined is-large" href="#!">Huỷ thao tác</button>
+            <button class="button is-primary is-large" href="#!">Đồng ý</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script>
+      //- demo progressbar
+      $(".progressbar > div").css("width","25%");
+      
+      //- tooltip
+      $(".func-view-reason").click(function(){
+      	$("body").addClass("overlay-tooltip");
+      	$("#view-reason").addClass("is-show");
+      });
+      $(".func-tooltip-default").click(function(){
+      	$("html").addClass("overflow-hidden");
+      	$("body").addClass("overlay-tooltip");
+      	$("#tooltip-default").addClass("is-show");
+      });
+      $(".func-close-tooltip, .bl-tooltip").click(function(){
+      	$("html").removeClass("overflow-hidden");
+      	$("body").removeClass("overlay-tooltip");
+      	$(".tooltip-container").removeClass("is-show");
+      });
+      
+      $(".tooltip-container").click(function(e){
+      	e.stopPropagation()
+      });
+      //- modal
+      $(".func-modal-continue").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-alert-continue").addClass("is-show");
+      });
+      $(".func-close-modal").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal-container").removeClass("is-show");
+      });
+      
+      //- popup
+      $(".func-popup-view-document-simplified").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$("#popup-view-document-simplified").addClass("is-show");
+      });
+      
+      $(".func-popup-viewLocation-1").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$("#popup-viewLocation-1").addClass("is-show");
+      });
+      $(".func-popup-viewLocation-2").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$("#popup-viewLocation-2").addClass("is-show");
+      });
+      $(".func-select-daterangepicker").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$("#popup-daterangepicker-2").addClass("is-show");
+      });
+      $(".func-close-popup").click(function(){
+      	$("html").removeClass("overlay-popup");
+      	$(".popup-container").removeClass("is-show");
+      });
+      
+      //- check toggle tắt thì thông báo muốn tạm dừng quảng cáo
+      $("#switch-1").change(function(event){
+      	var groupInput = document.querySelectorAll("#switch-1:checked");
+      	var lengthChecked = groupInput.length;
+      	for(let i = 0; i<= lengthChecked; i++){
+      		if(groupInput.length ===0){
+      			$("html").addClass("overlay-modal");
+      			$("#modal-confirm-stop").addClass("is-show");
+      		}
+      	}
+      });
+      setTimeout(function(){ $(".toast-message").removeClass("is-show") }, 2500);
+    </script>
+  </body>
+</html>

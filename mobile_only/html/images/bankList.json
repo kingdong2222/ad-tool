@@ -1,0 +1,320 @@
+[
+    {
+        "bankCode": "ABB",
+		"name": "Ngân hàng TMCP An Bình",
+		"shortName": "ABBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "ACB",
+		"name": "Ngân hàng TMCP Á Châu",
+		"shortName": "ACB",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "BIDV",
+		"name": "Ngân hàng TMCP Đầu tư và Phát triển Việt Nam",
+		"shortName": "BIDV",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "BVB",
+		"name": "Ngân hàng Bảo Việt",
+		"shortName": "BaoVietBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "CC",
+        "name": "Thẻ Visa/Master/JCB",
+        "minAmount": 10000,
+        "maxAmount": 50000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "DAB",
+		"name": "Ngân hàng TMCP Đông Á",
+		"shortName": "Dong A Bank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "EIB",
+		"name": "Ngân hàng TMCP Xuất Nhập Khẩu Việt Nam",
+		"shortName": "Eximbank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "GPB",
+		"name": "Ngân Hàng TM TNHH MTV Dầu Khí Toàn Cầu",
+		"shortName": "GPBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "HDB",
+		"name": "Ngân hàng TMCP Phát Triển TPHCM ",
+		"shortName": "HDBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "IVB",
+		"name": "Ngân hàng TNHH Indovina",
+		"shortName": "Indovina",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "KLB",
+		"name": "Ngân hàng Kiên Long",
+		"shortName": "KienLongBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "LPB",
+		"name": "Ngân hàng TMCP Bưu điện Liên Việt",
+		"shortName": "LienVietPostBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "MB",
+		"name": "Ngân hàng TMCP Quân đội",
+		"shortName": "MBBank",
+        "minAmount": 50000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "MSB",
+		"name": "Ngân hàng TMCP Hàng Hải Việt Nam",
+		"shortName": "MSB",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "NAB",
+		"name": "Ngân hàng TMCP Nam Á",
+		"shortName": "Nam A Bank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "NASB",
+		"name": "Ngân hàng TMCP Bắc Á",
+		"shortName": "Bac A Bank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "NCB",
+		"name": "Ngân hàng TMCP Quốc Dân",
+		"shortName": "NCB",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "OJB",
+		"name": "Ngân hàng TM TNHH MTV Đại Dương",
+		"shortName": "OceanBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "PBVN", 
+		"name": "Ngân hàng TNHH MTV Public Việt Nam",
+		"shortName": "PublicBankVietNam",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "PGB",
+		"name": "Ngân Hàng TMCP Xăng Dầu Petrolimex",
+		"shortName": "PGBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "PVCB",
+		"name": "Ngân hàng TMCP Đại Chúng Việt Nam",
+		"shortName": "PVcomBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "SCB",
+		"name": "Ngân hàng TMCP Sài Gòn Thương Tín",
+		"shortName": "Sacombank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "SEAB",
+		"name": "Ngân hàng TMCP Đông Nam Á",
+		"shortName": "SeABank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "SGB",
+		"name": "Ngân hàng TMCP Sài Gòn Công Thương",
+		"shortName": "SAIGONBANK",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "SGCB",
+		"name": "Ngân hàng TMCP Sài Gòn",
+		"shortName": "TMCP Sài Gòn (SCB)",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "SHB",
+		"name": "Ngân hàng TMCP Sài Gòn - Hà Nội",
+		"shortName": "SHB",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "SHBVN",
+		"name": "Ngân hàng Shinhan",
+		"shortName": "ShinhanBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "TPB",
+		"name": "Ngân hàng TMCP Tiên Phong",
+		"shortName": "TPBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "UOB",
+		"name": "Ngân hàng TNHH MTV United Overseas Bank",
+		"shortName": "UOB",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "VAB",
+		"name": "Ngân hàng TMCP Việt Á",
+		"shortName": "VietABank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "VARB",
+		"name": "Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam",
+		"shortName": "Agribank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "VB", 
+		"name": "Ngân hàng TNHH Việt Nam Thương Tín",
+		"shortName": "VietBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "VCB", 
+		"name": "Ngân hàng TMCP Ngoại Thương Việt Nam",
+		"shortName": "Vietcombank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "VCCB",
+		"name": "Ngân hàng TMCP Bản Việt",
+		"shortName": "Bản Việt",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "VIB",
+		"name": "Ngân hàng Quốc tế",
+		"shortName": "VIB",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "VPB",
+		"name": "Ngân hàng TMCP Việt Nam Thịnh Vượng",
+		"shortName": "VPBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "VRB",
+		"name": "Ngân hàng liên doanh Việt - Nga",
+		"shortName": "VRB",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "VTB",
+		"name": "Ngân hàng TMCP Công Thương Việt Nam",
+		"shortName": "VietinBank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+		"bankCode": "WOO",
+		"name": "Ngân hàng Woori",
+		"shortName": "Wooribank",
+        "minAmount": 10000,
+        "maxAmount": 250000000,
+        "gateway": 0
+    },
+    {
+        "bankCode": "zalopayapp",
+        "name": "Ví điện tử ZaloPay",
+        "minAmount": 0,
+        "maxAmount": 0,
+        "gateway": 0
+    }
+]

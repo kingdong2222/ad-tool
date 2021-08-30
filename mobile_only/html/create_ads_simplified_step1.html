@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.1.0.1.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body class="has-progressbar">
+    <div class="progressbar">
+      <div></div>
+    </div>
+    <div class="page-content">
+      <div class="body">
+        <div class="breadcrumb is-fixed"><span>Tạo quảng cáo website</span><a class="func-back func-modal-confirm-exit"><i class="icz icz-arrow-left"></i></a></div>
+        <div class="trans-breadcrumb"></div>
+        <div class="section-create-ads"><img class="img-step1" src="images/img_ads_step1.png" alt="Image Zalo Ads">
+          <div class="section-form mt-4">
+            <div class="field">
+              <label class="label is-medium">Nhập liên kết website
+                <div class="paste-link"><a href="#!">Dán liên kết</a></div>
+              </label>
+              <div class="control is-danger">
+                <input class="input is-large" type="text" placeholder="http://www.example.com">
+              </div>
+              <p class="help has-text-danger">Nội dung báo lỗi</p>
+            </div>
+          </div>
+          <div class="section-oa">
+            <label class="label is-medium">Chọn OA liên kết</label>
+            <div class="item-oa func-open-oaList">
+              <div class="avatar avatar--m">
+                <div class="avatar-img" style="background-image:url(https://via.placeholder.com/120x120)"></div>
+              </div>
+              <div class="desc"><span>Oa nameOa nameOa nameOa name</span></div><i class="icz icz-down"></i>
+            </div>
+          </div>
+          <div class="section-oa">
+            <label class="label is-medium">Chọn OA liên kết {trường hợp chọn không liên kết OA}</label>
+            <div class="item-oa func-open-oaList">
+              <div class="desc"><span>Không liên kết với OA</span></div><i class="icz icz-down"></i>
+            </div>
+          </div>
+        </div>
+        <div class="section-next-step">
+          <div class="buttons">
+            <button class="button is-primary is-large is-fullwidth" onclick="location.href='create_ads_simplified_step2.html'" disabled>Bước tiếp theo</button>
+          </div>
+        </div>
+        <div class="trans-section-next-step"></div>
+      </div>
+    </div>
+    <div class="bl-tooltip">
+    </div>
+    <div class="bl-popup">
+      <div class="popup-container" id="popup-select-oa">
+        <div class="bl-popup-heading"><span>OA liên kết</span><a class="func-close-popup" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context">
+          <div class="checkbox-list">
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-oa">
+                <input id="oa-0" name="option" type="radio">
+                <label class="label-custom" for="oa-0">
+                  <div class="avatar avatar--m">
+                    <div class="avatar-img"></div>
+                  </div>
+                  <div class="desc"><span>Không chọn liên kết OA</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-oa">
+                <input id="oa-1" name="option" type="radio">
+                <label class="label-custom" for="oa-1">
+                  <div class="avatar avatar--m">
+                    <div class="avatar-img" style="background-image:url(https://via.placeholder.com/120x120)"></div>
+                  </div>
+                  <div class="desc"><span>Oa nameOa nameOa nameOa name</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-oa">
+                <input id="oa-2" name="option" type="radio">
+                <label class="label-custom" for="oa-2">
+                  <div class="avatar avatar--m">
+                    <div class="avatar-img" style="background-image:url(https://via.placeholder.com/120x120)"></div>
+                  </div>
+                  <div class="desc"><span>Oa nameOa nameOa nameOa name</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-oa">
+                <input id="oa-3" name="option" type="radio">
+                <label class="label-custom" for="oa-3">
+                  <div class="avatar avatar--m">
+                    <div class="avatar-img" style="background-image:url(https://via.placeholder.com/120x120)"></div>
+                  </div>
+                  <div class="desc"><span>Oa nameOa nameOa nameOa name</span></div>
+                </label>
+              </div>
+            </div>
+            <div class="item-checkbox">
+              <div class="input-group-checkbox is-oa">
+                <input id="oa-4" name="option" type="radio">
+                <label class="label-custom" for="oa-4">
+                  <div class="avatar avatar--m">
+                    <div class="avatar-img" style="background-image:url(https://via.placeholder.com/120x120)"></div>
+                  </div>
+                  <div class="desc"><span>Oa nameOa nameOa nameOa name</span></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bl-modal">
+      <div class="modal-container" id="modal-alert-1">
+        <div class="bl-modal-heading"><span>Có sự cố trong quá trình tải dữ liệu</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Dữ liệu bị abc xyz . . . .  vui lòng thử lại.</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-light is-large is-invisible">Secondary</button>
+            <button class="button is-primary is-large" href="#!">Primary</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-alert-continue">
+        <div class="bl-modal-heading"><span>{Error}</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>{Error message}</p>
+          <div class="buttons is-centered">
+            <button class="button is-fullwidth is-primary is-large" href="#!">Primary</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-template-1">
+        <div class="bl-modal-heading"><span>{Tiêu đề}</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>{Nội dung}</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-light is-large" href="#!">Secondary</button>
+            <button class="button is-primary is-large" href="#!">Primary</button>
+          </div>
+          <div class="buttons is-centered">
+            <button class="button is-fullwidth is-primary is-large" href="#!">Primary</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-confirm-delete">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc muốn xóa [name] này?</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-light is-large" href="#!">Không</button>
+            <button class="button is-primary is-large" href="#!">Xác nhận</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-confirm-exit">
+        <div class="bl-modal-heading"><span>Thoát</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn sẽ mất các dữ liệu đã nhập. Bạn có chắc muốn thoát không?</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-outlined is-large" href="#!">Không</button>
+            <button class="button is-outlined is-large" onclick="location.href='create_ads_simplified_step1.html'">Xác nhận</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-confirm-stop">
+        <div class="bl-modal-heading"><span>Tạm dừng quảng cáo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc muốn tạm dừng quảng cáo này không?</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-outlined is-large" href="#!">Không</button>
+            <button class="button is-outlined is-large" href="#!">Xác nhận</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container" id="modal-conflict">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Quảng cáo này được tạo từ một phiên bản khác của Zalo Ads. Chỉnh sửa quảng cáo này sẽ làm mất quyền chỉnh sửa ở phiên bản khác do không hỗ trợ một số tính năng.</p>
+          <div class="buttons is-centered is-2b">
+            <button class="button is-outlined is-large" href="#!">Huỷ thao tác</button>
+            <button class="button is-primary is-large" href="#!">Đồng ý</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script>
+      //- demo progressbar
+      $(".progressbar > div").css("width","25%");
+      $("input").focus(function(){
+      	$("button").removeAttr("disabled")
+      })
+      //- modal
+      $(".func-modal-confirm-exit").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-confirm-exit").addClass("is-show");
+      });
+      $(".func-close-modal").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal-container").removeClass("is-show");
+      });
+      $(".func-open-oaList").click(function(){
+      	$("html").addClass("overlay-popup");
+      	$("#popup-select-oa").addClass("is-show");
+      });
+      
+      $(".func-close-popup, .input-group-checkbox.is-oa").click(function(){
+      	$("html").removeClass("overlay-popup");
+      	$(".popup-container").removeClass("is-show");
+      });
+      $(".func-close-myself").click(function(){
+      	$(this).parent().closest(".popup-container").removeClass("is-show");
+      });
+    </script>
+  </body>
+</html>

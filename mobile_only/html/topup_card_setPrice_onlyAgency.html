@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.1.0.1.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <body>
+    <div class="page-content">
+      <div class="header">
+        <div class="header-container"><a href="javascript:history.back()"><i class="icz icz-left"></i><span>Vietcombank</span></a></div>
+        <div class="layer"></div>
+      </div>
+      <div class="body">
+        <div class="section-topup">
+          <p class="is-size-6 has-text-weight-semibold">Nhập số tiền bạn muốn nạp</p>
+          <p class="is-size-7 mb-2">Số tiền nạp tối thiểu 50.000đ</p>
+          <div class="field mb-0">
+            <div class="control has-icons-right is-danger">
+              <input class="input is-large" type="text" placeholder="" value="100.000" focus><span class="icon is-small is-right"><i class="icz icz-fill-warning"></i></span>
+            </div>
+            <p class="help has-text-danger">Nội dung báo lỗi</p>
+          </div>
+          <div class="is-flex">
+            <button class="button is-white has-text-link px-0 mb-3 func-modal-topup-voucher">Nhập mã voucher</button>
+            <div class="tag is-primary mt-2 ml-auto">302929929292929
+              <button class="delete is-small"></button>
+            </div>
+          </div>
+          <hr class="line is-outside mb-3">
+          <p class="is-size-6 has-text-semibold mb-3">Bạn đang tham gia vào tài khoản XXX, các giao dịch nạp tiền sẽ được tự động ghi nhận hóa đơn cho công ty quảng cáo. Bạn vui lòng liên hệ công ty quảng cáo để tìm hiểu kỹ về cách nhận hoá đơn và quyền lợi khi gia nhập công ty quảng cáo.</p>
+          <div class="field">
+            <label class="label is-small">Họ tên</label>
+            <div class="control">
+              <input class="input is-large" type="text" placeholder="Nhập họ tên">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-small">Tên đơn vị</label>
+            <div class="control">
+              <input class="input is-large" type="text" placeholder="Nhập tên đơn vị" disabled>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-small">Số điện thoại</label>
+            <div class="control">
+              <input class="input is-large" type="text" placeholder="0809999999">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-small">Email</label>
+            <div class="control">
+              <input class="input is-large" type="text" placeholder="email@example.co">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-small">Mã số thuế</label>
+            <div class="control">
+              <input class="input is-large" type="text" placeholder="000">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label is-small">Điạ chỉ</label>
+            <div class="control">
+              <textarea class="textarea is-large" type="textarea" placeholder="Nhập địa chỉ đầy đủ"></textarea>
+            </div>
+          </div>
+          <hr class="line is-outside mb-3">
+          <!-- Case default là button[disabled]-->
+          <button class="button is-primary is-large is-fullwidth" onclick="location.href='topup_success.html'">Tiếp tục</button><a class="feature-hidden" onclick="location.href='topup_waiting.html'">Trường hợp báo lỗi</a>
+        </div>
+      </div>
+    </div>
+    <div class="bl-tooltip">
+    </div>
+    <div class="bl-popup">
+      <div class="popup-container" id="popup-check-voucher">
+        <div class="bl-popup-heading"><span>Voucher</span>
+          <div class="func-close-popup"><i class="icz icz-close"></i></div>
+        </div>
+        <div class="bl-popup-context">
+          <p class="is-size-6 has-text-grey has-text-centered">Voucher của bạn có giá trị là</p><span class="input-budget mb-4">50.000đ</span>
+          <button class="button is-primary is-large is-fullwidth func-close-popup">Nạp vào tài khoản</button>
+        </div>
+      </div>
+    </div>
+    <div class="bl-modal">
+      <div class="modal-container" id="modal-topup-voucher">
+        <div class="bl-modal-heading"><span>Nhập mã voucher</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <div class="field mb-4">
+            <label class="label is-small">Voucher</label>
+            <div class="control has-icons-right is-danger">
+              <input class="input is-large" type="text" placeholder="Ví dụ: 9291-1851-7685-JCHV"><span class="icon is-small is-right"><i class="icz icz-fill-warning"></i></span>
+            </div>
+            <p class="help has-text-danger">Mã voucher không tồn tại</p>
+          </div>
+          <button class="button is-primary is-large is-fullwidth">Lưu</button>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script>
+      $(".func-modal-topup-voucher").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-topup-voucher").addClass("is-show");
+      });
+      $(".func-close-modal").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal-container").removeClass("is-show");
+      });
+      $(".func-close-popup").click(function(){
+      	$("html").removeClass("overlay-popup");
+      	$(".popup-container").removeClass("is-show");
+      });
+    </script>
+  </body>
+</html>
