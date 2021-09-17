@@ -192,7 +192,7 @@
 				}
 				.controls-date{display:inline-block;margin-right:5px;min-width:196px;width:196px;
 					@media only screen and (max-width:$large-screen){margin-bottom:10px}
-					&.timer{min-width:90px;width:90px;
+					&.timer{min-width:100px;width:100px;
 						input{padding-left:32px;padding-right:0}
 						.icz{right:inherit;left:10px;margin-top:-8px}
 					}

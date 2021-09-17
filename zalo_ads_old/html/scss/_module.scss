@@ -7667,6 +7667,16 @@
 		
 		&.wrap-content-v2{
 			-webkit-transform: none !important;
+			.page-create-inside{
+				padding: 0;
+				box-shadow: none;
+				.group-panel{
+					padding: 0 20px;
+				}
+				.group-panel + .group-panel{
+					border-top: 20px solid #e0e8ef;
+				}
+			}
 			.wrap-inside{
 				margin: 0;
 				padding: 0;
@@ -7674,7 +7684,9 @@
 				max-width: 100%;
 			}
 			.content-page{
-				padding-right: 320px !important;
+				&.has-side-bar{
+					padding-right: 320px;
+				}
 
 				.page-outside{
 					padding-right: 32px;
@@ -7731,7 +7743,6 @@
 				margin-bottom: 0 !important;
 			}
 		}
-
 		.blk-preview-info-ad{
 			height: 100vh;
 			padding: 24px 10px 32px;
@@ -7740,8 +7751,27 @@
 			position: fixed;
 			top: 105px;
 			right: 0;
-			z-index: 99;
-			
+			.toogle-open-block{
+				position: absolute;
+				left: -54px;
+				top: 0;
+				width: 42px;
+				height: 60px;
+				background: #fff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				display: none;
+				.icz{
+					width: auto;
+					height: auto;
+					font-size: 20px !important;
+				}
+				@media screen and (max-width: 1039px) {
+					display: flex;
+				}
+			}
 			.icz{
 				font: normal normal normal 1em/1 "zadicon" !important;
 				text-indent: unset;
@@ -7788,6 +7818,7 @@
 					border-top: 1px solid #D7E1EA;
 					border-bottom: 1px solid #D7E1EA;
 					padding: 16px 0;
+					margin-bottom: 10px;
 					.item + .item{
 						margin-top: 10px;
 					}
@@ -9406,20 +9437,16 @@ a.label-collapse{
 	border-radius: 4px;
 	border: 1px solid #D7E1EA;
 	min-width: 200px;
-	max-width: 325px;
+	max-width: 330px;
 	width: fit-content;
 	.item{
 		padding: 10px;
 		border-bottom: 1px solid #D7E1EA;
 		display: flex;
 		align-items: center;
-		input[type="checkbox"]{
+		input{
 			width: 16px;
 			height: 16px;
-		}
-		input[type="radio"]{
-			width: 10px;
-			height: 10px;
 		}
 		label{
 			font-size: 14px;

@@ -153,7 +153,7 @@
 		<div class="wrap-content wrap-content-v2">
 			<div class="wrap-inside">
 				
-				<div class="content-page">
+				<div class="content-page has-side-bar">
 					<div class="page-outside page-create">
 						<div class="steps-createads">
 							<ol>
@@ -1109,7 +1109,9 @@
 					<!-- End Content-->
 					
 					<div class="blk-preview-info-ad">
-						
+						<div class="toogle-open-block">
+							<i class="icz icz-right"></i>
+						</div>
 						<p>Thông tin về quảng cáo đang tạo</p>
 						<div class="block-info blk-user">
 							<i class="icz icz-users-wm"></i>
@@ -2047,6 +2049,28 @@ $(function() {
 				temp.style.top = t + 'px'
 				temp.style.height = "calc(100vh - " + t + "px)" 
 			}
+		}
+
+		let toogle_open_block = document.getElementsByClassName('toogle-open-block')[0]
+
+		toogle_open_block.onclick = () => {
+			let temp = document.getElementsByClassName('blk-preview-info-ad')[0]
+			let wrap_content_2 = document.getElementsByClassName('wrap-content-v2')[0]
+			let content_page = wrap_content_2.getElementsByClassName('content-page')[0]
+			let icon_icz = toogle_open_block.getElementsByClassName('icz')[0]
+
+			if(content_page.classList.contains('has-side-bar')){
+				temp.style.right = "-332px"
+				content_page.classList.remove('has-side-bar')
+				icon_icz.classList.remove('icz-right')
+				icon_icz.classList.add('icz-left')
+			} else {
+				temp.style.right = "0"
+				content_page.classList.add('has-side-bar')
+				icon_icz.classList.add('icz-right')
+				icon_icz.classList.remove('icz-left')
+			}
+			
 		}
 	</script>
 </body>
