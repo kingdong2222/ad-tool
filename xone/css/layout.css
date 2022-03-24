@@ -9475,6 +9475,7 @@ body {
      -moz-appearance: none;
           appearance: none;
   border-radius: 0;
+  font-weight: 500;
 }
 #register .modal-body.custom-form .input-has-label input:focus {
   border-color: #FBEC21;
