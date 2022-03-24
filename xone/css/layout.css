@@ -1928,7 +1928,7 @@ textarea.form-control {
 .dropdown-item:hover, .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: #F3F3F3;
 }
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
@@ -8539,6 +8539,13 @@ body {
 .dropdown.is-show .dropdown-menu {
   display: block;
 }
+.dropdown.is-show .dropdown-menu .dropdown-item {
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+.dropdown.is-show .dropdown-menu .dropdown-item:last-child {
+  margin-bottom: 0;
+}
 .dropdown ::-webkit-scrollbar {
   height: 6px;
   width: 6px;
@@ -9058,7 +9065,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   border: none;
-  padding: 0;
+  padding: 8px;
   width: 100%;
   min-width: unset;
   top: 2px !important;
