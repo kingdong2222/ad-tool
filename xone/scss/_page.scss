@@ -1548,7 +1548,16 @@ body {
 
 .dropdown{display:inline-block;position:relative;
 	&.is-show{
-		.dropdown-menu{display:block}
+		.dropdown-menu{
+      display:block;
+      .dropdown-item{
+        margin-bottom: 8px;
+        border-radius: 4px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
 	}
 	::-webkit-scrollbar{@include size(6px)}
 	::-webkit-scrollbar-track{box-shadow:inset 0 0 5px #e4edf4;border-radius:20px;}
@@ -1887,7 +1896,7 @@ body {
             overflow-x: hidden;
             overflow-y: auto;
             border: none;
-            padding: 0;
+            padding: 8px;
             width: 100%;
             min-width: unset;
             top: 2px !important;
