@@ -23,14 +23,13 @@
     <div class="project-layout register">
       <header>
         <div class="container">
-          <div class="logo"><a href="index.html">Xone</a></div>
+          <div class="logo"><a href="careers.xone.fm">Xone</a></div>
           <div class="menu-wrap" id="menu-wrap">
             <ul>
-              <li><a id="introlink" href="index.html#intro">Xone Radio Star</a></li>
-              <li><a id="joininglink" href="index.html#joining"> Đối tượng tham gia</a></li>
-              <li><a id="careerlink" href="index.html#career"> Quy trình tuyển dụng</a></li>
-              <li><a id="aboutlink" href="index.html#about"> Nói về Xone</a></li>
-              <li><a id="contactlink" href="index.html#contact"> Kết nối</a></li>
+              <li><a id="introlink" href="#intro">Xone Radio Star</a></li>
+              <li><a id="joininglink" href="#joining"> Đối tượng tham gia</a></li>
+              <li><a id="careerlink" href="#career"> Quy trình tuyển dụng</a></li>
+              <li><a id="aboutlink" href="#contact"> Về Xone</a></li>
               <li><a class="button" href="register.html" style="display:none">Ứng tuyển</a></li>
             </ul>
           </div>
@@ -102,35 +101,9 @@
                 <div class="dropdown-menu" id="university-menu" aria-labelledby="university"><input type="text" placeholder="Tìm kiếm.." id="uniSearch" onkeyup="filterFunction()"><a class="dropdown-item">Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc Trường abc</a><a class="dropdown-item">Trường cde Trường abc Trường abc</a></div>
               </div>
             </div>
-            <div class="input-group">
-              <div class="input-has-label school-input" style="width: 100%;">
-                <input type="text" placeholder=" " style="width: 100%;" id="school-name">
-                <label for="school-name">Trường Cao đẳng / Đại học</label>
-              </div>
-              <div class="group-dropdown one-line">
-                <label>Quốc gia</label>
-                <div class="dropdown full-width">
-                  <div class="dropdown-toggle" id="studyFrom" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Việt Nam</span></div>
-                  <div class="dropdown-menu" aria-labelledby="studyFrom"><a class="dropdown-item">Lào</a><a class="dropdown-item">Campuchia</a></div>
-                </div>
-              </div>
-            </div>
             <div class="input-has-label">
               <input type="text" placeholder=" " id="major">
               <label for="major">Chuyên ngành</label>
-            </div>
-            <div class="group-dropdown">
-              <label>Thời gian tốt nghiệp <em>(Dự kiến)</em></label>
-              <div class="dropdown-group">
-                <div class="dropdown full-width">
-                  <div class="dropdown-toggle" id="dropdownMonth_0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Tháng</span></div>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMonth_0"><a class="dropdown-item">Tháng 1</a><a class="dropdown-item">Tháng 2</a></div>
-                </div>
-                <div class="dropdown full-width">
-                  <div class="dropdown-toggle" id="dropdownDay_0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="value">Năm</span></div>
-                  <div class="dropdown-menu" aria-labelledby="dropdownDay_0"><a class="dropdown-item">2020</a><a class="dropdown-item">2021</a></div>
-                </div>
-              </div>
             </div>
             <div class="group-radio">
               <label>Bạn có thể làm việc toàn thời gian được không?</label>
@@ -160,22 +133,9 @@
               <input id="uploadCV" type="file" name="uploadCV" accept=".PDF, .PPT, .PPTX, .DOC, .DOCX, .JPG, .PNG">
               <label for="uploadCV"><span>Tải lên</span></label>
             </div>
-            <div class="input-has-label">
-              <input type="text" placeholder=" " id="reference">
-              <label for="reference">Online blog và các bài viết tham khảo</label>
-            </div>
-            <div class="group-radio topic-choosing">
-              <label>Bạn đã chọn thu âm đề nào?</label>
-              <div class="group-radio-form">
-                <div class="form-check">
-                  <input class="form-check-input" id="topic1" type="radio" name="topic-record">
-                  <label class="form-check-label" for="topic1">Đề 1: Điều gì là cần thiết để radio hiện đại có thể cạnh tranh với các hình thức giải trí khác? Vì sao?</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" id="topic2" type="radio" name="topic-record">
-                  <label class="form-check-label" for="topic2">Đề 2: Ba tố chất quan trọng cần có của 1 Radio Host là gì? Vì sao?</label>
-                </div>
-              </div>
+            <div class="text-desc"> 
+              <h4 class="title">Biên tập và thu âm theo chủ đề: "Covid-19 và cuộc sống quanh ta"</h4>
+              <p>Yêu cầu:<br>- Nội dung có giá trị thiết thực, khách quan, tích cực dành cho người nghe từ 18 ~ 35 tuổi<br>- Thời lượng <5 phút</p>
             </div>
             <div class="upload-form is-error">
               <label>Bản thu âm 
@@ -185,21 +145,58 @@
               <label for="uploadTestVoice"><span>Tải lên</span></label>
             </div>
             <p class="error">Dung lượng file vượt giới hạn</p>
+            <div class="group-radio topic-choosing">
+              <h4 class="title">Chọn 1 trong 3 chủ đề ở đây. Tạo 1 playlist gồm 5- 7 bài hát</h4>
+              <div class="group-radio-form">
+                <div class="form-check">
+                  <input class="form-check-input" id="topic1" type="radio" name="topic-record">
+                  <label class="form-check-label" for="topic1">Đề 1: Những bài hát cho buổi sáng đầy năng lượng</label>
+                  <input class="form-check-input" id="topic2" type="radio" name="topic-record">
+                  <label class="form-check-label" for="topic2">Đề 2: Những bài hát cho buổi chiều thảnh thơi</label>
+                  <input class="form-check-input" id="topic3" type="radio" name="topic-record">
+                  <label class="form-check-label" for="topic3">Đề 3: Những bài hát Rewind </label>
+                </div>
+              </div>
+              <p>Đặt tiêu đề theo mẫu: [XONE][RADIO STAR](Tên ứng viên) _(Tên playlist)<br>Ví dụ: [XONE][RADIO STAR] Phuong Nguyen_Wakeup & Get Hype</p>
+            </div>
+            <div class="input-has-label new-blk-gray">
+              <input type="text" placeholder=" " id="playlist">
+              <label for="playlist">Link playlist của bạn</label>
+            </div>
+            <div class="input-has-label">
+              <input type="text" placeholder=" " id="portfolio">
+              <label for="portfolio">Online blog & bài viết tham khảo (Nếu có) </label>
+            </div>
           </div>
           <div class="button-container">
             <button class="button" id="submitForm" href="javascript:void(0);" data-toggle="modal" data-target="#modal-thankyou">Nộp đơn</button>
           </div>
         </div>
+        <div class="module-contact" id="contact">
+          <div class="contain-footer d-flex"> 
+            <div class="col-item"> <img class="logo" src="images/xone-black.png">
+              <p class="title">RADIO JUST GOT BETTER</p>
+            </div>
+            <div class="col-item"> 
+              <p>Nắm bắt xu hướng thật nhanh, cập nhật tin tức cùng những bài hát cực chất, XONE RADIO mang đến những chương trình hấp dẫn mỗi ngày cho giới trẻ thành thị</p>
+              <div class="icon-flw d-flex"> 
+                <p>Follow us:</p><a href="https://zingmp3.vn/liveradio/IWZ979CW.html" target="_blank"><img src="images/new/zingmp3.svg"></a><a href="https://zalo.me/1746205426431862354" target="_blank"><img src="images/new/zalo.svg"></a><a href="https://www.facebook.com/xonefm" target="_blank"><img src="images/new/fb.svg"></a><a href="https://www.instagram.com/xoneradio/" target="_blank"><img src="images/new/instagram.svg"></a><a href="https://www.youtube.com/xonetv" target="_blank"><img src="images/new/youtube.svg"></a>
+              </div>
+            </div>
+            <div class="col-item"> <a class="info" href=""><img src="images/xone_lp_icon_icon_05.png">info@xone.fm</a><a class="info" href=""><img src="images/xone_lp_icon_icon_06.png">081 332 0865</a><a class="info" href=""><img src="images/xone_lp_icon_icon_07.png">Sala Office, 74 đường Nguyễn Cơ Thạch, P. An Lợi Đông, Quận 2, Tp. Hồ Chí Minh</a>
+              <div class="group-icon d-flex"> <a href="https://apps.apple.com/vn/app/zing-mp3-%C4%91%E1%BB%89nh-cao-%C3%A2m-nh%E1%BA%A1c/id992357547?l=vi" target="_blank"><img src="images/new/app_store.png"></a><a href=" https://play.google.com/store/apps/details?id=com.zing.mp3&amp;hl=en&amp;gl=US" target="_blank"><img src="images/new/google_play.png"></a></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div id="cd-nav"><a class="logo" href="index.html"><img src="images/xone-black.png"></a><a class="cd-nav-trigger"><span></span></a>
+    <div id="cd-nav"><a class="logo" href="careers.xone.fm"><img src="images/xone-black.png"></a><a class="cd-nav-trigger"><span></span></a>
       <div id="cd-main-nav">
         <ul class="list-unstyled" id="navBar">
-          <li><a id="introlink_mb" href="index.html#intro">Xone Radio Star</a></li>
-          <li><a id="joining_mb" href="index.html#joining">Đối tượng tham gia</a></li>
-          <li><a id="career_mb" href="index.html#career">Quy trình tuyển dụng</a></li>
-          <li><a id="about_mb" href="index.html#about">Nói về Xone</a></li>
-          <li><a id="contactlink_mb" href="index.html#contact">Kết nối</a></li><a class="btn-cta" href="register.html">Ứng tuyển ngay</a>
+          <li><a id="introlink_mb" href="#intro">Xone Radio Star</a></li>
+          <li><a id="joining_mb" href="#joining">Đối tượng tham gia</a></li>
+          <li><a id="career_mb" href="#career">Quy trình tuyển dụng</a></li>
+          <li><a id="about_mb" href="#contact">Về Xone</a></li><a class="btn-cta" href="register.html">Ứng tuyển ngay</a>
         </ul>
       </div>
       <div class="bg-white-overlay"></div>

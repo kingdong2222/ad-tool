@@ -446,27 +446,13 @@
 }
 .button-container{
 	// width: 100%;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	background-color: #000;
 	position: relative;
-	.bg-wave{
-		background: url('../images/soundwave.png') center center no-repeat;
-		background-size: cover;
-		padding-top: 100px;
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		@include media-breakpoint-up(lg) {
-			display: none;
-		}
-	}
+	margin-bottom: 40px;
 	@include media-breakpoint-up(lg) {
 		background-color: transparent;
+		margin-bottom: 60px;
 	}
 	.button{
-		
 		margin: 0 auto;
 		display: block;
 		position: relative;
@@ -475,8 +461,9 @@
 			text-align: center;
 			width: 150px;
 			transition: 0.4s all ease;
+			border-radius: 8px;
 			@include media-breakpoint-up(lg) {
-				width: 220px;
+				width: 360px;
 				&:hover{
 					background-color: darken($color-main,7);
 				  }
