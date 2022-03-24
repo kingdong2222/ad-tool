@@ -2,6 +2,7 @@ html,
 body {
   font-family: "SVN-Gilroy";
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 /* Menu */
 #cd-nav {
@@ -180,7 +181,7 @@ body {
   padding-top: 64px;
   @extend %tr-all;
   &.open-menu-mb{
-    padding-top: 250px;
+    padding-top: 300px;
   }
   font-family: "SVN-Gilroy";
   @include media-breakpoint-up(lg) {
@@ -280,6 +281,9 @@ body {
               a {
                 &.active,
                 &:hover {
+                  border-bottom: 2px solid $color-main !important;
+                }
+                &.button:hover{
                   border-bottom: 2px solid #9e9107 !important;
                 }
               }
@@ -464,6 +468,15 @@ body {
           }
         }
       }
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    p{
+      font-size: 24px !important;
+      line-height: normal !important;
+    }
+    a.button{
+      font-size: 20px;
     }
   }
 }
@@ -860,6 +873,9 @@ body {
           padding: 24px;
           .text-title{
             width: 260px;
+            h3 + p{
+              margin-top: 8px;
+            }
           }
           .contain-info {
             padding-right: 100px;
@@ -912,12 +928,21 @@ body {
     h2{
       font-weight: 500;
       font-size: 14px;
-      line-height: 15px;
+      line-height: normal;
       margin: 16px 0 8px;
     }
     h3{
       font-size: 12px;
-      line-height: 13px;
+      line-height: normal;
+    }
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      h2{
+        font-size: 24px;
+        margin: 20px 0 12px;
+      }
+      h3{
+        font-size: 16px;
+      }
     }
     @include media-breakpoint-up(lg) {
       h2{
@@ -938,6 +963,9 @@ body {
   flex-direction: column;
   padding: 32px 24px;
   .blk-left{
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      text-align: center;
+    }
     .logo{
       width: 50%;
     }
@@ -956,6 +984,7 @@ body {
   }
   .blk-right{
     display: flex;
+    justify-content: space-around;
     .col-info{
       &:first-child{
         margin-right: 24px;
@@ -1062,6 +1091,8 @@ body {
 .module-introduce{
   max-width: 1440px;
   margin: 0 auto;
+  
+
   .content-text{
     padding: 32px 16px 0;
     h1{
@@ -1121,8 +1152,12 @@ body {
     }
     .col-info{
       margin-bottom: 32px;
-      justify-content: space-between;
+      justify-content: space-around;
+      
       .col-items{
+        &:last-child{
+          margin-right: 0;
+        }
         .item{
           &+.item{
             margin-top: 32px;
@@ -1132,7 +1167,7 @@ body {
       }
     }
   }
-  @include media-breakpoint-up(lg) {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -1212,10 +1247,36 @@ body {
       }
     }
   }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    .text-container{
+      h2{
+        font-size: 32px !important;
+        line-height: 34px !important;
+        padding-bottom: 12px;
+        margin-bottom: 32px;
+        &::after{
+          width: 380px !important;
+          height: 12px !important;
+        }
+      }
+      .col-info{
+        justify-content: flex-start;
+        margin-bottom: 64px;
+        .col-items{
+          margin-right: 32px;
+        }
+        .item{
+          &+.item{
+            margin-top: 40px;
+          }
+        }
+      }
+    } 
+  }
 }
 
 .blk-apply-now{
-  margin: 64px auto 40px;
+  margin: 40px auto;
   max-width: 1440px;
   align-items: center;
   justify-content: center;
@@ -1234,6 +1295,9 @@ body {
     border-radius: 4px;
     padding: 7px 20px;
     margin: 0 24px;
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      font-size: 20px;
+    }
     @include media-breakpoint-up(lg){
       font-size: 30px;
       padding: 16px 32px;
@@ -2013,24 +2077,17 @@ body {
               &:last-child{
                 margin-bottom: 0;
               }
-              [type=radio]:not(:checked) + label {
-                // opacity: 0.5;
-              }
-              [type=radio]:checked + label {
-                font-weight: 600;
-                // opacity: 1;
-                
-              }
               [type=radio]:checked + label:before, [type=radio]:not(:checked) + label:before{
-                top: 14px;
+                top: 8px;
               }
               [type=radio]:checked + label:after, [type=radio]:not(:checked) + label:after{
-                top: 5px;
+                top: 4px;
               }
               label{
                 line-height: 24px;
                 color: #000;
                 display: block;
+                margin-bottom: 8px;
                 @include media-breakpoint-up(lg) {
                   padding-top: 4px;
                 }
