@@ -6723,6 +6723,7 @@ html,
 body {
   font-family: "SVN-Gilroy";
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* Menu */
@@ -6925,7 +6926,7 @@ body {
   font-family: "SVN-Gilroy";
 }
 .project-layout.open-menu-mb {
-  padding-top: 250px;
+  padding-top: 300px;
 }
 @media (min-width: 992px) {
   .project-layout {
@@ -7266,6 +7267,15 @@ body {
 @media (min-width: 992px) {
   .module-first .container .right-content .button:hover {
     background-color: #efdf04;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .module-first p {
+    font-size: 24px !important;
+    line-height: normal !important;
+  }
+  .module-first a.button {
+    font-size: 20px;
   }
 }
 
@@ -7745,6 +7755,9 @@ body {
 .module-content#career ul.desktop-only li .text-title {
   width: 260px;
 }
+.module-content#career ul.desktop-only li .text-title h3 + p {
+  margin-top: 8px;
+}
 .module-content#career ul.desktop-only li .contain-info {
   padding-right: 100px;
 }
@@ -7796,12 +7809,21 @@ body {
 .module-content .content-contain h2 {
   font-weight: 500;
   font-size: 14px;
-  line-height: 15px;
+  line-height: normal;
   margin: 16px 0 8px;
 }
 .module-content .content-contain h3 {
   font-size: 12px;
-  line-height: 13px;
+  line-height: normal;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .module-content .content-contain h2 {
+    font-size: 24px;
+    margin: 20px 0 12px;
+  }
+  .module-content .content-contain h3 {
+    font-size: 16px;
+  }
 }
 @media (min-width: 992px) {
   .module-content .content-contain h2 {
@@ -7826,6 +7848,11 @@ body {
           flex-direction: column;
   padding: 32px 24px;
 }
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .module-host-info .blk-left {
+    text-align: center;
+  }
+}
 .module-host-info .blk-left .logo {
   width: 50%;
 }
@@ -7846,6 +7873,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 .module-host-info .blk-right .col-info:first-child {
   margin-right: 24px;
@@ -8019,14 +8048,16 @@ body {
 }
 .module-introduce .text-container .col-info {
   margin-bottom: 32px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.module-introduce .text-container .col-info .col-items:last-child {
+  margin-right: 0;
 }
 .module-introduce .text-container .col-info .col-items .item + .item {
   margin-top: 32px;
 }
-@media (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .module-introduce {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -8053,12 +8084,12 @@ body {
     margin-bottom: -12px;
   }
 }
-@media (min-width: 992px) and (min-width: 1100px) {
+@media screen and (min-width: 768px) and (min-width: 1100px) {
   .module-introduce .content-text h1 {
     font-size: 40px;
   }
 }
-@media (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .module-introduce .content-text ul {
     background-color: #f2f2f2;
     padding: 64px 32px;
@@ -8076,7 +8107,7 @@ body {
     margin-right: 16px;
   }
 }
-@media (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .module-introduce .content-text p.block-yellow {
     font-size: 32px;
     margin: -32px 0 0;
@@ -8088,12 +8119,12 @@ body {
     font-weight: 700;
   }
 }
-@media (min-width: 992px) and (min-width: 1100px) {
+@media screen and (min-width: 768px) and (min-width: 1100px) {
   .module-introduce .content-text p.block-yellow {
     font-size: 40px;
   }
 }
-@media (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .module-introduce .text-container {
     width: 100%;
     padding-right: 64px;
@@ -8124,9 +8155,33 @@ body {
     margin-top: 40px;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .module-introduce .text-container h2 {
+    font-size: 32px !important;
+    line-height: 34px !important;
+    padding-bottom: 12px;
+    margin-bottom: 32px;
+  }
+  .module-introduce .text-container h2::after {
+    width: 380px !important;
+    height: 12px !important;
+  }
+  .module-introduce .text-container .col-info {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-bottom: 64px;
+  }
+  .module-introduce .text-container .col-info .col-items {
+    margin-right: 32px;
+  }
+  .module-introduce .text-container .col-info .item + .item {
+    margin-top: 40px;
+  }
+}
 
 .blk-apply-now {
-  margin: 64px auto 40px;
+  margin: 40px auto;
   max-width: 1440px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -8153,6 +8208,11 @@ body {
   border-radius: 4px;
   padding: 7px 20px;
   margin: 0 24px;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .blk-apply-now a.btn {
+    font-size: 20px;
+  }
 }
 @media (min-width: 992px) {
   .blk-apply-now a.btn {
@@ -9212,19 +9272,17 @@ body {
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check:last-child {
   margin-bottom: 0;
 }
-#register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label {
-  font-weight: 600;
-}
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label:before, #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:not(:checked) + label:before {
-  top: 14px;
+  top: 8px;
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:checked + label:after, #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check [type=radio]:not(:checked) + label:after {
-  top: 5px;
+  top: 4px;
 }
 #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check label {
   line-height: 24px;
   color: #000;
   display: block;
+  margin-bottom: 8px;
 }
 @media (min-width: 992px) {
   #register .modal-body.custom-form .group-radio.topic-choosing .group-radio-form .form-check label {
