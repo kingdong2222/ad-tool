@@ -7128,6 +7128,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
 }
 .module-first .container .right-content {
   text-align: center;
@@ -7167,8 +7168,9 @@ body {
 }
 .module-first .container .left-content {
   text-align: center;
-  padding: 64px 16px 32px;
+  padding: 64px 16px 0;
   position: relative;
+  padding-bottom: calc(120% * 529/984 + 48px);
 }
 .module-first .container .left-content .logo-container {
   max-width: 80vw;
@@ -7189,12 +7191,29 @@ body {
   border-radius: 8px;
   color: #fff;
 }
+.module-first .container .left-content + img {
+  position: absolute;
+  min-width: 120%;
+  bottom: 0;
+  right: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 @media (min-width: 992px) {
   .module-first .container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+  .module-first .container .left-content + img {
+    min-width: 100vw;
+    right: 0;
+  }
+  .module-first .container .left-content {
+    width: 50%;
+    height: calc(100vw * 529/984);
+    padding-bottom: 0;
   }
   .module-first .container .left-content p {
     font-size: 24px;
@@ -7276,6 +7295,11 @@ body {
   }
   .module-first a.button {
     font-size: 20px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .module-first .container .left-content + img {
+    right: calc((1440px - 100vw) * 529/984) !important;
   }
 }
 
@@ -8763,6 +8787,9 @@ body {
   #register .modal-body.custom-form {
     padding: 128px 32px 32px;
   }
+}
+#register .modal-body.custom-form .header-form {
+  margin-bottom: 24px;
 }
 #register .modal-body.custom-form .header-form h2 {
   font-size: 20px;

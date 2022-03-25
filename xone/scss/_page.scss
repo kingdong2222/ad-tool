@@ -358,6 +358,7 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    position: relative;
     .right-content{
       text-align: center;
       padding: 0 16px;
@@ -387,8 +388,9 @@ body {
     }
     .left-content{
       text-align: center;
-      padding: 64px 16px 32px;
+      padding: 64px 16px 0;
       position: relative;
+      padding-bottom: calc(120% * 529/984 + 48px);
       .logo-container{
         max-width: 80vw;
         margin-bottom: 32px;
@@ -408,12 +410,27 @@ body {
         color: #fff;
       }
     }
+    .left-content + img {
+      position: absolute;
+      min-width: 120%;
+      bottom: 0;
+      right: 0;
+      object-fit: contain;
+    }
   }
+  
   @include media-breakpoint-up(lg) {
     
     .container{
       flex-direction: row;
+      .left-content + img{
+        min-width: 100vw;
+        right: 0;
+      }
       .left-content{
+        width: 50%;
+        height: calc(100vw * 529/984);
+        padding-bottom: 0;
         p{
           font-size: 24px;
         }
@@ -477,6 +494,13 @@ body {
     }
     a.button{
       font-size: 20px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .container{
+      .left-content + img{
+        right: calc((1440px - 100vw) * 529/984) !important;
+      }
     }
   }
 }
@@ -1693,6 +1717,7 @@ body {
         padding: 128px 32px 32px;
       }
       .header-form{
+        margin-bottom: 24px;
         h2{
           font-size: 20px;
           text-align: center;
