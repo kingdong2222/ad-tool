@@ -121,7 +121,7 @@
             <p>Cơ hội trở thành<br><strong>NHÂN VIÊN CHÍNH THỨC</strong> sau thời gian thực tập</p>
           </div><img src="images/bg_2.png">
         </div>
-        <div class="blk-apply-now d-flex"><img src="images/new/arrow-icon-yello.png"><a class="btn title">Ứng tuyển ngay</a><img class="reverse" src="images/new/arrow-icon-yello.png"></div>
+        <div class="blk-apply-now d-flex"><img src="images/new/arrow-icon-yello.png"><a class="btn title" id="cta1">Ứng tuyển ngay</a><img class="reverse" src="images/new/arrow-icon-yello.png"></div>
         <div class="module-content" id="joining">
           <div class="intro-desc">
             <h2 class="title">Đối tượng tham gia</h2>
@@ -156,17 +156,17 @@
                 <div class="item">
                   <p class="title">(1) Ứng viên biên tập, thu âm và gửi kèm CV <a>tại đây</a></p>
                   <p>
-                    Chủ đề: "Covid-19 và cuộc sống quanh ta"<br><br>*Yêu cầu:<br>
-                    .Nội dung có giá trị thiết thực, khách quan, tích cực dành cho người nghe từ 18 ~ 35 tuổi.<br>
-                    .Thời lượng <5 phút; dung lượng ≤ 30MB; định dạng: .mp3, .wav, .wma, .m4a 
+                    Chủ đề: "Covid-19 và cuộc sống quanh ta"<br><br>&#x2217 Yêu cầu:<br>
+                    &#x2022 Nội dung có giá trị thiết thực, khách quan, tích cực dành cho người nghe từ <span class="nowrap">18 ~ 35 tuổi.</span><br>
+                    &#x2022 Thời lượng <5 phút; dung lượng ≤ 30MB; định dạng: .mp3, .wav, .wma, .m4a 
                     <br>
                   </p>
                 </div>
                 <div class="item"> 
                   <p class="title">(2) Chọn 1 trong 3 chủ đề dưới đây. Tạo 1 playlist gồm 5- 7 bài hát trên ZingMp3, đặt tên và gửi đường link <a>tại đây</a></p>
                   <p>
-                    <br>- Chủ đề 1: Những bài hát cho buổi sáng đầy năng lượng<br>- Chủ đề 2: Những bài hát cho buổi chiều thảnh thơi<br>
-                    - Chủ đề 3: Những bài hát Rewind 
+                    <br>&#x2022 Chủ đề 1: Những bài hát cho buổi sáng đầy năng lượng<br>&#x2022 Chủ đề 2: Những bài hát cho buổi chiều thảnh thơi<br>
+                    &#x2022 Chủ đề 3: Những bài hát Rewind 
                   </p>
                 </div>
               </div>
@@ -180,7 +180,7 @@
                 </div>
               </div>
               <div class="contain-info"> 
-                <p>(1) Bài kiểm tra tổng quát về Logic, Kiến thức xã hội và tiếng Anh<br>(2) Xây dựng kịch bản chương trình theo yêu cầu</p>
+                <p> <strong>(1) Bài kiểm tra tổng quát về Logic, Kiến thức xã hội và tiếng Anh<br>(2) Xây dựng kịch bản chương trình theo yêu cầu</strong></p>
               </div>
             </li>
             <li class="d-flex"> 
@@ -192,7 +192,7 @@
                 </div>
               </div>
               <div class="contain-info"> 
-                <p>Phỏng vấn sâu về tư duy và định hướng nghề nghiệp</p>
+                <p> <strong>Phỏng vấn sâu về tư duy và định hướng nghề nghiệp</strong></p>
               </div>
             </li>
             <li class="d-flex"> 
@@ -204,7 +204,7 @@
                 </div>
               </div>
               <div class="contain-info"> 
-                <p>Nhận lời mời tham gia chương trình XONE RADIO STAR</p>
+                <p> <strong>Nhận lời mời tham gia chương trình XONE RADIO STAR</strong></p>
               </div>
             </li>
           </ul>
@@ -326,6 +326,30 @@
       let intViewportWidth = window.innerWidth;
       let animeObjectCTA = anime({
       		targets: '#cta',
+      		easing: 'easeInOutSine',
+      		duration: 550,
+      		translateX: [
+      			{
+      			value: 16 * -1,
+      			},
+      			{
+      			value: 16,
+      			},
+      			{
+      			value: 16/-2,
+      			},
+      			{
+      			value: 16/2,
+      			},
+      			{
+      			value: 0
+      			}
+      		],
+      		loop: true,
+      		delay: 1000,
+      })
+      let animeObjectCTA1 = anime({
+      		targets: '#cta1',
       		easing: 'easeInOutSine',
       		duration: 550,
       		translateX: [

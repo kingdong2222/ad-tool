@@ -8077,8 +8077,12 @@ body {
 }
 .module-introduce .text-container .col-info {
   margin-bottom: 32px;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.module-introduce .text-container .col-info .col-items {
+  margin-right: 32px;
 }
 .module-introduce .text-container .col-info .col-items:last-child {
   margin-right: 0;

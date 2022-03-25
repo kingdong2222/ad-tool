@@ -1183,9 +1183,10 @@ body {
     }
     .col-info{
       margin-bottom: 32px;
-      justify-content: space-around;
+      justify-content: flex-start;
       
       .col-items{
+        margin-right: 32px;
         &:last-child{
           margin-right: 0;
         }
