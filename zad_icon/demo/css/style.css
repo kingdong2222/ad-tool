@@ -1075,7 +1075,11 @@ icons
   content: "\eaf6";
 }
 
-.icz-e-delete::before {
+.icz-ic_mode_edit_24px::before {
   content: "\eaf7";
+}
+
+.icz-e-delete::before {
+  content: "\eaf8";
 }
 
