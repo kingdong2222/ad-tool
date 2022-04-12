@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <!--link(href="css/animate.min.css" rel="stylesheet" type="text/css")-->
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <style></style>
+  </head>
+  <!-- Include Plugin-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <body>
+    <div data-off="slidebar left overlay">
+      <div class="slidebar-container">
+        <div class="user-info">
+          <div class="avatar avatar--m"><span class="avatar-img" style="background-image:url(https://via.placeholder.com/150x150)"></span></div>
+          <div class="desc"><span>Laguna Laguna Laguna Loire</span></div>
+        </div>
+        <div class="search-input-form">
+          <input type="text" placeholder="Nhập nội dung cần tìm..."><a class="button-search"><i class="icn icn-search"></i></a>
+        </div>
+        <ul>
+          <li class="menu-item current-menu-item"><a href="#!" aria-current="page">Home</a></li>
+          <li class="menu-item"><a href="#!">Giới thiệu</a></li>
+          <li class="menu-item"><a href="#!">Hướng dẫn</a></li>
+          <li class="menu-item menu-item-has-children"><a href="#!">Tài nguyên</a></li>
+          <li class="menu-item"><a class="func-modal-form" href="javascript:void(0)">Liên hệ tư vấn</a></li>
+          <li class="menu-item"><a href="#!">Hỗ trợ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrapper" data-name="container">
+      <header class="clear header is-header-shadow" role="banner">
+        <div class="header-container"><a class="img-logo" href="index.html">Zalo Ads</a>
+          <nav class="nav" role="navigation">
+            <ul>
+              <li class="menu-item"><a href="#!">Home</a></li>
+              <li class="menu-item"><a href="gioithieu.html">Giới thiệu</a></li>
+              <li class="menu-item"><a href="huongdan.html">Tài nguyên</a></li>
+              <li class="menu-item"><a class="func-modal-form" href="javascript:void(0)">Đối tác</a></li>
+              <li class="menu-item"><a class="func-modal-form" href="javascript:void(0)">Tin tức</a></li>
+              <li class="menu-item"><a href="hotro.html">Liên hệ hỗ trợ</a></li>
+            </ul>
+          </nav>
+          <div class="group-header-right">
+            <div class="field field-button is-grouped dropdown">
+              <div class="control"><a class="button is-primary create-ad-top-button" href="#!"> <span class="is-hidden-touch">Quản lý quảng cáo</span><span class="is-hidden-desktop">Quản lý Ads</span></a></div>
+              <div class="control dropdown-toggle" href="#" role="button" id="dropdown-m1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a class="button is-primary button-arr"><i class="arr"></i></a></div>
+              <div class="context-arr dropdown-menu" aria-labelledby="dropdown-m1">
+                <ul>
+                  <li><a href="#!"><span>Tạo quảng cáo</span></a></li>
+                  <li><a href="#!"><span>Tạo Official Account</span></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="group-search is-hidden-touch">
+              <div class="search-input-form" id="search-input-header">
+                <input id="search-input" type="text" placeholder="Nhập nội dung cần tìm..." disabled><a class="button-search" id="button-search"><i class="icn icn-search"></i></a>
+                <button class="button-search" style="display: none;"><i class="icn icn-search"></i></button>
+              </div>
+            </div>
+          </div>
+          <button class="hamburger hamburger--collapse" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
+        </div>
+      </header>
+      <main role="main">
+        <main class="body-single faq-template" role="main">
+          <div class="section-cover">
+            <div class="head">
+              <h1>Câu hỏi thường gặp<em>Bạn có câu hỏi về Zalo Ads? Vui lòng xem các Câu hỏi thường gặp và <a href="https://staging.ads.zaloapp.com/?cat=1">Tài nguyên quảng cáo</a> để tìm ra lời giải đáp cho thắc mắc của bạn.</em></h1>
+            </div>
+          </div>
+          <div class="tabs is-centered">
+            <ul>
+              <li class="tab-links" id="click-section-0" onclick="ChooseTabs(event,'section-0')"><a>Tạo quảng cáo</a></li>
+              <li class="tab-links" id="click-section-1" onclick="ChooseTabs(event,'section-1')"><a>Nạp tiền và Hóa đơn</a></li>
+            </ul>
+          </div>
+          <!-- section-->
+          <section class="section-faqs">
+            <div class="tab-faq" id="section-0">
+              <div class="card collapsed">
+                <div class="card-header" id="head-1" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1"><a class="collapsed" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1"> Quảng cáo Zalo Ads là gì?</a></div>
+                <div class="collapse" id="collapse-1" aria-labelledby="head-1">
+                  <div class="card-body">
+                    <p>Zalo Ads là nền tảng (platform) hỗ trợ nhà quảng cáo chủ động tạo quảng cáo và tối ưu quảng cáo của mình trên hệ thống của Zalo Network: ứng dụng Zalo (Nhật ký người dùng, bài viết trong Media Box), Zing Mp3 (ứng dụng nghe nhạc hàng đầu Việt Nam), Báo mới và Zing News (ứng dụng đọc tin tức).</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-2" data-toggle="collapse" data-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2"> <a class="collapsed" data-toggle="collapse" data-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">Định nghĩa về các loại quảng cáo trong hệ thống Zalo Ads?</a></div>
+                <div class="collapse" id="collapse-2" aria-labelledby="head-2">
+                  <div class="card-body">
+                    <p> <strong>Quảng cáo Zalo Official Account: </strong>Quảng cáo hỗ trợ giới thiệu tài khoản Official Account của doanh nghiệp/cửa hàng đến toàn bộ người dùng Zalo trong hệ thống Zalo. Quảng cáo hỗ trợ tăng lượt quan tâm cho tài khoản Official Account.</p>
+                    <p> <strong>Quảng cáo Website: </strong>Quảng cáo hỗ trợ nhà quảng cáo giới thiệu website của doanh nghiệp/cửa hàng đến người dùng Zalo. Quảng cáo giúp việc tăng lưu lượng truy cập (traffic) cho website của nhà quảng cáo.</p>
+                    <p> <strong>Quảng cáo Sản phẩm: </strong>Quảng cáo hỗ trợ nhà quảng cáo giới thiệu sản phẩm có trong Cửa hàng đến người dùng Zalo. Quảng cáo hỗ trợ giới thiệu và bán sản phẩm trong Cửa hàng trong tài khoản Official Account (loại tài khoản Cửa hàng).</p>
+                    <p> <strong>Quảng cáo Bài viết: </strong>Quảng cáo hỗ trợ ban quản trị tài khoản Official Account giới thiệu bài viết trong phần Quản lý nội dung.</p>
+                    <p> <strong>Quảng cáo Video:</strong>Quảng cáo hỗ trợ nhà quảng cáo giới thiệu sản phẩm/dịch vụ đến người dùng Zalo hình thức trực quan và sinh động, giúp tăng độ nhận diện thương hiệu của doanh nghiệp. Quảng cáo giúp việc tăng lưu lượng truy cập (traffic) cho website của nhà quảng cáo.</p>
+                    <p> <strong>Quảng cáo Cửa hàng: </strong>Quảng cáo hỗ trợ ban quản trị tài khoản Official Account giới thiệu Cửa hàng với toàn bộ sản phẩm đã được duyệt.</p>
+                    <p><strong>Quảng cáo Album - Bài hát – Video:</strong>Quảng cáo hỗ trợ các nhà quảng cáo tăng lượng truy cập vào các Album - Bài Hát - Video trên ứng dụng Zing MP3.</p>
+                    <p><strong>Quảng cáo tối ưu hóa hiển thị bài PR:</strong>Quảng cáo hỗ trợ tối ưu hóa hiển thị bài PR là hình thức giúp bài PR của nhãn hàng, doanh nghiệp trên Báo Mới và Zing.vn gia tăng khả năng tiếp cận đến người dùng.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-3" data-toggle="collapse" data-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3"><a class="collapsed" data-toggle="collapse" data-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">Zalo Ads tính phí như thế nào?</a></div>
+                <div class="collapse" id="collapse-3" aria-labelledby="head-3">
+                  <div class="card-body">
+                    <p>Hiện tại, Zalo Ads có các cách tính phí theo các phương thức như bên dưới.</p>
+                    <p> <strong>Phương thức tính theo lượt nhấn vào quảng cáo (CPC – Cost Per Click):</strong>tính phí khi người dùng Zalo nhấn vào quảng cáo, hệ thống sẽ trừ số tiền tương ứng với giá đặt của nhà quảng cáo trong quá trình quảng cáo.</p>
+                    <p> <strong>Phương thức tính theo lượt liên hệ (CPA – Cost Per Action):</strong>tính phí khi người dùng Zalo thực hiện hành động động liên hệ (nhắn tin) trên sản phẩm đang quảng cáo. Hệ thống sẽ trừ số tiền tương ứng với giá đặt của nhà quảng cáo trong quá trình tạo quảng cáo.</p>
+                    <p> <em><strong>Chú ý: </strong>Phương thức này chỉ áp dụng cho quảng cáo sản phẩm trên Zalo Network. Số lượt liên hệ sẽ tương ứng với số lượt tin nhắn trong phần Chat của OA và số lượt mua hàng sẽ tương ứng với số lượng đơn hàng trong phần Đơn hàng của Cửa hàng.</em></p>
+                    <p> <strong>Phương thức tính theo lượt hiển thị quảng cáo (CPM - Cost Per Mille): </strong>tính phí cho mỗi nghìn lần hiển thị (1M = 1000 lượt hiển thị) video của bạn đến nhóm người dùng bạn chọn trong lúc tạo quảng cáo.</p>
+                    <p><em>Chú ý: 1M = 1,000 lượt hiển thị; Phương thức này chỉ áp dụng cho quảng cáo video trên Zalo Network.</em></p>
+                    <p> <strong>Phương thức tính theo xem hoàn tất (CPV – Cost Per Completed View):</strong>quảng cáo tính phí khi user Zalo xem hoàn tất video của bạn.</p>
+                    <p> <em>Chú ý: Nếu video có độ dài hơn 30s, thì hệ thống sẽ tính phí khi user Zalo xem đến giây 30. Nếu video có độ dài dưới 30s, thì hệ thống sẽ tính phí khi user Zalo xem hoàn tất video.</em></p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-4" data-toggle="collapse" data-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4"><a class="collapsed" data-toggle="collapse" data-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">Thanh toán cho chí phí chạy quảng cáo Zalo Ads như nào?</a></div>
+                <div class="collapse" id="collapse-4" aria-labelledby="head-4">
+                  <div class="card-body">
+                    <p>Zalo Ads yêu cầu nhà quảng cáo phải nạp tiền trước vào tài khoản quảng cáo (top up).</p>
+                    <p>Nhà quảng cáo có thể nạp tiền chạy quảng cáo Zalo Ads theo nhiều cách khác nhau:</p>
+                    <p>- Nạp tiền trực tuyến thông qua thẻ thanh toán nội địa ATM, hoặc thẻ thanh toán quốc tế VISA/ MASTERCARD,</p>
+                    <p>- Nạp tiền với phương thức chuyển khoản vào tài khoản Zalo Ads tại ngân hàng Citibank.</p>
+                    <p>- Nạp tiền bằng mã voucher được BQT Zalo Ads phát hành.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-5" data-toggle="collapse" data-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5"><a class="collapsed" data-toggle="collapse" data-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5">Zalo Ads có cho chọn nhóm đối tượng để quảng cáo không?</a></div>
+                <div class="collapse" id="collapse-5" aria-labelledby="head-5">
+                  <div class="card-body">
+                    <p>Zalo Ads cho phép nhà quảng cáo chọn 3 loại nhóm đối tượng quảng cáo</p>
+                    <p>1. Nhóm đối tượng nhân khẩu học: nhóm người dùng có sẵn trên hệ thống Zalo</p>
+                    <ul>
+                      <li>
+                        <p> <strong>Địa điểm : </strong>theo <strong>Tỉnh Thành Quận Huyện </strong>hoặc theo <strong>Vị trí cụ thể với bán kính xung quanh</strong>(Quận 1 + 25km, Ba Đình + 25km,…)</p>
+                      </li>
+                      <li>
+                        <p><strong>Giới tính :</strong>Nam hoặc Nữ</p>
+                      </li>
+                      <li>
+                        <p><strong>Độ tuổi :</strong>từ 13 đến 65 tuổi</p>
+                      </li>
+                      <li>
+                        <p><strong>Nền tảng di động :</strong>Android, iOS hoặc PC</p>
+                      </li>
+                      <li>
+                        <p><strong>Tiêu chí về nhân khẩu học và sở thích của người dùng Zalo</strong></p>
+                      </li>
+                    </ul>
+                    <p>Tiêu chí về nhân khẩu học và sở thích của người dùng Zalo</p>
+                    <p>2. Nhóm đối tượng là tập danh sách số điện thoại khách hàng do nhà quảng cáo tải lên hệ thống.</p>
+                    <p>3. Nhóm đối tượng tương tự là nhóm đối tượng mở rộng dựa trên tập danh sách số điện thoại của nhà quảng cáo đã tải lên trước đó.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-6" data-toggle="collapse" data-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6"><a class="collapsed" data-toggle="collapse" data-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6">Làm cách nào thay đổi bán kính địa điểm quảng cáo trên Zalo?</a></div>
+                <div class="collapse" id="collapse-6" aria-labelledby="head-6">
+                  <div class="card-body">
+                    <p>Để thay đổi bán kính địa điểm quảng cáo, nhà quảng cáo nhấn chọn biểu tượng mũi tên (nằm phía sau tên địa điểm quảng cáo) và chọn các bán kính khác nhau cho địa điểm quảng cáo.</p><img src="https://static-ads.zaloapp.com/pubs/wp/FAQ_3.png">
+                    <p> <strong>Chú ý: </strong>Bán kính tối thiểu nhà quảng cáo có thể nhắm chọn cho địa điểm quảng cáo là 5km</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-7" data-toggle="collapse" data-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7"><a class="collapsed" data-toggle="collapse" data-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7">Làm thế nào để tạo quảng cáo theo danh sách số điện thoại có sẵn?</a></div>
+                <div class="collapse" id="collapse-7" aria-labelledby="head-7">
+                  <div class="card-body">
+                    <p>Nhà quảng cáo có thể cập nhật danh sách số điện thoại có sẵn theo các bước sau.</p>
+                    <p><strong>Bước 1: </strong>Tải lên hệ thống Zalo Ads nhóm đối tượng muốn quảng cáo tại Nhóm đối tượng (trong Thư viện).</p><img src="https://business.zalo.me/wp-content/uploads/2019/07/H%C3%ACnh-7-1.png">
+                    <p>Hoặc nhà quảng cáo có thể nhấn chọn <strong>Tạo nhóm đối tượng </strong>trong bước thiết lập quảng cáo</p><img src="https://business.zalo.me/wp-content/uploads/2019/07/H%C3%ACnh-7-2.png">
+                    <p><strong>Bước 2: </strong>Nhà quảng cáo chọn vào nút <strong>Upload danh sách số điện thoại </strong>và chọn vào đúng danh sách số điện thoại muốn dùng để tạo quảng cáo.</p><img src="https://business.zalo.me/wp-content/uploads/2019/07/H%C3%ACnh-7-3.png"><img src="https://business.zalo.me/wp-content/uploads/2019/07/H%C3%ACnh-7-4.png">
+                    <p><strong>Bước 3: </strong>Trong phần Tạo quảng cáo, nhà quảng cáo chọn vào Đối tượng quảng cáo và chọn tên danh sách vừa upload.</p><img src="https://business.zalo.me/wp-content/uploads/2019/07/H%C3%ACnh-7-5.png">
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-8" data-toggle="collapse" data-target="#collapse-8" aria-expanded="false" aria-controls="collapse-8"><a class="collapsed" data-toggle="collapse" data-target="#collapse-8" aria-expanded="false" aria-controls="collapse-8">Ý nghĩa và cách đặt giá thầu cho quảng cáo?</a></div>
+                <div class="collapse" id="collapse-8" aria-labelledby="head-8">
+                  <div class="card-body">
+                    <p>Đặt giá: Giá đặt nhà quảng cáo sẳn sàng trả cho 1 tương tác trên quảng cáo. Zalo Ads sẽ dựa vào giá đặt này để tính phí khi có người dùng thực hiện các tương tác trên quảng cáo của khách hàng (lượt nhấn, lượt hiển thị, lượt xem video hoàn tất, lượt liên hệ).</p>
+                    <ul>
+                      <li> <strong>Lịch chạy: </strong>Thời gian quảng cáo phân phối trên hệ thống Zalo Ads</li>
+                      <li> <strong>Số lượng: </strong>Số lượt tương tác tối đa mà nhà quảng cáo muốn quảng cáo đạt được trong khoản thời gian quảng cáo phân phối.</li>
+                      <li> <strong>Đặt giá: </strong>Giá đặt nhà quảng cáo sẳn sàng trả cho 1 tương tác trên quảng cáo. Zalo Ads sẽ dựa vào giá đặt này để tính phí khi có người dùng thực hiện các tương tác trên quảng cáo của khách hàng (lượt nhấn, lượt hiển thị, lượt xem video hoàn tất, lượt mua hàng, lượt liên hệ).</li>
+                      <li> <strong>Tổng chi phí dự kiến: </strong>Số tiền dự kiến cho toàn quảng cáo của nhà quảng cáo. </li>
+                    </ul><img src="https://business.zalo.me/wp-content/uploads/2019/08/H%C3%ACnh-8-1.png">
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-9" data-toggle="collapse" data-target="#collapse-9" aria-expanded="false" aria-controls="collapse-9"><a class="collapsed" data-toggle="collapse" data-target="#collapse-9" aria-expanded="false" aria-controls="collapse-9">Sự khác biệt giữa quảng cáo theo toàn chiến dịch và quảng cáo theo ngày là gì? </a></div>
+                <div class="collapse" id="collapse-9" aria-labelledby="head-9">
+                  <div class="card-body">
+                    <p> <strong>Quảng cáo theo toàn chiến dịch: </strong>là quảng cáo phân phối số lượng lượt nhấn/lượt hiển thị dựa theo tài nguyên quảng cáo trong hệ thống Zalo Ads. Nếu nhà quảng cáo chọn loại quảng cáo này, khi tài nguyên quảng cáo của hệ thống Zalo Ads nhiều, hệ thống sẽ ưu tiên phân phối quảng cáo nhanh hơn, và quảng cáo có thể đạt số lượng tương tác đặt ra sớm hơn thời gian quy định.</p>
+                    <p><strong>Quảng cáo theo ngày: </strong>là quảng cáo phân phối số lượng click đặt theo sốngày đặt. Nếu nhà quảng cáo chọn loại quảng cáo này, hệ thống sẽ phân phối quảng cáo đến khi đạt số lượng tương tác theo từng ngày.</p>
+                    <p>Ví dụ: Nhà quảng cáo A đặt mục tiêu đạt số lượng 1500 lượt nhấn (click) trong thời gian từ 5/8/2019 đến 7/8/2019</p>
+                    <p>Trường hợp 1: nhà quảng cáo A chọn quảng cáo theo toàn chiến dịch. Nếu trong khoản thời gian này tài nguyên quảng cáo của hệ thống trống, hệ thống sẽ phân phối quảng cáo của nhà quảng cáo A nhanh hơn và đạt 1500 click chỉ trong vào ngày 6/8/2019 và kết thúc quảng cáo.</p><img src="https://business.zalo.me/wp-content/uploads/2019/08/H%C3%ACnh-9-2.png">
+                    <p>Trường hợp 2: nhà quảng cáo A chia quảng cáo thành 500 lượt nhấn mỗi ngày. Nếu trong khoản thời gian này tài nguyên quảng cáo của hệ thống trống, hệ thống sẽ phân phối quảng cáo đến khi đạt đạt 500 lượt nhấn thì dừng lại và bắt đầu phân phối tiếp quảng cáo trong những ngày tiếp theo.</p><img src="https://business.zalo.me/wp-content/uploads/2019/08/H%C3%ACnh-9-3.png">
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-10" data-toggle="collapse" data-target="#collapse-10" aria-expanded="false" aria-controls="collapse-10"><a class="collapsed" data-toggle="collapse" data-target="#collapse-10" aria-expanded="false" aria-controls="collapse-10">Làm thế nào tạo quảng cáo theo Lượt liên hệ?</a></div>
+                <div class="collapse" id="collapse-10" aria-labelledby="head-10">
+                  <div class="card-body">
+                    <p>Quảng cáo lượt liên hệ chỉ áp dụng cho loại hình Quảng cáo sản phẩm trên Zalo.</p>
+                    <p>Để tạo quảng cáo lượt liên hệ, nhà quảng cáo nhấn chọn <strong>Lượt liên hệ </strong>trong phần <strong>Số lượng </strong>tại <strong>Bạn có thể trả bao nhiêu chi phí cho quảng cáo này.</strong></p><img src="https://business.zalo.me/wp-content/uploads/2019/07/H%C3%ACnh-10-1.png">
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-11" data-toggle="collapse" data-target="#collapse-11" aria-expanded="false" aria-controls="collapse-11"><a class="collapsed" data-toggle="collapse" data-target="#collapse-11" aria-expanded="false" aria-controls="collapse-11">Công dụng của từng nút hiển thị là gì? Tôi nên đặt nút hiển thị gì cho phù hợp?</a></div>
+                <div class="collapse" id="collapse-11" aria-labelledby="head-11">
+                  <div class="card-body">
+                    <p>CTA – Nút hiển thị, hoặc nút kêu gọi hành động có chức năng kêu gọi người dùng Zalo thực hiện hành động mà nhà quảng cáo mong muốn khi tạo quảng cáo, các hành động này có thể là quan tâm Official Account (nút Quân Tâm), mua sản phẩm (nút Mua Ngay), để lại thông tin để tư vấn (nút Chat Ngay)…</p>
+                    <p>Hệ thống Zalo Ads thiết kế nhiều nút CTA với các nội dung khác nhau để hỗ trợ nhà quảng cáo, hầu hết, các nút hiển thị này (Mua ngay, Tải ngay, Xem ngay, Đăng ký,…) đều sẽ đưa người dùng Zalo về trang đích tương ứng với loại hình <strong>quảng cáo như quảng cáo website và video thì sẽ dẫn về website/landing page, quảng cáo sản phẩm thì sẽ đưa về sản phẩm, quảng cáo bài viết thì hệ thống sẽ hiển thị bài viết khi người dùng nhấn vào quảng cáo, </strong>và <strong>quảng cáo Zalo Official Account sẽ dẫn người dùng về tài khoản Official Account của doanh nghiệp.</strong></p>
+                    <p>Tuy nhiên, ngoài các nút Hiển thị trên, Zalo Ads còn có 3 nút hiển thị đặt biệt là: <strong>Quan tâm, Gọi điện </strong>và <strong>Chat ngay </strong>với tính năng duy nhất.</p>
+                    <ul>
+                      <li> <strong>Nút Quan tâm: </strong>khi người dùng Zalo nhấn nút, tài khoản sẽ lập tức quan tâm mà không cần phải vào trang Official Account. Nút Quan tâm chỉ có trong loại quảng cáo Zalo Official Account và quảng cáo sản phẩm trên Zalo.</li>
+                      <li> <strong>Nút Gọi điện: </strong>hệ thống sẽ chuyển người dùng đến tính năng gọi điện của điện thoại và hiển thị số điện thoại liên hệ trong quá trình thiết lập quảng cáo. Người dùng Zalo sẽ quyết định có gọi điện cho chủ cửa hàng/doanh nghiệp hay không (Zalo Ads sẽ không can thiệp vào vấn đề này).</li>
+                      <li><strong>Nút Chat ngay: </strong>hệ thống sẽ chuyển người dùng đến phần chat với tài khoản Official Account. Người dùng Zalo sẽ quyết định có nhắn tin cho chủ cửa hàng/doanh nghiệp hay không (Zalo Ads sẽ không can thiệp vào vấn đề này).</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-12" data-toggle="collapse" data-target="#collapse-12" aria-expanded="false" aria-controls="collapse-12"><a class="collapsed" data-toggle="collapse" data-target="#collapse-12" aria-expanded="false" aria-controls="collapse-12">Làm cách nào để có thể tối ưu giá thầu tối thiểu do hệ thống đưa ra?</a></div>
+                <div class="collapse" id="collapse-12" aria-labelledby="head-12">
+                  <div class="card-body">
+                    <p>Hệ thống Zalo Ads sẽ quy định giá thầu tối thiểu dựa vào nhóm đối tượng nhà quảng cáo chọn cho quảng cáo của mình.</p>
+                    <p>- Nếu nhóm đối tượng quảng cáo của nhà quảng cáo rộng, số lượng người tiếp cận tiềm năng lớn, thì giá thầu tối thiểu của hệ thống sẽ giảm xuống.</p>
+                    <p>- Nếu nhóm đối tượng quảng cáo của nhà quảng cáo hẹp, số lượng người tiếp cận tiềm năng ít thì giá thầu tối thiểu của hệ thống sẽ tăng lên.</p>
+                    <p>Vì thế, nhà quảng cáo có thể tối ưu lại thầu tối thiểu của hệ thống đề nghị bằng cách <strong>mở rộng nhóm đối tượng theo địa điểm, giới tính, độ tuổi hoặc nền tảng di động sử dụng Zalo.</strong></p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-13" data-toggle="collapse" data-target="#collapse-13" aria-expanded="false" aria-controls="collapse-13"><a class="collapsed" data-toggle="collapse" data-target="#collapse-13" aria-expanded="false" aria-controls="collapse-13">Tại sao tôi không cập nhật được hình quảng cáo?</a></div>
+                <div class="collapse" id="collapse-13" aria-labelledby="head-13">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo không cập nhật được hình quảng cáo, nhà quảng cáo vui lòng kiểm tra lại thông tin kích thước và dung lượng của hình ảnh đăng tải lên.</p>
+                    <ul>
+                      <li>Kích thước hình: <strong>1024 x 533 px</strong></li>
+                      <li>Dung lượng hình: <strong>nhỏ hơn hoặc bằng 2 MB.</strong></li>
+                    </ul>
+                    <p>Với quảng cáo sản phẩm, nhà quảng cáo có thể chọn <strong>định dạng 3 hình ảnh với kích thước 500 x 500px </strong>và <strong>dung lượng 2 MB.</strong></p>
+                    <p>Nhà quảng cáo có thể dùng các chương trình chỉnh sửa hình offline (Photoshop) hoặc online (<a>http://www.canva.com</a>) để chọn đúng kích thước hình quảng cáo.</p>
+                    <p> <strong>*Lưu ý: </strong>Hệ thống Zalo Ads chỉ hỗ trợ hệ màu RGB.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-14" data-toggle="collapse" data-target="#collapse-14" aria-expanded="false" aria-controls="collapse-14"><a class="collapsed" data-toggle="collapse" data-target="#collapse-14" aria-expanded="false" aria-controls="collapse-14">Tại sao tôi không cập nhật video và hình quảng cáo trên quảng cáo video?</a></div>
+                <div class="collapse" id="collapse-14" aria-labelledby="head-14">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo không cập nhật được hình và video trên quảng cáo video, nhà quảng cáo vui lòng kiểm tra lại thông tin kích thước hình ảnh và định dạng video như bên dưới.</p>
+                    <p>Hình ảnh mô tả cho video</p>
+                    <ul>
+                      <li>Kích thước hình quảng cáo: <strong>1024 x 627 px</strong></li>
+                      <li>Dung lượng hình: <strong>nhỏ hơn hoặc bằng 2 MB.</strong></li>
+                    </ul>
+                    <p>Video quảng cáo</p>
+                    <ul>
+                      <li>Định dạng: <strong>phải có định dạng .MP4 H.264, tối đa 10MB</strong></li>
+                      <li>Thời lượng video: <strong>tối đa 60 giây và tỉ lệ là 16:9</strong></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-15" data-toggle="collapse" data-target="#collapse-15" aria-expanded="false" aria-controls="collapse-15"><a class="collapsed" data-toggle="collapse" data-target="#collapse-15" aria-expanded="false" aria-controls="collapse-15">Nội dung quảng cáo trên Zalo được bao nhiêu ký tự?</a></div>
+                <div class="collapse" id="collapse-15" aria-labelledby="head-15">
+                  <div class="card-body">
+                    <p>Zalo Ads quy định số lượng ký tự trên nội dung quảng cáo để đảm bảo quảng cáo hấp dẫn và thu hút người dùng Zalo hơn.</p>
+                    <ul>
+                      <li><strong>Chú thích: </strong>Tối đa 90 ký tự</li>
+                      <li><strong>Mô tả:</strong>Tối đa 60 ký tự</li>
+                      <li><strong>Thông tin thêm:</strong>Tối đa 60 ký tự</li>
+                    </ul>
+                    <p> <strong>(*) Lưu ý: </strong>số lượng ký tự bao gồm chữ, số và khoảng trắng.</p>
+                    <p>Nội dung quảng cáo không được sử dụng các ký tự đặc biệt (ví dụ: ✌, ⌚, ♥,…) và phải tuân thủ quy định về nội dung quảng cáo của Zalo Ads. Nhà quảng cáo xem các thông tin về quy định nội dung quảng cáo trong đường dẫn sau: <a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank">https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-16" data-toggle="collapse" data-target="#collapse-16" aria-expanded="false" aria-controls="collapse-16"><a class="collapsed" data-toggle="collapse" data-target="#collapse-16" aria-expanded="false" aria-controls="collapse-16">Tôi cần phải tải thông tin gì trong phần Thông tin thêm?</a></div>
+                <div class="collapse" id="collapse-16" aria-labelledby="head-16">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo muốn quảng cáo sản phẩm/dịch vụ được quy định trong <strong>phần 3.3 của phần Nội dung bị cấm và giới hạn trong Chính sách quảng cáo Zalo Ads, </strong>nhà quảng cáo cần phải cung cấp giấy phép theo quy định của Zalo Ads và cơ quan chức năng có thẩm quyền.</p>
+                    <p>Nhà quảng cáo có thể tìm hiểu về quy định về nội dung quảng cáo trên Zalo Ads trong đường dẫn sau: </p><a href="https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/" target="_blank">https://ads.zalo.me/business/quy-dinh-ve-noi-dung-quang-cao/</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-17" data-toggle="collapse" data-target="#collapse-17" aria-expanded="false" aria-controls="collapse-17"><a class="collapsed" data-toggle="collapse" data-target="#collapse-17" aria-expanded="false" aria-controls="collapse-17">Nút "Lưu" và nút "Gửi duyệt" khác nhau như thế nào? </a></div>
+                <div class="collapse" id="collapse-17" aria-labelledby="head-17">
+                  <div class="card-body">
+                    <p> <strong>Nút Lưu: </strong>dành cho nhà quảng cáo muốn lưu lại quảng cáo của trong tài khoản quảng cáo. Nếu nhà quảng cáo nhấn vào nút <strong>Lưu, </strong>thì quảng cáo của nhà quảng cáo sẽ chỉ được lưu lại trong tài khoản quảng cáo và trạng thái sẽ là <strong>Tạo mới. </strong>Lúc này, quảng cáo không được gửi lên hệ thống để duyệt và sẽ không phân phối.</p>
+                    <p><strong>Nút Gửi duyệt: </strong>dành cho nhà quảng cáo muốn gửi duyệt quảng cáo và quảng cáo phân phối trên hệ thống Zalo Ads. BQT Zalo Ads sẽ duyệt quảng cáo của nhà quảng cáo theo các quy định quảng cáo trên Zalo Ads và gửi thông báo đến nhà quảng cáo kết quả trong thời gian sớm nhất.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-18" data-toggle="collapse" data-target="#collapse-18" aria-expanded="false" aria-controls="collapse-18"><a class="collapsed" data-toggle="collapse" data-target="#collapse-18" aria-expanded="false" aria-controls="collapse-18">Tôi nhấn vào nút "Gửi duyệt" nhưng bị lỗi. Tôi cần làm như thế nào?</a></div>
+                <div class="collapse" id="collapse-18" aria-labelledby="head-18">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo nhấn nút <strong>Gửi duyệt </strong>nhưng bị lỗi, nhà quảng cáo vui lòng nhấn <strong>Lưu </strong>để lưu lại thông tin quảng cáo đang tạo. Sau đó, nhà quảng cáo cân nhắc xóa cached của trình duyệt quảng cáo (hoặc nhấn tổ hợp phím CTRL + F5) và tắt các chương trình chặn quảng cáo như Adblocks, Adblock pro,… và duyệt lại quảng cáo.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-19" data-toggle="collapse" data-target="#collapse-19" aria-expanded="false" aria-controls="collapse-19"><a class="collapsed" data-toggle="collapse" data-target="#collapse-19" aria-expanded="false" aria-controls="collapse-19">Thời gian duyệt quảng cáo trong vòng bao nhiêu lâu?</a></div>
+                <div class="collapse" id="collapse-19" aria-labelledby="head-19">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo gửi quảng cáo từ 6:00 – 24:00, BQT Zalo Ads sẽ duyệt quảng cáo trong vòng 45p-60p.</p>
+                    <p>Nếu nhà quảng cáo gửi quảng cáo từ 00:00 – 6:00, BQT Zalo Ads sẽ duyệt quảng cáo vào lúc 6:00.</p>
+                    <p>Nếu trong khoản thời gian này quảng cáo chưa được duyệt, nhà quảng cáo vui lòng gửi thông tin tài khoản quảng cáo đến email: <a>ads@zalo.me </a>để được hỗ trợ.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-20" data-toggle="collapse" data-target="#collapse-20" aria-expanded="false" aria-controls="collapse-20"><a class="collapsed" data-toggle="collapse" data-target="#collapse-20" aria-expanded="false" aria-controls="collapse-20">Làm sao tôi xem được lý do từ chối quảng cáo?</a></div>
+                <div class="collapse" id="collapse-20" aria-labelledby="head-20">
+                  <div class="card-body">
+                    <p>Khi BQT Zalo Ads từ chối quảng cáo của nhà quảng cáo, BQT Zalo Ads sẽ ghi rõ thông tin lý do từ chối quảng cáo trong phần:</p>
+                    <ul>
+                      <li>Thông tin quảng cáo,</li>
+                      <li>Tin nhắn hệ thống và</li>
+                      <li>Tin nhắn thông báo từ OA Zalo Ads đến tài khoản Zalo đăng kýdiv</li>
+                    </ul>
+                    <p>Nhà quảng cáo có thể chỉnh sửa lại theo thông tin từ chối và gửi BQT Zalo Ads duyệt lại.</p>
+                    <p>Nhà quảng cáo có thể tìm hiểu về Chính sách quảng cáo trên Zalo trong link bên dưới.</p><a href="https://ads.zalo.me/business/p/chinh-sach/" target="_blank">https://ads.zalo.me/business/p/chinh-sach/</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-21" data-toggle="collapse" data-target="#collapse-21" aria-expanded="false" aria-controls="collapse-21"><a class="collapsed" data-toggle="collapse" data-target="#collapse-21" aria-expanded="false" aria-controls="collapse-21">Làm cách nào tôi chỉnh sửa lại quảng cáo của mình?</a></div>
+                <div class="collapse" id="collapse-21" aria-labelledby="head-21">
+                  <div class="card-body">
+                    <p>Để chỉnh sửa lại quảng cáo hoàn tất/ đang chạy/ bị từ chối, nhà quảng cáo có thể làm theo các bước sau.</p>
+                    <p> <strong>Bước 1: </strong>Truy cập vào hệ thống Zalo Ads theo đường dẫn: <a>https://ads.zalo.me/</a></p>
+                    <p> <strong>Bước 2: </strong>Trong tab <strong>Chiến dịch, </strong>nhà quảng cáo chọn phần <strong>Quản lý chiến dịch</strong></p>
+                    <p><strong>Bước 3: </strong>Nhà quảng cáo nhấn vào tên chiến dịch muốn chỉnh sửa</p>
+                    <p><strong>Bước 4: </strong>Tại phần <strong>Danh sách quảng cáo, </strong>nhà quảng cáo nhấn chọn tên quảng cáo mong muốn chỉnh sửa.</p>
+                    <p><strong>Bước 5: </strong>Trong phần <strong>Thông tin quảng cáo, </strong>nhà quảng cáo nhấn chọn nút <strong>Chỉnh sửa </strong>và chỉnh sửa thông tin.</p>
+                    <p><strong>Bước 6: </strong>Nhấn nút <strong>Gửi duyệt </strong>để có thể gửi BQT Zalo Ads duyệt lại.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-22" data-toggle="collapse" data-target="#collapse-22" aria-expanded="false" aria-controls="collapse-22"><a class="collapsed" data-toggle="collapse" data-target="#collapse-22" aria-expanded="false" aria-controls="collapse-22">Tôi muốn xem lại nhóm đối tượng và những tập tin giấy phép?</a></div>
+                <div class="collapse" id="collapse-22" aria-labelledby="head-22">
+                  <div class="card-body">
+                    <p>Để xem lại thông tin những lần nạp tiền vào tài khoản quảng cáo, nhà quảng cáo có thể xem trong phần <strong>Thư viện </strong>và chọn thông tin: <strong>Nhóm đối tượng, Tập tin tải lên (Giấy phép quảng cáo) hoặc Media (Hình hoặc Video).</strong></p><img src="https://business.zalo.me/wp-content/uploads/2019/07/H%C3%ACnh-22-1.png">
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-23" data-toggle="collapse" data-target="#collapse-23" aria-expanded="false" aria-controls="collapse-23"><a class="collapsed" data-toggle="collapse" data-target="#collapse-23" aria-expanded="false" aria-controls="collapse-23">Tôi cần phải cập nhật giấy phép gì để được quảng cáo?</a></div>
+                <div class="collapse" id="collapse-23" aria-labelledby="head-23">
+                  <div class="card-body">
+                    <p>Zalo Ads quy định nhà quảng cáo cần phải cung cấp giấy tờ cho 1 số loại hình sản phẩm/dịch vụ quảng cáo. Nhà quảng cáo thể tra cứu giấy phép cần cung cấp cho sản phẩm của mình trong link sau: <a href="https://ads.zalo.me/business/san-pham-can-giay-phep/" target="_blank">https://ads.zalo.me/business/san-pham-can-giay-phep/</a></p>
+                    <p>Zalo Ads không hỗ trợ thủ tục và quy trình cấp giấy phép này, vì thế, nhà quảng cáo nên tham khảo thông tin của cơ quan chức năng liên quan.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-24" data-toggle="collapse" data-target="#collapse-24" aria-expanded="false" aria-controls="collapse-24"><a class="collapsed" data-toggle="collapse" data-target="#collapse-24" aria-expanded="false" aria-controls="collapse-24">Làm thế nào để liên hệ đội ngũ hỗ trợ Zalo Ads?</a></div>
+                <div class="collapse" id="collapse-24" aria-labelledby="head-24">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo đang gặp các vấn đề khó khăn, thắc mắc cần giải đáp, nhà quảng cáo có thể liên hệ đội ngũ hỗ trợ qua các phương thức sau:</p>
+                    <ul>
+                      <li>Hotline: <strong>1900 988912</strong></li>
+                      <li>Email: <strong>ads@zalo.me</strong></li>
+                      <li>Gửi tin nhắn đến đội ngũ hỗ trợ qua tài khoản Official Account <strong>Hỗ trơ ZA Ads</strong></li>
+                      <li>Gửi thông tin qua phần <strong>Liên hệ </strong>trong tài khoản (góc phải màn hình)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-39" data-toggle="collapse" data-target="#collapse-39" aria-expanded="false" aria-controls="collapse-39"><a class="collapsed" data-toggle="collapse" data-target="#collapse-39" aria-expanded="false" aria-controls="collapse-39">Tôi có thể xem quảng cáo của mình trên thiết bị di động được không?</a></div>
+                <div class="collapse" id="collapse-39" aria-labelledby="head-39">
+                  <div class="card-body">
+                    <p>Zalo Ads sẽ phân phối quảng cáo dựa theo nhóm đối tượng đã được thiết lập và luân phiên trên Nhật ký người dùng Zalo và các kênh network của Zalo như app Zing Mp3, Báo mới, La Bàn, Zing News,….</p>
+                    <p>
+                       Vì thế, nhà quảng cáo sẽ khó thấy được quảng cáo của mình hiển thị trực tiếp. Nếu nhà quảng cáo muốn biết được quảng cáo của mình hiển thị hay có được hệ thống phân phối không, nhà quảng cáo có thể xem trong phần <strong>Lượt hiển thị</strong>
+                      trong báo cáo của từng quảng cáo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-faq" id="section-1">
+              <div class="card collapsed">
+                <div class="card-header" id="head-25" data-toggle="collapse" data-target="#collapse-25" aria-expanded="false" aria-controls="collapse-25"><a class="collapsed" data-toggle="collapse" data-target="#collapse-25" aria-expanded="false" aria-controls="collapse-25">Tôi đã nạp tiền trực tuyến qua thẻ nhưng chưa thấy vào tài khoản quảng cáo?</a></div>
+                <div class="collapse" id="collapse-25" aria-labelledby="head-25">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo nạp tiền trực tuyến bằng thẻ ATM/VISA/Mastercard/JCB nhưng chưa thấy tiền vào tài khoản quảng cáo, nhà quảng cáo vui lòng kiểm tra lại thời gian nạp tiền và thời gian cập nhật tiền trong tài khoản quảng cáo cần tối đa 30p, hệ thống ngân hàng đồng bộ hệ thống ZaloPay cập nhật số tiền của nhà quảng cáo.</p>
+                    <p>Nếu tài khoản quảng cáo vẫn chưa ghi nhận số tiền sau 30p, nhà quảng cáo cân nhắc gửi thông tin: <strong>số điện thoại tạo tài khoản nạp tiền + tin nhắn từ ngân hàng xác nhận chuyển tiền thành công (có Mã tham chiếu của ZaloPay) </strong>về email: <a>ads@zalo.me </a>để BQT Zalo Ads kiểm tra.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-26" data-toggle="collapse" data-target="#collapse-26" aria-expanded="false" aria-controls="collapse-26"><a class="collapsed" data-toggle="collapse" data-target="#collapse-26" aria-expanded="false" aria-controls="collapse-26">Tôi nạp tiền bằng thẻ VISA/Mastercard nhưng hệ thống báo lỗi thanh toán?</a></div>
+                <div class="collapse" id="collapse-26" aria-labelledby="head-26">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo nạp tiền bằng thẻ VISA/Mastercard/JCB nhưng hệ thống báo lỗi thanh toán, nhà quảng cáo vui lòng chọn logo (biểu tượng) của VISA, Mastercard hoặc JCB tương ứng trong phần Thẻ ghi nợ/thanh toán quốc tế.</p>
+                    <p>Phần Logo Ngân hàng chỉ dành cho các giao dịch qua tài khoản ATM có đăng ký dịch vụ Internet Banking.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-27" data-toggle="collapse" data-target="#collapse-27" aria-expanded="false" aria-controls="collapse-27"><a class="collapsed" data-toggle="collapse" data-target="#collapse-27" aria-expanded="false" aria-controls="collapse-27">Tôi đã chuyển khoản nhưng chưa thấy tiền vào tài khoản quảng cáo?</a></div>
+                <div class="collapse" id="collapse-27" aria-labelledby="head-27">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo nạp tiền quảng cáo bằng cách chuyển khoản ngân hàng, nhà quảng cáo vui lòng lưu ý về thời gian chuyển khoản như sau:</p>
+                    <ul>
+                      <li> <strong>Chuyển cùng ngân hàng: </strong>Tiền sẽ được chuyển trong vòng 02 tiếng.</li>
+                      <li><strong>Chuyển khoản từ ngân hàng khác trước 15h30 (Từ thứ 2 – thứ 6): </strong>Tiền sẽ được chuyển vào tài khoản trong vòng 04 – 06 tiếng.</li>
+                      <li><strong>Chuyển khoản từ ngân hàng khác sau 15h30: </strong>Nếu thanh toán được thực hiện từ thứ 2 – thứ 5, tiền sẽ được chuyển khoản vào ngày hôm sau; nếu thanh toán được thực hiện vào thứ 6, tiền sẽ vào tài khoản của nhà quảng cáo sau 2 - 3 ngày do lịch nghỉ cuối tuần.</li>
+                    </ul>
+                    <p>Sau khi ngân hàng Citibank cập nhập thông tin lên hệ thống Ngân hàng, Zalo Ads sẽ cập nhật thông tin số tiền vào tài khoản quảng cáo của nhà quảng cáo trong thời gian sớm nhất.</p>
+                    <p>Nếu tài khoản quảng cáo của nhà quảng cáo vẫn chưa cập nhật số tiền trong thời gian quy định, nhà quảng cáo cân nhắc gửi thông tin: <strong>số điện thoại tạo tài khoản nạp tiền + Ủy nhiệm chi của Ngân hàng (hình ảnh chụp hoặc file PDF) + Mã thanh toán </strong>về email: <a>ads@zalo.me </a>để BQT Zalo Ads kiểm tra.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-28" data-toggle="collapse" data-target="#collapse-28" aria-expanded="false" aria-controls="collapse-28"><a class="collapsed" data-toggle="collapse" data-target="#collapse-28" aria-expanded="false" aria-controls="collapse-28">Tôi cần làm gì nếu ghi sai thông tin Nội dung chuyển khoản?</a></div>
+                <div class="collapse" id="collapse-28" aria-labelledby="head-28">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo gửi sai thông tin nội dung chuyển khoản như BQT Zalo Ads quy định, BQT Zalo Ads sẽ không thể tìm được tài khoản của nhà quảng cáo trên hệ thống quảng cáo. Vì thế, nhà quảng cáo cân nhắc cung cấp một số thông tin sau:</p>
+                    <ul>
+                      <li> <strong>Ủy nhiệm </strong>(nếu nạp tại ngân hàng)/Xác nhận chuyển khoản (chuyển khoản qua hệ thống Internet Banking) của ngân hàng nạp cho số tiền nạp (hình chụp hoặc file PDF)</li>
+                      <li>Thông tin <strong>Mã thanh toán </strong>chính xác với tài khoản quảng cáo của nhà quảng cáo trên hệ thống.</li>
+                    </ul>
+                    <p>Nhà quảng cáo gửi thông tin đến email: <a href="mailto:ads@zaloapp.com">ads@zaloapp.com </a>để được hỗ trợ. Thời gian hỗ trợ thông tin nạp tiền sẽ trong vòng 1 ngày làm việc.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-29" data-toggle="collapse" data-target="#collapse-29" aria-expanded="false" aria-controls="collapse-29"><a class="collapsed" data-toggle="collapse" data-target="#collapse-29" aria-expanded="false" aria-controls="collapse-29">Tại sao tôi nhận được voucher nhưng không sử dụng được?</a></div>
+                <div class="collapse" id="collapse-29" aria-labelledby="head-29">
+                  <div class="card-body">
+                    <p>Nếu nhà quảng cáo không sử dụng được voucher, nhà quảng cáo vui lòng kiểm tra các thông tin sau trên voucher:</p>
+                    <ul>
+                      <li><strong>Loại voucher:</strong>voucher nạp tiền hay voucher tặng tiền.</li>
+                    </ul>
+                    <p>Voucher nạp tiền: tài khoản quảng cáo sẽ được nạp đúng số tiền trên voucher.</p><img src="https://static-ads.zaloapp.com/pubs/wp/FAQ_9.png">
+                    <p>Voucher tặng tiền: tài khoản quảng cáo sẽ được nạp số tiền tương ứng khi nhà quảng cáo nạp tiền vào tài khoản quảng cáo.</p><img src="https://static-ads.zaloapp.com/pubs/wp/FAQ_10.png">
+                    <ul>
+                      <li><strong>Nhóm đối tượng được sử dụng voucher: </strong>voucher dành cho nhà quảng cáo cũ hay nhà quảng cáo mới sử dụng dịch vụ trên Zalo Ads.</li>
+                      <li><strong>Thời gian sử dụng voucher: </strong>Mỗi voucher sẽ có 1 thời gian sử dụng tương ứng, đây là thời gian kích hoạt chứ không phải thời gian sử dụng. Nhà quảng cáo có thể nạp voucher trước và để dành tiền sử dụng sau.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-30" data-toggle="collapse" data-target="#collapse-30" aria-expanded="false" aria-controls="collapse-30"><a class="collapsed" data-toggle="collapse" data-target="#collapse-30" aria-expanded="false" aria-controls="collapse-30">Tôi muốn xuất hóa đơn VAT cho số tiền nạp có được không?</a></div>
+                <div class="collapse" id="collapse-30" aria-labelledby="head-30">
+                  <div class="card-body">
+                    <p>Nếu doanh nghiệp có nhu cầu xuất hóa đơn cho số tiền nạp trong tháng, nhà quảng cáo cân nhắc các thao tác sau khi nạp tiền:</p>
+                    <p> <strong>Với phương thức nạp tiền trực tuyến: </strong>nhà quảng cáo cân nhắc nhấn chọn nút Nhận hóa đơn và nhập đầy đủ thông tin xuất hóa đơn của doanh nghiệp.</p><img src="https://business.zalo.me/wp-content/uploads/2019/08/H%C4%90-1.png">
+                    <p><strong>Với phương thức nạp tiền chuyển khoản: </strong>nhà quảng cáo cân nhắc nhập đầy đủ thông tin xuất hóa đơn của doanh nghiệp trong phần.</p>
+                    <p><strong>Thông tin tài khoản. </strong>BQT Zalo Ads sẽ kiểm tra và tự động ghi nhận Nhận hóa đơn cho những tài khoản có thông tin doanh nghiệp đầy đủ.</p><img src="https://business.zalo.me/wp-content/uploads/2019/08/H%C4%90-2.png">
+                    <p>Zalo Ads sẽ xuất hóa đơn VAT điện tử với tổng số tiền nạp trong tháng và gửi đến đến nhà quảng cáo qua email cung cấp trong hệ thống. Vì thế, nhà quảng cáo vui lòng cung cấp email chính xác và thường xuyên sử dụng.</p>
+                    <p><strong>(*) Lưu ý: </strong>Nhà quảng cáo vui lòng kiểm tra thông tin doanh nghiệp (tên doanh nghiệp, mã số thu, địa chỉ xuất hóa đơn) chính xác. Nếu nhà quảng cáo cung cấp thông tin sai (hoặc doanh nghiệp được ghi nhận trên Tổng cục thuếkhông hoạt động), thì kế toán Zalo Ads sẽ từ chối xuất hóa đơn VAT cho doanh nghiệp.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-31" data-toggle="collapse" data-target="#collapse-31" aria-expanded="false" aria-controls="collapse-31"><a class="collapsed" data-toggle="collapse" data-target="#collapse-31" aria-expanded="false" aria-controls="collapse-31">Khi nào thì Zalo Ads gửi hóa đơn VAT?</a></div>
+                <div class="collapse" id="collapse-31" aria-labelledby="head-31">
+                  <div class="card-body">
+                    <p>Bộ phận kế toán và BQT Zalo Ads sẽ tổng hợp số tiền nạp và xuất hóa đơn cho tất cả nhà quảng cáo vào ngày cuối cùng của tháng. Giá trị hóa đơn là sẽ tổng toàn bộ số tiền nhà quảng cáo đã nạp trong tháng.</p>
+                    <p>Ví dụ : Trong tháng 1 nhà quảng cáo nạp 5 lần với số tiền nạp mỗi lần 4,000,000 VND, thì kế toán Zalo Ads sẽ chỉ xuất 1 hóa đơn VAT với giá trị là 20,000,000 VND.</p>
+                    <p>Hóa đơn GTGT sẽ là hóa đơn điện tử xuất từ hệ thống Tổng Cục Thuế. Hóa đơn sẽ được gửi hóa đơn cho doanh nghiệp sẽ trong vòng 7 ngày làm việc đầu tiên của tháng kế tiếp qua email đăng ký trên hệ thống.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-32" data-toggle="collapse" data-target="#collapse-32" aria-expanded="false" aria-controls="collapse-32"><a class="collapsed" data-toggle="collapse" data-target="#collapse-32" aria-expanded="false" aria-controls="collapse-32">Tôi muốn tách nhỏ hóa đơn, hoặc xuất hóa đơn trên mỗi lần nạp tiền có được không?</a></div>
+                <div class="collapse" id="collapse-32" aria-labelledby="head-32">
+                  <div class="card-body">
+                    <p>Zalo Ads sẽ không hỗ trợ tách hóa đơn, hoặc xuất hóa đơn trên mỗi lần nạp tiền với cùng một phương thức nạp tiền. Số tiền trên hóa đơn sẽ là tổng số tiền nạp trong tháng của nhà quảng cáo.</p>
+                    <p>Tuy nhiên, nếu nhà quảng cáo muốn nhận 2 hóa đơn cho số tiền nạp trong tháng, nhà quảng cáo cân nhắc nạp tiền qua 2 phương thức nạp tiền (nạp tiền trực tuyến và nạp tiền chuyển khoản). Kế toán Zalo Ads sẽ hỗ trợ xuất hóa đơn theo từng phương thức nạp tiền và số hóa đơn tối đa cho 1 tài khoản là 2 hóa đơn.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-33" data-toggle="collapse" data-target="#collapse-33" aria-expanded="false" aria-controls="collapse-33"><a class="collapsed" data-toggle="collapse" data-target="#collapse-33" aria-expanded="false" aria-controls="collapse-33">Làm thế nào để điều chỉnh thông tin xuất hóa đơn?</a></div>
+                <div class="collapse" id="collapse-33" aria-labelledby="head-33">
+                  <div class="card-body">
+                    <p>Để điều chỉnh nội dung xuất hóa đơn trên hệ thống, nhà quảng cáo nhấn vào Avatar và chọn Thông tin người dùng trong tài khoản quảng cáo tương ứng.</p><img src="https://business.zalo.me/wp-content/uploads/2019/08/HD-3.png">
+                    <p>Nhà quảng cáo chỉnh sửa chính xác thông tin xuất hóa đơn và nhấn vào nút <strong>Cập nhật thông tin.</strong></p><img src="https://business.zalo.me/wp-content/uploads/2019/08/HD-4.png">
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-35" data-toggle="collapse" data-target="#collapse-35" aria-expanded="false" aria-controls="collapse-35"><a class="collapsed" data-toggle="collapse" data-target="#collapse-35" aria-expanded="false" aria-controls="collapse-35">Tôi muốn xem lại những lần nạp tiền thì làm như thế nào?</a></div>
+                <div class="collapse" id="collapse-35" aria-labelledby="head-35">
+                  <div class="card-body">
+                    <p>Để xem lại thông tin những lần nạp tiền vào tài khoản quảng cáo, nhà quảng cáo có thể xem trong phần <strong>Lịch sử nạp tiền </strong>trong phần <strong>Chiến dịch.</strong></p><img src="https://business.zalo.me/wp-content/uploads/2019/08/LSNT.png">
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-36" data-toggle="collapse" data-target="#collapse-36" aria-expanded="false" aria-controls="collapse-36"><a class="collapsed" data-toggle="collapse" data-target="#collapse-36" aria-expanded="false" aria-controls="collapse-36">Tôi muốn rút số tiền trong tài khoản quảng cáo về lại được không?</a></div>
+                <div class="collapse" id="collapse-36" aria-labelledby="head-36">
+                  <div class="card-body">
+                    <p>Theo điều 4.4 tại <strong>Thỏa thuận sử dụng tài khoản Zalo Quảng cáo trực tuyến, </strong>số tiền đã nạp vào tài khoản quảng cáo không được hoàn trả lại hoặc chuyển đổi qua tài khoản quảng cáo khác trong bất kỳ trường hợp nào. Nhà quảng cáo có thể xem lại thông tin trong phần <strong>Thông tin hợp đồng.</strong></p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-37" data-toggle="collapse" data-target="#collapse-37" aria-expanded="false" aria-controls="collapse-37"><a class="collapsed" data-toggle="collapse" data-target="#collapse-37" aria-expanded="false" aria-controls="collapse-37">Tôi có thể liên hệ qua đâu để được hỗ trợ về vấn đề thanh toán?</a></div>
+                <div class="collapse" id="collapse-37" aria-labelledby="head-37">
+                  <div class="card-body">
+                    <p>Để liên hệ hỗ trợ về vấn đề thanh toán quảng cáo Zalo Ads, nhà quảng cáo vui lòng liên hệ qua email: <a>ads@zalo.me </a>hoặc trực tiếp qua số điện thoại: <strong>1900 988912 </strong>nhấn phím số 3 để được đội ngũ hỗ trợ khách hàng giải đáp các vấn đề về nạp tiền.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card collapsed">
+                <div class="card-header" id="head-38" data-toggle="collapse" data-target="#collapse-38" aria-expanded="false" aria-controls="collapse-38"><a class="collapsed" data-toggle="collapse" data-target="#collapse-38" aria-expanded="false" aria-controls="collapse-38">Phí duy trì được tính như thế nào?</a></div>
+                <div class="collapse" id="collapse-38" aria-labelledby="head-38">
+                  <div class="card-body">
+                    <p>Zalo Ads tính phí duy trì tài khoản cho các tài khoản quảng cáo không có hoạt động tiêu tiền trong thời gian 6 tháng trở về trước. Do tài khoản của nhà quảng cáo không có hoạt động phát sinh chi phí quá 6 tháng nên Zalo Ads buộc trừ phí duy trì trên tài khoản. Nếu tài khoản của nhà quảng cáo có hoạt động tiêu tiền thì trong vòng 6 tháng tiếp theo Zalo Ads sẽ không thu phí duy trì tài khoản nữa.</p>
+                    <p>Zalo Ads chỉ trừ trên số tiền đang có trong tài khoản. Khi tài khoản còn 0 VNĐ, hệ thống sẽ ngưng trừ phí duy trì cũng như sẽ không truy thu hoặc ghi nhận tiền âm ngay cả khi tài khoản của nhà quảng cáo không có hoạt động tiêu tiền.</p>
+                    <p>Chi tiết về điều khoản <strong>Tính phí duy trì tài khoản vui lòng tham khảo thêm tại: </strong><a>https://ads.zalo.me/WebClient/Policy</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <script>
+          document.getElementById("click-section-0").click();
+          
+          
+          function ChooseTabs(evt, tabName) {
+          	//- console.log(tabName)
+          	var i, tabcontent, tablinks;
+          	tabcontent = document.getElementsByClassName("tab-faq");
+          	for (i = 0; i < tabcontent.length; i++) {
+          		tabcontent[i].style.display = "none";
+          	}
+          	tablinks = document.getElementsByClassName("tab-links");
+          	for (i = 0; i < tablinks.length; i++) {
+          		tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+          	}
+          	document.getElementById(tabName).style.display = "block";
+          	evt.currentTarget.className += " is-active";
+          }
+          //choose tab for auto collapse when direct from homepage
+          function OpenCollapse(number_of_section, number_of_card){
+          		var a = document.getElementById(number_of_section)
+          		var b = a.getElementsByClassName('card')[Number(number_of_card)-1]
+          		var tag_a = b.getElementsByTagName('A')[0]
+          		var collapse_show = b.getElementsByClassName('collapse')[0]
+          		//- console.log('check first', tag_a)
+          		//- console.log('check second', collapse_show)
+          		b.scrollIntoView()
+          		tag_a.removeAttribute("class")
+          		collapse_show.className += ' show'
+          		//- console.log(string)
+          		//- document.getElementById('collapse-'+string).className += ' show'
+          		//- document.getElementById('head-'+string).getElementsByTagName('A')[0].removeAttribute("class")
+          }
+          window.addEventListener('load',() =>{
+          	document.getElementsByTagName('BODY')[0].classList.add('is-bg-grey-v2')
+          	var a = window.location.href
+          	var b = a.substr(-2,2)
+          	if(a){
+          		if(a.includes('section-0')){
+          			document.getElementById("click-section-0").click();
+          			OpenCollapse('section-0', b)
+          		} else if(a.includes('section-1')){
+          			document.getElementById("click-section-1").click();
+          			OpenCollapse('section-1', b)
+          		} else{
+          			document.getElementById("click-section-0").click();
+          		}	
+          	}
+          })
+        </script>
+      </main>
+      <div class="section-cta">
+        <div class="context">
+          <p>Tiếp cận 100 triệu khách hàng tiềm năng trên hệ sinh thái Zalo</p>
+          <h2>Bạn đã sẵn sàng bắt đầu với Zalo Ads?</h2>
+          <div class="buttons is-centered"><a class="button" href="#!">Tạo quảng cáo ngay</a></div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="columns">
+          <div class="column is-two-fifths">
+            <h2 class="subtitle is-4 mb-3">Thông tin liên hệ</h2>
+            <ul class="addr-list">
+              <li><span class="lab">Hotline</span><span class="content"><a href="tel:1900988912">1900 988 912</a></span></li>
+              <li><span class="lab">Email</span><span class="content"><a href="mailto:ads@zaloapp.com">ads@zaloapp.com</a></span></li>
+              <li><span class="lab">Địa chỉ</span><span class="content">VNG Campus - Đường 13, KCX Tân Thuận, phường Tân Thuận Đông, quận 7, Tp.HCM</span></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h2 class="subtitle is-4 mb-3">Liên kết</h2>
+            <div class="columns">
+              <div class="column">
+                <ul class="link-list">
+                  <li><a href="https://ads.zalo.me/client/member/profile">Thông tin tài khoản</a></li>
+                  <li><a href="https://ads.zalo.me/client/payment/add-budget">Nạp tiền vào tài khoản</a></li>
+                  <li><a href="https://ads.zalo.me/client/ads/select-campaign">Tạo quảng cáo</a></li>
+                  <li><a href="https://ads.zaloapp.com/client/campaigns">Quản lý quảng cáo	</a></li>
+                </ul>
+              </div>
+              <div class="column">
+                <ul class="link-list">
+                  <li><a href="https://beta.ads.zalo.me/tai-lieu-huong-dan/" target="_blank">Tài liệu hướng dẫn</a></li>
+                  <li><a href="https://beta.ads.zalo.me/p/tai-nguyen/chinh-sach/" target="_blank">Chính sách quảng cáo</a></li>
+                  <li><a href="https://beta.ads.zalo.me/cau-hoi-thuong-gap/" target="_blank">Câu hỏi thường gặp</a></li>
+                  <li><a href="https://beta.ads.zalo.me/p/tai-nguyen/toi-uu-quang-cao/" target="_blank">Tối ưu quảng cáo</a></li>
+                </ul>
+              </div>
+              <div class="column">
+                <ul class="link-list">
+                  <li><a href="https://beta.ads.zalo.me/doi-tac-cao-cap/" target="_blank">Đối tác cao cấp</a></li>
+                  <li><a class="func-modal-form" href="javascript:void(0)">Liên hệ tư vấn</a></li>
+                  <li><a href="https://ads.zalo.me/Support" target="_blank">Các kênh hỗ trợ</a></li>
+                  <li><a href="https://www.facebook.com/ZaloAds/" target="_blank">Zalo Ads trên facebook</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="cpr">©
+          <script>
+            var a = new Date()
+            document.write(a.getFullYear()); 
+          </script>
+          Zalo Ads. Một sản phẩm của Zalo
+        </p>
+        <script>
+          var headerStick = document.getElementsByTagName("HEADER")[0]
+          var headerStickContainer = headerStick.getElementsByClassName("header-container")[0]
+          var headerImgLogo = headerStickContainer.getElementsByClassName('img-logo')[0]
+          //- window.onscroll = function() {
+          //- 	//- onScrollHeaderTop(); 
+          //- 	//- onScrollFunNeoBar(); 
+          //- 	//- onScrollFunNeoBarPolicy();
+          //- 	//- onScrollHideBar();
+          
+          //- 	let tab5 = document.getElementById('tab5')
+          //- 	if(tab5){
+          //- 		let video = tab5.getElementsByTagName("VIDEO")[0]
+          //- 		if($( "#tab5" ).hasClass("show")){
+          //- 			let bounding = video.getBoundingClientRect();
+          //- 			if (bounding.top >= -575 && bounding.top <= 860) {
+          //- 				video.play()
+          //- 			} else {
+          //- 				video.pause()
+          //- 			}
+          //- 		}
+          //- 	}
+          	
+          //- };
+          onScrollHeaderTop = () =>{
+          	if (window.scrollY >= 15){
+          		headerStick.classList.add('fixed')
+          	} else {
+          		headerStick.classList.remove('fixed')
+          	}
+          }
+          onScrollFunNeoBar = () =>{
+          	var FuncNeoBar = document.getElementsByClassName('affix')
+          	if(FuncNeoBar){
+          		for(item of FuncNeoBar){
+          			if(window.scrollY>= 385){
+          				item.classList.add('add-padding-top')
+          			}else{
+          				item.classList.remove('add-padding-top')
+          			}
+          		}
+          		
+          	}	
+          }
+          onScrollFunNeoBarPolicy = () =>{
+          	var FuncNeoBar = document.getElementsByClassName('affix_policy')
+          	if(FuncNeoBar){
+          		for(item of FuncNeoBar){
+          			if(window.scrollY>=385){
+          				item.classList.add('add-padding-top-policy')
+          			}else{
+          				item.classList.remove('add-padding-top-policy')
+          			}
+          		}
+          	}	
+          }
+          onScrollHideBar = () => {	
+          	var listLargeImg = document.getElementsByClassName('large-width-img')
+          	var FuncNeoBar = document.getElementsByClassName('affix')[0]
+          	var barTop = FuncNeoBar.offsetTop
+          	var barHeight = FuncNeoBar.offsetHeight
+          
+          	Array.from(listLargeImg).forEach(item => {
+          		
+          		var imgHeight = item.offsetHeight
+          		var imgTop = item.offsetTop
+          		//- console.log(barTop+barHeight)
+          		//- console.log('img Min Top',imgTop)
+          		//- console.log('img Max Top',imgTop+imgHeight+barHeight)
+          		//- console.log(barTop+barHeight >= imgTop && barTop+barHeight <= imgTop + imgHeight+barHeight)
+          		if(barTop+barHeight >= imgTop && barTop+barHeight <= imgTop+imgHeight+barHeight){
+          			FuncNeoBar.style.opacity = 0
+          		} else {
+          			FuncNeoBar.style.opacity = 1
+          		}
+          	})
+          }
+          var buttonSearch = document.getElementById("button-search")
+          var searchInput = document.getElementById("search-input-header")
+          $('#search-input').bind('input', function(value) {
+          	value = value.target.value
+          	if(value){
+          		searchInput.getElementsByTagName('A')[0].style.display = 'none'
+          		searchInput.getElementsByTagName('BUTTON')[0].style.display = 'flex'
+          	} else {
+          		searchInput.getElementsByTagName('A')[0].style.display = 'flex'
+          		searchInput.getElementsByTagName('BUTTON')[0].style.display = 'none'
+          	}
+          })
+          window.addEventListener('click', function(e){
+          	inputValueHeader = searchInput.getElementsByTagName('INPUT')[0].value
+          	//- console.log(document.getSelection())
+          	//- console.log('checl', document.getSelection().anchorNode.id)
+          	if (buttonSearch.contains(e.target)){
+          		if(inputValueHeader){
+          			searchInput.getElementsByTagName('A')[0].style.display = 'none'
+          			searchInput.getElementsByTagName('BUTTON')[0].style.display = 'flex'
+          			searchInput.classList.toggle('active-search')
+          			searchInput.getElementsByTagName("INPUT")[0].focus()
+          			searchInput.getElementsByTagName("INPUT")[0].removeAttribute('disabled')
+          		} else{
+          			searchInput.classList.toggle('active-search')
+          			searchInput.getElementsByTagName("INPUT")[0].focus()
+          			searchInput.getElementsByTagName("INPUT")[0].removeAttribute('disabled')
+          		}
+          	} else if(searchInput.getElementsByTagName("INPUT")[0].contains(e.target) 
+          	|| searchInput.getElementsByTagName("BUTTON")[0].contains(e.target)){
+          		searchInput.getElementsByTagName("INPUT")[0].focus()
+          	} else{
+          		if(document.getSelection().anchorNode){
+          			if(document.getSelection().anchorNode.className == 'search-input-form active-search'){
+          
+          			}else{
+          				searchInput.classList.remove('active-search')
+          				searchInput.getElementsByTagName('A')[0].style.display = 'flex'
+          				searchInput.getElementsByTagName('BUTTON')[0].style.display = 'none'
+          				searchInput.getElementsByTagName("INPUT")[0].setAttribute('disabled','')
+          			}
+          		}
+          		
+          	}
+          });
+          
+          function getQueryVariableURL(variable){
+          	var query = window.location.search.substring(1);
+          	var vars = query.split("&");
+          	for (var i=0;i<vars.length;i++) {
+          			var pair = vars[i].split("=");
+          			if(pair[0] == variable){return pair[1];}
+          	}
+          	return(false);
+          }
+          
+          if(window.location.search.indexOf('utm_source')>=0){
+          	var d = new Date();
+          	d.setTime(d.getTime() + (180*24*60*60*1000));
+          	var expires = "expires="+ d.toUTCString();
+          	document.cookie="zadutm="+getQueryVariableURL('utm_source')+'_'+getQueryVariableURL('utm_medium')+'_'+getQueryVariableURL('utm_campaign')+';' + expires + ";path=/"
+          }
+          
+          $('.card').click(function() {
+          	let section = 'section-0'
+          	let index = $(this).index() + 1
+          	let num
+          	let value = ''
+          	let copyText
+          	if($('#click-section-0').hasClass('is-active')){
+          		index >= 10 ? num = String(index) : num = String('0'+index)
+          		value = 'https://ads.zalo.me/business/cau-hoi-thuong-gap/#' + section + '#'+num
+          		$(this).append("<input id='input-copy' value='"+value+"'/>")
+          	} else {
+          		section = 'section-1'
+          		index >= 10 ? num = String(index) : num = String('0'+index)
+          		value = 'https://ads.zalo.me/business/cau-hoi-thuong-gap/#' + section + '#'+num
+          		$(this).append("<input id='input-copy' value='"+value+"'/>")
+          	}
+          
+          	copyText = document.getElementById("input-copy");
+          	copyText.select();
+          	copyText.setSelectionRange(0, 99999);
+          	document.execCommand("copy");
+          	copyText.remove();
+          });
+          
+          $(function() {
+          	var WebP=new Image();
+          	
+          	WebP.onload=WebP.onerror=function(){
+          		console.log(WebP.height)
+          		if(WebP.height!=2){
+          			$('img[src$=".webp"]').each(function(index,element) {
+          				element.src = element.src.replace('.webp','.png');
+          			});
+          			$('video').each(function(index,element){
+          				let temp = element.getAttribute("poster")
+          				if(temp.includes('.webp')){
+          					element.setAttribute("poster", temp.replace('.webp','.png'))
+          				}
+          			})
+          			$('div').each(function(index,element){
+          				let temp = element.style.backgroundImage
+          				if(temp.includes('.webp')){
+          					element.style.backgroundImage = temp.replace('.webp','.png');
+          				}
+          			})
+          		}
+          	};
+          	WebP.src='data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+          });
+        </script>
+      </footer>
+    </div>
+    <script>
+      var swiper = new Swiper('.tabs-swiper', {
+      		slidesPerView: 'auto',
+      		simulateTouch: true,
+      		loop: false,
+      		navigation: {
+      			nextEl: '.swiper-button-next',
+      			prevEl: '.swiper-button-prev',
+      		},
+      	})
+    </script>
+  </body>
+</html>
