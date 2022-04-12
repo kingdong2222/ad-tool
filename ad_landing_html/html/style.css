@@ -19859,6 +19859,7 @@ video[poster] {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    padding: 40px 32px;
   }
   .category-landing .block-group-info .item {
     width: 30%;
