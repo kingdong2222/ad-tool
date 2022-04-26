@@ -983,3 +983,11 @@ Generated using nucleoapp.com
   content: "\eaf8";
 }
 
+.icz-speedometer::before {
+  content: "\eaf9";
+}
+
+.icz-hourglass::before {
+  content: "\eafa";
+}
+
