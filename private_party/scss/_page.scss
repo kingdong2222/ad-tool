@@ -6,6 +6,50 @@ body {
 
 
 .project-layout {
+  @media screen and (min-width: 768px) {
+    .section-first,.section-second{
+      display: none !important;
+    }
+  }
+  .only-desktop{
+    display: none;
+    position: relative;
+    @media screen and (min-width: 768px) {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    p{
+      color: #fff;
+      margin-bottom: 16px;
+      font-size: 24px;
+      font-weight: 700;
+      z-index: 1;
+      animation: colorChange 5s infinite;
+      transition: all 0.3s;
+      background-color: orange;
+    }
+    @keyframes colorChange {
+      0% {background-color: orange;}
+      50% {background-color: brown;}
+      100% {background-color: orange;}
+    }
+    .qr-code{
+      position: relative;
+      z-index: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 5px 10px 10px rgb(36 36 36 / 80%);
+    }
+    .bg{
+      position: absolute;
+      height: 100vh;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
   @extend %tr-all;
   .is-font-1{
     font-family: 'Louis George Cafe';
@@ -23,11 +67,20 @@ body {
     height: 100vh;
     position: relative;
     display: flex;
+    #first_word, #second_word{
+      opacity: 0;
+      visibility: hidden;
+      transition: all 2s;
+      &.show{
+        visibility: visible;
+        opacity: 1;
+      }
+    }
     .swipe-down{
       position: absolute;
       color: #fff;
       text-align: center;
-      bottom: 12px;
+      bottom: 32px;
       width: 100%;
       p{
         margin-bottom: 16px;
@@ -36,7 +89,14 @@ body {
       }
       img{
         width: 8%;
+        animation: swipeDown 5s infinite;
+        transition: all 0.3s;
       }
+    }
+    @keyframes swipeDown {
+      0% {transform: translateY(0)}
+      50% {transform: translateY(20px)}
+      100% {transform: translateY(0)}
     }
     img.bg{
       position: absolute;
@@ -63,10 +123,14 @@ body {
     background-color: #f4ceb1;
     text-align: center;
     padding: 48px 16px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .header{
       margin-bottom: 32px;
       img.heart{
-        width:10%;
+        width:15%;
       }
       h2{
         margin-bottom: 10px;
@@ -75,7 +139,7 @@ body {
       }
     }
     .footer{
-      margin-top: 32px;
+      margin-top: 40px;
       h3{
         margin-bottom: 8px;
       }

@@ -6588,6 +6588,83 @@ body {
   scroll-behavior: smooth;
 }
 
+@media screen and (min-width: 768px) {
+  .project-layout .section-first, .project-layout .section-second {
+    display: none !important;
+  }
+}
+.project-layout .only-desktop {
+  display: none;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .project-layout .only-desktop {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100vh;
+  }
+}
+.project-layout .only-desktop p {
+  color: #fff;
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  z-index: 1;
+  -webkit-animation: colorChange 5s infinite;
+          animation: colorChange 5s infinite;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: orange;
+}
+@-webkit-keyframes colorChange {
+  0% {
+    background-color: orange;
+  }
+  50% {
+    background-color: brown;
+  }
+  100% {
+    background-color: orange;
+  }
+}
+@keyframes colorChange {
+  0% {
+    background-color: orange;
+  }
+  50% {
+    background-color: brown;
+  }
+  100% {
+    background-color: orange;
+  }
+}
+.project-layout .only-desktop .qr-code {
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  -webkit-box-shadow: 5px 10px 10px rgba(36, 36, 36, 0.8);
+          box-shadow: 5px 10px 10px rgba(36, 36, 36, 0.8);
+}
+.project-layout .only-desktop .bg {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .project-layout .is-font-1 {
   font-family: "Louis George Cafe";
 }
@@ -6607,11 +6684,22 @@ body {
   display: -ms-flexbox;
   display: flex;
 }
+.project-layout .section-first #first_word, .project-layout .section-first #second_word {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 2s;
+  -o-transition: all 2s;
+  transition: all 2s;
+}
+.project-layout .section-first #first_word.show, .project-layout .section-first #second_word.show {
+  visibility: visible;
+  opacity: 1;
+}
 .project-layout .section-first .swipe-down {
   position: absolute;
   color: #fff;
   text-align: center;
-  bottom: 12px;
+  bottom: 32px;
   width: 100%;
 }
 .project-layout .section-first .swipe-down p {
@@ -6621,6 +6709,39 @@ body {
 }
 .project-layout .section-first .swipe-down img {
   width: 8%;
+  -webkit-animation: swipeDown 5s infinite;
+          animation: swipeDown 5s infinite;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+@-webkit-keyframes swipeDown {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes swipeDown {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 .project-layout .section-first img.bg {
   position: absolute;
@@ -6648,12 +6769,23 @@ body {
   background-color: #f4ceb1;
   text-align: center;
   padding: 48px 16px;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .project-layout .section-second .header {
   margin-bottom: 32px;
 }
 .project-layout .section-second .header img.heart {
-  width: 10%;
+  width: 15%;
 }
 .project-layout .section-second .header h2 {
   margin-bottom: 10px;
@@ -6661,7 +6793,7 @@ body {
   font-weight: 700;
 }
 .project-layout .section-second .footer {
-  margin-top: 32px;
+  margin-top: 40px;
 }
 .project-layout .section-second .footer h3 {
   margin-bottom: 8px;

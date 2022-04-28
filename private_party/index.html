@@ -24,7 +24,7 @@
       <div class="page-content">
         <div class="section-first"><img class="bg" src="./images/bg_0.png">
           <div class="text">
-            <p class="is-font-3 left">Thank you for being a part of our<span class="nowrap">special day.</span></p><img class="right" src="./images/name.png">
+            <p class="is-font-3 left" id="first_word">Thank you for being a part of our<span class="nowrap">special day.</span></p><img class="right" id="second_word" src="./images/name.png">
           </div>
           <div class="swipe-down">
             <p class="is-font-3">SWIPE DOWN FOR MORE</p><img src="./images/swipedown.svg">
@@ -36,9 +36,13 @@
             <p class="is-font-3">NOT LIVING UNTIL DRUNK</p>
           </div><img class="timeline" src="./images/timeline.png">
           <div class="footer">
-            <h3 class="is-font-3">Dress code: White,</h3>
+            <h3 class="is-font-3">Dress code: White, Brown.</h3>
             <p class="is-font-1">May 28th 2022</p>
           </div>
+        </div>
+        <div class="only-desktop">
+          <p class="is-font-3">Please SCAN THIS for more detail!</p>
+          <div class="qr-code"><img src="https://chart.googleapis.com/chart?cht=qr&amp;chl=https%3A%2F%2Fkingdong2222.github.io%2Fad-tool%2Fprivate_party%2F&amp;chs=180x180&amp;choe=UTF-8&amp;chld=L|2"></div><img class="bg" src="./images/bg-desktop.jpeg">
         </div>
       </div>
     </div>
@@ -51,6 +55,16 @@
     <script src="js/main.js"></script>
     <script src="js/anime.js"></script>
     <script>
+      window.onload = () => {
+      	setTimeout(()=>{
+      		document.getElementById('first_word').classList.add('show')
+      	},500)
+      	setTimeout(()=>{
+      		document.getElementById('second_word').classList.add('show')
+      	},1000)
+      
+      }
+      
       $('.list-unstyled > li').click(function(){
       	$('.list-unstyled').toggleClass('is-visible');
       	$('.cd-nav-trigger').removeClass('menu-is-open')
