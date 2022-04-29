@@ -127,6 +127,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    .timeline{
+      position: absolute;
+      left: 0;
+      width: 100vw;
+      top: 50%;
+      transform: translateY(-50%);
+    }
     .header{
       margin-bottom: 32px;
       img.heart{
@@ -139,9 +147,9 @@ body {
       }
     }
     .footer{
-      margin-top: 40px;
       h3{
-        margin-bottom: 8px;
+        font-size: 20px;
+        margin-bottom: 12px;
       }
     }
   }

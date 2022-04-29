@@ -6780,6 +6780,16 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
+}
+.project-layout .section-second .timeline {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 .project-layout .section-second .header {
   margin-bottom: 32px;
@@ -6792,11 +6802,9 @@ body {
   font-size: 32px;
   font-weight: 700;
 }
-.project-layout .section-second .footer {
-  margin-top: 40px;
-}
 .project-layout .section-second .footer h3 {
-  margin-bottom: 8px;
+  font-size: 20px;
+  margin-bottom: 12px;
 }
 
 .modal-backdrop.show {
