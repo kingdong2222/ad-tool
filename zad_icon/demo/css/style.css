@@ -1091,3 +1091,31 @@ icons
   content: "\eafa";
 }
 
+.icz-calendar-day-view::before {
+  content: "\eafb";
+}
+
+.icz-display_ad::before {
+  content: "\eafc";
+}
+
+.icz-inbox::before {
+  content: "\eafe";
+}
+
+.icz-catalog::before {
+  content: "\eaff";
+}
+
+.icz-prbox::before {
+  content: "\eb00";
+}
+
+.icz-Personal-info::before {
+  content: "\eb01";
+}
+
+.icz-Mobile-chat::before {
+  content: "\eb02";
+}
+

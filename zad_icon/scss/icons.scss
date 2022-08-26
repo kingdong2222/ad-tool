@@ -4,7 +4,7 @@ zadicon Web Font
 Generated using nucleoapp.com
 
 -------------------------------- */
-$icon-font-path: "../fonts" !default;
+$icz-font-path: "../fonts" !default;
 
 @font-face {
   font-family: 'zadicon';
@@ -325,6 +325,13 @@ $icons: (
   e-delete: 'eaf8',
   speedometer: 'eaf9',
   hourglass: 'eafa',
+  calendar-day-view: 'eafb',
+  display_ad: 'eafc',
+  inbox: 'eafe',
+  catalog: 'eaff',
+  prbox: 'eb00',
+  Personal-info: 'eb01',
+  Mobile-chat: 'eb02',
 );
 
 @function unicode($str) {
@@ -332,7 +339,7 @@ $icons: (
 }
 
 @each $name, $code in $icons {
-  .icon-#{"" +$name}::before {
+  .icz-#{"" +$name}::before {
     content: unicode($code);
   }
 }
