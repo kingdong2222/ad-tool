@@ -2243,6 +2243,366 @@ var cropLargeImgAgain = function (val) {
                       },
                     });
 
+                } else if(val == "Inpage"){
+                  download.download = uploadedImageName;
+                  download.href = result.toDataURL(uploadedImageType);
+
+                  $('#display_ads_inpage #display_ads_name_img').html(uploadedImageName);
+
+                  document.getElementById( "output-inpage-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
+
+
+                    $("#inpage_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
+
+                     //check blur
+                    let imgElement = document.getElementById("imageSrc-preview");
+                    imgElement.src = result.toDataURL(uploadedImageType);
+                    imgElement.onload = function () {
+                      let src = cv.imread(imgElement);
+                      let dst = new cv.Mat();
+                      let men = new cv.Mat();
+                      let menO = new cv.Mat();
+                      cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+                      // You can try more different parameters
+                      var t = cv.Laplacian(
+                        src,
+                        dst,
+                        cv.CV_64F,
+                        1,
+                        1,
+                        0,
+                        cv.BORDER_DEFAULT
+                      );
+
+                      if (men.data64F[0] > 10) {
+                        document.getElementById("inpage-img-quality").innerHTML =
+                          "Đạt tiêu chuẩn";
+                        document.getElementById("inpage-img-quality").classList.add("is-ok");
+                      } else {
+                        document.getElementById("inpage-img-quality").innerHTML =
+                          "Bị mờ";
+                        document.getElementById("inpage-img-quality").classList.remove("is-ok");
+                      }
+                      // cv.imshow('canvasOutput', dst);
+                      src.delete();
+                      dst.delete();
+                    };
+
+                    $(".ads-img .squares").addClass("is-show");
+
+                    let cookie_first_download = getCookie("first_user_download");
+                    let tmp_cookie;
+                    if (cookie_first_download) {
+                      tmp_cookie = false;
+                    } else {
+                      setCookie("first_user_download", "first_user_download", 30);
+                      tmp_cookie = true;
+                    }
+
+                    tippy("#dropdown-m1-display_ads-inpage", {
+                      content:
+                        '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
+                      allowHTML: true,
+                      maxWidth: 270,
+                      theme: "zad",
+                      showOnCreate: tmp_cookie,
+                      placement: "right-start",
+                      onShow(instance) {
+                        instance.setProps({ trigger: "click" });
+                      },
+                      onTrigger(instance) {
+                        instance.destroy();
+                      },
+                    });
+
+                }  else if(val == "WelcomeMobile"){
+                  download.download = uploadedImageName;
+                  download.href = result.toDataURL(uploadedImageType);
+
+                  $('#display_ads_welcome_mobile #display_ads_name_img').html(uploadedImageName);
+
+                  document.getElementById( "output-welcome_mobile-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
+
+
+                    $("#welcome_mobile_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
+
+                     //check blur
+                    let imgElement = document.getElementById("imageSrc-preview");
+                    imgElement.src = result.toDataURL(uploadedImageType);
+                    imgElement.onload = function () {
+                      let src = cv.imread(imgElement);
+                      let dst = new cv.Mat();
+                      let men = new cv.Mat();
+                      let menO = new cv.Mat();
+                      cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+                      // You can try more different parameters
+                      var t = cv.Laplacian(
+                        src,
+                        dst,
+                        cv.CV_64F,
+                        1,
+                        1,
+                        0,
+                        cv.BORDER_DEFAULT
+                      );
+
+                      if (men.data64F[0] > 10) {
+                        document.getElementById("welcome_mobile-img-quality").innerHTML =
+                          "Đạt tiêu chuẩn";
+                        document.getElementById("welcome_mobile-img-quality").classList.add("is-ok");
+                      } else {
+                        document.getElementById("welcome_mobile-img-quality").innerHTML =
+                          "Bị mờ";
+                        document.getElementById("welcome_mobile-img-quality").classList.remove("is-ok");
+                      }
+                      // cv.imshow('canvasOutput', dst);
+                      src.delete();
+                      dst.delete();
+                    };
+
+                    $(".ads-img .squares").addClass("is-show");
+
+                    let cookie_first_download = getCookie("first_user_download");
+                    let tmp_cookie;
+                    if (cookie_first_download) {
+                      tmp_cookie = false;
+                    } else {
+                      setCookie("first_user_download", "first_user_download", 30);
+                      tmp_cookie = true;
+                    }
+
+                    tippy("#dropdown-m1-display_ads-welcome_mobile", {
+                      content:
+                        '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
+                      allowHTML: true,
+                      maxWidth: 270,
+                      theme: "zad",
+                      showOnCreate: tmp_cookie,
+                      placement: "right-start",
+                      onShow(instance) {
+                        instance.setProps({ trigger: "click" });
+                      },
+                      onTrigger(instance) {
+                        instance.destroy();
+                      },
+                    });
+
+                }  else if(val == "HalfpageMobile"){
+                  download.download = uploadedImageName;
+                  download.href = result.toDataURL(uploadedImageType);
+
+                  $('#display_ads_halfpage_mb #display_ads_name_img').html(uploadedImageName);
+
+                  document.getElementById( "output-halfpage_mb-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
+
+
+                    $("#halfpage_mb_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
+
+                     //check blur
+                    let imgElement = document.getElementById("imageSrc-preview");
+                    imgElement.src = result.toDataURL(uploadedImageType);
+                    imgElement.onload = function () {
+                      let src = cv.imread(imgElement);
+                      let dst = new cv.Mat();
+                      let men = new cv.Mat();
+                      let menO = new cv.Mat();
+                      cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+                      // You can try more different parameters
+                      var t = cv.Laplacian(
+                        src,
+                        dst,
+                        cv.CV_64F,
+                        1,
+                        1,
+                        0,
+                        cv.BORDER_DEFAULT
+                      );
+
+                      if (men.data64F[0] > 10) {
+                        document.getElementById("halfpage_mb-img-quality").innerHTML =
+                          "Đạt tiêu chuẩn";
+                        document.getElementById("halfpage_mb-img-quality").classList.add("is-ok");
+                      } else {
+                        document.getElementById("halfpage_mb-img-quality").innerHTML =
+                          "Bị mờ";
+                        document.getElementById("halfpage_mb-img-quality").classList.remove("is-ok");
+                      }
+                      // cv.imshow('canvasOutput', dst);
+                      src.delete();
+                      dst.delete();
+                    };
+
+                    $(".ads-img .squares").addClass("is-show");
+
+                    let cookie_first_download = getCookie("first_user_download");
+                    let tmp_cookie;
+                    if (cookie_first_download) {
+                      tmp_cookie = false;
+                    } else {
+                      setCookie("first_user_download", "first_user_download", 30);
+                      tmp_cookie = true;
+                    }
+
+                    tippy("#dropdown-m1-display_ads-halfpage_mb", {
+                      content:
+                        '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
+                      allowHTML: true,
+                      maxWidth: 270,
+                      theme: "zad",
+                      showOnCreate: tmp_cookie,
+                      placement: "right-start",
+                      onShow(instance) {
+                        instance.setProps({ trigger: "click" });
+                      },
+                      onTrigger(instance) {
+                        instance.destroy();
+                      },
+                    });
+
+                } else if(val == "HalfpagePC"){
+                  download.download = uploadedImageName;
+                  download.href = result.toDataURL(uploadedImageType);
+
+                  $('#display_ads_halfpage_pc #display_ads_name_img').html(uploadedImageName);
+
+                  document.getElementById( "output-halfpage_pc-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
+
+
+                    $("#halfpage_pc_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
+
+                     //check blur
+                    let imgElement = document.getElementById("imageSrc-preview");
+                    imgElement.src = result.toDataURL(uploadedImageType);
+                    imgElement.onload = function () {
+                      let src = cv.imread(imgElement);
+                      let dst = new cv.Mat();
+                      let men = new cv.Mat();
+                      let menO = new cv.Mat();
+                      cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+                      // You can try more different parameters
+                      var t = cv.Laplacian(
+                        src,
+                        dst,
+                        cv.CV_64F,
+                        1,
+                        1,
+                        0,
+                        cv.BORDER_DEFAULT
+                      );
+
+                      if (men.data64F[0] > 10) {
+                        document.getElementById("halfpage_pc-img-quality").innerHTML =
+                          "Đạt tiêu chuẩn";
+                        document.getElementById("halfpage_pc-img-quality").classList.add("is-ok");
+                      } else {
+                        document.getElementById("halfpage_pc-img-quality").innerHTML =
+                          "Bị mờ";
+                        document.getElementById("halfpage_pc-img-quality").classList.remove("is-ok");
+                      }
+                      // cv.imshow('canvasOutput', dst);
+                      src.delete();
+                      dst.delete();
+                    };
+
+                    $(".ads-img .squares").addClass("is-show");
+
+                    let cookie_first_download = getCookie("first_user_download");
+                    let tmp_cookie;
+                    if (cookie_first_download) {
+                      tmp_cookie = false;
+                    } else {
+                      setCookie("first_user_download", "first_user_download", 30);
+                      tmp_cookie = true;
+                    }
+
+                    tippy("#dropdown-m1-display_ads-halfpage_pc", {
+                      content:
+                        '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
+                      allowHTML: true,
+                      maxWidth: 270,
+                      theme: "zad",
+                      showOnCreate: tmp_cookie,
+                      placement: "right-start",
+                      onShow(instance) {
+                        instance.setProps({ trigger: "click" });
+                      },
+                      onTrigger(instance) {
+                        instance.destroy();
+                      },
+                    });
+
+                }  else if(val == "MediumRectangle"){
+                  download.download = uploadedImageName;
+                  download.href = result.toDataURL(uploadedImageType);
+
+                  $('#display_ads_medium_rect #display_ads_name_img').html(uploadedImageName);
+
+                  document.getElementById( "output-medium_rect-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
+
+
+                    $("#medium_rect_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
+
+                     //check blur
+                    let imgElement = document.getElementById("imageSrc-preview");
+                    imgElement.src = result.toDataURL(uploadedImageType);
+                    imgElement.onload = function () {
+                      let src = cv.imread(imgElement);
+                      let dst = new cv.Mat();
+                      let men = new cv.Mat();
+                      let menO = new cv.Mat();
+                      cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+                      // You can try more different parameters
+                      var t = cv.Laplacian(
+                        src,
+                        dst,
+                        cv.CV_64F,
+                        1,
+                        1,
+                        0,
+                        cv.BORDER_DEFAULT
+                      );
+
+                      if (men.data64F[0] > 10) {
+                        document.getElementById("medium_rect-img-quality").innerHTML =
+                          "Đạt tiêu chuẩn";
+                        document.getElementById("medium_rect-img-quality").classList.add("is-ok");
+                      } else {
+                        document.getElementById("medium_rect-img-quality").innerHTML =
+                          "Bị mờ";
+                        document.getElementById("medium_rect-img-quality").classList.remove("is-ok");
+                      }
+                      // cv.imshow('canvasOutput', dst);
+                      src.delete();
+                      dst.delete();
+                    };
+
+                    $(".ads-img .squares").addClass("is-show");
+
+                    let cookie_first_download = getCookie("first_user_download");
+                    let tmp_cookie;
+                    if (cookie_first_download) {
+                      tmp_cookie = false;
+                    } else {
+                      setCookie("first_user_download", "first_user_download", 30);
+                      tmp_cookie = true;
+                    }
+
+                    tippy("#dropdown-m1-display_ads-medium_rect", {
+                      content:
+                        '<div class="tippy-block"><p style="margin-bottom:20px">Nhấp chọn để tải ảnh đã đạt tiêu chuẩn tại đây.</p><a href="#!" style="color:#1745cf; ">Đã hiểu</a></div>',
+                      allowHTML: true,
+                      maxWidth: 270,
+                      theme: "zad",
+                      showOnCreate: tmp_cookie,
+                      placement: "right-start",
+                      onShow(instance) {
+                        instance.setProps({ trigger: "click" });
+                      },
+                      onTrigger(instance) {
+                        instance.destroy();
+                      },
+                    });
+
                 } else {
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
@@ -2335,10 +2695,20 @@ var cropLargeImgAgain = function (val) {
   } else if(val == "MastheadMobile"){
     inputImage = document.getElementById("masthead_mb-again-img-input");
   } else if(val == "MastheadPC"){
-    inputImage = document.getElementById("masthead_pc-image-input");
+    inputImage = document.getElementById("masthead_pc-again-img-input");
   } else if(val == "Fullpage"){
-    inputImage = document.getElementById("fullpage-image-input");
-  }  else {
+    inputImage = document.getElementById("fullpage-again-img-input");
+  } else if(val == "Inpage"){
+    inputImage = document.getElementById("inpage-again-img-input");
+  } else if(val == "WelcomeMobile"){
+    inputImage = document.getElementById("welcome_mobile-again-img-input");
+  } else if(val == "HalfpageMobile"){
+    inputImage = document.getElementById("halfpage_mb-again-img-input");
+  } else if(val == "HalfpagePC"){
+    inputImage = document.getElementById("halfpage_pc-again-img-input");
+  } else if(val == "MediumRectangle"){
+    inputImage = document.getElementById("medium_rect-again-img-input");
+  } else {
     inputImage = document.getElementById("change-large-img-input");
   }
 
