@@ -902,8 +902,15 @@ var cropLargeImg = function (val) {
 
                     $("#masthead_mb_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
+
+                    count = 0;
+                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $(".check-msg").removeClass("is-ok");
+                    $(".square").removeClass("is-selected");
+                    $(".ads-img .squares").addClass("is-show");
+
                      //check blur
-                    let imgElement = document.getElementById("imageSrc-preview");
+                    let imgElement = document.getElementById("masthead_mb_preview");
                     imgElement.src = result.toDataURL(uploadedImageType);
                     imgElement.onload = function () {
                       let src = cv.imread(imgElement);
@@ -980,8 +987,14 @@ var cropLargeImg = function (val) {
 
                     $("#masthead_pc_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
+                    count = 0;
+                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $(".check-msg").removeClass("is-ok");
+                    $(".square").removeClass("is-selected");
+                    $(".ads-img .squares").addClass("is-show");
+
                      //check blur
-                    let imgElement = document.getElementById("imageSrc-preview");
+                    let imgElement = document.getElementById("masthead_pc_preview");
                     imgElement.src = result.toDataURL(uploadedImageType);
                     imgElement.onload = function () {
                       let src = cv.imread(imgElement);
@@ -1058,8 +1071,14 @@ var cropLargeImg = function (val) {
 
                     $("#fullpage_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
+                    count = 0;
+                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $(".check-msg").removeClass("is-ok");
+                    $(".square").removeClass("is-selected");
+                    $(".ads-img .squares").addClass("is-show");
+
                      //check blur
-                    let imgElement = document.getElementById("imageSrc-preview");
+                    let imgElement = document.getElementById("fullpage_preview");
                     imgElement.src = result.toDataURL(uploadedImageType);
                     imgElement.onload = function () {
                       let src = cv.imread(imgElement);
@@ -1136,8 +1155,14 @@ var cropLargeImg = function (val) {
 
                     $("#inpage_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
+                    count = 0;
+                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $(".check-msg").removeClass("is-ok");
+                    $(".square").removeClass("is-selected");
+                    $(".ads-img .squares").addClass("is-show");
+
                      //check blur
-                    let imgElement = document.getElementById("imageSrc-preview");
+                    let imgElement = document.getElementById("inpage_preview");
                     imgElement.src = result.toDataURL(uploadedImageType);
                     imgElement.onload = function () {
                       let src = cv.imread(imgElement);
@@ -1214,8 +1239,14 @@ var cropLargeImg = function (val) {
 
                     $("#welcome_mobile_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
+                    count = 0;
+                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $(".check-msg").removeClass("is-ok");
+                    $(".square").removeClass("is-selected");
+                    $(".ads-img .squares").addClass("is-show");
+
                      //check blur
-                    let imgElement = document.getElementById("imageSrc-preview");
+                    let imgElement = document.getElementById("welcome_mobile_preview");
                     imgElement.src = result.toDataURL(uploadedImageType);
                     imgElement.onload = function () {
                       let src = cv.imread(imgElement);
@@ -1292,8 +1323,14 @@ var cropLargeImg = function (val) {
 
                     $("#halfpage_mb_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
+                    count = 0;
+                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $(".check-msg").removeClass("is-ok");
+                    $(".square").removeClass("is-selected");
+                    $(".ads-img .squares").addClass("is-show");
+
                      //check blur
-                    let imgElement = document.getElementById("imageSrc-preview");
+                    let imgElement = document.getElementById("halfpage_mb_preview");
                     imgElement.src = result.toDataURL(uploadedImageType);
                     imgElement.onload = function () {
                       let src = cv.imread(imgElement);
@@ -1370,8 +1407,14 @@ var cropLargeImg = function (val) {
 
                     $("#halfpage_pc_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
+                    count = 0;
+                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $(".check-msg").removeClass("is-ok");
+                    $(".square").removeClass("is-selected");
+                    $(".ads-img .squares").addClass("is-show");
+
                      //check blur
-                    let imgElement = document.getElementById("imageSrc-preview");
+                    let imgElement = document.getElementById("halfpage_pc_preview");
                     imgElement.src = result.toDataURL(uploadedImageType);
                     imgElement.onload = function () {
                       let src = cv.imread(imgElement);
@@ -1448,8 +1491,14 @@ var cropLargeImg = function (val) {
 
                     $("#medium_rect_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
+                    count = 0;
+                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $(".check-msg").removeClass("is-ok");
+                    $(".square").removeClass("is-selected");
+                    $(".ads-img .squares").addClass("is-show");
+
                      //check blur
-                    let imgElement = document.getElementById("imageSrc-preview");
+                    let imgElement = document.getElementById("medium_rect_preview");
                     imgElement.src = result.toDataURL(uploadedImageType);
                     imgElement.onload = function () {
                       let src = cv.imread(imgElement);
@@ -2030,7 +2079,11 @@ var cropLargeImgAgain = function (val) {
                 } else if(val == "MastheadMobile"){
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
-
+                  count = 0;
+                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $(".check-msg").removeClass("is-ok");
+                  $(".square").removeClass("is-selected");
+                  $(".ads-img .squares").addClass("is-show");
                   $('#display_ads_masthead_mb #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-masthead_mb-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2102,7 +2155,11 @@ var cropLargeImgAgain = function (val) {
                 } else if(val == "MastheadPC"){
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
-
+                  count = 0;
+                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $(".check-msg").removeClass("is-ok");
+                  $(".square").removeClass("is-selected");
+                  $(".ads-img .squares").addClass("is-show");
                   $('#display_ads_masthead_pc #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-masthead_pc-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2174,7 +2231,11 @@ var cropLargeImgAgain = function (val) {
                 } else if(val == "Fullpage"){
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
-
+                  count = 0;
+                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $(".check-msg").removeClass("is-ok");
+                  $(".square").removeClass("is-selected");
+                  $(".ads-img .squares").addClass("is-show");
                   $('#display_ads_fullpage #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-fullpage-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2246,7 +2307,11 @@ var cropLargeImgAgain = function (val) {
                 } else if(val == "Inpage"){
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
-
+                  count = 0;
+                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $(".check-msg").removeClass("is-ok");
+                  $(".square").removeClass("is-selected");
+                  $(".ads-img .squares").addClass("is-show");
                   $('#display_ads_inpage #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-inpage-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2315,10 +2380,14 @@ var cropLargeImgAgain = function (val) {
                       },
                     });
 
-                }  else if(val == "WelcomeMobile"){
+                } else if(val == "WelcomeMobile"){
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
-
+                  count = 0;
+                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $(".check-msg").removeClass("is-ok");
+                  $(".square").removeClass("is-selected");
+                  $(".ads-img .squares").addClass("is-show");
                   $('#display_ads_welcome_mobile #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-welcome_mobile-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2387,10 +2456,14 @@ var cropLargeImgAgain = function (val) {
                       },
                     });
 
-                }  else if(val == "HalfpageMobile"){
+                } else if(val == "HalfpageMobile"){
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
-
+                  count = 0;
+                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $(".check-msg").removeClass("is-ok");
+                  $(".square").removeClass("is-selected");
+                  $(".ads-img .squares").addClass("is-show");
                   $('#display_ads_halfpage_mb #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-halfpage_mb-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2462,7 +2535,11 @@ var cropLargeImgAgain = function (val) {
                 } else if(val == "HalfpagePC"){
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
-
+                  count = 0;
+                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $(".check-msg").removeClass("is-ok");
+                  $(".square").removeClass("is-selected");
+                  $(".ads-img .squares").addClass("is-show");
                   $('#display_ads_halfpage_pc #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-halfpage_pc-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2531,9 +2608,14 @@ var cropLargeImgAgain = function (val) {
                       },
                     });
 
-                }  else if(val == "MediumRectangle"){
+                } else if(val == "MediumRectangle"){
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
+                  count = 0;
+                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $(".check-msg").removeClass("is-ok");
+                  $(".square").removeClass("is-selected");
+                  $(".ads-img .squares").addClass("is-show");
 
                   $('#display_ads_medium_rect #display_ads_name_img').html(uploadedImageName);
 
@@ -2784,10 +2866,11 @@ $(function () {
       $(this).addClass("is-selected");
       count = count + 1;
     }
-    percent = Math.round(10000 * (count / 98))/100;
+    percent = Math.ceil(10000 * (count / 98))/100;
     $(".check-msg").hide();
 
-    if (count < 13) {
+    //số chữ nhỏ hơn 40 ô vuông
+    if (count < 40) {
       message = "(Đạt yêu cầu)";
       $(".check-msg").removeClass("is-no");
       $(".check-msg").addClass("is-ok");
@@ -8751,6 +8834,56 @@ $("#check-grid-mobile").change(function () {
 });
 
 $("#check-grid-masthead_mb").change(function () {
+  if (this.checked) {
+    $(".ads-img .squares").addClass("is-show");
+  } else {
+    $(".ads-img .squares").removeClass("is-show");
+  }
+});
+
+$("#check-grid-masthead_pc").change(function () {
+  if (this.checked) {
+    $(".ads-img .squares").addClass("is-show");
+  } else {
+    $(".ads-img .squares").removeClass("is-show");
+  }
+});
+$("#check-grid-fullpage").change(function () {
+  if (this.checked) {
+    $(".ads-img .squares").addClass("is-show");
+  } else {
+    $(".ads-img .squares").removeClass("is-show");
+  }
+});
+$("#check-grid-inpage").change(function () {
+  if (this.checked) {
+    $(".ads-img .squares").addClass("is-show");
+  } else {
+    $(".ads-img .squares").removeClass("is-show");
+  }
+});
+$("#check-grid-welcome_mobile").change(function () {
+  if (this.checked) {
+    $(".ads-img .squares").addClass("is-show");
+  } else {
+    $(".ads-img .squares").removeClass("is-show");
+  }
+});
+$("#check-grid-halfpage_mb").change(function () {
+  if (this.checked) {
+    $(".ads-img .squares").addClass("is-show");
+  } else {
+    $(".ads-img .squares").removeClass("is-show");
+  }
+});
+$("#check-grid-halfpage_pc").change(function () {
+  if (this.checked) {
+    $(".ads-img .squares").addClass("is-show");
+  } else {
+    $(".ads-img .squares").removeClass("is-show");
+  }
+});
+$("#check-grid-medium_rect").change(function () {
   if (this.checked) {
     $(".ads-img .squares").addClass("is-show");
   } else {
