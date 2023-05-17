@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/cropper.css">
+    <style></style>
+  </head>
+  <body class="zad-v2">
+    <div class="page-content is-popup">
+      <div class="popup-container" id="popup-libImage">
+        <div class="bl-popup-heading"><span>Thư viện hình ảnh</span><a class="func-close-popup func-alert" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context">
+          <div class="item-upload is-invalid">
+            <div class="item-upload-inner">
+              <label for="file"><i class="icz icz-data-upload"></i>
+                <p>Tải Hình ảnh mới</p>
+              </label>
+              <input class="inputfile" id="file" type="file" name="file">
+            </div><em>Tối đa 2MB, kích thước tối thiểu 1024x533</em>
+          </div>
+          <div class="image-list">
+            <ul>
+              <li class="active">
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">5000x3000</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+              <li>
+                <div class="image-item">
+                  <div class="image" style="background-image:url(images/img_bg_preview.png)"></div>
+                </div><span class="caption">1024x533</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="bl-popup-footer">
+          <div class="pos-right"><a class="button is-primary is-large func-cropImage" href="#!">Tiếp tục</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="bl-popup">
+    </div>
+    <div class="bl-modal">
+      <div class="modal-container is-small" id="modal-delete-form">
+        <div class="bl-modal-heading"><span>Xóa form</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc chắn muốn xóa Form này không?</p>
+          <p><strong class="is-size-5 has-text-primary">Form cho pepsi</strong></p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined" href="javascript:void(0)">Hủy bỏ</button>
+            <button class="button is-primary" href="javascript:void(0)">Xóa form</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-alert">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Nội dung thông báo</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined func-close-modal" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary func-close-popup func-close-modal" href="javascript:void(0)">[Main Action]</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-close-create-form">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc chắn muốn đóng Zalo Form không? Bạn sẽ mất mọi công việc đang thực hiện</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined func-close-modal" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary func-close-popup func-close-modal" href="javascript:void(0)">Đồng ý</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-exit">
+        <div class="bl-modal-heading"><span>Thoát nạp tiền</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Thông tin đang nhập sẽ không được lưu lại. Bạn có muốn thoát</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary" onclick="location.href='home_payment.html'">Thoát nạp tiền</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-large" id="modal-cropImage">
+        <div class="bl-modal-heading"><span>Cắt ảnh</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <div class="modal-body">
+            <div class="crop-container">
+              <!-- demo--><img src="images/img_ad.png" alt="">
+              <div class="frame-crop"><img src="images/frame-16-9.png" alt=""></div>
+            </div>
+          </div>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="group-pos">
+            <div class="post-left">
+              <p>Tỉ lệ {ratio number}</p>
+            </div>
+            <div class="pos-right"><a class="button is-primary is-large open-all-ratio" href="#!">Tiếp tục</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-large" id="modal-all-ratio">
+        <div class="bl-modal-heading"><span>Hình ảnh quảng cáo </span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <div class="modal-body">
+            <div class="all-ratio-container">
+              <div class="ratio-default">
+                <div class="item-ratio is-16-9">
+                  <div class="img-default"><img src="images/img_crop_default.png" alt=""></div>
+                  <div class="ratio-footer"><em>1.92 : 1</em>
+                    <div class="item-upload">
+                      <div class="item-upload-inner">
+                        <label for="file"><i class="icz icz-data-upload"></i>
+                          <p>Tải Hình ảnh mới</p>
+                        </label>
+                        <input class="inputfile" id="file" type="file" name="file">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item-suggestion">
+                  <p>Gợi ý</p><span>Bạn có thể điều chỉnh hình ảnh quảng cáo cho phù hợp với các tỷ lệ khác để có hiệu quả tốt nhất khi chạy quảng cáo</span>
+                </div>
+              </div>
+              <div class="ratio-another">
+                <div class="item-ratio is-another is-4-3">
+                  <div class="img-default"><img src="images/img_crop_default.png" alt="">
+                    <div class="image-crop-container">
+                      <div class="image" style="background-image:url(images/img_crop_default.png) ;"></div>
+                    </div>
+                  </div>
+                  <div class="ratio-footer"><em>4 : 3</em>
+                    <div class="cropAgain open-crop-2"><i class="icz icz-ic_crop_24px"></i>
+                      <p>Cắt lại ảnh</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="item-ratio is-another is-3-2">
+                  <div class="img-default"><img src="images/img_crop_default.png" alt="">
+                    <div class="image-crop-container">
+                      <div class="image" style="background-image:url(images/img_crop_default.png) ;"></div>
+                    </div>
+                  </div>
+                  <div class="ratio-footer"><em>3 : 2</em>
+                    <div class="cropAgain open-crop-2"><i class="icz icz-ic_crop_24px"></i>
+                      <p>Cắt lại ảnh</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="item-ratio is-another is-2-1">
+                  <div class="img-default"><img src="images/img_crop_default.png" alt="">
+                    <div class="image-crop-container">
+                      <div class="image" style="background-image:url(images/img_crop_default.png) ;"></div>
+                    </div>
+                  </div>
+                  <div class="ratio-footer"><em>2 : 1</em>
+                    <div class="cropAgain open-crop-2"><i class="icz icz-ic_crop_24px"></i>
+                      <p>Cắt lại ảnh</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="group-pos">
+            <div class="pos-right"><a class="button is-primary is-large" href="#!">Tiếp tục</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/sortable.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(".func-cropImage").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-cropImage").addClass("is-show");
+      });
+      $(".open-all-ratio").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-all-ratio").addClass("is-show");
+      	$("#modal-cropImage").removeClass("is-show");
+      
+      });
+      $(".func-close-modal").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal-container").removeClass("is-show");
+      	$("div").remove(".cropper-container");
+      });
+      
+      
+      
+      $(".switch-theme input[type='checkbox']").change(function(event){
+      	var groupInput = document.querySelectorAll(".switch-theme input[type='checkbox']:checked");
+      	var lengthChecked = groupInput.length;
+      	for(let i = 0; i<= lengthChecked; i++){
+      		if(groupInput.length ===0){
+      			navigationTop.style.display="none";
+      
+      		}
+      		else{
+      			navigationTop.style.display="flex";
+      		}
+      	}
+      });
+    </script>
+  </body>
+</html>

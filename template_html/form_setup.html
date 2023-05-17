@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zalo Ads</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="description here">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="Lam Nguyen">
+    <meta name="copyright" content="2018 Lam Nguyen">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/cropper.css">
+    <style></style>
+  </head>
+  <body class="zad-v2">
+    <div class="header"><a class="logo" href="#!"><i class="ico-logo"></i></a>
+      <div class="navbar-main">
+        <div class="dropdown"><a class="func-navbar dropdown-toggle" role="button" id="dropdown-nav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icz icz-fill-grid-view"></i></a>
+          <div class="dropdown-menu is-nav" aria-labelledby="dropdown-nav">
+            <div class="is-flex">
+              <div class="nav-list"><span class="subtitle-nav">Quản lý quảng cáo</span>
+                <ul>
+                  <li><a href="#!">Quản lý chiến dịch</a></li>
+                  <li><a href="#!">Quản lý quảng cáo</a></li>
+                </ul>
+              </div>
+              <div class="nav-list"><span class="subtitle-nav">Quản lý dữ liệu</span>
+                <ul>
+                  <li><a href="#!">Nhóm đối tượng quảng cáo</a></li>
+                  <li><a href="#!">File & Tài liệu</a></li>
+                  <li><a href="#!">Hình ảnh & Media</a></li>
+                  <li><a href="#!">Form<i class="ico-new ml-1"></i></a></li>
+                </ul>
+              </div>
+              <div class="nav-list"><span class="subtitle-nav">Ngân sách</span>
+                <ul>
+                  <li><a href="#!">Nạp tiền</a></li>
+                  <li><a href="#!">Lịch sử nạp tiền</a></li>
+                  <li><a href="#!">Lịch sử giao dịch</a></li>
+                </ul>
+              </div>
+              <div class="nav-list"><span class="subtitle-nav">Tài khoản</span>
+                <ul>
+                  <li><a href="#!">Thông tin tài khoản</a></li>
+                  <li><a href="#!">Thông tin hợp đồng</a></li>
+                  <li><a href="#!">Lịch sử tham gia công ty QC</a></li>
+                  <li><a href="#!">Yêu cầu gia nhập Agency</a></li>
+                  <li><a href="#!">Danh sách Zalo OA</a></li>
+                </ul>
+              </div>
+              <div class="nav-list"><span class="subtitle-nav">Trợ giúp</span>
+                <ul>
+                  <li><a href="#!">Hướng dẫn tạo quảng cáo</a></li>
+                  <li><a href="#!">Thông tin chính sách</a></li>
+                  <li><a href="#!">Gửi yêu cầu hỗ trợ</a></li>
+                  <li class="has-button"><a class="button is-primary" href="tel:1900988912">Hotline 1900 988 912</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li><a class="navbar-item" href="javascript:void(0);">Trang chủ</a></li>
+          <li class="dropdown"><a class="navbar-item dropdown-toggle" role="button" id="dropdown-nav2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quản lý quảng cáo</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown-nav2">
+              <ul>
+                <li><a href="#!">Quản lý chiến dịch</a></li>
+                <li><a href="#!">Quản lý quảng cáo</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown"><a class="navbar-item dropdown-toggle" role="button" id="dropdown-nav3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quản lý dữ liệu</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown-nav3">
+              <ul>
+                <li><a href="#!">Nhóm đối tượng quảng cáo</a></li>
+                <li><a href="#!">File & Tài liệu</a></li>
+                <li><a href="#!">Hình ảnh & Media</a></li>
+                <li><a href="#!">Form<i class="ico-new ml-1"></i></a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown"><a class="navbar-item dropdown-toggle" role="button" id="dropdown-budget" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ngân sách</a>
+            <div class="dropdown-menu is-budget" aria-labelledby="dropdown-budget">
+              <div class="is-flex">
+                <ul>
+                  <li><a href="#!">Lịch sử nạp tiền</a></li>
+                  <li><a href="#!">Lịch sử giao dịch</a></li>
+                </ul>
+                <div class="budget-inline"><span class="label-budget">Ngân sách hiện tại</span><span class="c-budget"><strong>1.100.000.000đ </strong></span><span class="label-budget">Số tiền tạm giữ</span><span class="c-budget">1.000.000đ </span><span class="label-budget">Hạn mức đã dùng</span>
+                  <div class="percent-cash">
+                    <div class="line-percent-cash"><span style="width:20%"></span></div>
+                    <div class="line-percent-value"><span>192.000đ</span><span>10.000.000đ</span></div>
+                  </div><a class="button is-success is-fullwidth" href="#!">Nạp tiền</a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="pos-right">
+        <div class="navbar-cash"><span class="is-total">100.000.000đ</span><a class="button is-success">Nạp tiền</a></div>
+        <div class="dropdown mr-3"><a class="navbar-ico dropdown-toggle" role="button" id="dropdown-support" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icz icz-headset"></i></a>
+          <div class="dropdown-menu is-support is-right" aria-labelledby="dropdown-support">
+            <ul>
+              <li><a href="javascript:void(0)">Hướng dẫn tạo quảng cáo</a></li>
+              <li><a href="javascript:void(0)">Thông tin chính sách</a></li>
+              <li><a href="javascript:void(0)">Gửi yêu cầu hỗ trợ</a></li>
+              <li class="has-button"><a class="button is-primary" href="tel:1900988912">Hotline 1900 988 912</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="dropdown mr-3"><a class="navbar-ico dropdown-toggle" role="button" id="dropdown-notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icz icz-bell"></i>
+            <div class="num">9+</div></a>
+          <div class="dropdown-menu dropdown-touch is-notification is-right" aria-labelledby="dropdown-notification">
+            <div class="tab-in-dropdown"><a class="tab-item is-active" href="javascript:void(0)">Tất cả</a><a class="tab-item" href="javascript:void(0)">Quảng cáo</a><a class="tab-item" href="javascript:void(0)">Tài khoản</a><a class="func-setting" href="https://ads.zalo.me/client/notification/settings"><i class="icz icz-fill-settings"></i></a></div>
+            <div class="content-tab">
+              <ul>
+                <li class="is-new"><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Quảng cáo <strong>ABC</strong> đã được duyệt</p><span class="is-timer">1 phút trước</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li class="is-new"><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Quan tâm OA Hỗ trợ ZA Ads để nhận các thông báo về quảng cáo. Nếu không quan tâm OA…</p><span class="is-timer">3 phút trước</span><span class="is-cta">Xem thông báo</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Bạn đã nạp 100.000đ</p><span class="is-timer">22/04/2020. 15:03 PM</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Lorem Ipsum is simply dummy text</p><span class="is-timer">22/04/2020. 15:03 PM</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Lorem Ipsum is simply dummy text</p><span class="is-timer">22/04/2020. 15:03 PM</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Lorem Ipsum is simply dummy text</p><span class="is-timer">22/04/2020. 15:03 PM</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Lorem Ipsum is simply dummy text</p><span class="is-timer">22/04/2020. 15:03 PM</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Lorem Ipsum is simply dummy text</p><span class="is-timer">22/04/2020. 15:03 PM</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Lorem Ipsum is simply dummy text</p><span class="is-timer">22/04/2020. 15:03 PM</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Lorem Ipsum is simply dummy text</p><span class="is-timer">22/04/2020. 15:03 PM</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+                <li><a href="javascript:void(0)">
+                    <div class="img" style="background-image:url(https://via.placeholder.com/128)"></div>
+                    <div class="desc">
+                      <p>Lorem Ipsum is simply dummy text end</p><span class="is-timer">22/04/2020. 15:03 PM</span><span class="is-cta">Xem chi tiết</span>
+                    </div></a><a class="func-read" href="javascript:void(0)" data-tippy-content="Đánh dấu là đã đọc"><i></i></a></li>
+              </ul>
+              <div class="actions"><a href="#!">Đã đọc tất cả</a><a href="#!">Xem tất cả</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown"><a class="navbar-user dropdown-toggle" role="button" id="dropdown-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="avatar avatar--s"><span class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></span></span><span class="name truncate">Nguyễn Văn Long Văn</span></a>
+          <div class="dropdown-menu is-right" aria-labelledby="dropdown-user">
+            <ul>
+              <li><a href="javascript:void(0)">Thông tin tài khoản</a></li>
+              <li><a href="javascript:void(0)">Đăng xuất</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="body">
+        <div class="heading"><span class="title">Table name</span>
+          <div class="actions"><a class="button is-large mr-3">Download</a><a class="button is-large has-icon mr-3"><i class="icz icz-data-download mr-2"></i>Download</a>
+            <div class="dropdown dropdown-oa mr-3"><a class="button is-large dropdown-toggle" role="button" id="dropdown-oa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="avatar avatar--s"><span class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></span></span><span class="name-oa truncate">Bán hàng đa quốc gia khắp Châu Á</span></a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-oa">
+                <ul>
+                  <li><a class="is-oa" href="javascript:void(0)"><span class="avatar avatar--s"><span class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></span></span><span class="name-oa truncate">Bán hàng đa quốc gia khắp Châu Á</span></a></li>
+                  <li><a class="is-oa" href="javascript:void(0)"><span class="avatar avatar--s"><span class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></span></span><span class="name-oa truncate">Bán hàng đa quốc gia khắp Châu Á</span></a></li>
+                </ul>
+              </div>
+            </div><a class="button is-primary is-large open-select-form" href="javascript:void(0);">Tạo form</a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="heading-box">
+            <div class="pos-wrap mb-3">
+              <div class="pos-left">
+                <div class="control mr-2">
+                  <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icz icz-search mr-2"></i>Tìm kiếm</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-m1">
+                      <ul>
+                        <li><a class="truncate demo-func-name" href="javascript:void(0)">Tên form/ad/campaign</a></li>
+                        <li><a class="truncate" href="javascript:void(0)">Tên người tạo</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="control mr-2">
+                  <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="name-item">Quick filter 2</span><i class="icz icz-fill-triangle-down"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-m2">
+                      <ul>
+                        <li><a href="javascript:void(0)">Lorem Ipsum is </a></li>
+                        <li><a href="javascript:void(0)">Lorem Ipsum is </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="control mr-2">
+                  <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="name-item">Quick filter 3</span><i class="icz icz-fill-triangle-down"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-m3">
+                      <ul>
+                        <li><a href="javascript:void(0)">Lorem Ipsum is simply dummy text</a></li>
+                        <li><a href="javascript:void(0)">Lorem Ipsum is simply dummy text</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="dropdown mr-2"><a class="button dropdown-toggle" role="button" id="dropdown-m4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icz icz-fill-filter mr-2"></i>Thêm bộ lọc</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-m4"><span class="subtitle-dropdown">Chỉ số</span>
+                    <ul>
+                      <li><a class="truncate demo-func-ctr" href="javascript:void(0)">CTR</a></li>
+                      <li><a class="truncate" href="javascript:void(0)">Impression</a></li>
+                      <li><a class="truncate" href="javascript:void(0)">Lượt nhấn</a></li>
+                    </ul><span class="subtitle-dropdown">Category 1</span>
+                    <ul>
+                      <li><a class="truncate" href="javascript:void(0)">Option 1</a></li>
+                      <li><a class="truncate" href="javascript:void(0)">Option 2</a></li>
+                      <li><a class="truncate" href="javascript:void(0)">Option 3</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="pos-right">
+                <div class="control has-icons-left is-daterange">
+                  <input class="input" type="text" name="daterange" value="01/01/2020 - 30/01/2020" autocomplete="off"><span class="icon is-left"><i class="icz icz-fill-calendar"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="filter-wrap"><a class="button is-small is-white has-text-link func-clear-filter" href="javascript:void(0);">Hủy bộ lọc</a>
+              <div class="filter-box is-large is-hidden" id="demo-name">
+                <h2>Tìm kiếm tên Form/Chiến dịch/Quảng cáo</h2>
+                <div class="filter-box-context">
+                  <div class="field">
+                    <div class="control has-icons-right">
+                      <input class="input" type="input" placeholder="Nhập nội dung tìm kiếm" value=""><span class="icon is-right"><small class="is-char">255</small></span>
+                    </div>
+                  </div>
+                  <div class="actions"><a class="button is-primary" href="#!">Áp dụng</a><a class="button func-close" href="#!">Hủy thao tác</a></div>
+                </div>
+              </div>
+              <div class="filter-box is-hidden" id="demo-ctr">
+                <h2>Chỉ số CTR</h2>
+                <div class="filter-box-context">
+                  <div class="field">
+                    <div class="control is-sr">
+                      <input id="a1" type="radio" name="ctr" checked>
+                      <label for="a1">Lớn hơn hoặc bằng</label>
+                      <input class="input" type="input" placeholder="" value="0">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control is-sr">
+                      <input id="a2" type="radio" name="ctr" checked>
+                      <label for="a2">Nhỏ hơn hoặc bằng</label>
+                      <input class="input" type="input" placeholder="" value="0">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control is-sr">
+                      <input id="a3" type="radio" name="ctr" checked>
+                      <label for="a3">Trong khoảng</label>
+                      <input class="input" type="input" placeholder="" value="0">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control is-sr">
+                      <input id="a4" type="radio" name="ctr" checked>
+                      <label for="a4">Ngoài khoảng</label>
+                      <input class="input" type="input" placeholder="" value="0">
+                    </div>
+                  </div>
+                  <div class="actions"><a class="button is-primary" href="#!">Áp dụng</a><a class="button func-close" href="#!">Hủy thao tác</a></div>
+                </div>
+              </div>
+              <div class="tags"><span class="tag is-rounded"><a class="tag-link demo-func-name" href="javascript:void(0);">Tên form<strong class="is-value">Coke</strong></a>
+                  <button class="delete is-small"></button></span><span class="tag is-rounded"><a class="tag-link" href="javascript:void(0);">Condition<strong class="is-value">value</strong></a>
+                  <button class="delete is-small"></button></span></div>
+            </div>
+          </div>
+        </div>
+        <ngx-datatable class="ngx-datatable za-table virtualized scroll-horz selectable checkbox-selection">
+          <div class="visible">
+            <datatable-header class="datatable-header">
+              <div class="datatable-header-inner">
+                <div class="datatable-row-left"></div>
+                <div class="datatable-row-center">
+                  <datatable-header-cell class="datatable-header-cell sortable resizeable">
+                    <div class="datatable-header-cell-template-wrap"><span class="datatable-header-cell-wrapper"><span class="datatable-header-cell-label"><span class="control">
+                            <input id="check-all" type="checkbox" name="">
+                            <label for="check-all">&nbsp;</label></span></span></span></div>
+                  </datatable-header-cell>
+                  <datatable-header-cell class="datatable-header-cell sortable resizeable">
+                    <div class="datatable-header-cell-template-wrap"><span class="datatable-header-cell-wrapper"><span class="datatable-header-cell-label draggable">Tên form</span></span><span class="sort-btn sort-asc datatable-icon-up"></span></div><span class="resize-handle"></span>
+                  </datatable-header-cell>
+                  <datatable-header-cell class="datatable-header-cell sortable resizeable">
+                    <div class="datatable-header-cell-template-wrap"><span class="datatable-header-cell-wrapper"><span class="datatable-header-cell-label draggable">Trạng thái</span></span><span class="sort-btn sort-desc datatable-icon-up"></span></div><span class="resize-handle"></span>
+                  </datatable-header-cell>
+                  <datatable-header-cell class="datatable-header-cell sortable resizeable">
+                    <div class="datatable-header-cell-template-wrap"><span class="datatable-header-cell-wrapper"><span class="datatable-header-cell-label draggable">Ngày tạo</span></span><span class="sort-btn"></span></div><span class="resize-handle"></span>
+                  </datatable-header-cell>
+                  <datatable-header-cell class="datatable-header-cell sortable resizeable">
+                    <div class="datatable-header-cell-template-wrap"><span class="datatable-header-cell-wrapper"><span class="datatable-header-cell-label draggable">Số leads</span></span><span class="sort-btn"></span></div><span class="resize-handle"></span>
+                  </datatable-header-cell>
+                  <datatable-header-cell class="datatable-header-cell align-right">
+                    <div class="datatable-header-cell-template-wrap"><span class="datatable-header-cell-wrapper"><span class="datatable-header-cell-label draggable"></span></span></div>
+                  </datatable-header-cell>
+                </div>
+                <div class="datatable-row-right"></div>
+              </div>
+            </datatable-header>
+            <datatable-body class="datatable-body">
+              <datatable-selection>
+                <datatable-scroller class="datatable-scroll">
+                  <datatable-row-wrapper class="datatable-row-wrapper">
+                    <datatable-body-row class="datatable-body-row datatable-row-even">
+                      <div class="datatable-row-left datatable-row-group"></div>
+                      <div class="datatable-row-center datatable-row-group">
+                        <datatable-body-cell class="datatable-body-cell sort-active">
+                          <div class="datatable-body-cell-label">
+                            <div class="control">
+                              <input id="check-a1" type="checkbox" name="">
+                              <label for="check-a1">&nbsp;</label>
+                            </div>
+                          </div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell sort-active">
+                          <div class="datatable-body-cell-label">
+                            <div class="td-has-switch"><a class="link" href="#!link">Form cho Pepsi</a>
+                              <div class="switch is-small">
+                                <input id="qc1" type="checkbox" checked>
+                                <label class="slider round" for="qc1"></label>
+                              </div>
+                            </div>
+                          </div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell sort-active">
+                          <div class="datatable-body-cell-label"><span class="status is-success">Quảng cáo</span></div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell sort-active">
+                          <div class="datatable-body-cell-label"><span>07-09-2020</span></div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell align-right sort-active">
+                          <div class="datatable-body-cell-label"><span>123</span></div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell align-right sort-active">
+                          <div class="datatable-body-cell-label">
+                            <div class="td-actions"><a class="button is-primary ml-2" href="javascript:void(0);">Tạo quảng cáo</a><a class="button button-tippy ml-2"><i class="icz icz-fill-more"></i></a></div>
+                          </div>
+                        </datatable-body-cell>
+                      </div>
+                      <div class="datatable-row-right datatable-row-group"></div>
+                    </datatable-body-row>
+                  </datatable-row-wrapper>
+                  <datatable-row-wrapper class="datatable-row-wrapper">
+                    <datatable-body-row class="datatable-body-row datatable-row-odd" style="width: 1800px;">
+                      <div class="datatable-row-left datatable-row-group"></div>
+                      <div class="datatable-row-center datatable-row-group">
+                        <datatable-body-cell class="datatable-body-cell sort-active">
+                          <div class="datatable-body-cell-label">
+                            <div class="control">
+                              <input id="check-a2" type="checkbox" name="">
+                              <label for="check-a2">&nbsp;</label>
+                            </div>
+                          </div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell sort-active">
+                          <div class="datatable-body-cell-label">
+                            <div class="td-has-switch"><a class="link" href="#!link">Form cho Pepsi demo</a>
+                              <div class="switch is-small">
+                                <input id="qc2" type="checkbox">
+                                <label class="slider round" for="qc2"></label>
+                              </div>
+                            </div>
+                          </div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell sort-active">
+                          <div class="datatable-body-cell-label"><span class="status">Bản nháp</span></div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell sort-active">
+                          <div class="datatable-body-cell-label"><span>07-09-2020</span></div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell align-right sort-active">
+                          <div class="datatable-body-cell-label"><span>123</span></div>
+                        </datatable-body-cell>
+                        <datatable-body-cell class="datatable-body-cell align-right sort-active">
+                          <div class="datatable-body-cell-label">
+                            <div class="td-actions"><a class="button is-primary ml-2" href="javascript:void(0);">Tạo quảng cáo</a><a class="button button-tippy ml-2"><i class="icz icz-fill-more"></i></a></div>
+                          </div>
+                        </datatable-body-cell>
+                      </div>
+                      <div class="datatable-row-right datatable-row-group"></div>
+                    </datatable-body-row>
+                  </datatable-row-wrapper>
+                  <datatable-row-wrapper class="datatable-row-wrapper">
+                    <datatable-body-row class="datatable-body-row datatable-row-even is-empty">
+                      <div class="datatable-row-left datatable-row-group"></div>
+                      <div class="datatable-row-center datatable-row-group" style="width:100%">
+                        <datatable-body-cell class="datatable-body-cell sort-active" style="width:100%">
+                          <div class="datatable-body-cell-label">
+                            <p class="is-size-6 has-text-centered">Không có dữ liệu. <a class="button-selectOa-empty" href="javascript:void(0);">Tạo form mới</a></p>
+                          </div>
+                        </datatable-body-cell>
+                      </div>
+                      <div class="datatable-row-right datatable-row-group"></div>
+                    </datatable-body-row>
+                  </datatable-row-wrapper>
+                </datatable-scroller>
+              </datatable-selection>
+            </datatable-body>
+            <datatable-footer class="datatable-footer">
+              <div class="datatable-footer-inner">
+                <div class="page-count"> 
+                  <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-pc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1-10 / 81</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-pc">
+                      <ul>
+                        <li><a class="truncate" href="javascript:void(0)">10 dòng một trang</a></li>
+                        <li><a class="truncate" href="javascript:void(0)">20 dòng một trang</a></li>
+                        <li><a class="truncate" href="javascript:void(0)">50 dòng một trang</a></li>
+                        <li><a class="truncate" href="javascript:void(0)">100 dòng một trang</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <datatable-pager class="datatable-pager">
+                  <ul class="pager">
+                    <li class="disabled"><a aria-label="go to first page" href="javascript:void(0)" role="button"><i class="icz icz-fill-layer-left"></i></a></li>
+                    <li class="disabled"><a aria-label="go to previous page" href="javascript:void(0)" role="button"><i class="icz icz-left"></i></a></li>
+                    <li class="pages active" role="button" aria-label="page 1"><a href="javascript:void(0)"> 1 </a></li>
+                    <li class="pages" role="button" aria-label="page 2"><a href="javascript:void(0)"> 2 </a></li>
+                    <li class="pages" role="button" aria-label="page 3"><a href="javascript:void(0)"> 3 </a></li>
+                    <li class="pages" role="button" aria-label="page 4"><a href="javascript:void(0)"> 4 </a></li>
+                    <li class="pages" role="button" aria-label="page 5"><a href="javascript:void(0)"> 5 </a></li>
+                    <li><a aria-label="go to next page" href="javascript:void(0)" role="button"><i class="icz icz-right"></i></a></li>
+                    <li><a aria-label="go to last page" href="javascript:void(0)" role="button"><i class="icz icz-fill-layer-right"></i></a></li>
+                  </ul>
+                </datatable-pager>
+              </div>
+            </datatable-footer>
+          </div>
+        </ngx-datatable>
+      </div>
+      <div class="bl-preview-form is-sidebar"><span class="title">Form cho pepsi</span>
+        <div class="actions"><a class="func-close func-close-sidebar" href="javascript:void(0)"><i class="icz icz-close"></i></a><a class="func-create" href="javascript:void(0)"><i class="icz icz-add"></i><span>Tạo quảng cáo</span></a><a class="func-edit" href="javascript:void(0)"><i class="icz icz-fill-edit"></i><span>Chỉnh sửa</span></a><a class="func-preview" href="javascript:void(0)"><i class="icz icz-mobile"></i><span>Xem trước</span></a><a class="func-delete func-delete-form" href="javascript:void(0)"><i class="icz icz-trash"></i><span>Xóa form</span></a></div>
+        <div class="navigation-top">
+          <div class="button-prev"><i class="icz icz-left"></i></div>
+          <p class="text-paging">Trang 1/n (n là tổng trang)</p>
+          <div class="button-next"><i class="icz icz-right"></i>
+            <div class="tippy-preview">
+              <div class="arrow"></div>
+              <div class="tippy-content">
+                <p>Bấm vào dấu “<i class="icz icz-right"></i>” để xem trang kế tiếp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-preview swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="bl-preview-form-container">
+                <div class="bl-cover is-null"></div>
+                <div class="bl-cover"><span class="img-cover" id="img-cover" style="background-image:url(images/upload/cover_default_otr_v2.png)"></span></div>
+                <div class="body-form">
+                  <div class="bl-info-oa">
+                    <div class="avatar avatar--l">
+                      <div class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></div>
+                    </div>
+                    <h1>Brand Official Account</h1>
+                  </div>
+                  <div class="bl-form">
+                    <h2>Đăng ký thông tin để nhận báo giá sản phẩm từ Brand</h2>
+                    <h4> 
+                      <div class="js-read-more" data-rm-words="42">Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm</div>
+                    </h4>
+                    <div class="field">
+                      <label class="label">Họ và tên</label>
+                      <div class="control">
+                        <input class="input is-line" type="text" placeholder="Nhập họ và tên">
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Địa chỉ email</label>
+                      <div class="control">
+                        <input class="input is-line" type="text" placeholder="Nhập email của bạn" value="john_doe_20@yahoo.com" disabled>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Ngày sinh</label>
+                      <div class="control">
+                        <input class="input is-line" type="text" placeholder="Nhập ngày sinh" value="12/12/1990" disabled>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Giới tính</label>
+                      <div class="control"><span class="select is-line is-fullwidth">
+                          <select required>
+                            <option selected disabled value="">Chọn giới tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                          </select></span></div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Địa chỉ liên hệ</label>
+                      <div class="control">
+                        <textarea class="textarea is-line" type="textarea" placeholder="Nhập địa chỉ" disabled>182 Lê Đại Hành</textarea>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Độ tuổi</label>
+                      <div class="controls">
+                        <div class="control">
+                          <input id="t1" type="checkbox" name="" checked>
+                          <label for="t1">Dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                        </div>
+                        <div class="control">
+                          <input id="t2" type="checkbox" name="">
+                          <label for="t2">18 - 24</label>
+                        </div>
+                        <div class="control">
+                          <input id="t3" type="checkbox" name="">
+                          <label for="t3">25 - 34</label>
+                        </div>
+                        <div class="control">
+                          <input id="t4" type="checkbox" name="">
+                          <label for="t4">35 - 44</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Độ tuổi</label>
+                      <div class="controls is-rows">
+                        <div class="control">
+                          <input id="t7" type="checkbox" name="" checked>
+                          <label for="t7">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                        </div>
+                        <div class="control">
+                          <input id="t8" type="checkbox" name="">
+                          <label for="t8">18 - 24</label>
+                        </div>
+                        <div class="control">
+                          <input id="t9" type="checkbox" name="">
+                          <label for="t9">25 - 34</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Hệ điều hành</label>
+                      <div class="controls">
+                        <div class="control">
+                          <input id="f1" type="radio" name="hdh" checked>
+                          <label for="f1">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                        </div>
+                        <div class="control">
+                          <input id="f2" type="radio" name="hdh">
+                          <label for="f2">iOS</label>
+                        </div>
+                        <div class="control">
+                          <input id="f3" type="radio" name="hdh">
+                          <label for="f3">PC</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Hệ điều hành</label>
+                      <div class="controls is-rows">
+                        <div class="control">
+                          <input id="f4" type="radio" name="hdh1">
+                          <label for="f4">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                        </div>
+                        <div class="control">
+                          <input id="f5" type="radio" name="hdh1">
+                          <label for="f5">iOS</label>
+                        </div>
+                        <div class="control">
+                          <input id="f6" type="radio" name="hdh1">
+                          <label for="f6">PC</label>
+                        </div>
+                        <div class="control">
+                          <input id="f7" type="radio" name="hdh1" checked>
+                          <label for="f7">Khác</label>
+                        </div>
+                        <div class="control">
+                          <input class="input is-line" type="text" placeholder="Hệ điều hành khác">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="button is-black is-large is-fullwidth">Tiếp theo</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="bl-preview-form-container">
+                <div class="bl-cover is-null"></div>
+                <div class="bl-cover"><span class="img-cover" id="img-cover" style="background-image:url(images/upload/cover_default_otr_v2.png)"></span></div>
+                <div class="body-form">
+                  <div class="bl-info-oa">
+                    <div class="avatar avatar--l">
+                      <div class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></div>
+                    </div>
+                    <h1>Brand Official Account</h1>
+                  </div>
+                  <div class="bl-form">
+                    <h2>Đăng ký thông tin để nhận báo giá sản phẩm từ Brand</h2>
+                    <h4> 
+                      <div class="js-read-more" data-rm-words="42">Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm</div>
+                    </h4>
+                    <div class="group-value">
+                      <p>{Mobile Number}</p>
+                      <p>{Name}</p>
+                      <p>{Email}</p>
+                      <p>{DOB}</p>
+                      <p>{Address}</p>
+                    </div>
+                    <p class="is-policy">Bằng việc bấm nút <strong>Gửi thông tin</strong>, bạn đồng ý gửi các thông tin này tới Brand Official Account. Việc sử dụng các thông tin này của Brand Official Account tuân thủ theo các <a href="#!" target="_blank">quy định chung</a> của Zalo Ads</p>
+                    <div class="button is-black is-large is-fullwidth">Gửi thông tin</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layer-sidebar"></div>
+      <div id="template" style="display:none;">
+        <div class="dropdown-menu dropdown-tippy">
+          <ul>
+            <li><a href="javascript:void(0)"><i class="icz icz-fill-edit mr-2"></i>Chỉnh sửa</a></li>
+            <li><a class="func-delete-form" href="javascript:void(0)"><i class="icz icz-trash mr-2 has-text-danger"></i>Xóa</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bl-popup">
+      <div class="popup-container" id="popup-select-form">
+        <div class="bl-popup-heading"><span>Tạo form</span><a class="func-close-create-form" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context">
+          <h2>Chọn loại form muốn tạo </h2>
+          <div class="select-block-contain"> <a class="item multi-form-popup" href="javascript:void(0)"><img class="bg" src="images/multi-form-bg.png">
+              <p>Form có nhiều trang</p></a><a class="item one-form-popup" href="javascript:void(0)"><img class="bg" src="images/one-form-bg.png">
+              <p>Form có một trang</p></a></div>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-multi-form">
+        <div class="bl-popup-heading">
+          <div class="back-previous"><a class="back-to-selectform" href="javascript:void(0)"> <i class="icz icz-arrow-left"></i></a><span>Tạo form</span></div><a class="func-close-create-form" href="javascript:void(0)"><i class="icz icz-close"></i></a>
+        </div>
+        <div class="bl-popup-context">
+          <div class="section-setup-form">
+            <div class="bl-setup">
+              <div class="heading-setup">
+                <div class="name"><span>QC Website - 21/12/2019 15:09</span><a class="func-edit" href="javascript:void(0)"><i class="icz icz-fill-edit"></i></a></div>
+                <input class="is-hidden" type="text" placeholder="" value="QC Website - 21/12/2019 15:09">
+              </div>
+              <div class="group-form is-expanded">
+                <!-- Case active thêm class is-active-->
+                <!--.heading-gf.is-active
+                span Thông tin form
+                i.icz.icz-fill-check.is-check
+                i.icz.icz-down.is-arr
+                -->
+                <div class="heading-gf is-danger"><span>Thông tin form</span><i class="icz icz-fill-badge is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label">Tiêu đề</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icons-right is-danger">
+                          <input class="input" type="input" placeholder="Nhập tiêu đề" value="Đăng ký thông tin để nhận báo giá sản phẩm từ Brand"><span class="icon is-right"><small class="is-char">255</small></span>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small pt-0">
+                      <label class="label">Nội dung</label>
+                      <!--small Không bắt buộc-->
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icons-right is-danger">
+                          <textarea class="textarea" type="textarea" placeholder="Nhập nội dung" value="Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương"></textarea><span class="icon is-right"><small class="is-char">600</small></span>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label is-block">Ảnh bìa</label><small>Kích thước đề nghị 1024x533<br />Dung lượng không quá 2MB</small>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <div class="cover-ad-form is-upload">
+                            <div class="inputfile-container">
+                              <input class="inputfile" type="file" id="file1">
+                              <label for="file1"></label>
+                            </div><span class="text-form">Đăng ảnh bìa</span>
+                          </div>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label is-block">Ảnh bìa (đã up ảnh)</label><small>Kích thước đề nghị 1024x533<br />Dung lượng không quá 2MB</small>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <div class="cover-ad-form">
+                            <div class="inputfile-container">
+                              <input class="inputfile" type="file" id="file2">
+                              <label for="file2"></label>
+                            </div>
+                            <div class="src" style="background-image:url(https://via.placeholder.com/1024x533)"></div>
+                            <div class="ico-edit"><i class="icz icz-fill-edit"></i></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label">Nút hiển thị</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control is-danger">
+                          <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="name-item">Gửi thông tin</span><i class="icz icz-fill-triangle-down"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-m2">
+                              <ul>
+                                <li><a href="javascript:void(0)">Gửi thông tin</a></li>
+                                <li><a href="javascript:void(0)">Đăng ký tư vấn</a></li>
+                                <li><a href="javascript:void(0)">Nhận tài liệu</a></li>
+                                <li><a href="javascript:void(0)">Nhận khuyến mãi</a></li>
+                                <li><a href="javascript:void(0)">Đặt lịch hẹn</a></li>
+                                <li><a href="javascript:void(0)">Nhận ưu đãi</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-form is-expanded">
+                <div class="heading-gf"><span>Trang 1</span><i class="icz icz-fill-blog is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <p class="is-size-7 has-text-weight-semibold mb-3">Bạn muốn Form thu thập các thông tin nào?</p>
+                  <ul class="qa-list" id="qa1">
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-account"></i><span class="title-qa">Họ và tên</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-account">
+                              <label for="icz-account">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-phone"></i><span class="title-qa">Số điện thoại</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-phone">
+                              <label for="icz-phone">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-fill-calendar"></i><span class="title-qa">Ngày sinh</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-fill-calendar">
+                              <label for="icz-fill-calendar">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-mail"></i><span class="title-qa">Địa chỉ email</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-mail">
+                              <label for="icz-mail">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-address"></i><span class="title-qa">Địa chỉ</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-address">
+                              <label for="icz-address">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-woman-man"></i><span class="title-qa">Giới tính</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-woman-man">
+                              <label for="icz-woman-man">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="add-gf-wrap dropdown"><a class="button is-add dropdown-toggle" role="button" id="dropdown-add-gf1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm một câu hỏi mới</a><a class="func-remove-form-page" href="#!" data-tippy-content="Xóa trang"><i class="icz icz-trash"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-add-gf1">
+                      <ul class="add-gf-list">
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-text"></i><span>Câu trả lời ngắn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-survey"></i><span>Câu trắc nghiệm có một lựa chọn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-multi-check"></i><span>Câu trắc nghiệm có nhiều lựa chọn</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-form is-expanded">
+                <div class="heading-gf"><span>Trang 2</span><i class="icz icz-fill-blog is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <p class="is-size-7 has-text-weight-semibold mb-3">Bạn muốn Form thu thập các thông tin nào?</p>
+                  <ul class="qa-list" id="qa2">
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner mb-2"><i class="icz icz-text"></i><span class="title-qa">Câu trả lời ngắn</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="checkrequire1" checked>
+                              <label for="checkrequire1">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                          <div class="control has-icons-right is-danger">
+                            <input class="input" type="input" placeholder="Nội dung câu hỏi" value=""><span class="icon is-right"><small class="is-char">255</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner mb-2"><i class="icz icz-survey"></i><span class="title-qa">Câu trắc nghiệm có một lựa chọn</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="checkrequire2" checked>
+                              <label for="checkrequire2">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                          <div class="control has-icons-right mb-3 is-danger">
+                            <input class="input" type="input" placeholder="Nội dung câu hỏi" value=""><span class="icon is-right"><small class="is-char">255</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                          <p class="mb-2"> <strong class="is-block is-size-6 has-text-weight-bold">Danh sách lựa chọn (nhập ít nhất 2 lựa chọn)</strong><small class="is-block is-size-7 has-text-grey">Nhập lựa chọn cho câu hỏi, sau đó bấm <strong class="has-text-base">Enter</strong> để thêm vào danh sách</small></p>
+                          <div class="control has-icons-right mb-3 is-danger">
+                            <input class="input" type="input" placeholder="Nhập lựa chọn" value=""><span class="icon is-right"><small class="is-char">128</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                          <div class="tags" id="tag1"><span class="tag is-rounded">Option 1
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 2
+                              <button class="delete is-small"></button></span></div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between">
+                            <div class="inner mb-2"><i class="icz icz-multi-check"></i><span class="title-qa">Câu trắc nghiệm có nhiều lựa chọn</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="checkrequire2" checked>
+                              <label for="checkrequire2">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                          <div class="control has-icons-right mb-3 is-danger">
+                            <input class="input" type="input" placeholder="Nội dung câu hỏi" value=""><span class="icon is-right"><small class="is-char">255</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message
+                            <p class="mb-2"> </p>
+                          </p><strong class="is-block is-size-6 has-text-weight-bold">Danh sách lựa chọn (nhập ít nhất 2 lựa chọn)</strong><small class="is-block is-size-7 has-text-grey">Nhập lựa chọn cho câu hỏi, sau đó bấm <strong class="has-text-base">Enter</strong> để thêm vào danh sách</small>
+                          <div class="control has-icons-right mb-3 is-danger">
+                            <input class="input" type="input" placeholder="Nhập lựa chọn" value=""><span class="icon is-right"><small class="is-char">128</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                          <div class="tags" id="tag2"><span class="tag is-rounded">Option 1
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 2
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 3
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 4
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 5
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 6
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 7
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 8
+                              <button class="delete is-small"></button></span></div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="add-gf-wrap dropdown"><a class="button is-add dropdown-toggle" role="button" id="dropdown-add-gf2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm một câu hỏi mới</a><a class="func-remove-form-page" href="#!" data-tippy-content="Xóa trang"><i class="icz icz-trash"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-add-gf2">
+                      <ul class="add-gf-list">
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-text"></i><span>Câu trả lời ngắn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-survey"></i><span>Câu trắc nghiệm có một lựa chọn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-multi-check"></i><span>Câu trắc nghiệm có nhiều lựa chọn</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-form is-expanded">
+                <div class="heading-gf"><span>Trang 3</span><i class="icz icz-fill-blog is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <p class="is-size-7 has-text-weight-semibold mb-3">Bạn muốn Form thu thập các thông tin nào?</p>
+                  <ul class="qa-list" id="qa3">
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container multi-page">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner mb-2"><i class="icz icz-text"></i><span class="title-qa">Câu trả lời ngắn</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="checkrequire10" checked disabled>
+                              <label for="checkrequire10">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa dropdown-transfer-form" href="javascript:void(0);" data-tippy-content="Chuyển qua trang khác"><i class="icz icz-Extend-2"></i>
+                            <div class="blk-transfer-form">
+                              <div class="item"> 
+                                <div class="content">Trang 1</div>
+                              </div>
+                              <div class="item"> 
+                                <div class="content">Trang 2</div>
+                              </div>
+                            </div></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="add-gf-wrap dropdown"><a class="button is-add dropdown-toggle" role="button" id="dropdown-add-gf2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm một câu hỏi mới</a><a class="func-remove-form-page" href="#!" data-tippy-content="Xóa trang"><i class="icz icz-trash"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-add-gf2">
+                      <ul class="add-gf-list">
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-text"></i><span>Câu trả lời ngắn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-survey"></i><span>Câu trắc nghiệm có một lựa chọn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-multi-check"></i><span>Câu trắc nghiệm có nhiều lựa chọn</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-form add-more-form">
+                <div class="heading-gf"><span>Thêm 1 trang</span><i class="icz icz-add is-check"></i></div>
+              </div>
+              <div class="notification is-warning"><i class="icz icz-fill-warning"></i>
+                <button class="delete"></button>
+                <h4>Bạn đang có quá nhiều câu hỏi</h4>
+                <p>Có quá nhiều câu hỏi sẽ ảnh hưởng đến tỷ lệ hoàn thành Form</p>
+              </div>
+              <div class="button-wrap"><a class="button is-primary is-large" href="javascript:void(0);">Lưu form</a></div>
+            </div>
+            <div class="bl-preview-form">
+              <div class="navigation-top">
+                <div class="button-prev"><i class="icz icz-left"></i></div>
+                <p class="text-paging">Trang 1/n (n là tổng trang)</p>
+                <div class="button-next"><i class="icz icz-right"></i>
+                  <div class="tippy-preview">
+                    <div class="arrow"></div>
+                    <div class="tippy-content">
+                      <p>Bấm vào dấu “<i class="icz icz-right"></i>” để xem trang kế tiếp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-preview swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="bl-preview-form-container">
+                      <div class="bl-cover is-null"></div>
+                      <div class="bl-cover"><span class="img-cover" id="img-cover" style="background-image:url(images/upload/cover_default_otr_v2.png)"></span></div>
+                      <div class="body-form">
+                        <div class="bl-info-oa">
+                          <div class="avatar avatar--l">
+                            <div class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></div>
+                          </div>
+                          <h1>Brand Official Account</h1>
+                        </div>
+                        <div class="bl-form">
+                          <h2>Đăng ký thông tin để nhận báo giá sản phẩm từ Brand</h2>
+                          <h4> 
+                            <div class="js-read-more" data-rm-words="42">Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm</div>
+                          </h4>
+                          <div class="field">
+                            <label class="label">Họ và tên</label>
+                            <div class="control">
+                              <input class="input is-line" type="text" placeholder="Nhập họ và tên">
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Địa chỉ email</label>
+                            <div class="control">
+                              <input class="input is-line" type="text" placeholder="Nhập email của bạn" value="john_doe_20@yahoo.com" disabled>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Ngày sinh</label>
+                            <div class="control">
+                              <input class="input is-line" type="text" placeholder="Nhập ngày sinh" value="12/12/1990" disabled>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Giới tính</label>
+                            <div class="control"><span class="select is-line is-fullwidth">
+                                <select required>
+                                  <option selected disabled value="">Chọn giới tính</option>
+                                  <option value="1">Nam</option>
+                                  <option value="2">Nữ</option>
+                                </select></span></div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Địa chỉ liên hệ</label>
+                            <div class="control">
+                              <textarea class="textarea is-line" type="textarea" placeholder="Nhập địa chỉ" disabled>182 Lê Đại Hành</textarea>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Độ tuổi</label>
+                            <div class="controls">
+                              <div class="control">
+                                <input id="t1" type="checkbox" name="" checked>
+                                <label for="t1">Dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="t2" type="checkbox" name="">
+                                <label for="t2">18 - 24</label>
+                              </div>
+                              <div class="control">
+                                <input id="t3" type="checkbox" name="">
+                                <label for="t3">25 - 34</label>
+                              </div>
+                              <div class="control">
+                                <input id="t4" type="checkbox" name="">
+                                <label for="t4">35 - 44</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Độ tuổi</label>
+                            <div class="controls is-rows">
+                              <div class="control">
+                                <input id="t7" type="checkbox" name="" checked>
+                                <label for="t7">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="t8" type="checkbox" name="">
+                                <label for="t8">18 - 24</label>
+                              </div>
+                              <div class="control">
+                                <input id="t9" type="checkbox" name="">
+                                <label for="t9">25 - 34</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Hệ điều hành</label>
+                            <div class="controls">
+                              <div class="control">
+                                <input id="f1" type="radio" name="hdh" checked>
+                                <label for="f1">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="f2" type="radio" name="hdh">
+                                <label for="f2">iOS</label>
+                              </div>
+                              <div class="control">
+                                <input id="f3" type="radio" name="hdh">
+                                <label for="f3">PC</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Hệ điều hành</label>
+                            <div class="controls is-rows">
+                              <div class="control">
+                                <input id="f4" type="radio" name="hdh1">
+                                <label for="f4">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="f5" type="radio" name="hdh1">
+                                <label for="f5">iOS</label>
+                              </div>
+                              <div class="control">
+                                <input id="f6" type="radio" name="hdh1">
+                                <label for="f6">PC</label>
+                              </div>
+                              <div class="control">
+                                <input id="f7" type="radio" name="hdh1" checked>
+                                <label for="f7">Khác</label>
+                              </div>
+                              <div class="control">
+                                <input class="input is-line" type="text" placeholder="Hệ điều hành khác">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="button is-black is-large is-fullwidth">Tiếp theo</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bl-preview-form-container">
+                      <div class="bl-cover is-null"></div>
+                      <div class="bl-cover"><span class="img-cover" id="img-cover" style="background-image:url(images/upload/cover_default_otr_v2.png)"></span></div>
+                      <div class="body-form">
+                        <div class="bl-info-oa">
+                          <div class="avatar avatar--l">
+                            <div class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></div>
+                          </div>
+                          <h1>Brand Official Account</h1>
+                        </div>
+                        <div class="bl-form">
+                          <h2>Đăng ký thông tin để nhận báo giá sản phẩm từ Brand</h2>
+                          <h4> 
+                            <div class="js-read-more" data-rm-words="42">Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm</div>
+                          </h4>
+                          <div class="group-value">
+                            <p>{Mobile Number}</p>
+                            <p>{Name}</p>
+                            <p>{Email}</p>
+                            <p>{DOB}</p>
+                            <p>{Address}</p>
+                          </div>
+                          <p class="is-policy">Bằng việc bấm nút <strong>Gửi thông tin</strong>, bạn đồng ý gửi các thông tin này tới Brand Official Account. Việc sử dụng các thông tin này của Brand Official Account tuân thủ theo các <a href="#!" target="_blank">quy định chung</a> của Zalo Ads</p>
+                          <div class="button is-black is-large is-fullwidth">Gửi thông tin</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-one-form">
+        <div class="bl-popup-heading">
+          <div class="back-previous"><a class="back-to-selectform" href="javascript:void(0)"> <i class="icz icz-arrow-left"></i></a><span>Tạo form có một trang</span></div><a class="func-close-create-form" href="javascript:void(0)"><i class="icz icz-close"></i></a>
+        </div>
+        <div class="bl-popup-context">
+          <div class="section-setup-form">
+            <div class="bl-setup">
+              <div class="heading-setup">
+                <div class="name"><span>Zalo Form - 21/12/2019 15:09</span><a class="func-edit" href="javascript:void(0)"><i class="icz icz-fill-edit"></i></a></div>
+                <input class="is-hidden" type="text" placeholder="" value="QC Website - 21/12/2019 15:09">
+              </div>
+              <div class="group-form is-expanded">
+                <!-- Case active thêm class is-active-->
+                <!--.heading-gf.is-active
+                span Thông tin form
+                i.icz.icz-fill-badge
+                i.icz.icz-down.is-arr
+                -->
+                <div class="heading-gf is-danger"><span>Thông tin form</span><i class="icz icz-fill-badge is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label">Tiêu đề</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icons-right is-danger">
+                          <input class="input" type="input" placeholder="Nhập tiêu đề" value="Đăng ký thông tin để nhận báo giá sản phẩm từ Brand"><span class="icon is-right"><small class="is-char">255</small></span>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small pt-0">
+                      <label class="label">Nội dung</label>
+                      <!--small Không bắt buộc-->
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icons-right is-danger">
+                          <textarea class="textarea" type="textarea" placeholder="Nhập nội dung" value="Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương"></textarea><span class="icon is-right"><small class="is-char">600</small></span>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label is-block">Ảnh bìa</label><small>Kích thước đề nghị 1024x533<br />Dung lượng không quá 2MB</small>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <div class="cover-ad-form is-upload">
+                            <div class="inputfile-container">
+                              <input class="inputfile" type="file" id="file1">
+                              <label for="file1"></label>
+                            </div><span class="text-form">Đăng ảnh bìa</span>
+                          </div>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label is-block">Ảnh bìa (đã up ảnh)</label><small>Kích thước đề nghị 1024x533<br />Dung lượng không quá 2MB</small>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <div class="cover-ad-form">
+                            <div class="inputfile-container">
+                              <input class="inputfile" type="file" id="file2">
+                              <label for="file2"></label>
+                            </div>
+                            <div class="src" style="background-image:url(https://via.placeholder.com/1024x533)"></div>
+                            <div class="ico-edit"><i class="icz icz-fill-edit"></i></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label">Nút hiển thị</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control is-danger">
+                          <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="name-item">Gửi thông tin</span><i class="icz icz-fill-triangle-down"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-m2">
+                              <ul>
+                                <li><a href="javascript:void(0)">Gửi thông tin</a></li>
+                                <li><a href="javascript:void(0)">Đăng ký tư vấn</a></li>
+                                <li><a href="javascript:void(0)">Nhận tài liệu</a></li>
+                                <li><a href="javascript:void(0)">Nhận khuyến mãi</a></li>
+                                <li><a href="javascript:void(0)">Đặt lịch hẹn</a></li>
+                                <li><a href="javascript:void(0)">Nhận ưu đãi</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-form is-expanded">
+                <div class="heading-gf"><span>Câu hỏi</span><i class="icz icz-fill-blog is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <p class="is-size-7 has-text-weight-semibold mb-3">Bạn muốn Form thu thập các thông tin nào?</p>
+                  <ul class="qa-list" id="qa1">
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-account"></i><span class="title-qa">Họ và tên</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-account">
+                              <label for="icz-account">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-phone"></i><span class="title-qa">Số điện thoại</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-phone">
+                              <label for="icz-phone">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-fill-calendar"></i><span class="title-qa">Ngày sinh</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-fill-calendar">
+                              <label for="icz-fill-calendar">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-mail"></i><span class="title-qa">Địa chỉ email</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-mail">
+                              <label for="icz-mail">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-address"></i><span class="title-qa">Địa chỉ</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-address">
+                              <label for="icz-address">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner"><i class="icz icz-woman-man"></i><span class="title-qa">Giới tính</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="icz-woman-man">
+                              <label for="icz-woman-man">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner mb-2"><i class="icz icz-text"></i><span class="title-qa">Câu trả lời ngắn</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="checkrequire1" checked>
+                              <label for="checkrequire1">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                          <div class="control has-icons-right is-danger">
+                            <input class="input" type="input" placeholder="Nội dung câu hỏi" value=""><span class="icon is-right"><small class="is-char">255</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between"> 
+                            <div class="inner mb-2"><i class="icz icz-survey"></i><span class="title-qa">Câu trắc nghiệm có một lựa chọn</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="checkrequire2" checked>
+                              <label for="checkrequire2">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                          <div class="control has-icons-right mb-3 is-danger">
+                            <input class="input" type="input" placeholder="Nội dung câu hỏi" value=""><span class="icon is-right"><small class="is-char">255</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                          <p class="mb-2"> <strong class="is-block is-size-6 has-text-weight-bold">Danh sách lựa chọn (nhập ít nhất 2 lựa chọn)</strong><small class="is-block is-size-7 has-text-grey">Nhập lựa chọn cho câu hỏi, sau đó bấm <strong class="has-text-base">Enter</strong> để thêm vào danh sách</small></p>
+                          <div class="control has-icons-right mb-3 is-danger">
+                            <input class="input" type="input" placeholder="Nhập lựa chọn" value=""><span class="icon is-right"><small class="is-char">128</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                          <div class="tags" id="tag1"><span class="tag is-rounded">Option 1
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 2
+                              <button class="delete is-small"></button></span></div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="qa-container">
+                          <div class="is-flex-direction-column is-flex func-move-swap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a></div>
+                          <div class="is-flex is-justify-content-space-between">
+                            <div class="inner mb-2"><i class="icz icz-multi-check"></i><span class="title-qa">Câu trắc nghiệm có nhiều lựa chọn</span></div>
+                            <div class="check-required"> 
+                              <input type="checkbox" id="checkrequire2" checked>
+                              <label for="checkrequire2">Bắt buộc nhập</label>
+                            </div>
+                          </div>
+                          <div class="control has-icons-right mb-3 is-danger">
+                            <input class="input" type="input" placeholder="Nội dung câu hỏi" value=""><span class="icon is-right"><small class="is-char">255</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message
+                            <p class="mb-2"> </p>
+                          </p><strong class="is-block is-size-6 has-text-weight-bold">Danh sách lựa chọn (nhập ít nhất 2 lựa chọn)</strong><small class="is-block is-size-7 has-text-grey">Nhập lựa chọn cho câu hỏi, sau đó bấm <strong class="has-text-base">Enter</strong> để thêm vào danh sách</small>
+                          <div class="control has-icons-right mb-3 is-danger">
+                            <input class="input" type="input" placeholder="Nhập lựa chọn" value=""><span class="icon is-right"><small class="is-char">128</small></span>
+                          </div>
+                          <p class="help has-text-danger">error message</p>
+                          <div class="tags" id="tag2"><span class="tag is-rounded">Option 1
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 2
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 3
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 4
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 5
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 6
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 7
+                              <button class="delete is-small"></button></span><span class="tag is-rounded">Option 8
+                              <button class="delete is-small"></button></span></div>
+                        </div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="add-gf-wrap dropdown"><a class="button is-add dropdown-toggle" role="button" id="dropdown-add-gf1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm một câu hỏi mới</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-add-gf1">
+                      <ul class="add-gf-list">
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-text"></i><span>Câu trả lời ngắn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-survey"></i><span>Câu trắc nghiệm có một lựa chọn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-multi-check"></i><span>Câu trắc nghiệm có nhiều lựa chọn</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="notification is-warning"><i class="icz icz-fill-warning"></i>
+                <button class="delete"></button>
+                <h4>Bạn đang có quá nhiều câu hỏi</h4>
+                <p>Có quá nhiều câu hỏi sẽ ảnh hưởng đến tỷ lệ hoàn thành Form</p>
+              </div>
+              <div class="button-wrap"><a class="button is-primary is-large" href="javascript:void(0);">Lưu form</a></div>
+            </div>
+            <div class="bl-preview-form">
+              <div class="bl-preview-form-container">
+                <div class="bl-cover is-null"></div>
+                <div class="bl-cover"><span class="img-cover" id="img-cover" style="background-image:url(images/upload/cover_default_otr_v2.png)"></span></div>
+                <div class="body-form">
+                  <div class="bl-info-oa">
+                    <div class="avatar avatar--l">
+                      <div class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></div>
+                    </div>
+                    <h1>Brand Official Account</h1>
+                  </div>
+                  <div class="bl-form">
+                    <h2>Đăng ký thông tin để nhận báo giá sản phẩm từ Brand</h2>
+                    <h4> 
+                      <div class="js-read-more" data-rm-words="42">Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm</div>
+                    </h4>
+                    <div class="field">
+                      <label class="label">Họ và tên</label>
+                      <div class="control">
+                        <input class="input is-line" type="text" placeholder="Nhập họ và tên">
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Địa chỉ email</label>
+                      <div class="control">
+                        <input class="input is-line" type="text" placeholder="Nhập email của bạn" value="john_doe_20@yahoo.com" disabled>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Ngày sinh</label>
+                      <div class="control">
+                        <input class="input is-line" type="text" placeholder="Nhập ngày sinh" value="12/12/1990" disabled>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Giới tính</label>
+                      <div class="control"><span class="select is-line is-fullwidth">
+                          <select required>
+                            <option selected disabled value="">Chọn giới tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                          </select></span></div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Địa chỉ liên hệ</label>
+                      <div class="control">
+                        <textarea class="textarea is-line" type="textarea" placeholder="Nhập địa chỉ" disabled>182 Lê Đại Hành</textarea>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Độ tuổi</label>
+                      <div class="controls">
+                        <div class="control">
+                          <input id="t1" type="checkbox" name="" checked>
+                          <label for="t1">Dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                        </div>
+                        <div class="control">
+                          <input id="t2" type="checkbox" name="">
+                          <label for="t2">18 - 24</label>
+                        </div>
+                        <div class="control">
+                          <input id="t3" type="checkbox" name="">
+                          <label for="t3">25 - 34</label>
+                        </div>
+                        <div class="control">
+                          <input id="t4" type="checkbox" name="">
+                          <label for="t4">35 - 44</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Độ tuổi</label>
+                      <div class="controls is-rows">
+                        <div class="control">
+                          <input id="t7" type="checkbox" name="" checked>
+                          <label for="t7">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                        </div>
+                        <div class="control">
+                          <input id="t8" type="checkbox" name="">
+                          <label for="t8">18 - 24</label>
+                        </div>
+                        <div class="control">
+                          <input id="t9" type="checkbox" name="">
+                          <label for="t9">25 - 34</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Hệ điều hành</label>
+                      <div class="controls">
+                        <div class="control">
+                          <input id="f1" type="radio" name="hdh" checked>
+                          <label for="f1">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                        </div>
+                        <div class="control">
+                          <input id="f2" type="radio" name="hdh">
+                          <label for="f2">iOS</label>
+                        </div>
+                        <div class="control">
+                          <input id="f3" type="radio" name="hdh">
+                          <label for="f3">PC</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Hệ điều hành</label>
+                      <div class="controls is-rows">
+                        <div class="control">
+                          <input id="f4" type="radio" name="hdh1">
+                          <label for="f4">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                        </div>
+                        <div class="control">
+                          <input id="f5" type="radio" name="hdh1">
+                          <label for="f5">iOS</label>
+                        </div>
+                        <div class="control">
+                          <input id="f6" type="radio" name="hdh1">
+                          <label for="f6">PC</label>
+                        </div>
+                        <div class="control">
+                          <input id="f7" type="radio" name="hdh1" checked>
+                          <label for="f7">Khác</label>
+                        </div>
+                        <div class="control">
+                          <input class="input is-line" type="text" placeholder="Hệ điều hành khác">
+                        </div>
+                      </div>
+                    </div>
+                    <p class="is-policy">Bằng việc bấm nút <strong>Gửi thông tin</strong>, bạn đồng ý gửi các thông tin này tới Brand Official Account. Việc sử dụng các thông tin này của Brand Official Account tuân thủ theo các <a href="#!" target="_blank">quy định chung</a> của Zalo Ads</p>
+                    <div class="button is-black is-large is-fullwidth">Gửi thông tin</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-container" id="popup-setup-form">
+        <div class="bl-popup-heading"><span>Tạo form</span><a class="func-alert" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-popup-context">
+          <div class="section-setup-form">
+            <div class="bl-setup">
+              <div class="heading-setup">
+                <div class="name"><span>QC Website - 21/12/2019 15:09</span><a class="func-edit" href="javascript:void(0)"><i class="icz icz-fill-edit"></i></a></div>
+                <input class="is-hidden" type="text" placeholder="" value="QC Website - 21/12/2019 15:09">
+              </div>
+              <div class="group-form is-expanded">
+                <!-- Case active thêm class is-active-->
+                <!--.heading-gf.is-active
+                span Thông tin form
+                i.icz.icz-fill-check.is-check
+                i.icz.icz-down.is-arr
+                -->
+                <div class="heading-gf is-danger"><span>Thông tin form</span><i class="icz icz-fill-check is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label">Tiêu đề</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icons-right is-danger">
+                          <input class="input" type="input" placeholder="Nhập tiêu đề" value="Đăng ký thông tin để nhận báo giá sản phẩm từ Brand"><span class="icon is-right"><small class="is-char">255</small></span>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small pt-0">
+                      <label class="label">Nội dung</label>
+                      <!--small Không bắt buộc-->
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icons-right is-danger">
+                          <textarea class="textarea" type="textarea" placeholder="Nhập nội dung" value="Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương"></textarea><span class="icon is-right"><small class="is-char">600</small></span>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label is-block">Ảnh bìa</label><small>Kích thước đề nghị 1024x533<br />Dung lượng không quá 2MB</small>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <div class="cover-ad-form is-upload">
+                            <div class="inputfile-container">
+                              <input class="inputfile" type="file" id="file1">
+                              <label for="file1"></label>
+                            </div><span class="text-form">Đăng ảnh bìa</span>
+                          </div>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label is-block">Ảnh bìa (đã up ảnh)</label><small>Kích thước đề nghị 1024x533<br />Dung lượng không quá 2MB</small>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <div class="cover-ad-form">
+                            <div class="inputfile-container">
+                              <input class="inputfile" type="file" id="file2">
+                              <label for="file2"></label>
+                            </div>
+                            <div class="src" style="background-image:url(https://via.placeholder.com/1024x533)"></div>
+                            <div class="ico-edit"><i class="icz icz-fill-edit"></i></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                      <label class="label">Nút hiển thị</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control is-danger">
+                          <div class="dropdown"><a class="button dropdown-toggle" role="button" id="dropdown-m2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="name-item">Gửi thông tin</span><i class="icz icz-fill-triangle-down"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-m2">
+                              <ul>
+                                <li><a href="javascript:void(0)">Gửi thông tin</a></li>
+                                <li><a href="javascript:void(0)">Đăng ký tư vấn</a></li>
+                                <li><a href="javascript:void(0)">Nhận tài liệu</a></li>
+                                <li><a href="javascript:void(0)">Nhận khuyến mãi</a></li>
+                                <li><a href="javascript:void(0)">Đặt lịch hẹn</a></li>
+                                <li><a href="javascript:void(0)">Nhận ưu đãi</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="help has-text-danger">error message</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-form is-expanded">
+                <div class="heading-gf"><span>Câu hỏi thông tin khách hàng</span><i class="icz icz-fill-check is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <p class="is-size-7 has-text-weight-semibold mb-3">Bạn muốn Form thu thập các thông tin nào?</p>
+                  <ul class="qa-list" id="qa1">
+                    <li>
+                      <div class="item-qa">
+                        <div class="inner"><i class="icz icz-account"></i><span class="title-qa">Họ và tên</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="inner"><i class="icz icz-phone"></i><span class="title-qa">Số điện thoại</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="inner"><i class="icz icz-fill-calendar"></i><span class="title-qa">Ngày sinh</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="inner"><i class="icz icz-mail"></i><span class="title-qa">Địa chỉ email</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="inner"><i class="icz icz-address"></i><span class="title-qa">Địa chỉ</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="inner"><i class="icz icz-woman-man"></i><span class="title-qa">Giới tính</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="add-gf-wrap dropdown"><a class="button is-add dropdown-toggle" role="button" id="dropdown-add-gf1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm một câu hỏi mới</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-add-gf1">
+                      <ul class="add-gf-list">
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-fill-calendar"></i><span>Ngày sinh</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-mail"></i><span>Địa chỉ email</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-address"></i><span>Địa chỉ</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-woman-man"></i><span>Giới tính</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group-form is-expanded">
+                <div class="heading-gf"><span>Câu hỏi tùy chọn</span><i class="icz icz-fill-blog is-check"></i><i class="icz icz-down is-arr"></i></div>
+                <div class="body-gf">
+                  <p class="is-size-7 has-text-weight-semibold mb-3">Bạn muốn biết thêm điều gì từ khách hàng?</p>
+                  <ul class="qa-list" id="qa2">
+                    <li>
+                      <div class="item-qa">
+                        <div class="inner mb-2"><i class="icz icz-text"></i><span class="title-qa">Câu trả lời ngắn</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                        <div class="control has-icons-right is-danger">
+                          <input class="input" type="input" placeholder="Nội dung câu hỏi" value="">
+                          <p class="help has-text-danger">error message</p><span class="icon is-right"><small class="is-char">255</small></span>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="inner mb-2"><i class="icz icz-survey"></i><span class="title-qa">Câu trắc nghiệm có một lựa chọn</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                        <div class="control has-icons-right mb-3 is-danger">
+                          <input class="input" type="input" placeholder="Nội dung câu hỏi" value="">
+                          <p class="help has-text-danger">error message</p><span class="icon is-right"><small class="is-char">255</small></span>
+                        </div>
+                        <p class="mb-2"> <strong class="is-block is-size-6 has-text-weight-bold">Danh sách lựa chọn (nhập ít nhất 2 lựa chọn)</strong><small class="is-block is-size-7 has-text-grey">Nhập lựa chọn cho câu hỏi, sau đó bấm <strong class="has-text-base">Enter</strong> để thêm vào danh sách</small></p>
+                        <div class="control has-icons-right mb-3 is-danger">
+                          <input class="input" type="input" placeholder="Nhập lựa chọn" value="">
+                          <p class="help has-text-danger">error message</p><span class="icon is-right"><small class="is-char">128</small></span>
+                        </div>
+                        <div class="tags" id="tag1"><span class="tag is-rounded">Option 1
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 2
+                            <button class="delete is-small"></button></span></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-qa">
+                        <div class="inner mb-2"><i class="icz icz-multi-check"></i><span class="title-qa">Câu trắc nghiệm có nhiều lựa chọn</span></div>
+                        <div class="func-wrap"><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển lên"><i class="icz icz-fill-triangle-up"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Di chuyển xuống"><i class="icz icz-fill-triangle-down"></i></a><a class="func-qa" href="javascript:void(0);" data-tippy-content="Xóa câu hỏi"><i class="icz icz-fill-remove"></i></a></div>
+                        <div class="control has-icons-right mb-3 is-danger">
+                          <input class="input" type="input" placeholder="Nội dung câu hỏi" value="">
+                          <p class="help has-text-danger">error message</p><span class="icon is-right"><small class="is-char">255</small></span>
+                        </div>
+                        <p class="mb-2"> <strong class="is-block is-size-6 has-text-weight-bold">Danh sách lựa chọn (nhập ít nhất 2 lựa chọn)</strong><small class="is-block is-size-7 has-text-grey">Nhập lựa chọn cho câu hỏi, sau đó bấm <strong class="has-text-base">Enter</strong> để thêm vào danh sách</small></p>
+                        <div class="control has-icons-right mb-3 is-danger">
+                          <input class="input" type="input" placeholder="Nhập lựa chọn" value="">
+                          <p class="help has-text-danger">error message</p><span class="icon is-right"><small class="is-char">128</small></span>
+                        </div>
+                        <div class="tags" id="tag2"><span class="tag is-rounded">Option 1
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 2
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 3
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 4
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 5
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 6
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 7
+                            <button class="delete is-small"></button></span><span class="tag is-rounded">Option 8
+                            <button class="delete is-small"></button></span></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="add-gf-wrap dropdown"><a class="button is-add dropdown-toggle" role="button" id="dropdown-add-gf2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm một câu hỏi mới</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown-add-gf2">
+                      <ul class="add-gf-list">
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-text"></i><span>Câu trả lời ngắn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-survey"></i><span>Câu trắc nghiệm có một lựa chọn</span></a></li>
+                        <li><a class="item-add-gf" href="javascript:void(0)"><i class="icz icz-multi-check"></i><span>Câu trắc nghiệm có nhiều lựa chọn</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="notification is-warning"><i class="icz icz-fill-warning"></i>
+                <button class="delete"></button>
+                <h4>Bạn đang có quá nhiều câu hỏi</h4>
+                <p>Có quá nhiều câu hỏi sẽ ảnh hưởng đến tỷ lệ hoàn thành Form</p>
+              </div>
+              <div class="button-wrap"><a class="button is-primary is-large" href="javascript:void(0);">Lưu form</a></div>
+            </div>
+            <div class="bl-preview-form">
+              <div class="navigation-top">
+                <div class="button-prev"><i class="icz icz-left"></i></div>
+                <p class="text-paging">Trang 1/n (n là tổng trang)</p>
+                <div class="button-next"><i class="icz icz-right"></i>
+                  <div class="tippy-preview">
+                    <div class="arrow"></div>
+                    <div class="tippy-content">
+                      <p>Bấm vào dấu “<i class="icz icz-right"></i>” để xem trang kế tiếp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-preview swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="bl-preview-form-container">
+                      <div class="bl-cover is-null"></div>
+                      <div class="bl-cover"><span class="img-cover" id="img-cover" style="background-image:url(images/upload/cover_default_otr_v2.png)"></span></div>
+                      <div class="body-form">
+                        <div class="bl-info-oa">
+                          <div class="avatar avatar--l">
+                            <div class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></div>
+                          </div>
+                          <h1>Brand Official Account</h1>
+                        </div>
+                        <div class="bl-form">
+                          <h2>Đăng ký thông tin để nhận báo giá sản phẩm từ Brand</h2>
+                          <h4> 
+                            <div class="js-read-more" data-rm-words="42">Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm</div>
+                          </h4>
+                          <div class="field">
+                            <label class="label">Họ và tên</label>
+                            <div class="control">
+                              <input class="input is-line" type="text" placeholder="Nhập họ và tên">
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Địa chỉ email</label>
+                            <div class="control">
+                              <input class="input is-line" type="text" placeholder="Nhập email của bạn" value="john_doe_20@yahoo.com" disabled>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Ngày sinh</label>
+                            <div class="control">
+                              <input class="input is-line" type="text" placeholder="Nhập ngày sinh" value="12/12/1990" disabled>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Giới tính</label>
+                            <div class="control"><span class="select is-line is-fullwidth">
+                                <select required>
+                                  <option selected disabled value="">Chọn giới tính</option>
+                                  <option value="1">Nam</option>
+                                  <option value="2">Nữ</option>
+                                </select></span></div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Địa chỉ liên hệ</label>
+                            <div class="control">
+                              <textarea class="textarea is-line" type="textarea" placeholder="Nhập địa chỉ" disabled>182 Lê Đại Hành</textarea>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Độ tuổi</label>
+                            <div class="controls">
+                              <div class="control">
+                                <input id="t1" type="checkbox" name="" checked>
+                                <label for="t1">Dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="t2" type="checkbox" name="">
+                                <label for="t2">18 - 24</label>
+                              </div>
+                              <div class="control">
+                                <input id="t3" type="checkbox" name="">
+                                <label for="t3">25 - 34</label>
+                              </div>
+                              <div class="control">
+                                <input id="t4" type="checkbox" name="">
+                                <label for="t4">35 - 44</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Độ tuổi</label>
+                            <div class="controls is-rows">
+                              <div class="control">
+                                <input id="t7" type="checkbox" name="" checked>
+                                <label for="t7">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="t8" type="checkbox" name="">
+                                <label for="t8">18 - 24</label>
+                              </div>
+                              <div class="control">
+                                <input id="t9" type="checkbox" name="">
+                                <label for="t9">25 - 34</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Hệ điều hành</label>
+                            <div class="controls">
+                              <div class="control">
+                                <input id="f1" type="radio" name="hdh" checked>
+                                <label for="f1">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="f2" type="radio" name="hdh">
+                                <label for="f2">iOS</label>
+                              </div>
+                              <div class="control">
+                                <input id="f3" type="radio" name="hdh">
+                                <label for="f3">PC</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Hệ điều hành</label>
+                            <div class="controls is-rows">
+                              <div class="control">
+                                <input id="f4" type="radio" name="hdh1">
+                                <label for="f4">Dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn dưới 18 trăng tròn</label>
+                              </div>
+                              <div class="control">
+                                <input id="f5" type="radio" name="hdh1">
+                                <label for="f5">iOS</label>
+                              </div>
+                              <div class="control">
+                                <input id="f6" type="radio" name="hdh1">
+                                <label for="f6">PC</label>
+                              </div>
+                              <div class="control">
+                                <input id="f7" type="radio" name="hdh1" checked>
+                                <label for="f7">Khác</label>
+                              </div>
+                              <div class="control">
+                                <input class="input is-line" type="text" placeholder="Hệ điều hành khác">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="button is-black is-large is-fullwidth">Tiếp theo</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bl-preview-form-container">
+                      <div class="bl-cover is-null"></div>
+                      <div class="bl-cover"><span class="img-cover" id="img-cover" style="background-image:url(images/upload/cover_default_otr_v2.png)"></span></div>
+                      <div class="body-form">
+                        <div class="bl-info-oa">
+                          <div class="avatar avatar--l">
+                            <div class="avatar-img" style="background-image:url(https://via.placeholder.com/72)"></div>
+                          </div>
+                          <h1>Brand Official Account</h1>
+                        </div>
+                        <div class="bl-form">
+                          <h2>Đăng ký thông tin để nhận báo giá sản phẩm từ Brand</h2>
+                          <h4> 
+                            <div class="js-read-more" data-rm-words="42">Sữa phân cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm cắt protein sẽ trở thành phô mai, còn sử dụng phương pháp pac-man sẽ tạo ra sữa chua là một trong những điều ít người biết về thực phẩm</div>
+                          </h4>
+                          <div class="group-value">
+                            <p>{Mobile Number}</p>
+                            <p>{Name}</p>
+                            <p>{Email}</p>
+                            <p>{DOB}</p>
+                            <p>{Address}</p>
+                          </div>
+                          <p class="is-policy">Bằng việc bấm nút <strong>Gửi thông tin</strong>, bạn đồng ý gửi các thông tin này tới Brand Official Account. Việc sử dụng các thông tin này của Brand Official Account tuân thủ theo các <a href="#!" target="_blank">quy định chung</a> của Zalo Ads</p>
+                          <div class="button is-black is-large is-fullwidth">Gửi thông tin</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bl-modal">
+      <div class="modal-container is-small" id="modal-delete-form">
+        <div class="bl-modal-heading"><span>Xóa form</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc chắn muốn xóa Form này không?</p>
+          <p><strong class="is-size-5 has-text-primary">Form cho pepsi</strong></p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined" href="javascript:void(0)">Hủy bỏ</button>
+            <button class="button is-primary" href="javascript:void(0)">Xóa form</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-alert">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Nội dung thông báo</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined func-close-modal" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary func-close-popup func-close-modal" href="javascript:void(0)">[Main Action]</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-close-create-form">
+        <div class="bl-modal-heading"><span>Thông báo</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Bạn có chắc chắn muốn đóng Zalo Form không? Bạn sẽ mất mọi công việc đang thực hiện</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined func-close-modal" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary func-close-popup func-close-modal" href="javascript:void(0)">Đồng ý</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-container is-small" id="modal-exit">
+        <div class="bl-modal-heading"><span>Thoát nạp tiền</span><a class="func-close-modal" href="javascript:void(0)"><i class="icz icz-close"></i></a></div>
+        <div class="bl-modal-context">
+          <p>Thông tin đang nhập sẽ không được lưu lại. Bạn có muốn thoát</p>
+        </div>
+        <div class="bl-modal-footer">
+          <div class="buttons is-right">
+            <button class="button is-outlined" href="javascript:void(0)">Hủy thao tác</button>
+            <button class="button is-primary" onclick="location.href='home_payment.html'">Thoát nạp tiền</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Plugin-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/sortable.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      tippy('[data-tippy-content]',{});
+      const template = document.getElementById('template');
+      	tippy('.button-tippy', {
+      	content: template.innerHTML,
+      	allowHTML: true,
+      	trigger: 'click',
+      	arrow: false,
+      	hideOnClick: true,
+      	theme: 'tomato',
+      	placement: 'bottom',
+      	onShown() {
+      		$(".func-delete-form").click(function(){
+      			$("html").addClass("overlay-modal");
+      			$("#modal-delete-form").addClass("is-show");
+      		});
+      	}
+      });
+      
+      $(function() {
+      	$('input[name="daterange"]').daterangepicker({
+      		opens: 'left',
+      		showDropdowns: true,
+      		minYear: 2019,
+      		"alwaysShowCalendars": true,
+      		locale: {
+      			format: 'DD/MM/YYYY'
+      		},
+      		ranges: {
+      			'Hôm nay': [moment(), moment()],
+      			'Hôm qua': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+      			'7 ngày trước': [moment().subtract(6, 'days'), moment()],
+      			'30 ngày trước': [moment().subtract(29, 'days'), moment()],
+      			'Tháng này': [moment().startOf('month'), moment().endOf('month')],
+      			'Tháng trước': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+      		},
+      		maxYear: parseInt(moment().format('YYYY'),10)
+      	});
+      });
+      
+      $(".heading-setup .func-edit").click(function(){
+      	$(".heading-setup .name").addClass("is-hidden");
+      	$(".heading-setup input").removeClass("is-hidden");
+      	$(".heading-setup input").focus();
+      });
+      
+      $(".func-close-create-form").click(()=>{
+      	$("html").addClass("overlay-modal");
+      	$("#modal-close-create-form").addClass("is-show");
+      });
+      $(".func-alert").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-alert").addClass("is-show");
+      });
+      $(".button.button-tippy").click(function(){
+      	$(this).parents(".datatable-body-row").addClass("is-hover");
+      });
+      window.addEventListener('mouseup',function(event){
+      	var pol = document.getElementsByClassName('.dropdown-tippy');
+      	if(event.target != pol && event.target.parentNode != pol){
+      		$(".datatable-body-row").removeClass("is-hover");
+      	}
+      });
+      
+      $(".open-select-form").click(()=>{
+      	$("html").addClass("overlay-popup");
+      	$("#popup-select-form").addClass("is-show");
+      })
+      
+      $(".back-to-selectform").click(()=>{
+      	$("#popup-select-form").addClass("is-show");
+      	$("#popup-multi-form").removeClass("is-show");
+      	$("#popup-one-form").removeClass("is-show");
+      })
+      $(".multi-form-popup").click(()=>{
+      	//- $("html").addClass("overlay-popup");
+      	$("#popup-select-form").removeClass("is-show");
+      	$("#popup-multi-form").addClass("is-show");
+      })
+      $(".one-form-popup").click(()=>{
+      	//- $("html").addClass("overlay-popup")
+      	$("#popup-select-form").removeClass("is-show");;
+      	$("#popup-one-form").addClass("is-show");
+      })
+      
+      $(".button-create-adForm").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal-container").removeClass("is-show");
+      	$("html").addClass("overlay-popup");
+      	$("#popup-setup-form").addClass("is-show");
+      });
+      $(".func-close-popup").click(function(){
+      	$("html").removeClass("overlay-popup");
+      	$(".popup-container").removeClass("is-show");
+      });
+      
+      $(".button-selectOa").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-oa-select").addClass("is-show");
+      });
+      $(".button-selectOa-empty").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-oa-select-empty").addClass("is-show");
+      });
+      $(".func-delete-form").click(function(){
+      	$("html").addClass("overlay-modal");
+      	$("#modal-delete-form").addClass("is-show");
+      });
+      $(".func-close-modal").click(function(){
+      	$("html").removeClass("overlay-modal");
+      	$(".modal-container").removeClass("is-show");
+      });
+      
+      $(".td-has-switch a.link").click(function(){
+      	$("html").addClass("overlay-sidebar");
+      	$(".is-sidebar").addClass("is-show");
+      });
+      $(".func-close-sidebar").click(function(){
+      	$("html").removeClass("overlay-sidebar");
+      	$(".is-sidebar").removeClass("is-show");
+      });
+      
+      //- new Sortable(qa1, {
+      //- 	handle: '.func-drag',
+      //- 	animation: 150,
+      //- 	ghostClass: 'is-ghost'
+      //- });
+      //- new Sortable(qa2, {
+      //- 	handle: '.func-drag',
+      //- 	animation: 150,
+      //- 	ghostClass: 'is-ghost'
+      //- });
+      //- new Sortable(tag1, {
+      //- 	animation: 150,
+      //- 	ghostClass: 'is-ghost'
+      //- });
+      //- new Sortable(tag2, {
+      //- 	animation: 150,
+      //- 	ghostClass: 'is-ghost'
+      //- });
+      
+      // Demo
+      $(".tag-link.demo-func-name").click(function(){
+      	$("#demo-name").removeClass("is-hidden");
+      	$(this).parents(".tag").addClass("is-hidden");
+      });
+      $(".demo-func-name").click(function(){
+      	$("#demo-name").removeClass("is-hidden");
+      });
+      $(".demo-func-ctr").click(function(){
+      	$("#demo-ctr").removeClass("is-hidden");
+      });
+      $(".button.func-close").click(function(){
+      	$(this).parents(".filter-box").addClass("is-hidden");
+      });
+      setTimeout(function(){ $(".module-loading").removeClass('is-active') }, 2000);
+      
+      
+      var swiper = new Swiper('.swiper-container', {
+      	slidesPerView: 1,
+      	navigation: {
+      		nextEl: '.button-next',
+      		prevEl: '.button-prev',
+      	},
+      });
+      var tippyPreview = document.getElementsByClassName('tippy-preview')[0];
+      var navigationTop = document.getElementsByClassName('navigation-top')[0];
+      navigationTop.style.display="none";
+      //- check nếu bật nút cho phép thì hiện navigation của swiper
+      $(".switch-theme input[type='checkbox']").change(function(event){
+      	var groupInput = document.querySelectorAll(".switch-theme input[type='checkbox']:checked");
+      	var lengthChecked = groupInput.length;
+      	for(let i = 0; i<= lengthChecked; i++){
+      		if(groupInput.length ===0){
+      			tippyPreview.style.display="none"
+      			navigationTop.style.display="none";
+      
+      		}
+      		else{
+      			tippyPreview.style.display="block"
+      			navigationTop.style.display="flex";
+      		}
+      	}
+      });
+      
+      $("body,html").click(function(){
+      	tippyPreview.style.display="none"
+      });
+      //- style navagation
+    </script>
+  </body>
+</html>
