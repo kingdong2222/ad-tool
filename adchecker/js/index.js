@@ -8891,6 +8891,7 @@ $("#check-grid-medium_rect").change(function () {
   }
 });
 
+
 //buttons tab switch between normal ad & form ad
 let normal_ad_block = document.getElementById("checking-content-normal-ads");
 let form_ad_block = document.getElementById("checking-content-form-ads");
@@ -8919,6 +8920,8 @@ $("#normal-ads-button").click(function () {
   if (flying_button_check.style.bottom == "40px") {
     flying_button_check.style.opacity = 1;
   }
+
+  $(".blk-noti-blue").removeClass("show");
 });
 
 $("#form-ads-button").click(function () {
@@ -8947,6 +8950,8 @@ $("#form-ads-button").click(function () {
     $(this).removeClass("introduce-button");
     setCookie("check_form_used", "form used", 365);
   }
+
+  $(".blk-noti-blue").removeClass("show");
 });
 
 $("#display-ads-button").click(function () {
@@ -8962,19 +8967,8 @@ $("#display-ads-button").click(function () {
   normal_ad_preview.classList.add("is-hidden");
   form_ad_preview.classList.add("is-hidden");
   display_ad_preview.classList.remove("is-hidden");
-  // $('.policy-bottom-desc').addClass('is-hidden')
 
-  // let flying_button_check = document.getElementById("flying-button");
-  // if (flying_button_check.style.bottom == "40px") {
-  //   flying_button_check.style.opacity = 0;
-  // }
-  // if ($("html").hasClass("overlay-modal")) {
-  //   $("html").removeClass("overlay-modal");
-  // }
-  // if ($(this).hasClass("introduce-button")) {
-  //   $(this).removeClass("introduce-button");
-  //   setCookie("check_form_used", "form used", 365);
-  // }
+  $(".blk-noti-blue").addClass("show");
 });
 
 //check ads type form
@@ -11826,3 +11820,98 @@ uploadBannerAgain = (t, e) =>{
 
   cropLargeImgAgain(t)
 }
+
+
+$("#open-border-masthead_mb").change(function () {
+  if (this.checked) {
+    $("#display_ads_masthead_mb .display_ads_border").addClass("is-show");
+
+    $("#display_ads_masthead_mb .has-upload .blk-noti-blue").addClass("show")
+  } else {
+    $("#display_ads_masthead_mb .display_ads_border").removeClass("is-show");
+
+    $("#display_ads_masthead_mb .has-upload .blk-noti-blue").removeClass("show")
+  }
+});
+
+$("#open-border-masthead_pc").change(function () {
+  if (this.checked) {
+    $("#display_ads_masthead_pc .display_ads_border").addClass("is-show");
+
+    $("#display_ads_masthead_pc .has-upload .blk-noti-blue").addClass("show")
+  } else {
+    $("#display_ads_masthead_pc .display_ads_border").removeClass("is-show");
+
+    $("#display_ads_masthead_pc .has-upload .blk-noti-blue").removeClass("show")
+  }
+});
+$("#open-border-fullpage").change(function () {
+  if (this.checked) {
+    $("#display_ads_fullpage .display_ads_border").addClass("is-show");
+
+    $("#display_ads_fullpage .has-upload .blk-noti-blue").addClass("show")
+  } else {
+    $("#display_ads_fullpage .display_ads_border").removeClass("is-show");
+
+    $("#display_ads_fullpage .has-upload .blk-noti-blue").removeClass("show")
+  }
+});
+$("#open-border-inpage").change(function () {
+  if (this.checked) {
+    $("#display_ads_inpage .display_ads_border").addClass("is-show");
+
+    $("#display_ads_inpage .has-upload .blk-noti-blue").addClass("show")
+  } else {
+    $("#display_ads_inpage .display_ads_border").removeClass("is-show");
+
+    $("#display_ads_inpage .has-upload .blk-noti-blue").removeClass("show")
+  }
+});
+$("#open-border-welcome_mobile").change(function () {
+  if (this.checked) {
+    $("#display_ads_welcome_mobile .display_ads_border").addClass("is-show");
+
+    $("#display_ads_welcome_mobile .has-upload .blk-noti-blue").addClass("show")
+  } else {
+    $("#display_ads_welcome_mobile .display_ads_border").removeClass("is-show");
+
+    $("#display_ads_welcome_mobile .has-upload .blk-noti-blue").removeClass("show")
+  }
+});
+$("#open-border-halfpage_mb").change(function () {
+  if (this.checked) {
+    $("#display_ads_halfpage_mb .display_ads_border").addClass("is-show");
+
+    $("#display_ads_halfpage_mb .has-upload .blk-noti-blue").addClass("show")
+  } else {
+    $("#display_ads_halfpage_mb .display_ads_border").removeClass("is-show");
+
+    $("#display_ads_halfpage_mb .has-upload .blk-noti-blue").removeClass("show")
+  }
+});
+$("#open-border-halfpage_pc").change(function () {
+  if (this.checked) {
+    $("#display_ads_halfpage_pc .display_ads_border").addClass("is-show");
+
+    $("#display_ads_halfpage_pc .has-upload .blk-noti-blue").addClass("show")
+  } else {
+    $("#display_ads_halfpage_pc .display_ads_border").removeClass("is-show");
+
+    $("#display_ads_halfpage_pc .has-upload .blk-noti-blue").removeClass("show")
+  }
+});
+$("#open-border-medium_rect").change(function () {
+  if (this.checked) {
+    $("#display_ads_medium_rect .display_ads_border").addClass("is-show");
+
+    $("#display_ads_medium_rect .has-upload .blk-noti-blue").addClass("show")
+  } else {
+    $("#display_ads_medium_rect .display_ads_border").removeClass("is-show");
+
+    $("#display_ads_medium_rect .has-upload .blk-noti-blue").removeClass("show")
+  }
+});
+
+$(".close-blk-noti").click(()=>{
+  $(".blk-noti-blue.out").removeClass("show");
+})
