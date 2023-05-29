@@ -1647,6 +1647,12 @@ var cropLargeImg = function (val) {
                       instance.destroy();
                     },
                   });
+
+                  count = 0;
+                  $(".check-msg").text("Hãy chọn các ô có xuất hiện chữ");
+                  $(".check-msg").removeClass("is-ok");
+                  $(".square").removeClass("is-selected");
+                  $(".ads-img .squares").addClass("is-show");
                 }
               }
             }
@@ -2856,9 +2862,20 @@ $("#check-grid").change(function () {
   }
 });
 count = 0;
+
+count_masthead_mb = 0;
+count_masthead_pc = 0;
+count_fullpage = 0;
+count_inpage = 0;
+count_welcome_mobile = 0;
+count_halfpage_mb = 0;
+count_halfpage_pc = 0;
+count_medium_rect = 0;
 //- $(".check-msg").hide();
 $(function () {
-  $(".square").click(function () {
+  // check click square by block with id of ads type
+
+  $("#checking-content-normal-ads .square").click(function () {
     if ($(this).hasClass("is-selected")) {
       $(this).removeClass("is-selected");
       count = count - 1;
@@ -2867,23 +2884,305 @@ $(function () {
       count = count + 1;
     }
     percent = Math.ceil(10000 * (count / 98))/100;
-    $(".check-msg").hide();
+    $("#checking-content-normal-ads .check-msg").hide();
 
     //số chữ nhỏ hơn 40 ô vuông
     if (count < 40) {
       message = "(Đạt yêu cầu)";
-      $(".check-msg").removeClass("is-no");
-      $(".check-msg").addClass("is-ok");
+      $("#checking-content-normal-ads .check-msg").removeClass("is-no");
+      $("#checking-content-normal-ads .check-msg").addClass("is-ok");
     } else {
       message = "(Vượt quá 50%)";
-      $(".check-msg").removeClass("is-ok");
-      $(".check-msg").addClass("is-no");
+      $("#checking-content-normal-ads .check-msg").removeClass("is-ok");
+      $("#checking-content-normal-ads .check-msg").addClass("is-no");
     }
 
-    $(".check-msg").text(percent + "%");
-
-    $(".check-msg").fadeIn("fast", function () {});
+    if(count == 0){
+      $("#checking-content-normal-ads .check-msg").text('Hãy chọn ô có xuất hiện chữ');
+      $("#checking-content-normal-ads .check-msg").removeClass("is-ok");
+    } else {
+      $("#checking-content-normal-ads .check-msg").text(percent + "%");
+    }
+    $("#checking-content-normal-ads .check-msg").fadeIn("fast", function () {});
   });
+
+  $("#display_ads_masthead_mb .square").click(function () {
+    if ($(this).hasClass("is-selected")) {
+      $(this).removeClass("is-selected");
+      count_masthead_mb = count_masthead_mb - 1;
+    } else {
+      $(this).addClass("is-selected");
+      count_masthead_mb = count_masthead_mb + 1;
+    }
+    percent = Math.ceil(10000 * (count_masthead_mb / 98))/100;
+    $("#display_ads_masthead_mb .check-msg").hide();
+
+    //số chữ nhỏ hơn 40 ô vuông
+    if (count_masthead_mb < 40) {
+      message = "(Đạt yêu cầu)";
+      $("#display_ads_masthead_mb .check-msg").removeClass("is-no");
+      $("#display_ads_masthead_mb .check-msg").addClass("is-ok");
+    } else {
+      message = "(Vượt quá 50%)";
+      $("#display_ads_masthead_mb .check-msg").removeClass("is-ok");
+      $("#display_ads_masthead_mb .check-msg").addClass("is-no");
+    }
+    if(count_masthead_mb == 0){
+      $("#display_ads_masthead_mb .check-msg").text('Hãy chọn ô có xuất hiện chữ');
+      $("#display_ads_masthead_mb .check-msg").removeClass("is-ok");
+    } else {
+      $("#display_ads_masthead_mb .check-msg").text(percent + "%");
+    }
+
+
+    $("#display_ads_masthead_mb .check-msg").fadeIn("fast", function () {});
+  });
+
+  $("#display_ads_masthead_pc .square").click(function () {
+    if ($(this).hasClass("is-selected")) {
+      $(this).removeClass("is-selected");
+      count_masthead_pc = count_masthead_pc - 1;
+    } else {
+      $(this).addClass("is-selected");
+      count_masthead_pc = count_masthead_pc + 1;
+    }
+    percent = Math.ceil(10000 * (count_masthead_pc / 98))/100;
+    $("#display_ads_masthead_pc .check-msg").hide();
+
+    //số chữ nhỏ hơn 40 ô vuông
+    if (count_masthead_pc < 40) {
+      message = "(Đạt yêu cầu)";
+      $("#display_ads_masthead_pc .check-msg").removeClass("is-no");
+      $("#display_ads_masthead_pc .check-msg").addClass("is-ok");
+    } else {
+      message = "(Vượt quá 50%)";
+      $("#display_ads_masthead_pc .check-msg").removeClass("is-ok");
+      $("#display_ads_masthead_pc .check-msg").addClass("is-no");
+    }
+
+    if(count_masthead_pc == 0){
+      $("#display_ads_masthead_pc .check-msg").text('Hãy chọn ô có xuất hiện chữ');
+      $("#display_ads_masthead_pc .check-msg").removeClass("is-ok");
+    } else {
+      $("#display_ads_masthead_pc .check-msg").text(percent + "%");
+    }
+
+
+    $("#display_ads_masthead_pc .check-msg").fadeIn("fast", function () {});
+  });
+
+  $("#display_ads_fullpage .square").click(function () {
+    if ($(this).hasClass("is-selected")) {
+      $(this).removeClass("is-selected");
+      count_fullpage = count_fullpage - 1;
+    } else {
+      $(this).addClass("is-selected");
+      count_fullpage = count_fullpage + 1;
+    }
+    percent = Math.ceil(10000 * (count_fullpage / 98))/100;
+    $("#display_ads_fullpage .check-msg").hide();
+
+    //số chữ nhỏ hơn 40 ô vuông
+    if (count_fullpage < 40) {
+      message = "(Đạt yêu cầu)";
+      $("#display_ads_fullpage .check-msg").removeClass("is-no");
+      $("#display_ads_fullpage .check-msg").addClass("is-ok");
+    } else {
+      message = "(Vượt quá 50%)";
+      $("#display_ads_fullpage .check-msg").removeClass("is-ok");
+      $("#display_ads_fullpage .check-msg").addClass("is-no");
+    }
+
+    if(count_fullpage == 0){
+      $("#display_ads_fullpage .check-msg").text('Hãy chọn ô có xuất hiện chữ');
+      $("#display_ads_fullpage .check-msg").removeClass("is-ok");
+    } else {
+      $("#display_ads_fullpage .check-msg").text(percent + "%");
+    }
+    $("#display_ads_fullpage .check-msg").fadeIn("fast", function () {});
+  });
+
+  $("#display_ads_inpage .square").click(function () {
+    if ($(this).hasClass("is-selected")) {
+      $(this).removeClass("is-selected");
+      count_inpage = count_inpage - 1;
+    } else {
+      $(this).addClass("is-selected");
+      count_inpage = count_inpage + 1;
+    }
+    percent = Math.ceil(10000 * (count_inpage / 98))/100;
+    $("#display_ads_inpage .check-msg").hide();
+
+    //số chữ nhỏ hơn 40 ô vuông
+    if (count_inpage < 40) {
+      message = "(Đạt yêu cầu)";
+      $("#display_ads_inpage .check-msg").removeClass("is-no");
+      $("#display_ads_inpage .check-msg").addClass("is-ok");
+    } else {
+      message = "(Vượt quá 50%)";
+      $("#display_ads_inpage .check-msg").removeClass("is-ok");
+      $("#display_ads_inpage .check-msg").addClass("is-no");
+    }
+
+    if(count_inpage == 0){
+      $("#display_ads_inpage .check-msg").text('Hãy chọn ô có xuất hiện chữ');
+      $("#display_ads_inpage .check-msg").removeClass("is-ok");
+    } else {
+      $("#display_ads_inpage .check-msg").text(percent + "%");
+    }
+    $("#display_ads_inpage .check-msg").fadeIn("fast", function () {});
+  });
+
+  $("#display_ads_welcome_mobile .square").click(function () {
+    if ($(this).hasClass("is-selected")) {
+      $(this).removeClass("is-selected");
+      count_welcome_mobile = count_welcome_mobile - 1;
+    } else {
+      $(this).addClass("is-selected");
+      count_welcome_mobile = count_welcome_mobile + 1;
+    }
+    percent = Math.ceil(10000 * (count_welcome_mobile / 98))/100;
+    $("#display_ads_welcome_mobile .check-msg").hide();
+
+    //số chữ nhỏ hơn 40 ô vuông
+    if (count_welcome_mobile < 40) {
+      message = "(Đạt yêu cầu)";
+      $("#display_ads_welcome_mobile .check-msg").removeClass("is-no");
+      $("#display_ads_welcome_mobile .check-msg").addClass("is-ok");
+    } else {
+      message = "(Vượt quá 50%)";
+      $("#display_ads_welcome_mobile .check-msg").removeClass("is-ok");
+      $("#display_ads_welcome_mobile .check-msg").addClass("is-no");
+    }
+
+    if(count_welcome_mobile == 0){
+      $("#display_ads_welcome_mobile .check-msg").text('Hãy chọn ô có xuất hiện chữ');
+      $("#display_ads_welcome_mobile .check-msg").removeClass("is-ok");
+    } else {
+      $("#display_ads_welcome_mobile .check-msg").text(percent + "%");
+    }
+    $("#display_ads_welcome_mobile .check-msg").fadeIn("fast", function () {});
+  });
+
+  $("#display_ads_halfpage_mb .square").click(function () {
+    if ($(this).hasClass("is-selected")) {
+      $(this).removeClass("is-selected");
+      count_halfpage_mb = count_halfpage_mb - 1;
+    } else {
+      $(this).addClass("is-selected");
+      count_halfpage_mb = count_halfpage_mb + 1;
+    }
+    percent = Math.ceil(10000 * (count_halfpage_mb / 98))/100;
+    $("#display_ads_halfpage_mb .check-msg").hide();
+
+    //số chữ nhỏ hơn 40 ô vuông
+    if (count_halfpage_mb < 40) {
+      message = "(Đạt yêu cầu)";
+      $("#display_ads_halfpage_mb .check-msg").removeClass("is-no");
+      $("#display_ads_halfpage_mb .check-msg").addClass("is-ok");
+    } else {
+      message = "(Vượt quá 50%)";
+      $("#display_ads_halfpage_mb .check-msg").removeClass("is-ok");
+      $("#display_ads_halfpage_mb .check-msg").addClass("is-no");
+    }
+
+    if(count_halfpage_mb == 0){
+      $("#display_ads_halfpage_mb .check-msg").text('Hãy chọn ô có xuất hiện chữ');
+      $("#display_ads_halfpage_mb .check-msg").removeClass("is-ok");
+    } else {
+      $("#display_ads_halfpage_mb .check-msg").text(percent + "%");
+    }
+    $("#display_ads_halfpage_mb .check-msg").fadeIn("fast", function () {});
+  });
+
+  $("#display_ads_halfpage_pc .square").click(function () {
+    if ($(this).hasClass("is-selected")) {
+      $(this).removeClass("is-selected");
+      count_halfpage_pc = count_halfpage_pc - 1;
+    } else {
+      $(this).addClass("is-selected");
+      count_halfpage_pc = count_halfpage_pc + 1;
+    }
+    percent = Math.ceil(10000 * (count_halfpage_pc / 98))/100;
+    $("#display_ads_halfpage_pc .check-msg").hide();
+
+    //số chữ nhỏ hơn 40 ô vuông
+    if (count_halfpage_pc < 40) {
+      message = "(Đạt yêu cầu)";
+      $("#display_ads_halfpage_pc .check-msg").removeClass("is-no");
+      $("#display_ads_halfpage_pc .check-msg").addClass("is-ok");
+    } else {
+      message = "(Vượt quá 50%)";
+      $("#display_ads_halfpage_pc .check-msg").removeClass("is-ok");
+      $("#display_ads_halfpage_pc .check-msg").addClass("is-no");
+    }
+
+    if(count_halfpage_pc == 0){
+      $("#display_ads_halfpage_pc .check-msg").text('Hãy chọn ô có xuất hiện chữ');
+      $("#display_ads_halfpage_pc .check-msg").removeClass("is-ok");
+    } else {
+      $("#display_ads_halfpage_pc .check-msg").text(percent + "%");
+    }
+    $("#display_ads_halfpage_pc .check-msg").fadeIn("fast", function () {});
+  });
+
+  $("#display_ads_medium_rect .square").click(function () {
+    if ($(this).hasClass("is-selected")) {
+      $(this).removeClass("is-selected");
+      count_medium_rect = count_medium_rect - 1;
+    } else {
+      $(this).addClass("is-selected");
+      count_medium_rect = count_medium_rect + 1;
+    }
+    percent = Math.ceil(10000 * (count_medium_rect / 98))/100;
+    $("#display_ads_medium_rect .check-msg").hide();
+
+    //số chữ nhỏ hơn 40 ô vuông
+    if (count_medium_rect < 40) {
+      message = "(Đạt yêu cầu)";
+      $("#display_ads_medium_rect .check-msg").removeClass("is-no");
+      $("#display_ads_medium_rect .check-msg").addClass("is-ok");
+    } else {
+      message = "(Vượt quá 50%)";
+      $("#display_ads_medium_rect .check-msg").removeClass("is-ok");
+      $("#display_ads_medium_rect .check-msg").addClass("is-no");
+    }
+
+    if(count_medium_rect == 0){
+      $("#display_ads_medium_rect .check-msg").text('Hãy chọn ô có xuất hiện chữ');
+      $("#display_ads_medium_rect .check-msg").removeClass("is-ok");
+    } else {
+      $("#display_ads_medium_rect .check-msg").text(percent + "%");
+    }
+    $("#display_ads_medium_rect .check-msg").fadeIn("fast", function () {});
+  });
+
+  // $(".square").click(function () {
+  //   if ($(this).hasClass("is-selected")) {
+  //     $(this).removeClass("is-selected");
+  //     count = count - 1;
+  //   } else {
+  //     $(this).addClass("is-selected");
+  //     count = count + 1;
+  //   }
+  //   percent = Math.ceil(10000 * (count / 98))/100;
+  //   $(".check-msg").hide();
+
+  //   //số chữ nhỏ hơn 40 ô vuông
+  //   if (count < 40) {
+  //     message = "(Đạt yêu cầu)";
+  //     $(".check-msg").removeClass("is-no");
+  //     $(".check-msg").addClass("is-ok");
+  //   } else {
+  //     message = "(Vượt quá 50%)";
+  //     $(".check-msg").removeClass("is-ok");
+  //     $(".check-msg").addClass("is-no");
+  //   }
+
+  //   $(".check-msg").text(percent + "%");
+
+  //   $(".check-msg").fadeIn("fast", function () {});
+  // });
 });
 
 if (document.getElementById("avatar-image-input")) {
