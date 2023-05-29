@@ -16014,6 +16014,10 @@ main #zalo-form .square-ads .grey-rect-m {
   padding: 0;
 }
 
+.ads-img-quality {
+  display: none !important;
+}
+
 /* Title & subtitle */
 .title {
   display: block;

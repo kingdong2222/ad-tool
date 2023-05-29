@@ -904,10 +904,10 @@ var cropLargeImg = function (val) {
 
 
                     count = 0;
-                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                    $(".check-msg").removeClass("is-ok");
-                    $(".square").removeClass("is-selected");
-                    $(".ads-img .squares").addClass("is-show");
+                    $("#display_ads_masthead_mb .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $("#display_ads_masthead_mb .check-msg").removeClass("is-ok");
+                    $("#display_ads_masthead_mb .square").removeClass("is-selected");
+                    $("#display_ads_masthead_mb .ads-img .squares").addClass("is-show");
 
                      //check blur
                     let imgElement = document.getElementById("masthead_mb_preview");
@@ -988,10 +988,10 @@ var cropLargeImg = function (val) {
                     $("#masthead_pc_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
                     count = 0;
-                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                    $(".check-msg").removeClass("is-ok");
-                    $(".square").removeClass("is-selected");
-                    $(".ads-img .squares").addClass("is-show");
+                    $("#display_ads_masthead_pc .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $("#display_ads_masthead_pc .check-msg").removeClass("is-ok");
+                    $("#display_ads_masthead_pc .square").removeClass("is-selected");
+                    $("#display_ads_masthead_pc .ads-img .squares").addClass("is-show");
 
                      //check blur
                     let imgElement = document.getElementById("masthead_pc_preview");
@@ -1072,10 +1072,10 @@ var cropLargeImg = function (val) {
                     $("#fullpage_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
                     count = 0;
-                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                    $(".check-msg").removeClass("is-ok");
-                    $(".square").removeClass("is-selected");
-                    $(".ads-img .squares").addClass("is-show");
+                    $("#display_ads_fullpage .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $("#display_ads_fullpage .check-msg").removeClass("is-ok");
+                    $("#display_ads_fullpage .square").removeClass("is-selected");
+                    $("#display_ads_fullpage .ads-img .squares").addClass("is-show");
 
                      //check blur
                     let imgElement = document.getElementById("fullpage_preview");
@@ -1156,10 +1156,10 @@ var cropLargeImg = function (val) {
                     $("#inpage_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
                     count = 0;
-                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                    $(".check-msg").removeClass("is-ok");
-                    $(".square").removeClass("is-selected");
-                    $(".ads-img .squares").addClass("is-show");
+                    $("#display_ads_inpage .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $("#display_ads_inpage .check-msg").removeClass("is-ok");
+                    $("#display_ads_inpage .square").removeClass("is-selected");
+                    $("#display_ads_inpage .ads-img .squares").addClass("is-show");
 
                      //check blur
                     let imgElement = document.getElementById("inpage_preview");
@@ -1240,10 +1240,10 @@ var cropLargeImg = function (val) {
                     $("#welcome_mobile_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
                     count = 0;
-                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                    $(".check-msg").removeClass("is-ok");
-                    $(".square").removeClass("is-selected");
-                    $(".ads-img .squares").addClass("is-show");
+                    $("#display_ads_welcome_mobile .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $("#display_ads_welcome_mobile .check-msg").removeClass("is-ok");
+                    $("#display_ads_welcome_mobile .square").removeClass("is-selected");
+                    $("#display_ads_welcome_mobile .ads-img .squares").addClass("is-show");
 
                      //check blur
                     let imgElement = document.getElementById("welcome_mobile_preview");
@@ -1324,10 +1324,10 @@ var cropLargeImg = function (val) {
                     $("#halfpage_mb_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
                     count = 0;
-                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                    $(".check-msg").removeClass("is-ok");
-                    $(".square").removeClass("is-selected");
-                    $(".ads-img .squares").addClass("is-show");
+                    $("#display_ads_halfpage_mb .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $("#display_ads_halfpage_mb .check-msg").removeClass("is-ok");
+                    $("#display_ads_halfpage_mb .square").removeClass("is-selected");
+                    $("#display_ads_halfpage_mb .ads-img .squares").addClass("is-show");
 
                      //check blur
                     let imgElement = document.getElementById("halfpage_mb_preview");
@@ -1408,10 +1408,10 @@ var cropLargeImg = function (val) {
                     $("#halfpage_pc_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
                     count = 0;
-                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                    $(".check-msg").removeClass("is-ok");
-                    $(".square").removeClass("is-selected");
-                    $(".ads-img .squares").addClass("is-show");
+                    $("#display_ads_halfpage_pc .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $("#display_ads_halfpage_pc .check-msg").removeClass("is-ok");
+                    $("#display_ads_halfpage_pc .square").removeClass("is-selected");
+                    $("#display_ads_halfpage_pc .ads-img .squares").addClass("is-show");
 
                      //check blur
                     let imgElement = document.getElementById("halfpage_pc_preview");
@@ -1492,10 +1492,10 @@ var cropLargeImg = function (val) {
                     $("#medium_rect_preview_live")[0].href.baseVal = result.toDataURL(uploadedImageType);
 
                     count = 0;
-                    $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                    $(".check-msg").removeClass("is-ok");
-                    $(".square").removeClass("is-selected");
-                    $(".ads-img .squares").addClass("is-show");
+                    $("#display_ads_medium_rect .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                    $("#display_ads_medium_rect .check-msg").removeClass("is-ok");
+                    $("#display_ads_medium_rect .square").removeClass("is-selected");
+                    $("#display_ads_medium_rect .ads-img .squares").addClass("is-show");
 
                      //check blur
                     let imgElement = document.getElementById("medium_rect_preview");
@@ -1649,10 +1649,10 @@ var cropLargeImg = function (val) {
                   });
 
                   count = 0;
-                  $(".check-msg").text("Hãy chọn các ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#checking-content-normal-ads .check-msg").text("Hãy chọn các ô có xuất hiện chữ");
+                  $("#checking-content-normal-ads .check-msg").removeClass("is-ok");
+                  $("#checking-content-normal-ads .square").removeClass("is-selected");
+                  $("#checking-content-normal-ads .ads-img .squares").addClass("is-show");
                 }
               }
             }
@@ -2086,10 +2086,10 @@ var cropLargeImgAgain = function (val) {
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
                   count = 0;
-                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#display_ads_masthead_mb .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $("#display_ads_masthead_mb .check-msg").removeClass("is-ok");
+                  $("#display_ads_masthead_mb .square").removeClass("is-selected");
+                  $("#display_ads_masthead_mb.ads-img .squares").addClass("is-show");
                   $('#display_ads_masthead_mb #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-masthead_mb-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2162,10 +2162,10 @@ var cropLargeImgAgain = function (val) {
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
                   count = 0;
-                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#display_ads_masthead_pc .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $("#display_ads_masthead_pc .check-msg").removeClass("is-ok");
+                  $("#display_ads_masthead_pc .square").removeClass("is-selected");
+                  $("#display_ads_masthead_pc .ads-img .squares").addClass("is-show");
                   $('#display_ads_masthead_pc #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-masthead_pc-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2238,10 +2238,10 @@ var cropLargeImgAgain = function (val) {
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
                   count = 0;
-                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#display_ads_fullpage .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $("#display_ads_fullpage .check-msg").removeClass("is-ok");
+                  $("#display_ads_fullpage .square").removeClass("is-selected");
+                  $("#display_ads_fullpage .ads-img .squares").addClass("is-show");
                   $('#display_ads_fullpage #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-fullpage-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2314,10 +2314,10 @@ var cropLargeImgAgain = function (val) {
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
                   count = 0;
-                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#display_ads_inpage .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $("#display_ads_inpage .check-msg").removeClass("is-ok");
+                  $("#display_ads_inpage .square").removeClass("is-selected");
+                  $("#display_ads_inpage .ads-img .squares").addClass("is-show");
                   $('#display_ads_inpage #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-inpage-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2390,10 +2390,10 @@ var cropLargeImgAgain = function (val) {
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
                   count = 0;
-                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#display_ads_welcome_mobile .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $("#display_ads_welcome_mobile .check-msg").removeClass("is-ok");
+                  $("#display_ads_welcome_mobile .square").removeClass("is-selected");
+                  $("#display_ads_welcome_mobile .ads-img .squares").addClass("is-show");
                   $('#display_ads_welcome_mobile #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-welcome_mobile-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2466,10 +2466,10 @@ var cropLargeImgAgain = function (val) {
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
                   count = 0;
-                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#display_ads_halfpage_mb .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $("#display_ads_halfpage_mb .check-msg").removeClass("is-ok");
+                  $("#display_ads_halfpage_mb .square").removeClass("is-selected");
+                  $("#display_ads_halfpage_mb .ads-img .squares").addClass("is-show");
                   $('#display_ads_halfpage_mb #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-halfpage_mb-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2542,10 +2542,10 @@ var cropLargeImgAgain = function (val) {
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
                   count = 0;
-                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#display_ads_halfpage_pc .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $("#display_ads_halfpage_pc .check-msg").removeClass("is-ok");
+                  $("#display_ads_halfpage_pc .square").removeClass("is-selected");
+                  $("#display_ads_halfpage_pc .ads-img .squares").addClass("is-show");
                   $('#display_ads_halfpage_pc #display_ads_name_img').html(uploadedImageName);
 
                   document.getElementById( "output-halfpage_pc-preview").style.backgroundImage = "url(" + result.toDataURL(uploadedImageType) + ")";
@@ -2618,10 +2618,10 @@ var cropLargeImgAgain = function (val) {
                   download.download = uploadedImageName;
                   download.href = result.toDataURL(uploadedImageType);
                   count = 0;
-                  $(".check-msg").text("Hãy chọn ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#display_ads_medium_rect .check-msg").text("Hãy chọn ô có xuất hiện chữ");
+                  $("#display_ads_medium_rect .check-msg").removeClass("is-ok");
+                  $("#display_ads_medium_rect .square").removeClass("is-selected");
+                  $("#display_ads_medium_rect .ads-img .squares").addClass("is-show");
 
                   $('#display_ads_medium_rect #display_ads_name_img').html(uploadedImageName);
 
@@ -2752,10 +2752,10 @@ var cropLargeImgAgain = function (val) {
                     dst.delete();
                   };
                   count = 0;
-                  $(".check-msg").text("Hãy chọn các ô có xuất hiện chữ");
-                  $(".check-msg").removeClass("is-ok");
-                  $(".square").removeClass("is-selected");
-                  $(".ads-img .squares").addClass("is-show");
+                  $("#checking-content-normal-ads .check-msg").text("Hãy chọn các ô có xuất hiện chữ");
+                  $("#checking-content-normal-ads .check-msg").removeClass("is-ok");
+                  $("#checking-content-normal-ads .square").removeClass("is-selected");
+                  $("#checking-content-normal-ads .ads-img .squares").addClass("is-show");
                 }
               }
             }
