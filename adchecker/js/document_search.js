@@ -102,95 +102,95 @@ const list_nganh_hang = {
         'Giấy xác nhận nội dung quảng cáo <br><em>(được cấp bởi Bộ Y Tế -  Cục trang thiết bị và công trình y tế)</em>'
     ],
     17: [
+        'Hồ sơ công bố tiêu chuẩn của trang thiết bị y tế loại B',
+        'Văn bản công khai: Nội dung và hình thức dự kiến quảng cáo trang thiết bị y tế'
+    ],
+    18: [
         'Văn bản công bố tiêu chuẩn áp dụng của trang thiết bị y tế loại A <br><em>(được cấp bởi Công ty công bố gửi Sở Y Tế)</em>',
         '(Hoặc) Phiếu tiếp nhận hồ sơ công bố tiêu chuẩn áp dụng của trang thiết bị y tế thuộc loại A <br><em>(được cấp bởi Sở Y Tế)</em>',
     ],
-    18: [
+    19: [
         'Giấy xác nhận nội dung quảng cáo',
         '(Hoặc) Giấy phép phát hành game <br><em>(được cấp bởi Cục Phát thanh truyền hình và Thông tin điện tử - Bộ TTTT)</em>'
     ],
-    19: [
+    20: [
         'Giấy xác nhận nội dung quảng cáo',
         '(Hoặc) Giấy phép kinh doanh có đăng ký ngành nghề phù hợp <br><em>(đuợc cấp bởi Sở Kế hoạch - Đầu tư)</em>'
-    ],
-    20: [
-        'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
     ],
     21: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
     ],
     22: [
-        'Giấy phép thành lập và hoạt động công ty tài chính <br><em>(được cấp bởi Ngân hàng nhà nước Việt Nam)</em>'
+        'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
     ],
     23: [
-        'Giấy phép xác nhận mạng xã hội <br><em>(được cấp bởi Cục Phát thanh truyền hình và Thông tin điện tử - Bộ TTTT)</em>',
+        'Giấy phép thành lập và hoạt động công ty tài chính <br><em>(được cấp bởi Ngân hàng nhà nước Việt Nam)</em>'
     ],
     24: [
+        'Giấy phép xác nhận mạng xã hội <br><em>(được cấp bởi Cục Phát thanh truyền hình và Thông tin điện tử - Bộ TTTT)</em>',
+    ],
+    25: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
         'Giấy chứng nhận đủ điều kiện về an ninh, trật tự <br><em>(được cấp bởi Công an tỉnh/ thành phố)</em>',
     ],
-    25: [
+    26: [
         'Giấy chứng nhận đủ điều kiện kinh doanh xổ số <br><em>(được cấp bởi Bộ Tài chính)</em>',
         '(Hoặc) Hợp đồng đại lý/đại lý thứ cấp <br><em>(được cấp bởi Công ty xổ số/đại lý kinh doanh xổ số)</em>',
     ],
-    26: [
+    27: [
         'Giấy phép đăng ký kinh doanh',
         'Giấy phép hoạt động <br><em>(được cấp bởi Sở Y tế)</em>',
     ],
-    27: [
+    28: [
         'Giấy phép xuất bản sách',
     ],
-    28: [
+    29: [
         'Giấy phép sàn thương mại điện tử <br><em>(được cấp bởi Bộ Công thương)</em>',
         '(Hoặc) Thông báo Bộ Công Thương <br><em>(được cấp bởi Bộ Công thương)</em>',
     ],
-    29: [
+    30: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
         'Chứng chỉ hành nghề bác sĩ<br><em>(Nếu có massage vật lý trị liệu, chỉ định thuốc)</em>'
     ],
-    30: [
+    31: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
     ],
-    31: [
+    32: [
         'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
         'Chứng chỉ hành nghề thú y đứng tên người quản lý/ người trực tiếp bán thuốc thú y <br><em>(được cấp bởi Cục Thú y/ Chi cục Thú y)</em>',
         'Giấy chứng nhận đủ điều kiện buôn bán thuốc thú y <br><em>(Nếu phòng khám có thêm hoạt động buôn bán thuốc thú y trên giấy phép KD)</em>'
     ],
-    32: [
+    33: [
         'Giấy chứng nhận đủ điều kiện về an ninh, trật tự <br><em>(được cấp bởi Bộ Công An)</em>',
     ],
-    33: [
+    34: [
         'Giấy chứng nhận hợp quy <br><em>(được cấp bởi Trung tâm chứng nhận được Bộ Nông nghiệp và Phát triển Nông thôn chỉ định thực hiện đánh giá hợp quy)</em>',
         '(Hoặc) Giấy chứng nhận đủ điều kiện sản xuất thức ăn chăn nuôi/ thức ăn thủy sản <br><em>(được cấp bởi Cục chăn nuôi, Sở Nông nghiệp và Phát triển nông thôn, Tổng cục thủy sản)</em>',
         '(Hoặc) Giấy chứng nhận lưu hành <br><em>(được cấp bởi Cục chăn nuôi, Tổng cục chăn nuôi, Vụ nuôi trồng Thủy sản)</em>',
         'Trường hợp không có giấy chứng nhận hợp quy: Giấy phép đăng ký kinh doanh',
         '(Và) Giấy kết quả kiểm tra Nhà nước về chất lượng thức ăn chăn nuôi nhập khẩu <br><em>(được cấp bởi Bộ Nông nghiệp và phát triển Nông thôn - Cục chăn nuôi)</em>'
     ],
-    34: [
+    35: [
         'Giấy chứng nhận lưu hành chế phẩm sinh học trong xử lý chất thải tại Việt Nam <br><em>(được cấp bởi "Bộ Tài Nguyên và Môi trường Tổng Cục môi trường")</em>',
         '(Hoặc) Giấy cung cấp thông tin sản phẩm xử lý môi trường nuôi trồng thủy sản/chăn nuôi trước khi lưu thông trên thị trường <br><em>(được cấp bởi Tổng cục Thủy sản, Cục chăn nuôi)</em>'
     ],
-    35: [
-        'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>'
-    ],
     36: [
-        'Giấy phép hoạt động của Ủy ban Chứng khoán Nhà nước <br><em>(được cấp bởi Ủy ban Chứng khoán Nhà nước)</em>',
-        `Văn bản chấp thuận cho công ty chứng khoán thực hiện các hoạt động cần chấp thuận từ Ủy ban Chứng khoán Nhà nước. 
-        <br>Ví dụ: 
-        <br>- Giao dịch kí quỹ; 
-        <br>- Lưu kí chứng khoán;
-        <br>- Dịch vụ giao dịch chứng khoán trực tuyến; 
-        <br>- Kinh doanh chứng khoán phái sinh; 
-        <br>- Dịch vụ bù trừ, thanh toán giao dịch chứng khoán phái sinh; 
-        <br>- Làm ngân hàng thanh toán; 
-        <br>- Chào bán trái phiếu ra công chúng; 
-        <br>- Chào bán cổ phiếu ra công chúng; 
-        <br>- Chào bán chứng chỉ quỹ ra công chúng;
-        <br>- Các hoạt động khác cần chấp thuận từ Ủy ban Chứng khoán Nhà nước<br><em>(được cấp bởi Ủy ban Chứng khoán Nhà nước)</em>`,
+        'Giấy phép kinh doanh <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>'
     ],
     37: [
         'Giấy phép hoạt động của Ủy ban Chứng khoán Nhà nước <br><em>(được cấp bởi Ủy ban Chứng khoán Nhà nước)</em>',
-        '(Hoặc) Giấy phép đăng ký kinh doanh và Giấy phép hoạt động của Sở giáo dục nơi đặt trụ sở <br><em>(được cấp bởi Sở Giáo Dục và Sở Kế hoạch - Đầu tư)</em>'
+        `Văn bản chấp thuận cho công ty chứng khoán thực hiện các hoạt động cần chấp thuận từ Ủy ban Chứng khoán Nhà nước.
+        <br>Ví dụ:
+        <br>- Giao dịch kí quỹ;
+        <br>- Lưu kí chứng khoán;
+        <br>- Dịch vụ giao dịch chứng khoán trực tuyến;
+        <br>- Kinh doanh chứng khoán phái sinh;
+        <br>- Dịch vụ bù trừ, thanh toán giao dịch chứng khoán phái sinh;
+        <br>- Làm ngân hàng thanh toán;
+        <br>- Chào bán trái phiếu ra công chúng;
+        <br>- Chào bán cổ phiếu ra công chúng;
+        <br>- Chào bán chứng chỉ quỹ ra công chúng;
+        <br>- Các hoạt động khác cần chấp thuận từ Ủy ban Chứng khoán Nhà nước<br><em>(được cấp bởi Ủy ban Chứng khoán Nhà nước)</em>`,
     ],
     38: [
         'Giấy phép kinh doanh có ngành nghề đăng ký là kinh doanh mua, bán vàng trang sức, mỹ nghệ, đá quý <br><em>(được cấp bởi Sở Kế hoạch - Đầu tư)</em>',
@@ -254,7 +254,7 @@ const list_hinh_anh =  {
         'Giấy khai sinh bé',
     ]
 
-} 
+}
 $(document).on("click", function (event) {
     var $trigger = $(".dropdown");
     if ($trigger !== event.target && !$trigger.has(event.target).length) {
@@ -400,14 +400,14 @@ document.getElementById('check-document').onclick = value => {
                     } else {
                         $('#document-list').append('<li><p>'+ count + '. ' + first_documents[i] + '</p><i class="icz icz-file-text"></i></li>')
                     }
-    
+
                 }
             }
-        }       
+        }
         if (checkbox_0 || checkbox_1 || checkbox_2) {
             if (index == 19 || index == 20 || index == 21 || index == 22 || index == 24 || index == 29 || index == 30 || index == 31) {
                 for (let i = 0; i < list_xuat_xu[1].length; i++) {
-                    
+
                     if (list_xuat_xu[1][i].includes('Hoặc')) {
                         $('#document-list .contain_or_madein').append('<ul class="or-document"><li><p>' + list_xuat_xu[1][i] + '</p><i class="icz icz-file-text"></i></li></ul>')
                     } else {
@@ -426,7 +426,7 @@ document.getElementById('check-document').onclick = value => {
                 }
             } else {
                 for (let i = 0; i < list_xuat_xu[0].length; i++) {
-                    
+
                     if (list_xuat_xu[0][i].includes('Hoặc')) {
                         $('#document-list .contain_or_madein').append('<ul class="or-document"><li><p>' + list_xuat_xu[0][i] + '</p><i class="icz icz-file-text"></i></li></ul>')
                     } else {
@@ -444,11 +444,11 @@ document.getElementById('check-document').onclick = value => {
                     }
                 }
             }
-        } 
+        }
 
         if (checkbox_4 || checkbox_5) {
             for (let i = 0; i < list_hinh_anh[0].length; i++) {
-                
+
                 if (list_hinh_anh[0][i].includes('Hoặc')) {
                     $('#document-list .contain_or_img').append('<ul class="or-document"><li><p>' + list_hinh_anh[0][i] + '</p><i class="icz icz-file-text"></i></li></ul>')
                 } else {
@@ -469,7 +469,7 @@ document.getElementById('check-document').onclick = value => {
         }
         if(checkbox_6){
             for (let i = 0; i < list_hinh_anh[1].length; i++) {
-                
+
                 if (list_hinh_anh[1][i].includes('Hoặc')) {
                     $('#document-list .contain_or_img').append('<ul class="or-document"><li><p>' + list_hinh_anh[1][i] + '</p><i class="icz icz-file-text"></i></li></ul>')
                 } else {
@@ -493,10 +493,10 @@ document.getElementById('check-document').onclick = value => {
         let list_doc_length = $('ul#document-list li').length
         if(list_doc_length == 0){
             //no found
-            
+
             slide_body.style.display = 'flex'
             $('#after-searching').addClass('is-hidden')
-            
+
             $('#img-no-found').removeClass('is-hidden')
             $('#no-found').removeClass('is-hidden')
         }

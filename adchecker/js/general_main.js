@@ -53,19 +53,19 @@ window.onload = () => {
       });
 
     //introduce button
-    if (getCookie("check_form_used") != "form used" && screen.width >= 1024) {
-      $("html").addClass("overlay-modal");
-      $("#form-ads-button").addClass("introduce-button");
-      $(".overlay-modal").click(() => {
-        if ($("html").hasClass("overlay-modal")) {
-          $("html").removeClass("overlay-modal");
-        }
-        if ($("#form-ads-button").hasClass("introduce-button")) {
-          $("#form-ads-button").removeClass("introduce-button");
-        }
-        setCookie("check_form_used", "form used", 365);
-      });
-    }
+    // if (getCookie("check_form_used") != "form used" && screen.width >= 1024) {
+    //   $("html").addClass("overlay-modal");
+    //   $("#form-ads-button").addClass("introduce-button");
+    //   $(".overlay-modal").click(() => {
+    //     if ($("html").hasClass("overlay-modal")) {
+    //       $("html").removeClass("overlay-modal");
+    //     }
+    //     if ($("#form-ads-button").hasClass("introduce-button")) {
+    //       $("#form-ads-button").removeClass("introduce-button");
+    //     }
+    //     setCookie("check_form_used", "form used", 365);
+    //   });
+    // }
   }
 
   //check user rated or not
@@ -122,7 +122,7 @@ $("#dropdown-m2").click(function () {
                 <div class="history-list">
                 <div class="history-item">
                     <ul>
-                        <li> 
+                        <li>
                         <p>Cập nhật phiên bản kiểm tra nội dung và hình ảnh quảng cáo trên điện thoại.</p>
                         </li>
                     </ul>
@@ -130,7 +130,7 @@ $("#dropdown-m2").click(function () {
                     </div>
                     <div class="history-item">
                     <ul>
-                        <li> 
+                        <li>
                         <p>Thêm tính năng kiểm tra chính tả và gợi ý chỉnh sửa.</p>
                         </li>
                     </ul>
@@ -138,13 +138,13 @@ $("#dropdown-m2").click(function () {
                     </div>
                     <div class="history-item">
                     <ul>
-                        <li> 
+                        <li>
                         <p>Thêm tính năng Tra cứu giấy phép.</p>
                         </li>
-                        <li> 
+                        <li>
                         <p>Thêm tính năng gợi ý chỉnh sửa cho từ CẤM, từ phản cảm, thiếu kiểm chứng.</p>
                         </li>
-                        <li> 
+                        <li>
                         <p>Bổ sung điều kiện quảng cáo cho “Thực phẩm chức năng”.</p>
                         </li>
                     </ul>
@@ -152,16 +152,16 @@ $("#dropdown-m2").click(function () {
                     </div>
                     <div class="history-item">
                     <ul>
-                        <li> 
+                        <li>
                         <p>Kiểm tra nội dung có chứa số điện thoại hoặc email.</p>
                         </li>
-                        <li> 
+                        <li>
                         <p>Cập nhật lại Vị trí quảng cáo.</p>
                         </li>
-                        <li> 
+                        <li>
                         <p>Kiểm tra nội dung có chứa từ ngữ phản cảm, thiếu kiểm chứng.</p>
                         </li>
-                        <li> 
+                        <li>
                         <p>Kiểm tra nội dung có chứa từ CẤM.</p>
                         </li>
                     </ul>
@@ -169,16 +169,16 @@ $("#dropdown-m2").click(function () {
                     </div>
                     <div class="history-item">
                     <ul>
-                        <li> 
+                        <li>
                         <p>Tự động kiểm tra chất lượng hình ảnh.</p>
                         </li>
-                        <li> 
+                        <li>
                         <p>Kiểm tra phần trăm ký tự trên ảnh.</p>
                         </li>
-                        <li> 
+                        <li>
                         <p>Kiểm tra nội dung có chứa ký tự đặc biệt.</p>
                         </li>
-                        <li> 
+                        <li>
                         <p>Kiểm tra nội dung có chữ viết hoa.</p>
                         </li>
                     </ul>
