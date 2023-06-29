@@ -1,62 +1,51 @@
-/* --------------------------------
+/*--------------------------------
 
-zadicon Web Font
+zadicon icon font
 Generated using nucleoapp.com
 
 -------------------------------- */
+
 @icz-font-path: "../fonts";
 
 @font-face {
   font-family: 'zadicon';
   src: url('@{icz-font-path}/zadicon.eot');
   src: url('@{icz-font-path}/zadicon.eot') format('embedded-opentype'),
-    url('@{icz-font-path}/zadicon.woff2') format('woff2'),
-    url('@{icz-font-path}/zadicon.woff') format('woff'),
-    url('@{icz-font-path}/zadicon.ttf') format('truetype'),
-    url('@{icz-font-path}/zadicon.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+       url('@{icz-font-path}/zadicon.woff2') format('woff2'),
+       url('@{icz-font-path}/zadicon.woff') format('woff'),
+       url('@{icz-font-path}/zadicon.ttf') format('truetype'),
+       url('@{icz-font-path}/zadicon.svg') format('svg');
 }
 
-/*------------------------
-	base class definition
--------------------------*/
-
+/* base class */
 .icon {
   display: inline-block;
   font: normal normal normal 1em/1 'zadicon';
   color: inherit;
   flex-shrink: 0;
-  speak: none;
-  text-transform: none;
-  /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*------------------------
-  change icon size
--------------------------*/
-
-/* relative units */
+/* size examples - relative units */
 .icon-sm {
 	font-size: 0.8em;
 }
+
 .icon-lg {
   font-size: 1.2em;
 }
-/* absolute units */
+
+/* size examples - absolute units */
 .icon-16 {
   font-size: 16px;
 }
+
 .icon-32 {
   font-size: 32px;
 }
 
-/*------------------------
-  spinning icons
--------------------------*/
-
+/* rotate the icon infinitely */
 .icon-is-spinning {
   animation: icon-spin 1s infinite linear;
 }
@@ -70,10 +59,7 @@ Generated using nucleoapp.com
   }
 }
 
-/*------------------------
-  rotated/flipped icons
--------------------------*/
-
+/* transform */
 .icon-rotate-90  {
 	transform: rotate(90deg);
 }
@@ -89,13 +75,12 @@ Generated using nucleoapp.com
 .icon-flip-y {
 	transform: scaleY(-1);
 }
+
 .icon-flip-x {
 	transform: scaleX(-1);
 }
 
-/*------------------------
-	icons
--------------------------*/
+/* icons */
 @icz-account: "\ea02";
 @icz-add-circle: "\ea03";
 @icz-add-group: "\ea04";
@@ -325,12 +310,16 @@ Generated using nucleoapp.com
 @icz-speedometer: "\eaf9";
 @icz-hourglass: "\eafa";
 @icz-calendar-day-view: "\eafb";
-@icz-display_ad: "\eafc";
-@icz-inbox: "\eafe";
-@icz-catalog: "\eaff";
-@icz-prbox: "\eb00";
 @icz-Personal-info: "\eb01";
 @icz-Mobile-chat: "\eb02";
+@icz-prbox: "\eb03";
+@icz-inbox: "\eb04";
+@icz-display_ad: "\eb05";
+@icz-display_ad_1: "\eb055";
+@icz-catalog-mb: "\eb056";
+@icz-edit-74-2: "\eb057";
+@icz-ic-commerce-ad: "\eb058";
+@icz-catalog: "\eb06";
 
 .icz-account::before {
   content: @icz-account;
@@ -1248,27 +1237,43 @@ Generated using nucleoapp.com
   content: @icz-calendar-day-view;
 }
 
-.icz-display_ad::before {
-  content: @icz-display_ad;
-}
-
-.icz-inbox::before {
-  content: @icz-inbox;
-}
-
-.icz-catalog::before {
-  content: @icz-catalog;
-}
-
-.icz-prbox::before {
-  content: @icz-prbox;
-}
-
 .icz-Personal-info::before {
   content: @icz-Personal-info;
 }
 
 .icz-Mobile-chat::before {
   content: @icz-Mobile-chat;
+}
+
+.icz-prbox::before {
+  content: @icz-prbox;
+}
+
+.icz-inbox::before {
+  content: @icz-inbox;
+}
+
+.icz-display_ad::before {
+  content: @icz-display_ad;
+}
+
+.icz-display_ad_1::before {
+  content: @icz-display_ad_1;
+}
+
+.icz-catalog-mb::before {
+  content: @icz-catalog-mb;
+}
+
+.icz-edit-74-2::before {
+  content: @icz-edit-74-2;
+}
+
+.icz-ic-commerce-ad::before {
+  content: @icz-ic-commerce-ad;
+}
+
+.icz-catalog::before {
+  content: @icz-catalog;
 }
 

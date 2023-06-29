@@ -1095,27 +1095,43 @@ icons
   content: "\eafb";
 }
 
-.icz-display_ad::before {
-  content: "\eafc";
-}
-
-.icz-inbox::before {
-  content: "\eafe";
-}
-
-.icz-catalog::before {
-  content: "\eaff";
-}
-
-.icz-prbox::before {
-  content: "\eb00";
-}
-
 .icz-Personal-info::before {
   content: "\eb01";
 }
 
 .icz-Mobile-chat::before {
   content: "\eb02";
+}
+
+.icz-prbox::before {
+  content: "\eb03";
+}
+
+.icz-inbox::before {
+  content: "\eb04";
+}
+
+.icz-display_ad::before {
+  content: "\eb05";
+}
+
+.icz-display_ad_1::before {
+  content: "\eb055";
+}
+
+.icz-catalog-mb::before {
+  content: "\eb056";
+}
+
+.icz-edit-74-2::before {
+  content: "\eb057";
+}
+
+.icz-ic-commerce-ad::before {
+  content: "\eb058";
+}
+
+.icz-catalog::before {
+  content: "\eb06";
 }
 
