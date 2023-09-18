@@ -1131,6 +1131,10 @@ icons
   content: "\eb058";
 }
 
+.icz-image::before {
+  content: "\eb059";
+}
+
 .icz-catalog::before {
   content: "\eb06";
 }
