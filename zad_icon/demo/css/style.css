@@ -1143,6 +1143,14 @@ icons
   content: "\eb05b";
 }
 
+.icz-heart::before {
+  content: "\eb05c";
+}
+
+.icz-comment::before {
+  content: "\eb05d";
+}
+
 .icz-catalog::before {
   content: "\eb06";
 }

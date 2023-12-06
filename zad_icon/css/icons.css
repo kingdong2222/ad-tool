@@ -1043,6 +1043,14 @@ Generated using nucleoapp.com
   content: "\db6c";
 }
 
+.icz-heart::before {
+  content: "\db6c";
+}
+
+.icz-comment::before {
+  content: "\db6c";
+}
+
 .icz-catalog::before {
   content: "\eb06";
 }
