@@ -1035,6 +1035,14 @@ Generated using nucleoapp.com
   content: "\db6c";
 }
 
+.icz-Download-report::before {
+  content: "\db6c";
+}
+
+.icz-circle::before {
+  content: "\db6c";
+}
+
 .icz-catalog::before {
   content: "\eb06";
 }

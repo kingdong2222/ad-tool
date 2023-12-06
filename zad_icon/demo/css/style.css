@@ -1135,6 +1135,14 @@ icons
   content: "\eb059";
 }
 
+.icz-Download-report::before {
+  content: "\eb05a";
+}
+
+.icz-circle::before {
+  content: "\eb05b";
+}
+
 .icz-catalog::before {
   content: "\eb06";
 }
